@@ -16,7 +16,7 @@ npm install @auranw/aurajs
 Terra.js can be use in Node.js
 
 ```typescript
-import {SigningCosmWasmClient} from './signingaurawasmclient';
+import {SigningAuraWasmClient} from '@auranw/aurajs';
 import {DirectSecp256k1HdWallet} from '@cosmjs/proto-signing';
 
 const wallet = await DirectSecp256k1HdWallet.fromMnemonic(mnemonic, {prefix:'aura'});
@@ -24,7 +24,7 @@ const [firstAccount] = await wallet.getAccounts();
 
 const mnemonic = 'xxx';
 const rpcEndpoint = 'http://x.x.x.x:26657'; // rpc of testnet aura: http://18.138.28.51:26657
-const client = await SigningCosmWasmClient.connectWithSigner(rpcEndpoint, wallet);
+const client = await SigningAuraWasmClient.connectWithSigner(rpcEndpoint, wallet);
 
 const contractAddress = 'aura14hj2tavq8fpesdwxxcu44rty3hh90vhurzxerr';
 const mintMsg = {
