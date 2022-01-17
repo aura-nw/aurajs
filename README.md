@@ -13,7 +13,7 @@ npm install @auranw/aurajs
 ```
 
 ## Usage
-Terra.js can be use in Node.js
+AuraJs can be use in Node.js
 
 ```typescript
 import {SigningAuraWasmClient} from '@auranw/aurajs';
