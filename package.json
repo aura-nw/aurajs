@@ -1,6 +1,6 @@
 {
   "name": "@auranw/aurajs",
-  "version": "1.0.0-alpha1",
+  "version": "1.0.0-alpha2",
   "description": "AuraJs a JavaScript SDK for writing applications that interact with the smart contract Aura blockchain from either Node.js",
   "author": "PhanHoc",
   "repository": "https://github.com/aura-nw/aurajs.git",
