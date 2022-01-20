@@ -2,11 +2,12 @@
 
 import {DirectSecp256k1HdWallet} from '@cosmjs/proto-signing';
 import {SigningAuraWasmClient} from '../signingaurawasmclient';
+import {AuraWasmClient} from '../aurawasmclient';
 
 export class Example {
   /* Public Instance Methods */
 
-  public async exampleMethod() {
+  public async exampleExecute() {
 
     const mnemonic = 'february victory grape oblige leader invest organ noble control finger hurt wage sunny jeans panel dress bulk clerk visit fish essay weasel sport finger';
     const wallet = await DirectSecp256k1HdWallet.fromMnemonic(mnemonic, {prefix: 'aura'});
@@ -33,7 +34,23 @@ export class Example {
       ],
       gas: '152375', // 180k
     }
+
     const result = await client.execute(firstAccount.address, contractAddress, mintMsg, fee);
+    console.log('result', result);
+  }
+
+  public async exampleQuery() {
+    const rpcEndpoint = 'http://18.138.28.51:26657';
+    const client = await AuraWasmClient.connect(rpcEndpoint);
+
+    const contractAddress = 'aura14hj2tavq8fpesdwxxcu44rty3hh90vhurzxerr';
+
+    const nftInfo = {
+      nft_info: {
+        token_id: 'token3'
+      }
+    }
+    const result = await client.queryContractSmart(contractAddress, nftInfo);
     console.log('result', result);
   }
 }
@@ -41,7 +58,7 @@ export class Example {
 
 async function bootstrap() {
   const app = new Example();
-  app.exampleMethod();
+  app.exampleQuery();
 }
 
 bootstrap();
