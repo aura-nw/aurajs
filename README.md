@@ -1,4 +1,11 @@
 # AuraJs SDK
+
+**THIS REPO IS DEPRECATED**
+
+**AuraJs was originally created to interact with the latest version of CosmWasm at the time that CosmosJS did not support. We can now just use the latest CosmosJS version at: https://github.com/cosmostation/cosmosjs**
+
+=================================================
+
 AuraJs a JavaScript SDK for writing applications that interact with the smart contract Aura blockchain from either Node.js or browser environments
 
 ## Features
