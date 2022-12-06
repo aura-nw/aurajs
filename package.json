@@ -1,9 +1,9 @@
 {
   "name": "@duck59uet/aurajs",
   "version": "0.0.5",
-  "description": "Aura javascript lib",
+  "description": "Aura javascript library, generate from telescope",
   "author": "ducnv1911 <ducnv1911@gmail.com>",
-  "homepage": "https://github.com/duck59uet/aurajs#readme",
+  "homepage": "https://github.com/aura-nw/aurajs#readme",
   "license": "SEE LICENSE IN LICENSE",
   "main": "main/index.js",
   "typings": "types/index.d.ts",
