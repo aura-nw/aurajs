@@ -70,18 +70,7 @@ Beside, we will use CosmJs version larger than 0.29.4. The aurajs lib simply use
 When tx return success result, you can use fee to call to `allowedAddress`.
 
 ### Instantiate contract example use fee has granted
-From version 0.29.4, StdFee interface has granter properties.
-
-```ts
-export interface StdFee {
-  readonly amount: readonly Coin[];
-  readonly gas: string;
-  /** The granter address that is used for paying with feegrants */
-  readonly granter?: string;
-  /** The fee payer address. The payer must have signed the transaction. */
-  readonly payer?: string;
-}
-```
+From version 0.29.4, `makeAuthInfoBytes` function has 2 more parameters: feeGranter, feePayer. If you want granter pay fee for tx, just input here.
 
 Just define your custum StdFee and broadcast tx. Example:
 
@@ -102,7 +91,6 @@ Just define your custum StdFee and broadcast tx. Example:
       const fee: StdFee = {
         amount: coins(5000, "uaura"),
         gas: "890000",
-        granter: 'granterAddress'
       };
 
       const chainId = await client.getChainId();
