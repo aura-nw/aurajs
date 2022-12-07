@@ -119,13 +119,12 @@ Just define your custum StdFee and broadcast tx. Example:
       };
       const txBodyBytes = registry.encode(txBody);
       const gasLimit = Int53.fromString(fee.gas).toNumber();
-      const feeGranter = undefined;
       const feePayer = undefined;
       const authInfoBytes = makeAuthInfoBytes(
         [{ pubkey, sequence }],
         fee.amount,
         gasLimit,
-        feeGranter,
+        granterAddress,
         feePayer,
       );
       const signDoc = makeSignDoc(txBodyBytes, authInfoBytes, chainId, accountNumber);
