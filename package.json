@@ -1,6 +1,6 @@
 {
-  "name": "@duck59uet/aurajs",
-  "version": "0.0.5",
+  "name": "@aura-nw/aurajs",
+  "version": "0.1.0-alpha",
   "description": "Aura javascript library, generate from telescope",
   "author": "ducnv1911 <ducnv1911@gmail.com>",
   "homepage": "https://github.com/aura-nw/aurajs#readme",
