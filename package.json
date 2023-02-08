@@ -33,11 +33,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/duck59uet/aurajs"
+    "url": "https://github.com/aura-nw/aurajs"
   },
   "keywords": [],
   "bugs": {
-    "url": "https://github.com/duck59uet/aurajs/issues"
+    "url": "https://github.com/aura-nw/aurajs/issues"
   },
   "devDependencies": {
     "@babel/cli": "7.19.3",
