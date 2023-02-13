@@ -1,0 +1,3 @@
+[submodule "aura"]
+	path = aura
+	url = git@github.com:aura-nw/aura.git
