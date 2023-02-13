@@ -1,3 +1,3 @@
-[submodule "aura"]
-	path = aura
+[submodule "aurad-v0.4.3"]
+	path = aurad-v0.4.3
 	url = git@github.com:aura-nw/aura.git
