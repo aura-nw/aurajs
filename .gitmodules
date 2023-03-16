@@ -1,3 +1,12 @@
 [submodule "aurad-v0.4.3"]
 	path = aurad-v0.4.3
 	url = git@github.com:aura-nw/aura.git
+[submodule "cosmos-sdk"]
+	path = cosmos-sdk-v0.45.11
+	url = https://github.com/cosmos/cosmos-sdk.git
+[submodule "wasmd"]
+	path = wasmd-v0.29.1
+	url = https://github.com/CosmWasm/wasmd.git
+[submodule "ibc-go-v3.3.0"]
+	path = ibc-go-v3.3.0
+	url = https://github.com/cosmos/ibc-go.git
