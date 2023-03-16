@@ -2,9 +2,9 @@ import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } fr
 import { Any, AnySDKType } from "../../../../google/protobuf/any";
 import { BlockID, BlockIDSDKType } from "../../../../tendermint/types/types";
 import { Block, BlockSDKType } from "../../../../tendermint/types/block";
-import { NodeInfo, NodeInfoSDKType } from "../../../../tendermint/p2p/types";
-import * as _m0 from "protobufjs/minimal";
+import { DefaultNodeInfo, DefaultNodeInfoSDKType } from "../../../../tendermint/p2p/types";
 import { Long, DeepPartial } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** GetValidatorSetByHeightRequest is the request type for the Query/GetValidatorSetByHeight RPC method. */
 export interface GetValidatorSetByHeightRequest {
     height: Long;
@@ -14,7 +14,6 @@ export interface GetValidatorSetByHeightRequest {
 /** GetValidatorSetByHeightRequest is the request type for the Query/GetValidatorSetByHeight RPC method. */
 export interface GetValidatorSetByHeightRequestSDKType {
     height: Long;
-    /** pagination defines an pagination for the request. */
     pagination?: PageRequestSDKType;
 }
 /** GetValidatorSetByHeightResponse is the response type for the Query/GetValidatorSetByHeight RPC method. */
@@ -28,7 +27,6 @@ export interface GetValidatorSetByHeightResponse {
 export interface GetValidatorSetByHeightResponseSDKType {
     block_height: Long;
     validators: ValidatorSDKType[];
-    /** pagination defines an pagination for the response. */
     pagination?: PageResponseSDKType;
 }
 /** GetLatestValidatorSetRequest is the request type for the Query/GetValidatorSetByHeight RPC method. */
@@ -38,7 +36,6 @@ export interface GetLatestValidatorSetRequest {
 }
 /** GetLatestValidatorSetRequest is the request type for the Query/GetValidatorSetByHeight RPC method. */
 export interface GetLatestValidatorSetRequestSDKType {
-    /** pagination defines an pagination for the request. */
     pagination?: PageRequestSDKType;
 }
 /** GetLatestValidatorSetResponse is the response type for the Query/GetValidatorSetByHeight RPC method. */
@@ -52,7 +49,6 @@ export interface GetLatestValidatorSetResponse {
 export interface GetLatestValidatorSetResponseSDKType {
     block_height: Long;
     validators: ValidatorSDKType[];
-    /** pagination defines an pagination for the response. */
     pagination?: PageResponseSDKType;
 }
 /** Validator is the type for the validator-set. */
@@ -123,14 +119,14 @@ export interface GetNodeInfoRequest {
 /** GetNodeInfoRequest is the request type for the Query/GetNodeInfo RPC method. */
 export interface GetNodeInfoRequestSDKType {
 }
-/** GetNodeInfoResponse is the response type for the Query/GetNodeInfo RPC method. */
+/** GetNodeInfoResponse is the request type for the Query/GetNodeInfo RPC method. */
 export interface GetNodeInfoResponse {
-    nodeInfo?: NodeInfo;
+    defaultNodeInfo?: DefaultNodeInfo;
     applicationVersion?: VersionInfo;
 }
-/** GetNodeInfoResponse is the response type for the Query/GetNodeInfo RPC method. */
+/** GetNodeInfoResponse is the request type for the Query/GetNodeInfo RPC method. */
 export interface GetNodeInfoResponseSDKType {
-    node_info?: NodeInfoSDKType;
+    default_node_info?: DefaultNodeInfoSDKType;
     application_version?: VersionInfoSDKType;
 }
 /** VersionInfo is the type for the GetNodeInfoResponse message. */
@@ -154,7 +150,6 @@ export interface VersionInfoSDKType {
     build_tags: string;
     go_version: string;
     build_deps: ModuleSDKType[];
-    /** Since: cosmos-sdk 0.43 */
     cosmos_sdk_version: string;
 }
 /** Module is the type for VersionInfo */
@@ -168,11 +163,8 @@ export interface Module {
 }
 /** Module is the type for VersionInfo */
 export interface ModuleSDKType {
-    /** module path */
     path: string;
-    /** module version */
     version: string;
-    /** checksum */
     sum: string;
 }
 export declare const GetValidatorSetByHeightRequest: {

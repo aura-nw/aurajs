@@ -1,6 +1,15 @@
-import { Timestamp } from "../../google/protobuf/timestamp";
 import * as _m0 from "protobufjs/minimal";
-import { Long, DeepPartial, toTimestamp, fromTimestamp } from "../../helpers";
+import { DeepPartial, Long } from "../../helpers";
+export interface NetAddress {
+  id: string;
+  ip: string;
+  port: number;
+}
+export interface NetAddressSDKType {
+  id: string;
+  ip: string;
+  port: number;
+}
 export interface ProtocolVersion {
   p2p: Long;
   block: Long;
@@ -11,56 +20,99 @@ export interface ProtocolVersionSDKType {
   block: Long;
   app: Long;
 }
-export interface NodeInfo {
+export interface DefaultNodeInfo {
   protocolVersion?: ProtocolVersion;
-  nodeId: string;
+  defaultNodeId: string;
   listenAddr: string;
   network: string;
   version: string;
   channels: Uint8Array;
   moniker: string;
-  other?: NodeInfoOther;
+  other?: DefaultNodeInfoOther;
 }
-export interface NodeInfoSDKType {
+export interface DefaultNodeInfoSDKType {
   protocol_version?: ProtocolVersionSDKType;
-  node_id: string;
+  default_node_id: string;
   listen_addr: string;
   network: string;
   version: string;
   channels: Uint8Array;
   moniker: string;
-  other?: NodeInfoOtherSDKType;
+  other?: DefaultNodeInfoOtherSDKType;
 }
-export interface NodeInfoOther {
+export interface DefaultNodeInfoOther {
   txIndex: string;
   rpcAddress: string;
 }
-export interface NodeInfoOtherSDKType {
+export interface DefaultNodeInfoOtherSDKType {
   tx_index: string;
   rpc_address: string;
 }
-export interface PeerInfo {
-  id: string;
-  addressInfo: PeerAddressInfo[];
-  lastConnected?: Date;
+
+function createBaseNetAddress(): NetAddress {
+  return {
+    id: "",
+    ip: "",
+    port: 0
+  };
 }
-export interface PeerInfoSDKType {
-  id: string;
-  address_info: PeerAddressInfoSDKType[];
-  last_connected?: Date;
-}
-export interface PeerAddressInfo {
-  address: string;
-  lastDialSuccess?: Date;
-  lastDialFailure?: Date;
-  dialFailures: number;
-}
-export interface PeerAddressInfoSDKType {
-  address: string;
-  last_dial_success?: Date;
-  last_dial_failure?: Date;
-  dial_failures: number;
-}
+
+export const NetAddress = {
+  encode(message: NetAddress, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.id !== "") {
+      writer.uint32(10).string(message.id);
+    }
+
+    if (message.ip !== "") {
+      writer.uint32(18).string(message.ip);
+    }
+
+    if (message.port !== 0) {
+      writer.uint32(24).uint32(message.port);
+    }
+
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): NetAddress {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseNetAddress();
+
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+
+      switch (tag >>> 3) {
+        case 1:
+          message.id = reader.string();
+          break;
+
+        case 2:
+          message.ip = reader.string();
+          break;
+
+        case 3:
+          message.port = reader.uint32();
+          break;
+
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+
+    return message;
+  },
+
+  fromPartial(object: DeepPartial<NetAddress>): NetAddress {
+    const message = createBaseNetAddress();
+    message.id = object.id ?? "";
+    message.ip = object.ip ?? "";
+    message.port = object.port ?? 0;
+    return message;
+  }
+
+};
 
 function createBaseProtocolVersion(): ProtocolVersion {
   return {
@@ -127,10 +179,10 @@ export const ProtocolVersion = {
 
 };
 
-function createBaseNodeInfo(): NodeInfo {
+function createBaseDefaultNodeInfo(): DefaultNodeInfo {
   return {
     protocolVersion: undefined,
-    nodeId: "",
+    defaultNodeId: "",
     listenAddr: "",
     network: "",
     version: "",
@@ -140,14 +192,14 @@ function createBaseNodeInfo(): NodeInfo {
   };
 }
 
-export const NodeInfo = {
-  encode(message: NodeInfo, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+export const DefaultNodeInfo = {
+  encode(message: DefaultNodeInfo, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.protocolVersion !== undefined) {
       ProtocolVersion.encode(message.protocolVersion, writer.uint32(10).fork()).ldelim();
     }
 
-    if (message.nodeId !== "") {
-      writer.uint32(18).string(message.nodeId);
+    if (message.defaultNodeId !== "") {
+      writer.uint32(18).string(message.defaultNodeId);
     }
 
     if (message.listenAddr !== "") {
@@ -171,16 +223,16 @@ export const NodeInfo = {
     }
 
     if (message.other !== undefined) {
-      NodeInfoOther.encode(message.other, writer.uint32(66).fork()).ldelim();
+      DefaultNodeInfoOther.encode(message.other, writer.uint32(66).fork()).ldelim();
     }
 
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): NodeInfo {
+  decode(input: _m0.Reader | Uint8Array, length?: number): DefaultNodeInfo {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseNodeInfo();
+    const message = createBaseDefaultNodeInfo();
 
     while (reader.pos < end) {
       const tag = reader.uint32();
@@ -191,7 +243,7 @@ export const NodeInfo = {
           break;
 
         case 2:
-          message.nodeId = reader.string();
+          message.defaultNodeId = reader.string();
           break;
 
         case 3:
@@ -215,7 +267,7 @@ export const NodeInfo = {
           break;
 
         case 8:
-          message.other = NodeInfoOther.decode(reader, reader.uint32());
+          message.other = DefaultNodeInfoOther.decode(reader, reader.uint32());
           break;
 
         default:
@@ -227,30 +279,30 @@ export const NodeInfo = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<NodeInfo>): NodeInfo {
-    const message = createBaseNodeInfo();
+  fromPartial(object: DeepPartial<DefaultNodeInfo>): DefaultNodeInfo {
+    const message = createBaseDefaultNodeInfo();
     message.protocolVersion = object.protocolVersion !== undefined && object.protocolVersion !== null ? ProtocolVersion.fromPartial(object.protocolVersion) : undefined;
-    message.nodeId = object.nodeId ?? "";
+    message.defaultNodeId = object.defaultNodeId ?? "";
     message.listenAddr = object.listenAddr ?? "";
     message.network = object.network ?? "";
     message.version = object.version ?? "";
     message.channels = object.channels ?? new Uint8Array();
     message.moniker = object.moniker ?? "";
-    message.other = object.other !== undefined && object.other !== null ? NodeInfoOther.fromPartial(object.other) : undefined;
+    message.other = object.other !== undefined && object.other !== null ? DefaultNodeInfoOther.fromPartial(object.other) : undefined;
     return message;
   }
 
 };
 
-function createBaseNodeInfoOther(): NodeInfoOther {
+function createBaseDefaultNodeInfoOther(): DefaultNodeInfoOther {
   return {
     txIndex: "",
     rpcAddress: ""
   };
 }
 
-export const NodeInfoOther = {
-  encode(message: NodeInfoOther, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+export const DefaultNodeInfoOther = {
+  encode(message: DefaultNodeInfoOther, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.txIndex !== "") {
       writer.uint32(10).string(message.txIndex);
     }
@@ -262,10 +314,10 @@ export const NodeInfoOther = {
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): NodeInfoOther {
+  decode(input: _m0.Reader | Uint8Array, length?: number): DefaultNodeInfoOther {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseNodeInfoOther();
+    const message = createBaseDefaultNodeInfoOther();
 
     while (reader.pos < end) {
       const tag = reader.uint32();
@@ -288,150 +340,10 @@ export const NodeInfoOther = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<NodeInfoOther>): NodeInfoOther {
-    const message = createBaseNodeInfoOther();
+  fromPartial(object: DeepPartial<DefaultNodeInfoOther>): DefaultNodeInfoOther {
+    const message = createBaseDefaultNodeInfoOther();
     message.txIndex = object.txIndex ?? "";
     message.rpcAddress = object.rpcAddress ?? "";
-    return message;
-  }
-
-};
-
-function createBasePeerInfo(): PeerInfo {
-  return {
-    id: "",
-    addressInfo: [],
-    lastConnected: undefined
-  };
-}
-
-export const PeerInfo = {
-  encode(message: PeerInfo, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.id !== "") {
-      writer.uint32(10).string(message.id);
-    }
-
-    for (const v of message.addressInfo) {
-      PeerAddressInfo.encode(v!, writer.uint32(18).fork()).ldelim();
-    }
-
-    if (message.lastConnected !== undefined) {
-      Timestamp.encode(toTimestamp(message.lastConnected), writer.uint32(26).fork()).ldelim();
-    }
-
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): PeerInfo {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBasePeerInfo();
-
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-
-      switch (tag >>> 3) {
-        case 1:
-          message.id = reader.string();
-          break;
-
-        case 2:
-          message.addressInfo.push(PeerAddressInfo.decode(reader, reader.uint32()));
-          break;
-
-        case 3:
-          message.lastConnected = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
-          break;
-
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-
-    return message;
-  },
-
-  fromPartial(object: DeepPartial<PeerInfo>): PeerInfo {
-    const message = createBasePeerInfo();
-    message.id = object.id ?? "";
-    message.addressInfo = object.addressInfo?.map(e => PeerAddressInfo.fromPartial(e)) || [];
-    message.lastConnected = object.lastConnected ?? undefined;
-    return message;
-  }
-
-};
-
-function createBasePeerAddressInfo(): PeerAddressInfo {
-  return {
-    address: "",
-    lastDialSuccess: undefined,
-    lastDialFailure: undefined,
-    dialFailures: 0
-  };
-}
-
-export const PeerAddressInfo = {
-  encode(message: PeerAddressInfo, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.address !== "") {
-      writer.uint32(10).string(message.address);
-    }
-
-    if (message.lastDialSuccess !== undefined) {
-      Timestamp.encode(toTimestamp(message.lastDialSuccess), writer.uint32(18).fork()).ldelim();
-    }
-
-    if (message.lastDialFailure !== undefined) {
-      Timestamp.encode(toTimestamp(message.lastDialFailure), writer.uint32(26).fork()).ldelim();
-    }
-
-    if (message.dialFailures !== 0) {
-      writer.uint32(32).uint32(message.dialFailures);
-    }
-
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): PeerAddressInfo {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBasePeerAddressInfo();
-
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-
-      switch (tag >>> 3) {
-        case 1:
-          message.address = reader.string();
-          break;
-
-        case 2:
-          message.lastDialSuccess = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
-          break;
-
-        case 3:
-          message.lastDialFailure = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
-          break;
-
-        case 4:
-          message.dialFailures = reader.uint32();
-          break;
-
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-
-    return message;
-  },
-
-  fromPartial(object: DeepPartial<PeerAddressInfo>): PeerAddressInfo {
-    const message = createBasePeerAddressInfo();
-    message.address = object.address ?? "";
-    message.lastDialSuccess = object.lastDialSuccess ?? undefined;
-    message.lastDialFailure = object.lastDialFailure ?? undefined;
-    message.dialFailures = object.dialFailures ?? 0;
     return message;
   }
 

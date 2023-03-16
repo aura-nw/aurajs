@@ -26,7 +26,6 @@ export interface QueryCurrentPlanResponse {
  * method.
  */
 export interface QueryCurrentPlanResponseSDKType {
-    /** plan is the current upgrade plan. */
     plan?: PlanSDKType;
 }
 /**
@@ -42,7 +41,6 @@ export interface QueryAppliedPlanRequest {
  * method.
  */
 export interface QueryAppliedPlanRequestSDKType {
-    /** name is the name of the applied plan to query for. */
     name: string;
 }
 /**
@@ -58,7 +56,6 @@ export interface QueryAppliedPlanResponse {
  * method.
  */
 export interface QueryAppliedPlanResponseSDKType {
-    /** height is the block height at which the plan was applied. */
     height: Long;
 }
 /**
@@ -79,10 +76,6 @@ export interface QueryUpgradedConsensusStateRequest {
  */
 /** @deprecated */
 export interface QueryUpgradedConsensusStateRequestSDKType {
-    /**
-     * last height of the current chain must be sent in request
-     * as this is the height under which next consensus state is stored
-     */
     last_height: Long;
 }
 /**
@@ -100,7 +93,6 @@ export interface QueryUpgradedConsensusStateResponse {
  */
 /** @deprecated */
 export interface QueryUpgradedConsensusStateResponseSDKType {
-    /** Since: cosmos-sdk 0.43 */
     upgraded_consensus_state: Uint8Array;
 }
 /**
@@ -124,11 +116,6 @@ export interface QueryModuleVersionsRequest {
  * Since: cosmos-sdk 0.43
  */
 export interface QueryModuleVersionsRequestSDKType {
-    /**
-     * module_name is a field to query a specific module
-     * consensus version from state. Leaving this empty will
-     * fetch the full list of module versions from state
-     */
     module_name: string;
 }
 /**
@@ -148,38 +135,7 @@ export interface QueryModuleVersionsResponse {
  * Since: cosmos-sdk 0.43
  */
 export interface QueryModuleVersionsResponseSDKType {
-    /** module_versions is a list of module names with their consensus versions. */
     module_versions: ModuleVersionSDKType[];
-}
-/**
- * QueryAuthorityRequest is the request type for Query/Authority
- *
- * Since: cosmos-sdk 0.46
- */
-export interface QueryAuthorityRequest {
-}
-/**
- * QueryAuthorityRequest is the request type for Query/Authority
- *
- * Since: cosmos-sdk 0.46
- */
-export interface QueryAuthorityRequestSDKType {
-}
-/**
- * QueryAuthorityResponse is the response type for Query/Authority
- *
- * Since: cosmos-sdk 0.46
- */
-export interface QueryAuthorityResponse {
-    address: string;
-}
-/**
- * QueryAuthorityResponse is the response type for Query/Authority
- *
- * Since: cosmos-sdk 0.46
- */
-export interface QueryAuthorityResponseSDKType {
-    address: string;
 }
 export declare const QueryCurrentPlanRequest: {
     encode(_: QueryCurrentPlanRequest, writer?: _m0.Writer): _m0.Writer;
@@ -220,14 +176,4 @@ export declare const QueryModuleVersionsResponse: {
     encode(message: QueryModuleVersionsResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryModuleVersionsResponse;
     fromPartial(object: DeepPartial<QueryModuleVersionsResponse>): QueryModuleVersionsResponse;
-};
-export declare const QueryAuthorityRequest: {
-    encode(_: QueryAuthorityRequest, writer?: _m0.Writer): _m0.Writer;
-    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAuthorityRequest;
-    fromPartial(_: DeepPartial<QueryAuthorityRequest>): QueryAuthorityRequest;
-};
-export declare const QueryAuthorityResponse: {
-    encode(message: QueryAuthorityResponse, writer?: _m0.Writer): _m0.Writer;
-    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAuthorityResponse;
-    fromPartial(object: DeepPartial<QueryAuthorityResponse>): QueryAuthorityResponse;
 };

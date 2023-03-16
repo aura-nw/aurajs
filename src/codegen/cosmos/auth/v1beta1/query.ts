@@ -20,7 +20,6 @@ export interface QueryAccountsRequest {
  */
 
 export interface QueryAccountsRequestSDKType {
-  /** pagination defines an optional pagination for the request. */
   pagination?: PageRequestSDKType;
 }
 /**
@@ -43,10 +42,7 @@ export interface QueryAccountsResponse {
  */
 
 export interface QueryAccountsResponseSDKType {
-  /** accounts are the existing accounts */
   accounts: AnySDKType[];
-  /** pagination defines the pagination in the response. */
-
   pagination?: PageResponseSDKType;
 }
 /** QueryAccountRequest is the request type for the Query/Account RPC method. */
@@ -58,26 +54,7 @@ export interface QueryAccountRequest {
 /** QueryAccountRequest is the request type for the Query/Account RPC method. */
 
 export interface QueryAccountRequestSDKType {
-  /** address defines the address to query for. */
   address: string;
-}
-/** QueryModuleAccountsRequest is the request type for the Query/ModuleAccounts RPC method. */
-
-export interface QueryModuleAccountsRequest {}
-/** QueryModuleAccountsRequest is the request type for the Query/ModuleAccounts RPC method. */
-
-export interface QueryModuleAccountsRequestSDKType {}
-/** QueryParamsResponse is the response type for the Query/Params RPC method. */
-
-export interface QueryParamsResponse {
-  /** params defines the parameters of the module. */
-  params?: Params;
-}
-/** QueryParamsResponse is the response type for the Query/Params RPC method. */
-
-export interface QueryParamsResponseSDKType {
-  /** params defines the parameters of the module. */
-  params?: ParamsSDKType;
 }
 /** QueryAccountResponse is the response type for the Query/Account RPC method. */
 
@@ -88,7 +65,6 @@ export interface QueryAccountResponse {
 /** QueryAccountResponse is the response type for the Query/Account RPC method. */
 
 export interface QueryAccountResponseSDKType {
-  /** account defines the account of the corresponding address. */
   account?: AnySDKType;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
@@ -97,71 +73,36 @@ export interface QueryParamsRequest {}
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
 
 export interface QueryParamsRequestSDKType {}
-/** QueryModuleAccountsResponse is the response type for the Query/ModuleAccounts RPC method. */
+/** QueryParamsResponse is the response type for the Query/Params RPC method. */
 
-export interface QueryModuleAccountsResponse {
-  accounts: Any[];
+export interface QueryParamsResponse {
+  /** params defines the parameters of the module. */
+  params?: Params;
 }
-/** QueryModuleAccountsResponse is the response type for the Query/ModuleAccounts RPC method. */
+/** QueryParamsResponse is the response type for the Query/Params RPC method. */
 
-export interface QueryModuleAccountsResponseSDKType {
-  accounts: AnySDKType[];
+export interface QueryParamsResponseSDKType {
+  params?: ParamsSDKType;
 }
-/** Bech32PrefixRequest is the request type for Bech32Prefix rpc method */
+/** QueryModuleAccountByNameRequest is the request type for the Query/ModuleAccountByName RPC method. */
 
-export interface Bech32PrefixRequest {}
-/** Bech32PrefixRequest is the request type for Bech32Prefix rpc method */
-
-export interface Bech32PrefixRequestSDKType {}
-/** Bech32PrefixResponse is the response type for Bech32Prefix rpc method */
-
-export interface Bech32PrefixResponse {
-  bech32Prefix: string;
+export interface QueryModuleAccountByNameRequest {
+  name: string;
 }
-/** Bech32PrefixResponse is the response type for Bech32Prefix rpc method */
+/** QueryModuleAccountByNameRequest is the request type for the Query/ModuleAccountByName RPC method. */
 
-export interface Bech32PrefixResponseSDKType {
-  bech32_prefix: string;
+export interface QueryModuleAccountByNameRequestSDKType {
+  name: string;
 }
-/** AddressBytesToStringRequest is the request type for AddressString rpc method */
+/** QueryModuleAccountByNameResponse is the response type for the Query/ModuleAccountByName RPC method. */
 
-export interface AddressBytesToStringRequest {
-  addressBytes: Uint8Array;
+export interface QueryModuleAccountByNameResponse {
+  account?: Any;
 }
-/** AddressBytesToStringRequest is the request type for AddressString rpc method */
+/** QueryModuleAccountByNameResponse is the response type for the Query/ModuleAccountByName RPC method. */
 
-export interface AddressBytesToStringRequestSDKType {
-  address_bytes: Uint8Array;
-}
-/** AddressBytesToStringResponse is the response type for AddressString rpc method */
-
-export interface AddressBytesToStringResponse {
-  addressString: string;
-}
-/** AddressBytesToStringResponse is the response type for AddressString rpc method */
-
-export interface AddressBytesToStringResponseSDKType {
-  address_string: string;
-}
-/** AddressStringToBytesRequest is the request type for AccountBytes rpc method */
-
-export interface AddressStringToBytesRequest {
-  addressString: string;
-}
-/** AddressStringToBytesRequest is the request type for AccountBytes rpc method */
-
-export interface AddressStringToBytesRequestSDKType {
-  address_string: string;
-}
-/** AddressStringToBytesResponse is the response type for AddressBytes rpc method */
-
-export interface AddressStringToBytesResponse {
-  addressBytes: Uint8Array;
-}
-/** AddressStringToBytesResponse is the response type for AddressBytes rpc method */
-
-export interface AddressStringToBytesResponseSDKType {
-  address_bytes: Uint8Array;
+export interface QueryModuleAccountByNameResponseSDKType {
+  account?: AnySDKType;
 }
 
 function createBaseQueryAccountsRequest(): QueryAccountsRequest {
@@ -309,85 +250,6 @@ export const QueryAccountRequest = {
 
 };
 
-function createBaseQueryModuleAccountsRequest(): QueryModuleAccountsRequest {
-  return {};
-}
-
-export const QueryModuleAccountsRequest = {
-  encode(_: QueryModuleAccountsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): QueryModuleAccountsRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseQueryModuleAccountsRequest();
-
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-
-      switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-
-    return message;
-  },
-
-  fromPartial(_: DeepPartial<QueryModuleAccountsRequest>): QueryModuleAccountsRequest {
-    const message = createBaseQueryModuleAccountsRequest();
-    return message;
-  }
-
-};
-
-function createBaseQueryParamsResponse(): QueryParamsResponse {
-  return {
-    params: undefined
-  };
-}
-
-export const QueryParamsResponse = {
-  encode(message: QueryParamsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.params !== undefined) {
-      Params.encode(message.params, writer.uint32(10).fork()).ldelim();
-    }
-
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseQueryParamsResponse();
-
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-
-      switch (tag >>> 3) {
-        case 1:
-          message.params = Params.decode(reader, reader.uint32());
-          break;
-
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-
-    return message;
-  },
-
-  fromPartial(object: DeepPartial<QueryParamsResponse>): QueryParamsResponse {
-    const message = createBaseQueryParamsResponse();
-    message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
-    return message;
-  }
-
-};
-
 function createBaseQueryAccountResponse(): QueryAccountResponse {
   return {
     account: undefined
@@ -467,32 +329,32 @@ export const QueryParamsRequest = {
 
 };
 
-function createBaseQueryModuleAccountsResponse(): QueryModuleAccountsResponse {
+function createBaseQueryParamsResponse(): QueryParamsResponse {
   return {
-    accounts: []
+    params: undefined
   };
 }
 
-export const QueryModuleAccountsResponse = {
-  encode(message: QueryModuleAccountsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    for (const v of message.accounts) {
-      Any.encode(v!, writer.uint32(10).fork()).ldelim();
+export const QueryParamsResponse = {
+  encode(message: QueryParamsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.params !== undefined) {
+      Params.encode(message.params, writer.uint32(10).fork()).ldelim();
     }
 
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): QueryModuleAccountsResponse {
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseQueryModuleAccountsResponse();
+    const message = createBaseQueryParamsResponse();
 
     while (reader.pos < end) {
       const tag = reader.uint32();
 
       switch (tag >>> 3) {
         case 1:
-          message.accounts.push(Any.decode(reader, reader.uint32()));
+          message.params = Params.decode(reader, reader.uint32());
           break;
 
         default:
@@ -504,74 +366,40 @@ export const QueryModuleAccountsResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<QueryModuleAccountsResponse>): QueryModuleAccountsResponse {
-    const message = createBaseQueryModuleAccountsResponse();
-    message.accounts = object.accounts?.map(e => Any.fromPartial(e)) || [];
+  fromPartial(object: DeepPartial<QueryParamsResponse>): QueryParamsResponse {
+    const message = createBaseQueryParamsResponse();
+    message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
   }
 
 };
 
-function createBaseBech32PrefixRequest(): Bech32PrefixRequest {
-  return {};
-}
-
-export const Bech32PrefixRequest = {
-  encode(_: Bech32PrefixRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): Bech32PrefixRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseBech32PrefixRequest();
-
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-
-      switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-
-    return message;
-  },
-
-  fromPartial(_: DeepPartial<Bech32PrefixRequest>): Bech32PrefixRequest {
-    const message = createBaseBech32PrefixRequest();
-    return message;
-  }
-
-};
-
-function createBaseBech32PrefixResponse(): Bech32PrefixResponse {
+function createBaseQueryModuleAccountByNameRequest(): QueryModuleAccountByNameRequest {
   return {
-    bech32Prefix: ""
+    name: ""
   };
 }
 
-export const Bech32PrefixResponse = {
-  encode(message: Bech32PrefixResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.bech32Prefix !== "") {
-      writer.uint32(10).string(message.bech32Prefix);
+export const QueryModuleAccountByNameRequest = {
+  encode(message: QueryModuleAccountByNameRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.name !== "") {
+      writer.uint32(10).string(message.name);
     }
 
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): Bech32PrefixResponse {
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryModuleAccountByNameRequest {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseBech32PrefixResponse();
+    const message = createBaseQueryModuleAccountByNameRequest();
 
     while (reader.pos < end) {
       const tag = reader.uint32();
 
       switch (tag >>> 3) {
         case 1:
-          message.bech32Prefix = reader.string();
+          message.name = reader.string();
           break;
 
         default:
@@ -583,40 +411,40 @@ export const Bech32PrefixResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<Bech32PrefixResponse>): Bech32PrefixResponse {
-    const message = createBaseBech32PrefixResponse();
-    message.bech32Prefix = object.bech32Prefix ?? "";
+  fromPartial(object: DeepPartial<QueryModuleAccountByNameRequest>): QueryModuleAccountByNameRequest {
+    const message = createBaseQueryModuleAccountByNameRequest();
+    message.name = object.name ?? "";
     return message;
   }
 
 };
 
-function createBaseAddressBytesToStringRequest(): AddressBytesToStringRequest {
+function createBaseQueryModuleAccountByNameResponse(): QueryModuleAccountByNameResponse {
   return {
-    addressBytes: new Uint8Array()
+    account: undefined
   };
 }
 
-export const AddressBytesToStringRequest = {
-  encode(message: AddressBytesToStringRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.addressBytes.length !== 0) {
-      writer.uint32(10).bytes(message.addressBytes);
+export const QueryModuleAccountByNameResponse = {
+  encode(message: QueryModuleAccountByNameResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.account !== undefined) {
+      Any.encode(message.account, writer.uint32(10).fork()).ldelim();
     }
 
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): AddressBytesToStringRequest {
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryModuleAccountByNameResponse {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseAddressBytesToStringRequest();
+    const message = createBaseQueryModuleAccountByNameResponse();
 
     while (reader.pos < end) {
       const tag = reader.uint32();
 
       switch (tag >>> 3) {
         case 1:
-          message.addressBytes = reader.bytes();
+          message.account = Any.decode(reader, reader.uint32());
           break;
 
         default:
@@ -628,144 +456,9 @@ export const AddressBytesToStringRequest = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<AddressBytesToStringRequest>): AddressBytesToStringRequest {
-    const message = createBaseAddressBytesToStringRequest();
-    message.addressBytes = object.addressBytes ?? new Uint8Array();
-    return message;
-  }
-
-};
-
-function createBaseAddressBytesToStringResponse(): AddressBytesToStringResponse {
-  return {
-    addressString: ""
-  };
-}
-
-export const AddressBytesToStringResponse = {
-  encode(message: AddressBytesToStringResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.addressString !== "") {
-      writer.uint32(10).string(message.addressString);
-    }
-
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): AddressBytesToStringResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseAddressBytesToStringResponse();
-
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-
-      switch (tag >>> 3) {
-        case 1:
-          message.addressString = reader.string();
-          break;
-
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-
-    return message;
-  },
-
-  fromPartial(object: DeepPartial<AddressBytesToStringResponse>): AddressBytesToStringResponse {
-    const message = createBaseAddressBytesToStringResponse();
-    message.addressString = object.addressString ?? "";
-    return message;
-  }
-
-};
-
-function createBaseAddressStringToBytesRequest(): AddressStringToBytesRequest {
-  return {
-    addressString: ""
-  };
-}
-
-export const AddressStringToBytesRequest = {
-  encode(message: AddressStringToBytesRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.addressString !== "") {
-      writer.uint32(10).string(message.addressString);
-    }
-
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): AddressStringToBytesRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseAddressStringToBytesRequest();
-
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-
-      switch (tag >>> 3) {
-        case 1:
-          message.addressString = reader.string();
-          break;
-
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-
-    return message;
-  },
-
-  fromPartial(object: DeepPartial<AddressStringToBytesRequest>): AddressStringToBytesRequest {
-    const message = createBaseAddressStringToBytesRequest();
-    message.addressString = object.addressString ?? "";
-    return message;
-  }
-
-};
-
-function createBaseAddressStringToBytesResponse(): AddressStringToBytesResponse {
-  return {
-    addressBytes: new Uint8Array()
-  };
-}
-
-export const AddressStringToBytesResponse = {
-  encode(message: AddressStringToBytesResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.addressBytes.length !== 0) {
-      writer.uint32(10).bytes(message.addressBytes);
-    }
-
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): AddressStringToBytesResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseAddressStringToBytesResponse();
-
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-
-      switch (tag >>> 3) {
-        case 1:
-          message.addressBytes = reader.bytes();
-          break;
-
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-
-    return message;
-  },
-
-  fromPartial(object: DeepPartial<AddressStringToBytesResponse>): AddressStringToBytesResponse {
-    const message = createBaseAddressStringToBytesResponse();
-    message.addressBytes = object.addressBytes ?? new Uint8Array();
+  fromPartial(object: DeepPartial<QueryModuleAccountByNameResponse>): QueryModuleAccountByNameResponse {
+    const message = createBaseQueryModuleAccountByNameResponse();
+    message.account = object.account !== undefined && object.account !== null ? Any.fromPartial(object.account) : undefined;
     return message;
   }
 

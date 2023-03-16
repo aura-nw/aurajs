@@ -1,17 +1,14 @@
-import { Tendermint34Client } from "@cosmjs/tendermint-rpc";
+import { Tendermint34Client, HttpEndpoint } from "@cosmjs/tendermint-rpc";
 import { QueryClient } from "@cosmjs/stargate";
 export const createRPCQueryClient = async ({
   rpcEndpoint
 }: {
-  rpcEndpoint: string;
+  rpcEndpoint: string | HttpEndpoint;
 }) => {
   const tmClient = await Tendermint34Client.connect(rpcEndpoint);
   const client = new QueryClient(tmClient);
   return {
     cosmos: {
-      app: {
-        v1alpha1: (await import("./app/v1alpha1/query.rpc.Query")).createRpcQueryExtension(client)
-      },
       auth: {
         v1beta1: (await import("./auth/v1beta1/query.rpc.Query")).createRpcQueryExtension(client)
       },
@@ -22,6 +19,9 @@ export const createRPCQueryClient = async ({
         v1beta1: (await import("./bank/v1beta1/query.rpc.Query")).createRpcQueryExtension(client)
       },
       base: {
+        node: {
+          v1beta1: (await import("./base/node/v1beta1/query.rpc.Service")).createRpcQueryExtension(client)
+        },
         tendermint: {
           v1beta1: (await import("./base/tendermint/v1beta1/query.rpc.Service")).createRpcQueryExtension(client)
         }
@@ -36,17 +36,10 @@ export const createRPCQueryClient = async ({
         v1beta1: (await import("./feegrant/v1beta1/query.rpc.Query")).createRpcQueryExtension(client)
       },
       gov: {
-        v1: (await import("./gov/v1/query.rpc.Query")).createRpcQueryExtension(client),
         v1beta1: (await import("./gov/v1beta1/query.rpc.Query")).createRpcQueryExtension(client)
-      },
-      group: {
-        v1: (await import("./group/v1/query.rpc.Query")).createRpcQueryExtension(client)
       },
       mint: {
         v1beta1: (await import("./mint/v1beta1/query.rpc.Query")).createRpcQueryExtension(client)
-      },
-      nft: {
-        v1beta1: (await import("./nft/v1beta1/query.rpc.Query")).createRpcQueryExtension(client)
       },
       params: {
         v1beta1: (await import("./params/v1beta1/query.rpc.Query")).createRpcQueryExtension(client)

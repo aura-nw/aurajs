@@ -1,6 +1,12 @@
 {
   "protoDirs": [
-    "./proto"
+    "cosmos-sdk-v0.45.11/proto",
+    "cosmos-sdk-v0.45.11/third_party/proto",
+    "ibc-go-v3.3.0/proto",
+    "ibc-go-v3.3.0/third_party/proto",
+    "wasmd-v0.29.1/proto",
+    "wasmd-v0.29.1/third_party/proto",
+    "aurad-v0.4.3/proto"
   ],
   "outPath": "./src/codegen",
   "options": {

@@ -17,7 +17,6 @@ export interface GenericAuthorization {
  */
 
 export interface GenericAuthorizationSDKType {
-  /** Msg, identified by it's type URL, to grant unrestricted permissions to execute */
   msg: string;
 }
 /**
@@ -27,12 +26,6 @@ export interface GenericAuthorizationSDKType {
 
 export interface Grant {
   authorization?: Any;
-  /**
-   * time when the grant will expire and will be pruned. If null, then the grant
-   * doesn't have a time expiration (other conditions  in `authorization`
-   * may apply to invalidate the grant)
-   */
-
   expiration?: Date;
 }
 /**
@@ -42,17 +35,13 @@ export interface Grant {
 
 export interface GrantSDKType {
   authorization?: AnySDKType;
-  /**
-   * time when the grant will expire and will be pruned. If null, then the grant
-   * doesn't have a time expiration (other conditions  in `authorization`
-   * may apply to invalidate the grant)
-   */
-
   expiration?: Date;
 }
 /**
  * GrantAuthorization extends a grant with both the addresses of the grantee and granter.
  * It is used in genesis.proto and query.proto
+ * 
+ * Since: cosmos-sdk 0.45.2
  */
 
 export interface GrantAuthorization {
@@ -64,6 +53,8 @@ export interface GrantAuthorization {
 /**
  * GrantAuthorization extends a grant with both the addresses of the grantee and granter.
  * It is used in genesis.proto and query.proto
+ * 
+ * Since: cosmos-sdk 0.45.2
  */
 
 export interface GrantAuthorizationSDKType {
@@ -71,18 +62,6 @@ export interface GrantAuthorizationSDKType {
   grantee: string;
   authorization?: AnySDKType;
   expiration?: Date;
-}
-/** GrantQueueItem contains the list of TypeURL of a sdk.Msg. */
-
-export interface GrantQueueItem {
-  /** msg_type_urls contains the list of TypeURL of a sdk.Msg. */
-  msgTypeUrls: string[];
-}
-/** GrantQueueItem contains the list of TypeURL of a sdk.Msg. */
-
-export interface GrantQueueItemSDKType {
-  /** msg_type_urls contains the list of TypeURL of a sdk.Msg. */
-  msg_type_urls: string[];
 }
 
 function createBaseGenericAuthorization(): GenericAuthorization {
@@ -255,51 +234,6 @@ export const GrantAuthorization = {
     message.grantee = object.grantee ?? "";
     message.authorization = object.authorization !== undefined && object.authorization !== null ? Any.fromPartial(object.authorization) : undefined;
     message.expiration = object.expiration ?? undefined;
-    return message;
-  }
-
-};
-
-function createBaseGrantQueueItem(): GrantQueueItem {
-  return {
-    msgTypeUrls: []
-  };
-}
-
-export const GrantQueueItem = {
-  encode(message: GrantQueueItem, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    for (const v of message.msgTypeUrls) {
-      writer.uint32(10).string(v!);
-    }
-
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): GrantQueueItem {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseGrantQueueItem();
-
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-
-      switch (tag >>> 3) {
-        case 1:
-          message.msgTypeUrls.push(reader.string());
-          break;
-
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-
-    return message;
-  },
-
-  fromPartial(object: DeepPartial<GrantQueueItem>): GrantQueueItem {
-    const message = createBaseGrantQueueItem();
-    message.msgTypeUrls = object.msgTypeUrls?.map(e => e) || [];
     return message;
   }
 

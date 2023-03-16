@@ -45,14 +45,10 @@ export interface MsgWithdrawDelegatorRewardSDKType {
 }
 /** MsgWithdrawDelegatorRewardResponse defines the Msg/WithdrawDelegatorReward response type. */
 
-export interface MsgWithdrawDelegatorRewardResponse {
-  amount: Coin[];
-}
+export interface MsgWithdrawDelegatorRewardResponse {}
 /** MsgWithdrawDelegatorRewardResponse defines the Msg/WithdrawDelegatorReward response type. */
 
-export interface MsgWithdrawDelegatorRewardResponseSDKType {
-  amount: CoinSDKType[];
-}
+export interface MsgWithdrawDelegatorRewardResponseSDKType {}
 /**
  * MsgWithdrawValidatorCommission withdraws the full commission to the validator
  * address.
@@ -71,14 +67,10 @@ export interface MsgWithdrawValidatorCommissionSDKType {
 }
 /** MsgWithdrawValidatorCommissionResponse defines the Msg/WithdrawValidatorCommission response type. */
 
-export interface MsgWithdrawValidatorCommissionResponse {
-  amount: Coin[];
-}
+export interface MsgWithdrawValidatorCommissionResponse {}
 /** MsgWithdrawValidatorCommissionResponse defines the Msg/WithdrawValidatorCommission response type. */
 
-export interface MsgWithdrawValidatorCommissionResponseSDKType {
-  amount: CoinSDKType[];
-}
+export interface MsgWithdrawValidatorCommissionResponseSDKType {}
 /**
  * MsgFundCommunityPool allows an account to directly
  * fund the community pool.
@@ -249,17 +241,11 @@ export const MsgWithdrawDelegatorReward = {
 };
 
 function createBaseMsgWithdrawDelegatorRewardResponse(): MsgWithdrawDelegatorRewardResponse {
-  return {
-    amount: []
-  };
+  return {};
 }
 
 export const MsgWithdrawDelegatorRewardResponse = {
-  encode(message: MsgWithdrawDelegatorRewardResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    for (const v of message.amount) {
-      Coin.encode(v!, writer.uint32(10).fork()).ldelim();
-    }
-
+  encode(_: MsgWithdrawDelegatorRewardResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
 
@@ -272,10 +258,6 @@ export const MsgWithdrawDelegatorRewardResponse = {
       const tag = reader.uint32();
 
       switch (tag >>> 3) {
-        case 1:
-          message.amount.push(Coin.decode(reader, reader.uint32()));
-          break;
-
         default:
           reader.skipType(tag & 7);
           break;
@@ -285,9 +267,8 @@ export const MsgWithdrawDelegatorRewardResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<MsgWithdrawDelegatorRewardResponse>): MsgWithdrawDelegatorRewardResponse {
+  fromPartial(_: DeepPartial<MsgWithdrawDelegatorRewardResponse>): MsgWithdrawDelegatorRewardResponse {
     const message = createBaseMsgWithdrawDelegatorRewardResponse();
-    message.amount = object.amount?.map(e => Coin.fromPartial(e)) || [];
     return message;
   }
 
@@ -339,17 +320,11 @@ export const MsgWithdrawValidatorCommission = {
 };
 
 function createBaseMsgWithdrawValidatorCommissionResponse(): MsgWithdrawValidatorCommissionResponse {
-  return {
-    amount: []
-  };
+  return {};
 }
 
 export const MsgWithdrawValidatorCommissionResponse = {
-  encode(message: MsgWithdrawValidatorCommissionResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    for (const v of message.amount) {
-      Coin.encode(v!, writer.uint32(10).fork()).ldelim();
-    }
-
+  encode(_: MsgWithdrawValidatorCommissionResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
 
@@ -362,10 +337,6 @@ export const MsgWithdrawValidatorCommissionResponse = {
       const tag = reader.uint32();
 
       switch (tag >>> 3) {
-        case 1:
-          message.amount.push(Coin.decode(reader, reader.uint32()));
-          break;
-
         default:
           reader.skipType(tag & 7);
           break;
@@ -375,9 +346,8 @@ export const MsgWithdrawValidatorCommissionResponse = {
     return message;
   },
 
-  fromPartial(object: DeepPartial<MsgWithdrawValidatorCommissionResponse>): MsgWithdrawValidatorCommissionResponse {
+  fromPartial(_: DeepPartial<MsgWithdrawValidatorCommissionResponse>): MsgWithdrawValidatorCommissionResponse {
     const message = createBaseMsgWithdrawValidatorCommissionResponse();
-    message.amount = object.amount?.map(e => Coin.fromPartial(e)) || [];
     return message;
   }
 

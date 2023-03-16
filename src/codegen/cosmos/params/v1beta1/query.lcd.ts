@@ -1,5 +1,5 @@
 import { LCDClient } from "@osmonauts/lcd";
-import { QueryParamsRequest, QueryParamsResponseSDKType, QuerySubspacesRequest, QuerySubspacesResponseSDKType } from "./query";
+import { QueryParamsRequest, QueryParamsResponseSDKType } from "./query";
 export class LCDQueryClient {
   req: LCDClient;
 
@@ -10,7 +10,6 @@ export class LCDQueryClient {
   }) {
     this.req = requestClient;
     this.params = this.params.bind(this);
-    this.subspaces = this.subspaces.bind(this);
   }
   /* Params queries a specific parameter of a module, given its subspace and
    key. */
@@ -31,13 +30,6 @@ export class LCDQueryClient {
 
     const endpoint = `cosmos/params/v1beta1/params`;
     return await this.req.get<QueryParamsResponseSDKType>(endpoint, options);
-  }
-  /* Subspaces queries for all registered subspaces and all keys for a subspace. */
-
-
-  async subspaces(_params: QuerySubspacesRequest = {}): Promise<QuerySubspacesResponseSDKType> {
-    const endpoint = `cosmos/params/v1beta1/subspaces`;
-    return await this.req.get<QuerySubspacesResponseSDKType>(endpoint);
   }
 
 }

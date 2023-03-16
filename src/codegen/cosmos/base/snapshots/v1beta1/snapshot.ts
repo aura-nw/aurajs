@@ -1,5 +1,5 @@
-import * as _m0 from "protobufjs/minimal";
 import { Long, DeepPartial } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** Snapshot contains Tendermint state sync snapshot info. */
 
 export interface Snapshot {
@@ -27,7 +27,6 @@ export interface Metadata {
 /** Metadata contains SDK-specific snapshot metadata. */
 
 export interface MetadataSDKType {
-  /** SHA-256 chunk hashes */
   chunk_hashes: Uint8Array[];
 }
 /** SnapshotItem is an item contained in a rootmulti.Store snapshot. */
@@ -37,8 +36,6 @@ export interface SnapshotItem {
   iavl?: SnapshotIAVLItem;
   extension?: SnapshotExtensionMeta;
   extensionPayload?: SnapshotExtensionPayload;
-  kv?: SnapshotKVItem;
-  schema?: SnapshotSchema;
 }
 /** SnapshotItem is an item contained in a rootmulti.Store snapshot. */
 
@@ -47,8 +44,6 @@ export interface SnapshotItemSDKType {
   iavl?: SnapshotIAVLItemSDKType;
   extension?: SnapshotExtensionMetaSDKType;
   extension_payload?: SnapshotExtensionPayloadSDKType;
-  kv?: SnapshotKVItemSDKType;
-  schema?: SnapshotSchemaSDKType;
 }
 /** SnapshotStoreItem contains metadata about a snapshotted store. */
 
@@ -77,11 +72,7 @@ export interface SnapshotIAVLItem {
 export interface SnapshotIAVLItemSDKType {
   key: Uint8Array;
   value: Uint8Array;
-  /** version is block height */
-
   version: Long;
-  /** height is depth of the tree. */
-
   height: number;
 }
 /** SnapshotExtensionMeta contains metadata about an external snapshotter. */
@@ -105,28 +96,6 @@ export interface SnapshotExtensionPayload {
 
 export interface SnapshotExtensionPayloadSDKType {
   payload: Uint8Array;
-}
-/** SnapshotKVItem is an exported Key/Value Pair */
-
-export interface SnapshotKVItem {
-  key: Uint8Array;
-  value: Uint8Array;
-}
-/** SnapshotKVItem is an exported Key/Value Pair */
-
-export interface SnapshotKVItemSDKType {
-  key: Uint8Array;
-  value: Uint8Array;
-}
-/** SnapshotSchema is an exported schema of smt store */
-
-export interface SnapshotSchema {
-  keys: Uint8Array[];
-}
-/** SnapshotSchema is an exported schema of smt store */
-
-export interface SnapshotSchemaSDKType {
-  keys: Uint8Array[];
 }
 
 function createBaseSnapshot(): Snapshot {
@@ -264,9 +233,7 @@ function createBaseSnapshotItem(): SnapshotItem {
     store: undefined,
     iavl: undefined,
     extension: undefined,
-    extensionPayload: undefined,
-    kv: undefined,
-    schema: undefined
+    extensionPayload: undefined
   };
 }
 
@@ -286,14 +253,6 @@ export const SnapshotItem = {
 
     if (message.extensionPayload !== undefined) {
       SnapshotExtensionPayload.encode(message.extensionPayload, writer.uint32(34).fork()).ldelim();
-    }
-
-    if (message.kv !== undefined) {
-      SnapshotKVItem.encode(message.kv, writer.uint32(42).fork()).ldelim();
-    }
-
-    if (message.schema !== undefined) {
-      SnapshotSchema.encode(message.schema, writer.uint32(50).fork()).ldelim();
     }
 
     return writer;
@@ -324,14 +283,6 @@ export const SnapshotItem = {
           message.extensionPayload = SnapshotExtensionPayload.decode(reader, reader.uint32());
           break;
 
-        case 5:
-          message.kv = SnapshotKVItem.decode(reader, reader.uint32());
-          break;
-
-        case 6:
-          message.schema = SnapshotSchema.decode(reader, reader.uint32());
-          break;
-
         default:
           reader.skipType(tag & 7);
           break;
@@ -347,8 +298,6 @@ export const SnapshotItem = {
     message.iavl = object.iavl !== undefined && object.iavl !== null ? SnapshotIAVLItem.fromPartial(object.iavl) : undefined;
     message.extension = object.extension !== undefined && object.extension !== null ? SnapshotExtensionMeta.fromPartial(object.extension) : undefined;
     message.extensionPayload = object.extensionPayload !== undefined && object.extensionPayload !== null ? SnapshotExtensionPayload.fromPartial(object.extensionPayload) : undefined;
-    message.kv = object.kv !== undefined && object.kv !== null ? SnapshotKVItem.fromPartial(object.kv) : undefined;
-    message.schema = object.schema !== undefined && object.schema !== null ? SnapshotSchema.fromPartial(object.schema) : undefined;
     return message;
   }
 
@@ -569,106 +518,6 @@ export const SnapshotExtensionPayload = {
   fromPartial(object: DeepPartial<SnapshotExtensionPayload>): SnapshotExtensionPayload {
     const message = createBaseSnapshotExtensionPayload();
     message.payload = object.payload ?? new Uint8Array();
-    return message;
-  }
-
-};
-
-function createBaseSnapshotKVItem(): SnapshotKVItem {
-  return {
-    key: new Uint8Array(),
-    value: new Uint8Array()
-  };
-}
-
-export const SnapshotKVItem = {
-  encode(message: SnapshotKVItem, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.key.length !== 0) {
-      writer.uint32(10).bytes(message.key);
-    }
-
-    if (message.value.length !== 0) {
-      writer.uint32(18).bytes(message.value);
-    }
-
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): SnapshotKVItem {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseSnapshotKVItem();
-
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-
-      switch (tag >>> 3) {
-        case 1:
-          message.key = reader.bytes();
-          break;
-
-        case 2:
-          message.value = reader.bytes();
-          break;
-
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-
-    return message;
-  },
-
-  fromPartial(object: DeepPartial<SnapshotKVItem>): SnapshotKVItem {
-    const message = createBaseSnapshotKVItem();
-    message.key = object.key ?? new Uint8Array();
-    message.value = object.value ?? new Uint8Array();
-    return message;
-  }
-
-};
-
-function createBaseSnapshotSchema(): SnapshotSchema {
-  return {
-    keys: []
-  };
-}
-
-export const SnapshotSchema = {
-  encode(message: SnapshotSchema, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    for (const v of message.keys) {
-      writer.uint32(10).bytes(v!);
-    }
-
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): SnapshotSchema {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseSnapshotSchema();
-
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-
-      switch (tag >>> 3) {
-        case 1:
-          message.keys.push(reader.bytes());
-          break;
-
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-
-    return message;
-  },
-
-  fromPartial(object: DeepPartial<SnapshotSchema>): SnapshotSchema {
-    const message = createBaseSnapshotSchema();
-    message.keys = object.keys?.map(e => e) || [];
     return message;
   }
 

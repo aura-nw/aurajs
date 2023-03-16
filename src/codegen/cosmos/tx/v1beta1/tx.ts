@@ -1,5 +1,5 @@
 import { Any, AnySDKType } from "../../../google/protobuf/any";
-import { SignMode, SignModeSDKType } from "../signing/v1beta1/signing";
+import { SignMode } from "../signing/v1beta1/signing";
 import { CompactBitArray, CompactBitArraySDKType } from "../../crypto/multisig/v1beta1/multisig";
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
@@ -26,20 +26,8 @@ export interface Tx {
 /** Tx is the standard type used for broadcasting transactions. */
 
 export interface TxSDKType {
-  /** body is the processable content of the transaction */
   body?: TxBodySDKType;
-  /**
-   * auth_info is the authorization related content of the transaction,
-   * specifically signers, signer modes and fee
-   */
-
   auth_info?: AuthInfoSDKType;
-  /**
-   * signatures is a list of signatures that matches the length and order of
-   * AuthInfo's signer_infos to allow connecting signature meta information like
-   * public key and signing mode by position.
-   */
-
   signatures: Uint8Array[];
 }
 /**
@@ -79,23 +67,8 @@ export interface TxRaw {
  */
 
 export interface TxRawSDKType {
-  /**
-   * body_bytes is a protobuf serialization of a TxBody that matches the
-   * representation in SignDoc.
-   */
   body_bytes: Uint8Array;
-  /**
-   * auth_info_bytes is a protobuf serialization of an AuthInfo that matches the
-   * representation in SignDoc.
-   */
-
   auth_info_bytes: Uint8Array;
-  /**
-   * signatures is a list of signatures that matches the length and order of
-   * AuthInfo's signer_infos to allow connecting signature meta information like
-   * public key and signing mode by position.
-   */
-
   signatures: Uint8Array[];
 }
 /** SignDoc is the type used for generating sign bytes for SIGN_MODE_DIRECT. */
@@ -126,99 +99,10 @@ export interface SignDoc {
 /** SignDoc is the type used for generating sign bytes for SIGN_MODE_DIRECT. */
 
 export interface SignDocSDKType {
-  /**
-   * body_bytes is protobuf serialization of a TxBody that matches the
-   * representation in TxRaw.
-   */
   body_bytes: Uint8Array;
-  /**
-   * auth_info_bytes is a protobuf serialization of an AuthInfo that matches the
-   * representation in TxRaw.
-   */
-
   auth_info_bytes: Uint8Array;
-  /**
-   * chain_id is the unique identifier of the chain this transaction targets.
-   * It prevents signed transactions from being used on another chain by an
-   * attacker
-   */
-
   chain_id: string;
-  /** account_number is the account number of the account in state */
-
   account_number: Long;
-}
-/**
- * SignDocDirectAux is the type used for generating sign bytes for
- * SIGN_MODE_DIRECT_AUX.
- * 
- * Since: cosmos-sdk 0.46
- */
-
-export interface SignDocDirectAux {
-  /**
-   * body_bytes is protobuf serialization of a TxBody that matches the
-   * representation in TxRaw.
-   */
-  bodyBytes: Uint8Array;
-  /** public_key is the public key of the signing account. */
-
-  publicKey?: Any;
-  /**
-   * chain_id is the identifier of the chain this transaction targets.
-   * It prevents signed transactions from being used on another chain by an
-   * attacker.
-   */
-
-  chainId: string;
-  /** account_number is the account number of the account in state. */
-
-  accountNumber: Long;
-  /** sequence is the sequence number of the signing account. */
-
-  sequence: Long;
-  /**
-   * Tip is the optional tip used for meta-transactions. It should be left
-   * empty if the signer is not the tipper for this transaction.
-   */
-
-  tip?: Tip;
-}
-/**
- * SignDocDirectAux is the type used for generating sign bytes for
- * SIGN_MODE_DIRECT_AUX.
- * 
- * Since: cosmos-sdk 0.46
- */
-
-export interface SignDocDirectAuxSDKType {
-  /**
-   * body_bytes is protobuf serialization of a TxBody that matches the
-   * representation in TxRaw.
-   */
-  body_bytes: Uint8Array;
-  /** public_key is the public key of the signing account. */
-
-  public_key?: AnySDKType;
-  /**
-   * chain_id is the identifier of the chain this transaction targets.
-   * It prevents signed transactions from being used on another chain by an
-   * attacker.
-   */
-
-  chain_id: string;
-  /** account_number is the account number of the account in state. */
-
-  account_number: Long;
-  /** sequence is the sequence number of the signing account. */
-
-  sequence: Long;
-  /**
-   * Tip is the optional tip used for meta-transactions. It should be left
-   * empty if the signer is not the tipper for this transaction.
-   */
-
-  tip?: TipSDKType;
 }
 /** TxBody is the body of a transaction that all signers sign over. */
 
@@ -264,42 +148,10 @@ export interface TxBody {
 /** TxBody is the body of a transaction that all signers sign over. */
 
 export interface TxBodySDKType {
-  /**
-   * messages is a list of messages to be executed. The required signers of
-   * those messages define the number and order of elements in AuthInfo's
-   * signer_infos and Tx's signatures. Each required signer address is added to
-   * the list only the first time it occurs.
-   * By convention, the first required signer (usually from the first message)
-   * is referred to as the primary signer and pays the fee for the whole
-   * transaction.
-   */
   messages: AnySDKType[];
-  /**
-   * memo is any arbitrary note/comment to be added to the transaction.
-   * WARNING: in clients, any publicly exposed text should not be called memo,
-   * but should be called `note` instead (see https://github.com/cosmos/cosmos-sdk/issues/9122).
-   */
-
   memo: string;
-  /**
-   * timeout is the block height after which this transaction will not
-   * be processed by the chain
-   */
-
   timeout_height: Long;
-  /**
-   * extension_options are arbitrary options that can be added by chains
-   * when the default options are not sufficient. If any of these are present
-   * and can't be handled, the transaction will be rejected
-   */
-
   extension_options: AnySDKType[];
-  /**
-   * extension_options are arbitrary options that can be added by chains
-   * when the default options are not sufficient. If any of these are present
-   * and can't be handled, they will be ignored
-   */
-
   non_critical_extension_options: AnySDKType[];
 }
 /**
@@ -323,13 +175,6 @@ export interface AuthInfo {
    */
 
   fee?: Fee;
-  /**
-   * Tip is the optional tip used for meta-transactions.
-   * 
-   * Since: cosmos-sdk 0.46
-   */
-
-  tip?: Tip;
 }
 /**
  * AuthInfo describes the fee and signer modes that are used to sign a
@@ -337,28 +182,8 @@ export interface AuthInfo {
  */
 
 export interface AuthInfoSDKType {
-  /**
-   * signer_infos defines the signing modes for the required signers. The number
-   * and order of elements must match the required signers from TxBody's
-   * messages. The first element is the primary signer and the one which pays
-   * the fee.
-   */
   signer_infos: SignerInfoSDKType[];
-  /**
-   * Fee is the fee and gas limit for the transaction. The first signer is the
-   * primary signer and the one which pays the fee. The fee can be calculated
-   * based on the cost of evaluating the body and doing signature verification
-   * of the signers. This can be estimated via simulation.
-   */
-
   fee?: FeeSDKType;
-  /**
-   * Tip is the optional tip used for meta-transactions.
-   * 
-   * Since: cosmos-sdk 0.46
-   */
-
-  tip?: TipSDKType;
 }
 /**
  * SignerInfo describes the public key and signing mode of a single top-level
@@ -392,24 +217,8 @@ export interface SignerInfo {
  */
 
 export interface SignerInfoSDKType {
-  /**
-   * public_key is the public key of the signer. It is optional for accounts
-   * that already exist in state. If unset, the verifier can use the required \
-   * signer address for this position and lookup the public key.
-   */
   public_key?: AnySDKType;
-  /**
-   * mode_info describes the signing mode of the signer and is a nested
-   * structure to support nested multisig pubkey's
-   */
-
   mode_info?: ModeInfoSDKType;
-  /**
-   * sequence is the sequence of the account, which describes the
-   * number of committed transactions signed by a given address. It is used to
-   * prevent replay attacks.
-   */
-
   sequence: Long;
 }
 /** ModeInfo describes the signing mode of a single or nested multisig signer. */
@@ -424,10 +233,7 @@ export interface ModeInfo {
 /** ModeInfo describes the signing mode of a single or nested multisig signer. */
 
 export interface ModeInfoSDKType {
-  /** single represents a single signer */
   single?: ModeInfo_SingleSDKType;
-  /** multi represents a nested multisig signer */
-
   multi?: ModeInfo_MultiSDKType;
 }
 /**
@@ -447,8 +253,7 @@ export interface ModeInfo_Single {
  */
 
 export interface ModeInfo_SingleSDKType {
-  /** mode is the signing mode of the single signer */
-  mode: SignModeSDKType;
+  mode: SignMode;
 }
 /** Multi is the mode info for a multisig public key */
 
@@ -465,13 +270,7 @@ export interface ModeInfo_Multi {
 /** Multi is the mode info for a multisig public key */
 
 export interface ModeInfo_MultiSDKType {
-  /** bitarray specifies which keys within the multisig are signing */
   bitarray?: CompactBitArraySDKType;
-  /**
-   * mode_infos is the corresponding modes of the signers of the multisig
-   * which could include nested multisig public keys
-   */
-
   mode_infos: ModeInfoSDKType[];
 }
 /**
@@ -511,114 +310,10 @@ export interface Fee {
  */
 
 export interface FeeSDKType {
-  /** amount is the amount of coins to be paid as a fee */
   amount: CoinSDKType[];
-  /**
-   * gas_limit is the maximum gas that can be used in transaction processing
-   * before an out of gas error occurs
-   */
-
   gas_limit: Long;
-  /**
-   * if unset, the first signer is responsible for paying the fees. If set, the specified account must pay the fees.
-   * the payer must be a tx signer (and thus have signed this field in AuthInfo).
-   * setting this field does *not* change the ordering of required signers for the transaction.
-   */
-
   payer: string;
-  /**
-   * if set, the fee payer (either the first signer or the value of the payer field) requests that a fee grant be used
-   * to pay fees instead of the fee payer's own balance. If an appropriate fee grant does not exist or the chain does
-   * not support fee grants, this will fail
-   */
-
   granter: string;
-}
-/**
- * Tip is the tip used for meta-transactions.
- * 
- * Since: cosmos-sdk 0.46
- */
-
-export interface Tip {
-  /** amount is the amount of the tip */
-  amount: Coin[];
-  /** tipper is the address of the account paying for the tip */
-
-  tipper: string;
-}
-/**
- * Tip is the tip used for meta-transactions.
- * 
- * Since: cosmos-sdk 0.46
- */
-
-export interface TipSDKType {
-  /** amount is the amount of the tip */
-  amount: CoinSDKType[];
-  /** tipper is the address of the account paying for the tip */
-
-  tipper: string;
-}
-/**
- * AuxSignerData is the intermediary format that an auxiliary signer (e.g. a
- * tipper) builds and sends to the fee payer (who will build and broadcast the
- * actual tx). AuxSignerData is not a valid tx in itself, and will be rejected
- * by the node if sent directly as-is.
- * 
- * Since: cosmos-sdk 0.46
- */
-
-export interface AuxSignerData {
-  /**
-   * address is the bech32-encoded address of the auxiliary signer. If using
-   * AuxSignerData across different chains, the bech32 prefix of the target
-   * chain (where the final transaction is broadcasted) should be used.
-   */
-  address: string;
-  /**
-   * sign_doc is the SIGN_MOD_DIRECT_AUX sign doc that the auxiliary signer
-   * signs. Note: we use the same sign doc even if we're signing with
-   * LEGACY_AMINO_JSON.
-   */
-
-  signDoc?: SignDocDirectAux;
-  /** mode is the signing mode of the single signer */
-
-  mode: SignMode;
-  /** sig is the signature of the sign doc. */
-
-  sig: Uint8Array;
-}
-/**
- * AuxSignerData is the intermediary format that an auxiliary signer (e.g. a
- * tipper) builds and sends to the fee payer (who will build and broadcast the
- * actual tx). AuxSignerData is not a valid tx in itself, and will be rejected
- * by the node if sent directly as-is.
- * 
- * Since: cosmos-sdk 0.46
- */
-
-export interface AuxSignerDataSDKType {
-  /**
-   * address is the bech32-encoded address of the auxiliary signer. If using
-   * AuxSignerData across different chains, the bech32 prefix of the target
-   * chain (where the final transaction is broadcasted) should be used.
-   */
-  address: string;
-  /**
-   * sign_doc is the SIGN_MOD_DIRECT_AUX sign doc that the auxiliary signer
-   * signs. Note: we use the same sign doc even if we're signing with
-   * LEGACY_AMINO_JSON.
-   */
-
-  sign_doc?: SignDocDirectAuxSDKType;
-  /** mode is the signing mode of the single signer */
-
-  mode: SignModeSDKType;
-  /** sig is the signature of the sign doc. */
-
-  sig: Uint8Array;
 }
 
 function createBaseTx(): Tx {
@@ -826,101 +521,6 @@ export const SignDoc = {
 
 };
 
-function createBaseSignDocDirectAux(): SignDocDirectAux {
-  return {
-    bodyBytes: new Uint8Array(),
-    publicKey: undefined,
-    chainId: "",
-    accountNumber: Long.UZERO,
-    sequence: Long.UZERO,
-    tip: undefined
-  };
-}
-
-export const SignDocDirectAux = {
-  encode(message: SignDocDirectAux, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.bodyBytes.length !== 0) {
-      writer.uint32(10).bytes(message.bodyBytes);
-    }
-
-    if (message.publicKey !== undefined) {
-      Any.encode(message.publicKey, writer.uint32(18).fork()).ldelim();
-    }
-
-    if (message.chainId !== "") {
-      writer.uint32(26).string(message.chainId);
-    }
-
-    if (!message.accountNumber.isZero()) {
-      writer.uint32(32).uint64(message.accountNumber);
-    }
-
-    if (!message.sequence.isZero()) {
-      writer.uint32(40).uint64(message.sequence);
-    }
-
-    if (message.tip !== undefined) {
-      Tip.encode(message.tip, writer.uint32(50).fork()).ldelim();
-    }
-
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): SignDocDirectAux {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseSignDocDirectAux();
-
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-
-      switch (tag >>> 3) {
-        case 1:
-          message.bodyBytes = reader.bytes();
-          break;
-
-        case 2:
-          message.publicKey = Any.decode(reader, reader.uint32());
-          break;
-
-        case 3:
-          message.chainId = reader.string();
-          break;
-
-        case 4:
-          message.accountNumber = (reader.uint64() as Long);
-          break;
-
-        case 5:
-          message.sequence = (reader.uint64() as Long);
-          break;
-
-        case 6:
-          message.tip = Tip.decode(reader, reader.uint32());
-          break;
-
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-
-    return message;
-  },
-
-  fromPartial(object: DeepPartial<SignDocDirectAux>): SignDocDirectAux {
-    const message = createBaseSignDocDirectAux();
-    message.bodyBytes = object.bodyBytes ?? new Uint8Array();
-    message.publicKey = object.publicKey !== undefined && object.publicKey !== null ? Any.fromPartial(object.publicKey) : undefined;
-    message.chainId = object.chainId ?? "";
-    message.accountNumber = object.accountNumber !== undefined && object.accountNumber !== null ? Long.fromValue(object.accountNumber) : Long.UZERO;
-    message.sequence = object.sequence !== undefined && object.sequence !== null ? Long.fromValue(object.sequence) : Long.UZERO;
-    message.tip = object.tip !== undefined && object.tip !== null ? Tip.fromPartial(object.tip) : undefined;
-    return message;
-  }
-
-};
-
 function createBaseTxBody(): TxBody {
   return {
     messages: [],
@@ -1009,8 +609,7 @@ export const TxBody = {
 function createBaseAuthInfo(): AuthInfo {
   return {
     signerInfos: [],
-    fee: undefined,
-    tip: undefined
+    fee: undefined
   };
 }
 
@@ -1022,10 +621,6 @@ export const AuthInfo = {
 
     if (message.fee !== undefined) {
       Fee.encode(message.fee, writer.uint32(18).fork()).ldelim();
-    }
-
-    if (message.tip !== undefined) {
-      Tip.encode(message.tip, writer.uint32(26).fork()).ldelim();
     }
 
     return writer;
@@ -1048,10 +643,6 @@ export const AuthInfo = {
           message.fee = Fee.decode(reader, reader.uint32());
           break;
 
-        case 3:
-          message.tip = Tip.decode(reader, reader.uint32());
-          break;
-
         default:
           reader.skipType(tag & 7);
           break;
@@ -1065,7 +656,6 @@ export const AuthInfo = {
     const message = createBaseAuthInfo();
     message.signerInfos = object.signerInfos?.map(e => SignerInfo.fromPartial(e)) || [];
     message.fee = object.fee !== undefined && object.fee !== null ? Fee.fromPartial(object.fee) : undefined;
-    message.tip = object.tip !== undefined && object.tip !== null ? Tip.fromPartial(object.tip) : undefined;
     return message;
   }
 
@@ -1361,136 +951,6 @@ export const Fee = {
     message.gasLimit = object.gasLimit !== undefined && object.gasLimit !== null ? Long.fromValue(object.gasLimit) : Long.UZERO;
     message.payer = object.payer ?? "";
     message.granter = object.granter ?? "";
-    return message;
-  }
-
-};
-
-function createBaseTip(): Tip {
-  return {
-    amount: [],
-    tipper: ""
-  };
-}
-
-export const Tip = {
-  encode(message: Tip, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    for (const v of message.amount) {
-      Coin.encode(v!, writer.uint32(10).fork()).ldelim();
-    }
-
-    if (message.tipper !== "") {
-      writer.uint32(18).string(message.tipper);
-    }
-
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): Tip {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseTip();
-
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-
-      switch (tag >>> 3) {
-        case 1:
-          message.amount.push(Coin.decode(reader, reader.uint32()));
-          break;
-
-        case 2:
-          message.tipper = reader.string();
-          break;
-
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-
-    return message;
-  },
-
-  fromPartial(object: DeepPartial<Tip>): Tip {
-    const message = createBaseTip();
-    message.amount = object.amount?.map(e => Coin.fromPartial(e)) || [];
-    message.tipper = object.tipper ?? "";
-    return message;
-  }
-
-};
-
-function createBaseAuxSignerData(): AuxSignerData {
-  return {
-    address: "",
-    signDoc: undefined,
-    mode: 0,
-    sig: new Uint8Array()
-  };
-}
-
-export const AuxSignerData = {
-  encode(message: AuxSignerData, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.address !== "") {
-      writer.uint32(10).string(message.address);
-    }
-
-    if (message.signDoc !== undefined) {
-      SignDocDirectAux.encode(message.signDoc, writer.uint32(18).fork()).ldelim();
-    }
-
-    if (message.mode !== 0) {
-      writer.uint32(24).int32(message.mode);
-    }
-
-    if (message.sig.length !== 0) {
-      writer.uint32(34).bytes(message.sig);
-    }
-
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): AuxSignerData {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseAuxSignerData();
-
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-
-      switch (tag >>> 3) {
-        case 1:
-          message.address = reader.string();
-          break;
-
-        case 2:
-          message.signDoc = SignDocDirectAux.decode(reader, reader.uint32());
-          break;
-
-        case 3:
-          message.mode = (reader.int32() as any);
-          break;
-
-        case 4:
-          message.sig = reader.bytes();
-          break;
-
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-
-    return message;
-  },
-
-  fromPartial(object: DeepPartial<AuxSignerData>): AuxSignerData {
-    const message = createBaseAuxSignerData();
-    message.address = object.address ?? "";
-    message.signDoc = object.signDoc !== undefined && object.signDoc !== null ? SignDocDirectAux.fromPartial(object.signDoc) : undefined;
-    message.mode = object.mode ?? 0;
-    message.sig = object.sig ?? new Uint8Array();
     return message;
   }
 

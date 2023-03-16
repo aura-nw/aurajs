@@ -15,10 +15,7 @@ export interface QueryBalanceRequest {
 /** QueryBalanceRequest is the request type for the Query/Balance RPC method. */
 
 export interface QueryBalanceRequestSDKType {
-  /** address is the address to query balances for. */
   address: string;
-  /** denom is the coin denom to query balances for. */
-
   denom: string;
 }
 /** QueryBalanceResponse is the response type for the Query/Balance RPC method. */
@@ -30,7 +27,6 @@ export interface QueryBalanceResponse {
 /** QueryBalanceResponse is the response type for the Query/Balance RPC method. */
 
 export interface QueryBalanceResponseSDKType {
-  /** balance is the balance of the coin. */
   balance?: CoinSDKType;
 }
 /** QueryBalanceRequest is the request type for the Query/AllBalances RPC method. */
@@ -45,10 +41,7 @@ export interface QueryAllBalancesRequest {
 /** QueryBalanceRequest is the request type for the Query/AllBalances RPC method. */
 
 export interface QueryAllBalancesRequestSDKType {
-  /** address is the address to query balances for. */
   address: string;
-  /** pagination defines an optional pagination for the request. */
-
   pagination?: PageRequestSDKType;
 }
 /**
@@ -69,10 +62,7 @@ export interface QueryAllBalancesResponse {
  */
 
 export interface QueryAllBalancesResponseSDKType {
-  /** balances is the balances of all the coins. */
   balances: CoinSDKType[];
-  /** pagination defines the pagination in the response. */
-
   pagination?: PageResponseSDKType;
 }
 /**
@@ -93,10 +83,7 @@ export interface QuerySpendableBalancesRequest {
  */
 
 export interface QuerySpendableBalancesRequestSDKType {
-  /** address is the address to query spendable balances for. */
   address: string;
-  /** pagination defines an optional pagination for the request. */
-
   pagination?: PageRequestSDKType;
 }
 /**
@@ -117,10 +104,7 @@ export interface QuerySpendableBalancesResponse {
  */
 
 export interface QuerySpendableBalancesResponseSDKType {
-  /** balances is the spendable balances of all the coins. */
   balances: CoinSDKType[];
-  /** pagination defines the pagination in the response. */
-
   pagination?: PageResponseSDKType;
 }
 /**
@@ -142,11 +126,6 @@ export interface QueryTotalSupplyRequest {
  */
 
 export interface QueryTotalSupplyRequestSDKType {
-  /**
-   * pagination defines an optional pagination for the request.
-   * 
-   * Since: cosmos-sdk 0.43
-   */
   pagination?: PageRequestSDKType;
 }
 /**
@@ -171,14 +150,7 @@ export interface QueryTotalSupplyResponse {
  */
 
 export interface QueryTotalSupplyResponseSDKType {
-  /** supply is the supply of the coins */
   supply: CoinSDKType[];
-  /**
-   * pagination defines the pagination in the response.
-   * 
-   * Since: cosmos-sdk 0.43
-   */
-
   pagination?: PageResponseSDKType;
 }
 /** QuerySupplyOfRequest is the request type for the Query/SupplyOf RPC method. */
@@ -190,7 +162,6 @@ export interface QuerySupplyOfRequest {
 /** QuerySupplyOfRequest is the request type for the Query/SupplyOf RPC method. */
 
 export interface QuerySupplyOfRequestSDKType {
-  /** denom is the coin denom to query balances for. */
   denom: string;
 }
 /** QuerySupplyOfResponse is the response type for the Query/SupplyOf RPC method. */
@@ -202,7 +173,6 @@ export interface QuerySupplyOfResponse {
 /** QuerySupplyOfResponse is the response type for the Query/SupplyOf RPC method. */
 
 export interface QuerySupplyOfResponseSDKType {
-  /** amount is the supply of the coin. */
   amount?: CoinSDKType;
 }
 /** QueryParamsRequest defines the request type for querying x/bank parameters. */
@@ -230,7 +200,6 @@ export interface QueryDenomsMetadataRequest {
 /** QueryDenomsMetadataRequest is the request type for the Query/DenomsMetadata RPC method. */
 
 export interface QueryDenomsMetadataRequestSDKType {
-  /** pagination defines an optional pagination for the request. */
   pagination?: PageRequestSDKType;
 }
 /**
@@ -251,10 +220,7 @@ export interface QueryDenomsMetadataResponse {
  */
 
 export interface QueryDenomsMetadataResponseSDKType {
-  /** metadata provides the client information for all the registered tokens. */
   metadatas: MetadataSDKType[];
-  /** pagination defines the pagination in the response. */
-
   pagination?: PageResponseSDKType;
 }
 /** QueryDenomMetadataRequest is the request type for the Query/DenomMetadata RPC method. */
@@ -266,7 +232,6 @@ export interface QueryDenomMetadataRequest {
 /** QueryDenomMetadataRequest is the request type for the Query/DenomMetadata RPC method. */
 
 export interface QueryDenomMetadataRequestSDKType {
-  /** denom is the coin denom to query the metadata for. */
   denom: string;
 }
 /**
@@ -284,76 +249,7 @@ export interface QueryDenomMetadataResponse {
  */
 
 export interface QueryDenomMetadataResponseSDKType {
-  /** metadata describes and provides all the client information for the requested token. */
   metadata?: MetadataSDKType;
-}
-/**
- * QueryDenomOwnersRequest defines the request type for the DenomOwners RPC query,
- * which queries for a paginated set of all account holders of a particular
- * denomination.
- */
-
-export interface QueryDenomOwnersRequest {
-  /** denom defines the coin denomination to query all account holders for. */
-  denom: string;
-  /** pagination defines an optional pagination for the request. */
-
-  pagination?: PageRequest;
-}
-/**
- * QueryDenomOwnersRequest defines the request type for the DenomOwners RPC query,
- * which queries for a paginated set of all account holders of a particular
- * denomination.
- */
-
-export interface QueryDenomOwnersRequestSDKType {
-  /** denom defines the coin denomination to query all account holders for. */
-  denom: string;
-  /** pagination defines an optional pagination for the request. */
-
-  pagination?: PageRequestSDKType;
-}
-/**
- * DenomOwner defines structure representing an account that owns or holds a
- * particular denominated token. It contains the account address and account
- * balance of the denominated token.
- */
-
-export interface DenomOwner {
-  /** address defines the address that owns a particular denomination. */
-  address: string;
-  /** balance is the balance of the denominated coin for an account. */
-
-  balance?: Coin;
-}
-/**
- * DenomOwner defines structure representing an account that owns or holds a
- * particular denominated token. It contains the account address and account
- * balance of the denominated token.
- */
-
-export interface DenomOwnerSDKType {
-  /** address defines the address that owns a particular denomination. */
-  address: string;
-  /** balance is the balance of the denominated coin for an account. */
-
-  balance?: CoinSDKType;
-}
-/** QueryDenomOwnersResponse defines the RPC response of a DenomOwners RPC query. */
-
-export interface QueryDenomOwnersResponse {
-  denomOwners: DenomOwner[];
-  /** pagination defines the pagination in the response. */
-
-  pagination?: PageResponse;
-}
-/** QueryDenomOwnersResponse defines the RPC response of a DenomOwners RPC query. */
-
-export interface QueryDenomOwnersResponseSDKType {
-  denom_owners: DenomOwnerSDKType[];
-  /** pagination defines the pagination in the response. */
-
-  pagination?: PageResponseSDKType;
 }
 
 function createBaseQueryBalanceRequest(): QueryBalanceRequest {
@@ -1130,171 +1026,6 @@ export const QueryDenomMetadataResponse = {
   fromPartial(object: DeepPartial<QueryDenomMetadataResponse>): QueryDenomMetadataResponse {
     const message = createBaseQueryDenomMetadataResponse();
     message.metadata = object.metadata !== undefined && object.metadata !== null ? Metadata.fromPartial(object.metadata) : undefined;
-    return message;
-  }
-
-};
-
-function createBaseQueryDenomOwnersRequest(): QueryDenomOwnersRequest {
-  return {
-    denom: "",
-    pagination: undefined
-  };
-}
-
-export const QueryDenomOwnersRequest = {
-  encode(message: QueryDenomOwnersRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.denom !== "") {
-      writer.uint32(10).string(message.denom);
-    }
-
-    if (message.pagination !== undefined) {
-      PageRequest.encode(message.pagination, writer.uint32(18).fork()).ldelim();
-    }
-
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomOwnersRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseQueryDenomOwnersRequest();
-
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-
-      switch (tag >>> 3) {
-        case 1:
-          message.denom = reader.string();
-          break;
-
-        case 2:
-          message.pagination = PageRequest.decode(reader, reader.uint32());
-          break;
-
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-
-    return message;
-  },
-
-  fromPartial(object: DeepPartial<QueryDenomOwnersRequest>): QueryDenomOwnersRequest {
-    const message = createBaseQueryDenomOwnersRequest();
-    message.denom = object.denom ?? "";
-    message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
-    return message;
-  }
-
-};
-
-function createBaseDenomOwner(): DenomOwner {
-  return {
-    address: "",
-    balance: undefined
-  };
-}
-
-export const DenomOwner = {
-  encode(message: DenomOwner, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.address !== "") {
-      writer.uint32(10).string(message.address);
-    }
-
-    if (message.balance !== undefined) {
-      Coin.encode(message.balance, writer.uint32(18).fork()).ldelim();
-    }
-
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): DenomOwner {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseDenomOwner();
-
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-
-      switch (tag >>> 3) {
-        case 1:
-          message.address = reader.string();
-          break;
-
-        case 2:
-          message.balance = Coin.decode(reader, reader.uint32());
-          break;
-
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-
-    return message;
-  },
-
-  fromPartial(object: DeepPartial<DenomOwner>): DenomOwner {
-    const message = createBaseDenomOwner();
-    message.address = object.address ?? "";
-    message.balance = object.balance !== undefined && object.balance !== null ? Coin.fromPartial(object.balance) : undefined;
-    return message;
-  }
-
-};
-
-function createBaseQueryDenomOwnersResponse(): QueryDenomOwnersResponse {
-  return {
-    denomOwners: [],
-    pagination: undefined
-  };
-}
-
-export const QueryDenomOwnersResponse = {
-  encode(message: QueryDenomOwnersResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    for (const v of message.denomOwners) {
-      DenomOwner.encode(v!, writer.uint32(10).fork()).ldelim();
-    }
-
-    if (message.pagination !== undefined) {
-      PageResponse.encode(message.pagination, writer.uint32(18).fork()).ldelim();
-    }
-
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomOwnersResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseQueryDenomOwnersResponse();
-
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-
-      switch (tag >>> 3) {
-        case 1:
-          message.denomOwners.push(DenomOwner.decode(reader, reader.uint32()));
-          break;
-
-        case 2:
-          message.pagination = PageResponse.decode(reader, reader.uint32());
-          break;
-
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-
-    return message;
-  },
-
-  fromPartial(object: DeepPartial<QueryDenomOwnersResponse>): QueryDenomOwnersResponse {
-    const message = createBaseQueryDenomOwnersResponse();
-    message.denomOwners = object.denomOwners?.map(e => DenomOwner.fromPartial(e)) || [];
-    message.pagination = object.pagination !== undefined && object.pagination !== null ? PageResponse.fromPartial(object.pagination) : undefined;
     return message;
   }
 

@@ -1,5 +1,5 @@
-import * as _m0 from "protobufjs/minimal";
 import { Long, DeepPartial } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** Snapshot contains Tendermint state sync snapshot info. */
 export interface Snapshot {
     height: Long;
@@ -23,7 +23,6 @@ export interface Metadata {
 }
 /** Metadata contains SDK-specific snapshot metadata. */
 export interface MetadataSDKType {
-    /** SHA-256 chunk hashes */
     chunk_hashes: Uint8Array[];
 }
 /** SnapshotItem is an item contained in a rootmulti.Store snapshot. */
@@ -32,8 +31,6 @@ export interface SnapshotItem {
     iavl?: SnapshotIAVLItem;
     extension?: SnapshotExtensionMeta;
     extensionPayload?: SnapshotExtensionPayload;
-    kv?: SnapshotKVItem;
-    schema?: SnapshotSchema;
 }
 /** SnapshotItem is an item contained in a rootmulti.Store snapshot. */
 export interface SnapshotItemSDKType {
@@ -41,8 +38,6 @@ export interface SnapshotItemSDKType {
     iavl?: SnapshotIAVLItemSDKType;
     extension?: SnapshotExtensionMetaSDKType;
     extension_payload?: SnapshotExtensionPayloadSDKType;
-    kv?: SnapshotKVItemSDKType;
-    schema?: SnapshotSchemaSDKType;
 }
 /** SnapshotStoreItem contains metadata about a snapshotted store. */
 export interface SnapshotStoreItem {
@@ -65,9 +60,7 @@ export interface SnapshotIAVLItem {
 export interface SnapshotIAVLItemSDKType {
     key: Uint8Array;
     value: Uint8Array;
-    /** version is block height */
     version: Long;
-    /** height is depth of the tree. */
     height: number;
 }
 /** SnapshotExtensionMeta contains metadata about an external snapshotter. */
@@ -87,24 +80,6 @@ export interface SnapshotExtensionPayload {
 /** SnapshotExtensionPayload contains payloads of an external snapshotter. */
 export interface SnapshotExtensionPayloadSDKType {
     payload: Uint8Array;
-}
-/** SnapshotKVItem is an exported Key/Value Pair */
-export interface SnapshotKVItem {
-    key: Uint8Array;
-    value: Uint8Array;
-}
-/** SnapshotKVItem is an exported Key/Value Pair */
-export interface SnapshotKVItemSDKType {
-    key: Uint8Array;
-    value: Uint8Array;
-}
-/** SnapshotSchema is an exported schema of smt store */
-export interface SnapshotSchema {
-    keys: Uint8Array[];
-}
-/** SnapshotSchema is an exported schema of smt store */
-export interface SnapshotSchemaSDKType {
-    keys: Uint8Array[];
 }
 export declare const Snapshot: {
     encode(message: Snapshot, writer?: _m0.Writer): _m0.Writer;
@@ -140,14 +115,4 @@ export declare const SnapshotExtensionPayload: {
     encode(message: SnapshotExtensionPayload, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): SnapshotExtensionPayload;
     fromPartial(object: DeepPartial<SnapshotExtensionPayload>): SnapshotExtensionPayload;
-};
-export declare const SnapshotKVItem: {
-    encode(message: SnapshotKVItem, writer?: _m0.Writer): _m0.Writer;
-    decode(input: _m0.Reader | Uint8Array, length?: number): SnapshotKVItem;
-    fromPartial(object: DeepPartial<SnapshotKVItem>): SnapshotKVItem;
-};
-export declare const SnapshotSchema: {
-    encode(message: SnapshotSchema, writer?: _m0.Writer): _m0.Writer;
-    decode(input: _m0.Reader | Uint8Array, length?: number): SnapshotSchema;
-    fromPartial(object: DeepPartial<SnapshotSchema>): SnapshotSchema;
 };
