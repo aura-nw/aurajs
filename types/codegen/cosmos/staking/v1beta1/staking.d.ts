@@ -2,8 +2,8 @@ import { Header, HeaderSDKType } from "../../../tendermint/types/types";
 import { Any, AnySDKType } from "../../../google/protobuf/any";
 import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
+import { Long, DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "../../../helpers";
 /** BondStatus is the status of a validator. */
 export declare enum BondStatus {
     /** BOND_STATUS_UNSPECIFIED - UNSPECIFIED defines an invalid validator status. */
@@ -410,100 +410,140 @@ export interface PoolSDKType {
 export declare const HistoricalInfo: {
     encode(message: HistoricalInfo, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): HistoricalInfo;
+    fromJSON(object: any): HistoricalInfo;
+    toJSON(message: HistoricalInfo): unknown;
     fromPartial(object: DeepPartial<HistoricalInfo>): HistoricalInfo;
 };
 export declare const CommissionRates: {
     encode(message: CommissionRates, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): CommissionRates;
+    fromJSON(object: any): CommissionRates;
+    toJSON(message: CommissionRates): unknown;
     fromPartial(object: DeepPartial<CommissionRates>): CommissionRates;
 };
 export declare const Commission: {
     encode(message: Commission, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Commission;
+    fromJSON(object: any): Commission;
+    toJSON(message: Commission): unknown;
     fromPartial(object: DeepPartial<Commission>): Commission;
 };
 export declare const Description: {
     encode(message: Description, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Description;
+    fromJSON(object: any): Description;
+    toJSON(message: Description): unknown;
     fromPartial(object: DeepPartial<Description>): Description;
 };
 export declare const Validator: {
     encode(message: Validator, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Validator;
+    fromJSON(object: any): Validator;
+    toJSON(message: Validator): unknown;
     fromPartial(object: DeepPartial<Validator>): Validator;
 };
 export declare const ValAddresses: {
     encode(message: ValAddresses, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): ValAddresses;
+    fromJSON(object: any): ValAddresses;
+    toJSON(message: ValAddresses): unknown;
     fromPartial(object: DeepPartial<ValAddresses>): ValAddresses;
 };
 export declare const DVPair: {
     encode(message: DVPair, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): DVPair;
+    fromJSON(object: any): DVPair;
+    toJSON(message: DVPair): unknown;
     fromPartial(object: DeepPartial<DVPair>): DVPair;
 };
 export declare const DVPairs: {
     encode(message: DVPairs, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): DVPairs;
+    fromJSON(object: any): DVPairs;
+    toJSON(message: DVPairs): unknown;
     fromPartial(object: DeepPartial<DVPairs>): DVPairs;
 };
 export declare const DVVTriplet: {
     encode(message: DVVTriplet, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): DVVTriplet;
+    fromJSON(object: any): DVVTriplet;
+    toJSON(message: DVVTriplet): unknown;
     fromPartial(object: DeepPartial<DVVTriplet>): DVVTriplet;
 };
 export declare const DVVTriplets: {
     encode(message: DVVTriplets, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): DVVTriplets;
+    fromJSON(object: any): DVVTriplets;
+    toJSON(message: DVVTriplets): unknown;
     fromPartial(object: DeepPartial<DVVTriplets>): DVVTriplets;
 };
 export declare const Delegation: {
     encode(message: Delegation, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Delegation;
+    fromJSON(object: any): Delegation;
+    toJSON(message: Delegation): unknown;
     fromPartial(object: DeepPartial<Delegation>): Delegation;
 };
 export declare const UnbondingDelegation: {
     encode(message: UnbondingDelegation, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): UnbondingDelegation;
+    fromJSON(object: any): UnbondingDelegation;
+    toJSON(message: UnbondingDelegation): unknown;
     fromPartial(object: DeepPartial<UnbondingDelegation>): UnbondingDelegation;
 };
 export declare const UnbondingDelegationEntry: {
     encode(message: UnbondingDelegationEntry, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): UnbondingDelegationEntry;
+    fromJSON(object: any): UnbondingDelegationEntry;
+    toJSON(message: UnbondingDelegationEntry): unknown;
     fromPartial(object: DeepPartial<UnbondingDelegationEntry>): UnbondingDelegationEntry;
 };
 export declare const RedelegationEntry: {
     encode(message: RedelegationEntry, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): RedelegationEntry;
+    fromJSON(object: any): RedelegationEntry;
+    toJSON(message: RedelegationEntry): unknown;
     fromPartial(object: DeepPartial<RedelegationEntry>): RedelegationEntry;
 };
 export declare const Redelegation: {
     encode(message: Redelegation, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Redelegation;
+    fromJSON(object: any): Redelegation;
+    toJSON(message: Redelegation): unknown;
     fromPartial(object: DeepPartial<Redelegation>): Redelegation;
 };
 export declare const Params: {
     encode(message: Params, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Params;
+    fromJSON(object: any): Params;
+    toJSON(message: Params): unknown;
     fromPartial(object: DeepPartial<Params>): Params;
 };
 export declare const DelegationResponse: {
     encode(message: DelegationResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): DelegationResponse;
+    fromJSON(object: any): DelegationResponse;
+    toJSON(message: DelegationResponse): unknown;
     fromPartial(object: DeepPartial<DelegationResponse>): DelegationResponse;
 };
 export declare const RedelegationEntryResponse: {
     encode(message: RedelegationEntryResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): RedelegationEntryResponse;
+    fromJSON(object: any): RedelegationEntryResponse;
+    toJSON(message: RedelegationEntryResponse): unknown;
     fromPartial(object: DeepPartial<RedelegationEntryResponse>): RedelegationEntryResponse;
 };
 export declare const RedelegationResponse: {
     encode(message: RedelegationResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): RedelegationResponse;
+    fromJSON(object: any): RedelegationResponse;
+    toJSON(message: RedelegationResponse): unknown;
     fromPartial(object: DeepPartial<RedelegationResponse>): RedelegationResponse;
 };
 export declare const Pool: {
     encode(message: Pool, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Pool;
+    fromJSON(object: any): Pool;
+    toJSON(message: Pool): unknown;
     fromPartial(object: DeepPartial<Pool>): Pool;
 };

@@ -134,50 +134,70 @@ export interface QueryEscrowAddressResponseSDKType {
 export declare const QueryDenomTraceRequest: {
     encode(message: QueryDenomTraceRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomTraceRequest;
+    fromJSON(object: any): QueryDenomTraceRequest;
+    toJSON(message: QueryDenomTraceRequest): unknown;
     fromPartial(object: DeepPartial<QueryDenomTraceRequest>): QueryDenomTraceRequest;
 };
 export declare const QueryDenomTraceResponse: {
     encode(message: QueryDenomTraceResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomTraceResponse;
+    fromJSON(object: any): QueryDenomTraceResponse;
+    toJSON(message: QueryDenomTraceResponse): unknown;
     fromPartial(object: DeepPartial<QueryDenomTraceResponse>): QueryDenomTraceResponse;
 };
 export declare const QueryDenomTracesRequest: {
     encode(message: QueryDenomTracesRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomTracesRequest;
+    fromJSON(object: any): QueryDenomTracesRequest;
+    toJSON(message: QueryDenomTracesRequest): unknown;
     fromPartial(object: DeepPartial<QueryDenomTracesRequest>): QueryDenomTracesRequest;
 };
 export declare const QueryDenomTracesResponse: {
     encode(message: QueryDenomTracesResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomTracesResponse;
+    fromJSON(object: any): QueryDenomTracesResponse;
+    toJSON(message: QueryDenomTracesResponse): unknown;
     fromPartial(object: DeepPartial<QueryDenomTracesResponse>): QueryDenomTracesResponse;
 };
 export declare const QueryParamsRequest: {
     encode(_: QueryParamsRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsRequest;
+    fromJSON(_: any): QueryParamsRequest;
+    toJSON(_: QueryParamsRequest): unknown;
     fromPartial(_: DeepPartial<QueryParamsRequest>): QueryParamsRequest;
 };
 export declare const QueryParamsResponse: {
     encode(message: QueryParamsResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse;
+    fromJSON(object: any): QueryParamsResponse;
+    toJSON(message: QueryParamsResponse): unknown;
     fromPartial(object: DeepPartial<QueryParamsResponse>): QueryParamsResponse;
 };
 export declare const QueryDenomHashRequest: {
     encode(message: QueryDenomHashRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomHashRequest;
+    fromJSON(object: any): QueryDenomHashRequest;
+    toJSON(message: QueryDenomHashRequest): unknown;
     fromPartial(object: DeepPartial<QueryDenomHashRequest>): QueryDenomHashRequest;
 };
 export declare const QueryDenomHashResponse: {
     encode(message: QueryDenomHashResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomHashResponse;
+    fromJSON(object: any): QueryDenomHashResponse;
+    toJSON(message: QueryDenomHashResponse): unknown;
     fromPartial(object: DeepPartial<QueryDenomHashResponse>): QueryDenomHashResponse;
 };
 export declare const QueryEscrowAddressRequest: {
     encode(message: QueryEscrowAddressRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryEscrowAddressRequest;
+    fromJSON(object: any): QueryEscrowAddressRequest;
+    toJSON(message: QueryEscrowAddressRequest): unknown;
     fromPartial(object: DeepPartial<QueryEscrowAddressRequest>): QueryEscrowAddressRequest;
 };
 export declare const QueryEscrowAddressResponse: {
     encode(message: QueryEscrowAddressResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryEscrowAddressResponse;
+    fromJSON(object: any): QueryEscrowAddressResponse;
+    toJSON(message: QueryEscrowAddressResponse): unknown;
     fromPartial(object: DeepPartial<QueryEscrowAddressResponse>): QueryEscrowAddressResponse;
 };

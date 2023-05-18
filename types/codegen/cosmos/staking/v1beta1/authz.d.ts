@@ -63,10 +63,14 @@ export interface StakeAuthorization_ValidatorsSDKType {
 export declare const StakeAuthorization: {
     encode(message: StakeAuthorization, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): StakeAuthorization;
+    fromJSON(object: any): StakeAuthorization;
+    toJSON(message: StakeAuthorization): unknown;
     fromPartial(object: DeepPartial<StakeAuthorization>): StakeAuthorization;
 };
 export declare const StakeAuthorization_Validators: {
     encode(message: StakeAuthorization_Validators, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): StakeAuthorization_Validators;
+    fromJSON(object: any): StakeAuthorization_Validators;
+    toJSON(message: StakeAuthorization_Validators): unknown;
     fromPartial(object: DeepPartial<StakeAuthorization_Validators>): StakeAuthorization_Validators;
 };

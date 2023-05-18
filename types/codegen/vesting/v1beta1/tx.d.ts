@@ -36,10 +36,14 @@ export interface MsgCreatePeriodicVestingAccountResponseSDKType {
 export declare const MsgCreatePeriodicVestingAccount: {
     encode(message: MsgCreatePeriodicVestingAccount, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreatePeriodicVestingAccount;
+    fromJSON(object: any): MsgCreatePeriodicVestingAccount;
+    toJSON(message: MsgCreatePeriodicVestingAccount): unknown;
     fromPartial(object: DeepPartial<MsgCreatePeriodicVestingAccount>): MsgCreatePeriodicVestingAccount;
 };
 export declare const MsgCreatePeriodicVestingAccountResponse: {
     encode(_: MsgCreatePeriodicVestingAccountResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreatePeriodicVestingAccountResponse;
+    fromJSON(_: any): MsgCreatePeriodicVestingAccountResponse;
+    toJSON(_: MsgCreatePeriodicVestingAccountResponse): unknown;
     fromPartial(_: DeepPartial<MsgCreatePeriodicVestingAccountResponse>): MsgCreatePeriodicVestingAccountResponse;
 };

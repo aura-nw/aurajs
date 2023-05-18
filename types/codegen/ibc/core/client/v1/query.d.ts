@@ -1,8 +1,8 @@
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../../cosmos/base/query/v1beta1/pagination";
 import { Any, AnySDKType } from "../../../../google/protobuf/any";
 import { Height, HeightSDKType, IdentifiedClientState, IdentifiedClientStateSDKType, ConsensusStateWithHeight, ConsensusStateWithHeightSDKType, Params, ParamsSDKType } from "./client";
+import { Long, DeepPartial } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "../../../../helpers";
 /**
  * QueryClientStateRequest is the request type for the Query/ClientState RPC
  * method
@@ -309,90 +309,126 @@ export interface QueryUpgradedConsensusStateResponseSDKType {
 export declare const QueryClientStateRequest: {
     encode(message: QueryClientStateRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryClientStateRequest;
+    fromJSON(object: any): QueryClientStateRequest;
+    toJSON(message: QueryClientStateRequest): unknown;
     fromPartial(object: DeepPartial<QueryClientStateRequest>): QueryClientStateRequest;
 };
 export declare const QueryClientStateResponse: {
     encode(message: QueryClientStateResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryClientStateResponse;
+    fromJSON(object: any): QueryClientStateResponse;
+    toJSON(message: QueryClientStateResponse): unknown;
     fromPartial(object: DeepPartial<QueryClientStateResponse>): QueryClientStateResponse;
 };
 export declare const QueryClientStatesRequest: {
     encode(message: QueryClientStatesRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryClientStatesRequest;
+    fromJSON(object: any): QueryClientStatesRequest;
+    toJSON(message: QueryClientStatesRequest): unknown;
     fromPartial(object: DeepPartial<QueryClientStatesRequest>): QueryClientStatesRequest;
 };
 export declare const QueryClientStatesResponse: {
     encode(message: QueryClientStatesResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryClientStatesResponse;
+    fromJSON(object: any): QueryClientStatesResponse;
+    toJSON(message: QueryClientStatesResponse): unknown;
     fromPartial(object: DeepPartial<QueryClientStatesResponse>): QueryClientStatesResponse;
 };
 export declare const QueryConsensusStateRequest: {
     encode(message: QueryConsensusStateRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryConsensusStateRequest;
+    fromJSON(object: any): QueryConsensusStateRequest;
+    toJSON(message: QueryConsensusStateRequest): unknown;
     fromPartial(object: DeepPartial<QueryConsensusStateRequest>): QueryConsensusStateRequest;
 };
 export declare const QueryConsensusStateResponse: {
     encode(message: QueryConsensusStateResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryConsensusStateResponse;
+    fromJSON(object: any): QueryConsensusStateResponse;
+    toJSON(message: QueryConsensusStateResponse): unknown;
     fromPartial(object: DeepPartial<QueryConsensusStateResponse>): QueryConsensusStateResponse;
 };
 export declare const QueryConsensusStatesRequest: {
     encode(message: QueryConsensusStatesRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryConsensusStatesRequest;
+    fromJSON(object: any): QueryConsensusStatesRequest;
+    toJSON(message: QueryConsensusStatesRequest): unknown;
     fromPartial(object: DeepPartial<QueryConsensusStatesRequest>): QueryConsensusStatesRequest;
 };
 export declare const QueryConsensusStatesResponse: {
     encode(message: QueryConsensusStatesResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryConsensusStatesResponse;
+    fromJSON(object: any): QueryConsensusStatesResponse;
+    toJSON(message: QueryConsensusStatesResponse): unknown;
     fromPartial(object: DeepPartial<QueryConsensusStatesResponse>): QueryConsensusStatesResponse;
 };
 export declare const QueryConsensusStateHeightsRequest: {
     encode(message: QueryConsensusStateHeightsRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryConsensusStateHeightsRequest;
+    fromJSON(object: any): QueryConsensusStateHeightsRequest;
+    toJSON(message: QueryConsensusStateHeightsRequest): unknown;
     fromPartial(object: DeepPartial<QueryConsensusStateHeightsRequest>): QueryConsensusStateHeightsRequest;
 };
 export declare const QueryConsensusStateHeightsResponse: {
     encode(message: QueryConsensusStateHeightsResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryConsensusStateHeightsResponse;
+    fromJSON(object: any): QueryConsensusStateHeightsResponse;
+    toJSON(message: QueryConsensusStateHeightsResponse): unknown;
     fromPartial(object: DeepPartial<QueryConsensusStateHeightsResponse>): QueryConsensusStateHeightsResponse;
 };
 export declare const QueryClientStatusRequest: {
     encode(message: QueryClientStatusRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryClientStatusRequest;
+    fromJSON(object: any): QueryClientStatusRequest;
+    toJSON(message: QueryClientStatusRequest): unknown;
     fromPartial(object: DeepPartial<QueryClientStatusRequest>): QueryClientStatusRequest;
 };
 export declare const QueryClientStatusResponse: {
     encode(message: QueryClientStatusResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryClientStatusResponse;
+    fromJSON(object: any): QueryClientStatusResponse;
+    toJSON(message: QueryClientStatusResponse): unknown;
     fromPartial(object: DeepPartial<QueryClientStatusResponse>): QueryClientStatusResponse;
 };
 export declare const QueryClientParamsRequest: {
     encode(_: QueryClientParamsRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryClientParamsRequest;
+    fromJSON(_: any): QueryClientParamsRequest;
+    toJSON(_: QueryClientParamsRequest): unknown;
     fromPartial(_: DeepPartial<QueryClientParamsRequest>): QueryClientParamsRequest;
 };
 export declare const QueryClientParamsResponse: {
     encode(message: QueryClientParamsResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryClientParamsResponse;
+    fromJSON(object: any): QueryClientParamsResponse;
+    toJSON(message: QueryClientParamsResponse): unknown;
     fromPartial(object: DeepPartial<QueryClientParamsResponse>): QueryClientParamsResponse;
 };
 export declare const QueryUpgradedClientStateRequest: {
     encode(_: QueryUpgradedClientStateRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryUpgradedClientStateRequest;
+    fromJSON(_: any): QueryUpgradedClientStateRequest;
+    toJSON(_: QueryUpgradedClientStateRequest): unknown;
     fromPartial(_: DeepPartial<QueryUpgradedClientStateRequest>): QueryUpgradedClientStateRequest;
 };
 export declare const QueryUpgradedClientStateResponse: {
     encode(message: QueryUpgradedClientStateResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryUpgradedClientStateResponse;
+    fromJSON(object: any): QueryUpgradedClientStateResponse;
+    toJSON(message: QueryUpgradedClientStateResponse): unknown;
     fromPartial(object: DeepPartial<QueryUpgradedClientStateResponse>): QueryUpgradedClientStateResponse;
 };
 export declare const QueryUpgradedConsensusStateRequest: {
     encode(_: QueryUpgradedConsensusStateRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryUpgradedConsensusStateRequest;
+    fromJSON(_: any): QueryUpgradedConsensusStateRequest;
+    toJSON(_: QueryUpgradedConsensusStateRequest): unknown;
     fromPartial(_: DeepPartial<QueryUpgradedConsensusStateRequest>): QueryUpgradedConsensusStateRequest;
 };
 export declare const QueryUpgradedConsensusStateResponse: {
     encode(message: QueryUpgradedConsensusStateResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryUpgradedConsensusStateResponse;
+    fromJSON(object: any): QueryUpgradedConsensusStateResponse;
+    toJSON(message: QueryUpgradedConsensusStateResponse): unknown;
     fromPartial(object: DeepPartial<QueryUpgradedConsensusStateResponse>): QueryUpgradedConsensusStateResponse;
 };

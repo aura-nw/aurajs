@@ -60,27 +60,31 @@ export namespace ibc {
   export namespace applications {
     export namespace interchain_accounts {
       export namespace controller {
-        export const v1 = { ..._94,
+        export const v1 = {
+          ..._94,
           ..._95,
           ..._203,
           ..._209
         };
       }
       export namespace host {
-        export const v1 = { ..._96,
+        export const v1 = {
+          ..._96,
           ..._97,
           ..._204,
           ..._210
         };
       }
-      export const v1 = { ..._98,
+      export const v1 = {
+        ..._98,
         ..._99,
         ..._100,
         ..._101
       };
     }
     export namespace transfer {
-      export const v1 = { ..._102,
+      export const v1 = {
+        ..._102,
         ..._103,
         ..._104,
         ..._105,
@@ -90,13 +94,15 @@ export namespace ibc {
         ..._211,
         ..._215
       };
-      export const v2 = { ..._106
+      export const v2 = {
+        ..._106
       };
     }
   }
   export namespace core {
     export namespace channel {
-      export const v1 = { ..._107,
+      export const v1 = {
+        ..._107,
         ..._108,
         ..._109,
         ..._110,
@@ -108,7 +114,8 @@ export namespace ibc {
       };
     }
     export namespace client {
-      export const v1 = { ..._111,
+      export const v1 = {
+        ..._111,
         ..._112,
         ..._113,
         ..._114,
@@ -120,11 +127,13 @@ export namespace ibc {
       };
     }
     export namespace commitment {
-      export const v1 = { ..._115
+      export const v1 = {
+        ..._115
       };
     }
     export namespace connection {
-      export const v1 = { ..._116,
+      export const v1 = {
+        ..._116,
         ..._117,
         ..._118,
         ..._119,
@@ -136,27 +145,33 @@ export namespace ibc {
       };
     }
     export namespace types {
-      export const v1 = { ..._120
+      export const v1 = {
+        ..._120
       };
     }
   }
   export namespace lightclients {
     export namespace localhost {
-      export const v1 = { ..._121
+      export const v1 = {
+        ..._121
       };
     }
     export namespace solomachine {
-      export const v1 = { ..._122
+      export const v1 = {
+        ..._122
       };
-      export const v2 = { ..._123
+      export const v2 = {
+        ..._123
       };
     }
     export namespace tendermint {
-      export const v1 = { ..._124
+      export const v1 = {
+        ..._124
       };
     }
   }
-  export const ClientFactory = { ..._228,
+  export const ClientFactory = {
+    ..._228,
     ..._229,
     ..._230
   };

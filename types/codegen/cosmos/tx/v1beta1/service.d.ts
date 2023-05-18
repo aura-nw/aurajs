@@ -3,8 +3,8 @@ import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } fr
 import { TxResponse, TxResponseSDKType, GasInfo, GasInfoSDKType, Result, ResultSDKType } from "../../base/abci/v1beta1/abci";
 import { BlockID, BlockIDSDKType } from "../../../tendermint/types/types";
 import { Block, BlockSDKType } from "../../../tendermint/types/block";
+import { Long, DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "../../../helpers";
 /** OrderBy defines the sorting order */
 export declare enum OrderBy {
     /** ORDER_BY_UNSPECIFIED - ORDER_BY_UNSPECIFIED specifies an unknown sorting order. OrderBy defaults to ASC in this case. */
@@ -236,50 +236,70 @@ export interface GetBlockWithTxsResponseSDKType {
 export declare const GetTxsEventRequest: {
     encode(message: GetTxsEventRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): GetTxsEventRequest;
+    fromJSON(object: any): GetTxsEventRequest;
+    toJSON(message: GetTxsEventRequest): unknown;
     fromPartial(object: DeepPartial<GetTxsEventRequest>): GetTxsEventRequest;
 };
 export declare const GetTxsEventResponse: {
     encode(message: GetTxsEventResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): GetTxsEventResponse;
+    fromJSON(object: any): GetTxsEventResponse;
+    toJSON(message: GetTxsEventResponse): unknown;
     fromPartial(object: DeepPartial<GetTxsEventResponse>): GetTxsEventResponse;
 };
 export declare const BroadcastTxRequest: {
     encode(message: BroadcastTxRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): BroadcastTxRequest;
+    fromJSON(object: any): BroadcastTxRequest;
+    toJSON(message: BroadcastTxRequest): unknown;
     fromPartial(object: DeepPartial<BroadcastTxRequest>): BroadcastTxRequest;
 };
 export declare const BroadcastTxResponse: {
     encode(message: BroadcastTxResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): BroadcastTxResponse;
+    fromJSON(object: any): BroadcastTxResponse;
+    toJSON(message: BroadcastTxResponse): unknown;
     fromPartial(object: DeepPartial<BroadcastTxResponse>): BroadcastTxResponse;
 };
 export declare const SimulateRequest: {
     encode(message: SimulateRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): SimulateRequest;
+    fromJSON(object: any): SimulateRequest;
+    toJSON(message: SimulateRequest): unknown;
     fromPartial(object: DeepPartial<SimulateRequest>): SimulateRequest;
 };
 export declare const SimulateResponse: {
     encode(message: SimulateResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): SimulateResponse;
+    fromJSON(object: any): SimulateResponse;
+    toJSON(message: SimulateResponse): unknown;
     fromPartial(object: DeepPartial<SimulateResponse>): SimulateResponse;
 };
 export declare const GetTxRequest: {
     encode(message: GetTxRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): GetTxRequest;
+    fromJSON(object: any): GetTxRequest;
+    toJSON(message: GetTxRequest): unknown;
     fromPartial(object: DeepPartial<GetTxRequest>): GetTxRequest;
 };
 export declare const GetTxResponse: {
     encode(message: GetTxResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): GetTxResponse;
+    fromJSON(object: any): GetTxResponse;
+    toJSON(message: GetTxResponse): unknown;
     fromPartial(object: DeepPartial<GetTxResponse>): GetTxResponse;
 };
 export declare const GetBlockWithTxsRequest: {
     encode(message: GetBlockWithTxsRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): GetBlockWithTxsRequest;
+    fromJSON(object: any): GetBlockWithTxsRequest;
+    toJSON(message: GetBlockWithTxsRequest): unknown;
     fromPartial(object: DeepPartial<GetBlockWithTxsRequest>): GetBlockWithTxsRequest;
 };
 export declare const GetBlockWithTxsResponse: {
     encode(message: GetBlockWithTxsResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): GetBlockWithTxsResponse;
+    fromJSON(object: any): GetBlockWithTxsResponse;
+    toJSON(message: GetBlockWithTxsResponse): unknown;
     fromPartial(object: DeepPartial<GetBlockWithTxsResponse>): GetBlockWithTxsResponse;
 };

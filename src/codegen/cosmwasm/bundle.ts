@@ -14,7 +14,8 @@ import * as _232 from "./rpc.query";
 import * as _233 from "./rpc.tx";
 export namespace cosmwasm {
   export namespace wasm {
-    export const v1 = { ..._125,
+    export const v1 = {
+      ..._125,
       ..._126,
       ..._127,
       ..._128,
@@ -27,7 +28,8 @@ export namespace cosmwasm {
       ..._223
     };
   }
-  export const ClientFactory = { ..._231,
+  export const ClientFactory = {
+    ..._231,
     ..._232,
     ..._233
   };

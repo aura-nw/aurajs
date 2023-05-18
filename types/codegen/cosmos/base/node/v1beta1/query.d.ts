@@ -17,10 +17,14 @@ export interface ConfigResponseSDKType {
 export declare const ConfigRequest: {
     encode(_: ConfigRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): ConfigRequest;
+    fromJSON(_: any): ConfigRequest;
+    toJSON(_: ConfigRequest): unknown;
     fromPartial(_: DeepPartial<ConfigRequest>): ConfigRequest;
 };
 export declare const ConfigResponse: {
     encode(message: ConfigResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): ConfigResponse;
+    fromJSON(object: any): ConfigResponse;
+    toJSON(message: ConfigResponse): unknown;
     fromPartial(object: DeepPartial<ConfigResponse>): ConfigResponse;
 };

@@ -4,8 +4,8 @@ import { ProofSpec, ProofSpecSDKType } from "../../../../proofs";
 import { MerkleRoot, MerkleRootSDKType } from "../../../core/commitment/v1/commitment";
 import { SignedHeader, SignedHeaderSDKType } from "../../../../tendermint/types/types";
 import { ValidatorSet, ValidatorSetSDKType } from "../../../../tendermint/types/validator";
+import { Long, DeepPartial } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "../../../../helpers";
 /**
  * ClientState from Tendermint tracks the current validator set, latest height,
  * and a possible frozen height.
@@ -158,25 +158,35 @@ export interface FractionSDKType {
 export declare const ClientState: {
     encode(message: ClientState, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): ClientState;
+    fromJSON(object: any): ClientState;
+    toJSON(message: ClientState): unknown;
     fromPartial(object: DeepPartial<ClientState>): ClientState;
 };
 export declare const ConsensusState: {
     encode(message: ConsensusState, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): ConsensusState;
+    fromJSON(object: any): ConsensusState;
+    toJSON(message: ConsensusState): unknown;
     fromPartial(object: DeepPartial<ConsensusState>): ConsensusState;
 };
 export declare const Misbehaviour: {
     encode(message: Misbehaviour, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Misbehaviour;
+    fromJSON(object: any): Misbehaviour;
+    toJSON(message: Misbehaviour): unknown;
     fromPartial(object: DeepPartial<Misbehaviour>): Misbehaviour;
 };
 export declare const Header: {
     encode(message: Header, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Header;
+    fromJSON(object: any): Header;
+    toJSON(message: Header): unknown;
     fromPartial(object: DeepPartial<Header>): Header;
 };
 export declare const Fraction: {
     encode(message: Fraction, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Fraction;
+    fromJSON(object: any): Fraction;
+    toJSON(message: Fraction): unknown;
     fromPartial(object: DeepPartial<Fraction>): Fraction;
 };

@@ -18,6 +18,22 @@
     },
     "rpcClients": {
       "enabled": true
+    },
+    "prototypes": {
+      "typingsFormat": {
+        "timestamp":"date"
+      },
+      "methods": {
+        "fromJSON": true,
+        "toJSON": true,
+        "encode": true,
+        "decode": true,
+        "fromPartial": true,
+        "toAmino": false,
+        "fromAmino": false,
+        "fromProto": false,
+        "toProto": false
+      }
     }
   }
 }

@@ -9,6 +9,8 @@ export declare namespace auranw {
             GenesisState: {
                 encode(message: _132.GenesisState, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
                 decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _132.GenesisState;
+                fromJSON(object: any): _132.GenesisState;
+                toJSON(message: _132.GenesisState): unknown;
                 fromPartial(object: {
                     params?: {
                         maxSupply?: string;
@@ -19,6 +21,8 @@ export declare namespace auranw {
             Params: {
                 encode(message: _131.Params, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
                 decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _131.Params;
+                fromJSON(object: any): _131.Params;
+                toJSON(message: _131.Params): unknown;
                 fromPartial(object: {
                     maxSupply?: string;
                     excludeCirculatingAddr?: string[];

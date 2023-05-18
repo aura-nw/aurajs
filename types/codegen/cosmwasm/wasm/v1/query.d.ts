@@ -1,7 +1,7 @@
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
 import { ContractInfo, ContractInfoSDKType, ContractCodeHistoryEntry, ContractCodeHistoryEntrySDKType, Model, ModelSDKType, AccessConfig, AccessConfigSDKType, Params, ParamsSDKType } from "./types";
+import { Long, DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "../../../helpers";
 /**
  * QueryContractInfoRequest is the request type for the Query/ContractInfo RPC
  * method
@@ -310,105 +310,147 @@ export interface QueryParamsResponseSDKType {
 export declare const QueryContractInfoRequest: {
     encode(message: QueryContractInfoRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryContractInfoRequest;
+    fromJSON(object: any): QueryContractInfoRequest;
+    toJSON(message: QueryContractInfoRequest): unknown;
     fromPartial(object: DeepPartial<QueryContractInfoRequest>): QueryContractInfoRequest;
 };
 export declare const QueryContractInfoResponse: {
     encode(message: QueryContractInfoResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryContractInfoResponse;
+    fromJSON(object: any): QueryContractInfoResponse;
+    toJSON(message: QueryContractInfoResponse): unknown;
     fromPartial(object: DeepPartial<QueryContractInfoResponse>): QueryContractInfoResponse;
 };
 export declare const QueryContractHistoryRequest: {
     encode(message: QueryContractHistoryRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryContractHistoryRequest;
+    fromJSON(object: any): QueryContractHistoryRequest;
+    toJSON(message: QueryContractHistoryRequest): unknown;
     fromPartial(object: DeepPartial<QueryContractHistoryRequest>): QueryContractHistoryRequest;
 };
 export declare const QueryContractHistoryResponse: {
     encode(message: QueryContractHistoryResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryContractHistoryResponse;
+    fromJSON(object: any): QueryContractHistoryResponse;
+    toJSON(message: QueryContractHistoryResponse): unknown;
     fromPartial(object: DeepPartial<QueryContractHistoryResponse>): QueryContractHistoryResponse;
 };
 export declare const QueryContractsByCodeRequest: {
     encode(message: QueryContractsByCodeRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryContractsByCodeRequest;
+    fromJSON(object: any): QueryContractsByCodeRequest;
+    toJSON(message: QueryContractsByCodeRequest): unknown;
     fromPartial(object: DeepPartial<QueryContractsByCodeRequest>): QueryContractsByCodeRequest;
 };
 export declare const QueryContractsByCodeResponse: {
     encode(message: QueryContractsByCodeResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryContractsByCodeResponse;
+    fromJSON(object: any): QueryContractsByCodeResponse;
+    toJSON(message: QueryContractsByCodeResponse): unknown;
     fromPartial(object: DeepPartial<QueryContractsByCodeResponse>): QueryContractsByCodeResponse;
 };
 export declare const QueryAllContractStateRequest: {
     encode(message: QueryAllContractStateRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllContractStateRequest;
+    fromJSON(object: any): QueryAllContractStateRequest;
+    toJSON(message: QueryAllContractStateRequest): unknown;
     fromPartial(object: DeepPartial<QueryAllContractStateRequest>): QueryAllContractStateRequest;
 };
 export declare const QueryAllContractStateResponse: {
     encode(message: QueryAllContractStateResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllContractStateResponse;
+    fromJSON(object: any): QueryAllContractStateResponse;
+    toJSON(message: QueryAllContractStateResponse): unknown;
     fromPartial(object: DeepPartial<QueryAllContractStateResponse>): QueryAllContractStateResponse;
 };
 export declare const QueryRawContractStateRequest: {
     encode(message: QueryRawContractStateRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryRawContractStateRequest;
+    fromJSON(object: any): QueryRawContractStateRequest;
+    toJSON(message: QueryRawContractStateRequest): unknown;
     fromPartial(object: DeepPartial<QueryRawContractStateRequest>): QueryRawContractStateRequest;
 };
 export declare const QueryRawContractStateResponse: {
     encode(message: QueryRawContractStateResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryRawContractStateResponse;
+    fromJSON(object: any): QueryRawContractStateResponse;
+    toJSON(message: QueryRawContractStateResponse): unknown;
     fromPartial(object: DeepPartial<QueryRawContractStateResponse>): QueryRawContractStateResponse;
 };
 export declare const QuerySmartContractStateRequest: {
     encode(message: QuerySmartContractStateRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QuerySmartContractStateRequest;
+    fromJSON(object: any): QuerySmartContractStateRequest;
+    toJSON(message: QuerySmartContractStateRequest): unknown;
     fromPartial(object: DeepPartial<QuerySmartContractStateRequest>): QuerySmartContractStateRequest;
 };
 export declare const QuerySmartContractStateResponse: {
     encode(message: QuerySmartContractStateResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QuerySmartContractStateResponse;
+    fromJSON(object: any): QuerySmartContractStateResponse;
+    toJSON(message: QuerySmartContractStateResponse): unknown;
     fromPartial(object: DeepPartial<QuerySmartContractStateResponse>): QuerySmartContractStateResponse;
 };
 export declare const QueryCodeRequest: {
     encode(message: QueryCodeRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryCodeRequest;
+    fromJSON(object: any): QueryCodeRequest;
+    toJSON(message: QueryCodeRequest): unknown;
     fromPartial(object: DeepPartial<QueryCodeRequest>): QueryCodeRequest;
 };
 export declare const CodeInfoResponse: {
     encode(message: CodeInfoResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): CodeInfoResponse;
+    fromJSON(object: any): CodeInfoResponse;
+    toJSON(message: CodeInfoResponse): unknown;
     fromPartial(object: DeepPartial<CodeInfoResponse>): CodeInfoResponse;
 };
 export declare const QueryCodeResponse: {
     encode(message: QueryCodeResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryCodeResponse;
+    fromJSON(object: any): QueryCodeResponse;
+    toJSON(message: QueryCodeResponse): unknown;
     fromPartial(object: DeepPartial<QueryCodeResponse>): QueryCodeResponse;
 };
 export declare const QueryCodesRequest: {
     encode(message: QueryCodesRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryCodesRequest;
+    fromJSON(object: any): QueryCodesRequest;
+    toJSON(message: QueryCodesRequest): unknown;
     fromPartial(object: DeepPartial<QueryCodesRequest>): QueryCodesRequest;
 };
 export declare const QueryCodesResponse: {
     encode(message: QueryCodesResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryCodesResponse;
+    fromJSON(object: any): QueryCodesResponse;
+    toJSON(message: QueryCodesResponse): unknown;
     fromPartial(object: DeepPartial<QueryCodesResponse>): QueryCodesResponse;
 };
 export declare const QueryPinnedCodesRequest: {
     encode(message: QueryPinnedCodesRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryPinnedCodesRequest;
+    fromJSON(object: any): QueryPinnedCodesRequest;
+    toJSON(message: QueryPinnedCodesRequest): unknown;
     fromPartial(object: DeepPartial<QueryPinnedCodesRequest>): QueryPinnedCodesRequest;
 };
 export declare const QueryPinnedCodesResponse: {
     encode(message: QueryPinnedCodesResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryPinnedCodesResponse;
+    fromJSON(object: any): QueryPinnedCodesResponse;
+    toJSON(message: QueryPinnedCodesResponse): unknown;
     fromPartial(object: DeepPartial<QueryPinnedCodesResponse>): QueryPinnedCodesResponse;
 };
 export declare const QueryParamsRequest: {
     encode(_: QueryParamsRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsRequest;
+    fromJSON(_: any): QueryParamsRequest;
+    toJSON(_: QueryParamsRequest): unknown;
     fromPartial(_: DeepPartial<QueryParamsRequest>): QueryParamsRequest;
 };
 export declare const QueryParamsResponse: {
     encode(message: QueryParamsResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse;
+    fromJSON(object: any): QueryParamsResponse;
+    toJSON(message: QueryParamsResponse): unknown;
     fromPartial(object: DeepPartial<QueryParamsResponse>): QueryParamsResponse;
 };

@@ -31,5 +31,7 @@ export interface StoreKVPairSDKType {
 export declare const StoreKVPair: {
     encode(message: StoreKVPair, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): StoreKVPair;
+    fromJSON(object: any): StoreKVPair;
+    toJSON(message: StoreKVPair): unknown;
     fromPartial(object: DeepPartial<StoreKVPair>): StoreKVPair;
 };

@@ -14,7 +14,6 @@ export const MessageComposer = {
         value: MsgTransfer.encode(value).finish()
       };
     }
-
   },
   withTypeUrl: {
     transfer(value: MsgTransfer) {
@@ -23,7 +22,22 @@ export const MessageComposer = {
         value
       };
     }
-
+  },
+  toJSON: {
+    transfer(value: MsgTransfer) {
+      return {
+        typeUrl: "/ibc.applications.transfer.v1.MsgTransfer",
+        value: MsgTransfer.toJSON(value)
+      };
+    }
+  },
+  fromJSON: {
+    transfer(value: any) {
+      return {
+        typeUrl: "/ibc.applications.transfer.v1.MsgTransfer",
+        value: MsgTransfer.fromJSON(value)
+      };
+    }
   },
   fromPartial: {
     transfer(value: MsgTransfer) {
@@ -32,6 +46,5 @@ export const MessageComposer = {
         value: MsgTransfer.fromPartial(value)
       };
     }
-
   }
 };

@@ -63,25 +63,35 @@ export interface ProofOpsSDKType {
 export declare const Proof: {
     encode(message: Proof, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Proof;
+    fromJSON(object: any): Proof;
+    toJSON(message: Proof): unknown;
     fromPartial(object: DeepPartial<Proof>): Proof;
 };
 export declare const ValueOp: {
     encode(message: ValueOp, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): ValueOp;
+    fromJSON(object: any): ValueOp;
+    toJSON(message: ValueOp): unknown;
     fromPartial(object: DeepPartial<ValueOp>): ValueOp;
 };
 export declare const DominoOp: {
     encode(message: DominoOp, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): DominoOp;
+    fromJSON(object: any): DominoOp;
+    toJSON(message: DominoOp): unknown;
     fromPartial(object: DeepPartial<DominoOp>): DominoOp;
 };
 export declare const ProofOp: {
     encode(message: ProofOp, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): ProofOp;
+    fromJSON(object: any): ProofOp;
+    toJSON(message: ProofOp): unknown;
     fromPartial(object: DeepPartial<ProofOp>): ProofOp;
 };
 export declare const ProofOps: {
     encode(message: ProofOps, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): ProofOps;
+    fromJSON(object: any): ProofOps;
+    toJSON(message: ProofOps): unknown;
     fromPartial(object: DeepPartial<ProofOps>): ProofOps;
 };

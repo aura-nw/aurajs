@@ -52,10 +52,14 @@ export interface MsgTransferResponseSDKType {
 export declare const MsgTransfer: {
     encode(message: MsgTransfer, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgTransfer;
+    fromJSON(object: any): MsgTransfer;
+    toJSON(message: MsgTransfer): unknown;
     fromPartial(object: DeepPartial<MsgTransfer>): MsgTransfer;
 };
 export declare const MsgTransferResponse: {
     encode(_: MsgTransferResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgTransferResponse;
+    fromJSON(_: any): MsgTransferResponse;
+    toJSON(_: MsgTransferResponse): unknown;
     fromPartial(_: DeepPartial<MsgTransferResponse>): MsgTransferResponse;
 };

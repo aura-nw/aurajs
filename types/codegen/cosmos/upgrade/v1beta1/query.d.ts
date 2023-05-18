@@ -1,6 +1,6 @@
 import { Plan, PlanSDKType, ModuleVersion, ModuleVersionSDKType } from "./upgrade";
+import { Long, DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "../../../helpers";
 /**
  * QueryCurrentPlanRequest is the request type for the Query/CurrentPlan RPC
  * method.
@@ -140,40 +140,56 @@ export interface QueryModuleVersionsResponseSDKType {
 export declare const QueryCurrentPlanRequest: {
     encode(_: QueryCurrentPlanRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryCurrentPlanRequest;
+    fromJSON(_: any): QueryCurrentPlanRequest;
+    toJSON(_: QueryCurrentPlanRequest): unknown;
     fromPartial(_: DeepPartial<QueryCurrentPlanRequest>): QueryCurrentPlanRequest;
 };
 export declare const QueryCurrentPlanResponse: {
     encode(message: QueryCurrentPlanResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryCurrentPlanResponse;
+    fromJSON(object: any): QueryCurrentPlanResponse;
+    toJSON(message: QueryCurrentPlanResponse): unknown;
     fromPartial(object: DeepPartial<QueryCurrentPlanResponse>): QueryCurrentPlanResponse;
 };
 export declare const QueryAppliedPlanRequest: {
     encode(message: QueryAppliedPlanRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryAppliedPlanRequest;
+    fromJSON(object: any): QueryAppliedPlanRequest;
+    toJSON(message: QueryAppliedPlanRequest): unknown;
     fromPartial(object: DeepPartial<QueryAppliedPlanRequest>): QueryAppliedPlanRequest;
 };
 export declare const QueryAppliedPlanResponse: {
     encode(message: QueryAppliedPlanResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryAppliedPlanResponse;
+    fromJSON(object: any): QueryAppliedPlanResponse;
+    toJSON(message: QueryAppliedPlanResponse): unknown;
     fromPartial(object: DeepPartial<QueryAppliedPlanResponse>): QueryAppliedPlanResponse;
 };
 export declare const QueryUpgradedConsensusStateRequest: {
     encode(message: QueryUpgradedConsensusStateRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryUpgradedConsensusStateRequest;
+    fromJSON(object: any): QueryUpgradedConsensusStateRequest;
+    toJSON(message: QueryUpgradedConsensusStateRequest): unknown;
     fromPartial(object: DeepPartial<QueryUpgradedConsensusStateRequest>): QueryUpgradedConsensusStateRequest;
 };
 export declare const QueryUpgradedConsensusStateResponse: {
     encode(message: QueryUpgradedConsensusStateResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryUpgradedConsensusStateResponse;
+    fromJSON(object: any): QueryUpgradedConsensusStateResponse;
+    toJSON(message: QueryUpgradedConsensusStateResponse): unknown;
     fromPartial(object: DeepPartial<QueryUpgradedConsensusStateResponse>): QueryUpgradedConsensusStateResponse;
 };
 export declare const QueryModuleVersionsRequest: {
     encode(message: QueryModuleVersionsRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryModuleVersionsRequest;
+    fromJSON(object: any): QueryModuleVersionsRequest;
+    toJSON(message: QueryModuleVersionsRequest): unknown;
     fromPartial(object: DeepPartial<QueryModuleVersionsRequest>): QueryModuleVersionsRequest;
 };
 export declare const QueryModuleVersionsResponse: {
     encode(message: QueryModuleVersionsResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryModuleVersionsResponse;
+    fromJSON(object: any): QueryModuleVersionsResponse;
+    toJSON(message: QueryModuleVersionsResponse): unknown;
     fromPartial(object: DeepPartial<QueryModuleVersionsResponse>): QueryModuleVersionsResponse;
 };

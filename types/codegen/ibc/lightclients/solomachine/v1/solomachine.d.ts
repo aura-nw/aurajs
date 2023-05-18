@@ -311,80 +311,112 @@ export interface NextSequenceRecvDataSDKType {
 export declare const ClientState: {
     encode(message: ClientState, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): ClientState;
+    fromJSON(object: any): ClientState;
+    toJSON(message: ClientState): unknown;
     fromPartial(object: DeepPartial<ClientState>): ClientState;
 };
 export declare const ConsensusState: {
     encode(message: ConsensusState, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): ConsensusState;
+    fromJSON(object: any): ConsensusState;
+    toJSON(message: ConsensusState): unknown;
     fromPartial(object: DeepPartial<ConsensusState>): ConsensusState;
 };
 export declare const Header: {
     encode(message: Header, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Header;
+    fromJSON(object: any): Header;
+    toJSON(message: Header): unknown;
     fromPartial(object: DeepPartial<Header>): Header;
 };
 export declare const Misbehaviour: {
     encode(message: Misbehaviour, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Misbehaviour;
+    fromJSON(object: any): Misbehaviour;
+    toJSON(message: Misbehaviour): unknown;
     fromPartial(object: DeepPartial<Misbehaviour>): Misbehaviour;
 };
 export declare const SignatureAndData: {
     encode(message: SignatureAndData, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): SignatureAndData;
+    fromJSON(object: any): SignatureAndData;
+    toJSON(message: SignatureAndData): unknown;
     fromPartial(object: DeepPartial<SignatureAndData>): SignatureAndData;
 };
 export declare const TimestampedSignatureData: {
     encode(message: TimestampedSignatureData, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): TimestampedSignatureData;
+    fromJSON(object: any): TimestampedSignatureData;
+    toJSON(message: TimestampedSignatureData): unknown;
     fromPartial(object: DeepPartial<TimestampedSignatureData>): TimestampedSignatureData;
 };
 export declare const SignBytes: {
     encode(message: SignBytes, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): SignBytes;
+    fromJSON(object: any): SignBytes;
+    toJSON(message: SignBytes): unknown;
     fromPartial(object: DeepPartial<SignBytes>): SignBytes;
 };
 export declare const HeaderData: {
     encode(message: HeaderData, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): HeaderData;
+    fromJSON(object: any): HeaderData;
+    toJSON(message: HeaderData): unknown;
     fromPartial(object: DeepPartial<HeaderData>): HeaderData;
 };
 export declare const ClientStateData: {
     encode(message: ClientStateData, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): ClientStateData;
+    fromJSON(object: any): ClientStateData;
+    toJSON(message: ClientStateData): unknown;
     fromPartial(object: DeepPartial<ClientStateData>): ClientStateData;
 };
 export declare const ConsensusStateData: {
     encode(message: ConsensusStateData, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): ConsensusStateData;
+    fromJSON(object: any): ConsensusStateData;
+    toJSON(message: ConsensusStateData): unknown;
     fromPartial(object: DeepPartial<ConsensusStateData>): ConsensusStateData;
 };
 export declare const ConnectionStateData: {
     encode(message: ConnectionStateData, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): ConnectionStateData;
+    fromJSON(object: any): ConnectionStateData;
+    toJSON(message: ConnectionStateData): unknown;
     fromPartial(object: DeepPartial<ConnectionStateData>): ConnectionStateData;
 };
 export declare const ChannelStateData: {
     encode(message: ChannelStateData, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): ChannelStateData;
+    fromJSON(object: any): ChannelStateData;
+    toJSON(message: ChannelStateData): unknown;
     fromPartial(object: DeepPartial<ChannelStateData>): ChannelStateData;
 };
 export declare const PacketCommitmentData: {
     encode(message: PacketCommitmentData, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): PacketCommitmentData;
+    fromJSON(object: any): PacketCommitmentData;
+    toJSON(message: PacketCommitmentData): unknown;
     fromPartial(object: DeepPartial<PacketCommitmentData>): PacketCommitmentData;
 };
 export declare const PacketAcknowledgementData: {
     encode(message: PacketAcknowledgementData, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): PacketAcknowledgementData;
+    fromJSON(object: any): PacketAcknowledgementData;
+    toJSON(message: PacketAcknowledgementData): unknown;
     fromPartial(object: DeepPartial<PacketAcknowledgementData>): PacketAcknowledgementData;
 };
 export declare const PacketReceiptAbsenceData: {
     encode(message: PacketReceiptAbsenceData, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): PacketReceiptAbsenceData;
+    fromJSON(object: any): PacketReceiptAbsenceData;
+    toJSON(message: PacketReceiptAbsenceData): unknown;
     fromPartial(object: DeepPartial<PacketReceiptAbsenceData>): PacketReceiptAbsenceData;
 };
 export declare const NextSequenceRecvData: {
     encode(message: NextSequenceRecvData, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): NextSequenceRecvData;
+    fromJSON(object: any): NextSequenceRecvData;
+    toJSON(message: NextSequenceRecvData): unknown;
     fromPartial(object: DeepPartial<NextSequenceRecvData>): NextSequenceRecvData;
 };

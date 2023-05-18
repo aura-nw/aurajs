@@ -102,5 +102,7 @@ export interface HttpBodySDKType {
 export declare const HttpBody: {
     encode(message: HttpBody, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): HttpBody;
+    fromJSON(object: any): HttpBody;
+    toJSON(message: HttpBody): unknown;
     fromPartial(object: DeepPartial<HttpBody>): HttpBody;
 };

@@ -36,5 +36,7 @@ export interface MetadataSDKType {
 export declare const Metadata: {
     encode(message: Metadata, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Metadata;
+    fromJSON(object: any): Metadata;
+    toJSON(message: Metadata): unknown;
     fromPartial(object: DeepPartial<Metadata>): Metadata;
 };

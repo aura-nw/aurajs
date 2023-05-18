@@ -9,6 +9,8 @@ export declare namespace google {
         HttpBody: {
             encode(message: _78.HttpBody, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _78.HttpBody;
+            fromJSON(object: any): _78.HttpBody;
+            toJSON(message: _78.HttpBody): unknown;
             fromPartial(object: {
                 contentType?: string;
                 data?: Uint8Array;
@@ -21,6 +23,8 @@ export declare namespace google {
         Http: {
             encode(message: _77.Http, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _77.Http;
+            fromJSON(object: any): _77.Http;
+            toJSON(message: _77.Http): unknown;
             fromPartial(object: {
                 rules?: {
                     selector?: string;
@@ -43,6 +47,8 @@ export declare namespace google {
         HttpRule: {
             encode(message: _77.HttpRule, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _77.HttpRule;
+            fromJSON(object: any): _77.HttpRule;
+            toJSON(message: _77.HttpRule): unknown;
             fromPartial(object: {
                 selector?: string;
                 get?: string;
@@ -62,6 +68,8 @@ export declare namespace google {
         CustomHttpPattern: {
             encode(message: _77.CustomHttpPattern, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _77.CustomHttpPattern;
+            fromJSON(object: any): _77.CustomHttpPattern;
+            toJSON(message: _77.CustomHttpPattern): unknown;
             fromPartial(object: {
                 kind?: string;
                 path?: string;
@@ -96,6 +104,8 @@ export declare namespace google {
         FileDescriptorSet: {
             encode(message: _82.FileDescriptorSet, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.FileDescriptorSet;
+            fromJSON(object: any): _82.FileDescriptorSet;
+            toJSON(message: _82.FileDescriptorSet): unknown;
             fromPartial(object: {
                 file?: {
                     name?: string;
@@ -128,8 +138,8 @@ export declare namespace google {
                                         isExtension?: boolean;
                                     }[];
                                     identifierValue?: string;
-                                    positiveIntValue?: string | number | import("long");
-                                    negativeIntValue?: string | number | import("long");
+                                    positiveIntValue?: string | number | import("long").default;
+                                    negativeIntValue?: string | number | import("long").default;
                                     doubleValue?: number;
                                     stringValue?: Uint8Array;
                                     aggregateValue?: string;
@@ -159,8 +169,8 @@ export declare namespace google {
                                         isExtension?: boolean;
                                     }[];
                                     identifierValue?: string;
-                                    positiveIntValue?: string | number | import("long");
-                                    negativeIntValue?: string | number | import("long");
+                                    positiveIntValue?: string | number | import("long").default;
+                                    negativeIntValue?: string | number | import("long").default;
                                     doubleValue?: number;
                                     stringValue?: Uint8Array;
                                     aggregateValue?: string;
@@ -181,8 +191,8 @@ export declare namespace google {
                                             isExtension?: boolean;
                                         }[];
                                         identifierValue?: string;
-                                        positiveIntValue?: string | number | import("long");
-                                        negativeIntValue?: string | number | import("long");
+                                        positiveIntValue?: string | number | import("long").default;
+                                        negativeIntValue?: string | number | import("long").default;
                                         doubleValue?: number;
                                         stringValue?: Uint8Array;
                                         aggregateValue?: string;
@@ -198,8 +208,8 @@ export declare namespace google {
                                         isExtension?: boolean;
                                     }[];
                                     identifierValue?: string;
-                                    positiveIntValue?: string | number | import("long");
-                                    negativeIntValue?: string | number | import("long");
+                                    positiveIntValue?: string | number | import("long").default;
+                                    negativeIntValue?: string | number | import("long").default;
                                     doubleValue?: number;
                                     stringValue?: Uint8Array;
                                     aggregateValue?: string;
@@ -221,8 +231,8 @@ export declare namespace google {
                                         isExtension?: boolean;
                                     }[];
                                     identifierValue?: string;
-                                    positiveIntValue?: string | number | import("long");
-                                    negativeIntValue?: string | number | import("long");
+                                    positiveIntValue?: string | number | import("long").default;
+                                    negativeIntValue?: string | number | import("long").default;
                                     doubleValue?: number;
                                     stringValue?: Uint8Array;
                                     aggregateValue?: string;
@@ -238,8 +248,8 @@ export declare namespace google {
                                         isExtension?: boolean;
                                     }[];
                                     identifierValue?: string;
-                                    positiveIntValue?: string | number | import("long");
-                                    negativeIntValue?: string | number | import("long");
+                                    positiveIntValue?: string | number | import("long").default;
+                                    negativeIntValue?: string | number | import("long").default;
                                     doubleValue?: number;
                                     stringValue?: Uint8Array;
                                     aggregateValue?: string;
@@ -257,8 +267,8 @@ export declare namespace google {
                                     isExtension?: boolean;
                                 }[];
                                 identifierValue?: string;
-                                positiveIntValue?: string | number | import("long");
-                                negativeIntValue?: string | number | import("long");
+                                positiveIntValue?: string | number | import("long").default;
+                                negativeIntValue?: string | number | import("long").default;
                                 doubleValue?: number;
                                 stringValue?: Uint8Array;
                                 aggregateValue?: string;
@@ -283,8 +293,8 @@ export declare namespace google {
                                         isExtension?: boolean;
                                     }[];
                                     identifierValue?: string;
-                                    positiveIntValue?: string | number | import("long");
-                                    negativeIntValue?: string | number | import("long");
+                                    positiveIntValue?: string | number | import("long").default;
+                                    negativeIntValue?: string | number | import("long").default;
                                     doubleValue?: number;
                                     stringValue?: Uint8Array;
                                     aggregateValue?: string;
@@ -300,8 +310,8 @@ export declare namespace google {
                                     isExtension?: boolean;
                                 }[];
                                 identifierValue?: string;
-                                positiveIntValue?: string | number | import("long");
-                                negativeIntValue?: string | number | import("long");
+                                positiveIntValue?: string | number | import("long").default;
+                                negativeIntValue?: string | number | import("long").default;
                                 doubleValue?: number;
                                 stringValue?: Uint8Array;
                                 aggregateValue?: string;
@@ -328,8 +338,8 @@ export declare namespace google {
                                         isExtension?: boolean;
                                     }[];
                                     identifierValue?: string;
-                                    positiveIntValue?: string | number | import("long");
-                                    negativeIntValue?: string | number | import("long");
+                                    positiveIntValue?: string | number | import("long").default;
+                                    negativeIntValue?: string | number | import("long").default;
                                     doubleValue?: number;
                                     stringValue?: Uint8Array;
                                     aggregateValue?: string;
@@ -346,8 +356,8 @@ export declare namespace google {
                                     isExtension?: boolean;
                                 }[];
                                 identifierValue?: string;
-                                positiveIntValue?: string | number | import("long");
-                                negativeIntValue?: string | number | import("long");
+                                positiveIntValue?: string | number | import("long").default;
+                                negativeIntValue?: string | number | import("long").default;
                                 doubleValue?: number;
                                 stringValue?: Uint8Array;
                                 aggregateValue?: string;
@@ -377,8 +387,8 @@ export declare namespace google {
                                     isExtension?: boolean;
                                 }[];
                                 identifierValue?: string;
-                                positiveIntValue?: string | number | import("long");
-                                negativeIntValue?: string | number | import("long");
+                                positiveIntValue?: string | number | import("long").default;
+                                negativeIntValue?: string | number | import("long").default;
                                 doubleValue?: number;
                                 stringValue?: Uint8Array;
                                 aggregateValue?: string;
@@ -412,8 +422,8 @@ export declare namespace google {
                                 isExtension?: boolean;
                             }[];
                             identifierValue?: string;
-                            positiveIntValue?: string | number | import("long");
-                            negativeIntValue?: string | number | import("long");
+                            positiveIntValue?: string | number | import("long").default;
+                            negativeIntValue?: string | number | import("long").default;
                             doubleValue?: number;
                             stringValue?: Uint8Array;
                             aggregateValue?: string;
@@ -435,6 +445,8 @@ export declare namespace google {
         FileDescriptorProto: {
             encode(message: _82.FileDescriptorProto, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.FileDescriptorProto;
+            fromJSON(object: any): _82.FileDescriptorProto;
+            toJSON(message: _82.FileDescriptorProto): unknown;
             fromPartial(object: {
                 name?: string;
                 package?: string;
@@ -466,8 +478,8 @@ export declare namespace google {
                                     isExtension?: boolean;
                                 }[];
                                 identifierValue?: string;
-                                positiveIntValue?: string | number | import("long");
-                                negativeIntValue?: string | number | import("long");
+                                positiveIntValue?: string | number | import("long").default;
+                                negativeIntValue?: string | number | import("long").default;
                                 doubleValue?: number;
                                 stringValue?: Uint8Array;
                                 aggregateValue?: string;
@@ -497,8 +509,8 @@ export declare namespace google {
                                     isExtension?: boolean;
                                 }[];
                                 identifierValue?: string;
-                                positiveIntValue?: string | number | import("long");
-                                negativeIntValue?: string | number | import("long");
+                                positiveIntValue?: string | number | import("long").default;
+                                negativeIntValue?: string | number | import("long").default;
                                 doubleValue?: number;
                                 stringValue?: Uint8Array;
                                 aggregateValue?: string;
@@ -519,8 +531,8 @@ export declare namespace google {
                                         isExtension?: boolean;
                                     }[];
                                     identifierValue?: string;
-                                    positiveIntValue?: string | number | import("long");
-                                    negativeIntValue?: string | number | import("long");
+                                    positiveIntValue?: string | number | import("long").default;
+                                    negativeIntValue?: string | number | import("long").default;
                                     doubleValue?: number;
                                     stringValue?: Uint8Array;
                                     aggregateValue?: string;
@@ -536,8 +548,8 @@ export declare namespace google {
                                     isExtension?: boolean;
                                 }[];
                                 identifierValue?: string;
-                                positiveIntValue?: string | number | import("long");
-                                negativeIntValue?: string | number | import("long");
+                                positiveIntValue?: string | number | import("long").default;
+                                negativeIntValue?: string | number | import("long").default;
                                 doubleValue?: number;
                                 stringValue?: Uint8Array;
                                 aggregateValue?: string;
@@ -559,8 +571,8 @@ export declare namespace google {
                                     isExtension?: boolean;
                                 }[];
                                 identifierValue?: string;
-                                positiveIntValue?: string | number | import("long");
-                                negativeIntValue?: string | number | import("long");
+                                positiveIntValue?: string | number | import("long").default;
+                                negativeIntValue?: string | number | import("long").default;
                                 doubleValue?: number;
                                 stringValue?: Uint8Array;
                                 aggregateValue?: string;
@@ -576,8 +588,8 @@ export declare namespace google {
                                     isExtension?: boolean;
                                 }[];
                                 identifierValue?: string;
-                                positiveIntValue?: string | number | import("long");
-                                negativeIntValue?: string | number | import("long");
+                                positiveIntValue?: string | number | import("long").default;
+                                negativeIntValue?: string | number | import("long").default;
                                 doubleValue?: number;
                                 stringValue?: Uint8Array;
                                 aggregateValue?: string;
@@ -595,8 +607,8 @@ export declare namespace google {
                                 isExtension?: boolean;
                             }[];
                             identifierValue?: string;
-                            positiveIntValue?: string | number | import("long");
-                            negativeIntValue?: string | number | import("long");
+                            positiveIntValue?: string | number | import("long").default;
+                            negativeIntValue?: string | number | import("long").default;
                             doubleValue?: number;
                             stringValue?: Uint8Array;
                             aggregateValue?: string;
@@ -621,8 +633,8 @@ export declare namespace google {
                                     isExtension?: boolean;
                                 }[];
                                 identifierValue?: string;
-                                positiveIntValue?: string | number | import("long");
-                                negativeIntValue?: string | number | import("long");
+                                positiveIntValue?: string | number | import("long").default;
+                                negativeIntValue?: string | number | import("long").default;
                                 doubleValue?: number;
                                 stringValue?: Uint8Array;
                                 aggregateValue?: string;
@@ -638,8 +650,8 @@ export declare namespace google {
                                 isExtension?: boolean;
                             }[];
                             identifierValue?: string;
-                            positiveIntValue?: string | number | import("long");
-                            negativeIntValue?: string | number | import("long");
+                            positiveIntValue?: string | number | import("long").default;
+                            negativeIntValue?: string | number | import("long").default;
                             doubleValue?: number;
                             stringValue?: Uint8Array;
                             aggregateValue?: string;
@@ -666,8 +678,8 @@ export declare namespace google {
                                     isExtension?: boolean;
                                 }[];
                                 identifierValue?: string;
-                                positiveIntValue?: string | number | import("long");
-                                negativeIntValue?: string | number | import("long");
+                                positiveIntValue?: string | number | import("long").default;
+                                negativeIntValue?: string | number | import("long").default;
                                 doubleValue?: number;
                                 stringValue?: Uint8Array;
                                 aggregateValue?: string;
@@ -684,8 +696,8 @@ export declare namespace google {
                                 isExtension?: boolean;
                             }[];
                             identifierValue?: string;
-                            positiveIntValue?: string | number | import("long");
-                            negativeIntValue?: string | number | import("long");
+                            positiveIntValue?: string | number | import("long").default;
+                            negativeIntValue?: string | number | import("long").default;
                             doubleValue?: number;
                             stringValue?: Uint8Array;
                             aggregateValue?: string;
@@ -715,8 +727,8 @@ export declare namespace google {
                                 isExtension?: boolean;
                             }[];
                             identifierValue?: string;
-                            positiveIntValue?: string | number | import("long");
-                            negativeIntValue?: string | number | import("long");
+                            positiveIntValue?: string | number | import("long").default;
+                            negativeIntValue?: string | number | import("long").default;
                             doubleValue?: number;
                             stringValue?: Uint8Array;
                             aggregateValue?: string;
@@ -750,8 +762,8 @@ export declare namespace google {
                             isExtension?: boolean;
                         }[];
                         identifierValue?: string;
-                        positiveIntValue?: string | number | import("long");
-                        negativeIntValue?: string | number | import("long");
+                        positiveIntValue?: string | number | import("long").default;
+                        negativeIntValue?: string | number | import("long").default;
                         doubleValue?: number;
                         stringValue?: Uint8Array;
                         aggregateValue?: string;
@@ -772,6 +784,8 @@ export declare namespace google {
         DescriptorProto: {
             encode(message: _82.DescriptorProto, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.DescriptorProto;
+            fromJSON(object: any): _82.DescriptorProto;
+            toJSON(message: _82.DescriptorProto): unknown;
             fromPartial(object: {
                 name?: string;
                 field?: {
@@ -797,8 +811,8 @@ export declare namespace google {
                                 isExtension?: boolean;
                             }[];
                             identifierValue?: string;
-                            positiveIntValue?: string | number | import("long");
-                            negativeIntValue?: string | number | import("long");
+                            positiveIntValue?: string | number | import("long").default;
+                            negativeIntValue?: string | number | import("long").default;
                             doubleValue?: number;
                             stringValue?: Uint8Array;
                             aggregateValue?: string;
@@ -828,8 +842,8 @@ export declare namespace google {
                                 isExtension?: boolean;
                             }[];
                             identifierValue?: string;
-                            positiveIntValue?: string | number | import("long");
-                            negativeIntValue?: string | number | import("long");
+                            positiveIntValue?: string | number | import("long").default;
+                            negativeIntValue?: string | number | import("long").default;
                             doubleValue?: number;
                             stringValue?: Uint8Array;
                             aggregateValue?: string;
@@ -850,8 +864,8 @@ export declare namespace google {
                                     isExtension?: boolean;
                                 }[];
                                 identifierValue?: string;
-                                positiveIntValue?: string | number | import("long");
-                                negativeIntValue?: string | number | import("long");
+                                positiveIntValue?: string | number | import("long").default;
+                                negativeIntValue?: string | number | import("long").default;
                                 doubleValue?: number;
                                 stringValue?: Uint8Array;
                                 aggregateValue?: string;
@@ -867,8 +881,8 @@ export declare namespace google {
                                 isExtension?: boolean;
                             }[];
                             identifierValue?: string;
-                            positiveIntValue?: string | number | import("long");
-                            negativeIntValue?: string | number | import("long");
+                            positiveIntValue?: string | number | import("long").default;
+                            negativeIntValue?: string | number | import("long").default;
                             doubleValue?: number;
                             stringValue?: Uint8Array;
                             aggregateValue?: string;
@@ -890,8 +904,8 @@ export declare namespace google {
                                 isExtension?: boolean;
                             }[];
                             identifierValue?: string;
-                            positiveIntValue?: string | number | import("long");
-                            negativeIntValue?: string | number | import("long");
+                            positiveIntValue?: string | number | import("long").default;
+                            negativeIntValue?: string | number | import("long").default;
                             doubleValue?: number;
                             stringValue?: Uint8Array;
                             aggregateValue?: string;
@@ -907,8 +921,8 @@ export declare namespace google {
                                 isExtension?: boolean;
                             }[];
                             identifierValue?: string;
-                            positiveIntValue?: string | number | import("long");
-                            negativeIntValue?: string | number | import("long");
+                            positiveIntValue?: string | number | import("long").default;
+                            negativeIntValue?: string | number | import("long").default;
                             doubleValue?: number;
                             stringValue?: Uint8Array;
                             aggregateValue?: string;
@@ -926,8 +940,8 @@ export declare namespace google {
                             isExtension?: boolean;
                         }[];
                         identifierValue?: string;
-                        positiveIntValue?: string | number | import("long");
-                        negativeIntValue?: string | number | import("long");
+                        positiveIntValue?: string | number | import("long").default;
+                        negativeIntValue?: string | number | import("long").default;
                         doubleValue?: number;
                         stringValue?: Uint8Array;
                         aggregateValue?: string;
@@ -943,6 +957,8 @@ export declare namespace google {
         DescriptorProto_ExtensionRange: {
             encode(message: _82.DescriptorProto_ExtensionRange, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.DescriptorProto_ExtensionRange;
+            fromJSON(object: any): _82.DescriptorProto_ExtensionRange;
+            toJSON(message: _82.DescriptorProto_ExtensionRange): unknown;
             fromPartial(object: {
                 start?: number;
                 end?: number;
@@ -953,8 +969,8 @@ export declare namespace google {
                             isExtension?: boolean;
                         }[];
                         identifierValue?: string;
-                        positiveIntValue?: string | number | import("long");
-                        negativeIntValue?: string | number | import("long");
+                        positiveIntValue?: string | number | import("long").default;
+                        negativeIntValue?: string | number | import("long").default;
                         doubleValue?: number;
                         stringValue?: Uint8Array;
                         aggregateValue?: string;
@@ -965,6 +981,8 @@ export declare namespace google {
         DescriptorProto_ReservedRange: {
             encode(message: _82.DescriptorProto_ReservedRange, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.DescriptorProto_ReservedRange;
+            fromJSON(object: any): _82.DescriptorProto_ReservedRange;
+            toJSON(message: _82.DescriptorProto_ReservedRange): unknown;
             fromPartial(object: {
                 start?: number;
                 end?: number;
@@ -973,6 +991,8 @@ export declare namespace google {
         ExtensionRangeOptions: {
             encode(message: _82.ExtensionRangeOptions, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.ExtensionRangeOptions;
+            fromJSON(object: any): _82.ExtensionRangeOptions;
+            toJSON(message: _82.ExtensionRangeOptions): unknown;
             fromPartial(object: {
                 uninterpretedOption?: {
                     name?: {
@@ -980,8 +1000,8 @@ export declare namespace google {
                         isExtension?: boolean;
                     }[];
                     identifierValue?: string;
-                    positiveIntValue?: string | number | import("long");
-                    negativeIntValue?: string | number | import("long");
+                    positiveIntValue?: string | number | import("long").default;
+                    negativeIntValue?: string | number | import("long").default;
                     doubleValue?: number;
                     stringValue?: Uint8Array;
                     aggregateValue?: string;
@@ -991,6 +1011,8 @@ export declare namespace google {
         FieldDescriptorProto: {
             encode(message: _82.FieldDescriptorProto, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.FieldDescriptorProto;
+            fromJSON(object: any): _82.FieldDescriptorProto;
+            toJSON(message: _82.FieldDescriptorProto): unknown;
             fromPartial(object: {
                 name?: string;
                 number?: number;
@@ -1014,8 +1036,8 @@ export declare namespace google {
                             isExtension?: boolean;
                         }[];
                         identifierValue?: string;
-                        positiveIntValue?: string | number | import("long");
-                        negativeIntValue?: string | number | import("long");
+                        positiveIntValue?: string | number | import("long").default;
+                        negativeIntValue?: string | number | import("long").default;
                         doubleValue?: number;
                         stringValue?: Uint8Array;
                         aggregateValue?: string;
@@ -1026,6 +1048,8 @@ export declare namespace google {
         OneofDescriptorProto: {
             encode(message: _82.OneofDescriptorProto, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.OneofDescriptorProto;
+            fromJSON(object: any): _82.OneofDescriptorProto;
+            toJSON(message: _82.OneofDescriptorProto): unknown;
             fromPartial(object: {
                 name?: string;
                 options?: {
@@ -1035,8 +1059,8 @@ export declare namespace google {
                             isExtension?: boolean;
                         }[];
                         identifierValue?: string;
-                        positiveIntValue?: string | number | import("long");
-                        negativeIntValue?: string | number | import("long");
+                        positiveIntValue?: string | number | import("long").default;
+                        negativeIntValue?: string | number | import("long").default;
                         doubleValue?: number;
                         stringValue?: Uint8Array;
                         aggregateValue?: string;
@@ -1047,6 +1071,8 @@ export declare namespace google {
         EnumDescriptorProto: {
             encode(message: _82.EnumDescriptorProto, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.EnumDescriptorProto;
+            fromJSON(object: any): _82.EnumDescriptorProto;
+            toJSON(message: _82.EnumDescriptorProto): unknown;
             fromPartial(object: {
                 name?: string;
                 value?: {
@@ -1060,8 +1086,8 @@ export declare namespace google {
                                 isExtension?: boolean;
                             }[];
                             identifierValue?: string;
-                            positiveIntValue?: string | number | import("long");
-                            negativeIntValue?: string | number | import("long");
+                            positiveIntValue?: string | number | import("long").default;
+                            negativeIntValue?: string | number | import("long").default;
                             doubleValue?: number;
                             stringValue?: Uint8Array;
                             aggregateValue?: string;
@@ -1077,8 +1103,8 @@ export declare namespace google {
                             isExtension?: boolean;
                         }[];
                         identifierValue?: string;
-                        positiveIntValue?: string | number | import("long");
-                        negativeIntValue?: string | number | import("long");
+                        positiveIntValue?: string | number | import("long").default;
+                        negativeIntValue?: string | number | import("long").default;
                         doubleValue?: number;
                         stringValue?: Uint8Array;
                         aggregateValue?: string;
@@ -1094,6 +1120,8 @@ export declare namespace google {
         EnumDescriptorProto_EnumReservedRange: {
             encode(message: _82.EnumDescriptorProto_EnumReservedRange, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.EnumDescriptorProto_EnumReservedRange;
+            fromJSON(object: any): _82.EnumDescriptorProto_EnumReservedRange;
+            toJSON(message: _82.EnumDescriptorProto_EnumReservedRange): unknown;
             fromPartial(object: {
                 start?: number;
                 end?: number;
@@ -1102,6 +1130,8 @@ export declare namespace google {
         EnumValueDescriptorProto: {
             encode(message: _82.EnumValueDescriptorProto, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.EnumValueDescriptorProto;
+            fromJSON(object: any): _82.EnumValueDescriptorProto;
+            toJSON(message: _82.EnumValueDescriptorProto): unknown;
             fromPartial(object: {
                 name?: string;
                 number?: number;
@@ -1113,8 +1143,8 @@ export declare namespace google {
                             isExtension?: boolean;
                         }[];
                         identifierValue?: string;
-                        positiveIntValue?: string | number | import("long");
-                        negativeIntValue?: string | number | import("long");
+                        positiveIntValue?: string | number | import("long").default;
+                        negativeIntValue?: string | number | import("long").default;
                         doubleValue?: number;
                         stringValue?: Uint8Array;
                         aggregateValue?: string;
@@ -1125,6 +1155,8 @@ export declare namespace google {
         ServiceDescriptorProto: {
             encode(message: _82.ServiceDescriptorProto, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.ServiceDescriptorProto;
+            fromJSON(object: any): _82.ServiceDescriptorProto;
+            toJSON(message: _82.ServiceDescriptorProto): unknown;
             fromPartial(object: {
                 name?: string;
                 method?: {
@@ -1140,8 +1172,8 @@ export declare namespace google {
                                 isExtension?: boolean;
                             }[];
                             identifierValue?: string;
-                            positiveIntValue?: string | number | import("long");
-                            negativeIntValue?: string | number | import("long");
+                            positiveIntValue?: string | number | import("long").default;
+                            negativeIntValue?: string | number | import("long").default;
                             doubleValue?: number;
                             stringValue?: Uint8Array;
                             aggregateValue?: string;
@@ -1158,8 +1190,8 @@ export declare namespace google {
                             isExtension?: boolean;
                         }[];
                         identifierValue?: string;
-                        positiveIntValue?: string | number | import("long");
-                        negativeIntValue?: string | number | import("long");
+                        positiveIntValue?: string | number | import("long").default;
+                        negativeIntValue?: string | number | import("long").default;
                         doubleValue?: number;
                         stringValue?: Uint8Array;
                         aggregateValue?: string;
@@ -1170,6 +1202,8 @@ export declare namespace google {
         MethodDescriptorProto: {
             encode(message: _82.MethodDescriptorProto, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.MethodDescriptorProto;
+            fromJSON(object: any): _82.MethodDescriptorProto;
+            toJSON(message: _82.MethodDescriptorProto): unknown;
             fromPartial(object: {
                 name?: string;
                 inputType?: string;
@@ -1183,8 +1217,8 @@ export declare namespace google {
                             isExtension?: boolean;
                         }[];
                         identifierValue?: string;
-                        positiveIntValue?: string | number | import("long");
-                        negativeIntValue?: string | number | import("long");
+                        positiveIntValue?: string | number | import("long").default;
+                        negativeIntValue?: string | number | import("long").default;
                         doubleValue?: number;
                         stringValue?: Uint8Array;
                         aggregateValue?: string;
@@ -1197,6 +1231,8 @@ export declare namespace google {
         FileOptions: {
             encode(message: _82.FileOptions, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.FileOptions;
+            fromJSON(object: any): _82.FileOptions;
+            toJSON(message: _82.FileOptions): unknown;
             fromPartial(object: {
                 javaPackage?: string;
                 javaOuterClassname?: string;
@@ -1224,8 +1260,8 @@ export declare namespace google {
                         isExtension?: boolean;
                     }[];
                     identifierValue?: string;
-                    positiveIntValue?: string | number | import("long");
-                    negativeIntValue?: string | number | import("long");
+                    positiveIntValue?: string | number | import("long").default;
+                    negativeIntValue?: string | number | import("long").default;
                     doubleValue?: number;
                     stringValue?: Uint8Array;
                     aggregateValue?: string;
@@ -1235,6 +1271,8 @@ export declare namespace google {
         MessageOptions: {
             encode(message: _82.MessageOptions, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.MessageOptions;
+            fromJSON(object: any): _82.MessageOptions;
+            toJSON(message: _82.MessageOptions): unknown;
             fromPartial(object: {
                 messageSetWireFormat?: boolean;
                 noStandardDescriptorAccessor?: boolean;
@@ -1246,8 +1284,8 @@ export declare namespace google {
                         isExtension?: boolean;
                     }[];
                     identifierValue?: string;
-                    positiveIntValue?: string | number | import("long");
-                    negativeIntValue?: string | number | import("long");
+                    positiveIntValue?: string | number | import("long").default;
+                    negativeIntValue?: string | number | import("long").default;
                     doubleValue?: number;
                     stringValue?: Uint8Array;
                     aggregateValue?: string;
@@ -1257,6 +1295,8 @@ export declare namespace google {
         FieldOptions: {
             encode(message: _82.FieldOptions, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.FieldOptions;
+            fromJSON(object: any): _82.FieldOptions;
+            toJSON(message: _82.FieldOptions): unknown;
             fromPartial(object: {
                 ctype?: _82.FieldOptions_CType;
                 packed?: boolean;
@@ -1270,8 +1310,8 @@ export declare namespace google {
                         isExtension?: boolean;
                     }[];
                     identifierValue?: string;
-                    positiveIntValue?: string | number | import("long");
-                    negativeIntValue?: string | number | import("long");
+                    positiveIntValue?: string | number | import("long").default;
+                    negativeIntValue?: string | number | import("long").default;
                     doubleValue?: number;
                     stringValue?: Uint8Array;
                     aggregateValue?: string;
@@ -1281,6 +1321,8 @@ export declare namespace google {
         OneofOptions: {
             encode(message: _82.OneofOptions, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.OneofOptions;
+            fromJSON(object: any): _82.OneofOptions;
+            toJSON(message: _82.OneofOptions): unknown;
             fromPartial(object: {
                 uninterpretedOption?: {
                     name?: {
@@ -1288,8 +1330,8 @@ export declare namespace google {
                         isExtension?: boolean;
                     }[];
                     identifierValue?: string;
-                    positiveIntValue?: string | number | import("long");
-                    negativeIntValue?: string | number | import("long");
+                    positiveIntValue?: string | number | import("long").default;
+                    negativeIntValue?: string | number | import("long").default;
                     doubleValue?: number;
                     stringValue?: Uint8Array;
                     aggregateValue?: string;
@@ -1299,6 +1341,8 @@ export declare namespace google {
         EnumOptions: {
             encode(message: _82.EnumOptions, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.EnumOptions;
+            fromJSON(object: any): _82.EnumOptions;
+            toJSON(message: _82.EnumOptions): unknown;
             fromPartial(object: {
                 allowAlias?: boolean;
                 deprecated?: boolean;
@@ -1308,8 +1352,8 @@ export declare namespace google {
                         isExtension?: boolean;
                     }[];
                     identifierValue?: string;
-                    positiveIntValue?: string | number | import("long");
-                    negativeIntValue?: string | number | import("long");
+                    positiveIntValue?: string | number | import("long").default;
+                    negativeIntValue?: string | number | import("long").default;
                     doubleValue?: number;
                     stringValue?: Uint8Array;
                     aggregateValue?: string;
@@ -1319,6 +1363,8 @@ export declare namespace google {
         EnumValueOptions: {
             encode(message: _82.EnumValueOptions, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.EnumValueOptions;
+            fromJSON(object: any): _82.EnumValueOptions;
+            toJSON(message: _82.EnumValueOptions): unknown;
             fromPartial(object: {
                 deprecated?: boolean;
                 uninterpretedOption?: {
@@ -1327,8 +1373,8 @@ export declare namespace google {
                         isExtension?: boolean;
                     }[];
                     identifierValue?: string;
-                    positiveIntValue?: string | number | import("long");
-                    negativeIntValue?: string | number | import("long");
+                    positiveIntValue?: string | number | import("long").default;
+                    negativeIntValue?: string | number | import("long").default;
                     doubleValue?: number;
                     stringValue?: Uint8Array;
                     aggregateValue?: string;
@@ -1338,6 +1384,8 @@ export declare namespace google {
         ServiceOptions: {
             encode(message: _82.ServiceOptions, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.ServiceOptions;
+            fromJSON(object: any): _82.ServiceOptions;
+            toJSON(message: _82.ServiceOptions): unknown;
             fromPartial(object: {
                 deprecated?: boolean;
                 uninterpretedOption?: {
@@ -1346,8 +1394,8 @@ export declare namespace google {
                         isExtension?: boolean;
                     }[];
                     identifierValue?: string;
-                    positiveIntValue?: string | number | import("long");
-                    negativeIntValue?: string | number | import("long");
+                    positiveIntValue?: string | number | import("long").default;
+                    negativeIntValue?: string | number | import("long").default;
                     doubleValue?: number;
                     stringValue?: Uint8Array;
                     aggregateValue?: string;
@@ -1357,6 +1405,8 @@ export declare namespace google {
         MethodOptions: {
             encode(message: _82.MethodOptions, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.MethodOptions;
+            fromJSON(object: any): _82.MethodOptions;
+            toJSON(message: _82.MethodOptions): unknown;
             fromPartial(object: {
                 deprecated?: boolean;
                 idempotencyLevel?: _82.MethodOptions_IdempotencyLevel;
@@ -1366,8 +1416,8 @@ export declare namespace google {
                         isExtension?: boolean;
                     }[];
                     identifierValue?: string;
-                    positiveIntValue?: string | number | import("long");
-                    negativeIntValue?: string | number | import("long");
+                    positiveIntValue?: string | number | import("long").default;
+                    negativeIntValue?: string | number | import("long").default;
                     doubleValue?: number;
                     stringValue?: Uint8Array;
                     aggregateValue?: string;
@@ -1377,14 +1427,16 @@ export declare namespace google {
         UninterpretedOption: {
             encode(message: _82.UninterpretedOption, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.UninterpretedOption;
+            fromJSON(object: any): _82.UninterpretedOption;
+            toJSON(message: _82.UninterpretedOption): unknown;
             fromPartial(object: {
                 name?: {
                     namePart?: string;
                     isExtension?: boolean;
                 }[];
                 identifierValue?: string;
-                positiveIntValue?: string | number | import("long");
-                negativeIntValue?: string | number | import("long");
+                positiveIntValue?: string | number | import("long").default;
+                negativeIntValue?: string | number | import("long").default;
                 doubleValue?: number;
                 stringValue?: Uint8Array;
                 aggregateValue?: string;
@@ -1393,6 +1445,8 @@ export declare namespace google {
         UninterpretedOption_NamePart: {
             encode(message: _82.UninterpretedOption_NamePart, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.UninterpretedOption_NamePart;
+            fromJSON(object: any): _82.UninterpretedOption_NamePart;
+            toJSON(message: _82.UninterpretedOption_NamePart): unknown;
             fromPartial(object: {
                 namePart?: string;
                 isExtension?: boolean;
@@ -1401,6 +1455,8 @@ export declare namespace google {
         SourceCodeInfo: {
             encode(message: _82.SourceCodeInfo, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.SourceCodeInfo;
+            fromJSON(object: any): _82.SourceCodeInfo;
+            toJSON(message: _82.SourceCodeInfo): unknown;
             fromPartial(object: {
                 location?: {
                     path?: number[];
@@ -1414,6 +1470,8 @@ export declare namespace google {
         SourceCodeInfo_Location: {
             encode(message: _82.SourceCodeInfo_Location, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.SourceCodeInfo_Location;
+            fromJSON(object: any): _82.SourceCodeInfo_Location;
+            toJSON(message: _82.SourceCodeInfo_Location): unknown;
             fromPartial(object: {
                 path?: number[];
                 span?: number[];
@@ -1425,6 +1483,8 @@ export declare namespace google {
         GeneratedCodeInfo: {
             encode(message: _82.GeneratedCodeInfo, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.GeneratedCodeInfo;
+            fromJSON(object: any): _82.GeneratedCodeInfo;
+            toJSON(message: _82.GeneratedCodeInfo): unknown;
             fromPartial(object: {
                 annotation?: {
                     path?: number[];
@@ -1437,6 +1497,8 @@ export declare namespace google {
         GeneratedCodeInfo_Annotation: {
             encode(message: _82.GeneratedCodeInfo_Annotation, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.GeneratedCodeInfo_Annotation;
+            fromJSON(object: any): _82.GeneratedCodeInfo_Annotation;
+            toJSON(message: _82.GeneratedCodeInfo_Annotation): unknown;
             fromPartial(object: {
                 path?: number[];
                 sourceFile?: string;
@@ -1447,22 +1509,28 @@ export declare namespace google {
         Duration: {
             encode(message: _81.Duration, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.Duration;
+            fromJSON(object: any): _81.Duration;
+            toJSON(message: _81.Duration): unknown;
             fromPartial(object: {
-                seconds?: string | number | import("long");
+                seconds?: string | number | import("long").default;
                 nanos?: number;
             }): _81.Duration;
         };
         Timestamp: {
             encode(message: _80.Timestamp, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _80.Timestamp;
+            fromJSON(object: any): _80.Timestamp;
+            toJSON(message: _80.Timestamp): unknown;
             fromPartial(object: {
-                seconds?: string | number | import("long");
+                seconds?: string | number | import("long").default;
                 nanos?: number;
             }): _80.Timestamp;
         };
         Any: {
             encode(message: _79.Any, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _79.Any;
+            fromJSON(object: any): _79.Any;
+            toJSON(message: _79.Any): unknown;
             fromPartial(object: {
                 typeUrl?: string;
                 value?: Uint8Array;

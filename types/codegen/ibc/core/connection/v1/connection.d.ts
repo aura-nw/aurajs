@@ -169,35 +169,49 @@ export interface ParamsSDKType {
 export declare const ConnectionEnd: {
     encode(message: ConnectionEnd, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): ConnectionEnd;
+    fromJSON(object: any): ConnectionEnd;
+    toJSON(message: ConnectionEnd): unknown;
     fromPartial(object: DeepPartial<ConnectionEnd>): ConnectionEnd;
 };
 export declare const IdentifiedConnection: {
     encode(message: IdentifiedConnection, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): IdentifiedConnection;
+    fromJSON(object: any): IdentifiedConnection;
+    toJSON(message: IdentifiedConnection): unknown;
     fromPartial(object: DeepPartial<IdentifiedConnection>): IdentifiedConnection;
 };
 export declare const Counterparty: {
     encode(message: Counterparty, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Counterparty;
+    fromJSON(object: any): Counterparty;
+    toJSON(message: Counterparty): unknown;
     fromPartial(object: DeepPartial<Counterparty>): Counterparty;
 };
 export declare const ClientPaths: {
     encode(message: ClientPaths, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): ClientPaths;
+    fromJSON(object: any): ClientPaths;
+    toJSON(message: ClientPaths): unknown;
     fromPartial(object: DeepPartial<ClientPaths>): ClientPaths;
 };
 export declare const ConnectionPaths: {
     encode(message: ConnectionPaths, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): ConnectionPaths;
+    fromJSON(object: any): ConnectionPaths;
+    toJSON(message: ConnectionPaths): unknown;
     fromPartial(object: DeepPartial<ConnectionPaths>): ConnectionPaths;
 };
 export declare const Version: {
     encode(message: Version, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Version;
+    fromJSON(object: any): Version;
+    toJSON(message: Version): unknown;
     fromPartial(object: DeepPartial<Version>): Version;
 };
 export declare const Params: {
     encode(message: Params, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Params;
+    fromJSON(object: any): Params;
+    toJSON(message: Params): unknown;
     fromPartial(object: DeepPartial<Params>): Params;
 };

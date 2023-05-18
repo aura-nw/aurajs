@@ -1,6 +1,6 @@
 import { Any, AnySDKType } from "../../../google/protobuf/any";
+import { Long, DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "../../../helpers";
 /** AccessType permission types */
 export declare enum AccessType {
     /** ACCESS_TYPE_UNSPECIFIED - AccessTypeUnspecified placeholder for empty value */
@@ -170,40 +170,56 @@ export interface ModelSDKType {
 export declare const AccessTypeParam: {
     encode(message: AccessTypeParam, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): AccessTypeParam;
+    fromJSON(object: any): AccessTypeParam;
+    toJSON(message: AccessTypeParam): unknown;
     fromPartial(object: DeepPartial<AccessTypeParam>): AccessTypeParam;
 };
 export declare const AccessConfig: {
     encode(message: AccessConfig, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): AccessConfig;
+    fromJSON(object: any): AccessConfig;
+    toJSON(message: AccessConfig): unknown;
     fromPartial(object: DeepPartial<AccessConfig>): AccessConfig;
 };
 export declare const Params: {
     encode(message: Params, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Params;
+    fromJSON(object: any): Params;
+    toJSON(message: Params): unknown;
     fromPartial(object: DeepPartial<Params>): Params;
 };
 export declare const CodeInfo: {
     encode(message: CodeInfo, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): CodeInfo;
+    fromJSON(object: any): CodeInfo;
+    toJSON(message: CodeInfo): unknown;
     fromPartial(object: DeepPartial<CodeInfo>): CodeInfo;
 };
 export declare const ContractInfo: {
     encode(message: ContractInfo, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): ContractInfo;
+    fromJSON(object: any): ContractInfo;
+    toJSON(message: ContractInfo): unknown;
     fromPartial(object: DeepPartial<ContractInfo>): ContractInfo;
 };
 export declare const ContractCodeHistoryEntry: {
     encode(message: ContractCodeHistoryEntry, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): ContractCodeHistoryEntry;
+    fromJSON(object: any): ContractCodeHistoryEntry;
+    toJSON(message: ContractCodeHistoryEntry): unknown;
     fromPartial(object: DeepPartial<ContractCodeHistoryEntry>): ContractCodeHistoryEntry;
 };
 export declare const AbsoluteTxPosition: {
     encode(message: AbsoluteTxPosition, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): AbsoluteTxPosition;
+    fromJSON(object: any): AbsoluteTxPosition;
+    toJSON(message: AbsoluteTxPosition): unknown;
     fromPartial(object: DeepPartial<AbsoluteTxPosition>): AbsoluteTxPosition;
 };
 export declare const Model: {
     encode(message: Model, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Model;
+    fromJSON(object: any): Model;
+    toJSON(message: Model): unknown;
     fromPartial(object: DeepPartial<Model>): Model;
 };

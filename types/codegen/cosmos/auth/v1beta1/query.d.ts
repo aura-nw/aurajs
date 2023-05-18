@@ -92,40 +92,56 @@ export interface QueryModuleAccountByNameResponseSDKType {
 export declare const QueryAccountsRequest: {
     encode(message: QueryAccountsRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryAccountsRequest;
+    fromJSON(object: any): QueryAccountsRequest;
+    toJSON(message: QueryAccountsRequest): unknown;
     fromPartial(object: DeepPartial<QueryAccountsRequest>): QueryAccountsRequest;
 };
 export declare const QueryAccountsResponse: {
     encode(message: QueryAccountsResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryAccountsResponse;
+    fromJSON(object: any): QueryAccountsResponse;
+    toJSON(message: QueryAccountsResponse): unknown;
     fromPartial(object: DeepPartial<QueryAccountsResponse>): QueryAccountsResponse;
 };
 export declare const QueryAccountRequest: {
     encode(message: QueryAccountRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryAccountRequest;
+    fromJSON(object: any): QueryAccountRequest;
+    toJSON(message: QueryAccountRequest): unknown;
     fromPartial(object: DeepPartial<QueryAccountRequest>): QueryAccountRequest;
 };
 export declare const QueryAccountResponse: {
     encode(message: QueryAccountResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryAccountResponse;
+    fromJSON(object: any): QueryAccountResponse;
+    toJSON(message: QueryAccountResponse): unknown;
     fromPartial(object: DeepPartial<QueryAccountResponse>): QueryAccountResponse;
 };
 export declare const QueryParamsRequest: {
     encode(_: QueryParamsRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsRequest;
+    fromJSON(_: any): QueryParamsRequest;
+    toJSON(_: QueryParamsRequest): unknown;
     fromPartial(_: DeepPartial<QueryParamsRequest>): QueryParamsRequest;
 };
 export declare const QueryParamsResponse: {
     encode(message: QueryParamsResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse;
+    fromJSON(object: any): QueryParamsResponse;
+    toJSON(message: QueryParamsResponse): unknown;
     fromPartial(object: DeepPartial<QueryParamsResponse>): QueryParamsResponse;
 };
 export declare const QueryModuleAccountByNameRequest: {
     encode(message: QueryModuleAccountByNameRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryModuleAccountByNameRequest;
+    fromJSON(object: any): QueryModuleAccountByNameRequest;
+    toJSON(message: QueryModuleAccountByNameRequest): unknown;
     fromPartial(object: DeepPartial<QueryModuleAccountByNameRequest>): QueryModuleAccountByNameRequest;
 };
 export declare const QueryModuleAccountByNameResponse: {
     encode(message: QueryModuleAccountByNameResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryModuleAccountByNameResponse;
+    fromJSON(object: any): QueryModuleAccountByNameResponse;
+    toJSON(message: QueryModuleAccountByNameResponse): unknown;
     fromPartial(object: DeepPartial<QueryModuleAccountByNameResponse>): QueryModuleAccountByNameResponse;
 };

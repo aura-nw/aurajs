@@ -8,14 +8,16 @@ import * as _235 from "./rpc.query";
 import * as _236 from "./rpc.tx";
 export namespace auranw {
   export namespace aura {
-    export const aura = { ..._131,
+    export const aura = {
+      ..._131,
       ..._132,
       ..._133,
       ..._134,
       ..._224
     };
   }
-  export const ClientFactory = { ..._234,
+  export const ClientFactory = {
+    ..._234,
     ..._235,
     ..._236
   };

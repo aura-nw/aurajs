@@ -14,5 +14,7 @@ export interface InterchainAccountSDKType {
 export declare const InterchainAccount: {
     encode(message: InterchainAccount, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): InterchainAccount;
+    fromJSON(object: any): InterchainAccount;
+    toJSON(message: InterchainAccount): unknown;
     fromPartial(object: DeepPartial<InterchainAccount>): InterchainAccount;
 };

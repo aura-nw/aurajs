@@ -15,6 +15,18 @@ export declare const MessageComposer: {
             value: MsgCreateVestingAccount;
         };
     };
+    toJSON: {
+        createVestingAccount(value: MsgCreateVestingAccount): {
+            typeUrl: string;
+            value: unknown;
+        };
+    };
+    fromJSON: {
+        createVestingAccount(value: any): {
+            typeUrl: string;
+            value: MsgCreateVestingAccount;
+        };
+    };
     fromPartial: {
         createVestingAccount(value: MsgCreateVestingAccount): {
             typeUrl: string;

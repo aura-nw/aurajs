@@ -16,5 +16,7 @@ export interface AllowedContractAllowanceSDKType {
 export declare const AllowedContractAllowance: {
     encode(message: AllowedContractAllowance, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): AllowedContractAllowance;
+    fromJSON(object: any): AllowedContractAllowance;
+    toJSON(message: AllowedContractAllowance): unknown;
     fromPartial(object: DeepPartial<AllowedContractAllowance>): AllowedContractAllowance;
 };

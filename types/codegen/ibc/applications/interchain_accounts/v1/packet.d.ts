@@ -38,10 +38,14 @@ export interface CosmosTxSDKType {
 export declare const InterchainAccountPacketData: {
     encode(message: InterchainAccountPacketData, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): InterchainAccountPacketData;
+    fromJSON(object: any): InterchainAccountPacketData;
+    toJSON(message: InterchainAccountPacketData): unknown;
     fromPartial(object: DeepPartial<InterchainAccountPacketData>): InterchainAccountPacketData;
 };
 export declare const CosmosTx: {
     encode(message: CosmosTx, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): CosmosTx;
+    fromJSON(object: any): CosmosTx;
+    toJSON(message: CosmosTx): unknown;
     fromPartial(object: DeepPartial<CosmosTx>): CosmosTx;
 };

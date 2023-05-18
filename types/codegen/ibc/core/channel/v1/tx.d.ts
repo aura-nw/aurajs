@@ -1,7 +1,7 @@
 import { Channel, ChannelSDKType, Packet, PacketSDKType } from "./channel";
 import { Height, HeightSDKType } from "../../client/v1/client";
+import { Long, DeepPartial } from "../../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "../../../../helpers";
 /** ResponseResultType defines the possible outcomes of the execution of a message */
 export declare enum ResponseResultType {
     /** RESPONSE_RESULT_TYPE_UNSPECIFIED - Default zero value enumeration */
@@ -307,100 +307,140 @@ export interface MsgAcknowledgementResponseSDKType {
 export declare const MsgChannelOpenInit: {
     encode(message: MsgChannelOpenInit, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelOpenInit;
+    fromJSON(object: any): MsgChannelOpenInit;
+    toJSON(message: MsgChannelOpenInit): unknown;
     fromPartial(object: DeepPartial<MsgChannelOpenInit>): MsgChannelOpenInit;
 };
 export declare const MsgChannelOpenInitResponse: {
     encode(message: MsgChannelOpenInitResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelOpenInitResponse;
+    fromJSON(object: any): MsgChannelOpenInitResponse;
+    toJSON(message: MsgChannelOpenInitResponse): unknown;
     fromPartial(object: DeepPartial<MsgChannelOpenInitResponse>): MsgChannelOpenInitResponse;
 };
 export declare const MsgChannelOpenTry: {
     encode(message: MsgChannelOpenTry, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelOpenTry;
+    fromJSON(object: any): MsgChannelOpenTry;
+    toJSON(message: MsgChannelOpenTry): unknown;
     fromPartial(object: DeepPartial<MsgChannelOpenTry>): MsgChannelOpenTry;
 };
 export declare const MsgChannelOpenTryResponse: {
     encode(message: MsgChannelOpenTryResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelOpenTryResponse;
+    fromJSON(object: any): MsgChannelOpenTryResponse;
+    toJSON(message: MsgChannelOpenTryResponse): unknown;
     fromPartial(object: DeepPartial<MsgChannelOpenTryResponse>): MsgChannelOpenTryResponse;
 };
 export declare const MsgChannelOpenAck: {
     encode(message: MsgChannelOpenAck, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelOpenAck;
+    fromJSON(object: any): MsgChannelOpenAck;
+    toJSON(message: MsgChannelOpenAck): unknown;
     fromPartial(object: DeepPartial<MsgChannelOpenAck>): MsgChannelOpenAck;
 };
 export declare const MsgChannelOpenAckResponse: {
     encode(_: MsgChannelOpenAckResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelOpenAckResponse;
+    fromJSON(_: any): MsgChannelOpenAckResponse;
+    toJSON(_: MsgChannelOpenAckResponse): unknown;
     fromPartial(_: DeepPartial<MsgChannelOpenAckResponse>): MsgChannelOpenAckResponse;
 };
 export declare const MsgChannelOpenConfirm: {
     encode(message: MsgChannelOpenConfirm, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelOpenConfirm;
+    fromJSON(object: any): MsgChannelOpenConfirm;
+    toJSON(message: MsgChannelOpenConfirm): unknown;
     fromPartial(object: DeepPartial<MsgChannelOpenConfirm>): MsgChannelOpenConfirm;
 };
 export declare const MsgChannelOpenConfirmResponse: {
     encode(_: MsgChannelOpenConfirmResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelOpenConfirmResponse;
+    fromJSON(_: any): MsgChannelOpenConfirmResponse;
+    toJSON(_: MsgChannelOpenConfirmResponse): unknown;
     fromPartial(_: DeepPartial<MsgChannelOpenConfirmResponse>): MsgChannelOpenConfirmResponse;
 };
 export declare const MsgChannelCloseInit: {
     encode(message: MsgChannelCloseInit, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelCloseInit;
+    fromJSON(object: any): MsgChannelCloseInit;
+    toJSON(message: MsgChannelCloseInit): unknown;
     fromPartial(object: DeepPartial<MsgChannelCloseInit>): MsgChannelCloseInit;
 };
 export declare const MsgChannelCloseInitResponse: {
     encode(_: MsgChannelCloseInitResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelCloseInitResponse;
+    fromJSON(_: any): MsgChannelCloseInitResponse;
+    toJSON(_: MsgChannelCloseInitResponse): unknown;
     fromPartial(_: DeepPartial<MsgChannelCloseInitResponse>): MsgChannelCloseInitResponse;
 };
 export declare const MsgChannelCloseConfirm: {
     encode(message: MsgChannelCloseConfirm, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelCloseConfirm;
+    fromJSON(object: any): MsgChannelCloseConfirm;
+    toJSON(message: MsgChannelCloseConfirm): unknown;
     fromPartial(object: DeepPartial<MsgChannelCloseConfirm>): MsgChannelCloseConfirm;
 };
 export declare const MsgChannelCloseConfirmResponse: {
     encode(_: MsgChannelCloseConfirmResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelCloseConfirmResponse;
+    fromJSON(_: any): MsgChannelCloseConfirmResponse;
+    toJSON(_: MsgChannelCloseConfirmResponse): unknown;
     fromPartial(_: DeepPartial<MsgChannelCloseConfirmResponse>): MsgChannelCloseConfirmResponse;
 };
 export declare const MsgRecvPacket: {
     encode(message: MsgRecvPacket, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgRecvPacket;
+    fromJSON(object: any): MsgRecvPacket;
+    toJSON(message: MsgRecvPacket): unknown;
     fromPartial(object: DeepPartial<MsgRecvPacket>): MsgRecvPacket;
 };
 export declare const MsgRecvPacketResponse: {
     encode(message: MsgRecvPacketResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgRecvPacketResponse;
+    fromJSON(object: any): MsgRecvPacketResponse;
+    toJSON(message: MsgRecvPacketResponse): unknown;
     fromPartial(object: DeepPartial<MsgRecvPacketResponse>): MsgRecvPacketResponse;
 };
 export declare const MsgTimeout: {
     encode(message: MsgTimeout, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgTimeout;
+    fromJSON(object: any): MsgTimeout;
+    toJSON(message: MsgTimeout): unknown;
     fromPartial(object: DeepPartial<MsgTimeout>): MsgTimeout;
 };
 export declare const MsgTimeoutResponse: {
     encode(message: MsgTimeoutResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgTimeoutResponse;
+    fromJSON(object: any): MsgTimeoutResponse;
+    toJSON(message: MsgTimeoutResponse): unknown;
     fromPartial(object: DeepPartial<MsgTimeoutResponse>): MsgTimeoutResponse;
 };
 export declare const MsgTimeoutOnClose: {
     encode(message: MsgTimeoutOnClose, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgTimeoutOnClose;
+    fromJSON(object: any): MsgTimeoutOnClose;
+    toJSON(message: MsgTimeoutOnClose): unknown;
     fromPartial(object: DeepPartial<MsgTimeoutOnClose>): MsgTimeoutOnClose;
 };
 export declare const MsgTimeoutOnCloseResponse: {
     encode(message: MsgTimeoutOnCloseResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgTimeoutOnCloseResponse;
+    fromJSON(object: any): MsgTimeoutOnCloseResponse;
+    toJSON(message: MsgTimeoutOnCloseResponse): unknown;
     fromPartial(object: DeepPartial<MsgTimeoutOnCloseResponse>): MsgTimeoutOnCloseResponse;
 };
 export declare const MsgAcknowledgement: {
     encode(message: MsgAcknowledgement, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgAcknowledgement;
+    fromJSON(object: any): MsgAcknowledgement;
+    toJSON(message: MsgAcknowledgement): unknown;
     fromPartial(object: DeepPartial<MsgAcknowledgement>): MsgAcknowledgement;
 };
 export declare const MsgAcknowledgementResponse: {
     encode(message: MsgAcknowledgementResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgAcknowledgementResponse;
+    fromJSON(object: any): MsgAcknowledgementResponse;
+    toJSON(message: MsgAcknowledgementResponse): unknown;
     fromPartial(object: DeepPartial<MsgAcknowledgementResponse>): MsgAcknowledgementResponse;
 };
