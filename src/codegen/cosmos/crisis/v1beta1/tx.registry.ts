@@ -14,7 +14,6 @@ export const MessageComposer = {
         value: MsgVerifyInvariant.encode(value).finish()
       };
     }
-
   },
   withTypeUrl: {
     verifyInvariant(value: MsgVerifyInvariant) {
@@ -23,7 +22,22 @@ export const MessageComposer = {
         value
       };
     }
-
+  },
+  toJSON: {
+    verifyInvariant(value: MsgVerifyInvariant) {
+      return {
+        typeUrl: "/cosmos.crisis.v1beta1.MsgVerifyInvariant",
+        value: MsgVerifyInvariant.toJSON(value)
+      };
+    }
+  },
+  fromJSON: {
+    verifyInvariant(value: any) {
+      return {
+        typeUrl: "/cosmos.crisis.v1beta1.MsgVerifyInvariant",
+        value: MsgVerifyInvariant.fromJSON(value)
+      };
+    }
   },
   fromPartial: {
     verifyInvariant(value: MsgVerifyInvariant) {
@@ -32,6 +46,5 @@ export const MessageComposer = {
         value: MsgVerifyInvariant.fromPartial(value)
       };
     }
-
   }
 };

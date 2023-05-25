@@ -12,6 +12,9 @@ export declare const createLCDClient: ({ restEndpoint }: {
             v1beta1: import("./bank/v1beta1/query.lcd").LCDQueryClient;
         };
         base: {
+            node: {
+                v1beta1: import("./base/node/v1beta1/query.lcd").LCDQueryClient;
+            };
             tendermint: {
                 v1beta1: import("./base/tendermint/v1beta1/query.lcd").LCDQueryClient;
             };
@@ -26,17 +29,10 @@ export declare const createLCDClient: ({ restEndpoint }: {
             v1beta1: import("./feegrant/v1beta1/query.lcd").LCDQueryClient;
         };
         gov: {
-            v1: import("./gov/v1/query.lcd").LCDQueryClient;
             v1beta1: import("./gov/v1beta1/query.lcd").LCDQueryClient;
-        };
-        group: {
-            v1: import("./group/v1/query.lcd").LCDQueryClient;
         };
         mint: {
             v1beta1: import("./mint/v1beta1/query.lcd").LCDQueryClient;
-        };
-        nft: {
-            v1beta1: import("./nft/v1beta1/query.lcd").LCDQueryClient;
         };
         params: {
             v1beta1: import("./params/v1beta1/query.lcd").LCDQueryClient;

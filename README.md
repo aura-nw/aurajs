@@ -137,7 +137,12 @@ git clone https://github.com/cosmology-tech/stargazejs
 yarn
 yarn bootstrap
 ```
-
+## Update guide
+If the chain is upgraded to new version, aurajs must be regenerated:
+```js
+npm run codegen
+npm run buidl
+```
 ## Disclaimer
 
 AS DESCRIBED IN THE LICENSES, THE SOFTWARE IS PROVIDED “AS IS”, AT YOUR OWN RISK, AND WITHOUT WARRANTIES OF ANY KIND.

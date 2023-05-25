@@ -23,9 +23,7 @@ export interface StoreKVPair {
  * Since: cosmos-sdk 0.43
  */
 export interface StoreKVPairSDKType {
-    /** the store key for the KVStore this pair originates from */
     store_key: string;
-    /** true indicates a delete operation, false indicates a set operation */
     delete: boolean;
     key: Uint8Array;
     value: Uint8Array;
@@ -33,5 +31,7 @@ export interface StoreKVPairSDKType {
 export declare const StoreKVPair: {
     encode(message: StoreKVPair, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): StoreKVPair;
+    fromJSON(object: any): StoreKVPair;
+    toJSON(message: StoreKVPair): unknown;
     fromPartial(object: DeepPartial<StoreKVPair>): StoreKVPair;
 };
