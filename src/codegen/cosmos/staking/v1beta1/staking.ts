@@ -1,9 +1,9 @@
 import { Header, HeaderSDKType } from "../../../tendermint/types/types";
 import { Timestamp } from "../../../google/protobuf/timestamp";
 import { Any, AnySDKType } from "../../../google/protobuf/any";
-import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
+import { Duration } from "../../../google/protobuf/duration";
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
-import { Long, isSet, DeepPartial, toTimestamp, fromTimestamp, fromJsonTimestamp } from "../../../helpers";
+import { Long, isSet, DeepPartial, toTimestamp, fromTimestamp, fromJsonTimestamp, toDuration, fromDuration } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
 /** BondStatus is the status of a validator. */
 export enum BondStatus {
@@ -355,7 +355,7 @@ export interface RedelegationSDKType {
 /** Params defines the parameters for the staking module. */
 export interface Params {
   /** unbonding_time is the time duration of unbonding. */
-  unbondingTime?: Duration;
+  unbondingTime?: string;
   /** max_validators is the maximum number of validators. */
   maxValidators: number;
   /** max_entries is the max entries for either unbonding delegation or redelegation (per pair/trio). */
@@ -367,7 +367,7 @@ export interface Params {
 }
 /** Params defines the parameters for the staking module. */
 export interface ParamsSDKType {
-  unbonding_time?: DurationSDKType;
+  unbonding_time?: string;
   max_validators: number;
   max_entries: number;
   historical_entries: number;
@@ -1492,7 +1492,7 @@ function createBaseParams(): Params {
 export const Params = {
   encode(message: Params, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.unbondingTime !== undefined) {
-      Duration.encode(message.unbondingTime, writer.uint32(10).fork()).ldelim();
+      Duration.encode(toDuration(message.unbondingTime), writer.uint32(10).fork()).ldelim();
     }
     if (message.maxValidators !== 0) {
       writer.uint32(16).uint32(message.maxValidators);
@@ -1516,7 +1516,7 @@ export const Params = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.unbondingTime = Duration.decode(reader, reader.uint32());
+          message.unbondingTime = fromDuration(Duration.decode(reader, reader.uint32()));
           break;
         case 2:
           message.maxValidators = reader.uint32();
@@ -1539,7 +1539,7 @@ export const Params = {
   },
   fromJSON(object: any): Params {
     return {
-      unbondingTime: isSet(object.unbondingTime) ? Duration.fromJSON(object.unbondingTime) : undefined,
+      unbondingTime: isSet(object.unbondingTime) ? String(object.unbondingTime) : undefined,
       maxValidators: isSet(object.maxValidators) ? Number(object.maxValidators) : 0,
       maxEntries: isSet(object.maxEntries) ? Number(object.maxEntries) : 0,
       historicalEntries: isSet(object.historicalEntries) ? Number(object.historicalEntries) : 0,
@@ -1548,7 +1548,7 @@ export const Params = {
   },
   toJSON(message: Params): unknown {
     const obj: any = {};
-    message.unbondingTime !== undefined && (obj.unbondingTime = message.unbondingTime ? Duration.toJSON(message.unbondingTime) : undefined);
+    message.unbondingTime !== undefined && (obj.unbondingTime = message.unbondingTime);
     message.maxValidators !== undefined && (obj.maxValidators = Math.round(message.maxValidators));
     message.maxEntries !== undefined && (obj.maxEntries = Math.round(message.maxEntries));
     message.historicalEntries !== undefined && (obj.historicalEntries = Math.round(message.historicalEntries));
@@ -1557,7 +1557,7 @@ export const Params = {
   },
   fromPartial(object: DeepPartial<Params>): Params {
     const message = createBaseParams();
-    message.unbondingTime = object.unbondingTime !== undefined && object.unbondingTime !== null ? Duration.fromPartial(object.unbondingTime) : undefined;
+    message.unbondingTime = object.unbondingTime ?? undefined;
     message.maxValidators = object.maxValidators ?? 0;
     message.maxEntries = object.maxEntries ?? 0;
     message.historicalEntries = object.historicalEntries ?? 0;

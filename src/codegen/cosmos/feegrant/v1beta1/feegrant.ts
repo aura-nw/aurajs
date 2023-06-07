@@ -1,9 +1,9 @@
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
 import { Timestamp } from "../../../google/protobuf/timestamp";
-import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
+import { Duration } from "../../../google/protobuf/duration";
 import { Any, AnySDKType } from "../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
-import { toTimestamp, fromTimestamp, isSet, fromJsonTimestamp, DeepPartial } from "../../../helpers";
+import { toTimestamp, fromTimestamp, isSet, fromJsonTimestamp, DeepPartial, toDuration, fromDuration } from "../../../helpers";
 /**
  * BasicAllowance implements Allowance with a one-time grant of tokens
  * that optionally expires. The grantee can use up to SpendLimit to cover fees.
@@ -37,7 +37,7 @@ export interface PeriodicAllowance {
    * period specifies the time duration in which period_spend_limit coins can
    * be spent before that allowance is reset
    */
-  period?: Duration;
+  period?: string;
   /**
    * period_spend_limit specifies the maximum number of coins that can be spent
    * in the period
@@ -58,7 +58,7 @@ export interface PeriodicAllowance {
  */
 export interface PeriodicAllowanceSDKType {
   basic?: BasicAllowanceSDKType;
-  period?: DurationSDKType;
+  period?: string;
   period_spend_limit: CoinSDKType[];
   period_can_spend: CoinSDKType[];
   period_reset?: Date;
@@ -164,7 +164,7 @@ export const PeriodicAllowance = {
       BasicAllowance.encode(message.basic, writer.uint32(10).fork()).ldelim();
     }
     if (message.period !== undefined) {
-      Duration.encode(message.period, writer.uint32(18).fork()).ldelim();
+      Duration.encode(toDuration(message.period), writer.uint32(18).fork()).ldelim();
     }
     for (const v of message.periodSpendLimit) {
       Coin.encode(v!, writer.uint32(26).fork()).ldelim();
@@ -188,7 +188,7 @@ export const PeriodicAllowance = {
           message.basic = BasicAllowance.decode(reader, reader.uint32());
           break;
         case 2:
-          message.period = Duration.decode(reader, reader.uint32());
+          message.period = fromDuration(Duration.decode(reader, reader.uint32()));
           break;
         case 3:
           message.periodSpendLimit.push(Coin.decode(reader, reader.uint32()));
@@ -209,7 +209,7 @@ export const PeriodicAllowance = {
   fromJSON(object: any): PeriodicAllowance {
     return {
       basic: isSet(object.basic) ? BasicAllowance.fromJSON(object.basic) : undefined,
-      period: isSet(object.period) ? Duration.fromJSON(object.period) : undefined,
+      period: isSet(object.period) ? String(object.period) : undefined,
       periodSpendLimit: Array.isArray(object?.periodSpendLimit) ? object.periodSpendLimit.map((e: any) => Coin.fromJSON(e)) : [],
       periodCanSpend: Array.isArray(object?.periodCanSpend) ? object.periodCanSpend.map((e: any) => Coin.fromJSON(e)) : [],
       periodReset: isSet(object.periodReset) ? fromJsonTimestamp(object.periodReset) : undefined
@@ -218,7 +218,7 @@ export const PeriodicAllowance = {
   toJSON(message: PeriodicAllowance): unknown {
     const obj: any = {};
     message.basic !== undefined && (obj.basic = message.basic ? BasicAllowance.toJSON(message.basic) : undefined);
-    message.period !== undefined && (obj.period = message.period ? Duration.toJSON(message.period) : undefined);
+    message.period !== undefined && (obj.period = message.period);
     if (message.periodSpendLimit) {
       obj.periodSpendLimit = message.periodSpendLimit.map(e => e ? Coin.toJSON(e) : undefined);
     } else {
@@ -235,7 +235,7 @@ export const PeriodicAllowance = {
   fromPartial(object: DeepPartial<PeriodicAllowance>): PeriodicAllowance {
     const message = createBasePeriodicAllowance();
     message.basic = object.basic !== undefined && object.basic !== null ? BasicAllowance.fromPartial(object.basic) : undefined;
-    message.period = object.period !== undefined && object.period !== null ? Duration.fromPartial(object.period) : undefined;
+    message.period = object.period ?? undefined;
     message.periodSpendLimit = object.periodSpendLimit?.map(e => Coin.fromPartial(e)) || [];
     message.periodCanSpend = object.periodCanSpend?.map(e => Coin.fromPartial(e)) || [];
     message.periodReset = object.periodReset ?? undefined;

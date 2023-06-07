@@ -56,10 +56,7 @@ export declare namespace tendermint {
                         };
                         evidence?: {
                             maxAgeNumBlocks?: string | number | import("long").default;
-                            maxAgeDuration?: {
-                                seconds?: string | number | import("long").default;
-                                nanos?: number;
-                            };
+                            maxAgeDuration?: string;
                             maxBytes?: string | number | import("long").default;
                         };
                         validator?: {
@@ -219,10 +216,7 @@ export declare namespace tendermint {
                     };
                     evidence?: {
                         maxAgeNumBlocks?: string | number | import("long").default;
-                        maxAgeDuration?: {
-                            seconds?: string | number | import("long").default;
-                            nanos?: number;
-                        };
+                        maxAgeDuration?: string;
                         maxBytes?: string | number | import("long").default;
                     };
                     validator?: {
@@ -422,10 +416,7 @@ export declare namespace tendermint {
                         };
                         evidence?: {
                             maxAgeNumBlocks?: string | number | import("long").default;
-                            maxAgeDuration?: {
-                                seconds?: string | number | import("long").default;
-                                nanos?: number;
-                            };
+                            maxAgeDuration?: string;
                             maxBytes?: string | number | import("long").default;
                         };
                         validator?: {
@@ -523,10 +514,7 @@ export declare namespace tendermint {
                         };
                         evidence?: {
                             maxAgeNumBlocks?: string | number | import("long").default;
-                            maxAgeDuration?: {
-                                seconds?: string | number | import("long").default;
-                                nanos?: number;
-                            };
+                            maxAgeDuration?: string;
                             maxBytes?: string | number | import("long").default;
                         };
                         validator?: {
@@ -633,10 +621,7 @@ export declare namespace tendermint {
                     };
                     evidence?: {
                         maxAgeNumBlocks?: string | number | import("long").default;
-                        maxAgeDuration?: {
-                            seconds?: string | number | import("long").default;
-                            nanos?: number;
-                        };
+                        maxAgeDuration?: string;
                         maxBytes?: string | number | import("long").default;
                     };
                     validator?: {
@@ -764,10 +749,7 @@ export declare namespace tendermint {
                     };
                     evidence?: {
                         maxAgeNumBlocks?: string | number | import("long").default;
-                        maxAgeDuration?: {
-                            seconds?: string | number | import("long").default;
-                            nanos?: number;
-                        };
+                        maxAgeDuration?: string;
                         maxBytes?: string | number | import("long").default;
                     };
                     validator?: {
@@ -853,10 +835,7 @@ export declare namespace tendermint {
                 };
                 evidence?: {
                     maxAgeNumBlocks?: string | number | import("long").default;
-                    maxAgeDuration?: {
-                        seconds?: string | number | import("long").default;
-                        nanos?: number;
-                    };
+                    maxAgeDuration?: string;
                     maxBytes?: string | number | import("long").default;
                 };
                 validator?: {
@@ -1572,10 +1551,7 @@ export declare namespace tendermint {
                 };
                 evidence?: {
                     maxAgeNumBlocks?: string | number | import("long").default;
-                    maxAgeDuration?: {
-                        seconds?: string | number | import("long").default;
-                        nanos?: number;
-                    };
+                    maxAgeDuration?: string;
                     maxBytes?: string | number | import("long").default;
                 };
                 validator?: {
@@ -1604,10 +1580,7 @@ export declare namespace tendermint {
             toJSON(message: _90.EvidenceParams): unknown;
             fromPartial(object: {
                 maxAgeNumBlocks?: string | number | import("long").default;
-                maxAgeDuration?: {
-                    seconds?: string | number | import("long").default;
-                    nanos?: number;
-                };
+                maxAgeDuration?: string;
                 maxBytes?: string | number | import("long").default;
             }): _90.EvidenceParams;
         };

@@ -1,8 +1,8 @@
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
 import { Any, AnySDKType } from "../../../google/protobuf/any";
 import { Timestamp } from "../../../google/protobuf/timestamp";
-import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
-import { Long, isSet, DeepPartial, toTimestamp, fromTimestamp, fromJsonTimestamp, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { Duration } from "../../../google/protobuf/duration";
+import { Long, isSet, DeepPartial, toTimestamp, fromTimestamp, fromJsonTimestamp, toDuration, fromDuration, bytesFromBase64, base64FromBytes } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
 /** VoteOption enumerates the valid vote options for a given governance proposal. */
 export enum VoteOption {
@@ -262,21 +262,21 @@ export interface DepositParams {
    * Maximum period for Atom holders to deposit on a proposal. Initial value: 2
    *  months.
    */
-  maxDepositPeriod?: Duration;
+  maxDepositPeriod?: string;
 }
 /** DepositParams defines the params for deposits on governance proposals. */
 export interface DepositParamsSDKType {
   min_deposit: CoinSDKType[];
-  max_deposit_period?: DurationSDKType;
+  max_deposit_period?: string;
 }
 /** VotingParams defines the params for voting on governance proposals. */
 export interface VotingParams {
   /** Length of the voting period. */
-  votingPeriod?: Duration;
+  votingPeriod?: string;
 }
 /** VotingParams defines the params for voting on governance proposals. */
 export interface VotingParamsSDKType {
-  voting_period?: DurationSDKType;
+  voting_period?: string;
 }
 /** TallyParams defines the params for tallying votes on governance proposals. */
 export interface TallyParams {
@@ -773,7 +773,7 @@ export const DepositParams = {
       Coin.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     if (message.maxDepositPeriod !== undefined) {
-      Duration.encode(message.maxDepositPeriod, writer.uint32(18).fork()).ldelim();
+      Duration.encode(toDuration(message.maxDepositPeriod), writer.uint32(18).fork()).ldelim();
     }
     return writer;
   },
@@ -788,7 +788,7 @@ export const DepositParams = {
           message.minDeposit.push(Coin.decode(reader, reader.uint32()));
           break;
         case 2:
-          message.maxDepositPeriod = Duration.decode(reader, reader.uint32());
+          message.maxDepositPeriod = fromDuration(Duration.decode(reader, reader.uint32()));
           break;
         default:
           reader.skipType(tag & 7);
@@ -800,7 +800,7 @@ export const DepositParams = {
   fromJSON(object: any): DepositParams {
     return {
       minDeposit: Array.isArray(object?.minDeposit) ? object.minDeposit.map((e: any) => Coin.fromJSON(e)) : [],
-      maxDepositPeriod: isSet(object.maxDepositPeriod) ? Duration.fromJSON(object.maxDepositPeriod) : undefined
+      maxDepositPeriod: isSet(object.maxDepositPeriod) ? String(object.maxDepositPeriod) : undefined
     };
   },
   toJSON(message: DepositParams): unknown {
@@ -810,13 +810,13 @@ export const DepositParams = {
     } else {
       obj.minDeposit = [];
     }
-    message.maxDepositPeriod !== undefined && (obj.maxDepositPeriod = message.maxDepositPeriod ? Duration.toJSON(message.maxDepositPeriod) : undefined);
+    message.maxDepositPeriod !== undefined && (obj.maxDepositPeriod = message.maxDepositPeriod);
     return obj;
   },
   fromPartial(object: DeepPartial<DepositParams>): DepositParams {
     const message = createBaseDepositParams();
     message.minDeposit = object.minDeposit?.map(e => Coin.fromPartial(e)) || [];
-    message.maxDepositPeriod = object.maxDepositPeriod !== undefined && object.maxDepositPeriod !== null ? Duration.fromPartial(object.maxDepositPeriod) : undefined;
+    message.maxDepositPeriod = object.maxDepositPeriod ?? undefined;
     return message;
   }
 };
@@ -828,7 +828,7 @@ function createBaseVotingParams(): VotingParams {
 export const VotingParams = {
   encode(message: VotingParams, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.votingPeriod !== undefined) {
-      Duration.encode(message.votingPeriod, writer.uint32(10).fork()).ldelim();
+      Duration.encode(toDuration(message.votingPeriod), writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
@@ -840,7 +840,7 @@ export const VotingParams = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.votingPeriod = Duration.decode(reader, reader.uint32());
+          message.votingPeriod = fromDuration(Duration.decode(reader, reader.uint32()));
           break;
         default:
           reader.skipType(tag & 7);
@@ -851,17 +851,17 @@ export const VotingParams = {
   },
   fromJSON(object: any): VotingParams {
     return {
-      votingPeriod: isSet(object.votingPeriod) ? Duration.fromJSON(object.votingPeriod) : undefined
+      votingPeriod: isSet(object.votingPeriod) ? String(object.votingPeriod) : undefined
     };
   },
   toJSON(message: VotingParams): unknown {
     const obj: any = {};
-    message.votingPeriod !== undefined && (obj.votingPeriod = message.votingPeriod ? Duration.toJSON(message.votingPeriod) : undefined);
+    message.votingPeriod !== undefined && (obj.votingPeriod = message.votingPeriod);
     return obj;
   },
   fromPartial(object: DeepPartial<VotingParams>): VotingParams {
     const message = createBaseVotingParams();
-    message.votingPeriod = object.votingPeriod !== undefined && object.votingPeriod !== null ? Duration.fromPartial(object.votingPeriod) : undefined;
+    message.votingPeriod = object.votingPeriod ?? undefined;
     return message;
   }
 };

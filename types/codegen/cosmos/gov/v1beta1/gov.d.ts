@@ -1,6 +1,5 @@
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
 import { Any, AnySDKType } from "../../../google/protobuf/any";
-import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
 import { Long, DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
 /** VoteOption enumerates the valid vote options for a given governance proposal. */
@@ -180,21 +179,21 @@ export interface DepositParams {
      * Maximum period for Atom holders to deposit on a proposal. Initial value: 2
      *  months.
      */
-    maxDepositPeriod?: Duration;
+    maxDepositPeriod?: string;
 }
 /** DepositParams defines the params for deposits on governance proposals. */
 export interface DepositParamsSDKType {
     min_deposit: CoinSDKType[];
-    max_deposit_period?: DurationSDKType;
+    max_deposit_period?: string;
 }
 /** VotingParams defines the params for voting on governance proposals. */
 export interface VotingParams {
     /** Length of the voting period. */
-    votingPeriod?: Duration;
+    votingPeriod?: string;
 }
 /** VotingParams defines the params for voting on governance proposals. */
 export interface VotingParamsSDKType {
-    voting_period?: DurationSDKType;
+    voting_period?: string;
 }
 /** TallyParams defines the params for tallying votes on governance proposals. */
 export interface TallyParams {

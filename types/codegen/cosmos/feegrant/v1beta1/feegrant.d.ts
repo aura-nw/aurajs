@@ -1,5 +1,4 @@
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
-import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
 import { Any, AnySDKType } from "../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial } from "../../../helpers";
@@ -36,7 +35,7 @@ export interface PeriodicAllowance {
      * period specifies the time duration in which period_spend_limit coins can
      * be spent before that allowance is reset
      */
-    period?: Duration;
+    period?: string;
     /**
      * period_spend_limit specifies the maximum number of coins that can be spent
      * in the period
@@ -57,7 +56,7 @@ export interface PeriodicAllowance {
  */
 export interface PeriodicAllowanceSDKType {
     basic?: BasicAllowanceSDKType;
-    period?: DurationSDKType;
+    period?: string;
     period_spend_limit: CoinSDKType[];
     period_can_spend: CoinSDKType[];
     period_reset?: Date;

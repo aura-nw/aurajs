@@ -1,4 +1,3 @@
-import { Duration, DurationSDKType } from "../../google/protobuf/duration";
 import { Long, DeepPartial } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
 /**
@@ -63,7 +62,7 @@ export interface EvidenceParams {
      * mechanism for handling [Nothing-At-Stake
      * attacks](https://github.com/ethereum/wiki/wiki/Proof-of-Stake-FAQ#what-is-the-nothing-at-stake-problem-and-how-can-it-be-fixed).
      */
-    maxAgeDuration?: Duration;
+    maxAgeDuration?: string;
     /**
      * This sets the maximum size of total evidence in bytes that can be committed in a single block.
      * and should fall comfortably under the max block bytes.
@@ -74,7 +73,7 @@ export interface EvidenceParams {
 /** EvidenceParams determine how we handle evidence of malfeasance. */
 export interface EvidenceParamsSDKType {
     max_age_num_blocks: Long;
-    max_age_duration?: DurationSDKType;
+    max_age_duration?: string;
     max_bytes: Long;
 }
 /**
