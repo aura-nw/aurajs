@@ -1,6 +1,5 @@
 import { Header, HeaderSDKType } from "../../../tendermint/types/types";
 import { Any, AnySDKType } from "../../../google/protobuf/any";
-import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
 import { Long, DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
@@ -321,7 +320,7 @@ export interface RedelegationSDKType {
 /** Params defines the parameters for the staking module. */
 export interface Params {
     /** unbonding_time is the time duration of unbonding. */
-    unbondingTime?: Duration;
+    unbondingTime?: string;
     /** max_validators is the maximum number of validators. */
     maxValidators: number;
     /** max_entries is the max entries for either unbonding delegation or redelegation (per pair/trio). */
@@ -333,7 +332,7 @@ export interface Params {
 }
 /** Params defines the parameters for the staking module. */
 export interface ParamsSDKType {
-    unbonding_time?: DurationSDKType;
+    unbonding_time?: string;
     max_validators: number;
     max_entries: number;
     historical_entries: number;

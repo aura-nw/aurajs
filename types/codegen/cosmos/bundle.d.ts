@@ -4123,10 +4123,7 @@ export declare namespace cosmos {
                         }[];
                         expiration?: Date;
                     };
-                    period?: {
-                        seconds?: string | number | import("long").default;
-                        nanos?: number;
-                    };
+                    period?: string;
                     periodSpendLimit?: {
                         denom?: string;
                         amount?: string;
@@ -4624,20 +4621,14 @@ export declare namespace cosmos {
                 toJSON(message: _48.QueryParamsResponse): unknown;
                 fromPartial(object: {
                     votingParams?: {
-                        votingPeriod?: {
-                            seconds?: string | number | import("long").default;
-                            nanos?: number;
-                        };
+                        votingPeriod?: string;
                     };
                     depositParams?: {
                         minDeposit?: {
                             denom?: string;
                             amount?: string;
                         }[];
-                        maxDepositPeriod?: {
-                            seconds?: string | number | import("long").default;
-                            nanos?: number;
-                        };
+                        maxDepositPeriod?: string;
                     };
                     tallyParams?: {
                         quorum?: Uint8Array;
@@ -4838,10 +4829,7 @@ export declare namespace cosmos {
                         denom?: string;
                         amount?: string;
                     }[];
-                    maxDepositPeriod?: {
-                        seconds?: string | number | import("long").default;
-                        nanos?: number;
-                    };
+                    maxDepositPeriod?: string;
                 }): _47.DepositParams;
             };
             VotingParams: {
@@ -4850,10 +4838,7 @@ export declare namespace cosmos {
                 fromJSON(object: any): _47.VotingParams;
                 toJSON(message: _47.VotingParams): unknown;
                 fromPartial(object: {
-                    votingPeriod?: {
-                        seconds?: string | number | import("long").default;
-                        nanos?: number;
-                    };
+                    votingPeriod?: string;
                 }): _47.VotingParams;
             };
             TallyParams: {
@@ -4918,16 +4903,10 @@ export declare namespace cosmos {
                             denom?: string;
                             amount?: string;
                         }[];
-                        maxDepositPeriod?: {
-                            seconds?: string | number | import("long").default;
-                            nanos?: number;
-                        };
+                        maxDepositPeriod?: string;
                     };
                     votingParams?: {
-                        votingPeriod?: {
-                            seconds?: string | number | import("long").default;
-                            nanos?: number;
-                        };
+                        votingPeriod?: string;
                     };
                     tallyParams?: {
                         quorum?: Uint8Array;
@@ -5199,10 +5178,7 @@ export declare namespace cosmos {
                 fromPartial(object: {
                     signedBlocksWindow?: string | number | import("long").default;
                     minSignedPerWindow?: Uint8Array;
-                    downtimeJailDuration?: {
-                        seconds?: string | number | import("long").default;
-                        nanos?: number;
-                    };
+                    downtimeJailDuration?: string;
                     slashFractionDoubleSign?: Uint8Array;
                     slashFractionDowntime?: Uint8Array;
                 }): _57.Params;
@@ -5223,10 +5199,7 @@ export declare namespace cosmos {
                     params?: {
                         signedBlocksWindow?: string | number | import("long").default;
                         minSignedPerWindow?: Uint8Array;
-                        downtimeJailDuration?: {
-                            seconds?: string | number | import("long").default;
-                            nanos?: number;
-                        };
+                        downtimeJailDuration?: string;
                         slashFractionDoubleSign?: Uint8Array;
                         slashFractionDowntime?: Uint8Array;
                     };
@@ -5301,10 +5274,7 @@ export declare namespace cosmos {
                     params?: {
                         signedBlocksWindow?: string | number | import("long").default;
                         minSignedPerWindow?: Uint8Array;
-                        downtimeJailDuration?: {
-                            seconds?: string | number | import("long").default;
-                            nanos?: number;
-                        };
+                        downtimeJailDuration?: string;
                         slashFractionDoubleSign?: Uint8Array;
                         slashFractionDowntime?: Uint8Array;
                     };
@@ -6045,10 +6015,7 @@ export declare namespace cosmos {
                 fromJSON(object: any): _62.Params;
                 toJSON(message: _62.Params): unknown;
                 fromPartial(object: {
-                    unbondingTime?: {
-                        seconds?: string | number | import("long").default;
-                        nanos?: number;
-                    };
+                    unbondingTime?: string;
                     maxValidators?: number;
                     maxEntries?: number;
                     historicalEntries?: number;
@@ -6701,10 +6668,7 @@ export declare namespace cosmos {
                 toJSON(message: _61.QueryParamsResponse): unknown;
                 fromPartial(object: {
                     params?: {
-                        unbondingTime?: {
-                            seconds?: string | number | import("long").default;
-                            nanos?: number;
-                        };
+                        unbondingTime?: string;
                         maxValidators?: number;
                         maxEntries?: number;
                         historicalEntries?: number;
@@ -6719,10 +6683,7 @@ export declare namespace cosmos {
                 toJSON(message: _60.GenesisState): unknown;
                 fromPartial(object: {
                     params?: {
-                        unbondingTime?: {
-                            seconds?: string | number | import("long").default;
-                            nanos?: number;
-                        };
+                        unbondingTime?: string;
                         maxValidators?: number;
                         maxEntries?: number;
                         historicalEntries?: number;

@@ -21,7 +21,8 @@
     },
     "prototypes": {
       "typingsFormat": {
-        "timestamp":"date"
+        "timestamp": "date",
+        "duration": "string"
       },
       "methods": {
         "fromJSON": true,

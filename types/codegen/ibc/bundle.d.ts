@@ -4170,18 +4170,9 @@ export declare namespace ibc {
                             numerator?: string | number | import("long").default;
                             denominator?: string | number | import("long").default;
                         };
-                        trustingPeriod?: {
-                            seconds?: string | number | import("long").default;
-                            nanos?: number;
-                        };
-                        unbondingPeriod?: {
-                            seconds?: string | number | import("long").default;
-                            nanos?: number;
-                        };
-                        maxClockDrift?: {
-                            seconds?: string | number | import("long").default;
-                            nanos?: number;
-                        };
+                        trustingPeriod?: string;
+                        unbondingPeriod?: string;
+                        maxClockDrift?: string;
                         frozenHeight?: {
                             revisionNumber?: string | number | import("long").default;
                             revisionHeight?: string | number | import("long").default;

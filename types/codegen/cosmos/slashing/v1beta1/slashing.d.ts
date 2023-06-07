@@ -1,4 +1,3 @@
-import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
 import { Long, DeepPartial } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
 /**
@@ -44,7 +43,7 @@ export interface ValidatorSigningInfoSDKType {
 export interface Params {
     signedBlocksWindow: Long;
     minSignedPerWindow: Uint8Array;
-    downtimeJailDuration?: Duration;
+    downtimeJailDuration?: string;
     slashFractionDoubleSign: Uint8Array;
     slashFractionDowntime: Uint8Array;
 }
@@ -52,7 +51,7 @@ export interface Params {
 export interface ParamsSDKType {
     signed_blocks_window: Long;
     min_signed_per_window: Uint8Array;
-    downtime_jail_duration?: DurationSDKType;
+    downtime_jail_duration?: string;
     slash_fraction_double_sign: Uint8Array;
     slash_fraction_downtime: Uint8Array;
 }

@@ -1,4 +1,3 @@
-import { Duration, DurationSDKType } from "../../../../google/protobuf/duration";
 import { Height, HeightSDKType } from "../../../core/client/v1/client";
 import { ProofSpec, ProofSpecSDKType } from "../../../../proofs";
 import { MerkleRoot, MerkleRootSDKType } from "../../../core/commitment/v1/commitment";
@@ -17,11 +16,11 @@ export interface ClientState {
      * duration of the period since the LastestTimestamp during which the
      * submitted headers are valid for upgrade
      */
-    trustingPeriod?: Duration;
+    trustingPeriod?: string;
     /** duration of the staking unbonding period */
-    unbondingPeriod?: Duration;
+    unbondingPeriod?: string;
     /** defines how much new (untrusted) header's Time can drift into the future. */
-    maxClockDrift?: Duration;
+    maxClockDrift?: string;
     /** Block height when the client was frozen due to a misbehaviour */
     frozenHeight?: Height;
     /** Latest height the client was updated to */
@@ -52,9 +51,9 @@ export interface ClientState {
 export interface ClientStateSDKType {
     chain_id: string;
     trust_level?: FractionSDKType;
-    trusting_period?: DurationSDKType;
-    unbonding_period?: DurationSDKType;
-    max_clock_drift?: DurationSDKType;
+    trusting_period?: string;
+    unbonding_period?: string;
+    max_clock_drift?: string;
     frozen_height?: HeightSDKType;
     latest_height?: HeightSDKType;
     proof_specs: ProofSpecSDKType[];
