@@ -1,6 +1,6 @@
 {
   "name": "@aura-nw/aurajs",
-  "version": "0.1.5a-upgrade-aura-dev-branch",
+  "version": "0.1.5-beta-upgrade-aura-dev-branch",
   "description": "Aura javascript library, generate from telescope",
   "author": "ducnv1911 <ducnv1911@gmail.com>",
   "homepage": "https://github.com/aura-nw/aurajs#readme",
@@ -80,6 +80,7 @@
     "@cosmjs/proto-signing": "0.29.4",
     "@cosmjs/stargate": "0.29.4",
     "@cosmjs/tendermint-rpc": "^0.29.4",
+    "@cosmology/lcd": "^0.13.0",
     "@osmonauts/lcd": "^0.10.0",
     "@osmonauts/telescope": "1.0.2",
     "protobufjs": "^6.11.2"
