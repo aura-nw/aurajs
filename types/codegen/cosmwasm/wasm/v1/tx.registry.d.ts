@@ -1,5 +1,5 @@
 import { GeneratedType, Registry } from "@cosmjs/proto-signing";
-import { MsgStoreCode, MsgInstantiateContract, MsgInstantiateContract2, MsgExecuteContract, MsgMigrateContract, MsgUpdateAdmin, MsgClearAdmin } from "./tx";
+import { MsgStoreCode, MsgInstantiateContract, MsgInstantiateContract2, MsgExecuteContract, MsgMigrateContract, MsgUpdateAdmin, MsgClearAdmin, MsgUpdateInstantiateConfig, MsgUpdateParams, MsgSudoContract, MsgPinCodes, MsgUnpinCodes, MsgStoreAndInstantiateContract, MsgRemoveCodeUploadParamsAddresses, MsgAddCodeUploadParamsAddresses } from "./tx";
 export declare const registry: ReadonlyArray<[string, GeneratedType]>;
 export declare const load: (protoRegistry: Registry) => void;
 export declare const MessageComposer: {
@@ -29,6 +29,38 @@ export declare const MessageComposer: {
             value: Uint8Array;
         };
         clearAdmin(value: MsgClearAdmin): {
+            typeUrl: string;
+            value: Uint8Array;
+        };
+        updateInstantiateConfig(value: MsgUpdateInstantiateConfig): {
+            typeUrl: string;
+            value: Uint8Array;
+        };
+        updateParams(value: MsgUpdateParams): {
+            typeUrl: string;
+            value: Uint8Array;
+        };
+        sudoContract(value: MsgSudoContract): {
+            typeUrl: string;
+            value: Uint8Array;
+        };
+        pinCodes(value: MsgPinCodes): {
+            typeUrl: string;
+            value: Uint8Array;
+        };
+        unpinCodes(value: MsgUnpinCodes): {
+            typeUrl: string;
+            value: Uint8Array;
+        };
+        storeAndInstantiateContract(value: MsgStoreAndInstantiateContract): {
+            typeUrl: string;
+            value: Uint8Array;
+        };
+        removeCodeUploadParamsAddresses(value: MsgRemoveCodeUploadParamsAddresses): {
+            typeUrl: string;
+            value: Uint8Array;
+        };
+        addCodeUploadParamsAddresses(value: MsgAddCodeUploadParamsAddresses): {
             typeUrl: string;
             value: Uint8Array;
         };
@@ -62,6 +94,38 @@ export declare const MessageComposer: {
             typeUrl: string;
             value: MsgClearAdmin;
         };
+        updateInstantiateConfig(value: MsgUpdateInstantiateConfig): {
+            typeUrl: string;
+            value: MsgUpdateInstantiateConfig;
+        };
+        updateParams(value: MsgUpdateParams): {
+            typeUrl: string;
+            value: MsgUpdateParams;
+        };
+        sudoContract(value: MsgSudoContract): {
+            typeUrl: string;
+            value: MsgSudoContract;
+        };
+        pinCodes(value: MsgPinCodes): {
+            typeUrl: string;
+            value: MsgPinCodes;
+        };
+        unpinCodes(value: MsgUnpinCodes): {
+            typeUrl: string;
+            value: MsgUnpinCodes;
+        };
+        storeAndInstantiateContract(value: MsgStoreAndInstantiateContract): {
+            typeUrl: string;
+            value: MsgStoreAndInstantiateContract;
+        };
+        removeCodeUploadParamsAddresses(value: MsgRemoveCodeUploadParamsAddresses): {
+            typeUrl: string;
+            value: MsgRemoveCodeUploadParamsAddresses;
+        };
+        addCodeUploadParamsAddresses(value: MsgAddCodeUploadParamsAddresses): {
+            typeUrl: string;
+            value: MsgAddCodeUploadParamsAddresses;
+        };
     };
     toJSON: {
         storeCode(value: MsgStoreCode): {
@@ -89,6 +153,38 @@ export declare const MessageComposer: {
             value: unknown;
         };
         clearAdmin(value: MsgClearAdmin): {
+            typeUrl: string;
+            value: unknown;
+        };
+        updateInstantiateConfig(value: MsgUpdateInstantiateConfig): {
+            typeUrl: string;
+            value: unknown;
+        };
+        updateParams(value: MsgUpdateParams): {
+            typeUrl: string;
+            value: unknown;
+        };
+        sudoContract(value: MsgSudoContract): {
+            typeUrl: string;
+            value: unknown;
+        };
+        pinCodes(value: MsgPinCodes): {
+            typeUrl: string;
+            value: unknown;
+        };
+        unpinCodes(value: MsgUnpinCodes): {
+            typeUrl: string;
+            value: unknown;
+        };
+        storeAndInstantiateContract(value: MsgStoreAndInstantiateContract): {
+            typeUrl: string;
+            value: unknown;
+        };
+        removeCodeUploadParamsAddresses(value: MsgRemoveCodeUploadParamsAddresses): {
+            typeUrl: string;
+            value: unknown;
+        };
+        addCodeUploadParamsAddresses(value: MsgAddCodeUploadParamsAddresses): {
             typeUrl: string;
             value: unknown;
         };
@@ -122,6 +218,38 @@ export declare const MessageComposer: {
             typeUrl: string;
             value: MsgClearAdmin;
         };
+        updateInstantiateConfig(value: any): {
+            typeUrl: string;
+            value: MsgUpdateInstantiateConfig;
+        };
+        updateParams(value: any): {
+            typeUrl: string;
+            value: MsgUpdateParams;
+        };
+        sudoContract(value: any): {
+            typeUrl: string;
+            value: MsgSudoContract;
+        };
+        pinCodes(value: any): {
+            typeUrl: string;
+            value: MsgPinCodes;
+        };
+        unpinCodes(value: any): {
+            typeUrl: string;
+            value: MsgUnpinCodes;
+        };
+        storeAndInstantiateContract(value: any): {
+            typeUrl: string;
+            value: MsgStoreAndInstantiateContract;
+        };
+        removeCodeUploadParamsAddresses(value: any): {
+            typeUrl: string;
+            value: MsgRemoveCodeUploadParamsAddresses;
+        };
+        addCodeUploadParamsAddresses(value: any): {
+            typeUrl: string;
+            value: MsgAddCodeUploadParamsAddresses;
+        };
     };
     fromPartial: {
         storeCode(value: MsgStoreCode): {
@@ -151,6 +279,38 @@ export declare const MessageComposer: {
         clearAdmin(value: MsgClearAdmin): {
             typeUrl: string;
             value: MsgClearAdmin;
+        };
+        updateInstantiateConfig(value: MsgUpdateInstantiateConfig): {
+            typeUrl: string;
+            value: MsgUpdateInstantiateConfig;
+        };
+        updateParams(value: MsgUpdateParams): {
+            typeUrl: string;
+            value: MsgUpdateParams;
+        };
+        sudoContract(value: MsgSudoContract): {
+            typeUrl: string;
+            value: MsgSudoContract;
+        };
+        pinCodes(value: MsgPinCodes): {
+            typeUrl: string;
+            value: MsgPinCodes;
+        };
+        unpinCodes(value: MsgUnpinCodes): {
+            typeUrl: string;
+            value: MsgUnpinCodes;
+        };
+        storeAndInstantiateContract(value: MsgStoreAndInstantiateContract): {
+            typeUrl: string;
+            value: MsgStoreAndInstantiateContract;
+        };
+        removeCodeUploadParamsAddresses(value: MsgRemoveCodeUploadParamsAddresses): {
+            typeUrl: string;
+            value: MsgRemoveCodeUploadParamsAddresses;
+        };
+        addCodeUploadParamsAddresses(value: MsgAddCodeUploadParamsAddresses): {
+            typeUrl: string;
+            value: MsgAddCodeUploadParamsAddresses;
         };
     };
 };

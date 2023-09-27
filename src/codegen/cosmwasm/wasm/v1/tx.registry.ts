@@ -1,6 +1,6 @@
 import { GeneratedType, Registry } from "@cosmjs/proto-signing";
-import { MsgStoreCode, MsgInstantiateContract, MsgInstantiateContract2, MsgExecuteContract, MsgMigrateContract, MsgUpdateAdmin, MsgClearAdmin } from "./tx";
-export const registry: ReadonlyArray<[string, GeneratedType]> = [["/cosmwasm.wasm.v1.MsgStoreCode", MsgStoreCode], ["/cosmwasm.wasm.v1.MsgInstantiateContract", MsgInstantiateContract], ["/cosmwasm.wasm.v1.MsgInstantiateContract2", MsgInstantiateContract2], ["/cosmwasm.wasm.v1.MsgExecuteContract", MsgExecuteContract], ["/cosmwasm.wasm.v1.MsgMigrateContract", MsgMigrateContract], ["/cosmwasm.wasm.v1.MsgUpdateAdmin", MsgUpdateAdmin], ["/cosmwasm.wasm.v1.MsgClearAdmin", MsgClearAdmin]];
+import { MsgStoreCode, MsgInstantiateContract, MsgInstantiateContract2, MsgExecuteContract, MsgMigrateContract, MsgUpdateAdmin, MsgClearAdmin, MsgUpdateInstantiateConfig, MsgUpdateParams, MsgSudoContract, MsgPinCodes, MsgUnpinCodes, MsgStoreAndInstantiateContract, MsgRemoveCodeUploadParamsAddresses, MsgAddCodeUploadParamsAddresses } from "./tx";
+export const registry: ReadonlyArray<[string, GeneratedType]> = [["/cosmwasm.wasm.v1.MsgStoreCode", MsgStoreCode], ["/cosmwasm.wasm.v1.MsgInstantiateContract", MsgInstantiateContract], ["/cosmwasm.wasm.v1.MsgInstantiateContract2", MsgInstantiateContract2], ["/cosmwasm.wasm.v1.MsgExecuteContract", MsgExecuteContract], ["/cosmwasm.wasm.v1.MsgMigrateContract", MsgMigrateContract], ["/cosmwasm.wasm.v1.MsgUpdateAdmin", MsgUpdateAdmin], ["/cosmwasm.wasm.v1.MsgClearAdmin", MsgClearAdmin], ["/cosmwasm.wasm.v1.MsgUpdateInstantiateConfig", MsgUpdateInstantiateConfig], ["/cosmwasm.wasm.v1.MsgUpdateParams", MsgUpdateParams], ["/cosmwasm.wasm.v1.MsgSudoContract", MsgSudoContract], ["/cosmwasm.wasm.v1.MsgPinCodes", MsgPinCodes], ["/cosmwasm.wasm.v1.MsgUnpinCodes", MsgUnpinCodes], ["/cosmwasm.wasm.v1.MsgStoreAndInstantiateContract", MsgStoreAndInstantiateContract], ["/cosmwasm.wasm.v1.MsgRemoveCodeUploadParamsAddresses", MsgRemoveCodeUploadParamsAddresses], ["/cosmwasm.wasm.v1.MsgAddCodeUploadParamsAddresses", MsgAddCodeUploadParamsAddresses]];
 export const load = (protoRegistry: Registry) => {
   registry.forEach(([typeUrl, mod]) => {
     protoRegistry.register(typeUrl, mod);
@@ -49,6 +49,54 @@ export const MessageComposer = {
         typeUrl: "/cosmwasm.wasm.v1.MsgClearAdmin",
         value: MsgClearAdmin.encode(value).finish()
       };
+    },
+    updateInstantiateConfig(value: MsgUpdateInstantiateConfig) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgUpdateInstantiateConfig",
+        value: MsgUpdateInstantiateConfig.encode(value).finish()
+      };
+    },
+    updateParams(value: MsgUpdateParams) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgUpdateParams",
+        value: MsgUpdateParams.encode(value).finish()
+      };
+    },
+    sudoContract(value: MsgSudoContract) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgSudoContract",
+        value: MsgSudoContract.encode(value).finish()
+      };
+    },
+    pinCodes(value: MsgPinCodes) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgPinCodes",
+        value: MsgPinCodes.encode(value).finish()
+      };
+    },
+    unpinCodes(value: MsgUnpinCodes) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgUnpinCodes",
+        value: MsgUnpinCodes.encode(value).finish()
+      };
+    },
+    storeAndInstantiateContract(value: MsgStoreAndInstantiateContract) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgStoreAndInstantiateContract",
+        value: MsgStoreAndInstantiateContract.encode(value).finish()
+      };
+    },
+    removeCodeUploadParamsAddresses(value: MsgRemoveCodeUploadParamsAddresses) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgRemoveCodeUploadParamsAddresses",
+        value: MsgRemoveCodeUploadParamsAddresses.encode(value).finish()
+      };
+    },
+    addCodeUploadParamsAddresses(value: MsgAddCodeUploadParamsAddresses) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgAddCodeUploadParamsAddresses",
+        value: MsgAddCodeUploadParamsAddresses.encode(value).finish()
+      };
     }
   },
   withTypeUrl: {
@@ -91,6 +139,54 @@ export const MessageComposer = {
     clearAdmin(value: MsgClearAdmin) {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgClearAdmin",
+        value
+      };
+    },
+    updateInstantiateConfig(value: MsgUpdateInstantiateConfig) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgUpdateInstantiateConfig",
+        value
+      };
+    },
+    updateParams(value: MsgUpdateParams) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgUpdateParams",
+        value
+      };
+    },
+    sudoContract(value: MsgSudoContract) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgSudoContract",
+        value
+      };
+    },
+    pinCodes(value: MsgPinCodes) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgPinCodes",
+        value
+      };
+    },
+    unpinCodes(value: MsgUnpinCodes) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgUnpinCodes",
+        value
+      };
+    },
+    storeAndInstantiateContract(value: MsgStoreAndInstantiateContract) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgStoreAndInstantiateContract",
+        value
+      };
+    },
+    removeCodeUploadParamsAddresses(value: MsgRemoveCodeUploadParamsAddresses) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgRemoveCodeUploadParamsAddresses",
+        value
+      };
+    },
+    addCodeUploadParamsAddresses(value: MsgAddCodeUploadParamsAddresses) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgAddCodeUploadParamsAddresses",
         value
       };
     }
@@ -137,6 +233,54 @@ export const MessageComposer = {
         typeUrl: "/cosmwasm.wasm.v1.MsgClearAdmin",
         value: MsgClearAdmin.toJSON(value)
       };
+    },
+    updateInstantiateConfig(value: MsgUpdateInstantiateConfig) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgUpdateInstantiateConfig",
+        value: MsgUpdateInstantiateConfig.toJSON(value)
+      };
+    },
+    updateParams(value: MsgUpdateParams) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgUpdateParams",
+        value: MsgUpdateParams.toJSON(value)
+      };
+    },
+    sudoContract(value: MsgSudoContract) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgSudoContract",
+        value: MsgSudoContract.toJSON(value)
+      };
+    },
+    pinCodes(value: MsgPinCodes) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgPinCodes",
+        value: MsgPinCodes.toJSON(value)
+      };
+    },
+    unpinCodes(value: MsgUnpinCodes) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgUnpinCodes",
+        value: MsgUnpinCodes.toJSON(value)
+      };
+    },
+    storeAndInstantiateContract(value: MsgStoreAndInstantiateContract) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgStoreAndInstantiateContract",
+        value: MsgStoreAndInstantiateContract.toJSON(value)
+      };
+    },
+    removeCodeUploadParamsAddresses(value: MsgRemoveCodeUploadParamsAddresses) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgRemoveCodeUploadParamsAddresses",
+        value: MsgRemoveCodeUploadParamsAddresses.toJSON(value)
+      };
+    },
+    addCodeUploadParamsAddresses(value: MsgAddCodeUploadParamsAddresses) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgAddCodeUploadParamsAddresses",
+        value: MsgAddCodeUploadParamsAddresses.toJSON(value)
+      };
     }
   },
   fromJSON: {
@@ -181,6 +325,54 @@ export const MessageComposer = {
         typeUrl: "/cosmwasm.wasm.v1.MsgClearAdmin",
         value: MsgClearAdmin.fromJSON(value)
       };
+    },
+    updateInstantiateConfig(value: any) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgUpdateInstantiateConfig",
+        value: MsgUpdateInstantiateConfig.fromJSON(value)
+      };
+    },
+    updateParams(value: any) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgUpdateParams",
+        value: MsgUpdateParams.fromJSON(value)
+      };
+    },
+    sudoContract(value: any) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgSudoContract",
+        value: MsgSudoContract.fromJSON(value)
+      };
+    },
+    pinCodes(value: any) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgPinCodes",
+        value: MsgPinCodes.fromJSON(value)
+      };
+    },
+    unpinCodes(value: any) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgUnpinCodes",
+        value: MsgUnpinCodes.fromJSON(value)
+      };
+    },
+    storeAndInstantiateContract(value: any) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgStoreAndInstantiateContract",
+        value: MsgStoreAndInstantiateContract.fromJSON(value)
+      };
+    },
+    removeCodeUploadParamsAddresses(value: any) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgRemoveCodeUploadParamsAddresses",
+        value: MsgRemoveCodeUploadParamsAddresses.fromJSON(value)
+      };
+    },
+    addCodeUploadParamsAddresses(value: any) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgAddCodeUploadParamsAddresses",
+        value: MsgAddCodeUploadParamsAddresses.fromJSON(value)
+      };
     }
   },
   fromPartial: {
@@ -224,6 +416,54 @@ export const MessageComposer = {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgClearAdmin",
         value: MsgClearAdmin.fromPartial(value)
+      };
+    },
+    updateInstantiateConfig(value: MsgUpdateInstantiateConfig) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgUpdateInstantiateConfig",
+        value: MsgUpdateInstantiateConfig.fromPartial(value)
+      };
+    },
+    updateParams(value: MsgUpdateParams) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgUpdateParams",
+        value: MsgUpdateParams.fromPartial(value)
+      };
+    },
+    sudoContract(value: MsgSudoContract) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgSudoContract",
+        value: MsgSudoContract.fromPartial(value)
+      };
+    },
+    pinCodes(value: MsgPinCodes) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgPinCodes",
+        value: MsgPinCodes.fromPartial(value)
+      };
+    },
+    unpinCodes(value: MsgUnpinCodes) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgUnpinCodes",
+        value: MsgUnpinCodes.fromPartial(value)
+      };
+    },
+    storeAndInstantiateContract(value: MsgStoreAndInstantiateContract) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgStoreAndInstantiateContract",
+        value: MsgStoreAndInstantiateContract.fromPartial(value)
+      };
+    },
+    removeCodeUploadParamsAddresses(value: MsgRemoveCodeUploadParamsAddresses) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgRemoveCodeUploadParamsAddresses",
+        value: MsgRemoveCodeUploadParamsAddresses.fromPartial(value)
+      };
+    },
+    addCodeUploadParamsAddresses(value: MsgAddCodeUploadParamsAddresses) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgAddCodeUploadParamsAddresses",
+        value: MsgAddCodeUploadParamsAddresses.fromPartial(value)
       };
     }
   }

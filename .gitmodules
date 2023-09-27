@@ -10,3 +10,12 @@
 [submodule "ibc-go-v3.3.0"]
 	path = ibc-go-v3.3.0
 	url = https://github.com/cosmos/ibc-go.git
+[submodule "ics23"]
+	path = ics23
+	url = https://github.com/cosmos/ics23.git
+[submodule "cosmos-proto"]
+	path = cosmos-proto
+	url = https://github.com/cosmos/cosmos-proto.git
+[submodule "tendermint"]
+	path = tendermint
+	url = https://github.com/tendermint/tendermint.git

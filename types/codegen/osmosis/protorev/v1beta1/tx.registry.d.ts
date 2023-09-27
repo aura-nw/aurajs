@@ -1,0 +1,56 @@
+import { GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { MsgSetHotRoutes, MsgSetDeveloperAccount } from "./tx";
+export declare const registry: ReadonlyArray<[string, GeneratedType]>;
+export declare const load: (protoRegistry: Registry) => void;
+export declare const MessageComposer: {
+    encoded: {
+        setHotRoutes(value: MsgSetHotRoutes): {
+            typeUrl: string;
+            value: Uint8Array;
+        };
+        setDeveloperAccount(value: MsgSetDeveloperAccount): {
+            typeUrl: string;
+            value: Uint8Array;
+        };
+    };
+    withTypeUrl: {
+        setHotRoutes(value: MsgSetHotRoutes): {
+            typeUrl: string;
+            value: MsgSetHotRoutes;
+        };
+        setDeveloperAccount(value: MsgSetDeveloperAccount): {
+            typeUrl: string;
+            value: MsgSetDeveloperAccount;
+        };
+    };
+    toJSON: {
+        setHotRoutes(value: MsgSetHotRoutes): {
+            typeUrl: string;
+            value: unknown;
+        };
+        setDeveloperAccount(value: MsgSetDeveloperAccount): {
+            typeUrl: string;
+            value: unknown;
+        };
+    };
+    fromJSON: {
+        setHotRoutes(value: any): {
+            typeUrl: string;
+            value: MsgSetHotRoutes;
+        };
+        setDeveloperAccount(value: any): {
+            typeUrl: string;
+            value: MsgSetDeveloperAccount;
+        };
+    };
+    fromPartial: {
+        setHotRoutes(value: MsgSetHotRoutes): {
+            typeUrl: string;
+            value: MsgSetHotRoutes;
+        };
+        setDeveloperAccount(value: MsgSetDeveloperAccount): {
+            typeUrl: string;
+            value: MsgSetDeveloperAccount;
+        };
+    };
+};
