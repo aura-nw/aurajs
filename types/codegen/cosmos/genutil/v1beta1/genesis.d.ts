@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** GenesisState defines the raw genesis transaction in JSON. */
 export interface GenesisState {
     /** gen_txs defines the genesis transactions. */
@@ -23,8 +23,8 @@ export interface GenesisStateSDKType {
 }
 export declare const GenesisState: {
     typeUrl: string;
-    encode(message: GenesisState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GenesisState;
+    encode(message: GenesisState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GenesisState;
     fromJSON(object: any): GenesisState;
     toJSON(message: GenesisState): unknown;
     fromPartial(object: Partial<GenesisState>): GenesisState;

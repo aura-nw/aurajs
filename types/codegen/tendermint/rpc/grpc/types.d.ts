@@ -1,5 +1,5 @@
 import { ResponseCheckTx, ResponseCheckTxAmino, ResponseCheckTxSDKType, ResponseDeliverTx, ResponseDeliverTxAmino, ResponseDeliverTxSDKType } from "../../abci/types";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 export interface RequestPing {
 }
 export interface RequestPingProtoMsg {
@@ -67,8 +67,8 @@ export interface ResponseBroadcastTxSDKType {
 }
 export declare const RequestPing: {
     typeUrl: string;
-    encode(_: RequestPing, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): RequestPing;
+    encode(_: RequestPing, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): RequestPing;
     fromJSON(_: any): RequestPing;
     toJSON(_: RequestPing): unknown;
     fromPartial(_: Partial<RequestPing>): RequestPing;
@@ -81,8 +81,8 @@ export declare const RequestPing: {
 };
 export declare const RequestBroadcastTx: {
     typeUrl: string;
-    encode(message: RequestBroadcastTx, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): RequestBroadcastTx;
+    encode(message: RequestBroadcastTx, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): RequestBroadcastTx;
     fromJSON(object: any): RequestBroadcastTx;
     toJSON(message: RequestBroadcastTx): unknown;
     fromPartial(object: Partial<RequestBroadcastTx>): RequestBroadcastTx;
@@ -95,8 +95,8 @@ export declare const RequestBroadcastTx: {
 };
 export declare const ResponsePing: {
     typeUrl: string;
-    encode(_: ResponsePing, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ResponsePing;
+    encode(_: ResponsePing, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ResponsePing;
     fromJSON(_: any): ResponsePing;
     toJSON(_: ResponsePing): unknown;
     fromPartial(_: Partial<ResponsePing>): ResponsePing;
@@ -109,8 +109,8 @@ export declare const ResponsePing: {
 };
 export declare const ResponseBroadcastTx: {
     typeUrl: string;
-    encode(message: ResponseBroadcastTx, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ResponseBroadcastTx;
+    encode(message: ResponseBroadcastTx, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ResponseBroadcastTx;
     fromJSON(object: any): ResponseBroadcastTx;
     toJSON(message: ResponseBroadcastTx): unknown;
     fromPartial(object: Partial<ResponseBroadcastTx>): ResponseBroadcastTx;

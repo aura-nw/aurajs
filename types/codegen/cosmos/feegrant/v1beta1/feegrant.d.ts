@@ -1,12 +1,11 @@
 import { Coin, CoinAmino, CoinSDKType } from "../../base/v1beta1/coin";
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
+import * as _m0 from "protobufjs/minimal";
 /**
  * BasicAllowance implements Allowance with a one-time grant of coins
  * that optionally expires. The grantee can use up to SpendLimit to cover fees.
  */
 export interface BasicAllowance {
-    $typeUrl?: string;
     /**
      * spend_limit specifies the maximum amount of coins that can be spent
      * by this allowance and will be updated as coins are spent. If it is
@@ -43,7 +42,6 @@ export interface BasicAllowanceAminoMsg {
  * that optionally expires. The grantee can use up to SpendLimit to cover fees.
  */
 export interface BasicAllowanceSDKType {
-    $typeUrl?: string;
     spend_limit: CoinSDKType[];
     expiration: Date;
 }
@@ -52,7 +50,6 @@ export interface BasicAllowanceSDKType {
  * as well as a limit per time period.
  */
 export interface PeriodicAllowance {
-    $typeUrl?: string;
     /** basic specifies a struct of `BasicAllowance` */
     basic: BasicAllowance;
     /**
@@ -113,7 +110,6 @@ export interface PeriodicAllowanceAminoMsg {
  * as well as a limit per time period.
  */
 export interface PeriodicAllowanceSDKType {
-    $typeUrl?: string;
     basic: BasicAllowanceSDKType;
     period: string;
     period_spend_limit: CoinSDKType[];
@@ -122,9 +118,8 @@ export interface PeriodicAllowanceSDKType {
 }
 /** AllowedMsgAllowance creates allowance only for specified message types. */
 export interface AllowedMsgAllowance {
-    $typeUrl?: string;
     /** allowance can be any of basic and periodic fee allowance. */
-    allowance: (BasicAllowance & PeriodicAllowance & AllowedMsgAllowance & Any) | undefined;
+    allowance: Any;
     /** allowed_messages are the messages for which the grantee has the access. */
     allowedMessages: string[];
 }
@@ -132,9 +127,6 @@ export interface AllowedMsgAllowanceProtoMsg {
     typeUrl: "/cosmos.feegrant.v1beta1.AllowedMsgAllowance";
     value: Uint8Array;
 }
-export type AllowedMsgAllowanceEncoded = Omit<AllowedMsgAllowance, "allowance"> & {
-    /** allowance can be any of basic and periodic fee allowance. */ allowance?: BasicAllowanceProtoMsg | PeriodicAllowanceProtoMsg | AllowedMsgAllowanceProtoMsg | AnyProtoMsg | undefined;
-};
 /** AllowedMsgAllowance creates allowance only for specified message types. */
 export interface AllowedMsgAllowanceAmino {
     /** allowance can be any of basic and periodic fee allowance. */
@@ -148,8 +140,7 @@ export interface AllowedMsgAllowanceAminoMsg {
 }
 /** AllowedMsgAllowance creates allowance only for specified message types. */
 export interface AllowedMsgAllowanceSDKType {
-    $typeUrl?: string;
-    allowance: BasicAllowanceSDKType | PeriodicAllowanceSDKType | AllowedMsgAllowanceSDKType | AnySDKType | undefined;
+    allowance: AnySDKType;
     allowed_messages: string[];
 }
 /** Grant is stored in the KVStore to record a grant with full context */
@@ -159,15 +150,12 @@ export interface Grant {
     /** grantee is the address of the user being granted an allowance of another user's funds. */
     grantee: string;
     /** allowance can be any of basic, periodic, allowed fee allowance. */
-    allowance: (BasicAllowance & PeriodicAllowance & AllowedMsgAllowance & Any) | undefined;
+    allowance: Any;
 }
 export interface GrantProtoMsg {
     typeUrl: "/cosmos.feegrant.v1beta1.Grant";
     value: Uint8Array;
 }
-export type GrantEncoded = Omit<Grant, "allowance"> & {
-    /** allowance can be any of basic, periodic, allowed fee allowance. */ allowance?: BasicAllowanceProtoMsg | PeriodicAllowanceProtoMsg | AllowedMsgAllowanceProtoMsg | AnyProtoMsg | undefined;
-};
 /** Grant is stored in the KVStore to record a grant with full context */
 export interface GrantAmino {
     /** granter is the address of the user granting an allowance of their funds. */
@@ -185,12 +173,12 @@ export interface GrantAminoMsg {
 export interface GrantSDKType {
     granter: string;
     grantee: string;
-    allowance: BasicAllowanceSDKType | PeriodicAllowanceSDKType | AllowedMsgAllowanceSDKType | AnySDKType | undefined;
+    allowance: AnySDKType;
 }
 export declare const BasicAllowance: {
     typeUrl: string;
-    encode(message: BasicAllowance, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): BasicAllowance;
+    encode(message: BasicAllowance, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): BasicAllowance;
     fromJSON(object: any): BasicAllowance;
     toJSON(message: BasicAllowance): unknown;
     fromPartial(object: Partial<BasicAllowance>): BasicAllowance;
@@ -204,8 +192,8 @@ export declare const BasicAllowance: {
 };
 export declare const PeriodicAllowance: {
     typeUrl: string;
-    encode(message: PeriodicAllowance, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): PeriodicAllowance;
+    encode(message: PeriodicAllowance, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PeriodicAllowance;
     fromJSON(object: any): PeriodicAllowance;
     toJSON(message: PeriodicAllowance): unknown;
     fromPartial(object: Partial<PeriodicAllowance>): PeriodicAllowance;
@@ -219,8 +207,8 @@ export declare const PeriodicAllowance: {
 };
 export declare const AllowedMsgAllowance: {
     typeUrl: string;
-    encode(message: AllowedMsgAllowance, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): AllowedMsgAllowance;
+    encode(message: AllowedMsgAllowance, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): AllowedMsgAllowance;
     fromJSON(object: any): AllowedMsgAllowance;
     toJSON(message: AllowedMsgAllowance): unknown;
     fromPartial(object: Partial<AllowedMsgAllowance>): AllowedMsgAllowance;
@@ -234,8 +222,8 @@ export declare const AllowedMsgAllowance: {
 };
 export declare const Grant: {
     typeUrl: string;
-    encode(message: Grant, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Grant;
+    encode(message: Grant, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Grant;
     fromJSON(object: any): Grant;
     toJSON(message: Grant): unknown;
     fromPartial(object: Partial<Grant>): Grant;
@@ -247,6 +235,3 @@ export declare const Grant: {
     toProto(message: Grant): Uint8Array;
     toProtoMsg(message: Grant): GrantProtoMsg;
 };
-export declare const Cosmos_feegrantv1beta1FeeAllowanceI_InterfaceDecoder: (input: BinaryReader | Uint8Array) => BasicAllowance | PeriodicAllowance | AllowedMsgAllowance | Any;
-export declare const Cosmos_feegrantv1beta1FeeAllowanceI_FromAmino: (content: AnyAmino) => Any;
-export declare const Cosmos_feegrantv1beta1FeeAllowanceI_ToAmino: (content: Any) => AnyAmino;

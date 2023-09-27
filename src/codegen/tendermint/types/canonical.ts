@@ -1,7 +1,7 @@
 import { SignedMsgType, signedMsgTypeFromJSON, signedMsgTypeToJSON } from "./types";
 import { Timestamp } from "../../google/protobuf/timestamp";
-import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet, bytesFromBase64, base64FromBytes, toTimestamp, fromTimestamp, fromJsonTimestamp } from "../../helpers";
+import { Long, isSet, bytesFromBase64, base64FromBytes, toTimestamp, fromTimestamp, fromJsonTimestamp } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export interface CanonicalBlockID {
   hash: Uint8Array;
   partSetHeader: CanonicalPartSetHeader;
@@ -46,10 +46,10 @@ export interface CanonicalProposal {
   /** type alias for byte */
   type: SignedMsgType;
   /** canonicalization requires fixed size encoding here */
-  height: bigint;
+  height: Long;
   /** canonicalization requires fixed size encoding here */
-  round: bigint;
-  polRound: bigint;
+  round: Long;
+  polRound: Long;
   blockId: CanonicalBlockID;
   timestamp: Date;
   chainId: string;
@@ -76,9 +76,9 @@ export interface CanonicalProposalAminoMsg {
 }
 export interface CanonicalProposalSDKType {
   type: SignedMsgType;
-  height: bigint;
-  round: bigint;
-  pol_round: bigint;
+  height: Long;
+  round: Long;
+  pol_round: Long;
   block_id: CanonicalBlockIDSDKType;
   timestamp: Date;
   chain_id: string;
@@ -87,9 +87,9 @@ export interface CanonicalVote {
   /** type alias for byte */
   type: SignedMsgType;
   /** canonicalization requires fixed size encoding here */
-  height: bigint;
+  height: Long;
   /** canonicalization requires fixed size encoding here */
-  round: bigint;
+  round: Long;
   blockId: CanonicalBlockID;
   timestamp: Date;
   chainId: string;
@@ -115,8 +115,8 @@ export interface CanonicalVoteAminoMsg {
 }
 export interface CanonicalVoteSDKType {
   type: SignedMsgType;
-  height: bigint;
-  round: bigint;
+  height: Long;
+  round: Long;
   block_id: CanonicalBlockIDSDKType;
   timestamp: Date;
   chain_id: string;
@@ -129,7 +129,7 @@ function createBaseCanonicalBlockID(): CanonicalBlockID {
 }
 export const CanonicalBlockID = {
   typeUrl: "/tendermint.types.CanonicalBlockID",
-  encode(message: CanonicalBlockID, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: CanonicalBlockID, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.hash.length !== 0) {
       writer.uint32(10).bytes(message.hash);
     }
@@ -138,8 +138,8 @@ export const CanonicalBlockID = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): CanonicalBlockID {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): CanonicalBlockID {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseCanonicalBlockID();
     while (reader.pos < end) {
@@ -212,7 +212,7 @@ function createBaseCanonicalPartSetHeader(): CanonicalPartSetHeader {
 }
 export const CanonicalPartSetHeader = {
   typeUrl: "/tendermint.types.CanonicalPartSetHeader",
-  encode(message: CanonicalPartSetHeader, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: CanonicalPartSetHeader, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.total !== 0) {
       writer.uint32(8).uint32(message.total);
     }
@@ -221,8 +221,8 @@ export const CanonicalPartSetHeader = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): CanonicalPartSetHeader {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): CanonicalPartSetHeader {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseCanonicalPartSetHeader();
     while (reader.pos < end) {
@@ -290,9 +290,9 @@ export const CanonicalPartSetHeader = {
 function createBaseCanonicalProposal(): CanonicalProposal {
   return {
     type: 0,
-    height: BigInt(0),
-    round: BigInt(0),
-    polRound: BigInt(0),
+    height: Long.ZERO,
+    round: Long.ZERO,
+    polRound: Long.ZERO,
     blockId: CanonicalBlockID.fromPartial({}),
     timestamp: new Date(),
     chainId: ""
@@ -300,17 +300,17 @@ function createBaseCanonicalProposal(): CanonicalProposal {
 }
 export const CanonicalProposal = {
   typeUrl: "/tendermint.types.CanonicalProposal",
-  encode(message: CanonicalProposal, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: CanonicalProposal, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.type !== 0) {
       writer.uint32(8).int32(message.type);
     }
-    if (message.height !== BigInt(0)) {
+    if (!message.height.isZero()) {
       writer.uint32(17).sfixed64(message.height);
     }
-    if (message.round !== BigInt(0)) {
+    if (!message.round.isZero()) {
       writer.uint32(25).sfixed64(message.round);
     }
-    if (message.polRound !== BigInt(0)) {
+    if (!message.polRound.isZero()) {
       writer.uint32(32).int64(message.polRound);
     }
     if (message.blockId !== undefined) {
@@ -324,8 +324,8 @@ export const CanonicalProposal = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): CanonicalProposal {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): CanonicalProposal {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseCanonicalProposal();
     while (reader.pos < end) {
@@ -335,13 +335,13 @@ export const CanonicalProposal = {
           message.type = (reader.int32() as any);
           break;
         case 2:
-          message.height = reader.sfixed64();
+          message.height = (reader.sfixed64() as Long);
           break;
         case 3:
-          message.round = reader.sfixed64();
+          message.round = (reader.sfixed64() as Long);
           break;
         case 4:
-          message.polRound = reader.int64();
+          message.polRound = (reader.int64() as Long);
           break;
         case 5:
           message.blockId = CanonicalBlockID.decode(reader, reader.uint32());
@@ -362,9 +362,9 @@ export const CanonicalProposal = {
   fromJSON(object: any): CanonicalProposal {
     return {
       type: isSet(object.type) ? signedMsgTypeFromJSON(object.type) : -1,
-      height: isSet(object.height) ? BigInt(object.height.toString()) : BigInt(0),
-      round: isSet(object.round) ? BigInt(object.round.toString()) : BigInt(0),
-      polRound: isSet(object.polRound) ? BigInt(object.polRound.toString()) : BigInt(0),
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
+      round: isSet(object.round) ? Long.fromValue(object.round) : Long.ZERO,
+      polRound: isSet(object.polRound) ? Long.fromValue(object.polRound) : Long.ZERO,
       blockId: isSet(object.blockId) ? CanonicalBlockID.fromJSON(object.blockId) : undefined,
       timestamp: isSet(object.timestamp) ? fromJsonTimestamp(object.timestamp) : undefined,
       chainId: isSet(object.chainId) ? String(object.chainId) : ""
@@ -373,9 +373,9 @@ export const CanonicalProposal = {
   toJSON(message: CanonicalProposal): unknown {
     const obj: any = {};
     message.type !== undefined && (obj.type = signedMsgTypeToJSON(message.type));
-    message.height !== undefined && (obj.height = (message.height || BigInt(0)).toString());
-    message.round !== undefined && (obj.round = (message.round || BigInt(0)).toString());
-    message.polRound !== undefined && (obj.polRound = (message.polRound || BigInt(0)).toString());
+    message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
+    message.round !== undefined && (obj.round = (message.round || Long.ZERO).toString());
+    message.polRound !== undefined && (obj.polRound = (message.polRound || Long.ZERO).toString());
     message.blockId !== undefined && (obj.blockId = message.blockId ? CanonicalBlockID.toJSON(message.blockId) : undefined);
     message.timestamp !== undefined && (obj.timestamp = message.timestamp.toISOString());
     message.chainId !== undefined && (obj.chainId = message.chainId);
@@ -384,9 +384,9 @@ export const CanonicalProposal = {
   fromPartial(object: Partial<CanonicalProposal>): CanonicalProposal {
     const message = createBaseCanonicalProposal();
     message.type = object.type ?? 0;
-    message.height = object.height !== undefined && object.height !== null ? BigInt(object.height.toString()) : BigInt(0);
-    message.round = object.round !== undefined && object.round !== null ? BigInt(object.round.toString()) : BigInt(0);
-    message.polRound = object.polRound !== undefined && object.polRound !== null ? BigInt(object.polRound.toString()) : BigInt(0);
+    message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
+    message.round = object.round !== undefined && object.round !== null ? Long.fromValue(object.round) : Long.ZERO;
+    message.polRound = object.polRound !== undefined && object.polRound !== null ? Long.fromValue(object.polRound) : Long.ZERO;
     message.blockId = object.blockId !== undefined && object.blockId !== null ? CanonicalBlockID.fromPartial(object.blockId) : undefined;
     message.timestamp = object.timestamp ?? undefined;
     message.chainId = object.chainId ?? "";
@@ -395,9 +395,9 @@ export const CanonicalProposal = {
   fromAmino(object: CanonicalProposalAmino): CanonicalProposal {
     return {
       type: isSet(object.type) ? signedMsgTypeFromJSON(object.type) : -1,
-      height: BigInt(object.height),
-      round: BigInt(object.round),
-      polRound: BigInt(object.pol_round),
+      height: Long.fromString(object.height),
+      round: Long.fromString(object.round),
+      polRound: Long.fromString(object.pol_round),
       blockId: object?.block_id ? CanonicalBlockID.fromAmino(object.block_id) : undefined,
       timestamp: object.timestamp,
       chainId: object.chain_id
@@ -433,8 +433,8 @@ export const CanonicalProposal = {
 function createBaseCanonicalVote(): CanonicalVote {
   return {
     type: 0,
-    height: BigInt(0),
-    round: BigInt(0),
+    height: Long.ZERO,
+    round: Long.ZERO,
     blockId: CanonicalBlockID.fromPartial({}),
     timestamp: new Date(),
     chainId: ""
@@ -442,14 +442,14 @@ function createBaseCanonicalVote(): CanonicalVote {
 }
 export const CanonicalVote = {
   typeUrl: "/tendermint.types.CanonicalVote",
-  encode(message: CanonicalVote, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: CanonicalVote, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.type !== 0) {
       writer.uint32(8).int32(message.type);
     }
-    if (message.height !== BigInt(0)) {
+    if (!message.height.isZero()) {
       writer.uint32(17).sfixed64(message.height);
     }
-    if (message.round !== BigInt(0)) {
+    if (!message.round.isZero()) {
       writer.uint32(25).sfixed64(message.round);
     }
     if (message.blockId !== undefined) {
@@ -463,8 +463,8 @@ export const CanonicalVote = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): CanonicalVote {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): CanonicalVote {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseCanonicalVote();
     while (reader.pos < end) {
@@ -474,10 +474,10 @@ export const CanonicalVote = {
           message.type = (reader.int32() as any);
           break;
         case 2:
-          message.height = reader.sfixed64();
+          message.height = (reader.sfixed64() as Long);
           break;
         case 3:
-          message.round = reader.sfixed64();
+          message.round = (reader.sfixed64() as Long);
           break;
         case 4:
           message.blockId = CanonicalBlockID.decode(reader, reader.uint32());
@@ -498,8 +498,8 @@ export const CanonicalVote = {
   fromJSON(object: any): CanonicalVote {
     return {
       type: isSet(object.type) ? signedMsgTypeFromJSON(object.type) : -1,
-      height: isSet(object.height) ? BigInt(object.height.toString()) : BigInt(0),
-      round: isSet(object.round) ? BigInt(object.round.toString()) : BigInt(0),
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
+      round: isSet(object.round) ? Long.fromValue(object.round) : Long.ZERO,
       blockId: isSet(object.blockId) ? CanonicalBlockID.fromJSON(object.blockId) : undefined,
       timestamp: isSet(object.timestamp) ? fromJsonTimestamp(object.timestamp) : undefined,
       chainId: isSet(object.chainId) ? String(object.chainId) : ""
@@ -508,8 +508,8 @@ export const CanonicalVote = {
   toJSON(message: CanonicalVote): unknown {
     const obj: any = {};
     message.type !== undefined && (obj.type = signedMsgTypeToJSON(message.type));
-    message.height !== undefined && (obj.height = (message.height || BigInt(0)).toString());
-    message.round !== undefined && (obj.round = (message.round || BigInt(0)).toString());
+    message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
+    message.round !== undefined && (obj.round = (message.round || Long.ZERO).toString());
     message.blockId !== undefined && (obj.blockId = message.blockId ? CanonicalBlockID.toJSON(message.blockId) : undefined);
     message.timestamp !== undefined && (obj.timestamp = message.timestamp.toISOString());
     message.chainId !== undefined && (obj.chainId = message.chainId);
@@ -518,8 +518,8 @@ export const CanonicalVote = {
   fromPartial(object: Partial<CanonicalVote>): CanonicalVote {
     const message = createBaseCanonicalVote();
     message.type = object.type ?? 0;
-    message.height = object.height !== undefined && object.height !== null ? BigInt(object.height.toString()) : BigInt(0);
-    message.round = object.round !== undefined && object.round !== null ? BigInt(object.round.toString()) : BigInt(0);
+    message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
+    message.round = object.round !== undefined && object.round !== null ? Long.fromValue(object.round) : Long.ZERO;
     message.blockId = object.blockId !== undefined && object.blockId !== null ? CanonicalBlockID.fromPartial(object.blockId) : undefined;
     message.timestamp = object.timestamp ?? undefined;
     message.chainId = object.chainId ?? "";
@@ -528,8 +528,8 @@ export const CanonicalVote = {
   fromAmino(object: CanonicalVoteAmino): CanonicalVote {
     return {
       type: isSet(object.type) ? signedMsgTypeFromJSON(object.type) : -1,
-      height: BigInt(object.height),
-      round: BigInt(object.round),
+      height: Long.fromString(object.height),
+      round: Long.fromString(object.round),
       blockId: object?.block_id ? CanonicalBlockID.fromAmino(object.block_id) : undefined,
       timestamp: object.timestamp,
       chainId: object.chain_id

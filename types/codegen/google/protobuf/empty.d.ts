@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../../binary";
+import * as _m0 from "protobufjs/minimal";
 /**
  * A generic empty message that you can re-use to avoid defining duplicated
  * empty messages in your APIs. A typical example is to use it as the request
@@ -48,8 +48,8 @@ export interface EmptySDKType {
 }
 export declare const Empty: {
     typeUrl: string;
-    encode(_: Empty, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Empty;
+    encode(_: Empty, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Empty;
     fromJSON(_: any): Empty;
     toJSON(_: Empty): unknown;
     fromPartial(_: Partial<Empty>): Empty;

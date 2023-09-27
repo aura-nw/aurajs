@@ -1,7 +1,7 @@
 import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
 import { ContractInfo, ContractInfoAmino, ContractInfoSDKType, ContractCodeHistoryEntry, ContractCodeHistoryEntryAmino, ContractCodeHistoryEntrySDKType, Model, ModelAmino, ModelSDKType, AccessConfig, AccessConfigAmino, AccessConfigSDKType, Params, ParamsAmino, ParamsSDKType } from "./types";
-import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { Long, isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 import { toUtf8, fromUtf8 } from "@cosmjs/encoding";
 /**
  * QueryContractInfoRequest is the request type for the Query/ContractInfo RPC
@@ -147,7 +147,7 @@ export interface QueryContractsByCodeRequest {
    * grpc-gateway_out does not support Go style CodID
    * pagination defines an optional pagination for the request.
    */
-  codeId: bigint;
+  codeId: Long;
   pagination: PageRequest;
 }
 export interface QueryContractsByCodeRequestProtoMsg {
@@ -175,7 +175,7 @@ export interface QueryContractsByCodeRequestAminoMsg {
  * RPC method
  */
 export interface QueryContractsByCodeRequestSDKType {
-  code_id: bigint;
+  code_id: Long;
   pagination: PageRequestSDKType;
 }
 /**
@@ -419,7 +419,7 @@ export interface QuerySmartContractStateResponseSDKType {
 /** QueryCodeRequest is the request type for the Query/Code RPC method */
 export interface QueryCodeRequest {
   /** grpc-gateway_out does not support Go style CodID */
-  codeId: bigint;
+  codeId: Long;
 }
 export interface QueryCodeRequestProtoMsg {
   typeUrl: "/cosmwasm.wasm.v1.QueryCodeRequest";
@@ -436,11 +436,11 @@ export interface QueryCodeRequestAminoMsg {
 }
 /** QueryCodeRequest is the request type for the Query/Code RPC method */
 export interface QueryCodeRequestSDKType {
-  code_id: bigint;
+  code_id: Long;
 }
 /** CodeInfoResponse contains code meta data from CodeInfo */
 export interface CodeInfoResponse {
-  codeId: bigint;
+  codeId: Long;
   creator: string;
   dataHash: Uint8Array;
   instantiatePermission: AccessConfig;
@@ -462,7 +462,7 @@ export interface CodeInfoResponseAminoMsg {
 }
 /** CodeInfoResponse contains code meta data from CodeInfo */
 export interface CodeInfoResponseSDKType {
-  code_id: bigint;
+  code_id: Long;
   creator: string;
   data_hash: Uint8Array;
   instantiate_permission: AccessConfigSDKType;
@@ -573,7 +573,7 @@ export interface QueryPinnedCodesRequestSDKType {
  * Query/PinnedCodes RPC method
  */
 export interface QueryPinnedCodesResponse {
-  codeIds: bigint[];
+  codeIds: Long[];
   /** pagination defines the pagination in the response. */
   pagination: PageResponse;
 }
@@ -599,7 +599,7 @@ export interface QueryPinnedCodesResponseAminoMsg {
  * Query/PinnedCodes RPC method
  */
 export interface QueryPinnedCodesResponseSDKType {
-  code_ids: bigint[];
+  code_ids: Long[];
   pagination: PageResponseSDKType;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
@@ -717,14 +717,14 @@ function createBaseQueryContractInfoRequest(): QueryContractInfoRequest {
 }
 export const QueryContractInfoRequest = {
   typeUrl: "/cosmwasm.wasm.v1.QueryContractInfoRequest",
-  encode(message: QueryContractInfoRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryContractInfoRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryContractInfoRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryContractInfoRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryContractInfoRequest();
     while (reader.pos < end) {
@@ -795,7 +795,7 @@ function createBaseQueryContractInfoResponse(): QueryContractInfoResponse {
 }
 export const QueryContractInfoResponse = {
   typeUrl: "/cosmwasm.wasm.v1.QueryContractInfoResponse",
-  encode(message: QueryContractInfoResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryContractInfoResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
@@ -804,8 +804,8 @@ export const QueryContractInfoResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryContractInfoResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryContractInfoResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryContractInfoResponse();
     while (reader.pos < end) {
@@ -884,7 +884,7 @@ function createBaseQueryContractHistoryRequest(): QueryContractHistoryRequest {
 }
 export const QueryContractHistoryRequest = {
   typeUrl: "/cosmwasm.wasm.v1.QueryContractHistoryRequest",
-  encode(message: QueryContractHistoryRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryContractHistoryRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
@@ -893,8 +893,8 @@ export const QueryContractHistoryRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryContractHistoryRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryContractHistoryRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryContractHistoryRequest();
     while (reader.pos < end) {
@@ -973,7 +973,7 @@ function createBaseQueryContractHistoryResponse(): QueryContractHistoryResponse 
 }
 export const QueryContractHistoryResponse = {
   typeUrl: "/cosmwasm.wasm.v1.QueryContractHistoryResponse",
-  encode(message: QueryContractHistoryResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryContractHistoryResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.entries) {
       ContractCodeHistoryEntry.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -982,8 +982,8 @@ export const QueryContractHistoryResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryContractHistoryResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryContractHistoryResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryContractHistoryResponse();
     while (reader.pos < end) {
@@ -1064,14 +1064,14 @@ export const QueryContractHistoryResponse = {
 };
 function createBaseQueryContractsByCodeRequest(): QueryContractsByCodeRequest {
   return {
-    codeId: BigInt(0),
+    codeId: Long.UZERO,
     pagination: PageRequest.fromPartial({})
   };
 }
 export const QueryContractsByCodeRequest = {
   typeUrl: "/cosmwasm.wasm.v1.QueryContractsByCodeRequest",
-  encode(message: QueryContractsByCodeRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.codeId !== BigInt(0)) {
+  encode(message: QueryContractsByCodeRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.codeId.isZero()) {
       writer.uint32(8).uint64(message.codeId);
     }
     if (message.pagination !== undefined) {
@@ -1079,15 +1079,15 @@ export const QueryContractsByCodeRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryContractsByCodeRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryContractsByCodeRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryContractsByCodeRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.codeId = reader.uint64();
+          message.codeId = (reader.uint64() as Long);
           break;
         case 2:
           message.pagination = PageRequest.decode(reader, reader.uint32());
@@ -1101,25 +1101,25 @@ export const QueryContractsByCodeRequest = {
   },
   fromJSON(object: any): QueryContractsByCodeRequest {
     return {
-      codeId: isSet(object.codeId) ? BigInt(object.codeId.toString()) : BigInt(0),
+      codeId: isSet(object.codeId) ? Long.fromValue(object.codeId) : Long.UZERO,
       pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
     };
   },
   toJSON(message: QueryContractsByCodeRequest): unknown {
     const obj: any = {};
-    message.codeId !== undefined && (obj.codeId = (message.codeId || BigInt(0)).toString());
+    message.codeId !== undefined && (obj.codeId = (message.codeId || Long.UZERO).toString());
     message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
     return obj;
   },
   fromPartial(object: Partial<QueryContractsByCodeRequest>): QueryContractsByCodeRequest {
     const message = createBaseQueryContractsByCodeRequest();
-    message.codeId = object.codeId !== undefined && object.codeId !== null ? BigInt(object.codeId.toString()) : BigInt(0);
+    message.codeId = object.codeId !== undefined && object.codeId !== null ? Long.fromValue(object.codeId) : Long.UZERO;
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
     return message;
   },
   fromAmino(object: QueryContractsByCodeRequestAmino): QueryContractsByCodeRequest {
     return {
-      codeId: BigInt(object.code_id),
+      codeId: Long.fromString(object.code_id),
       pagination: object?.pagination ? PageRequest.fromAmino(object.pagination) : undefined
     };
   },
@@ -1159,7 +1159,7 @@ function createBaseQueryContractsByCodeResponse(): QueryContractsByCodeResponse 
 }
 export const QueryContractsByCodeResponse = {
   typeUrl: "/cosmwasm.wasm.v1.QueryContractsByCodeResponse",
-  encode(message: QueryContractsByCodeResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryContractsByCodeResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.contracts) {
       writer.uint32(10).string(v!);
     }
@@ -1168,8 +1168,8 @@ export const QueryContractsByCodeResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryContractsByCodeResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryContractsByCodeResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryContractsByCodeResponse();
     while (reader.pos < end) {
@@ -1256,7 +1256,7 @@ function createBaseQueryAllContractStateRequest(): QueryAllContractStateRequest 
 }
 export const QueryAllContractStateRequest = {
   typeUrl: "/cosmwasm.wasm.v1.QueryAllContractStateRequest",
-  encode(message: QueryAllContractStateRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryAllContractStateRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
@@ -1265,8 +1265,8 @@ export const QueryAllContractStateRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryAllContractStateRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllContractStateRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryAllContractStateRequest();
     while (reader.pos < end) {
@@ -1345,7 +1345,7 @@ function createBaseQueryAllContractStateResponse(): QueryAllContractStateRespons
 }
 export const QueryAllContractStateResponse = {
   typeUrl: "/cosmwasm.wasm.v1.QueryAllContractStateResponse",
-  encode(message: QueryAllContractStateResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryAllContractStateResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.models) {
       Model.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -1354,8 +1354,8 @@ export const QueryAllContractStateResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryAllContractStateResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllContractStateResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryAllContractStateResponse();
     while (reader.pos < end) {
@@ -1442,7 +1442,7 @@ function createBaseQueryRawContractStateRequest(): QueryRawContractStateRequest 
 }
 export const QueryRawContractStateRequest = {
   typeUrl: "/cosmwasm.wasm.v1.QueryRawContractStateRequest",
-  encode(message: QueryRawContractStateRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryRawContractStateRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
@@ -1451,8 +1451,8 @@ export const QueryRawContractStateRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryRawContractStateRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryRawContractStateRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryRawContractStateRequest();
     while (reader.pos < end) {
@@ -1530,14 +1530,14 @@ function createBaseQueryRawContractStateResponse(): QueryRawContractStateRespons
 }
 export const QueryRawContractStateResponse = {
   typeUrl: "/cosmwasm.wasm.v1.QueryRawContractStateResponse",
-  encode(message: QueryRawContractStateResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryRawContractStateResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.data.length !== 0) {
       writer.uint32(10).bytes(message.data);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryRawContractStateResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryRawContractStateResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryRawContractStateResponse();
     while (reader.pos < end) {
@@ -1608,7 +1608,7 @@ function createBaseQuerySmartContractStateRequest(): QuerySmartContractStateRequ
 }
 export const QuerySmartContractStateRequest = {
   typeUrl: "/cosmwasm.wasm.v1.QuerySmartContractStateRequest",
-  encode(message: QuerySmartContractStateRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QuerySmartContractStateRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
@@ -1617,8 +1617,8 @@ export const QuerySmartContractStateRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QuerySmartContractStateRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QuerySmartContractStateRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQuerySmartContractStateRequest();
     while (reader.pos < end) {
@@ -1696,14 +1696,14 @@ function createBaseQuerySmartContractStateResponse(): QuerySmartContractStateRes
 }
 export const QuerySmartContractStateResponse = {
   typeUrl: "/cosmwasm.wasm.v1.QuerySmartContractStateResponse",
-  encode(message: QuerySmartContractStateResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QuerySmartContractStateResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.data.length !== 0) {
       writer.uint32(10).bytes(message.data);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QuerySmartContractStateResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QuerySmartContractStateResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQuerySmartContractStateResponse();
     while (reader.pos < end) {
@@ -1768,26 +1768,26 @@ export const QuerySmartContractStateResponse = {
 };
 function createBaseQueryCodeRequest(): QueryCodeRequest {
   return {
-    codeId: BigInt(0)
+    codeId: Long.UZERO
   };
 }
 export const QueryCodeRequest = {
   typeUrl: "/cosmwasm.wasm.v1.QueryCodeRequest",
-  encode(message: QueryCodeRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.codeId !== BigInt(0)) {
+  encode(message: QueryCodeRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.codeId.isZero()) {
       writer.uint32(8).uint64(message.codeId);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryCodeRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryCodeRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryCodeRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.codeId = reader.uint64();
+          message.codeId = (reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -1798,22 +1798,22 @@ export const QueryCodeRequest = {
   },
   fromJSON(object: any): QueryCodeRequest {
     return {
-      codeId: isSet(object.codeId) ? BigInt(object.codeId.toString()) : BigInt(0)
+      codeId: isSet(object.codeId) ? Long.fromValue(object.codeId) : Long.UZERO
     };
   },
   toJSON(message: QueryCodeRequest): unknown {
     const obj: any = {};
-    message.codeId !== undefined && (obj.codeId = (message.codeId || BigInt(0)).toString());
+    message.codeId !== undefined && (obj.codeId = (message.codeId || Long.UZERO).toString());
     return obj;
   },
   fromPartial(object: Partial<QueryCodeRequest>): QueryCodeRequest {
     const message = createBaseQueryCodeRequest();
-    message.codeId = object.codeId !== undefined && object.codeId !== null ? BigInt(object.codeId.toString()) : BigInt(0);
+    message.codeId = object.codeId !== undefined && object.codeId !== null ? Long.fromValue(object.codeId) : Long.UZERO;
     return message;
   },
   fromAmino(object: QueryCodeRequestAmino): QueryCodeRequest {
     return {
-      codeId: BigInt(object.code_id)
+      codeId: Long.fromString(object.code_id)
     };
   },
   toAmino(message: QueryCodeRequest): QueryCodeRequestAmino {
@@ -1845,7 +1845,7 @@ export const QueryCodeRequest = {
 };
 function createBaseCodeInfoResponse(): CodeInfoResponse {
   return {
-    codeId: BigInt(0),
+    codeId: Long.UZERO,
     creator: "",
     dataHash: new Uint8Array(),
     instantiatePermission: AccessConfig.fromPartial({})
@@ -1853,8 +1853,8 @@ function createBaseCodeInfoResponse(): CodeInfoResponse {
 }
 export const CodeInfoResponse = {
   typeUrl: "/cosmwasm.wasm.v1.CodeInfoResponse",
-  encode(message: CodeInfoResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.codeId !== BigInt(0)) {
+  encode(message: CodeInfoResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.codeId.isZero()) {
       writer.uint32(8).uint64(message.codeId);
     }
     if (message.creator !== "") {
@@ -1868,15 +1868,15 @@ export const CodeInfoResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): CodeInfoResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): CodeInfoResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseCodeInfoResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.codeId = reader.uint64();
+          message.codeId = (reader.uint64() as Long);
           break;
         case 2:
           message.creator = reader.string();
@@ -1896,7 +1896,7 @@ export const CodeInfoResponse = {
   },
   fromJSON(object: any): CodeInfoResponse {
     return {
-      codeId: isSet(object.codeId) ? BigInt(object.codeId.toString()) : BigInt(0),
+      codeId: isSet(object.codeId) ? Long.fromValue(object.codeId) : Long.UZERO,
       creator: isSet(object.creator) ? String(object.creator) : "",
       dataHash: isSet(object.dataHash) ? bytesFromBase64(object.dataHash) : new Uint8Array(),
       instantiatePermission: isSet(object.instantiatePermission) ? AccessConfig.fromJSON(object.instantiatePermission) : undefined
@@ -1904,7 +1904,7 @@ export const CodeInfoResponse = {
   },
   toJSON(message: CodeInfoResponse): unknown {
     const obj: any = {};
-    message.codeId !== undefined && (obj.codeId = (message.codeId || BigInt(0)).toString());
+    message.codeId !== undefined && (obj.codeId = (message.codeId || Long.UZERO).toString());
     message.creator !== undefined && (obj.creator = message.creator);
     message.dataHash !== undefined && (obj.dataHash = base64FromBytes(message.dataHash !== undefined ? message.dataHash : new Uint8Array()));
     message.instantiatePermission !== undefined && (obj.instantiatePermission = message.instantiatePermission ? AccessConfig.toJSON(message.instantiatePermission) : undefined);
@@ -1912,7 +1912,7 @@ export const CodeInfoResponse = {
   },
   fromPartial(object: Partial<CodeInfoResponse>): CodeInfoResponse {
     const message = createBaseCodeInfoResponse();
-    message.codeId = object.codeId !== undefined && object.codeId !== null ? BigInt(object.codeId.toString()) : BigInt(0);
+    message.codeId = object.codeId !== undefined && object.codeId !== null ? Long.fromValue(object.codeId) : Long.UZERO;
     message.creator = object.creator ?? "";
     message.dataHash = object.dataHash ?? new Uint8Array();
     message.instantiatePermission = object.instantiatePermission !== undefined && object.instantiatePermission !== null ? AccessConfig.fromPartial(object.instantiatePermission) : undefined;
@@ -1920,7 +1920,7 @@ export const CodeInfoResponse = {
   },
   fromAmino(object: CodeInfoResponseAmino): CodeInfoResponse {
     return {
-      codeId: BigInt(object.code_id),
+      codeId: Long.fromString(object.code_id),
       creator: object.creator,
       dataHash: object.data_hash,
       instantiatePermission: object?.instantiate_permission ? AccessConfig.fromAmino(object.instantiate_permission) : undefined
@@ -1964,7 +1964,7 @@ function createBaseQueryCodeResponse(): QueryCodeResponse {
 }
 export const QueryCodeResponse = {
   typeUrl: "/cosmwasm.wasm.v1.QueryCodeResponse",
-  encode(message: QueryCodeResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryCodeResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.codeInfo !== undefined) {
       CodeInfoResponse.encode(message.codeInfo, writer.uint32(10).fork()).ldelim();
     }
@@ -1973,8 +1973,8 @@ export const QueryCodeResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryCodeResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryCodeResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryCodeResponse();
     while (reader.pos < end) {
@@ -2052,14 +2052,14 @@ function createBaseQueryCodesRequest(): QueryCodesRequest {
 }
 export const QueryCodesRequest = {
   typeUrl: "/cosmwasm.wasm.v1.QueryCodesRequest",
-  encode(message: QueryCodesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryCodesRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.pagination !== undefined) {
       PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryCodesRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryCodesRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryCodesRequest();
     while (reader.pos < end) {
@@ -2130,7 +2130,7 @@ function createBaseQueryCodesResponse(): QueryCodesResponse {
 }
 export const QueryCodesResponse = {
   typeUrl: "/cosmwasm.wasm.v1.QueryCodesResponse",
-  encode(message: QueryCodesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryCodesResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.codeInfos) {
       CodeInfoResponse.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -2139,8 +2139,8 @@ export const QueryCodesResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryCodesResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryCodesResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryCodesResponse();
     while (reader.pos < end) {
@@ -2226,14 +2226,14 @@ function createBaseQueryPinnedCodesRequest(): QueryPinnedCodesRequest {
 }
 export const QueryPinnedCodesRequest = {
   typeUrl: "/cosmwasm.wasm.v1.QueryPinnedCodesRequest",
-  encode(message: QueryPinnedCodesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryPinnedCodesRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.pagination !== undefined) {
       PageRequest.encode(message.pagination, writer.uint32(18).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryPinnedCodesRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryPinnedCodesRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryPinnedCodesRequest();
     while (reader.pos < end) {
@@ -2304,7 +2304,7 @@ function createBaseQueryPinnedCodesResponse(): QueryPinnedCodesResponse {
 }
 export const QueryPinnedCodesResponse = {
   typeUrl: "/cosmwasm.wasm.v1.QueryPinnedCodesResponse",
-  encode(message: QueryPinnedCodesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryPinnedCodesResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     writer.uint32(10).fork();
     for (const v of message.codeIds) {
       writer.uint64(v);
@@ -2315,8 +2315,8 @@ export const QueryPinnedCodesResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryPinnedCodesResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryPinnedCodesResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryPinnedCodesResponse();
     while (reader.pos < end) {
@@ -2326,10 +2326,10 @@ export const QueryPinnedCodesResponse = {
           if ((tag & 7) === 2) {
             const end2 = reader.uint32() + reader.pos;
             while (reader.pos < end2) {
-              message.codeIds.push(reader.uint64());
+              message.codeIds.push((reader.uint64() as Long));
             }
           } else {
-            message.codeIds.push(reader.uint64());
+            message.codeIds.push((reader.uint64() as Long));
           }
           break;
         case 2:
@@ -2344,14 +2344,14 @@ export const QueryPinnedCodesResponse = {
   },
   fromJSON(object: any): QueryPinnedCodesResponse {
     return {
-      codeIds: Array.isArray(object?.codeIds) ? object.codeIds.map((e: any) => BigInt(e.toString())) : [],
+      codeIds: Array.isArray(object?.codeIds) ? object.codeIds.map((e: any) => Long.fromValue(e)) : [],
       pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined
     };
   },
   toJSON(message: QueryPinnedCodesResponse): unknown {
     const obj: any = {};
     if (message.codeIds) {
-      obj.codeIds = message.codeIds.map(e => (e || BigInt(0)).toString());
+      obj.codeIds = message.codeIds.map(e => (e || Long.UZERO).toString());
     } else {
       obj.codeIds = [];
     }
@@ -2360,20 +2360,20 @@ export const QueryPinnedCodesResponse = {
   },
   fromPartial(object: Partial<QueryPinnedCodesResponse>): QueryPinnedCodesResponse {
     const message = createBaseQueryPinnedCodesResponse();
-    message.codeIds = object.codeIds?.map(e => BigInt(e.toString())) || [];
+    message.codeIds = object.codeIds?.map(e => Long.fromValue(e)) || [];
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageResponse.fromPartial(object.pagination) : undefined;
     return message;
   },
   fromAmino(object: QueryPinnedCodesResponseAmino): QueryPinnedCodesResponse {
     return {
-      codeIds: Array.isArray(object?.code_ids) ? object.code_ids.map((e: any) => BigInt(e)) : [],
+      codeIds: Array.isArray(object?.code_ids) ? object.code_ids.map((e: any) => e) : [],
       pagination: object?.pagination ? PageResponse.fromAmino(object.pagination) : undefined
     };
   },
   toAmino(message: QueryPinnedCodesResponse): QueryPinnedCodesResponseAmino {
     const obj: any = {};
     if (message.codeIds) {
-      obj.code_ids = message.codeIds.map(e => e.toString());
+      obj.code_ids = message.codeIds.map(e => e);
     } else {
       obj.code_ids = [];
     }
@@ -2407,11 +2407,11 @@ function createBaseQueryParamsRequest(): QueryParamsRequest {
 }
 export const QueryParamsRequest = {
   typeUrl: "/cosmwasm.wasm.v1.QueryParamsRequest",
-  encode(_: QueryParamsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: QueryParamsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryParamsRequest();
     while (reader.pos < end) {
@@ -2471,14 +2471,14 @@ function createBaseQueryParamsResponse(): QueryParamsResponse {
 }
 export const QueryParamsResponse = {
   typeUrl: "/cosmwasm.wasm.v1.QueryParamsResponse",
-  encode(message: QueryParamsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryParamsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.params !== undefined) {
       Params.encode(message.params, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryParamsResponse();
     while (reader.pos < end) {
@@ -2549,7 +2549,7 @@ function createBaseQueryContractsByCreatorRequest(): QueryContractsByCreatorRequ
 }
 export const QueryContractsByCreatorRequest = {
   typeUrl: "/cosmwasm.wasm.v1.QueryContractsByCreatorRequest",
-  encode(message: QueryContractsByCreatorRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryContractsByCreatorRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.creatorAddress !== "") {
       writer.uint32(10).string(message.creatorAddress);
     }
@@ -2558,8 +2558,8 @@ export const QueryContractsByCreatorRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryContractsByCreatorRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryContractsByCreatorRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryContractsByCreatorRequest();
     while (reader.pos < end) {
@@ -2638,7 +2638,7 @@ function createBaseQueryContractsByCreatorResponse(): QueryContractsByCreatorRes
 }
 export const QueryContractsByCreatorResponse = {
   typeUrl: "/cosmwasm.wasm.v1.QueryContractsByCreatorResponse",
-  encode(message: QueryContractsByCreatorResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryContractsByCreatorResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.contractAddresses) {
       writer.uint32(10).string(v!);
     }
@@ -2647,8 +2647,8 @@ export const QueryContractsByCreatorResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryContractsByCreatorResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryContractsByCreatorResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryContractsByCreatorResponse();
     while (reader.pos < end) {

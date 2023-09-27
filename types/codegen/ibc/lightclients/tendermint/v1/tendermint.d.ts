@@ -3,7 +3,8 @@ import { ProofSpec, ProofSpecAmino, ProofSpecSDKType } from "../../../../cosmos/
 import { MerkleRoot, MerkleRootAmino, MerkleRootSDKType } from "../../../core/commitment/v1/commitment";
 import { SignedHeader, SignedHeaderAmino, SignedHeaderSDKType } from "../../../../tendermint/types/types";
 import { ValidatorSet, ValidatorSetAmino, ValidatorSetSDKType } from "../../../../tendermint/types/validator";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * ClientState from Tendermint tracks the current validator set, latest height,
  * and a possible frozen height.
@@ -258,8 +259,8 @@ export interface HeaderSDKType {
  * supports positive values.
  */
 export interface Fraction {
-    numerator: bigint;
-    denominator: bigint;
+    numerator: Long;
+    denominator: Long;
 }
 export interface FractionProtoMsg {
     typeUrl: "/ibc.lightclients.tendermint.v1.Fraction";
@@ -282,13 +283,13 @@ export interface FractionAminoMsg {
  * supports positive values.
  */
 export interface FractionSDKType {
-    numerator: bigint;
-    denominator: bigint;
+    numerator: Long;
+    denominator: Long;
 }
 export declare const ClientState: {
     typeUrl: string;
-    encode(message: ClientState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ClientState;
+    encode(message: ClientState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ClientState;
     fromJSON(object: any): ClientState;
     toJSON(message: ClientState): unknown;
     fromPartial(object: Partial<ClientState>): ClientState;
@@ -302,8 +303,8 @@ export declare const ClientState: {
 };
 export declare const ConsensusState: {
     typeUrl: string;
-    encode(message: ConsensusState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ConsensusState;
+    encode(message: ConsensusState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ConsensusState;
     fromJSON(object: any): ConsensusState;
     toJSON(message: ConsensusState): unknown;
     fromPartial(object: Partial<ConsensusState>): ConsensusState;
@@ -317,8 +318,8 @@ export declare const ConsensusState: {
 };
 export declare const Misbehaviour: {
     typeUrl: string;
-    encode(message: Misbehaviour, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Misbehaviour;
+    encode(message: Misbehaviour, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Misbehaviour;
     fromJSON(object: any): Misbehaviour;
     toJSON(message: Misbehaviour): unknown;
     fromPartial(object: Partial<Misbehaviour>): Misbehaviour;
@@ -332,8 +333,8 @@ export declare const Misbehaviour: {
 };
 export declare const Header: {
     typeUrl: string;
-    encode(message: Header, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Header;
+    encode(message: Header, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Header;
     fromJSON(object: any): Header;
     toJSON(message: Header): unknown;
     fromPartial(object: Partial<Header>): Header;
@@ -347,8 +348,8 @@ export declare const Header: {
 };
 export declare const Fraction: {
     typeUrl: string;
-    encode(message: Fraction, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Fraction;
+    encode(message: Fraction, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Fraction;
     fromJSON(object: any): Fraction;
     toJSON(message: Fraction): unknown;
     fromPartial(object: Partial<Fraction>): Fraction;

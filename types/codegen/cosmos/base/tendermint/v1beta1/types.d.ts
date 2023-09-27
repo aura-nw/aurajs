@@ -1,7 +1,8 @@
 import { Data, DataAmino, DataSDKType, Commit, CommitAmino, CommitSDKType, BlockID, BlockIDAmino, BlockIDSDKType } from "../../../../tendermint/types/types";
 import { EvidenceList, EvidenceListAmino, EvidenceListSDKType } from "../../../../tendermint/types/evidence";
 import { Consensus, ConsensusAmino, ConsensusSDKType } from "../../../../tendermint/version/types";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * Block is tendermint type Block, with the Header proposer address
  * field converted to bech32 string.
@@ -45,7 +46,7 @@ export interface Header {
     /** basic block info */
     version: Consensus;
     chainId: string;
-    height: bigint;
+    height: Long;
     time: Date;
     /** prev block info */
     lastBlockId: BlockID;
@@ -112,7 +113,7 @@ export interface HeaderAminoMsg {
 export interface HeaderSDKType {
     version: ConsensusSDKType;
     chain_id: string;
-    height: bigint;
+    height: Long;
     time: Date;
     last_block_id: BlockIDSDKType;
     last_commit_hash: Uint8Array;
@@ -127,8 +128,8 @@ export interface HeaderSDKType {
 }
 export declare const Block: {
     typeUrl: string;
-    encode(message: Block, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Block;
+    encode(message: Block, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Block;
     fromJSON(object: any): Block;
     toJSON(message: Block): unknown;
     fromPartial(object: Partial<Block>): Block;
@@ -142,8 +143,8 @@ export declare const Block: {
 };
 export declare const Header: {
     typeUrl: string;
-    encode(message: Header, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Header;
+    encode(message: Header, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Header;
     fromJSON(object: any): Header;
     toJSON(message: Header): unknown;
     fromPartial(object: Partial<Header>): Header;

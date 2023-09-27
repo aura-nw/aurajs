@@ -1,8 +1,8 @@
-import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet } from "../../../helpers";
+import { Long, isSet } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export interface CodeID {
   /** whitelist code id */
-  codeId: bigint;
+  codeId: Long;
   /** status of code id */
   status: boolean;
 }
@@ -21,7 +21,7 @@ export interface CodeIDAminoMsg {
   value: CodeIDAmino;
 }
 export interface CodeIDSDKType {
-  code_id: bigint;
+  code_id: Long;
   status: boolean;
 }
 /** Params defines the parameters for the module. */
@@ -34,7 +34,7 @@ export interface Params {
   /** list of diable messages for smartaccount */
   disableMsgsList: string[];
   /** limit how much gas can be consumed by the `pre_execute` method */
-  maxGasExecute: bigint;
+  maxGasExecute: Long;
 }
 export interface ParamsProtoMsg {
   typeUrl: "/auranw.aura.smartaccount.Params";
@@ -60,18 +60,18 @@ export interface ParamsAminoMsg {
 export interface ParamsSDKType {
   whitelist_code_id: CodeIDSDKType[];
   disable_msgs_list: string[];
-  max_gas_execute: bigint;
+  max_gas_execute: Long;
 }
 function createBaseCodeID(): CodeID {
   return {
-    codeId: BigInt(0),
+    codeId: Long.UZERO,
     status: false
   };
 }
 export const CodeID = {
   typeUrl: "/auranw.aura.smartaccount.CodeID",
-  encode(message: CodeID, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.codeId !== BigInt(0)) {
+  encode(message: CodeID, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.codeId.isZero()) {
       writer.uint32(8).uint64(message.codeId);
     }
     if (message.status === true) {
@@ -79,15 +79,15 @@ export const CodeID = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): CodeID {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): CodeID {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseCodeID();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.codeId = reader.uint64();
+          message.codeId = (reader.uint64() as Long);
           break;
         case 2:
           message.status = reader.bool();
@@ -101,25 +101,25 @@ export const CodeID = {
   },
   fromJSON(object: any): CodeID {
     return {
-      codeId: isSet(object.codeId) ? BigInt(object.codeId.toString()) : BigInt(0),
+      codeId: isSet(object.codeId) ? Long.fromValue(object.codeId) : Long.UZERO,
       status: isSet(object.status) ? Boolean(object.status) : false
     };
   },
   toJSON(message: CodeID): unknown {
     const obj: any = {};
-    message.codeId !== undefined && (obj.codeId = (message.codeId || BigInt(0)).toString());
+    message.codeId !== undefined && (obj.codeId = (message.codeId || Long.UZERO).toString());
     message.status !== undefined && (obj.status = message.status);
     return obj;
   },
   fromPartial(object: Partial<CodeID>): CodeID {
     const message = createBaseCodeID();
-    message.codeId = object.codeId !== undefined && object.codeId !== null ? BigInt(object.codeId.toString()) : BigInt(0);
+    message.codeId = object.codeId !== undefined && object.codeId !== null ? Long.fromValue(object.codeId) : Long.UZERO;
     message.status = object.status ?? false;
     return message;
   },
   fromAmino(object: CodeIDAmino): CodeID {
     return {
-      codeId: BigInt(object.code_id),
+      codeId: Long.fromString(object.code_id),
       status: object.status
     };
   },
@@ -149,25 +149,25 @@ function createBaseParams(): Params {
   return {
     whitelistCodeId: [],
     disableMsgsList: [],
-    maxGasExecute: BigInt(0)
+    maxGasExecute: Long.UZERO
   };
 }
 export const Params = {
   typeUrl: "/auranw.aura.smartaccount.Params",
-  encode(message: Params, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: Params, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.whitelistCodeId) {
       CodeID.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     for (const v of message.disableMsgsList) {
       writer.uint32(18).string(v!);
     }
-    if (message.maxGasExecute !== BigInt(0)) {
+    if (!message.maxGasExecute.isZero()) {
       writer.uint32(24).uint64(message.maxGasExecute);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Params {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): Params {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseParams();
     while (reader.pos < end) {
@@ -180,7 +180,7 @@ export const Params = {
           message.disableMsgsList.push(reader.string());
           break;
         case 3:
-          message.maxGasExecute = reader.uint64();
+          message.maxGasExecute = (reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -193,7 +193,7 @@ export const Params = {
     return {
       whitelistCodeId: Array.isArray(object?.whitelistCodeId) ? object.whitelistCodeId.map((e: any) => CodeID.fromJSON(e)) : [],
       disableMsgsList: Array.isArray(object?.disableMsgsList) ? object.disableMsgsList.map((e: any) => String(e)) : [],
-      maxGasExecute: isSet(object.maxGasExecute) ? BigInt(object.maxGasExecute.toString()) : BigInt(0)
+      maxGasExecute: isSet(object.maxGasExecute) ? Long.fromValue(object.maxGasExecute) : Long.UZERO
     };
   },
   toJSON(message: Params): unknown {
@@ -208,21 +208,21 @@ export const Params = {
     } else {
       obj.disableMsgsList = [];
     }
-    message.maxGasExecute !== undefined && (obj.maxGasExecute = (message.maxGasExecute || BigInt(0)).toString());
+    message.maxGasExecute !== undefined && (obj.maxGasExecute = (message.maxGasExecute || Long.UZERO).toString());
     return obj;
   },
   fromPartial(object: Partial<Params>): Params {
     const message = createBaseParams();
     message.whitelistCodeId = object.whitelistCodeId?.map(e => CodeID.fromPartial(e)) || [];
     message.disableMsgsList = object.disableMsgsList?.map(e => e) || [];
-    message.maxGasExecute = object.maxGasExecute !== undefined && object.maxGasExecute !== null ? BigInt(object.maxGasExecute.toString()) : BigInt(0);
+    message.maxGasExecute = object.maxGasExecute !== undefined && object.maxGasExecute !== null ? Long.fromValue(object.maxGasExecute) : Long.UZERO;
     return message;
   },
   fromAmino(object: ParamsAmino): Params {
     return {
       whitelistCodeId: Array.isArray(object?.whitelist_code_id) ? object.whitelist_code_id.map((e: any) => CodeID.fromAmino(e)) : [],
       disableMsgsList: Array.isArray(object?.disable_msgs_list) ? object.disable_msgs_list.map((e: any) => e) : [],
-      maxGasExecute: BigInt(object.max_gas_execute)
+      maxGasExecute: Long.fromString(object.max_gas_execute)
     };
   },
   toAmino(message: Params): ParamsAmino {

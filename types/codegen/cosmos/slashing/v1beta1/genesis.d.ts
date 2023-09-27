@@ -1,5 +1,6 @@
 import { Params, ParamsAmino, ParamsSDKType, ValidatorSigningInfo, ValidatorSigningInfoAmino, ValidatorSigningInfoSDKType } from "./slashing";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** GenesisState defines the slashing module's genesis state. */
 export interface GenesisState {
     /** params defines all the parameters of the module. */
@@ -110,7 +111,7 @@ export interface ValidatorMissedBlocksSDKType {
 /** MissedBlock contains height and missed status as boolean. */
 export interface MissedBlock {
     /** index is the height at which the block was missed. */
-    index: bigint;
+    index: Long;
     /** missed is the missed status. */
     missed: boolean;
 }
@@ -131,13 +132,13 @@ export interface MissedBlockAminoMsg {
 }
 /** MissedBlock contains height and missed status as boolean. */
 export interface MissedBlockSDKType {
-    index: bigint;
+    index: Long;
     missed: boolean;
 }
 export declare const GenesisState: {
     typeUrl: string;
-    encode(message: GenesisState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GenesisState;
+    encode(message: GenesisState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GenesisState;
     fromJSON(object: any): GenesisState;
     toJSON(message: GenesisState): unknown;
     fromPartial(object: Partial<GenesisState>): GenesisState;
@@ -151,8 +152,8 @@ export declare const GenesisState: {
 };
 export declare const SigningInfo: {
     typeUrl: string;
-    encode(message: SigningInfo, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SigningInfo;
+    encode(message: SigningInfo, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SigningInfo;
     fromJSON(object: any): SigningInfo;
     toJSON(message: SigningInfo): unknown;
     fromPartial(object: Partial<SigningInfo>): SigningInfo;
@@ -166,8 +167,8 @@ export declare const SigningInfo: {
 };
 export declare const ValidatorMissedBlocks: {
     typeUrl: string;
-    encode(message: ValidatorMissedBlocks, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ValidatorMissedBlocks;
+    encode(message: ValidatorMissedBlocks, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ValidatorMissedBlocks;
     fromJSON(object: any): ValidatorMissedBlocks;
     toJSON(message: ValidatorMissedBlocks): unknown;
     fromPartial(object: Partial<ValidatorMissedBlocks>): ValidatorMissedBlocks;
@@ -181,8 +182,8 @@ export declare const ValidatorMissedBlocks: {
 };
 export declare const MissedBlock: {
     typeUrl: string;
-    encode(message: MissedBlock, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MissedBlock;
+    encode(message: MissedBlock, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MissedBlock;
     fromJSON(object: any): MissedBlock;
     toJSON(message: MissedBlock): unknown;
     fromPartial(object: Partial<MissedBlock>): MissedBlock;

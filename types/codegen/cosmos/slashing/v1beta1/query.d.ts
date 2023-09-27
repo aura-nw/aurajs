@@ -1,6 +1,6 @@
 import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
 import { Params, ParamsAmino, ParamsSDKType, ValidatorSigningInfo, ValidatorSigningInfoAmino, ValidatorSigningInfoSDKType } from "./slashing";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** QueryParamsRequest is the request type for the Query/Params RPC method */
 export interface QueryParamsRequest {
 }
@@ -165,8 +165,8 @@ export interface QuerySigningInfosResponseSDKType {
 }
 export declare const QueryParamsRequest: {
     typeUrl: string;
-    encode(_: QueryParamsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsRequest;
+    encode(_: QueryParamsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsRequest;
     fromJSON(_: any): QueryParamsRequest;
     toJSON(_: QueryParamsRequest): unknown;
     fromPartial(_: Partial<QueryParamsRequest>): QueryParamsRequest;
@@ -180,8 +180,8 @@ export declare const QueryParamsRequest: {
 };
 export declare const QueryParamsResponse: {
     typeUrl: string;
-    encode(message: QueryParamsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsResponse;
+    encode(message: QueryParamsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse;
     fromJSON(object: any): QueryParamsResponse;
     toJSON(message: QueryParamsResponse): unknown;
     fromPartial(object: Partial<QueryParamsResponse>): QueryParamsResponse;
@@ -195,8 +195,8 @@ export declare const QueryParamsResponse: {
 };
 export declare const QuerySigningInfoRequest: {
     typeUrl: string;
-    encode(message: QuerySigningInfoRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QuerySigningInfoRequest;
+    encode(message: QuerySigningInfoRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QuerySigningInfoRequest;
     fromJSON(object: any): QuerySigningInfoRequest;
     toJSON(message: QuerySigningInfoRequest): unknown;
     fromPartial(object: Partial<QuerySigningInfoRequest>): QuerySigningInfoRequest;
@@ -210,8 +210,8 @@ export declare const QuerySigningInfoRequest: {
 };
 export declare const QuerySigningInfoResponse: {
     typeUrl: string;
-    encode(message: QuerySigningInfoResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QuerySigningInfoResponse;
+    encode(message: QuerySigningInfoResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QuerySigningInfoResponse;
     fromJSON(object: any): QuerySigningInfoResponse;
     toJSON(message: QuerySigningInfoResponse): unknown;
     fromPartial(object: Partial<QuerySigningInfoResponse>): QuerySigningInfoResponse;
@@ -225,8 +225,8 @@ export declare const QuerySigningInfoResponse: {
 };
 export declare const QuerySigningInfosRequest: {
     typeUrl: string;
-    encode(message: QuerySigningInfosRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QuerySigningInfosRequest;
+    encode(message: QuerySigningInfosRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QuerySigningInfosRequest;
     fromJSON(object: any): QuerySigningInfosRequest;
     toJSON(message: QuerySigningInfosRequest): unknown;
     fromPartial(object: Partial<QuerySigningInfosRequest>): QuerySigningInfosRequest;
@@ -240,8 +240,8 @@ export declare const QuerySigningInfosRequest: {
 };
 export declare const QuerySigningInfosResponse: {
     typeUrl: string;
-    encode(message: QuerySigningInfosResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QuerySigningInfosResponse;
+    encode(message: QuerySigningInfosResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QuerySigningInfosResponse;
     fromJSON(object: any): QuerySigningInfosResponse;
     toJSON(message: QuerySigningInfosResponse): unknown;
     fromPartial(object: Partial<QuerySigningInfosResponse>): QuerySigningInfosResponse;

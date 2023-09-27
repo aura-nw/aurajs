@@ -8,10 +8,11 @@ import { Block as Block2 } from "./types";
 import { BlockAmino as Block2Amino } from "./types";
 import { BlockSDKType as Block2SDKType } from "./types";
 import { DefaultNodeInfo, DefaultNodeInfoAmino, DefaultNodeInfoSDKType } from "../../../../tendermint/p2p/types";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** GetValidatorSetByHeightRequest is the request type for the Query/GetValidatorSetByHeight RPC method. */
 export interface GetValidatorSetByHeightRequest {
-    height: bigint;
+    height: Long;
     /** pagination defines an pagination for the request. */
     pagination: PageRequest;
 }
@@ -31,12 +32,12 @@ export interface GetValidatorSetByHeightRequestAminoMsg {
 }
 /** GetValidatorSetByHeightRequest is the request type for the Query/GetValidatorSetByHeight RPC method. */
 export interface GetValidatorSetByHeightRequestSDKType {
-    height: bigint;
+    height: Long;
     pagination: PageRequestSDKType;
 }
 /** GetValidatorSetByHeightResponse is the response type for the Query/GetValidatorSetByHeight RPC method. */
 export interface GetValidatorSetByHeightResponse {
-    blockHeight: bigint;
+    blockHeight: Long;
     validators: Validator[];
     /** pagination defines an pagination for the response. */
     pagination: PageResponse;
@@ -58,7 +59,7 @@ export interface GetValidatorSetByHeightResponseAminoMsg {
 }
 /** GetValidatorSetByHeightResponse is the response type for the Query/GetValidatorSetByHeight RPC method. */
 export interface GetValidatorSetByHeightResponseSDKType {
-    block_height: bigint;
+    block_height: Long;
     validators: ValidatorSDKType[];
     pagination: PageResponseSDKType;
 }
@@ -86,7 +87,7 @@ export interface GetLatestValidatorSetRequestSDKType {
 }
 /** GetLatestValidatorSetResponse is the response type for the Query/GetValidatorSetByHeight RPC method. */
 export interface GetLatestValidatorSetResponse {
-    blockHeight: bigint;
+    blockHeight: Long;
     validators: Validator[];
     /** pagination defines an pagination for the response. */
     pagination: PageResponse;
@@ -108,7 +109,7 @@ export interface GetLatestValidatorSetResponseAminoMsg {
 }
 /** GetLatestValidatorSetResponse is the response type for the Query/GetValidatorSetByHeight RPC method. */
 export interface GetLatestValidatorSetResponseSDKType {
-    block_height: bigint;
+    block_height: Long;
     validators: ValidatorSDKType[];
     pagination: PageResponseSDKType;
 }
@@ -116,8 +117,8 @@ export interface GetLatestValidatorSetResponseSDKType {
 export interface Validator {
     address: string;
     pubKey: Any;
-    votingPower: bigint;
-    proposerPriority: bigint;
+    votingPower: Long;
+    proposerPriority: Long;
 }
 export interface ValidatorProtoMsg {
     typeUrl: "/cosmos.base.tendermint.v1beta1.Validator";
@@ -138,12 +139,12 @@ export interface ValidatorAminoMsg {
 export interface ValidatorSDKType {
     address: string;
     pub_key: AnySDKType;
-    voting_power: bigint;
-    proposer_priority: bigint;
+    voting_power: Long;
+    proposer_priority: Long;
 }
 /** GetBlockByHeightRequest is the request type for the Query/GetBlockByHeight RPC method. */
 export interface GetBlockByHeightRequest {
-    height: bigint;
+    height: Long;
 }
 export interface GetBlockByHeightRequestProtoMsg {
     typeUrl: "/cosmos.base.tendermint.v1beta1.GetBlockByHeightRequest";
@@ -159,7 +160,7 @@ export interface GetBlockByHeightRequestAminoMsg {
 }
 /** GetBlockByHeightRequest is the request type for the Query/GetBlockByHeight RPC method. */
 export interface GetBlockByHeightRequestSDKType {
-    height: bigint;
+    height: Long;
 }
 /** GetBlockByHeightResponse is the response type for the Query/GetBlockByHeight RPC method. */
 export interface GetBlockByHeightResponse {
@@ -394,7 +395,7 @@ export interface ModuleSDKType {
 export interface ABCIQueryRequest {
     data: Uint8Array;
     path: string;
-    height: bigint;
+    height: Long;
     prove: boolean;
 }
 export interface ABCIQueryRequestProtoMsg {
@@ -416,7 +417,7 @@ export interface ABCIQueryRequestAminoMsg {
 export interface ABCIQueryRequestSDKType {
     data: Uint8Array;
     path: string;
-    height: bigint;
+    height: Long;
     prove: boolean;
 }
 /**
@@ -431,11 +432,11 @@ export interface ABCIQueryResponse {
     log: string;
     /** nondeterministic */
     info: string;
-    index: bigint;
+    index: Long;
     key: Uint8Array;
     value: Uint8Array;
     proofOps: ProofOps;
-    height: bigint;
+    height: Long;
     codespace: string;
 }
 export interface ABCIQueryResponseProtoMsg {
@@ -475,11 +476,11 @@ export interface ABCIQueryResponseSDKType {
     code: number;
     log: string;
     info: string;
-    index: bigint;
+    index: Long;
     key: Uint8Array;
     value: Uint8Array;
     proof_ops: ProofOpsSDKType;
-    height: bigint;
+    height: Long;
     codespace: string;
 }
 /**
@@ -560,8 +561,8 @@ export interface ProofOpsSDKType {
 }
 export declare const GetValidatorSetByHeightRequest: {
     typeUrl: string;
-    encode(message: GetValidatorSetByHeightRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetValidatorSetByHeightRequest;
+    encode(message: GetValidatorSetByHeightRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetValidatorSetByHeightRequest;
     fromJSON(object: any): GetValidatorSetByHeightRequest;
     toJSON(message: GetValidatorSetByHeightRequest): unknown;
     fromPartial(object: Partial<GetValidatorSetByHeightRequest>): GetValidatorSetByHeightRequest;
@@ -575,8 +576,8 @@ export declare const GetValidatorSetByHeightRequest: {
 };
 export declare const GetValidatorSetByHeightResponse: {
     typeUrl: string;
-    encode(message: GetValidatorSetByHeightResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetValidatorSetByHeightResponse;
+    encode(message: GetValidatorSetByHeightResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetValidatorSetByHeightResponse;
     fromJSON(object: any): GetValidatorSetByHeightResponse;
     toJSON(message: GetValidatorSetByHeightResponse): unknown;
     fromPartial(object: Partial<GetValidatorSetByHeightResponse>): GetValidatorSetByHeightResponse;
@@ -590,8 +591,8 @@ export declare const GetValidatorSetByHeightResponse: {
 };
 export declare const GetLatestValidatorSetRequest: {
     typeUrl: string;
-    encode(message: GetLatestValidatorSetRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetLatestValidatorSetRequest;
+    encode(message: GetLatestValidatorSetRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetLatestValidatorSetRequest;
     fromJSON(object: any): GetLatestValidatorSetRequest;
     toJSON(message: GetLatestValidatorSetRequest): unknown;
     fromPartial(object: Partial<GetLatestValidatorSetRequest>): GetLatestValidatorSetRequest;
@@ -605,8 +606,8 @@ export declare const GetLatestValidatorSetRequest: {
 };
 export declare const GetLatestValidatorSetResponse: {
     typeUrl: string;
-    encode(message: GetLatestValidatorSetResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetLatestValidatorSetResponse;
+    encode(message: GetLatestValidatorSetResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetLatestValidatorSetResponse;
     fromJSON(object: any): GetLatestValidatorSetResponse;
     toJSON(message: GetLatestValidatorSetResponse): unknown;
     fromPartial(object: Partial<GetLatestValidatorSetResponse>): GetLatestValidatorSetResponse;
@@ -620,8 +621,8 @@ export declare const GetLatestValidatorSetResponse: {
 };
 export declare const Validator: {
     typeUrl: string;
-    encode(message: Validator, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Validator;
+    encode(message: Validator, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Validator;
     fromJSON(object: any): Validator;
     toJSON(message: Validator): unknown;
     fromPartial(object: Partial<Validator>): Validator;
@@ -635,8 +636,8 @@ export declare const Validator: {
 };
 export declare const GetBlockByHeightRequest: {
     typeUrl: string;
-    encode(message: GetBlockByHeightRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetBlockByHeightRequest;
+    encode(message: GetBlockByHeightRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetBlockByHeightRequest;
     fromJSON(object: any): GetBlockByHeightRequest;
     toJSON(message: GetBlockByHeightRequest): unknown;
     fromPartial(object: Partial<GetBlockByHeightRequest>): GetBlockByHeightRequest;
@@ -650,8 +651,8 @@ export declare const GetBlockByHeightRequest: {
 };
 export declare const GetBlockByHeightResponse: {
     typeUrl: string;
-    encode(message: GetBlockByHeightResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetBlockByHeightResponse;
+    encode(message: GetBlockByHeightResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetBlockByHeightResponse;
     fromJSON(object: any): GetBlockByHeightResponse;
     toJSON(message: GetBlockByHeightResponse): unknown;
     fromPartial(object: Partial<GetBlockByHeightResponse>): GetBlockByHeightResponse;
@@ -665,8 +666,8 @@ export declare const GetBlockByHeightResponse: {
 };
 export declare const GetLatestBlockRequest: {
     typeUrl: string;
-    encode(_: GetLatestBlockRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetLatestBlockRequest;
+    encode(_: GetLatestBlockRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetLatestBlockRequest;
     fromJSON(_: any): GetLatestBlockRequest;
     toJSON(_: GetLatestBlockRequest): unknown;
     fromPartial(_: Partial<GetLatestBlockRequest>): GetLatestBlockRequest;
@@ -680,8 +681,8 @@ export declare const GetLatestBlockRequest: {
 };
 export declare const GetLatestBlockResponse: {
     typeUrl: string;
-    encode(message: GetLatestBlockResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetLatestBlockResponse;
+    encode(message: GetLatestBlockResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetLatestBlockResponse;
     fromJSON(object: any): GetLatestBlockResponse;
     toJSON(message: GetLatestBlockResponse): unknown;
     fromPartial(object: Partial<GetLatestBlockResponse>): GetLatestBlockResponse;
@@ -695,8 +696,8 @@ export declare const GetLatestBlockResponse: {
 };
 export declare const GetSyncingRequest: {
     typeUrl: string;
-    encode(_: GetSyncingRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetSyncingRequest;
+    encode(_: GetSyncingRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetSyncingRequest;
     fromJSON(_: any): GetSyncingRequest;
     toJSON(_: GetSyncingRequest): unknown;
     fromPartial(_: Partial<GetSyncingRequest>): GetSyncingRequest;
@@ -710,8 +711,8 @@ export declare const GetSyncingRequest: {
 };
 export declare const GetSyncingResponse: {
     typeUrl: string;
-    encode(message: GetSyncingResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetSyncingResponse;
+    encode(message: GetSyncingResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetSyncingResponse;
     fromJSON(object: any): GetSyncingResponse;
     toJSON(message: GetSyncingResponse): unknown;
     fromPartial(object: Partial<GetSyncingResponse>): GetSyncingResponse;
@@ -725,8 +726,8 @@ export declare const GetSyncingResponse: {
 };
 export declare const GetNodeInfoRequest: {
     typeUrl: string;
-    encode(_: GetNodeInfoRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetNodeInfoRequest;
+    encode(_: GetNodeInfoRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetNodeInfoRequest;
     fromJSON(_: any): GetNodeInfoRequest;
     toJSON(_: GetNodeInfoRequest): unknown;
     fromPartial(_: Partial<GetNodeInfoRequest>): GetNodeInfoRequest;
@@ -740,8 +741,8 @@ export declare const GetNodeInfoRequest: {
 };
 export declare const GetNodeInfoResponse: {
     typeUrl: string;
-    encode(message: GetNodeInfoResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetNodeInfoResponse;
+    encode(message: GetNodeInfoResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetNodeInfoResponse;
     fromJSON(object: any): GetNodeInfoResponse;
     toJSON(message: GetNodeInfoResponse): unknown;
     fromPartial(object: Partial<GetNodeInfoResponse>): GetNodeInfoResponse;
@@ -755,8 +756,8 @@ export declare const GetNodeInfoResponse: {
 };
 export declare const VersionInfo: {
     typeUrl: string;
-    encode(message: VersionInfo, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): VersionInfo;
+    encode(message: VersionInfo, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): VersionInfo;
     fromJSON(object: any): VersionInfo;
     toJSON(message: VersionInfo): unknown;
     fromPartial(object: Partial<VersionInfo>): VersionInfo;
@@ -770,8 +771,8 @@ export declare const VersionInfo: {
 };
 export declare const Module: {
     typeUrl: string;
-    encode(message: Module, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Module;
+    encode(message: Module, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Module;
     fromJSON(object: any): Module;
     toJSON(message: Module): unknown;
     fromPartial(object: Partial<Module>): Module;
@@ -785,8 +786,8 @@ export declare const Module: {
 };
 export declare const ABCIQueryRequest: {
     typeUrl: string;
-    encode(message: ABCIQueryRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ABCIQueryRequest;
+    encode(message: ABCIQueryRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ABCIQueryRequest;
     fromJSON(object: any): ABCIQueryRequest;
     toJSON(message: ABCIQueryRequest): unknown;
     fromPartial(object: Partial<ABCIQueryRequest>): ABCIQueryRequest;
@@ -800,8 +801,8 @@ export declare const ABCIQueryRequest: {
 };
 export declare const ABCIQueryResponse: {
     typeUrl: string;
-    encode(message: ABCIQueryResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ABCIQueryResponse;
+    encode(message: ABCIQueryResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ABCIQueryResponse;
     fromJSON(object: any): ABCIQueryResponse;
     toJSON(message: ABCIQueryResponse): unknown;
     fromPartial(object: Partial<ABCIQueryResponse>): ABCIQueryResponse;
@@ -815,8 +816,8 @@ export declare const ABCIQueryResponse: {
 };
 export declare const ProofOp: {
     typeUrl: string;
-    encode(message: ProofOp, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ProofOp;
+    encode(message: ProofOp, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ProofOp;
     fromJSON(object: any): ProofOp;
     toJSON(message: ProofOp): unknown;
     fromPartial(object: Partial<ProofOp>): ProofOp;
@@ -830,8 +831,8 @@ export declare const ProofOp: {
 };
 export declare const ProofOps: {
     typeUrl: string;
-    encode(message: ProofOps, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ProofOps;
+    encode(message: ProofOps, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ProofOps;
     fromJSON(object: any): ProofOps;
     toJSON(message: ProofOps): unknown;
     fromPartial(object: Partial<ProofOps>): ProofOps;

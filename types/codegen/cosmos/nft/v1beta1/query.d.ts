@@ -1,6 +1,7 @@
 import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
 import { NFT, NFTAmino, NFTSDKType, Class, ClassAmino, ClassSDKType } from "./nft";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** QueryBalanceRequest is the request type for the Query/Balance RPC method */
 export interface QueryBalanceRequest {
     /** class_id associated with the nft */
@@ -31,7 +32,7 @@ export interface QueryBalanceRequestSDKType {
 /** QueryBalanceResponse is the response type for the Query/Balance RPC method */
 export interface QueryBalanceResponse {
     /** amount is the number of all NFTs of a given class owned by the owner */
-    amount: bigint;
+    amount: Long;
 }
 export interface QueryBalanceResponseProtoMsg {
     typeUrl: "/cosmos.nft.v1beta1.QueryBalanceResponse";
@@ -48,7 +49,7 @@ export interface QueryBalanceResponseAminoMsg {
 }
 /** QueryBalanceResponse is the response type for the Query/Balance RPC method */
 export interface QueryBalanceResponseSDKType {
-    amount: bigint;
+    amount: Long;
 }
 /** QueryOwnerRequest is the request type for the Query/Owner RPC method */
 export interface QueryOwnerRequest {
@@ -124,7 +125,7 @@ export interface QuerySupplyRequestSDKType {
 /** QuerySupplyResponse is the response type for the Query/Supply RPC method */
 export interface QuerySupplyResponse {
     /** amount is the number of all NFTs from the given class */
-    amount: bigint;
+    amount: Long;
 }
 export interface QuerySupplyResponseProtoMsg {
     typeUrl: "/cosmos.nft.v1beta1.QuerySupplyResponse";
@@ -141,7 +142,7 @@ export interface QuerySupplyResponseAminoMsg {
 }
 /** QuerySupplyResponse is the response type for the Query/Supply RPC method */
 export interface QuerySupplyResponseSDKType {
-    amount: bigint;
+    amount: Long;
 }
 /** QueryNFTstRequest is the request type for the Query/NFTs RPC method */
 export interface QueryNFTsRequest {
@@ -346,8 +347,8 @@ export interface QueryClassesResponseSDKType {
 }
 export declare const QueryBalanceRequest: {
     typeUrl: string;
-    encode(message: QueryBalanceRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryBalanceRequest;
+    encode(message: QueryBalanceRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryBalanceRequest;
     fromJSON(object: any): QueryBalanceRequest;
     toJSON(message: QueryBalanceRequest): unknown;
     fromPartial(object: Partial<QueryBalanceRequest>): QueryBalanceRequest;
@@ -361,8 +362,8 @@ export declare const QueryBalanceRequest: {
 };
 export declare const QueryBalanceResponse: {
     typeUrl: string;
-    encode(message: QueryBalanceResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryBalanceResponse;
+    encode(message: QueryBalanceResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryBalanceResponse;
     fromJSON(object: any): QueryBalanceResponse;
     toJSON(message: QueryBalanceResponse): unknown;
     fromPartial(object: Partial<QueryBalanceResponse>): QueryBalanceResponse;
@@ -376,8 +377,8 @@ export declare const QueryBalanceResponse: {
 };
 export declare const QueryOwnerRequest: {
     typeUrl: string;
-    encode(message: QueryOwnerRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryOwnerRequest;
+    encode(message: QueryOwnerRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryOwnerRequest;
     fromJSON(object: any): QueryOwnerRequest;
     toJSON(message: QueryOwnerRequest): unknown;
     fromPartial(object: Partial<QueryOwnerRequest>): QueryOwnerRequest;
@@ -391,8 +392,8 @@ export declare const QueryOwnerRequest: {
 };
 export declare const QueryOwnerResponse: {
     typeUrl: string;
-    encode(message: QueryOwnerResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryOwnerResponse;
+    encode(message: QueryOwnerResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryOwnerResponse;
     fromJSON(object: any): QueryOwnerResponse;
     toJSON(message: QueryOwnerResponse): unknown;
     fromPartial(object: Partial<QueryOwnerResponse>): QueryOwnerResponse;
@@ -406,8 +407,8 @@ export declare const QueryOwnerResponse: {
 };
 export declare const QuerySupplyRequest: {
     typeUrl: string;
-    encode(message: QuerySupplyRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QuerySupplyRequest;
+    encode(message: QuerySupplyRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QuerySupplyRequest;
     fromJSON(object: any): QuerySupplyRequest;
     toJSON(message: QuerySupplyRequest): unknown;
     fromPartial(object: Partial<QuerySupplyRequest>): QuerySupplyRequest;
@@ -421,8 +422,8 @@ export declare const QuerySupplyRequest: {
 };
 export declare const QuerySupplyResponse: {
     typeUrl: string;
-    encode(message: QuerySupplyResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QuerySupplyResponse;
+    encode(message: QuerySupplyResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QuerySupplyResponse;
     fromJSON(object: any): QuerySupplyResponse;
     toJSON(message: QuerySupplyResponse): unknown;
     fromPartial(object: Partial<QuerySupplyResponse>): QuerySupplyResponse;
@@ -436,8 +437,8 @@ export declare const QuerySupplyResponse: {
 };
 export declare const QueryNFTsRequest: {
     typeUrl: string;
-    encode(message: QueryNFTsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryNFTsRequest;
+    encode(message: QueryNFTsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryNFTsRequest;
     fromJSON(object: any): QueryNFTsRequest;
     toJSON(message: QueryNFTsRequest): unknown;
     fromPartial(object: Partial<QueryNFTsRequest>): QueryNFTsRequest;
@@ -451,8 +452,8 @@ export declare const QueryNFTsRequest: {
 };
 export declare const QueryNFTsResponse: {
     typeUrl: string;
-    encode(message: QueryNFTsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryNFTsResponse;
+    encode(message: QueryNFTsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryNFTsResponse;
     fromJSON(object: any): QueryNFTsResponse;
     toJSON(message: QueryNFTsResponse): unknown;
     fromPartial(object: Partial<QueryNFTsResponse>): QueryNFTsResponse;
@@ -466,8 +467,8 @@ export declare const QueryNFTsResponse: {
 };
 export declare const QueryNFTRequest: {
     typeUrl: string;
-    encode(message: QueryNFTRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryNFTRequest;
+    encode(message: QueryNFTRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryNFTRequest;
     fromJSON(object: any): QueryNFTRequest;
     toJSON(message: QueryNFTRequest): unknown;
     fromPartial(object: Partial<QueryNFTRequest>): QueryNFTRequest;
@@ -481,8 +482,8 @@ export declare const QueryNFTRequest: {
 };
 export declare const QueryNFTResponse: {
     typeUrl: string;
-    encode(message: QueryNFTResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryNFTResponse;
+    encode(message: QueryNFTResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryNFTResponse;
     fromJSON(object: any): QueryNFTResponse;
     toJSON(message: QueryNFTResponse): unknown;
     fromPartial(object: Partial<QueryNFTResponse>): QueryNFTResponse;
@@ -496,8 +497,8 @@ export declare const QueryNFTResponse: {
 };
 export declare const QueryClassRequest: {
     typeUrl: string;
-    encode(message: QueryClassRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryClassRequest;
+    encode(message: QueryClassRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryClassRequest;
     fromJSON(object: any): QueryClassRequest;
     toJSON(message: QueryClassRequest): unknown;
     fromPartial(object: Partial<QueryClassRequest>): QueryClassRequest;
@@ -511,8 +512,8 @@ export declare const QueryClassRequest: {
 };
 export declare const QueryClassResponse: {
     typeUrl: string;
-    encode(message: QueryClassResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryClassResponse;
+    encode(message: QueryClassResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryClassResponse;
     fromJSON(object: any): QueryClassResponse;
     toJSON(message: QueryClassResponse): unknown;
     fromPartial(object: Partial<QueryClassResponse>): QueryClassResponse;
@@ -526,8 +527,8 @@ export declare const QueryClassResponse: {
 };
 export declare const QueryClassesRequest: {
     typeUrl: string;
-    encode(message: QueryClassesRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryClassesRequest;
+    encode(message: QueryClassesRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryClassesRequest;
     fromJSON(object: any): QueryClassesRequest;
     toJSON(message: QueryClassesRequest): unknown;
     fromPartial(object: Partial<QueryClassesRequest>): QueryClassesRequest;
@@ -541,8 +542,8 @@ export declare const QueryClassesRequest: {
 };
 export declare const QueryClassesResponse: {
     typeUrl: string;
-    encode(message: QueryClassesResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryClassesResponse;
+    encode(message: QueryClassesResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryClassesResponse;
     fromJSON(object: any): QueryClassesResponse;
     toJSON(message: QueryClassesResponse): unknown;
     fromPartial(object: Partial<QueryClassesResponse>): QueryClassesResponse;

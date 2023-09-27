@@ -1,5 +1,6 @@
 import { MerklePrefix, MerklePrefixAmino, MerklePrefixSDKType } from "../../commitment/v1/commitment";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * State defines if a connection is in one of the following states:
  * INIT, TRYOPEN, OPEN or UNINITIALIZED.
@@ -45,7 +46,7 @@ export interface ConnectionEnd {
      * packet-verification NOTE: delay period logic is only implemented by some
      * clients.
      */
-    delayPeriod: bigint;
+    delayPeriod: Long;
 }
 export interface ConnectionEndProtoMsg {
     typeUrl: "/ibc.core.connection.v1.ConnectionEnd";
@@ -91,7 +92,7 @@ export interface ConnectionEndSDKType {
     versions: VersionSDKType[];
     state: State;
     counterparty: CounterpartySDKType;
-    delay_period: bigint;
+    delay_period: Long;
 }
 /**
  * IdentifiedConnection defines a connection with additional connection
@@ -112,7 +113,7 @@ export interface IdentifiedConnection {
     /** counterparty chain associated with this connection. */
     counterparty: Counterparty;
     /** delay period associated with this connection. */
-    delayPeriod: bigint;
+    delayPeriod: Long;
 }
 export interface IdentifiedConnectionProtoMsg {
     typeUrl: "/ibc.core.connection.v1.IdentifiedConnection";
@@ -153,7 +154,7 @@ export interface IdentifiedConnectionSDKType {
     versions: VersionSDKType[];
     state: State;
     counterparty: CounterpartySDKType;
-    delay_period: bigint;
+    delay_period: Long;
 }
 /** Counterparty defines the counterparty chain associated with a connection end. */
 export interface Counterparty {
@@ -291,7 +292,7 @@ export interface Params {
      * largest amount of time that the chain might reasonably take to produce the next block under normal operating
      * conditions. A safe choice is 3-5x the expected time per block.
      */
-    maxExpectedTimePerBlock: bigint;
+    maxExpectedTimePerBlock: Long;
 }
 export interface ParamsProtoMsg {
     typeUrl: "/ibc.core.connection.v1.Params";
@@ -312,12 +313,12 @@ export interface ParamsAminoMsg {
 }
 /** Params defines the set of Connection parameters. */
 export interface ParamsSDKType {
-    max_expected_time_per_block: bigint;
+    max_expected_time_per_block: Long;
 }
 export declare const ConnectionEnd: {
     typeUrl: string;
-    encode(message: ConnectionEnd, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ConnectionEnd;
+    encode(message: ConnectionEnd, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ConnectionEnd;
     fromJSON(object: any): ConnectionEnd;
     toJSON(message: ConnectionEnd): unknown;
     fromPartial(object: Partial<ConnectionEnd>): ConnectionEnd;
@@ -331,8 +332,8 @@ export declare const ConnectionEnd: {
 };
 export declare const IdentifiedConnection: {
     typeUrl: string;
-    encode(message: IdentifiedConnection, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): IdentifiedConnection;
+    encode(message: IdentifiedConnection, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): IdentifiedConnection;
     fromJSON(object: any): IdentifiedConnection;
     toJSON(message: IdentifiedConnection): unknown;
     fromPartial(object: Partial<IdentifiedConnection>): IdentifiedConnection;
@@ -346,8 +347,8 @@ export declare const IdentifiedConnection: {
 };
 export declare const Counterparty: {
     typeUrl: string;
-    encode(message: Counterparty, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Counterparty;
+    encode(message: Counterparty, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Counterparty;
     fromJSON(object: any): Counterparty;
     toJSON(message: Counterparty): unknown;
     fromPartial(object: Partial<Counterparty>): Counterparty;
@@ -361,8 +362,8 @@ export declare const Counterparty: {
 };
 export declare const ClientPaths: {
     typeUrl: string;
-    encode(message: ClientPaths, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ClientPaths;
+    encode(message: ClientPaths, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ClientPaths;
     fromJSON(object: any): ClientPaths;
     toJSON(message: ClientPaths): unknown;
     fromPartial(object: Partial<ClientPaths>): ClientPaths;
@@ -376,8 +377,8 @@ export declare const ClientPaths: {
 };
 export declare const ConnectionPaths: {
     typeUrl: string;
-    encode(message: ConnectionPaths, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ConnectionPaths;
+    encode(message: ConnectionPaths, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ConnectionPaths;
     fromJSON(object: any): ConnectionPaths;
     toJSON(message: ConnectionPaths): unknown;
     fromPartial(object: Partial<ConnectionPaths>): ConnectionPaths;
@@ -391,8 +392,8 @@ export declare const ConnectionPaths: {
 };
 export declare const Version: {
     typeUrl: string;
-    encode(message: Version, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Version;
+    encode(message: Version, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Version;
     fromJSON(object: any): Version;
     toJSON(message: Version): unknown;
     fromPartial(object: Partial<Version>): Version;
@@ -406,8 +407,8 @@ export declare const Version: {
 };
 export declare const Params: {
     typeUrl: string;
-    encode(message: Params, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Params;
+    encode(message: Params, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Params;
     fromJSON(object: any): Params;
     toJSON(message: Params): unknown;
     fromPartial(object: Partial<Params>): Params;

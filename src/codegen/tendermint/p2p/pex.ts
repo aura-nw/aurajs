@@ -1,5 +1,5 @@
 import { NetAddress, NetAddressAmino, NetAddressSDKType } from "./types";
-import { BinaryReader, BinaryWriter } from "../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { isSet } from "../../helpers";
 export interface PexRequest {}
 export interface PexRequestProtoMsg {
@@ -54,11 +54,11 @@ function createBasePexRequest(): PexRequest {
 }
 export const PexRequest = {
   typeUrl: "/tendermint.p2p.PexRequest",
-  encode(_: PexRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: PexRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): PexRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): PexRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBasePexRequest();
     while (reader.pos < end) {
@@ -112,14 +112,14 @@ function createBasePexAddrs(): PexAddrs {
 }
 export const PexAddrs = {
   typeUrl: "/tendermint.p2p.PexAddrs",
-  encode(message: PexAddrs, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: PexAddrs, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.addrs) {
       NetAddress.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): PexAddrs {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): PexAddrs {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBasePexAddrs();
     while (reader.pos < end) {
@@ -192,7 +192,7 @@ function createBaseMessage(): Message {
 }
 export const Message = {
   typeUrl: "/tendermint.p2p.Message",
-  encode(message: Message, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: Message, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.pexRequest !== undefined) {
       PexRequest.encode(message.pexRequest, writer.uint32(10).fork()).ldelim();
     }
@@ -201,8 +201,8 @@ export const Message = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Message {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): Message {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMessage();
     while (reader.pos < end) {

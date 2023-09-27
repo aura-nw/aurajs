@@ -1,7 +1,7 @@
 import { Coin, CoinAmino, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
 import { Height, HeightAmino, HeightSDKType } from "../../../core/client/v1/client";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
-import { isSet } from "../../../../helpers";
+import { Long, isSet } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * MsgTransfer defines a msg to transfer fungible tokens (i.e Coins) between
  * ICS20 enabled chains. See ICS Spec here:
@@ -27,7 +27,7 @@ export interface MsgTransfer {
    * Timeout timestamp in absolute nanoseconds since unix epoch.
    * The timeout is disabled when set to 0.
    */
-  timeoutTimestamp: bigint;
+  timeoutTimestamp: Long;
   /** optional memo */
   memo: string;
 }
@@ -80,13 +80,13 @@ export interface MsgTransferSDKType {
   sender: string;
   receiver: string;
   timeout_height: HeightSDKType;
-  timeout_timestamp: bigint;
+  timeout_timestamp: Long;
   memo: string;
 }
 /** MsgTransferResponse defines the Msg/Transfer response type. */
 export interface MsgTransferResponse {
   /** sequence number of the transfer packet sent */
-  sequence: bigint;
+  sequence: Long;
 }
 export interface MsgTransferResponseProtoMsg {
   typeUrl: "/ibc.applications.transfer.v1.MsgTransferResponse";
@@ -103,7 +103,7 @@ export interface MsgTransferResponseAminoMsg {
 }
 /** MsgTransferResponse defines the Msg/Transfer response type. */
 export interface MsgTransferResponseSDKType {
-  sequence: bigint;
+  sequence: Long;
 }
 function createBaseMsgTransfer(): MsgTransfer {
   return {
@@ -113,13 +113,13 @@ function createBaseMsgTransfer(): MsgTransfer {
     sender: "",
     receiver: "",
     timeoutHeight: Height.fromPartial({}),
-    timeoutTimestamp: BigInt(0),
+    timeoutTimestamp: Long.UZERO,
     memo: ""
   };
 }
 export const MsgTransfer = {
   typeUrl: "/ibc.applications.transfer.v1.MsgTransfer",
-  encode(message: MsgTransfer, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgTransfer, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.sourcePort !== "") {
       writer.uint32(10).string(message.sourcePort);
     }
@@ -138,7 +138,7 @@ export const MsgTransfer = {
     if (message.timeoutHeight !== undefined) {
       Height.encode(message.timeoutHeight, writer.uint32(50).fork()).ldelim();
     }
-    if (message.timeoutTimestamp !== BigInt(0)) {
+    if (!message.timeoutTimestamp.isZero()) {
       writer.uint32(56).uint64(message.timeoutTimestamp);
     }
     if (message.memo !== "") {
@@ -146,8 +146,8 @@ export const MsgTransfer = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgTransfer {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgTransfer {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgTransfer();
     while (reader.pos < end) {
@@ -172,7 +172,7 @@ export const MsgTransfer = {
           message.timeoutHeight = Height.decode(reader, reader.uint32());
           break;
         case 7:
-          message.timeoutTimestamp = reader.uint64();
+          message.timeoutTimestamp = (reader.uint64() as Long);
           break;
         case 8:
           message.memo = reader.string();
@@ -192,7 +192,7 @@ export const MsgTransfer = {
       sender: isSet(object.sender) ? String(object.sender) : "",
       receiver: isSet(object.receiver) ? String(object.receiver) : "",
       timeoutHeight: isSet(object.timeoutHeight) ? Height.fromJSON(object.timeoutHeight) : undefined,
-      timeoutTimestamp: isSet(object.timeoutTimestamp) ? BigInt(object.timeoutTimestamp.toString()) : BigInt(0),
+      timeoutTimestamp: isSet(object.timeoutTimestamp) ? Long.fromValue(object.timeoutTimestamp) : Long.UZERO,
       memo: isSet(object.memo) ? String(object.memo) : ""
     };
   },
@@ -204,7 +204,7 @@ export const MsgTransfer = {
     message.sender !== undefined && (obj.sender = message.sender);
     message.receiver !== undefined && (obj.receiver = message.receiver);
     message.timeoutHeight !== undefined && (obj.timeoutHeight = message.timeoutHeight ? Height.toJSON(message.timeoutHeight) : undefined);
-    message.timeoutTimestamp !== undefined && (obj.timeoutTimestamp = (message.timeoutTimestamp || BigInt(0)).toString());
+    message.timeoutTimestamp !== undefined && (obj.timeoutTimestamp = (message.timeoutTimestamp || Long.UZERO).toString());
     message.memo !== undefined && (obj.memo = message.memo);
     return obj;
   },
@@ -216,7 +216,7 @@ export const MsgTransfer = {
     message.sender = object.sender ?? "";
     message.receiver = object.receiver ?? "";
     message.timeoutHeight = object.timeoutHeight !== undefined && object.timeoutHeight !== null ? Height.fromPartial(object.timeoutHeight) : undefined;
-    message.timeoutTimestamp = object.timeoutTimestamp !== undefined && object.timeoutTimestamp !== null ? BigInt(object.timeoutTimestamp.toString()) : BigInt(0);
+    message.timeoutTimestamp = object.timeoutTimestamp !== undefined && object.timeoutTimestamp !== null ? Long.fromValue(object.timeoutTimestamp) : Long.UZERO;
     message.memo = object.memo ?? "";
     return message;
   },
@@ -228,7 +228,7 @@ export const MsgTransfer = {
       sender: object.sender,
       receiver: object.receiver,
       timeoutHeight: object?.timeout_height ? Height.fromAmino(object.timeout_height) : undefined,
-      timeoutTimestamp: BigInt(object.timeout_timestamp),
+      timeoutTimestamp: Long.fromString(object.timeout_timestamp),
       memo: object.memo
     };
   },
@@ -268,26 +268,26 @@ export const MsgTransfer = {
 };
 function createBaseMsgTransferResponse(): MsgTransferResponse {
   return {
-    sequence: BigInt(0)
+    sequence: Long.UZERO
   };
 }
 export const MsgTransferResponse = {
   typeUrl: "/ibc.applications.transfer.v1.MsgTransferResponse",
-  encode(message: MsgTransferResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.sequence !== BigInt(0)) {
+  encode(message: MsgTransferResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.sequence.isZero()) {
       writer.uint32(8).uint64(message.sequence);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgTransferResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgTransferResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgTransferResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.sequence = reader.uint64();
+          message.sequence = (reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -298,22 +298,22 @@ export const MsgTransferResponse = {
   },
   fromJSON(object: any): MsgTransferResponse {
     return {
-      sequence: isSet(object.sequence) ? BigInt(object.sequence.toString()) : BigInt(0)
+      sequence: isSet(object.sequence) ? Long.fromValue(object.sequence) : Long.UZERO
     };
   },
   toJSON(message: MsgTransferResponse): unknown {
     const obj: any = {};
-    message.sequence !== undefined && (obj.sequence = (message.sequence || BigInt(0)).toString());
+    message.sequence !== undefined && (obj.sequence = (message.sequence || Long.UZERO).toString());
     return obj;
   },
   fromPartial(object: Partial<MsgTransferResponse>): MsgTransferResponse {
     const message = createBaseMsgTransferResponse();
-    message.sequence = object.sequence !== undefined && object.sequence !== null ? BigInt(object.sequence.toString()) : BigInt(0);
+    message.sequence = object.sequence !== undefined && object.sequence !== null ? Long.fromValue(object.sequence) : Long.UZERO;
     return message;
   },
   fromAmino(object: MsgTransferResponseAmino): MsgTransferResponse {
     return {
-      sequence: BigInt(object.sequence)
+      sequence: Long.fromString(object.sequence)
     };
   },
   toAmino(message: MsgTransferResponse): MsgTransferResponseAmino {

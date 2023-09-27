@@ -1,17 +1,16 @@
 import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
-import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet } from "../../../helpers";
+import { Long, isSet } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * SmartAccount is a smart contract that is capable of initiating txs.
  * 
  * This account type is similar to BaseAccount
  */
 export interface SmartAccount {
-  $typeUrl?: string;
   address: string;
   pubKey: Any;
-  accountNumber: bigint;
-  sequence: bigint;
+  accountNumber: Long;
+  sequence: Long;
 }
 export interface SmartAccountProtoMsg {
   typeUrl: "/auranw.aura.smartaccount.SmartAccount";
@@ -38,40 +37,38 @@ export interface SmartAccountAminoMsg {
  * This account type is similar to BaseAccount
  */
 export interface SmartAccountSDKType {
-  $typeUrl?: string;
   address: string;
   pub_key: AnySDKType;
-  account_number: bigint;
-  sequence: bigint;
+  account_number: Long;
+  sequence: Long;
 }
 function createBaseSmartAccount(): SmartAccount {
   return {
-    $typeUrl: "/auranw.aura.smartaccount.SmartAccount",
     address: "",
     pubKey: Any.fromPartial({}),
-    accountNumber: BigInt(0),
-    sequence: BigInt(0)
+    accountNumber: Long.UZERO,
+    sequence: Long.UZERO
   };
 }
 export const SmartAccount = {
   typeUrl: "/auranw.aura.smartaccount.SmartAccount",
-  encode(message: SmartAccount, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: SmartAccount, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
     if (message.pubKey !== undefined) {
       Any.encode(message.pubKey, writer.uint32(18).fork()).ldelim();
     }
-    if (message.accountNumber !== BigInt(0)) {
+    if (!message.accountNumber.isZero()) {
       writer.uint32(24).uint64(message.accountNumber);
     }
-    if (message.sequence !== BigInt(0)) {
+    if (!message.sequence.isZero()) {
       writer.uint32(32).uint64(message.sequence);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): SmartAccount {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): SmartAccount {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseSmartAccount();
     while (reader.pos < end) {
@@ -84,10 +81,10 @@ export const SmartAccount = {
           message.pubKey = Any.decode(reader, reader.uint32());
           break;
         case 3:
-          message.accountNumber = reader.uint64();
+          message.accountNumber = (reader.uint64() as Long);
           break;
         case 4:
-          message.sequence = reader.uint64();
+          message.sequence = (reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -100,32 +97,32 @@ export const SmartAccount = {
     return {
       address: isSet(object.address) ? String(object.address) : "",
       pubKey: isSet(object.pubKey) ? Any.fromJSON(object.pubKey) : undefined,
-      accountNumber: isSet(object.accountNumber) ? BigInt(object.accountNumber.toString()) : BigInt(0),
-      sequence: isSet(object.sequence) ? BigInt(object.sequence.toString()) : BigInt(0)
+      accountNumber: isSet(object.accountNumber) ? Long.fromValue(object.accountNumber) : Long.UZERO,
+      sequence: isSet(object.sequence) ? Long.fromValue(object.sequence) : Long.UZERO
     };
   },
   toJSON(message: SmartAccount): unknown {
     const obj: any = {};
     message.address !== undefined && (obj.address = message.address);
     message.pubKey !== undefined && (obj.pubKey = message.pubKey ? Any.toJSON(message.pubKey) : undefined);
-    message.accountNumber !== undefined && (obj.accountNumber = (message.accountNumber || BigInt(0)).toString());
-    message.sequence !== undefined && (obj.sequence = (message.sequence || BigInt(0)).toString());
+    message.accountNumber !== undefined && (obj.accountNumber = (message.accountNumber || Long.UZERO).toString());
+    message.sequence !== undefined && (obj.sequence = (message.sequence || Long.UZERO).toString());
     return obj;
   },
   fromPartial(object: Partial<SmartAccount>): SmartAccount {
     const message = createBaseSmartAccount();
     message.address = object.address ?? "";
     message.pubKey = object.pubKey !== undefined && object.pubKey !== null ? Any.fromPartial(object.pubKey) : undefined;
-    message.accountNumber = object.accountNumber !== undefined && object.accountNumber !== null ? BigInt(object.accountNumber.toString()) : BigInt(0);
-    message.sequence = object.sequence !== undefined && object.sequence !== null ? BigInt(object.sequence.toString()) : BigInt(0);
+    message.accountNumber = object.accountNumber !== undefined && object.accountNumber !== null ? Long.fromValue(object.accountNumber) : Long.UZERO;
+    message.sequence = object.sequence !== undefined && object.sequence !== null ? Long.fromValue(object.sequence) : Long.UZERO;
     return message;
   },
   fromAmino(object: SmartAccountAmino): SmartAccount {
     return {
       address: object.address,
       pubKey: object?.pub_key ? Any.fromAmino(object.pub_key) : undefined,
-      accountNumber: BigInt(object.account_number),
-      sequence: BigInt(object.sequence)
+      accountNumber: Long.fromString(object.account_number),
+      sequence: Long.fromString(object.sequence)
     };
   },
   toAmino(message: SmartAccount): SmartAccountAmino {

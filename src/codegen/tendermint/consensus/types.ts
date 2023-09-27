@@ -6,17 +6,17 @@ import { Vote as Vote1 } from "../types/types";
 import { VoteAmino as Vote1Amino } from "../types/types";
 import { VoteSDKType as Vote1SDKType } from "../types/types";
 import { BitArray, BitArrayAmino, BitArraySDKType } from "../libs/bits/types";
-import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet } from "../../helpers";
+import { Long, isSet } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * NewRoundStep is sent for every step taken in the ConsensusState.
  * For every height/round/step transition
  */
 export interface NewRoundStep {
-  height: bigint;
+  height: Long;
   round: number;
   step: number;
-  secondsSinceStartTime: bigint;
+  secondsSinceStartTime: Long;
   lastCommitRound: number;
 }
 export interface NewRoundStepProtoMsg {
@@ -43,10 +43,10 @@ export interface NewRoundStepAminoMsg {
  * For every height/round/step transition
  */
 export interface NewRoundStepSDKType {
-  height: bigint;
+  height: Long;
   round: number;
   step: number;
-  seconds_since_start_time: bigint;
+  seconds_since_start_time: Long;
   last_commit_round: number;
 }
 /**
@@ -55,7 +55,7 @@ export interface NewRoundStepSDKType {
  * In case the block is also committed, then IsCommit flag is set to true.
  */
 export interface NewValidBlock {
-  height: bigint;
+  height: Long;
   round: number;
   blockPartSetHeader: PartSetHeader;
   blockParts: BitArray;
@@ -87,7 +87,7 @@ export interface NewValidBlockAminoMsg {
  * In case the block is also committed, then IsCommit flag is set to true.
  */
 export interface NewValidBlockSDKType {
-  height: bigint;
+  height: Long;
   round: number;
   block_part_set_header: PartSetHeaderSDKType;
   block_parts: BitArraySDKType;
@@ -115,7 +115,7 @@ export interface ProposalSDKType {
 }
 /** ProposalPOL is sent when a previous proposal is re-proposed. */
 export interface ProposalPOL {
-  height: bigint;
+  height: Long;
   proposalPolRound: number;
   proposalPol: BitArray;
 }
@@ -135,13 +135,13 @@ export interface ProposalPOLAminoMsg {
 }
 /** ProposalPOL is sent when a previous proposal is re-proposed. */
 export interface ProposalPOLSDKType {
-  height: bigint;
+  height: Long;
   proposal_pol_round: number;
   proposal_pol: BitArraySDKType;
 }
 /** BlockPart is sent when gossipping a piece of the proposed block. */
 export interface BlockPart {
-  height: bigint;
+  height: Long;
   round: number;
   part: Part;
 }
@@ -161,7 +161,7 @@ export interface BlockPartAminoMsg {
 }
 /** BlockPart is sent when gossipping a piece of the proposed block. */
 export interface BlockPartSDKType {
-  height: bigint;
+  height: Long;
   round: number;
   part: PartSDKType;
 }
@@ -187,7 +187,7 @@ export interface VoteSDKType {
 }
 /** HasVote is sent to indicate that a particular vote has been received. */
 export interface HasVote {
-  height: bigint;
+  height: Long;
   round: number;
   type: SignedMsgType;
   index: number;
@@ -209,14 +209,14 @@ export interface HasVoteAminoMsg {
 }
 /** HasVote is sent to indicate that a particular vote has been received. */
 export interface HasVoteSDKType {
-  height: bigint;
+  height: Long;
   round: number;
   type: SignedMsgType;
   index: number;
 }
 /** VoteSetMaj23 is sent to indicate that a given BlockID has seen +2/3 votes. */
 export interface VoteSetMaj23 {
-  height: bigint;
+  height: Long;
   round: number;
   type: SignedMsgType;
   blockId: BlockID;
@@ -238,14 +238,14 @@ export interface VoteSetMaj23AminoMsg {
 }
 /** VoteSetMaj23 is sent to indicate that a given BlockID has seen +2/3 votes. */
 export interface VoteSetMaj23SDKType {
-  height: bigint;
+  height: Long;
   round: number;
   type: SignedMsgType;
   block_id: BlockIDSDKType;
 }
 /** VoteSetBits is sent to communicate the bit-array of votes seen for the BlockID. */
 export interface VoteSetBits {
-  height: bigint;
+  height: Long;
   round: number;
   type: SignedMsgType;
   blockId: BlockID;
@@ -269,7 +269,7 @@ export interface VoteSetBitsAminoMsg {
 }
 /** VoteSetBits is sent to communicate the bit-array of votes seen for the BlockID. */
 export interface VoteSetBitsSDKType {
-  height: bigint;
+  height: Long;
   round: number;
   type: SignedMsgType;
   block_id: BlockIDSDKType;
@@ -318,17 +318,17 @@ export interface MessageSDKType {
 }
 function createBaseNewRoundStep(): NewRoundStep {
   return {
-    height: BigInt(0),
+    height: Long.ZERO,
     round: 0,
     step: 0,
-    secondsSinceStartTime: BigInt(0),
+    secondsSinceStartTime: Long.ZERO,
     lastCommitRound: 0
   };
 }
 export const NewRoundStep = {
   typeUrl: "/tendermint.consensus.NewRoundStep",
-  encode(message: NewRoundStep, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.height !== BigInt(0)) {
+  encode(message: NewRoundStep, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.height.isZero()) {
       writer.uint32(8).int64(message.height);
     }
     if (message.round !== 0) {
@@ -337,7 +337,7 @@ export const NewRoundStep = {
     if (message.step !== 0) {
       writer.uint32(24).uint32(message.step);
     }
-    if (message.secondsSinceStartTime !== BigInt(0)) {
+    if (!message.secondsSinceStartTime.isZero()) {
       writer.uint32(32).int64(message.secondsSinceStartTime);
     }
     if (message.lastCommitRound !== 0) {
@@ -345,15 +345,15 @@ export const NewRoundStep = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): NewRoundStep {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): NewRoundStep {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseNewRoundStep();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.height = reader.int64();
+          message.height = (reader.int64() as Long);
           break;
         case 2:
           message.round = reader.int32();
@@ -362,7 +362,7 @@ export const NewRoundStep = {
           message.step = reader.uint32();
           break;
         case 4:
-          message.secondsSinceStartTime = reader.int64();
+          message.secondsSinceStartTime = (reader.int64() as Long);
           break;
         case 5:
           message.lastCommitRound = reader.int32();
@@ -376,37 +376,37 @@ export const NewRoundStep = {
   },
   fromJSON(object: any): NewRoundStep {
     return {
-      height: isSet(object.height) ? BigInt(object.height.toString()) : BigInt(0),
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
       round: isSet(object.round) ? Number(object.round) : 0,
       step: isSet(object.step) ? Number(object.step) : 0,
-      secondsSinceStartTime: isSet(object.secondsSinceStartTime) ? BigInt(object.secondsSinceStartTime.toString()) : BigInt(0),
+      secondsSinceStartTime: isSet(object.secondsSinceStartTime) ? Long.fromValue(object.secondsSinceStartTime) : Long.ZERO,
       lastCommitRound: isSet(object.lastCommitRound) ? Number(object.lastCommitRound) : 0
     };
   },
   toJSON(message: NewRoundStep): unknown {
     const obj: any = {};
-    message.height !== undefined && (obj.height = (message.height || BigInt(0)).toString());
+    message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
     message.round !== undefined && (obj.round = Math.round(message.round));
     message.step !== undefined && (obj.step = Math.round(message.step));
-    message.secondsSinceStartTime !== undefined && (obj.secondsSinceStartTime = (message.secondsSinceStartTime || BigInt(0)).toString());
+    message.secondsSinceStartTime !== undefined && (obj.secondsSinceStartTime = (message.secondsSinceStartTime || Long.ZERO).toString());
     message.lastCommitRound !== undefined && (obj.lastCommitRound = Math.round(message.lastCommitRound));
     return obj;
   },
   fromPartial(object: Partial<NewRoundStep>): NewRoundStep {
     const message = createBaseNewRoundStep();
-    message.height = object.height !== undefined && object.height !== null ? BigInt(object.height.toString()) : BigInt(0);
+    message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
     message.round = object.round ?? 0;
     message.step = object.step ?? 0;
-    message.secondsSinceStartTime = object.secondsSinceStartTime !== undefined && object.secondsSinceStartTime !== null ? BigInt(object.secondsSinceStartTime.toString()) : BigInt(0);
+    message.secondsSinceStartTime = object.secondsSinceStartTime !== undefined && object.secondsSinceStartTime !== null ? Long.fromValue(object.secondsSinceStartTime) : Long.ZERO;
     message.lastCommitRound = object.lastCommitRound ?? 0;
     return message;
   },
   fromAmino(object: NewRoundStepAmino): NewRoundStep {
     return {
-      height: BigInt(object.height),
+      height: Long.fromString(object.height),
       round: object.round,
       step: object.step,
-      secondsSinceStartTime: BigInt(object.seconds_since_start_time),
+      secondsSinceStartTime: Long.fromString(object.seconds_since_start_time),
       lastCommitRound: object.last_commit_round
     };
   },
@@ -437,7 +437,7 @@ export const NewRoundStep = {
 };
 function createBaseNewValidBlock(): NewValidBlock {
   return {
-    height: BigInt(0),
+    height: Long.ZERO,
     round: 0,
     blockPartSetHeader: PartSetHeader.fromPartial({}),
     blockParts: BitArray.fromPartial({}),
@@ -446,8 +446,8 @@ function createBaseNewValidBlock(): NewValidBlock {
 }
 export const NewValidBlock = {
   typeUrl: "/tendermint.consensus.NewValidBlock",
-  encode(message: NewValidBlock, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.height !== BigInt(0)) {
+  encode(message: NewValidBlock, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.height.isZero()) {
       writer.uint32(8).int64(message.height);
     }
     if (message.round !== 0) {
@@ -464,15 +464,15 @@ export const NewValidBlock = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): NewValidBlock {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): NewValidBlock {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseNewValidBlock();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.height = reader.int64();
+          message.height = (reader.int64() as Long);
           break;
         case 2:
           message.round = reader.int32();
@@ -495,7 +495,7 @@ export const NewValidBlock = {
   },
   fromJSON(object: any): NewValidBlock {
     return {
-      height: isSet(object.height) ? BigInt(object.height.toString()) : BigInt(0),
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
       round: isSet(object.round) ? Number(object.round) : 0,
       blockPartSetHeader: isSet(object.blockPartSetHeader) ? PartSetHeader.fromJSON(object.blockPartSetHeader) : undefined,
       blockParts: isSet(object.blockParts) ? BitArray.fromJSON(object.blockParts) : undefined,
@@ -504,7 +504,7 @@ export const NewValidBlock = {
   },
   toJSON(message: NewValidBlock): unknown {
     const obj: any = {};
-    message.height !== undefined && (obj.height = (message.height || BigInt(0)).toString());
+    message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
     message.round !== undefined && (obj.round = Math.round(message.round));
     message.blockPartSetHeader !== undefined && (obj.blockPartSetHeader = message.blockPartSetHeader ? PartSetHeader.toJSON(message.blockPartSetHeader) : undefined);
     message.blockParts !== undefined && (obj.blockParts = message.blockParts ? BitArray.toJSON(message.blockParts) : undefined);
@@ -513,7 +513,7 @@ export const NewValidBlock = {
   },
   fromPartial(object: Partial<NewValidBlock>): NewValidBlock {
     const message = createBaseNewValidBlock();
-    message.height = object.height !== undefined && object.height !== null ? BigInt(object.height.toString()) : BigInt(0);
+    message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
     message.round = object.round ?? 0;
     message.blockPartSetHeader = object.blockPartSetHeader !== undefined && object.blockPartSetHeader !== null ? PartSetHeader.fromPartial(object.blockPartSetHeader) : undefined;
     message.blockParts = object.blockParts !== undefined && object.blockParts !== null ? BitArray.fromPartial(object.blockParts) : undefined;
@@ -522,7 +522,7 @@ export const NewValidBlock = {
   },
   fromAmino(object: NewValidBlockAmino): NewValidBlock {
     return {
-      height: BigInt(object.height),
+      height: Long.fromString(object.height),
       round: object.round,
       blockPartSetHeader: object?.block_part_set_header ? PartSetHeader.fromAmino(object.block_part_set_header) : undefined,
       blockParts: object?.block_parts ? BitArray.fromAmino(object.block_parts) : undefined,
@@ -561,14 +561,14 @@ function createBaseProposal(): Proposal {
 }
 export const Proposal = {
   typeUrl: "/tendermint.consensus.Proposal",
-  encode(message: Proposal, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: Proposal, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.proposal !== undefined) {
       Proposal1.encode(message.proposal, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Proposal {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): Proposal {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseProposal();
     while (reader.pos < end) {
@@ -627,15 +627,15 @@ export const Proposal = {
 };
 function createBaseProposalPOL(): ProposalPOL {
   return {
-    height: BigInt(0),
+    height: Long.ZERO,
     proposalPolRound: 0,
     proposalPol: BitArray.fromPartial({})
   };
 }
 export const ProposalPOL = {
   typeUrl: "/tendermint.consensus.ProposalPOL",
-  encode(message: ProposalPOL, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.height !== BigInt(0)) {
+  encode(message: ProposalPOL, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.height.isZero()) {
       writer.uint32(8).int64(message.height);
     }
     if (message.proposalPolRound !== 0) {
@@ -646,15 +646,15 @@ export const ProposalPOL = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): ProposalPOL {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): ProposalPOL {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseProposalPOL();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.height = reader.int64();
+          message.height = (reader.int64() as Long);
           break;
         case 2:
           message.proposalPolRound = reader.int32();
@@ -671,28 +671,28 @@ export const ProposalPOL = {
   },
   fromJSON(object: any): ProposalPOL {
     return {
-      height: isSet(object.height) ? BigInt(object.height.toString()) : BigInt(0),
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
       proposalPolRound: isSet(object.proposalPolRound) ? Number(object.proposalPolRound) : 0,
       proposalPol: isSet(object.proposalPol) ? BitArray.fromJSON(object.proposalPol) : undefined
     };
   },
   toJSON(message: ProposalPOL): unknown {
     const obj: any = {};
-    message.height !== undefined && (obj.height = (message.height || BigInt(0)).toString());
+    message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
     message.proposalPolRound !== undefined && (obj.proposalPolRound = Math.round(message.proposalPolRound));
     message.proposalPol !== undefined && (obj.proposalPol = message.proposalPol ? BitArray.toJSON(message.proposalPol) : undefined);
     return obj;
   },
   fromPartial(object: Partial<ProposalPOL>): ProposalPOL {
     const message = createBaseProposalPOL();
-    message.height = object.height !== undefined && object.height !== null ? BigInt(object.height.toString()) : BigInt(0);
+    message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
     message.proposalPolRound = object.proposalPolRound ?? 0;
     message.proposalPol = object.proposalPol !== undefined && object.proposalPol !== null ? BitArray.fromPartial(object.proposalPol) : undefined;
     return message;
   },
   fromAmino(object: ProposalPOLAmino): ProposalPOL {
     return {
-      height: BigInt(object.height),
+      height: Long.fromString(object.height),
       proposalPolRound: object.proposal_pol_round,
       proposalPol: object?.proposal_pol ? BitArray.fromAmino(object.proposal_pol) : undefined
     };
@@ -722,15 +722,15 @@ export const ProposalPOL = {
 };
 function createBaseBlockPart(): BlockPart {
   return {
-    height: BigInt(0),
+    height: Long.ZERO,
     round: 0,
     part: Part.fromPartial({})
   };
 }
 export const BlockPart = {
   typeUrl: "/tendermint.consensus.BlockPart",
-  encode(message: BlockPart, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.height !== BigInt(0)) {
+  encode(message: BlockPart, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.height.isZero()) {
       writer.uint32(8).int64(message.height);
     }
     if (message.round !== 0) {
@@ -741,15 +741,15 @@ export const BlockPart = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): BlockPart {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): BlockPart {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseBlockPart();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.height = reader.int64();
+          message.height = (reader.int64() as Long);
           break;
         case 2:
           message.round = reader.int32();
@@ -766,28 +766,28 @@ export const BlockPart = {
   },
   fromJSON(object: any): BlockPart {
     return {
-      height: isSet(object.height) ? BigInt(object.height.toString()) : BigInt(0),
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
       round: isSet(object.round) ? Number(object.round) : 0,
       part: isSet(object.part) ? Part.fromJSON(object.part) : undefined
     };
   },
   toJSON(message: BlockPart): unknown {
     const obj: any = {};
-    message.height !== undefined && (obj.height = (message.height || BigInt(0)).toString());
+    message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
     message.round !== undefined && (obj.round = Math.round(message.round));
     message.part !== undefined && (obj.part = message.part ? Part.toJSON(message.part) : undefined);
     return obj;
   },
   fromPartial(object: Partial<BlockPart>): BlockPart {
     const message = createBaseBlockPart();
-    message.height = object.height !== undefined && object.height !== null ? BigInt(object.height.toString()) : BigInt(0);
+    message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
     message.round = object.round ?? 0;
     message.part = object.part !== undefined && object.part !== null ? Part.fromPartial(object.part) : undefined;
     return message;
   },
   fromAmino(object: BlockPartAmino): BlockPart {
     return {
-      height: BigInt(object.height),
+      height: Long.fromString(object.height),
       round: object.round,
       part: object?.part ? Part.fromAmino(object.part) : undefined
     };
@@ -822,14 +822,14 @@ function createBaseVote(): Vote {
 }
 export const Vote = {
   typeUrl: "/tendermint.consensus.Vote",
-  encode(message: Vote, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: Vote, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.vote !== undefined) {
       Vote1.encode(message.vote, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Vote {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): Vote {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseVote();
     while (reader.pos < end) {
@@ -888,7 +888,7 @@ export const Vote = {
 };
 function createBaseHasVote(): HasVote {
   return {
-    height: BigInt(0),
+    height: Long.ZERO,
     round: 0,
     type: 0,
     index: 0
@@ -896,8 +896,8 @@ function createBaseHasVote(): HasVote {
 }
 export const HasVote = {
   typeUrl: "/tendermint.consensus.HasVote",
-  encode(message: HasVote, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.height !== BigInt(0)) {
+  encode(message: HasVote, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.height.isZero()) {
       writer.uint32(8).int64(message.height);
     }
     if (message.round !== 0) {
@@ -911,15 +911,15 @@ export const HasVote = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): HasVote {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): HasVote {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseHasVote();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.height = reader.int64();
+          message.height = (reader.int64() as Long);
           break;
         case 2:
           message.round = reader.int32();
@@ -939,7 +939,7 @@ export const HasVote = {
   },
   fromJSON(object: any): HasVote {
     return {
-      height: isSet(object.height) ? BigInt(object.height.toString()) : BigInt(0),
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
       round: isSet(object.round) ? Number(object.round) : 0,
       type: isSet(object.type) ? signedMsgTypeFromJSON(object.type) : -1,
       index: isSet(object.index) ? Number(object.index) : 0
@@ -947,7 +947,7 @@ export const HasVote = {
   },
   toJSON(message: HasVote): unknown {
     const obj: any = {};
-    message.height !== undefined && (obj.height = (message.height || BigInt(0)).toString());
+    message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
     message.round !== undefined && (obj.round = Math.round(message.round));
     message.type !== undefined && (obj.type = signedMsgTypeToJSON(message.type));
     message.index !== undefined && (obj.index = Math.round(message.index));
@@ -955,7 +955,7 @@ export const HasVote = {
   },
   fromPartial(object: Partial<HasVote>): HasVote {
     const message = createBaseHasVote();
-    message.height = object.height !== undefined && object.height !== null ? BigInt(object.height.toString()) : BigInt(0);
+    message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
     message.round = object.round ?? 0;
     message.type = object.type ?? 0;
     message.index = object.index ?? 0;
@@ -963,7 +963,7 @@ export const HasVote = {
   },
   fromAmino(object: HasVoteAmino): HasVote {
     return {
-      height: BigInt(object.height),
+      height: Long.fromString(object.height),
       round: object.round,
       type: isSet(object.type) ? signedMsgTypeFromJSON(object.type) : -1,
       index: object.index
@@ -995,7 +995,7 @@ export const HasVote = {
 };
 function createBaseVoteSetMaj23(): VoteSetMaj23 {
   return {
-    height: BigInt(0),
+    height: Long.ZERO,
     round: 0,
     type: 0,
     blockId: BlockID.fromPartial({})
@@ -1003,8 +1003,8 @@ function createBaseVoteSetMaj23(): VoteSetMaj23 {
 }
 export const VoteSetMaj23 = {
   typeUrl: "/tendermint.consensus.VoteSetMaj23",
-  encode(message: VoteSetMaj23, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.height !== BigInt(0)) {
+  encode(message: VoteSetMaj23, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.height.isZero()) {
       writer.uint32(8).int64(message.height);
     }
     if (message.round !== 0) {
@@ -1018,15 +1018,15 @@ export const VoteSetMaj23 = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): VoteSetMaj23 {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): VoteSetMaj23 {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseVoteSetMaj23();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.height = reader.int64();
+          message.height = (reader.int64() as Long);
           break;
         case 2:
           message.round = reader.int32();
@@ -1046,7 +1046,7 @@ export const VoteSetMaj23 = {
   },
   fromJSON(object: any): VoteSetMaj23 {
     return {
-      height: isSet(object.height) ? BigInt(object.height.toString()) : BigInt(0),
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
       round: isSet(object.round) ? Number(object.round) : 0,
       type: isSet(object.type) ? signedMsgTypeFromJSON(object.type) : -1,
       blockId: isSet(object.blockId) ? BlockID.fromJSON(object.blockId) : undefined
@@ -1054,7 +1054,7 @@ export const VoteSetMaj23 = {
   },
   toJSON(message: VoteSetMaj23): unknown {
     const obj: any = {};
-    message.height !== undefined && (obj.height = (message.height || BigInt(0)).toString());
+    message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
     message.round !== undefined && (obj.round = Math.round(message.round));
     message.type !== undefined && (obj.type = signedMsgTypeToJSON(message.type));
     message.blockId !== undefined && (obj.blockId = message.blockId ? BlockID.toJSON(message.blockId) : undefined);
@@ -1062,7 +1062,7 @@ export const VoteSetMaj23 = {
   },
   fromPartial(object: Partial<VoteSetMaj23>): VoteSetMaj23 {
     const message = createBaseVoteSetMaj23();
-    message.height = object.height !== undefined && object.height !== null ? BigInt(object.height.toString()) : BigInt(0);
+    message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
     message.round = object.round ?? 0;
     message.type = object.type ?? 0;
     message.blockId = object.blockId !== undefined && object.blockId !== null ? BlockID.fromPartial(object.blockId) : undefined;
@@ -1070,7 +1070,7 @@ export const VoteSetMaj23 = {
   },
   fromAmino(object: VoteSetMaj23Amino): VoteSetMaj23 {
     return {
-      height: BigInt(object.height),
+      height: Long.fromString(object.height),
       round: object.round,
       type: isSet(object.type) ? signedMsgTypeFromJSON(object.type) : -1,
       blockId: object?.block_id ? BlockID.fromAmino(object.block_id) : undefined
@@ -1102,7 +1102,7 @@ export const VoteSetMaj23 = {
 };
 function createBaseVoteSetBits(): VoteSetBits {
   return {
-    height: BigInt(0),
+    height: Long.ZERO,
     round: 0,
     type: 0,
     blockId: BlockID.fromPartial({}),
@@ -1111,8 +1111,8 @@ function createBaseVoteSetBits(): VoteSetBits {
 }
 export const VoteSetBits = {
   typeUrl: "/tendermint.consensus.VoteSetBits",
-  encode(message: VoteSetBits, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.height !== BigInt(0)) {
+  encode(message: VoteSetBits, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.height.isZero()) {
       writer.uint32(8).int64(message.height);
     }
     if (message.round !== 0) {
@@ -1129,15 +1129,15 @@ export const VoteSetBits = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): VoteSetBits {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): VoteSetBits {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseVoteSetBits();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.height = reader.int64();
+          message.height = (reader.int64() as Long);
           break;
         case 2:
           message.round = reader.int32();
@@ -1160,7 +1160,7 @@ export const VoteSetBits = {
   },
   fromJSON(object: any): VoteSetBits {
     return {
-      height: isSet(object.height) ? BigInt(object.height.toString()) : BigInt(0),
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
       round: isSet(object.round) ? Number(object.round) : 0,
       type: isSet(object.type) ? signedMsgTypeFromJSON(object.type) : -1,
       blockId: isSet(object.blockId) ? BlockID.fromJSON(object.blockId) : undefined,
@@ -1169,7 +1169,7 @@ export const VoteSetBits = {
   },
   toJSON(message: VoteSetBits): unknown {
     const obj: any = {};
-    message.height !== undefined && (obj.height = (message.height || BigInt(0)).toString());
+    message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
     message.round !== undefined && (obj.round = Math.round(message.round));
     message.type !== undefined && (obj.type = signedMsgTypeToJSON(message.type));
     message.blockId !== undefined && (obj.blockId = message.blockId ? BlockID.toJSON(message.blockId) : undefined);
@@ -1178,7 +1178,7 @@ export const VoteSetBits = {
   },
   fromPartial(object: Partial<VoteSetBits>): VoteSetBits {
     const message = createBaseVoteSetBits();
-    message.height = object.height !== undefined && object.height !== null ? BigInt(object.height.toString()) : BigInt(0);
+    message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
     message.round = object.round ?? 0;
     message.type = object.type ?? 0;
     message.blockId = object.blockId !== undefined && object.blockId !== null ? BlockID.fromPartial(object.blockId) : undefined;
@@ -1187,7 +1187,7 @@ export const VoteSetBits = {
   },
   fromAmino(object: VoteSetBitsAmino): VoteSetBits {
     return {
-      height: BigInt(object.height),
+      height: Long.fromString(object.height),
       round: object.round,
       type: isSet(object.type) ? signedMsgTypeFromJSON(object.type) : -1,
       blockId: object?.block_id ? BlockID.fromAmino(object.block_id) : undefined,
@@ -1234,7 +1234,7 @@ function createBaseMessage(): Message {
 }
 export const Message = {
   typeUrl: "/tendermint.consensus.Message",
-  encode(message: Message, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: Message, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.newRoundStep !== undefined) {
       NewRoundStep.encode(message.newRoundStep, writer.uint32(10).fork()).ldelim();
     }
@@ -1264,8 +1264,8 @@ export const Message = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Message {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): Message {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMessage();
     while (reader.pos < end) {

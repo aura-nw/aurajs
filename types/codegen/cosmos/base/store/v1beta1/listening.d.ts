@@ -1,5 +1,5 @@
 import { RequestDeliverTx, RequestDeliverTxAmino, RequestDeliverTxSDKType, ResponseDeliverTx, ResponseDeliverTxAmino, ResponseDeliverTxSDKType, RequestBeginBlock, RequestBeginBlockAmino, RequestBeginBlockSDKType, ResponseBeginBlock, ResponseBeginBlockAmino, ResponseBeginBlockSDKType, RequestEndBlock, RequestEndBlockAmino, RequestEndBlockSDKType, ResponseEndBlock, ResponseEndBlockAmino, ResponseEndBlockSDKType, ResponseCommit, ResponseCommitAmino, ResponseCommitSDKType } from "../../../../tendermint/abci/types";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /**
  * StoreKVPair is a KVStore KVPair used for listening to state changes (Sets and Deletes)
  * It optionally includes the StoreKey for the originating KVStore and a Boolean flag to distinguish between Sets and
@@ -120,8 +120,8 @@ export interface BlockMetadata_DeliverTxSDKType {
 }
 export declare const StoreKVPair: {
     typeUrl: string;
-    encode(message: StoreKVPair, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): StoreKVPair;
+    encode(message: StoreKVPair, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): StoreKVPair;
     fromJSON(object: any): StoreKVPair;
     toJSON(message: StoreKVPair): unknown;
     fromPartial(object: Partial<StoreKVPair>): StoreKVPair;
@@ -135,8 +135,8 @@ export declare const StoreKVPair: {
 };
 export declare const BlockMetadata: {
     typeUrl: string;
-    encode(message: BlockMetadata, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): BlockMetadata;
+    encode(message: BlockMetadata, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): BlockMetadata;
     fromJSON(object: any): BlockMetadata;
     toJSON(message: BlockMetadata): unknown;
     fromPartial(object: Partial<BlockMetadata>): BlockMetadata;
@@ -150,8 +150,8 @@ export declare const BlockMetadata: {
 };
 export declare const BlockMetadata_DeliverTx: {
     typeUrl: string;
-    encode(message: BlockMetadata_DeliverTx, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): BlockMetadata_DeliverTx;
+    encode(message: BlockMetadata_DeliverTx, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): BlockMetadata_DeliverTx;
     fromJSON(object: any): BlockMetadata_DeliverTx;
     toJSON(message: BlockMetadata_DeliverTx): unknown;
     fromPartial(object: Partial<BlockMetadata_DeliverTx>): BlockMetadata_DeliverTx;

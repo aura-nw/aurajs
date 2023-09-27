@@ -1,7 +1,8 @@
 import { Any, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
 import { ConnectionEnd, ConnectionEndAmino, ConnectionEndSDKType } from "../../../core/connection/v1/connection";
 import { Channel, ChannelAmino, ChannelSDKType } from "../../../core/channel/v1/channel";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * DataType defines the type of solo machine proof being created. This is done
  * to preserve uniqueness of different data sign byte encodings.
@@ -39,7 +40,7 @@ export declare function dataTypeToJSON(object: DataType): string;
  */
 export interface ClientState {
     /** latest sequence of the client state */
-    sequence: bigint;
+    sequence: Long;
     /** frozen sequence of the solo machine */
     isFrozen: boolean;
     consensusState: ConsensusState;
@@ -78,7 +79,7 @@ export interface ClientStateAminoMsg {
  * state and if the client is frozen.
  */
 export interface ClientStateSDKType {
-    sequence: bigint;
+    sequence: Long;
     is_frozen: boolean;
     consensus_state: ConsensusStateSDKType;
     allow_update_after_proposal: boolean;
@@ -97,7 +98,7 @@ export interface ConsensusState {
      * misbehaviour.
      */
     diversifier: string;
-    timestamp: bigint;
+    timestamp: Long;
 }
 export interface ConsensusStateProtoMsg {
     typeUrl: "/ibc.lightclients.solomachine.v2.ConsensusState";
@@ -131,13 +132,13 @@ export interface ConsensusStateAminoMsg {
 export interface ConsensusStateSDKType {
     public_key: AnySDKType;
     diversifier: string;
-    timestamp: bigint;
+    timestamp: Long;
 }
 /** Header defines a solo machine consensus header */
 export interface Header {
     /** sequence to update solo machine public key at */
-    sequence: bigint;
-    timestamp: bigint;
+    sequence: Long;
+    timestamp: Long;
     signature: Uint8Array;
     newPublicKey: Any;
     newDiversifier: string;
@@ -161,8 +162,8 @@ export interface HeaderAminoMsg {
 }
 /** Header defines a solo machine consensus header */
 export interface HeaderSDKType {
-    sequence: bigint;
-    timestamp: bigint;
+    sequence: Long;
+    timestamp: Long;
     signature: Uint8Array;
     new_public_key: AnySDKType;
     new_diversifier: string;
@@ -173,7 +174,7 @@ export interface HeaderSDKType {
  */
 export interface Misbehaviour {
     clientId: string;
-    sequence: bigint;
+    sequence: Long;
     signatureOne: SignatureAndData;
     signatureTwo: SignatureAndData;
 }
@@ -201,7 +202,7 @@ export interface MisbehaviourAminoMsg {
  */
 export interface MisbehaviourSDKType {
     client_id: string;
-    sequence: bigint;
+    sequence: Long;
     signature_one: SignatureAndDataSDKType;
     signature_two: SignatureAndDataSDKType;
 }
@@ -213,7 +214,7 @@ export interface SignatureAndData {
     signature: Uint8Array;
     dataType: DataType;
     data: Uint8Array;
-    timestamp: bigint;
+    timestamp: Long;
 }
 export interface SignatureAndDataProtoMsg {
     typeUrl: "/ibc.lightclients.solomachine.v2.SignatureAndData";
@@ -241,7 +242,7 @@ export interface SignatureAndDataSDKType {
     signature: Uint8Array;
     data_type: DataType;
     data: Uint8Array;
-    timestamp: bigint;
+    timestamp: Long;
 }
 /**
  * TimestampedSignatureData contains the signature data and the timestamp of the
@@ -249,7 +250,7 @@ export interface SignatureAndDataSDKType {
  */
 export interface TimestampedSignatureData {
     signatureData: Uint8Array;
-    timestamp: bigint;
+    timestamp: Long;
 }
 export interface TimestampedSignatureDataProtoMsg {
     typeUrl: "/ibc.lightclients.solomachine.v2.TimestampedSignatureData";
@@ -273,12 +274,12 @@ export interface TimestampedSignatureDataAminoMsg {
  */
 export interface TimestampedSignatureDataSDKType {
     signature_data: Uint8Array;
-    timestamp: bigint;
+    timestamp: Long;
 }
 /** SignBytes defines the signed bytes used for signature verification. */
 export interface SignBytes {
-    sequence: bigint;
-    timestamp: bigint;
+    sequence: Long;
+    timestamp: Long;
     diversifier: string;
     /** type of the data used */
     dataType: DataType;
@@ -305,8 +306,8 @@ export interface SignBytesAminoMsg {
 }
 /** SignBytes defines the signed bytes used for signature verification. */
 export interface SignBytesSDKType {
-    sequence: bigint;
-    timestamp: bigint;
+    sequence: Long;
+    timestamp: Long;
     diversifier: string;
     data_type: DataType;
     data: Uint8Array;
@@ -556,7 +557,7 @@ export interface PacketReceiptAbsenceDataSDKType {
  */
 export interface NextSequenceRecvData {
     path: Uint8Array;
-    nextSeqRecv: bigint;
+    nextSeqRecv: Long;
 }
 export interface NextSequenceRecvDataProtoMsg {
     typeUrl: "/ibc.lightclients.solomachine.v2.NextSequenceRecvData";
@@ -580,12 +581,12 @@ export interface NextSequenceRecvDataAminoMsg {
  */
 export interface NextSequenceRecvDataSDKType {
     path: Uint8Array;
-    next_seq_recv: bigint;
+    next_seq_recv: Long;
 }
 export declare const ClientState: {
     typeUrl: string;
-    encode(message: ClientState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ClientState;
+    encode(message: ClientState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ClientState;
     fromJSON(object: any): ClientState;
     toJSON(message: ClientState): unknown;
     fromPartial(object: Partial<ClientState>): ClientState;
@@ -599,8 +600,8 @@ export declare const ClientState: {
 };
 export declare const ConsensusState: {
     typeUrl: string;
-    encode(message: ConsensusState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ConsensusState;
+    encode(message: ConsensusState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ConsensusState;
     fromJSON(object: any): ConsensusState;
     toJSON(message: ConsensusState): unknown;
     fromPartial(object: Partial<ConsensusState>): ConsensusState;
@@ -614,8 +615,8 @@ export declare const ConsensusState: {
 };
 export declare const Header: {
     typeUrl: string;
-    encode(message: Header, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Header;
+    encode(message: Header, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Header;
     fromJSON(object: any): Header;
     toJSON(message: Header): unknown;
     fromPartial(object: Partial<Header>): Header;
@@ -629,8 +630,8 @@ export declare const Header: {
 };
 export declare const Misbehaviour: {
     typeUrl: string;
-    encode(message: Misbehaviour, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Misbehaviour;
+    encode(message: Misbehaviour, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Misbehaviour;
     fromJSON(object: any): Misbehaviour;
     toJSON(message: Misbehaviour): unknown;
     fromPartial(object: Partial<Misbehaviour>): Misbehaviour;
@@ -644,8 +645,8 @@ export declare const Misbehaviour: {
 };
 export declare const SignatureAndData: {
     typeUrl: string;
-    encode(message: SignatureAndData, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SignatureAndData;
+    encode(message: SignatureAndData, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SignatureAndData;
     fromJSON(object: any): SignatureAndData;
     toJSON(message: SignatureAndData): unknown;
     fromPartial(object: Partial<SignatureAndData>): SignatureAndData;
@@ -659,8 +660,8 @@ export declare const SignatureAndData: {
 };
 export declare const TimestampedSignatureData: {
     typeUrl: string;
-    encode(message: TimestampedSignatureData, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): TimestampedSignatureData;
+    encode(message: TimestampedSignatureData, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TimestampedSignatureData;
     fromJSON(object: any): TimestampedSignatureData;
     toJSON(message: TimestampedSignatureData): unknown;
     fromPartial(object: Partial<TimestampedSignatureData>): TimestampedSignatureData;
@@ -674,8 +675,8 @@ export declare const TimestampedSignatureData: {
 };
 export declare const SignBytes: {
     typeUrl: string;
-    encode(message: SignBytes, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SignBytes;
+    encode(message: SignBytes, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SignBytes;
     fromJSON(object: any): SignBytes;
     toJSON(message: SignBytes): unknown;
     fromPartial(object: Partial<SignBytes>): SignBytes;
@@ -689,8 +690,8 @@ export declare const SignBytes: {
 };
 export declare const HeaderData: {
     typeUrl: string;
-    encode(message: HeaderData, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): HeaderData;
+    encode(message: HeaderData, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): HeaderData;
     fromJSON(object: any): HeaderData;
     toJSON(message: HeaderData): unknown;
     fromPartial(object: Partial<HeaderData>): HeaderData;
@@ -704,8 +705,8 @@ export declare const HeaderData: {
 };
 export declare const ClientStateData: {
     typeUrl: string;
-    encode(message: ClientStateData, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ClientStateData;
+    encode(message: ClientStateData, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ClientStateData;
     fromJSON(object: any): ClientStateData;
     toJSON(message: ClientStateData): unknown;
     fromPartial(object: Partial<ClientStateData>): ClientStateData;
@@ -719,8 +720,8 @@ export declare const ClientStateData: {
 };
 export declare const ConsensusStateData: {
     typeUrl: string;
-    encode(message: ConsensusStateData, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ConsensusStateData;
+    encode(message: ConsensusStateData, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ConsensusStateData;
     fromJSON(object: any): ConsensusStateData;
     toJSON(message: ConsensusStateData): unknown;
     fromPartial(object: Partial<ConsensusStateData>): ConsensusStateData;
@@ -734,8 +735,8 @@ export declare const ConsensusStateData: {
 };
 export declare const ConnectionStateData: {
     typeUrl: string;
-    encode(message: ConnectionStateData, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ConnectionStateData;
+    encode(message: ConnectionStateData, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ConnectionStateData;
     fromJSON(object: any): ConnectionStateData;
     toJSON(message: ConnectionStateData): unknown;
     fromPartial(object: Partial<ConnectionStateData>): ConnectionStateData;
@@ -749,8 +750,8 @@ export declare const ConnectionStateData: {
 };
 export declare const ChannelStateData: {
     typeUrl: string;
-    encode(message: ChannelStateData, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ChannelStateData;
+    encode(message: ChannelStateData, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ChannelStateData;
     fromJSON(object: any): ChannelStateData;
     toJSON(message: ChannelStateData): unknown;
     fromPartial(object: Partial<ChannelStateData>): ChannelStateData;
@@ -764,8 +765,8 @@ export declare const ChannelStateData: {
 };
 export declare const PacketCommitmentData: {
     typeUrl: string;
-    encode(message: PacketCommitmentData, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): PacketCommitmentData;
+    encode(message: PacketCommitmentData, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PacketCommitmentData;
     fromJSON(object: any): PacketCommitmentData;
     toJSON(message: PacketCommitmentData): unknown;
     fromPartial(object: Partial<PacketCommitmentData>): PacketCommitmentData;
@@ -779,8 +780,8 @@ export declare const PacketCommitmentData: {
 };
 export declare const PacketAcknowledgementData: {
     typeUrl: string;
-    encode(message: PacketAcknowledgementData, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): PacketAcknowledgementData;
+    encode(message: PacketAcknowledgementData, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PacketAcknowledgementData;
     fromJSON(object: any): PacketAcknowledgementData;
     toJSON(message: PacketAcknowledgementData): unknown;
     fromPartial(object: Partial<PacketAcknowledgementData>): PacketAcknowledgementData;
@@ -794,8 +795,8 @@ export declare const PacketAcknowledgementData: {
 };
 export declare const PacketReceiptAbsenceData: {
     typeUrl: string;
-    encode(message: PacketReceiptAbsenceData, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): PacketReceiptAbsenceData;
+    encode(message: PacketReceiptAbsenceData, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PacketReceiptAbsenceData;
     fromJSON(object: any): PacketReceiptAbsenceData;
     toJSON(message: PacketReceiptAbsenceData): unknown;
     fromPartial(object: Partial<PacketReceiptAbsenceData>): PacketReceiptAbsenceData;
@@ -809,8 +810,8 @@ export declare const PacketReceiptAbsenceData: {
 };
 export declare const NextSequenceRecvData: {
     typeUrl: string;
-    encode(message: NextSequenceRecvData, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): NextSequenceRecvData;
+    encode(message: NextSequenceRecvData, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): NextSequenceRecvData;
     fromJSON(object: any): NextSequenceRecvData;
     toJSON(message: NextSequenceRecvData): unknown;
     fromPartial(object: Partial<NextSequenceRecvData>): NextSequenceRecvData;

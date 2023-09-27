@@ -1,4 +1,5 @@
-import { BinaryReader, BinaryWriter } from "../../binary";
+import { Long } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export declare enum FieldDescriptorProto_Type {
     /**
      * TYPE_DOUBLE - 0 is reserved for errors.
@@ -1455,8 +1456,8 @@ export interface UninterpretedOption {
      * identified it as during parsing. Exactly one of these should be set.
      */
     identifierValue: string;
-    positiveIntValue: bigint;
-    negativeIntValue: bigint;
+    positiveIntValue: Long;
+    negativeIntValue: Long;
     doubleValue: number;
     stringValue: Uint8Array;
     aggregateValue: string;
@@ -1501,8 +1502,8 @@ export interface UninterpretedOptionAminoMsg {
 export interface UninterpretedOptionSDKType {
     name: UninterpretedOption_NamePartSDKType[];
     identifier_value: string;
-    positive_int_value: bigint;
-    negative_int_value: bigint;
+    positive_int_value: Long;
+    negative_int_value: Long;
     double_value: number;
     string_value: Uint8Array;
     aggregate_value: string;
@@ -1954,8 +1955,8 @@ export interface GeneratedCodeInfo_AnnotationSDKType {
 }
 export declare const FileDescriptorSet: {
     typeUrl: string;
-    encode(message: FileDescriptorSet, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): FileDescriptorSet;
+    encode(message: FileDescriptorSet, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): FileDescriptorSet;
     fromJSON(object: any): FileDescriptorSet;
     toJSON(message: FileDescriptorSet): unknown;
     fromPartial(object: Partial<FileDescriptorSet>): FileDescriptorSet;
@@ -1968,8 +1969,8 @@ export declare const FileDescriptorSet: {
 };
 export declare const FileDescriptorProto: {
     typeUrl: string;
-    encode(message: FileDescriptorProto, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): FileDescriptorProto;
+    encode(message: FileDescriptorProto, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): FileDescriptorProto;
     fromJSON(object: any): FileDescriptorProto;
     toJSON(message: FileDescriptorProto): unknown;
     fromPartial(object: Partial<FileDescriptorProto>): FileDescriptorProto;
@@ -1982,8 +1983,8 @@ export declare const FileDescriptorProto: {
 };
 export declare const DescriptorProto: {
     typeUrl: string;
-    encode(message: DescriptorProto, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): DescriptorProto;
+    encode(message: DescriptorProto, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): DescriptorProto;
     fromJSON(object: any): DescriptorProto;
     toJSON(message: DescriptorProto): unknown;
     fromPartial(object: Partial<DescriptorProto>): DescriptorProto;
@@ -1996,8 +1997,8 @@ export declare const DescriptorProto: {
 };
 export declare const DescriptorProto_ExtensionRange: {
     typeUrl: string;
-    encode(message: DescriptorProto_ExtensionRange, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): DescriptorProto_ExtensionRange;
+    encode(message: DescriptorProto_ExtensionRange, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): DescriptorProto_ExtensionRange;
     fromJSON(object: any): DescriptorProto_ExtensionRange;
     toJSON(message: DescriptorProto_ExtensionRange): unknown;
     fromPartial(object: Partial<DescriptorProto_ExtensionRange>): DescriptorProto_ExtensionRange;
@@ -2010,8 +2011,8 @@ export declare const DescriptorProto_ExtensionRange: {
 };
 export declare const DescriptorProto_ReservedRange: {
     typeUrl: string;
-    encode(message: DescriptorProto_ReservedRange, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): DescriptorProto_ReservedRange;
+    encode(message: DescriptorProto_ReservedRange, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): DescriptorProto_ReservedRange;
     fromJSON(object: any): DescriptorProto_ReservedRange;
     toJSON(message: DescriptorProto_ReservedRange): unknown;
     fromPartial(object: Partial<DescriptorProto_ReservedRange>): DescriptorProto_ReservedRange;
@@ -2024,8 +2025,8 @@ export declare const DescriptorProto_ReservedRange: {
 };
 export declare const ExtensionRangeOptions: {
     typeUrl: string;
-    encode(message: ExtensionRangeOptions, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ExtensionRangeOptions;
+    encode(message: ExtensionRangeOptions, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ExtensionRangeOptions;
     fromJSON(object: any): ExtensionRangeOptions;
     toJSON(message: ExtensionRangeOptions): unknown;
     fromPartial(object: Partial<ExtensionRangeOptions>): ExtensionRangeOptions;
@@ -2038,8 +2039,8 @@ export declare const ExtensionRangeOptions: {
 };
 export declare const FieldDescriptorProto: {
     typeUrl: string;
-    encode(message: FieldDescriptorProto, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): FieldDescriptorProto;
+    encode(message: FieldDescriptorProto, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): FieldDescriptorProto;
     fromJSON(object: any): FieldDescriptorProto;
     toJSON(message: FieldDescriptorProto): unknown;
     fromPartial(object: Partial<FieldDescriptorProto>): FieldDescriptorProto;
@@ -2052,8 +2053,8 @@ export declare const FieldDescriptorProto: {
 };
 export declare const OneofDescriptorProto: {
     typeUrl: string;
-    encode(message: OneofDescriptorProto, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): OneofDescriptorProto;
+    encode(message: OneofDescriptorProto, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): OneofDescriptorProto;
     fromJSON(object: any): OneofDescriptorProto;
     toJSON(message: OneofDescriptorProto): unknown;
     fromPartial(object: Partial<OneofDescriptorProto>): OneofDescriptorProto;
@@ -2066,8 +2067,8 @@ export declare const OneofDescriptorProto: {
 };
 export declare const EnumDescriptorProto: {
     typeUrl: string;
-    encode(message: EnumDescriptorProto, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): EnumDescriptorProto;
+    encode(message: EnumDescriptorProto, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): EnumDescriptorProto;
     fromJSON(object: any): EnumDescriptorProto;
     toJSON(message: EnumDescriptorProto): unknown;
     fromPartial(object: Partial<EnumDescriptorProto>): EnumDescriptorProto;
@@ -2080,8 +2081,8 @@ export declare const EnumDescriptorProto: {
 };
 export declare const EnumDescriptorProto_EnumReservedRange: {
     typeUrl: string;
-    encode(message: EnumDescriptorProto_EnumReservedRange, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): EnumDescriptorProto_EnumReservedRange;
+    encode(message: EnumDescriptorProto_EnumReservedRange, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): EnumDescriptorProto_EnumReservedRange;
     fromJSON(object: any): EnumDescriptorProto_EnumReservedRange;
     toJSON(message: EnumDescriptorProto_EnumReservedRange): unknown;
     fromPartial(object: Partial<EnumDescriptorProto_EnumReservedRange>): EnumDescriptorProto_EnumReservedRange;
@@ -2094,8 +2095,8 @@ export declare const EnumDescriptorProto_EnumReservedRange: {
 };
 export declare const EnumValueDescriptorProto: {
     typeUrl: string;
-    encode(message: EnumValueDescriptorProto, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): EnumValueDescriptorProto;
+    encode(message: EnumValueDescriptorProto, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): EnumValueDescriptorProto;
     fromJSON(object: any): EnumValueDescriptorProto;
     toJSON(message: EnumValueDescriptorProto): unknown;
     fromPartial(object: Partial<EnumValueDescriptorProto>): EnumValueDescriptorProto;
@@ -2108,8 +2109,8 @@ export declare const EnumValueDescriptorProto: {
 };
 export declare const ServiceDescriptorProto: {
     typeUrl: string;
-    encode(message: ServiceDescriptorProto, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ServiceDescriptorProto;
+    encode(message: ServiceDescriptorProto, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ServiceDescriptorProto;
     fromJSON(object: any): ServiceDescriptorProto;
     toJSON(message: ServiceDescriptorProto): unknown;
     fromPartial(object: Partial<ServiceDescriptorProto>): ServiceDescriptorProto;
@@ -2122,8 +2123,8 @@ export declare const ServiceDescriptorProto: {
 };
 export declare const MethodDescriptorProto: {
     typeUrl: string;
-    encode(message: MethodDescriptorProto, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MethodDescriptorProto;
+    encode(message: MethodDescriptorProto, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MethodDescriptorProto;
     fromJSON(object: any): MethodDescriptorProto;
     toJSON(message: MethodDescriptorProto): unknown;
     fromPartial(object: Partial<MethodDescriptorProto>): MethodDescriptorProto;
@@ -2136,8 +2137,8 @@ export declare const MethodDescriptorProto: {
 };
 export declare const FileOptions: {
     typeUrl: string;
-    encode(message: FileOptions, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): FileOptions;
+    encode(message: FileOptions, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): FileOptions;
     fromJSON(object: any): FileOptions;
     toJSON(message: FileOptions): unknown;
     fromPartial(object: Partial<FileOptions>): FileOptions;
@@ -2150,8 +2151,8 @@ export declare const FileOptions: {
 };
 export declare const MessageOptions: {
     typeUrl: string;
-    encode(message: MessageOptions, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MessageOptions;
+    encode(message: MessageOptions, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MessageOptions;
     fromJSON(object: any): MessageOptions;
     toJSON(message: MessageOptions): unknown;
     fromPartial(object: Partial<MessageOptions>): MessageOptions;
@@ -2164,8 +2165,8 @@ export declare const MessageOptions: {
 };
 export declare const FieldOptions: {
     typeUrl: string;
-    encode(message: FieldOptions, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): FieldOptions;
+    encode(message: FieldOptions, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): FieldOptions;
     fromJSON(object: any): FieldOptions;
     toJSON(message: FieldOptions): unknown;
     fromPartial(object: Partial<FieldOptions>): FieldOptions;
@@ -2178,8 +2179,8 @@ export declare const FieldOptions: {
 };
 export declare const OneofOptions: {
     typeUrl: string;
-    encode(message: OneofOptions, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): OneofOptions;
+    encode(message: OneofOptions, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): OneofOptions;
     fromJSON(object: any): OneofOptions;
     toJSON(message: OneofOptions): unknown;
     fromPartial(object: Partial<OneofOptions>): OneofOptions;
@@ -2192,8 +2193,8 @@ export declare const OneofOptions: {
 };
 export declare const EnumOptions: {
     typeUrl: string;
-    encode(message: EnumOptions, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): EnumOptions;
+    encode(message: EnumOptions, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): EnumOptions;
     fromJSON(object: any): EnumOptions;
     toJSON(message: EnumOptions): unknown;
     fromPartial(object: Partial<EnumOptions>): EnumOptions;
@@ -2206,8 +2207,8 @@ export declare const EnumOptions: {
 };
 export declare const EnumValueOptions: {
     typeUrl: string;
-    encode(message: EnumValueOptions, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): EnumValueOptions;
+    encode(message: EnumValueOptions, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): EnumValueOptions;
     fromJSON(object: any): EnumValueOptions;
     toJSON(message: EnumValueOptions): unknown;
     fromPartial(object: Partial<EnumValueOptions>): EnumValueOptions;
@@ -2220,8 +2221,8 @@ export declare const EnumValueOptions: {
 };
 export declare const ServiceOptions: {
     typeUrl: string;
-    encode(message: ServiceOptions, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ServiceOptions;
+    encode(message: ServiceOptions, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ServiceOptions;
     fromJSON(object: any): ServiceOptions;
     toJSON(message: ServiceOptions): unknown;
     fromPartial(object: Partial<ServiceOptions>): ServiceOptions;
@@ -2234,8 +2235,8 @@ export declare const ServiceOptions: {
 };
 export declare const MethodOptions: {
     typeUrl: string;
-    encode(message: MethodOptions, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MethodOptions;
+    encode(message: MethodOptions, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MethodOptions;
     fromJSON(object: any): MethodOptions;
     toJSON(message: MethodOptions): unknown;
     fromPartial(object: Partial<MethodOptions>): MethodOptions;
@@ -2248,8 +2249,8 @@ export declare const MethodOptions: {
 };
 export declare const UninterpretedOption: {
     typeUrl: string;
-    encode(message: UninterpretedOption, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): UninterpretedOption;
+    encode(message: UninterpretedOption, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): UninterpretedOption;
     fromJSON(object: any): UninterpretedOption;
     toJSON(message: UninterpretedOption): unknown;
     fromPartial(object: Partial<UninterpretedOption>): UninterpretedOption;
@@ -2262,8 +2263,8 @@ export declare const UninterpretedOption: {
 };
 export declare const UninterpretedOption_NamePart: {
     typeUrl: string;
-    encode(message: UninterpretedOption_NamePart, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): UninterpretedOption_NamePart;
+    encode(message: UninterpretedOption_NamePart, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): UninterpretedOption_NamePart;
     fromJSON(object: any): UninterpretedOption_NamePart;
     toJSON(message: UninterpretedOption_NamePart): unknown;
     fromPartial(object: Partial<UninterpretedOption_NamePart>): UninterpretedOption_NamePart;
@@ -2276,8 +2277,8 @@ export declare const UninterpretedOption_NamePart: {
 };
 export declare const SourceCodeInfo: {
     typeUrl: string;
-    encode(message: SourceCodeInfo, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SourceCodeInfo;
+    encode(message: SourceCodeInfo, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SourceCodeInfo;
     fromJSON(object: any): SourceCodeInfo;
     toJSON(message: SourceCodeInfo): unknown;
     fromPartial(object: Partial<SourceCodeInfo>): SourceCodeInfo;
@@ -2290,8 +2291,8 @@ export declare const SourceCodeInfo: {
 };
 export declare const SourceCodeInfo_Location: {
     typeUrl: string;
-    encode(message: SourceCodeInfo_Location, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SourceCodeInfo_Location;
+    encode(message: SourceCodeInfo_Location, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SourceCodeInfo_Location;
     fromJSON(object: any): SourceCodeInfo_Location;
     toJSON(message: SourceCodeInfo_Location): unknown;
     fromPartial(object: Partial<SourceCodeInfo_Location>): SourceCodeInfo_Location;
@@ -2304,8 +2305,8 @@ export declare const SourceCodeInfo_Location: {
 };
 export declare const GeneratedCodeInfo: {
     typeUrl: string;
-    encode(message: GeneratedCodeInfo, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GeneratedCodeInfo;
+    encode(message: GeneratedCodeInfo, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GeneratedCodeInfo;
     fromJSON(object: any): GeneratedCodeInfo;
     toJSON(message: GeneratedCodeInfo): unknown;
     fromPartial(object: Partial<GeneratedCodeInfo>): GeneratedCodeInfo;
@@ -2318,8 +2319,8 @@ export declare const GeneratedCodeInfo: {
 };
 export declare const GeneratedCodeInfo_Annotation: {
     typeUrl: string;
-    encode(message: GeneratedCodeInfo_Annotation, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GeneratedCodeInfo_Annotation;
+    encode(message: GeneratedCodeInfo_Annotation, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GeneratedCodeInfo_Annotation;
     fromJSON(object: any): GeneratedCodeInfo_Annotation;
     toJSON(message: GeneratedCodeInfo_Annotation): unknown;
     fromPartial(object: Partial<GeneratedCodeInfo_Annotation>): GeneratedCodeInfo_Annotation;

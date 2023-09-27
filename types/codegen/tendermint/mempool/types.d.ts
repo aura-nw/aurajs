@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../../binary";
+import * as _m0 from "protobufjs/minimal";
 export interface Txs {
     txs: Uint8Array[];
 }
@@ -35,8 +35,8 @@ export interface MessageSDKType {
 }
 export declare const Txs: {
     typeUrl: string;
-    encode(message: Txs, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Txs;
+    encode(message: Txs, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Txs;
     fromJSON(object: any): Txs;
     toJSON(message: Txs): unknown;
     fromPartial(object: Partial<Txs>): Txs;
@@ -49,8 +49,8 @@ export declare const Txs: {
 };
 export declare const Message: {
     typeUrl: string;
-    encode(message: Message, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Message;
+    encode(message: Message, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Message;
     fromJSON(object: any): Message;
     toJSON(message: Message): unknown;
     fromPartial(object: Partial<Message>): Message;

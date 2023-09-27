@@ -1,6 +1,7 @@
 import { Coin, CoinAmino, CoinSDKType } from "../../base/v1beta1/coin";
 import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** VoteOption enumerates the valid vote options for a given governance proposal. */
 export declare enum VoteOption {
     /** VOTE_OPTION_UNSPECIFIED - VOTE_OPTION_UNSPECIFIED defines a no-op vote option. */
@@ -87,7 +88,7 @@ export interface WeightedVoteOptionSDKType {
  */
 export interface Deposit {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: bigint;
+    proposalId: Long;
     /** depositor defines the deposit addresses from the proposals. */
     depositor: string;
     /** amount to be deposited by depositor. */
@@ -118,14 +119,14 @@ export interface DepositAminoMsg {
  * proposal.
  */
 export interface DepositSDKType {
-    proposal_id: bigint;
+    proposal_id: Long;
     depositor: string;
     amount: CoinSDKType[];
 }
 /** Proposal defines the core field members of a governance proposal. */
 export interface Proposal {
     /** id defines the unique id of the proposal. */
-    id: bigint;
+    id: Long;
     /** messages are the arbitrary messages to be executed if the proposal passes. */
     messages: Any[];
     /** status defines the proposal status. */
@@ -222,7 +223,7 @@ export interface ProposalAminoMsg {
 }
 /** Proposal defines the core field members of a governance proposal. */
 export interface ProposalSDKType {
-    id: bigint;
+    id: Long;
     messages: AnySDKType[];
     status: ProposalStatus;
     final_tally_result: TallyResultSDKType;
@@ -279,7 +280,7 @@ export interface TallyResultSDKType {
  */
 export interface Vote {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: bigint;
+    proposalId: Long;
     /** voter is the voter address of the proposal. */
     voter: string;
     /** options is the weighted vote options. */
@@ -314,7 +315,7 @@ export interface VoteAminoMsg {
  * A Vote consists of a proposal ID, the voter, and the vote option.
  */
 export interface VoteSDKType {
-    proposal_id: bigint;
+    proposal_id: Long;
     voter: string;
     options: WeightedVoteOptionSDKType[];
     metadata: string;
@@ -517,8 +518,8 @@ export interface ParamsSDKType {
 }
 export declare const WeightedVoteOption: {
     typeUrl: string;
-    encode(message: WeightedVoteOption, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): WeightedVoteOption;
+    encode(message: WeightedVoteOption, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): WeightedVoteOption;
     fromJSON(object: any): WeightedVoteOption;
     toJSON(message: WeightedVoteOption): unknown;
     fromPartial(object: Partial<WeightedVoteOption>): WeightedVoteOption;
@@ -532,8 +533,8 @@ export declare const WeightedVoteOption: {
 };
 export declare const Deposit: {
     typeUrl: string;
-    encode(message: Deposit, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Deposit;
+    encode(message: Deposit, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Deposit;
     fromJSON(object: any): Deposit;
     toJSON(message: Deposit): unknown;
     fromPartial(object: Partial<Deposit>): Deposit;
@@ -547,8 +548,8 @@ export declare const Deposit: {
 };
 export declare const Proposal: {
     typeUrl: string;
-    encode(message: Proposal, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Proposal;
+    encode(message: Proposal, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Proposal;
     fromJSON(object: any): Proposal;
     toJSON(message: Proposal): unknown;
     fromPartial(object: Partial<Proposal>): Proposal;
@@ -562,8 +563,8 @@ export declare const Proposal: {
 };
 export declare const TallyResult: {
     typeUrl: string;
-    encode(message: TallyResult, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): TallyResult;
+    encode(message: TallyResult, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TallyResult;
     fromJSON(object: any): TallyResult;
     toJSON(message: TallyResult): unknown;
     fromPartial(object: Partial<TallyResult>): TallyResult;
@@ -577,8 +578,8 @@ export declare const TallyResult: {
 };
 export declare const Vote: {
     typeUrl: string;
-    encode(message: Vote, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Vote;
+    encode(message: Vote, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Vote;
     fromJSON(object: any): Vote;
     toJSON(message: Vote): unknown;
     fromPartial(object: Partial<Vote>): Vote;
@@ -592,8 +593,8 @@ export declare const Vote: {
 };
 export declare const DepositParams: {
     typeUrl: string;
-    encode(message: DepositParams, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): DepositParams;
+    encode(message: DepositParams, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): DepositParams;
     fromJSON(object: any): DepositParams;
     toJSON(message: DepositParams): unknown;
     fromPartial(object: Partial<DepositParams>): DepositParams;
@@ -607,8 +608,8 @@ export declare const DepositParams: {
 };
 export declare const VotingParams: {
     typeUrl: string;
-    encode(message: VotingParams, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): VotingParams;
+    encode(message: VotingParams, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): VotingParams;
     fromJSON(object: any): VotingParams;
     toJSON(message: VotingParams): unknown;
     fromPartial(object: Partial<VotingParams>): VotingParams;
@@ -622,8 +623,8 @@ export declare const VotingParams: {
 };
 export declare const TallyParams: {
     typeUrl: string;
-    encode(message: TallyParams, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): TallyParams;
+    encode(message: TallyParams, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TallyParams;
     fromJSON(object: any): TallyParams;
     toJSON(message: TallyParams): unknown;
     fromPartial(object: Partial<TallyParams>): TallyParams;
@@ -637,8 +638,8 @@ export declare const TallyParams: {
 };
 export declare const Params: {
     typeUrl: string;
-    encode(message: Params, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Params;
+    encode(message: Params, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Params;
     fromJSON(object: any): Params;
     toJSON(message: Params): unknown;
     fromPartial(object: Partial<Params>): Params;

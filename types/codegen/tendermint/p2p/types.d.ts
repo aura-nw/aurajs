@@ -1,4 +1,5 @@
-import { BinaryReader, BinaryWriter } from "../../binary";
+import { Long } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export interface NetAddress {
     id: string;
     ip: string;
@@ -23,9 +24,9 @@ export interface NetAddressSDKType {
     port: number;
 }
 export interface ProtocolVersion {
-    p2p: bigint;
-    block: bigint;
-    app: bigint;
+    p2p: Long;
+    block: Long;
+    app: Long;
 }
 export interface ProtocolVersionProtoMsg {
     typeUrl: "/tendermint.p2p.ProtocolVersion";
@@ -41,9 +42,9 @@ export interface ProtocolVersionAminoMsg {
     value: ProtocolVersionAmino;
 }
 export interface ProtocolVersionSDKType {
-    p2p: bigint;
-    block: bigint;
-    app: bigint;
+    p2p: Long;
+    block: Long;
+    app: Long;
 }
 export interface DefaultNodeInfo {
     protocolVersion: ProtocolVersion;
@@ -105,8 +106,8 @@ export interface DefaultNodeInfoOtherSDKType {
 }
 export declare const NetAddress: {
     typeUrl: string;
-    encode(message: NetAddress, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): NetAddress;
+    encode(message: NetAddress, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): NetAddress;
     fromJSON(object: any): NetAddress;
     toJSON(message: NetAddress): unknown;
     fromPartial(object: Partial<NetAddress>): NetAddress;
@@ -119,8 +120,8 @@ export declare const NetAddress: {
 };
 export declare const ProtocolVersion: {
     typeUrl: string;
-    encode(message: ProtocolVersion, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ProtocolVersion;
+    encode(message: ProtocolVersion, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ProtocolVersion;
     fromJSON(object: any): ProtocolVersion;
     toJSON(message: ProtocolVersion): unknown;
     fromPartial(object: Partial<ProtocolVersion>): ProtocolVersion;
@@ -133,8 +134,8 @@ export declare const ProtocolVersion: {
 };
 export declare const DefaultNodeInfo: {
     typeUrl: string;
-    encode(message: DefaultNodeInfo, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): DefaultNodeInfo;
+    encode(message: DefaultNodeInfo, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): DefaultNodeInfo;
     fromJSON(object: any): DefaultNodeInfo;
     toJSON(message: DefaultNodeInfo): unknown;
     fromPartial(object: Partial<DefaultNodeInfo>): DefaultNodeInfo;
@@ -147,8 +148,8 @@ export declare const DefaultNodeInfo: {
 };
 export declare const DefaultNodeInfoOther: {
     typeUrl: string;
-    encode(message: DefaultNodeInfoOther, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): DefaultNodeInfoOther;
+    encode(message: DefaultNodeInfoOther, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): DefaultNodeInfoOther;
     fromJSON(object: any): DefaultNodeInfoOther;
     toJSON(message: DefaultNodeInfoOther): unknown;
     fromPartial(object: Partial<DefaultNodeInfoOther>): DefaultNodeInfoOther;

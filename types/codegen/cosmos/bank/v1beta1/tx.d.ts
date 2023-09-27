@@ -1,6 +1,6 @@
 import { Coin, CoinAmino, CoinSDKType } from "../../base/v1beta1/coin";
 import { Input, InputAmino, InputSDKType, Output, OutputAmino, OutputSDKType, Params, ParamsAmino, ParamsSDKType, SendEnabled, SendEnabledAmino, SendEnabledSDKType } from "./bank";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** MsgSend represents a message to send coins from one account to another. */
 export interface MsgSend {
     fromAddress: string;
@@ -266,8 +266,8 @@ export interface MsgSetSendEnabledResponseSDKType {
 }
 export declare const MsgSend: {
     typeUrl: string;
-    encode(message: MsgSend, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgSend;
+    encode(message: MsgSend, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgSend;
     fromJSON(object: any): MsgSend;
     toJSON(message: MsgSend): unknown;
     fromPartial(object: Partial<MsgSend>): MsgSend;
@@ -281,8 +281,8 @@ export declare const MsgSend: {
 };
 export declare const MsgSendResponse: {
     typeUrl: string;
-    encode(_: MsgSendResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgSendResponse;
+    encode(_: MsgSendResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgSendResponse;
     fromJSON(_: any): MsgSendResponse;
     toJSON(_: MsgSendResponse): unknown;
     fromPartial(_: Partial<MsgSendResponse>): MsgSendResponse;
@@ -296,8 +296,8 @@ export declare const MsgSendResponse: {
 };
 export declare const MsgMultiSend: {
     typeUrl: string;
-    encode(message: MsgMultiSend, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgMultiSend;
+    encode(message: MsgMultiSend, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgMultiSend;
     fromJSON(object: any): MsgMultiSend;
     toJSON(message: MsgMultiSend): unknown;
     fromPartial(object: Partial<MsgMultiSend>): MsgMultiSend;
@@ -311,8 +311,8 @@ export declare const MsgMultiSend: {
 };
 export declare const MsgMultiSendResponse: {
     typeUrl: string;
-    encode(_: MsgMultiSendResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgMultiSendResponse;
+    encode(_: MsgMultiSendResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgMultiSendResponse;
     fromJSON(_: any): MsgMultiSendResponse;
     toJSON(_: MsgMultiSendResponse): unknown;
     fromPartial(_: Partial<MsgMultiSendResponse>): MsgMultiSendResponse;
@@ -326,8 +326,8 @@ export declare const MsgMultiSendResponse: {
 };
 export declare const MsgUpdateParams: {
     typeUrl: string;
-    encode(message: MsgUpdateParams, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateParams;
+    encode(message: MsgUpdateParams, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateParams;
     fromJSON(object: any): MsgUpdateParams;
     toJSON(message: MsgUpdateParams): unknown;
     fromPartial(object: Partial<MsgUpdateParams>): MsgUpdateParams;
@@ -341,8 +341,8 @@ export declare const MsgUpdateParams: {
 };
 export declare const MsgUpdateParamsResponse: {
     typeUrl: string;
-    encode(_: MsgUpdateParamsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateParamsResponse;
+    encode(_: MsgUpdateParamsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateParamsResponse;
     fromJSON(_: any): MsgUpdateParamsResponse;
     toJSON(_: MsgUpdateParamsResponse): unknown;
     fromPartial(_: Partial<MsgUpdateParamsResponse>): MsgUpdateParamsResponse;
@@ -356,8 +356,8 @@ export declare const MsgUpdateParamsResponse: {
 };
 export declare const MsgSetSendEnabled: {
     typeUrl: string;
-    encode(message: MsgSetSendEnabled, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgSetSendEnabled;
+    encode(message: MsgSetSendEnabled, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgSetSendEnabled;
     fromJSON(object: any): MsgSetSendEnabled;
     toJSON(message: MsgSetSendEnabled): unknown;
     fromPartial(object: Partial<MsgSetSendEnabled>): MsgSetSendEnabled;
@@ -371,8 +371,8 @@ export declare const MsgSetSendEnabled: {
 };
 export declare const MsgSetSendEnabledResponse: {
     typeUrl: string;
-    encode(_: MsgSetSendEnabledResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgSetSendEnabledResponse;
+    encode(_: MsgSetSendEnabledResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgSetSendEnabledResponse;
     fromJSON(_: any): MsgSetSendEnabledResponse;
     toJSON(_: MsgSetSendEnabledResponse): unknown;
     fromPartial(_: Partial<MsgSetSendEnabledResponse>): MsgSetSendEnabledResponse;

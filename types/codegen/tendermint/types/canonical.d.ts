@@ -1,5 +1,6 @@
 import { SignedMsgType } from "./types";
-import { BinaryReader, BinaryWriter } from "../../binary";
+import { Long } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export interface CanonicalBlockID {
     hash: Uint8Array;
     partSetHeader: CanonicalPartSetHeader;
@@ -44,10 +45,10 @@ export interface CanonicalProposal {
     /** type alias for byte */
     type: SignedMsgType;
     /** canonicalization requires fixed size encoding here */
-    height: bigint;
+    height: Long;
     /** canonicalization requires fixed size encoding here */
-    round: bigint;
-    polRound: bigint;
+    round: Long;
+    polRound: Long;
     blockId: CanonicalBlockID;
     timestamp: Date;
     chainId: string;
@@ -74,9 +75,9 @@ export interface CanonicalProposalAminoMsg {
 }
 export interface CanonicalProposalSDKType {
     type: SignedMsgType;
-    height: bigint;
-    round: bigint;
-    pol_round: bigint;
+    height: Long;
+    round: Long;
+    pol_round: Long;
     block_id: CanonicalBlockIDSDKType;
     timestamp: Date;
     chain_id: string;
@@ -85,9 +86,9 @@ export interface CanonicalVote {
     /** type alias for byte */
     type: SignedMsgType;
     /** canonicalization requires fixed size encoding here */
-    height: bigint;
+    height: Long;
     /** canonicalization requires fixed size encoding here */
-    round: bigint;
+    round: Long;
     blockId: CanonicalBlockID;
     timestamp: Date;
     chainId: string;
@@ -113,16 +114,16 @@ export interface CanonicalVoteAminoMsg {
 }
 export interface CanonicalVoteSDKType {
     type: SignedMsgType;
-    height: bigint;
-    round: bigint;
+    height: Long;
+    round: Long;
     block_id: CanonicalBlockIDSDKType;
     timestamp: Date;
     chain_id: string;
 }
 export declare const CanonicalBlockID: {
     typeUrl: string;
-    encode(message: CanonicalBlockID, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): CanonicalBlockID;
+    encode(message: CanonicalBlockID, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): CanonicalBlockID;
     fromJSON(object: any): CanonicalBlockID;
     toJSON(message: CanonicalBlockID): unknown;
     fromPartial(object: Partial<CanonicalBlockID>): CanonicalBlockID;
@@ -135,8 +136,8 @@ export declare const CanonicalBlockID: {
 };
 export declare const CanonicalPartSetHeader: {
     typeUrl: string;
-    encode(message: CanonicalPartSetHeader, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): CanonicalPartSetHeader;
+    encode(message: CanonicalPartSetHeader, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): CanonicalPartSetHeader;
     fromJSON(object: any): CanonicalPartSetHeader;
     toJSON(message: CanonicalPartSetHeader): unknown;
     fromPartial(object: Partial<CanonicalPartSetHeader>): CanonicalPartSetHeader;
@@ -149,8 +150,8 @@ export declare const CanonicalPartSetHeader: {
 };
 export declare const CanonicalProposal: {
     typeUrl: string;
-    encode(message: CanonicalProposal, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): CanonicalProposal;
+    encode(message: CanonicalProposal, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): CanonicalProposal;
     fromJSON(object: any): CanonicalProposal;
     toJSON(message: CanonicalProposal): unknown;
     fromPartial(object: Partial<CanonicalProposal>): CanonicalProposal;
@@ -163,8 +164,8 @@ export declare const CanonicalProposal: {
 };
 export declare const CanonicalVote: {
     typeUrl: string;
-    encode(message: CanonicalVote, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): CanonicalVote;
+    encode(message: CanonicalVote, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): CanonicalVote;
     fromJSON(object: any): CanonicalVote;
     toJSON(message: CanonicalVote): unknown;
     fromPartial(object: Partial<CanonicalVote>): CanonicalVote;

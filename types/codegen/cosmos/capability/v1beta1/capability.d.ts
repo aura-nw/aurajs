@@ -1,10 +1,11 @@
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * Capability defines an implementation of an object capability. The index
  * provided to a Capability must be globally unique.
  */
 export interface Capability {
-    index: bigint;
+    index: Long;
 }
 export interface CapabilityProtoMsg {
     typeUrl: "/cosmos.capability.v1beta1.Capability";
@@ -26,7 +27,7 @@ export interface CapabilityAminoMsg {
  * provided to a Capability must be globally unique.
  */
 export interface CapabilitySDKType {
-    index: bigint;
+    index: Long;
 }
 /**
  * Owner defines a single capability owner. An owner is defined by the name of
@@ -91,8 +92,8 @@ export interface CapabilityOwnersSDKType {
 }
 export declare const Capability: {
     typeUrl: string;
-    encode(message: Capability, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Capability;
+    encode(message: Capability, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Capability;
     fromJSON(object: any): Capability;
     toJSON(message: Capability): unknown;
     fromPartial(object: Partial<Capability>): Capability;
@@ -106,8 +107,8 @@ export declare const Capability: {
 };
 export declare const Owner: {
     typeUrl: string;
-    encode(message: Owner, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Owner;
+    encode(message: Owner, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Owner;
     fromJSON(object: any): Owner;
     toJSON(message: Owner): unknown;
     fromPartial(object: Partial<Owner>): Owner;
@@ -121,8 +122,8 @@ export declare const Owner: {
 };
 export declare const CapabilityOwners: {
     typeUrl: string;
-    encode(message: CapabilityOwners, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): CapabilityOwners;
+    encode(message: CapabilityOwners, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): CapabilityOwners;
     fromJSON(object: any): CapabilityOwners;
     toJSON(message: CapabilityOwners): unknown;
     fromPartial(object: Partial<CapabilityOwners>): CapabilityOwners;

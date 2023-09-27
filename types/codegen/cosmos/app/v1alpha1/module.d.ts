@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** ModuleDescriptor describes an app module. */
 export interface ModuleDescriptor {
     /**
@@ -203,8 +203,8 @@ export interface MigrateFromInfoSDKType {
 }
 export declare const ModuleDescriptor: {
     typeUrl: string;
-    encode(message: ModuleDescriptor, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ModuleDescriptor;
+    encode(message: ModuleDescriptor, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ModuleDescriptor;
     fromJSON(object: any): ModuleDescriptor;
     toJSON(message: ModuleDescriptor): unknown;
     fromPartial(object: Partial<ModuleDescriptor>): ModuleDescriptor;
@@ -218,8 +218,8 @@ export declare const ModuleDescriptor: {
 };
 export declare const PackageReference: {
     typeUrl: string;
-    encode(message: PackageReference, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): PackageReference;
+    encode(message: PackageReference, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PackageReference;
     fromJSON(object: any): PackageReference;
     toJSON(message: PackageReference): unknown;
     fromPartial(object: Partial<PackageReference>): PackageReference;
@@ -233,8 +233,8 @@ export declare const PackageReference: {
 };
 export declare const MigrateFromInfo: {
     typeUrl: string;
-    encode(message: MigrateFromInfo, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MigrateFromInfo;
+    encode(message: MigrateFromInfo, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MigrateFromInfo;
     fromJSON(object: any): MigrateFromInfo;
     toJSON(message: MigrateFromInfo): unknown;
     fromPartial(object: Partial<MigrateFromInfo>): MigrateFromInfo;

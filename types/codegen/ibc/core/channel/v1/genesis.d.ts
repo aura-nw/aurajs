@@ -1,5 +1,6 @@
 import { IdentifiedChannel, IdentifiedChannelAmino, IdentifiedChannelSDKType, PacketState, PacketStateAmino, PacketStateSDKType } from "./channel";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** GenesisState defines the ibc channel submodule's genesis state. */
 export interface GenesisState {
     channels: IdentifiedChannel[];
@@ -10,7 +11,7 @@ export interface GenesisState {
     recvSequences: PacketSequence[];
     ackSequences: PacketSequence[];
     /** the sequence for the next generated channel identifier */
-    nextChannelSequence: bigint;
+    nextChannelSequence: Long;
 }
 export interface GenesisStateProtoMsg {
     typeUrl: "/ibc.core.channel.v1.GenesisState";
@@ -41,7 +42,7 @@ export interface GenesisStateSDKType {
     send_sequences: PacketSequenceSDKType[];
     recv_sequences: PacketSequenceSDKType[];
     ack_sequences: PacketSequenceSDKType[];
-    next_channel_sequence: bigint;
+    next_channel_sequence: Long;
 }
 /**
  * PacketSequence defines the genesis type necessary to retrieve and store
@@ -50,7 +51,7 @@ export interface GenesisStateSDKType {
 export interface PacketSequence {
     portId: string;
     channelId: string;
-    sequence: bigint;
+    sequence: Long;
 }
 export interface PacketSequenceProtoMsg {
     typeUrl: "/ibc.core.channel.v1.PacketSequence";
@@ -76,12 +77,12 @@ export interface PacketSequenceAminoMsg {
 export interface PacketSequenceSDKType {
     port_id: string;
     channel_id: string;
-    sequence: bigint;
+    sequence: Long;
 }
 export declare const GenesisState: {
     typeUrl: string;
-    encode(message: GenesisState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GenesisState;
+    encode(message: GenesisState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GenesisState;
     fromJSON(object: any): GenesisState;
     toJSON(message: GenesisState): unknown;
     fromPartial(object: Partial<GenesisState>): GenesisState;
@@ -95,8 +96,8 @@ export declare const GenesisState: {
 };
 export declare const PacketSequence: {
     typeUrl: string;
-    encode(message: PacketSequence, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): PacketSequence;
+    encode(message: PacketSequence, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PacketSequence;
     fromJSON(object: any): PacketSequence;
     toJSON(message: PacketSequence): unknown;
     fromPartial(object: Partial<PacketSequence>): PacketSequence;

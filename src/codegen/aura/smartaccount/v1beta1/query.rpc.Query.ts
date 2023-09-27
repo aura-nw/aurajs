@@ -1,5 +1,5 @@
 import { Rpc } from "../../../helpers";
-import { BinaryReader } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
 import { QueryParamsRequest, QueryParamsResponse, QueryGenerateAccountRequest, QueryGenerateAccountResponse } from "./query";
 /** Query defines the gRPC querier service. */
@@ -19,12 +19,12 @@ export class QueryClientImpl implements Query {
   params(request: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
     const data = QueryParamsRequest.encode(request).finish();
     const promise = this.rpc.request("aura.smartaccount.v1beta1.Query", "Params", data);
-    return promise.then(data => QueryParamsResponse.decode(new BinaryReader(data)));
+    return promise.then(data => QueryParamsResponse.decode(new _m0.Reader(data)));
   }
   generateAccount(request: QueryGenerateAccountRequest): Promise<QueryGenerateAccountResponse> {
     const data = QueryGenerateAccountRequest.encode(request).finish();
     const promise = this.rpc.request("aura.smartaccount.v1beta1.Query", "GenerateAccount", data);
-    return promise.then(data => QueryGenerateAccountResponse.decode(new BinaryReader(data)));
+    return promise.then(data => QueryGenerateAccountResponse.decode(new _m0.Reader(data)));
   }
 }
 export const createRpcQueryExtension = (base: QueryClient) => {

@@ -1,6 +1,7 @@
-import { MemberRequest, MemberRequestAmino, MemberRequestSDKType, VoteOption, ProposalExecutorResult, ThresholdDecisionPolicy, ThresholdDecisionPolicyProtoMsg, ThresholdDecisionPolicySDKType, PercentageDecisionPolicy, PercentageDecisionPolicyProtoMsg, PercentageDecisionPolicySDKType } from "./types";
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { MemberRequest, MemberRequestAmino, MemberRequestSDKType, VoteOption, ProposalExecutorResult } from "./types";
+import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** Exec defines modes of execution of a proposal on creation or on new vote. */
 export declare enum Exec {
     /**
@@ -56,7 +57,7 @@ export interface MsgCreateGroupSDKType {
 /** MsgCreateGroupResponse is the Msg/CreateGroup response type. */
 export interface MsgCreateGroupResponse {
     /** group_id is the unique ID of the newly created group. */
-    groupId: bigint;
+    groupId: Long;
 }
 export interface MsgCreateGroupResponseProtoMsg {
     typeUrl: "/cosmos.group.v1.MsgCreateGroupResponse";
@@ -73,14 +74,14 @@ export interface MsgCreateGroupResponseAminoMsg {
 }
 /** MsgCreateGroupResponse is the Msg/CreateGroup response type. */
 export interface MsgCreateGroupResponseSDKType {
-    group_id: bigint;
+    group_id: Long;
 }
 /** MsgUpdateGroupMembers is the Msg/UpdateGroupMembers request type. */
 export interface MsgUpdateGroupMembers {
     /** admin is the account address of the group admin. */
     admin: string;
     /** group_id is the unique ID of the group. */
-    groupId: bigint;
+    groupId: Long;
     /**
      * member_updates is the list of members to update,
      * set weight to 0 to remove a member.
@@ -110,7 +111,7 @@ export interface MsgUpdateGroupMembersAminoMsg {
 /** MsgUpdateGroupMembers is the Msg/UpdateGroupMembers request type. */
 export interface MsgUpdateGroupMembersSDKType {
     admin: string;
-    group_id: bigint;
+    group_id: Long;
     member_updates: MemberRequestSDKType[];
 }
 /** MsgUpdateGroupMembersResponse is the Msg/UpdateGroupMembers response type. */
@@ -135,7 +136,7 @@ export interface MsgUpdateGroupAdmin {
     /** admin is the current account address of the group admin. */
     admin: string;
     /** group_id is the unique ID of the group. */
-    groupId: bigint;
+    groupId: Long;
     /** new_admin is the group new admin account address. */
     newAdmin: string;
 }
@@ -159,7 +160,7 @@ export interface MsgUpdateGroupAdminAminoMsg {
 /** MsgUpdateGroupAdmin is the Msg/UpdateGroupAdmin request type. */
 export interface MsgUpdateGroupAdminSDKType {
     admin: string;
-    group_id: bigint;
+    group_id: Long;
     new_admin: string;
 }
 /** MsgUpdateGroupAdminResponse is the Msg/UpdateGroupAdmin response type. */
@@ -184,7 +185,7 @@ export interface MsgUpdateGroupMetadata {
     /** admin is the account address of the group admin. */
     admin: string;
     /** group_id is the unique ID of the group. */
-    groupId: bigint;
+    groupId: Long;
     /** metadata is the updated group's metadata. */
     metadata: string;
 }
@@ -208,7 +209,7 @@ export interface MsgUpdateGroupMetadataAminoMsg {
 /** MsgUpdateGroupMetadata is the Msg/UpdateGroupMetadata request type. */
 export interface MsgUpdateGroupMetadataSDKType {
     admin: string;
-    group_id: bigint;
+    group_id: Long;
     metadata: string;
 }
 /** MsgUpdateGroupMetadataResponse is the Msg/UpdateGroupMetadata response type. */
@@ -233,19 +234,16 @@ export interface MsgCreateGroupPolicy {
     /** admin is the account address of the group admin. */
     admin: string;
     /** group_id is the unique ID of the group. */
-    groupId: bigint;
+    groupId: Long;
     /** metadata is any arbitrary metadata attached to the group policy. */
     metadata: string;
     /** decision_policy specifies the group policy's decision policy. */
-    decisionPolicy: (ThresholdDecisionPolicy & PercentageDecisionPolicy & Any) | undefined;
+    decisionPolicy: Any;
 }
 export interface MsgCreateGroupPolicyProtoMsg {
     typeUrl: "/cosmos.group.v1.MsgCreateGroupPolicy";
     value: Uint8Array;
 }
-export type MsgCreateGroupPolicyEncoded = Omit<MsgCreateGroupPolicy, "decisionPolicy"> & {
-    /** decision_policy specifies the group policy's decision policy. */ decisionPolicy?: ThresholdDecisionPolicyProtoMsg | PercentageDecisionPolicyProtoMsg | AnyProtoMsg | undefined;
-};
 /** MsgCreateGroupPolicy is the Msg/CreateGroupPolicy request type. */
 export interface MsgCreateGroupPolicyAmino {
     /** admin is the account address of the group admin. */
@@ -264,9 +262,9 @@ export interface MsgCreateGroupPolicyAminoMsg {
 /** MsgCreateGroupPolicy is the Msg/CreateGroupPolicy request type. */
 export interface MsgCreateGroupPolicySDKType {
     admin: string;
-    group_id: bigint;
+    group_id: Long;
     metadata: string;
-    decision_policy: ThresholdDecisionPolicySDKType | PercentageDecisionPolicySDKType | AnySDKType | undefined;
+    decision_policy: AnySDKType;
 }
 /** MsgCreateGroupPolicyResponse is the Msg/CreateGroupPolicy response type. */
 export interface MsgCreateGroupPolicyResponse {
@@ -355,15 +353,12 @@ export interface MsgCreateGroupWithPolicy {
      */
     groupPolicyAsAdmin: boolean;
     /** decision_policy specifies the group policy's decision policy. */
-    decisionPolicy: (ThresholdDecisionPolicy & PercentageDecisionPolicy & Any) | undefined;
+    decisionPolicy: Any;
 }
 export interface MsgCreateGroupWithPolicyProtoMsg {
     typeUrl: "/cosmos.group.v1.MsgCreateGroupWithPolicy";
     value: Uint8Array;
 }
-export type MsgCreateGroupWithPolicyEncoded = Omit<MsgCreateGroupWithPolicy, "decisionPolicy"> & {
-    /** decision_policy specifies the group policy's decision policy. */ decisionPolicy?: ThresholdDecisionPolicyProtoMsg | PercentageDecisionPolicyProtoMsg | AnyProtoMsg | undefined;
-};
 /** MsgCreateGroupWithPolicy is the Msg/CreateGroupWithPolicy request type. */
 export interface MsgCreateGroupWithPolicyAmino {
     /** admin is the account address of the group and group policy admin. */
@@ -393,12 +388,12 @@ export interface MsgCreateGroupWithPolicySDKType {
     group_metadata: string;
     group_policy_metadata: string;
     group_policy_as_admin: boolean;
-    decision_policy: ThresholdDecisionPolicySDKType | PercentageDecisionPolicySDKType | AnySDKType | undefined;
+    decision_policy: AnySDKType;
 }
 /** MsgCreateGroupWithPolicyResponse is the Msg/CreateGroupWithPolicy response type. */
 export interface MsgCreateGroupWithPolicyResponse {
     /** group_id is the unique ID of the newly created group with policy. */
-    groupId: bigint;
+    groupId: Long;
     /** group_policy_address is the account address of the newly created group policy. */
     groupPolicyAddress: string;
 }
@@ -419,7 +414,7 @@ export interface MsgCreateGroupWithPolicyResponseAminoMsg {
 }
 /** MsgCreateGroupWithPolicyResponse is the Msg/CreateGroupWithPolicy response type. */
 export interface MsgCreateGroupWithPolicyResponseSDKType {
-    group_id: bigint;
+    group_id: Long;
     group_policy_address: string;
 }
 /** MsgUpdateGroupPolicyDecisionPolicy is the Msg/UpdateGroupPolicyDecisionPolicy request type. */
@@ -429,15 +424,12 @@ export interface MsgUpdateGroupPolicyDecisionPolicy {
     /** group_policy_address is the account address of group policy. */
     groupPolicyAddress: string;
     /** decision_policy is the updated group policy's decision policy. */
-    decisionPolicy: (ThresholdDecisionPolicy & PercentageDecisionPolicy & Any) | undefined;
+    decisionPolicy: Any;
 }
 export interface MsgUpdateGroupPolicyDecisionPolicyProtoMsg {
     typeUrl: "/cosmos.group.v1.MsgUpdateGroupPolicyDecisionPolicy";
     value: Uint8Array;
 }
-export type MsgUpdateGroupPolicyDecisionPolicyEncoded = Omit<MsgUpdateGroupPolicyDecisionPolicy, "decisionPolicy"> & {
-    /** decision_policy is the updated group policy's decision policy. */ decisionPolicy?: ThresholdDecisionPolicyProtoMsg | PercentageDecisionPolicyProtoMsg | AnyProtoMsg | undefined;
-};
 /** MsgUpdateGroupPolicyDecisionPolicy is the Msg/UpdateGroupPolicyDecisionPolicy request type. */
 export interface MsgUpdateGroupPolicyDecisionPolicyAmino {
     /** admin is the account address of the group admin. */
@@ -455,7 +447,7 @@ export interface MsgUpdateGroupPolicyDecisionPolicyAminoMsg {
 export interface MsgUpdateGroupPolicyDecisionPolicySDKType {
     admin: string;
     group_policy_address: string;
-    decision_policy: ThresholdDecisionPolicySDKType | PercentageDecisionPolicySDKType | AnySDKType | undefined;
+    decision_policy: AnySDKType;
 }
 /** MsgUpdateGroupPolicyDecisionPolicyResponse is the Msg/UpdateGroupPolicyDecisionPolicy response type. */
 export interface MsgUpdateGroupPolicyDecisionPolicyResponse {
@@ -608,7 +600,7 @@ export interface MsgSubmitProposalSDKType {
 /** MsgSubmitProposalResponse is the Msg/SubmitProposal response type. */
 export interface MsgSubmitProposalResponse {
     /** proposal is the unique ID of the proposal. */
-    proposalId: bigint;
+    proposalId: Long;
 }
 export interface MsgSubmitProposalResponseProtoMsg {
     typeUrl: "/cosmos.group.v1.MsgSubmitProposalResponse";
@@ -625,12 +617,12 @@ export interface MsgSubmitProposalResponseAminoMsg {
 }
 /** MsgSubmitProposalResponse is the Msg/SubmitProposal response type. */
 export interface MsgSubmitProposalResponseSDKType {
-    proposal_id: bigint;
+    proposal_id: Long;
 }
 /** MsgWithdrawProposal is the Msg/WithdrawProposal request type. */
 export interface MsgWithdrawProposal {
     /** proposal is the unique ID of the proposal. */
-    proposalId: bigint;
+    proposalId: Long;
     /** address is the admin of the group policy or one of the proposer of the proposal. */
     address: string;
 }
@@ -651,7 +643,7 @@ export interface MsgWithdrawProposalAminoMsg {
 }
 /** MsgWithdrawProposal is the Msg/WithdrawProposal request type. */
 export interface MsgWithdrawProposalSDKType {
-    proposal_id: bigint;
+    proposal_id: Long;
     address: string;
 }
 /** MsgWithdrawProposalResponse is the Msg/WithdrawProposal response type. */
@@ -674,7 +666,7 @@ export interface MsgWithdrawProposalResponseSDKType {
 /** MsgVote is the Msg/Vote request type. */
 export interface MsgVote {
     /** proposal is the unique ID of the proposal. */
-    proposalId: bigint;
+    proposalId: Long;
     /** voter is the voter account address. */
     voter: string;
     /** option is the voter's choice on the proposal. */
@@ -713,7 +705,7 @@ export interface MsgVoteAminoMsg {
 }
 /** MsgVote is the Msg/Vote request type. */
 export interface MsgVoteSDKType {
-    proposal_id: bigint;
+    proposal_id: Long;
     voter: string;
     option: VoteOption;
     metadata: string;
@@ -739,7 +731,7 @@ export interface MsgVoteResponseSDKType {
 /** MsgExec is the Msg/Exec request type. */
 export interface MsgExec {
     /** proposal is the unique ID of the proposal. */
-    proposalId: bigint;
+    proposalId: Long;
     /** executor is the account address used to execute the proposal. */
     executor: string;
 }
@@ -760,7 +752,7 @@ export interface MsgExecAminoMsg {
 }
 /** MsgExec is the Msg/Exec request type. */
 export interface MsgExecSDKType {
-    proposal_id: bigint;
+    proposal_id: Long;
     executor: string;
 }
 /** MsgExecResponse is the Msg/Exec request type. */
@@ -790,7 +782,7 @@ export interface MsgLeaveGroup {
     /** address is the account address of the group member. */
     address: string;
     /** group_id is the unique ID of the group. */
-    groupId: bigint;
+    groupId: Long;
 }
 export interface MsgLeaveGroupProtoMsg {
     typeUrl: "/cosmos.group.v1.MsgLeaveGroup";
@@ -810,7 +802,7 @@ export interface MsgLeaveGroupAminoMsg {
 /** MsgLeaveGroup is the Msg/LeaveGroup request type. */
 export interface MsgLeaveGroupSDKType {
     address: string;
-    group_id: bigint;
+    group_id: Long;
 }
 /** MsgLeaveGroupResponse is the Msg/LeaveGroup response type. */
 export interface MsgLeaveGroupResponse {
@@ -831,8 +823,8 @@ export interface MsgLeaveGroupResponseSDKType {
 }
 export declare const MsgCreateGroup: {
     typeUrl: string;
-    encode(message: MsgCreateGroup, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgCreateGroup;
+    encode(message: MsgCreateGroup, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreateGroup;
     fromJSON(object: any): MsgCreateGroup;
     toJSON(message: MsgCreateGroup): unknown;
     fromPartial(object: Partial<MsgCreateGroup>): MsgCreateGroup;
@@ -846,8 +838,8 @@ export declare const MsgCreateGroup: {
 };
 export declare const MsgCreateGroupResponse: {
     typeUrl: string;
-    encode(message: MsgCreateGroupResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgCreateGroupResponse;
+    encode(message: MsgCreateGroupResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreateGroupResponse;
     fromJSON(object: any): MsgCreateGroupResponse;
     toJSON(message: MsgCreateGroupResponse): unknown;
     fromPartial(object: Partial<MsgCreateGroupResponse>): MsgCreateGroupResponse;
@@ -861,8 +853,8 @@ export declare const MsgCreateGroupResponse: {
 };
 export declare const MsgUpdateGroupMembers: {
     typeUrl: string;
-    encode(message: MsgUpdateGroupMembers, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateGroupMembers;
+    encode(message: MsgUpdateGroupMembers, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateGroupMembers;
     fromJSON(object: any): MsgUpdateGroupMembers;
     toJSON(message: MsgUpdateGroupMembers): unknown;
     fromPartial(object: Partial<MsgUpdateGroupMembers>): MsgUpdateGroupMembers;
@@ -876,8 +868,8 @@ export declare const MsgUpdateGroupMembers: {
 };
 export declare const MsgUpdateGroupMembersResponse: {
     typeUrl: string;
-    encode(_: MsgUpdateGroupMembersResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateGroupMembersResponse;
+    encode(_: MsgUpdateGroupMembersResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateGroupMembersResponse;
     fromJSON(_: any): MsgUpdateGroupMembersResponse;
     toJSON(_: MsgUpdateGroupMembersResponse): unknown;
     fromPartial(_: Partial<MsgUpdateGroupMembersResponse>): MsgUpdateGroupMembersResponse;
@@ -891,8 +883,8 @@ export declare const MsgUpdateGroupMembersResponse: {
 };
 export declare const MsgUpdateGroupAdmin: {
     typeUrl: string;
-    encode(message: MsgUpdateGroupAdmin, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateGroupAdmin;
+    encode(message: MsgUpdateGroupAdmin, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateGroupAdmin;
     fromJSON(object: any): MsgUpdateGroupAdmin;
     toJSON(message: MsgUpdateGroupAdmin): unknown;
     fromPartial(object: Partial<MsgUpdateGroupAdmin>): MsgUpdateGroupAdmin;
@@ -906,8 +898,8 @@ export declare const MsgUpdateGroupAdmin: {
 };
 export declare const MsgUpdateGroupAdminResponse: {
     typeUrl: string;
-    encode(_: MsgUpdateGroupAdminResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateGroupAdminResponse;
+    encode(_: MsgUpdateGroupAdminResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateGroupAdminResponse;
     fromJSON(_: any): MsgUpdateGroupAdminResponse;
     toJSON(_: MsgUpdateGroupAdminResponse): unknown;
     fromPartial(_: Partial<MsgUpdateGroupAdminResponse>): MsgUpdateGroupAdminResponse;
@@ -921,8 +913,8 @@ export declare const MsgUpdateGroupAdminResponse: {
 };
 export declare const MsgUpdateGroupMetadata: {
     typeUrl: string;
-    encode(message: MsgUpdateGroupMetadata, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateGroupMetadata;
+    encode(message: MsgUpdateGroupMetadata, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateGroupMetadata;
     fromJSON(object: any): MsgUpdateGroupMetadata;
     toJSON(message: MsgUpdateGroupMetadata): unknown;
     fromPartial(object: Partial<MsgUpdateGroupMetadata>): MsgUpdateGroupMetadata;
@@ -936,8 +928,8 @@ export declare const MsgUpdateGroupMetadata: {
 };
 export declare const MsgUpdateGroupMetadataResponse: {
     typeUrl: string;
-    encode(_: MsgUpdateGroupMetadataResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateGroupMetadataResponse;
+    encode(_: MsgUpdateGroupMetadataResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateGroupMetadataResponse;
     fromJSON(_: any): MsgUpdateGroupMetadataResponse;
     toJSON(_: MsgUpdateGroupMetadataResponse): unknown;
     fromPartial(_: Partial<MsgUpdateGroupMetadataResponse>): MsgUpdateGroupMetadataResponse;
@@ -951,8 +943,8 @@ export declare const MsgUpdateGroupMetadataResponse: {
 };
 export declare const MsgCreateGroupPolicy: {
     typeUrl: string;
-    encode(message: MsgCreateGroupPolicy, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgCreateGroupPolicy;
+    encode(message: MsgCreateGroupPolicy, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreateGroupPolicy;
     fromJSON(object: any): MsgCreateGroupPolicy;
     toJSON(message: MsgCreateGroupPolicy): unknown;
     fromPartial(object: Partial<MsgCreateGroupPolicy>): MsgCreateGroupPolicy;
@@ -966,8 +958,8 @@ export declare const MsgCreateGroupPolicy: {
 };
 export declare const MsgCreateGroupPolicyResponse: {
     typeUrl: string;
-    encode(message: MsgCreateGroupPolicyResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgCreateGroupPolicyResponse;
+    encode(message: MsgCreateGroupPolicyResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreateGroupPolicyResponse;
     fromJSON(object: any): MsgCreateGroupPolicyResponse;
     toJSON(message: MsgCreateGroupPolicyResponse): unknown;
     fromPartial(object: Partial<MsgCreateGroupPolicyResponse>): MsgCreateGroupPolicyResponse;
@@ -981,8 +973,8 @@ export declare const MsgCreateGroupPolicyResponse: {
 };
 export declare const MsgUpdateGroupPolicyAdmin: {
     typeUrl: string;
-    encode(message: MsgUpdateGroupPolicyAdmin, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateGroupPolicyAdmin;
+    encode(message: MsgUpdateGroupPolicyAdmin, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateGroupPolicyAdmin;
     fromJSON(object: any): MsgUpdateGroupPolicyAdmin;
     toJSON(message: MsgUpdateGroupPolicyAdmin): unknown;
     fromPartial(object: Partial<MsgUpdateGroupPolicyAdmin>): MsgUpdateGroupPolicyAdmin;
@@ -996,8 +988,8 @@ export declare const MsgUpdateGroupPolicyAdmin: {
 };
 export declare const MsgUpdateGroupPolicyAdminResponse: {
     typeUrl: string;
-    encode(_: MsgUpdateGroupPolicyAdminResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateGroupPolicyAdminResponse;
+    encode(_: MsgUpdateGroupPolicyAdminResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateGroupPolicyAdminResponse;
     fromJSON(_: any): MsgUpdateGroupPolicyAdminResponse;
     toJSON(_: MsgUpdateGroupPolicyAdminResponse): unknown;
     fromPartial(_: Partial<MsgUpdateGroupPolicyAdminResponse>): MsgUpdateGroupPolicyAdminResponse;
@@ -1011,8 +1003,8 @@ export declare const MsgUpdateGroupPolicyAdminResponse: {
 };
 export declare const MsgCreateGroupWithPolicy: {
     typeUrl: string;
-    encode(message: MsgCreateGroupWithPolicy, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgCreateGroupWithPolicy;
+    encode(message: MsgCreateGroupWithPolicy, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreateGroupWithPolicy;
     fromJSON(object: any): MsgCreateGroupWithPolicy;
     toJSON(message: MsgCreateGroupWithPolicy): unknown;
     fromPartial(object: Partial<MsgCreateGroupWithPolicy>): MsgCreateGroupWithPolicy;
@@ -1026,8 +1018,8 @@ export declare const MsgCreateGroupWithPolicy: {
 };
 export declare const MsgCreateGroupWithPolicyResponse: {
     typeUrl: string;
-    encode(message: MsgCreateGroupWithPolicyResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgCreateGroupWithPolicyResponse;
+    encode(message: MsgCreateGroupWithPolicyResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreateGroupWithPolicyResponse;
     fromJSON(object: any): MsgCreateGroupWithPolicyResponse;
     toJSON(message: MsgCreateGroupWithPolicyResponse): unknown;
     fromPartial(object: Partial<MsgCreateGroupWithPolicyResponse>): MsgCreateGroupWithPolicyResponse;
@@ -1041,8 +1033,8 @@ export declare const MsgCreateGroupWithPolicyResponse: {
 };
 export declare const MsgUpdateGroupPolicyDecisionPolicy: {
     typeUrl: string;
-    encode(message: MsgUpdateGroupPolicyDecisionPolicy, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateGroupPolicyDecisionPolicy;
+    encode(message: MsgUpdateGroupPolicyDecisionPolicy, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateGroupPolicyDecisionPolicy;
     fromJSON(object: any): MsgUpdateGroupPolicyDecisionPolicy;
     toJSON(message: MsgUpdateGroupPolicyDecisionPolicy): unknown;
     fromPartial(object: Partial<MsgUpdateGroupPolicyDecisionPolicy>): MsgUpdateGroupPolicyDecisionPolicy;
@@ -1056,8 +1048,8 @@ export declare const MsgUpdateGroupPolicyDecisionPolicy: {
 };
 export declare const MsgUpdateGroupPolicyDecisionPolicyResponse: {
     typeUrl: string;
-    encode(_: MsgUpdateGroupPolicyDecisionPolicyResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateGroupPolicyDecisionPolicyResponse;
+    encode(_: MsgUpdateGroupPolicyDecisionPolicyResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateGroupPolicyDecisionPolicyResponse;
     fromJSON(_: any): MsgUpdateGroupPolicyDecisionPolicyResponse;
     toJSON(_: MsgUpdateGroupPolicyDecisionPolicyResponse): unknown;
     fromPartial(_: Partial<MsgUpdateGroupPolicyDecisionPolicyResponse>): MsgUpdateGroupPolicyDecisionPolicyResponse;
@@ -1071,8 +1063,8 @@ export declare const MsgUpdateGroupPolicyDecisionPolicyResponse: {
 };
 export declare const MsgUpdateGroupPolicyMetadata: {
     typeUrl: string;
-    encode(message: MsgUpdateGroupPolicyMetadata, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateGroupPolicyMetadata;
+    encode(message: MsgUpdateGroupPolicyMetadata, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateGroupPolicyMetadata;
     fromJSON(object: any): MsgUpdateGroupPolicyMetadata;
     toJSON(message: MsgUpdateGroupPolicyMetadata): unknown;
     fromPartial(object: Partial<MsgUpdateGroupPolicyMetadata>): MsgUpdateGroupPolicyMetadata;
@@ -1086,8 +1078,8 @@ export declare const MsgUpdateGroupPolicyMetadata: {
 };
 export declare const MsgUpdateGroupPolicyMetadataResponse: {
     typeUrl: string;
-    encode(_: MsgUpdateGroupPolicyMetadataResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateGroupPolicyMetadataResponse;
+    encode(_: MsgUpdateGroupPolicyMetadataResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateGroupPolicyMetadataResponse;
     fromJSON(_: any): MsgUpdateGroupPolicyMetadataResponse;
     toJSON(_: MsgUpdateGroupPolicyMetadataResponse): unknown;
     fromPartial(_: Partial<MsgUpdateGroupPolicyMetadataResponse>): MsgUpdateGroupPolicyMetadataResponse;
@@ -1101,8 +1093,8 @@ export declare const MsgUpdateGroupPolicyMetadataResponse: {
 };
 export declare const MsgSubmitProposal: {
     typeUrl: string;
-    encode(message: MsgSubmitProposal, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgSubmitProposal;
+    encode(message: MsgSubmitProposal, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgSubmitProposal;
     fromJSON(object: any): MsgSubmitProposal;
     toJSON(message: MsgSubmitProposal): unknown;
     fromPartial(object: Partial<MsgSubmitProposal>): MsgSubmitProposal;
@@ -1116,8 +1108,8 @@ export declare const MsgSubmitProposal: {
 };
 export declare const MsgSubmitProposalResponse: {
     typeUrl: string;
-    encode(message: MsgSubmitProposalResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgSubmitProposalResponse;
+    encode(message: MsgSubmitProposalResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgSubmitProposalResponse;
     fromJSON(object: any): MsgSubmitProposalResponse;
     toJSON(message: MsgSubmitProposalResponse): unknown;
     fromPartial(object: Partial<MsgSubmitProposalResponse>): MsgSubmitProposalResponse;
@@ -1131,8 +1123,8 @@ export declare const MsgSubmitProposalResponse: {
 };
 export declare const MsgWithdrawProposal: {
     typeUrl: string;
-    encode(message: MsgWithdrawProposal, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgWithdrawProposal;
+    encode(message: MsgWithdrawProposal, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgWithdrawProposal;
     fromJSON(object: any): MsgWithdrawProposal;
     toJSON(message: MsgWithdrawProposal): unknown;
     fromPartial(object: Partial<MsgWithdrawProposal>): MsgWithdrawProposal;
@@ -1146,8 +1138,8 @@ export declare const MsgWithdrawProposal: {
 };
 export declare const MsgWithdrawProposalResponse: {
     typeUrl: string;
-    encode(_: MsgWithdrawProposalResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgWithdrawProposalResponse;
+    encode(_: MsgWithdrawProposalResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgWithdrawProposalResponse;
     fromJSON(_: any): MsgWithdrawProposalResponse;
     toJSON(_: MsgWithdrawProposalResponse): unknown;
     fromPartial(_: Partial<MsgWithdrawProposalResponse>): MsgWithdrawProposalResponse;
@@ -1161,8 +1153,8 @@ export declare const MsgWithdrawProposalResponse: {
 };
 export declare const MsgVote: {
     typeUrl: string;
-    encode(message: MsgVote, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgVote;
+    encode(message: MsgVote, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgVote;
     fromJSON(object: any): MsgVote;
     toJSON(message: MsgVote): unknown;
     fromPartial(object: Partial<MsgVote>): MsgVote;
@@ -1176,8 +1168,8 @@ export declare const MsgVote: {
 };
 export declare const MsgVoteResponse: {
     typeUrl: string;
-    encode(_: MsgVoteResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgVoteResponse;
+    encode(_: MsgVoteResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgVoteResponse;
     fromJSON(_: any): MsgVoteResponse;
     toJSON(_: MsgVoteResponse): unknown;
     fromPartial(_: Partial<MsgVoteResponse>): MsgVoteResponse;
@@ -1191,8 +1183,8 @@ export declare const MsgVoteResponse: {
 };
 export declare const MsgExec: {
     typeUrl: string;
-    encode(message: MsgExec, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgExec;
+    encode(message: MsgExec, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgExec;
     fromJSON(object: any): MsgExec;
     toJSON(message: MsgExec): unknown;
     fromPartial(object: Partial<MsgExec>): MsgExec;
@@ -1206,8 +1198,8 @@ export declare const MsgExec: {
 };
 export declare const MsgExecResponse: {
     typeUrl: string;
-    encode(message: MsgExecResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgExecResponse;
+    encode(message: MsgExecResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgExecResponse;
     fromJSON(object: any): MsgExecResponse;
     toJSON(message: MsgExecResponse): unknown;
     fromPartial(object: Partial<MsgExecResponse>): MsgExecResponse;
@@ -1221,8 +1213,8 @@ export declare const MsgExecResponse: {
 };
 export declare const MsgLeaveGroup: {
     typeUrl: string;
-    encode(message: MsgLeaveGroup, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgLeaveGroup;
+    encode(message: MsgLeaveGroup, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgLeaveGroup;
     fromJSON(object: any): MsgLeaveGroup;
     toJSON(message: MsgLeaveGroup): unknown;
     fromPartial(object: Partial<MsgLeaveGroup>): MsgLeaveGroup;
@@ -1236,8 +1228,8 @@ export declare const MsgLeaveGroup: {
 };
 export declare const MsgLeaveGroupResponse: {
     typeUrl: string;
-    encode(_: MsgLeaveGroupResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgLeaveGroupResponse;
+    encode(_: MsgLeaveGroupResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgLeaveGroupResponse;
     fromJSON(_: any): MsgLeaveGroupResponse;
     toJSON(_: MsgLeaveGroupResponse): unknown;
     fromPartial(_: Partial<MsgLeaveGroupResponse>): MsgLeaveGroupResponse;
@@ -1249,6 +1241,3 @@ export declare const MsgLeaveGroupResponse: {
     toProto(message: MsgLeaveGroupResponse): Uint8Array;
     toProtoMsg(message: MsgLeaveGroupResponse): MsgLeaveGroupResponseProtoMsg;
 };
-export declare const Cosmos_groupv1DecisionPolicy_InterfaceDecoder: (input: BinaryReader | Uint8Array) => ThresholdDecisionPolicy | PercentageDecisionPolicy | Any;
-export declare const Cosmos_groupv1DecisionPolicy_FromAmino: (content: AnyAmino) => Any;
-export declare const Cosmos_groupv1DecisionPolicy_ToAmino: (content: Any) => AnyAmino;

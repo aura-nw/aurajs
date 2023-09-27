@@ -1,7 +1,7 @@
 import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
 import { Params, ParamsAmino, ParamsSDKType } from "./params";
-import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { Long, isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** QueryParamsRequest is request type for the Query/Params RPC method. */
 export interface QueryParamsRequest {}
 export interface QueryParamsRequestProtoMsg {
@@ -40,7 +40,7 @@ export interface QueryParamsResponseSDKType {
 }
 export interface QueryGenerateAccountRequest {
   /** CodeID indicates which wasm binary code is to be used for creating account */
-  codeId: bigint;
+  codeId: Long;
   /** an arbitrary value provided by the sender. Size can be 1 to 64. */
   salt: Uint8Array;
   /** InitMsg is the JSON-encoded instantiate message for creating account */
@@ -67,7 +67,7 @@ export interface QueryGenerateAccountRequestAminoMsg {
   value: QueryGenerateAccountRequestAmino;
 }
 export interface QueryGenerateAccountRequestSDKType {
-  code_id: bigint;
+  code_id: Long;
   salt: Uint8Array;
   init_msg: Uint8Array;
   public_key: AnySDKType;
@@ -94,11 +94,11 @@ function createBaseQueryParamsRequest(): QueryParamsRequest {
 }
 export const QueryParamsRequest = {
   typeUrl: "/aura.smartaccount.v1beta1.QueryParamsRequest",
-  encode(_: QueryParamsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: QueryParamsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryParamsRequest();
     while (reader.pos < end) {
@@ -152,14 +152,14 @@ function createBaseQueryParamsResponse(): QueryParamsResponse {
 }
 export const QueryParamsResponse = {
   typeUrl: "/aura.smartaccount.v1beta1.QueryParamsResponse",
-  encode(message: QueryParamsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryParamsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.params !== undefined) {
       Params.encode(message.params, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryParamsResponse();
     while (reader.pos < end) {
@@ -218,7 +218,7 @@ export const QueryParamsResponse = {
 };
 function createBaseQueryGenerateAccountRequest(): QueryGenerateAccountRequest {
   return {
-    codeId: BigInt(0),
+    codeId: Long.UZERO,
     salt: new Uint8Array(),
     initMsg: new Uint8Array(),
     publicKey: Any.fromPartial({})
@@ -226,8 +226,8 @@ function createBaseQueryGenerateAccountRequest(): QueryGenerateAccountRequest {
 }
 export const QueryGenerateAccountRequest = {
   typeUrl: "/aura.smartaccount.v1beta1.QueryGenerateAccountRequest",
-  encode(message: QueryGenerateAccountRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.codeId !== BigInt(0)) {
+  encode(message: QueryGenerateAccountRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.codeId.isZero()) {
       writer.uint32(8).uint64(message.codeId);
     }
     if (message.salt.length !== 0) {
@@ -241,15 +241,15 @@ export const QueryGenerateAccountRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryGenerateAccountRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryGenerateAccountRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryGenerateAccountRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.codeId = reader.uint64();
+          message.codeId = (reader.uint64() as Long);
           break;
         case 2:
           message.salt = reader.bytes();
@@ -269,7 +269,7 @@ export const QueryGenerateAccountRequest = {
   },
   fromJSON(object: any): QueryGenerateAccountRequest {
     return {
-      codeId: isSet(object.codeId) ? BigInt(object.codeId.toString()) : BigInt(0),
+      codeId: isSet(object.codeId) ? Long.fromValue(object.codeId) : Long.UZERO,
       salt: isSet(object.salt) ? bytesFromBase64(object.salt) : new Uint8Array(),
       initMsg: isSet(object.initMsg) ? bytesFromBase64(object.initMsg) : new Uint8Array(),
       publicKey: isSet(object.publicKey) ? Any.fromJSON(object.publicKey) : undefined
@@ -277,7 +277,7 @@ export const QueryGenerateAccountRequest = {
   },
   toJSON(message: QueryGenerateAccountRequest): unknown {
     const obj: any = {};
-    message.codeId !== undefined && (obj.codeId = (message.codeId || BigInt(0)).toString());
+    message.codeId !== undefined && (obj.codeId = (message.codeId || Long.UZERO).toString());
     message.salt !== undefined && (obj.salt = base64FromBytes(message.salt !== undefined ? message.salt : new Uint8Array()));
     message.initMsg !== undefined && (obj.initMsg = base64FromBytes(message.initMsg !== undefined ? message.initMsg : new Uint8Array()));
     message.publicKey !== undefined && (obj.publicKey = message.publicKey ? Any.toJSON(message.publicKey) : undefined);
@@ -285,7 +285,7 @@ export const QueryGenerateAccountRequest = {
   },
   fromPartial(object: Partial<QueryGenerateAccountRequest>): QueryGenerateAccountRequest {
     const message = createBaseQueryGenerateAccountRequest();
-    message.codeId = object.codeId !== undefined && object.codeId !== null ? BigInt(object.codeId.toString()) : BigInt(0);
+    message.codeId = object.codeId !== undefined && object.codeId !== null ? Long.fromValue(object.codeId) : Long.UZERO;
     message.salt = object.salt ?? new Uint8Array();
     message.initMsg = object.initMsg ?? new Uint8Array();
     message.publicKey = object.publicKey !== undefined && object.publicKey !== null ? Any.fromPartial(object.publicKey) : undefined;
@@ -293,7 +293,7 @@ export const QueryGenerateAccountRequest = {
   },
   fromAmino(object: QueryGenerateAccountRequestAmino): QueryGenerateAccountRequest {
     return {
-      codeId: BigInt(object.code_id),
+      codeId: Long.fromString(object.code_id),
       salt: object.salt,
       initMsg: object.init_msg,
       publicKey: object?.public_key ? Any.fromAmino(object.public_key) : undefined
@@ -330,14 +330,14 @@ function createBaseQueryGenerateAccountResponse(): QueryGenerateAccountResponse 
 }
 export const QueryGenerateAccountResponse = {
   typeUrl: "/aura.smartaccount.v1beta1.QueryGenerateAccountResponse",
-  encode(message: QueryGenerateAccountResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryGenerateAccountResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryGenerateAccountResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryGenerateAccountResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryGenerateAccountResponse();
     while (reader.pos < end) {

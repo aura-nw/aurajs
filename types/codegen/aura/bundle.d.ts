@@ -15,8 +15,8 @@ export declare namespace aura {
         createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {};
         GenesisState: {
             typeUrl: string;
-            encode(message: _207.GenesisState, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-            decode(input: Uint8Array | import("..").BinaryReader, length?: number): _207.GenesisState;
+            encode(message: _207.GenesisState, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _207.GenesisState;
             fromJSON(object: any): _207.GenesisState;
             toJSON(message: _207.GenesisState): unknown;
             fromPartial(object: Partial<_207.GenesisState>): _207.GenesisState;
@@ -29,8 +29,8 @@ export declare namespace aura {
         };
         Params: {
             typeUrl: string;
-            encode(message: _206.Params, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-            decode(input: Uint8Array | import("..").BinaryReader, length?: number): _206.Params;
+            encode(message: _206.Params, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _206.Params;
             fromJSON(object: any): _206.Params;
             toJSON(message: _206.Params): unknown;
             fromPartial(object: Partial<_206.Params>): _206.Params;
@@ -119,8 +119,8 @@ export declare namespace aura {
             };
             MsgRecover: {
                 typeUrl: string;
-                encode(message: _214.MsgRecover, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _214.MsgRecover;
+                encode(message: _214.MsgRecover, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _214.MsgRecover;
                 fromJSON(object: any): _214.MsgRecover;
                 toJSON(message: _214.MsgRecover): unknown;
                 fromPartial(object: Partial<_214.MsgRecover>): _214.MsgRecover;
@@ -133,8 +133,8 @@ export declare namespace aura {
             };
             MsgRecoverResponse: {
                 typeUrl: string;
-                encode(_: _214.MsgRecoverResponse, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _214.MsgRecoverResponse;
+                encode(_: _214.MsgRecoverResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _214.MsgRecoverResponse;
                 fromJSON(_: any): _214.MsgRecoverResponse;
                 toJSON(_: _214.MsgRecoverResponse): unknown;
                 fromPartial(_: Partial<_214.MsgRecoverResponse>): _214.MsgRecoverResponse;
@@ -147,8 +147,8 @@ export declare namespace aura {
             };
             MsgActivateAccount: {
                 typeUrl: string;
-                encode(message: _214.MsgActivateAccount, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _214.MsgActivateAccount;
+                encode(message: _214.MsgActivateAccount, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _214.MsgActivateAccount;
                 fromJSON(object: any): _214.MsgActivateAccount;
                 toJSON(message: _214.MsgActivateAccount): unknown;
                 fromPartial(object: Partial<_214.MsgActivateAccount>): _214.MsgActivateAccount;
@@ -161,8 +161,8 @@ export declare namespace aura {
             };
             MsgActivateAccountResponse: {
                 typeUrl: string;
-                encode(message: _214.MsgActivateAccountResponse, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _214.MsgActivateAccountResponse;
+                encode(message: _214.MsgActivateAccountResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _214.MsgActivateAccountResponse;
                 fromJSON(object: any): _214.MsgActivateAccountResponse;
                 toJSON(message: _214.MsgActivateAccountResponse): unknown;
                 fromPartial(object: Partial<_214.MsgActivateAccountResponse>): _214.MsgActivateAccountResponse;
@@ -175,8 +175,8 @@ export declare namespace aura {
             };
             QueryParamsRequest: {
                 typeUrl: string;
-                encode(_: _213.QueryParamsRequest, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _213.QueryParamsRequest;
+                encode(_: _213.QueryParamsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _213.QueryParamsRequest;
                 fromJSON(_: any): _213.QueryParamsRequest;
                 toJSON(_: _213.QueryParamsRequest): unknown;
                 fromPartial(_: Partial<_213.QueryParamsRequest>): _213.QueryParamsRequest;
@@ -189,8 +189,8 @@ export declare namespace aura {
             };
             QueryParamsResponse: {
                 typeUrl: string;
-                encode(message: _213.QueryParamsResponse, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _213.QueryParamsResponse;
+                encode(message: _213.QueryParamsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _213.QueryParamsResponse;
                 fromJSON(object: any): _213.QueryParamsResponse;
                 toJSON(message: _213.QueryParamsResponse): unknown;
                 fromPartial(object: Partial<_213.QueryParamsResponse>): _213.QueryParamsResponse;
@@ -203,8 +203,8 @@ export declare namespace aura {
             };
             QueryGenerateAccountRequest: {
                 typeUrl: string;
-                encode(message: _213.QueryGenerateAccountRequest, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _213.QueryGenerateAccountRequest;
+                encode(message: _213.QueryGenerateAccountRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _213.QueryGenerateAccountRequest;
                 fromJSON(object: any): _213.QueryGenerateAccountRequest;
                 toJSON(message: _213.QueryGenerateAccountRequest): unknown;
                 fromPartial(object: Partial<_213.QueryGenerateAccountRequest>): _213.QueryGenerateAccountRequest;
@@ -217,8 +217,8 @@ export declare namespace aura {
             };
             QueryGenerateAccountResponse: {
                 typeUrl: string;
-                encode(message: _213.QueryGenerateAccountResponse, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _213.QueryGenerateAccountResponse;
+                encode(message: _213.QueryGenerateAccountResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _213.QueryGenerateAccountResponse;
                 fromJSON(object: any): _213.QueryGenerateAccountResponse;
                 toJSON(message: _213.QueryGenerateAccountResponse): unknown;
                 fromPartial(object: Partial<_213.QueryGenerateAccountResponse>): _213.QueryGenerateAccountResponse;
@@ -231,8 +231,8 @@ export declare namespace aura {
             };
             CodeID: {
                 typeUrl: string;
-                encode(message: _212.CodeID, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _212.CodeID;
+                encode(message: _212.CodeID, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _212.CodeID;
                 fromJSON(object: any): _212.CodeID;
                 toJSON(message: _212.CodeID): unknown;
                 fromPartial(object: Partial<_212.CodeID>): _212.CodeID;
@@ -245,8 +245,8 @@ export declare namespace aura {
             };
             Params: {
                 typeUrl: string;
-                encode(message: _212.Params, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _212.Params;
+                encode(message: _212.Params, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _212.Params;
                 fromJSON(object: any): _212.Params;
                 toJSON(message: _212.Params): unknown;
                 fromPartial(object: Partial<_212.Params>): _212.Params;
@@ -259,8 +259,8 @@ export declare namespace aura {
             };
             GenesisState: {
                 typeUrl: string;
-                encode(message: _211.GenesisState, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _211.GenesisState;
+                encode(message: _211.GenesisState, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _211.GenesisState;
                 fromJSON(object: any): _211.GenesisState;
                 toJSON(message: _211.GenesisState): unknown;
                 fromPartial(object: Partial<_211.GenesisState>): _211.GenesisState;
@@ -273,8 +273,8 @@ export declare namespace aura {
             };
             SmartAccount: {
                 typeUrl: string;
-                encode(message: _210.SmartAccount, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _210.SmartAccount;
+                encode(message: _210.SmartAccount, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _210.SmartAccount;
                 fromJSON(object: any): _210.SmartAccount;
                 toJSON(message: _210.SmartAccount): unknown;
                 fromPartial(object: Partial<_210.SmartAccount>): _210.SmartAccount;

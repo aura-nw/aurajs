@@ -7,7 +7,7 @@ import { GenesisStateSDKType as GenesisState2SDKType } from "../../connection/v1
 import { GenesisState as GenesisState3 } from "../../channel/v1/genesis";
 import { GenesisStateAmino as GenesisState3Amino } from "../../channel/v1/genesis";
 import { GenesisStateSDKType as GenesisState3SDKType } from "../../channel/v1/genesis";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** GenesisState defines the ibc module's genesis state. */
 export interface GenesisState {
     /** ICS002 - Clients genesis state */
@@ -42,8 +42,8 @@ export interface GenesisStateSDKType {
 }
 export declare const GenesisState: {
     typeUrl: string;
-    encode(message: GenesisState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GenesisState;
+    encode(message: GenesisState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GenesisState;
     fromJSON(object: any): GenesisState;
     toJSON(message: GenesisState): unknown;
     fromPartial(object: Partial<GenesisState>): GenesisState;

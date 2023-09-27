@@ -1,4 +1,5 @@
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * PageRequest is to be embedded in gRPC request messages for efficient
  * pagination. Ex:
@@ -20,12 +21,12 @@ export interface PageRequest {
      * It is less efficient than using key. Only one of offset or key should
      * be set.
      */
-    offset: bigint;
+    offset: Long;
     /**
      * limit is the total number of results to be returned in the result page.
      * If left empty it will default to a value to be set by each app.
      */
-    limit: bigint;
+    limit: Long;
     /**
      * count_total is set to true  to indicate that the result set should include
      * a count of the total number of items available for pagination in UIs.
@@ -100,8 +101,8 @@ export interface PageRequestAminoMsg {
  */
 export interface PageRequestSDKType {
     key: Uint8Array;
-    offset: bigint;
-    limit: bigint;
+    offset: Long;
+    limit: Long;
     count_total: boolean;
     reverse: boolean;
 }
@@ -125,7 +126,7 @@ export interface PageResponse {
      * total is total number of results available if PageRequest.count_total
      * was set, its value is undefined otherwise
      */
-    total: bigint;
+    total: Long;
 }
 export interface PageResponseProtoMsg {
     typeUrl: "/cosmos.base.query.v1beta1.PageResponse";
@@ -168,12 +169,12 @@ export interface PageResponseAminoMsg {
  */
 export interface PageResponseSDKType {
     next_key: Uint8Array;
-    total: bigint;
+    total: Long;
 }
 export declare const PageRequest: {
     typeUrl: string;
-    encode(message: PageRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): PageRequest;
+    encode(message: PageRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PageRequest;
     fromJSON(object: any): PageRequest;
     toJSON(message: PageRequest): unknown;
     fromPartial(object: Partial<PageRequest>): PageRequest;
@@ -187,8 +188,8 @@ export declare const PageRequest: {
 };
 export declare const PageResponse: {
     typeUrl: string;
-    encode(message: PageResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): PageResponse;
+    encode(message: PageResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PageResponse;
     fromJSON(object: any): PageResponse;
     toJSON(message: PageResponse): unknown;
     fromPartial(object: Partial<PageResponse>): PageResponse;

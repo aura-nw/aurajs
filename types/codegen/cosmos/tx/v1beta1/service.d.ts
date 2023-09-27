@@ -3,7 +3,8 @@ import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageRe
 import { TxResponse, TxResponseAmino, TxResponseSDKType, GasInfo, GasInfoAmino, GasInfoSDKType, Result, ResultAmino, ResultSDKType } from "../../base/abci/v1beta1/abci";
 import { BlockID, BlockIDAmino, BlockIDSDKType } from "../../../tendermint/types/types";
 import { Block, BlockAmino, BlockSDKType } from "../../../tendermint/types/block";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** OrderBy defines the sorting order */
 export declare enum OrderBy {
     /** ORDER_BY_UNSPECIFIED - ORDER_BY_UNSPECIFIED specifies an unknown sorting order. OrderBy defaults to ASC in this case. */
@@ -58,12 +59,12 @@ export interface GetTxsEventRequest {
     pagination: PageRequest;
     orderBy: OrderBy;
     /** page is the page number to query, starts at 1. If not provided, will default to first page. */
-    page: bigint;
+    page: Long;
     /**
      * limit is the total number of results to be returned in the result page.
      * If left empty it will default to a value to be set by each app.
      */
-    limit: bigint;
+    limit: Long;
 }
 export interface GetTxsEventRequestProtoMsg {
     typeUrl: "/cosmos.tx.v1beta1.GetTxsEventRequest";
@@ -104,8 +105,8 @@ export interface GetTxsEventRequestSDKType {
     /** @deprecated */
     pagination: PageRequestSDKType;
     order_by: OrderBy;
-    page: bigint;
-    limit: bigint;
+    page: Long;
+    limit: Long;
 }
 /**
  * GetTxsEventResponse is the response type for the Service.TxsByEvents
@@ -123,7 +124,7 @@ export interface GetTxsEventResponse {
     /** @deprecated */
     pagination: PageResponse;
     /** total is total number of results available */
-    total: bigint;
+    total: Long;
 }
 export interface GetTxsEventResponseProtoMsg {
     typeUrl: "/cosmos.tx.v1beta1.GetTxsEventResponse";
@@ -160,7 +161,7 @@ export interface GetTxsEventResponseSDKType {
     tx_responses: TxResponseSDKType[];
     /** @deprecated */
     pagination: PageResponseSDKType;
-    total: bigint;
+    total: Long;
 }
 /**
  * BroadcastTxRequest is the request type for the Service.BroadcastTxRequest
@@ -382,7 +383,7 @@ export interface GetTxResponseSDKType {
  */
 export interface GetBlockWithTxsRequest {
     /** height is the height of the block to query. */
-    height: bigint;
+    height: Long;
     /** pagination defines a pagination for the request. */
     pagination: PageRequest;
 }
@@ -413,7 +414,7 @@ export interface GetBlockWithTxsRequestAminoMsg {
  * Since: cosmos-sdk 0.45.2
  */
 export interface GetBlockWithTxsRequestSDKType {
-    height: bigint;
+    height: Long;
     pagination: PageRequestSDKType;
 }
 /**
@@ -751,8 +752,8 @@ export interface TxDecodeAminoResponseSDKType {
 }
 export declare const GetTxsEventRequest: {
     typeUrl: string;
-    encode(message: GetTxsEventRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetTxsEventRequest;
+    encode(message: GetTxsEventRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetTxsEventRequest;
     fromJSON(object: any): GetTxsEventRequest;
     toJSON(message: GetTxsEventRequest): unknown;
     fromPartial(object: Partial<GetTxsEventRequest>): GetTxsEventRequest;
@@ -766,8 +767,8 @@ export declare const GetTxsEventRequest: {
 };
 export declare const GetTxsEventResponse: {
     typeUrl: string;
-    encode(message: GetTxsEventResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetTxsEventResponse;
+    encode(message: GetTxsEventResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetTxsEventResponse;
     fromJSON(object: any): GetTxsEventResponse;
     toJSON(message: GetTxsEventResponse): unknown;
     fromPartial(object: Partial<GetTxsEventResponse>): GetTxsEventResponse;
@@ -781,8 +782,8 @@ export declare const GetTxsEventResponse: {
 };
 export declare const BroadcastTxRequest: {
     typeUrl: string;
-    encode(message: BroadcastTxRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): BroadcastTxRequest;
+    encode(message: BroadcastTxRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): BroadcastTxRequest;
     fromJSON(object: any): BroadcastTxRequest;
     toJSON(message: BroadcastTxRequest): unknown;
     fromPartial(object: Partial<BroadcastTxRequest>): BroadcastTxRequest;
@@ -796,8 +797,8 @@ export declare const BroadcastTxRequest: {
 };
 export declare const BroadcastTxResponse: {
     typeUrl: string;
-    encode(message: BroadcastTxResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): BroadcastTxResponse;
+    encode(message: BroadcastTxResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): BroadcastTxResponse;
     fromJSON(object: any): BroadcastTxResponse;
     toJSON(message: BroadcastTxResponse): unknown;
     fromPartial(object: Partial<BroadcastTxResponse>): BroadcastTxResponse;
@@ -811,8 +812,8 @@ export declare const BroadcastTxResponse: {
 };
 export declare const SimulateRequest: {
     typeUrl: string;
-    encode(message: SimulateRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SimulateRequest;
+    encode(message: SimulateRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SimulateRequest;
     fromJSON(object: any): SimulateRequest;
     toJSON(message: SimulateRequest): unknown;
     fromPartial(object: Partial<SimulateRequest>): SimulateRequest;
@@ -826,8 +827,8 @@ export declare const SimulateRequest: {
 };
 export declare const SimulateResponse: {
     typeUrl: string;
-    encode(message: SimulateResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SimulateResponse;
+    encode(message: SimulateResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SimulateResponse;
     fromJSON(object: any): SimulateResponse;
     toJSON(message: SimulateResponse): unknown;
     fromPartial(object: Partial<SimulateResponse>): SimulateResponse;
@@ -841,8 +842,8 @@ export declare const SimulateResponse: {
 };
 export declare const GetTxRequest: {
     typeUrl: string;
-    encode(message: GetTxRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetTxRequest;
+    encode(message: GetTxRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetTxRequest;
     fromJSON(object: any): GetTxRequest;
     toJSON(message: GetTxRequest): unknown;
     fromPartial(object: Partial<GetTxRequest>): GetTxRequest;
@@ -856,8 +857,8 @@ export declare const GetTxRequest: {
 };
 export declare const GetTxResponse: {
     typeUrl: string;
-    encode(message: GetTxResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetTxResponse;
+    encode(message: GetTxResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetTxResponse;
     fromJSON(object: any): GetTxResponse;
     toJSON(message: GetTxResponse): unknown;
     fromPartial(object: Partial<GetTxResponse>): GetTxResponse;
@@ -871,8 +872,8 @@ export declare const GetTxResponse: {
 };
 export declare const GetBlockWithTxsRequest: {
     typeUrl: string;
-    encode(message: GetBlockWithTxsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetBlockWithTxsRequest;
+    encode(message: GetBlockWithTxsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetBlockWithTxsRequest;
     fromJSON(object: any): GetBlockWithTxsRequest;
     toJSON(message: GetBlockWithTxsRequest): unknown;
     fromPartial(object: Partial<GetBlockWithTxsRequest>): GetBlockWithTxsRequest;
@@ -886,8 +887,8 @@ export declare const GetBlockWithTxsRequest: {
 };
 export declare const GetBlockWithTxsResponse: {
     typeUrl: string;
-    encode(message: GetBlockWithTxsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetBlockWithTxsResponse;
+    encode(message: GetBlockWithTxsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetBlockWithTxsResponse;
     fromJSON(object: any): GetBlockWithTxsResponse;
     toJSON(message: GetBlockWithTxsResponse): unknown;
     fromPartial(object: Partial<GetBlockWithTxsResponse>): GetBlockWithTxsResponse;
@@ -901,8 +902,8 @@ export declare const GetBlockWithTxsResponse: {
 };
 export declare const TxDecodeRequest: {
     typeUrl: string;
-    encode(message: TxDecodeRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): TxDecodeRequest;
+    encode(message: TxDecodeRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TxDecodeRequest;
     fromJSON(object: any): TxDecodeRequest;
     toJSON(message: TxDecodeRequest): unknown;
     fromPartial(object: Partial<TxDecodeRequest>): TxDecodeRequest;
@@ -916,8 +917,8 @@ export declare const TxDecodeRequest: {
 };
 export declare const TxDecodeResponse: {
     typeUrl: string;
-    encode(message: TxDecodeResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): TxDecodeResponse;
+    encode(message: TxDecodeResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TxDecodeResponse;
     fromJSON(object: any): TxDecodeResponse;
     toJSON(message: TxDecodeResponse): unknown;
     fromPartial(object: Partial<TxDecodeResponse>): TxDecodeResponse;
@@ -931,8 +932,8 @@ export declare const TxDecodeResponse: {
 };
 export declare const TxEncodeRequest: {
     typeUrl: string;
-    encode(message: TxEncodeRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): TxEncodeRequest;
+    encode(message: TxEncodeRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TxEncodeRequest;
     fromJSON(object: any): TxEncodeRequest;
     toJSON(message: TxEncodeRequest): unknown;
     fromPartial(object: Partial<TxEncodeRequest>): TxEncodeRequest;
@@ -946,8 +947,8 @@ export declare const TxEncodeRequest: {
 };
 export declare const TxEncodeResponse: {
     typeUrl: string;
-    encode(message: TxEncodeResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): TxEncodeResponse;
+    encode(message: TxEncodeResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TxEncodeResponse;
     fromJSON(object: any): TxEncodeResponse;
     toJSON(message: TxEncodeResponse): unknown;
     fromPartial(object: Partial<TxEncodeResponse>): TxEncodeResponse;
@@ -961,8 +962,8 @@ export declare const TxEncodeResponse: {
 };
 export declare const TxEncodeAminoRequest: {
     typeUrl: string;
-    encode(message: TxEncodeAminoRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): TxEncodeAminoRequest;
+    encode(message: TxEncodeAminoRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TxEncodeAminoRequest;
     fromJSON(object: any): TxEncodeAminoRequest;
     toJSON(message: TxEncodeAminoRequest): unknown;
     fromPartial(object: Partial<TxEncodeAminoRequest>): TxEncodeAminoRequest;
@@ -976,8 +977,8 @@ export declare const TxEncodeAminoRequest: {
 };
 export declare const TxEncodeAminoResponse: {
     typeUrl: string;
-    encode(message: TxEncodeAminoResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): TxEncodeAminoResponse;
+    encode(message: TxEncodeAminoResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TxEncodeAminoResponse;
     fromJSON(object: any): TxEncodeAminoResponse;
     toJSON(message: TxEncodeAminoResponse): unknown;
     fromPartial(object: Partial<TxEncodeAminoResponse>): TxEncodeAminoResponse;
@@ -991,8 +992,8 @@ export declare const TxEncodeAminoResponse: {
 };
 export declare const TxDecodeAminoRequest: {
     typeUrl: string;
-    encode(message: TxDecodeAminoRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): TxDecodeAminoRequest;
+    encode(message: TxDecodeAminoRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TxDecodeAminoRequest;
     fromJSON(object: any): TxDecodeAminoRequest;
     toJSON(message: TxDecodeAminoRequest): unknown;
     fromPartial(object: Partial<TxDecodeAminoRequest>): TxDecodeAminoRequest;
@@ -1006,8 +1007,8 @@ export declare const TxDecodeAminoRequest: {
 };
 export declare const TxDecodeAminoResponse: {
     typeUrl: string;
-    encode(message: TxDecodeAminoResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): TxDecodeAminoResponse;
+    encode(message: TxDecodeAminoResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TxDecodeAminoResponse;
     fromJSON(object: any): TxDecodeAminoResponse;
     toJSON(message: TxDecodeAminoResponse): unknown;
     fromPartial(object: Partial<TxDecodeAminoResponse>): TxDecodeAminoResponse;

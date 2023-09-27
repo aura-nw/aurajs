@@ -1,5 +1,5 @@
 import { CommitmentProof, CommitmentProofAmino, CommitmentProofSDKType } from "../../../../cosmos/ics23/v1/proofs";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /**
  * MerkleRoot defines a merkle root hash.
  * In the Cosmos SDK, the AppHash of a block header becomes the root.
@@ -133,8 +133,8 @@ export interface MerkleProofSDKType {
 }
 export declare const MerkleRoot: {
     typeUrl: string;
-    encode(message: MerkleRoot, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MerkleRoot;
+    encode(message: MerkleRoot, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MerkleRoot;
     fromJSON(object: any): MerkleRoot;
     toJSON(message: MerkleRoot): unknown;
     fromPartial(object: Partial<MerkleRoot>): MerkleRoot;
@@ -148,8 +148,8 @@ export declare const MerkleRoot: {
 };
 export declare const MerklePrefix: {
     typeUrl: string;
-    encode(message: MerklePrefix, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MerklePrefix;
+    encode(message: MerklePrefix, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MerklePrefix;
     fromJSON(object: any): MerklePrefix;
     toJSON(message: MerklePrefix): unknown;
     fromPartial(object: Partial<MerklePrefix>): MerklePrefix;
@@ -163,8 +163,8 @@ export declare const MerklePrefix: {
 };
 export declare const MerklePath: {
     typeUrl: string;
-    encode(message: MerklePath, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MerklePath;
+    encode(message: MerklePath, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MerklePath;
     fromJSON(object: any): MerklePath;
     toJSON(message: MerklePath): unknown;
     fromPartial(object: Partial<MerklePath>): MerklePath;
@@ -178,8 +178,8 @@ export declare const MerklePath: {
 };
 export declare const MerkleProof: {
     typeUrl: string;
-    encode(message: MerkleProof, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MerkleProof;
+    encode(message: MerkleProof, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MerkleProof;
     fromJSON(object: any): MerkleProof;
     toJSON(message: MerkleProof): unknown;
     fromPartial(object: Partial<MerkleProof>): MerkleProof;

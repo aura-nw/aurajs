@@ -1,6 +1,7 @@
-import { BinaryReader, BinaryWriter } from "../../binary";
+import { Long } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export interface EventDataRoundState {
-    height: bigint;
+    height: Long;
     round: number;
     step: string;
 }
@@ -18,14 +19,14 @@ export interface EventDataRoundStateAminoMsg {
     value: EventDataRoundStateAmino;
 }
 export interface EventDataRoundStateSDKType {
-    height: bigint;
+    height: Long;
     round: number;
     step: string;
 }
 export declare const EventDataRoundState: {
     typeUrl: string;
-    encode(message: EventDataRoundState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): EventDataRoundState;
+    encode(message: EventDataRoundState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): EventDataRoundState;
     fromJSON(object: any): EventDataRoundState;
     toJSON(message: EventDataRoundState): unknown;
     fromPartial(object: Partial<EventDataRoundState>): EventDataRoundState;

@@ -1,6 +1,7 @@
 import { BaseAccount, BaseAccountAmino, BaseAccountSDKType } from "../../auth/v1beta1/auth";
 import { Coin, CoinAmino, CoinSDKType } from "../../base/v1beta1/coin";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * BaseVestingAccount implements the VestingAccount interface. It contains all
  * the necessary fields needed for any vesting account implementation.
@@ -11,7 +12,7 @@ export interface BaseVestingAccount {
     delegatedFree: Coin[];
     delegatedVesting: Coin[];
     /** Vesting end time, as unix timestamp (in seconds). */
-    endTime: bigint;
+    endTime: Long;
 }
 export interface BaseVestingAccountProtoMsg {
     typeUrl: "/cosmos.vesting.v1beta1.BaseVestingAccount";
@@ -42,7 +43,7 @@ export interface BaseVestingAccountSDKType {
     original_vesting: CoinSDKType[];
     delegated_free: CoinSDKType[];
     delegated_vesting: CoinSDKType[];
-    end_time: bigint;
+    end_time: Long;
 }
 /**
  * ContinuousVestingAccount implements the VestingAccount interface. It
@@ -51,7 +52,7 @@ export interface BaseVestingAccountSDKType {
 export interface ContinuousVestingAccount {
     baseVestingAccount: BaseVestingAccount;
     /** Vesting start time, as unix timestamp (in seconds). */
-    startTime: bigint;
+    startTime: Long;
 }
 export interface ContinuousVestingAccountProtoMsg {
     typeUrl: "/cosmos.vesting.v1beta1.ContinuousVestingAccount";
@@ -76,7 +77,7 @@ export interface ContinuousVestingAccountAminoMsg {
  */
 export interface ContinuousVestingAccountSDKType {
     base_vesting_account: BaseVestingAccountSDKType;
-    start_time: bigint;
+    start_time: Long;
 }
 /**
  * DelayedVestingAccount implements the VestingAccount interface. It vests all
@@ -113,7 +114,7 @@ export interface DelayedVestingAccountSDKType {
 /** Period defines a length of time and amount of coins that will vest. */
 export interface Period {
     /** Period duration in seconds. */
-    length: bigint;
+    length: Long;
     amount: Coin[];
 }
 export interface PeriodProtoMsg {
@@ -132,7 +133,7 @@ export interface PeriodAminoMsg {
 }
 /** Period defines a length of time and amount of coins that will vest. */
 export interface PeriodSDKType {
-    length: bigint;
+    length: Long;
     amount: CoinSDKType[];
 }
 /**
@@ -141,7 +142,7 @@ export interface PeriodSDKType {
  */
 export interface PeriodicVestingAccount {
     baseVestingAccount: BaseVestingAccount;
-    startTime: bigint;
+    startTime: Long;
     vestingPeriods: Period[];
 }
 export interface PeriodicVestingAccountProtoMsg {
@@ -167,7 +168,7 @@ export interface PeriodicVestingAccountAminoMsg {
  */
 export interface PeriodicVestingAccountSDKType {
     base_vesting_account: BaseVestingAccountSDKType;
-    start_time: bigint;
+    start_time: Long;
     vesting_periods: PeriodSDKType[];
 }
 /**
@@ -210,8 +211,8 @@ export interface PermanentLockedAccountSDKType {
 }
 export declare const BaseVestingAccount: {
     typeUrl: string;
-    encode(message: BaseVestingAccount, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): BaseVestingAccount;
+    encode(message: BaseVestingAccount, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): BaseVestingAccount;
     fromJSON(object: any): BaseVestingAccount;
     toJSON(message: BaseVestingAccount): unknown;
     fromPartial(object: Partial<BaseVestingAccount>): BaseVestingAccount;
@@ -225,8 +226,8 @@ export declare const BaseVestingAccount: {
 };
 export declare const ContinuousVestingAccount: {
     typeUrl: string;
-    encode(message: ContinuousVestingAccount, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ContinuousVestingAccount;
+    encode(message: ContinuousVestingAccount, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ContinuousVestingAccount;
     fromJSON(object: any): ContinuousVestingAccount;
     toJSON(message: ContinuousVestingAccount): unknown;
     fromPartial(object: Partial<ContinuousVestingAccount>): ContinuousVestingAccount;
@@ -240,8 +241,8 @@ export declare const ContinuousVestingAccount: {
 };
 export declare const DelayedVestingAccount: {
     typeUrl: string;
-    encode(message: DelayedVestingAccount, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): DelayedVestingAccount;
+    encode(message: DelayedVestingAccount, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): DelayedVestingAccount;
     fromJSON(object: any): DelayedVestingAccount;
     toJSON(message: DelayedVestingAccount): unknown;
     fromPartial(object: Partial<DelayedVestingAccount>): DelayedVestingAccount;
@@ -255,8 +256,8 @@ export declare const DelayedVestingAccount: {
 };
 export declare const Period: {
     typeUrl: string;
-    encode(message: Period, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Period;
+    encode(message: Period, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Period;
     fromJSON(object: any): Period;
     toJSON(message: Period): unknown;
     fromPartial(object: Partial<Period>): Period;
@@ -270,8 +271,8 @@ export declare const Period: {
 };
 export declare const PeriodicVestingAccount: {
     typeUrl: string;
-    encode(message: PeriodicVestingAccount, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): PeriodicVestingAccount;
+    encode(message: PeriodicVestingAccount, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PeriodicVestingAccount;
     fromJSON(object: any): PeriodicVestingAccount;
     toJSON(message: PeriodicVestingAccount): unknown;
     fromPartial(object: Partial<PeriodicVestingAccount>): PeriodicVestingAccount;
@@ -285,8 +286,8 @@ export declare const PeriodicVestingAccount: {
 };
 export declare const PermanentLockedAccount: {
     typeUrl: string;
-    encode(message: PermanentLockedAccount, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): PermanentLockedAccount;
+    encode(message: PermanentLockedAccount, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PermanentLockedAccount;
     fromJSON(object: any): PermanentLockedAccount;
     toJSON(message: PermanentLockedAccount): unknown;
     fromPartial(object: Partial<PermanentLockedAccount>): PermanentLockedAccount;

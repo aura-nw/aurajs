@@ -1,10 +1,11 @@
 import { ProposalStatus, Proposal, ProposalAmino, ProposalSDKType, Vote, VoteAmino, VoteSDKType, VotingParams, VotingParamsAmino, VotingParamsSDKType, DepositParams, DepositParamsAmino, DepositParamsSDKType, TallyParams, TallyParamsAmino, TallyParamsSDKType, Params, ParamsAmino, ParamsSDKType, Deposit, DepositAmino, DepositSDKType, TallyResult, TallyResultAmino, TallyResultSDKType } from "./gov";
 import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** QueryProposalRequest is the request type for the Query/Proposal RPC method. */
 export interface QueryProposalRequest {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: bigint;
+    proposalId: Long;
 }
 export interface QueryProposalRequestProtoMsg {
     typeUrl: "/cosmos.gov.v1.QueryProposalRequest";
@@ -21,7 +22,7 @@ export interface QueryProposalRequestAminoMsg {
 }
 /** QueryProposalRequest is the request type for the Query/Proposal RPC method. */
 export interface QueryProposalRequestSDKType {
-    proposal_id: bigint;
+    proposal_id: Long;
 }
 /** QueryProposalResponse is the response type for the Query/Proposal RPC method. */
 export interface QueryProposalResponse {
@@ -121,7 +122,7 @@ export interface QueryProposalsResponseSDKType {
 /** QueryVoteRequest is the request type for the Query/Vote RPC method. */
 export interface QueryVoteRequest {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: bigint;
+    proposalId: Long;
     /** voter defines the voter address for the proposals. */
     voter: string;
 }
@@ -142,7 +143,7 @@ export interface QueryVoteRequestAminoMsg {
 }
 /** QueryVoteRequest is the request type for the Query/Vote RPC method. */
 export interface QueryVoteRequestSDKType {
-    proposal_id: bigint;
+    proposal_id: Long;
     voter: string;
 }
 /** QueryVoteResponse is the response type for the Query/Vote RPC method. */
@@ -170,7 +171,7 @@ export interface QueryVoteResponseSDKType {
 /** QueryVotesRequest is the request type for the Query/Votes RPC method. */
 export interface QueryVotesRequest {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: bigint;
+    proposalId: Long;
     /** pagination defines an optional pagination for the request. */
     pagination: PageRequest;
 }
@@ -191,7 +192,7 @@ export interface QueryVotesRequestAminoMsg {
 }
 /** QueryVotesRequest is the request type for the Query/Votes RPC method. */
 export interface QueryVotesRequestSDKType {
-    proposal_id: bigint;
+    proposal_id: Long;
     pagination: PageRequestSDKType;
 }
 /** QueryVotesResponse is the response type for the Query/Votes RPC method. */
@@ -324,7 +325,7 @@ export interface QueryParamsResponseSDKType {
 /** QueryDepositRequest is the request type for the Query/Deposit RPC method. */
 export interface QueryDepositRequest {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: bigint;
+    proposalId: Long;
     /** depositor defines the deposit addresses from the proposals. */
     depositor: string;
 }
@@ -345,7 +346,7 @@ export interface QueryDepositRequestAminoMsg {
 }
 /** QueryDepositRequest is the request type for the Query/Deposit RPC method. */
 export interface QueryDepositRequestSDKType {
-    proposal_id: bigint;
+    proposal_id: Long;
     depositor: string;
 }
 /** QueryDepositResponse is the response type for the Query/Deposit RPC method. */
@@ -373,7 +374,7 @@ export interface QueryDepositResponseSDKType {
 /** QueryDepositsRequest is the request type for the Query/Deposits RPC method. */
 export interface QueryDepositsRequest {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: bigint;
+    proposalId: Long;
     /** pagination defines an optional pagination for the request. */
     pagination: PageRequest;
 }
@@ -394,7 +395,7 @@ export interface QueryDepositsRequestAminoMsg {
 }
 /** QueryDepositsRequest is the request type for the Query/Deposits RPC method. */
 export interface QueryDepositsRequestSDKType {
-    proposal_id: bigint;
+    proposal_id: Long;
     pagination: PageRequestSDKType;
 }
 /** QueryDepositsResponse is the response type for the Query/Deposits RPC method. */
@@ -427,7 +428,7 @@ export interface QueryDepositsResponseSDKType {
 /** QueryTallyResultRequest is the request type for the Query/Tally RPC method. */
 export interface QueryTallyResultRequest {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: bigint;
+    proposalId: Long;
 }
 export interface QueryTallyResultRequestProtoMsg {
     typeUrl: "/cosmos.gov.v1.QueryTallyResultRequest";
@@ -444,7 +445,7 @@ export interface QueryTallyResultRequestAminoMsg {
 }
 /** QueryTallyResultRequest is the request type for the Query/Tally RPC method. */
 export interface QueryTallyResultRequestSDKType {
-    proposal_id: bigint;
+    proposal_id: Long;
 }
 /** QueryTallyResultResponse is the response type for the Query/Tally RPC method. */
 export interface QueryTallyResultResponse {
@@ -470,8 +471,8 @@ export interface QueryTallyResultResponseSDKType {
 }
 export declare const QueryProposalRequest: {
     typeUrl: string;
-    encode(message: QueryProposalRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryProposalRequest;
+    encode(message: QueryProposalRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryProposalRequest;
     fromJSON(object: any): QueryProposalRequest;
     toJSON(message: QueryProposalRequest): unknown;
     fromPartial(object: Partial<QueryProposalRequest>): QueryProposalRequest;
@@ -485,8 +486,8 @@ export declare const QueryProposalRequest: {
 };
 export declare const QueryProposalResponse: {
     typeUrl: string;
-    encode(message: QueryProposalResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryProposalResponse;
+    encode(message: QueryProposalResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryProposalResponse;
     fromJSON(object: any): QueryProposalResponse;
     toJSON(message: QueryProposalResponse): unknown;
     fromPartial(object: Partial<QueryProposalResponse>): QueryProposalResponse;
@@ -500,8 +501,8 @@ export declare const QueryProposalResponse: {
 };
 export declare const QueryProposalsRequest: {
     typeUrl: string;
-    encode(message: QueryProposalsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryProposalsRequest;
+    encode(message: QueryProposalsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryProposalsRequest;
     fromJSON(object: any): QueryProposalsRequest;
     toJSON(message: QueryProposalsRequest): unknown;
     fromPartial(object: Partial<QueryProposalsRequest>): QueryProposalsRequest;
@@ -515,8 +516,8 @@ export declare const QueryProposalsRequest: {
 };
 export declare const QueryProposalsResponse: {
     typeUrl: string;
-    encode(message: QueryProposalsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryProposalsResponse;
+    encode(message: QueryProposalsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryProposalsResponse;
     fromJSON(object: any): QueryProposalsResponse;
     toJSON(message: QueryProposalsResponse): unknown;
     fromPartial(object: Partial<QueryProposalsResponse>): QueryProposalsResponse;
@@ -530,8 +531,8 @@ export declare const QueryProposalsResponse: {
 };
 export declare const QueryVoteRequest: {
     typeUrl: string;
-    encode(message: QueryVoteRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryVoteRequest;
+    encode(message: QueryVoteRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryVoteRequest;
     fromJSON(object: any): QueryVoteRequest;
     toJSON(message: QueryVoteRequest): unknown;
     fromPartial(object: Partial<QueryVoteRequest>): QueryVoteRequest;
@@ -545,8 +546,8 @@ export declare const QueryVoteRequest: {
 };
 export declare const QueryVoteResponse: {
     typeUrl: string;
-    encode(message: QueryVoteResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryVoteResponse;
+    encode(message: QueryVoteResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryVoteResponse;
     fromJSON(object: any): QueryVoteResponse;
     toJSON(message: QueryVoteResponse): unknown;
     fromPartial(object: Partial<QueryVoteResponse>): QueryVoteResponse;
@@ -560,8 +561,8 @@ export declare const QueryVoteResponse: {
 };
 export declare const QueryVotesRequest: {
     typeUrl: string;
-    encode(message: QueryVotesRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryVotesRequest;
+    encode(message: QueryVotesRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryVotesRequest;
     fromJSON(object: any): QueryVotesRequest;
     toJSON(message: QueryVotesRequest): unknown;
     fromPartial(object: Partial<QueryVotesRequest>): QueryVotesRequest;
@@ -575,8 +576,8 @@ export declare const QueryVotesRequest: {
 };
 export declare const QueryVotesResponse: {
     typeUrl: string;
-    encode(message: QueryVotesResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryVotesResponse;
+    encode(message: QueryVotesResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryVotesResponse;
     fromJSON(object: any): QueryVotesResponse;
     toJSON(message: QueryVotesResponse): unknown;
     fromPartial(object: Partial<QueryVotesResponse>): QueryVotesResponse;
@@ -590,8 +591,8 @@ export declare const QueryVotesResponse: {
 };
 export declare const QueryParamsRequest: {
     typeUrl: string;
-    encode(message: QueryParamsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsRequest;
+    encode(message: QueryParamsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsRequest;
     fromJSON(object: any): QueryParamsRequest;
     toJSON(message: QueryParamsRequest): unknown;
     fromPartial(object: Partial<QueryParamsRequest>): QueryParamsRequest;
@@ -605,8 +606,8 @@ export declare const QueryParamsRequest: {
 };
 export declare const QueryParamsResponse: {
     typeUrl: string;
-    encode(message: QueryParamsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsResponse;
+    encode(message: QueryParamsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse;
     fromJSON(object: any): QueryParamsResponse;
     toJSON(message: QueryParamsResponse): unknown;
     fromPartial(object: Partial<QueryParamsResponse>): QueryParamsResponse;
@@ -620,8 +621,8 @@ export declare const QueryParamsResponse: {
 };
 export declare const QueryDepositRequest: {
     typeUrl: string;
-    encode(message: QueryDepositRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryDepositRequest;
+    encode(message: QueryDepositRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDepositRequest;
     fromJSON(object: any): QueryDepositRequest;
     toJSON(message: QueryDepositRequest): unknown;
     fromPartial(object: Partial<QueryDepositRequest>): QueryDepositRequest;
@@ -635,8 +636,8 @@ export declare const QueryDepositRequest: {
 };
 export declare const QueryDepositResponse: {
     typeUrl: string;
-    encode(message: QueryDepositResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryDepositResponse;
+    encode(message: QueryDepositResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDepositResponse;
     fromJSON(object: any): QueryDepositResponse;
     toJSON(message: QueryDepositResponse): unknown;
     fromPartial(object: Partial<QueryDepositResponse>): QueryDepositResponse;
@@ -650,8 +651,8 @@ export declare const QueryDepositResponse: {
 };
 export declare const QueryDepositsRequest: {
     typeUrl: string;
-    encode(message: QueryDepositsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryDepositsRequest;
+    encode(message: QueryDepositsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDepositsRequest;
     fromJSON(object: any): QueryDepositsRequest;
     toJSON(message: QueryDepositsRequest): unknown;
     fromPartial(object: Partial<QueryDepositsRequest>): QueryDepositsRequest;
@@ -665,8 +666,8 @@ export declare const QueryDepositsRequest: {
 };
 export declare const QueryDepositsResponse: {
     typeUrl: string;
-    encode(message: QueryDepositsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryDepositsResponse;
+    encode(message: QueryDepositsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDepositsResponse;
     fromJSON(object: any): QueryDepositsResponse;
     toJSON(message: QueryDepositsResponse): unknown;
     fromPartial(object: Partial<QueryDepositsResponse>): QueryDepositsResponse;
@@ -680,8 +681,8 @@ export declare const QueryDepositsResponse: {
 };
 export declare const QueryTallyResultRequest: {
     typeUrl: string;
-    encode(message: QueryTallyResultRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryTallyResultRequest;
+    encode(message: QueryTallyResultRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryTallyResultRequest;
     fromJSON(object: any): QueryTallyResultRequest;
     toJSON(message: QueryTallyResultRequest): unknown;
     fromPartial(object: Partial<QueryTallyResultRequest>): QueryTallyResultRequest;
@@ -695,8 +696,8 @@ export declare const QueryTallyResultRequest: {
 };
 export declare const QueryTallyResultResponse: {
     typeUrl: string;
-    encode(message: QueryTallyResultResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryTallyResultResponse;
+    encode(message: QueryTallyResultResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryTallyResultResponse;
     fromJSON(object: any): QueryTallyResultResponse;
     toJSON(message: QueryTallyResultResponse): unknown;
     fromPartial(object: Partial<QueryTallyResultResponse>): QueryTallyResultResponse;

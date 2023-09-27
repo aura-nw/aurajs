@@ -1,5 +1,6 @@
 import { Params, ParamsAmino, ParamsSDKType, CodeInfo, CodeInfoAmino, CodeInfoSDKType, ContractInfo, ContractInfoAmino, ContractInfoSDKType, Model, ModelAmino, ModelSDKType, ContractCodeHistoryEntry, ContractCodeHistoryEntryAmino, ContractCodeHistoryEntrySDKType } from "./types";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** GenesisState - genesis state of x/wasm */
 export interface GenesisState {
     params: Params;
@@ -31,7 +32,7 @@ export interface GenesisStateSDKType {
 }
 /** Code struct encompasses CodeInfo and CodeBytes */
 export interface Code {
-    codeId: bigint;
+    codeId: Long;
     codeInfo: CodeInfo;
     codeBytes: Uint8Array;
     /** Pinned to wasmvm cache */
@@ -55,7 +56,7 @@ export interface CodeAminoMsg {
 }
 /** Code struct encompasses CodeInfo and CodeBytes */
 export interface CodeSDKType {
-    code_id: bigint;
+    code_id: Long;
     code_info: CodeInfoSDKType;
     code_bytes: Uint8Array;
     pinned: boolean;
@@ -92,7 +93,7 @@ export interface ContractSDKType {
 /** Sequence key and value of an id generation counter */
 export interface Sequence {
     idKey: Uint8Array;
-    value: bigint;
+    value: Long;
 }
 export interface SequenceProtoMsg {
     typeUrl: "/cosmwasm.wasm.v1.Sequence";
@@ -110,12 +111,12 @@ export interface SequenceAminoMsg {
 /** Sequence key and value of an id generation counter */
 export interface SequenceSDKType {
     id_key: Uint8Array;
-    value: bigint;
+    value: Long;
 }
 export declare const GenesisState: {
     typeUrl: string;
-    encode(message: GenesisState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GenesisState;
+    encode(message: GenesisState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GenesisState;
     fromJSON(object: any): GenesisState;
     toJSON(message: GenesisState): unknown;
     fromPartial(object: Partial<GenesisState>): GenesisState;
@@ -129,8 +130,8 @@ export declare const GenesisState: {
 };
 export declare const Code: {
     typeUrl: string;
-    encode(message: Code, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Code;
+    encode(message: Code, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Code;
     fromJSON(object: any): Code;
     toJSON(message: Code): unknown;
     fromPartial(object: Partial<Code>): Code;
@@ -144,8 +145,8 @@ export declare const Code: {
 };
 export declare const Contract: {
     typeUrl: string;
-    encode(message: Contract, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Contract;
+    encode(message: Contract, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Contract;
     fromJSON(object: any): Contract;
     toJSON(message: Contract): unknown;
     fromPartial(object: Partial<Contract>): Contract;
@@ -159,8 +160,8 @@ export declare const Contract: {
 };
 export declare const Sequence: {
     typeUrl: string;
-    encode(message: Sequence, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Sequence;
+    encode(message: Sequence, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Sequence;
     fromJSON(object: any): Sequence;
     toJSON(message: Sequence): unknown;
     fromPartial(object: Partial<Sequence>): Sequence;

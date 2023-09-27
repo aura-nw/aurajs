@@ -1,6 +1,6 @@
 import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
-import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { Long, isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export interface MsgRecover {
   /** Sender is the actor who signs the message */
   creator: string;
@@ -50,7 +50,7 @@ export interface MsgActivateAccount {
   /** AccountAddress is the actor who signs the message */
   accountAddress: string;
   /** CodeID indicates which wasm binary code is to be used for this contract */
-  codeId: bigint;
+  codeId: Long;
   /** an arbitrary value provided by the sender. Size can be 1 to 64. */
   salt: Uint8Array;
   /** InitMsg is the JSON-encoded instantiate message for the contract */
@@ -80,7 +80,7 @@ export interface MsgActivateAccountAminoMsg {
 }
 export interface MsgActivateAccountSDKType {
   account_address: string;
-  code_id: bigint;
+  code_id: Long;
   salt: Uint8Array;
   init_msg: Uint8Array;
   pub_key: AnySDKType;
@@ -112,7 +112,7 @@ function createBaseMsgRecover(): MsgRecover {
 }
 export const MsgRecover = {
   typeUrl: "/auranw.aura.smartaccount.MsgRecover",
-  encode(message: MsgRecover, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgRecover, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.creator !== "") {
       writer.uint32(10).string(message.creator);
     }
@@ -127,8 +127,8 @@ export const MsgRecover = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgRecover {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgRecover {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgRecover();
     while (reader.pos < end) {
@@ -214,11 +214,11 @@ function createBaseMsgRecoverResponse(): MsgRecoverResponse {
 }
 export const MsgRecoverResponse = {
   typeUrl: "/auranw.aura.smartaccount.MsgRecoverResponse",
-  encode(_: MsgRecoverResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: MsgRecoverResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgRecoverResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgRecoverResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgRecoverResponse();
     while (reader.pos < end) {
@@ -268,7 +268,7 @@ export const MsgRecoverResponse = {
 function createBaseMsgActivateAccount(): MsgActivateAccount {
   return {
     accountAddress: "",
-    codeId: BigInt(0),
+    codeId: Long.UZERO,
     salt: new Uint8Array(),
     initMsg: new Uint8Array(),
     pubKey: Any.fromPartial({})
@@ -276,11 +276,11 @@ function createBaseMsgActivateAccount(): MsgActivateAccount {
 }
 export const MsgActivateAccount = {
   typeUrl: "/auranw.aura.smartaccount.MsgActivateAccount",
-  encode(message: MsgActivateAccount, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgActivateAccount, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.accountAddress !== "") {
       writer.uint32(10).string(message.accountAddress);
     }
-    if (message.codeId !== BigInt(0)) {
+    if (!message.codeId.isZero()) {
       writer.uint32(24).uint64(message.codeId);
     }
     if (message.salt.length !== 0) {
@@ -294,8 +294,8 @@ export const MsgActivateAccount = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgActivateAccount {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgActivateAccount {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgActivateAccount();
     while (reader.pos < end) {
@@ -305,7 +305,7 @@ export const MsgActivateAccount = {
           message.accountAddress = reader.string();
           break;
         case 3:
-          message.codeId = reader.uint64();
+          message.codeId = (reader.uint64() as Long);
           break;
         case 2:
           message.salt = reader.bytes();
@@ -326,7 +326,7 @@ export const MsgActivateAccount = {
   fromJSON(object: any): MsgActivateAccount {
     return {
       accountAddress: isSet(object.accountAddress) ? String(object.accountAddress) : "",
-      codeId: isSet(object.codeId) ? BigInt(object.codeId.toString()) : BigInt(0),
+      codeId: isSet(object.codeId) ? Long.fromValue(object.codeId) : Long.UZERO,
       salt: isSet(object.salt) ? bytesFromBase64(object.salt) : new Uint8Array(),
       initMsg: isSet(object.initMsg) ? bytesFromBase64(object.initMsg) : new Uint8Array(),
       pubKey: isSet(object.pubKey) ? Any.fromJSON(object.pubKey) : undefined
@@ -335,7 +335,7 @@ export const MsgActivateAccount = {
   toJSON(message: MsgActivateAccount): unknown {
     const obj: any = {};
     message.accountAddress !== undefined && (obj.accountAddress = message.accountAddress);
-    message.codeId !== undefined && (obj.codeId = (message.codeId || BigInt(0)).toString());
+    message.codeId !== undefined && (obj.codeId = (message.codeId || Long.UZERO).toString());
     message.salt !== undefined && (obj.salt = base64FromBytes(message.salt !== undefined ? message.salt : new Uint8Array()));
     message.initMsg !== undefined && (obj.initMsg = base64FromBytes(message.initMsg !== undefined ? message.initMsg : new Uint8Array()));
     message.pubKey !== undefined && (obj.pubKey = message.pubKey ? Any.toJSON(message.pubKey) : undefined);
@@ -344,7 +344,7 @@ export const MsgActivateAccount = {
   fromPartial(object: Partial<MsgActivateAccount>): MsgActivateAccount {
     const message = createBaseMsgActivateAccount();
     message.accountAddress = object.accountAddress ?? "";
-    message.codeId = object.codeId !== undefined && object.codeId !== null ? BigInt(object.codeId.toString()) : BigInt(0);
+    message.codeId = object.codeId !== undefined && object.codeId !== null ? Long.fromValue(object.codeId) : Long.UZERO;
     message.salt = object.salt ?? new Uint8Array();
     message.initMsg = object.initMsg ?? new Uint8Array();
     message.pubKey = object.pubKey !== undefined && object.pubKey !== null ? Any.fromPartial(object.pubKey) : undefined;
@@ -353,7 +353,7 @@ export const MsgActivateAccount = {
   fromAmino(object: MsgActivateAccountAmino): MsgActivateAccount {
     return {
       accountAddress: object.account_address,
-      codeId: BigInt(object.code_id),
+      codeId: Long.fromString(object.code_id),
       salt: object.salt,
       initMsg: object.init_msg,
       pubKey: object?.pub_key ? Any.fromAmino(object.pub_key) : undefined
@@ -391,14 +391,14 @@ function createBaseMsgActivateAccountResponse(): MsgActivateAccountResponse {
 }
 export const MsgActivateAccountResponse = {
   typeUrl: "/auranw.aura.smartaccount.MsgActivateAccountResponse",
-  encode(message: MsgActivateAccountResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgActivateAccountResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgActivateAccountResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgActivateAccountResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgActivateAccountResponse();
     while (reader.pos < end) {

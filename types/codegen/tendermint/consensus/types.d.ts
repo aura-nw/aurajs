@@ -6,16 +6,17 @@ import { Vote as Vote1 } from "../types/types";
 import { VoteAmino as Vote1Amino } from "../types/types";
 import { VoteSDKType as Vote1SDKType } from "../types/types";
 import { BitArray, BitArrayAmino, BitArraySDKType } from "../libs/bits/types";
-import { BinaryReader, BinaryWriter } from "../../binary";
+import { Long } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * NewRoundStep is sent for every step taken in the ConsensusState.
  * For every height/round/step transition
  */
 export interface NewRoundStep {
-    height: bigint;
+    height: Long;
     round: number;
     step: number;
-    secondsSinceStartTime: bigint;
+    secondsSinceStartTime: Long;
     lastCommitRound: number;
 }
 export interface NewRoundStepProtoMsg {
@@ -42,10 +43,10 @@ export interface NewRoundStepAminoMsg {
  * For every height/round/step transition
  */
 export interface NewRoundStepSDKType {
-    height: bigint;
+    height: Long;
     round: number;
     step: number;
-    seconds_since_start_time: bigint;
+    seconds_since_start_time: Long;
     last_commit_round: number;
 }
 /**
@@ -54,7 +55,7 @@ export interface NewRoundStepSDKType {
  * In case the block is also committed, then IsCommit flag is set to true.
  */
 export interface NewValidBlock {
-    height: bigint;
+    height: Long;
     round: number;
     blockPartSetHeader: PartSetHeader;
     blockParts: BitArray;
@@ -86,7 +87,7 @@ export interface NewValidBlockAminoMsg {
  * In case the block is also committed, then IsCommit flag is set to true.
  */
 export interface NewValidBlockSDKType {
-    height: bigint;
+    height: Long;
     round: number;
     block_part_set_header: PartSetHeaderSDKType;
     block_parts: BitArraySDKType;
@@ -114,7 +115,7 @@ export interface ProposalSDKType {
 }
 /** ProposalPOL is sent when a previous proposal is re-proposed. */
 export interface ProposalPOL {
-    height: bigint;
+    height: Long;
     proposalPolRound: number;
     proposalPol: BitArray;
 }
@@ -134,13 +135,13 @@ export interface ProposalPOLAminoMsg {
 }
 /** ProposalPOL is sent when a previous proposal is re-proposed. */
 export interface ProposalPOLSDKType {
-    height: bigint;
+    height: Long;
     proposal_pol_round: number;
     proposal_pol: BitArraySDKType;
 }
 /** BlockPart is sent when gossipping a piece of the proposed block. */
 export interface BlockPart {
-    height: bigint;
+    height: Long;
     round: number;
     part: Part;
 }
@@ -160,7 +161,7 @@ export interface BlockPartAminoMsg {
 }
 /** BlockPart is sent when gossipping a piece of the proposed block. */
 export interface BlockPartSDKType {
-    height: bigint;
+    height: Long;
     round: number;
     part: PartSDKType;
 }
@@ -186,7 +187,7 @@ export interface VoteSDKType {
 }
 /** HasVote is sent to indicate that a particular vote has been received. */
 export interface HasVote {
-    height: bigint;
+    height: Long;
     round: number;
     type: SignedMsgType;
     index: number;
@@ -208,14 +209,14 @@ export interface HasVoteAminoMsg {
 }
 /** HasVote is sent to indicate that a particular vote has been received. */
 export interface HasVoteSDKType {
-    height: bigint;
+    height: Long;
     round: number;
     type: SignedMsgType;
     index: number;
 }
 /** VoteSetMaj23 is sent to indicate that a given BlockID has seen +2/3 votes. */
 export interface VoteSetMaj23 {
-    height: bigint;
+    height: Long;
     round: number;
     type: SignedMsgType;
     blockId: BlockID;
@@ -237,14 +238,14 @@ export interface VoteSetMaj23AminoMsg {
 }
 /** VoteSetMaj23 is sent to indicate that a given BlockID has seen +2/3 votes. */
 export interface VoteSetMaj23SDKType {
-    height: bigint;
+    height: Long;
     round: number;
     type: SignedMsgType;
     block_id: BlockIDSDKType;
 }
 /** VoteSetBits is sent to communicate the bit-array of votes seen for the BlockID. */
 export interface VoteSetBits {
-    height: bigint;
+    height: Long;
     round: number;
     type: SignedMsgType;
     blockId: BlockID;
@@ -268,7 +269,7 @@ export interface VoteSetBitsAminoMsg {
 }
 /** VoteSetBits is sent to communicate the bit-array of votes seen for the BlockID. */
 export interface VoteSetBitsSDKType {
-    height: bigint;
+    height: Long;
     round: number;
     type: SignedMsgType;
     block_id: BlockIDSDKType;
@@ -317,8 +318,8 @@ export interface MessageSDKType {
 }
 export declare const NewRoundStep: {
     typeUrl: string;
-    encode(message: NewRoundStep, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): NewRoundStep;
+    encode(message: NewRoundStep, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): NewRoundStep;
     fromJSON(object: any): NewRoundStep;
     toJSON(message: NewRoundStep): unknown;
     fromPartial(object: Partial<NewRoundStep>): NewRoundStep;
@@ -331,8 +332,8 @@ export declare const NewRoundStep: {
 };
 export declare const NewValidBlock: {
     typeUrl: string;
-    encode(message: NewValidBlock, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): NewValidBlock;
+    encode(message: NewValidBlock, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): NewValidBlock;
     fromJSON(object: any): NewValidBlock;
     toJSON(message: NewValidBlock): unknown;
     fromPartial(object: Partial<NewValidBlock>): NewValidBlock;
@@ -345,8 +346,8 @@ export declare const NewValidBlock: {
 };
 export declare const Proposal: {
     typeUrl: string;
-    encode(message: Proposal, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Proposal;
+    encode(message: Proposal, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Proposal;
     fromJSON(object: any): Proposal;
     toJSON(message: Proposal): unknown;
     fromPartial(object: Partial<Proposal>): Proposal;
@@ -359,8 +360,8 @@ export declare const Proposal: {
 };
 export declare const ProposalPOL: {
     typeUrl: string;
-    encode(message: ProposalPOL, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ProposalPOL;
+    encode(message: ProposalPOL, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ProposalPOL;
     fromJSON(object: any): ProposalPOL;
     toJSON(message: ProposalPOL): unknown;
     fromPartial(object: Partial<ProposalPOL>): ProposalPOL;
@@ -373,8 +374,8 @@ export declare const ProposalPOL: {
 };
 export declare const BlockPart: {
     typeUrl: string;
-    encode(message: BlockPart, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): BlockPart;
+    encode(message: BlockPart, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): BlockPart;
     fromJSON(object: any): BlockPart;
     toJSON(message: BlockPart): unknown;
     fromPartial(object: Partial<BlockPart>): BlockPart;
@@ -387,8 +388,8 @@ export declare const BlockPart: {
 };
 export declare const Vote: {
     typeUrl: string;
-    encode(message: Vote, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Vote;
+    encode(message: Vote, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Vote;
     fromJSON(object: any): Vote;
     toJSON(message: Vote): unknown;
     fromPartial(object: Partial<Vote>): Vote;
@@ -401,8 +402,8 @@ export declare const Vote: {
 };
 export declare const HasVote: {
     typeUrl: string;
-    encode(message: HasVote, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): HasVote;
+    encode(message: HasVote, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): HasVote;
     fromJSON(object: any): HasVote;
     toJSON(message: HasVote): unknown;
     fromPartial(object: Partial<HasVote>): HasVote;
@@ -415,8 +416,8 @@ export declare const HasVote: {
 };
 export declare const VoteSetMaj23: {
     typeUrl: string;
-    encode(message: VoteSetMaj23, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): VoteSetMaj23;
+    encode(message: VoteSetMaj23, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): VoteSetMaj23;
     fromJSON(object: any): VoteSetMaj23;
     toJSON(message: VoteSetMaj23): unknown;
     fromPartial(object: Partial<VoteSetMaj23>): VoteSetMaj23;
@@ -429,8 +430,8 @@ export declare const VoteSetMaj23: {
 };
 export declare const VoteSetBits: {
     typeUrl: string;
-    encode(message: VoteSetBits, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): VoteSetBits;
+    encode(message: VoteSetBits, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): VoteSetBits;
     fromJSON(object: any): VoteSetBits;
     toJSON(message: VoteSetBits): unknown;
     fromPartial(object: Partial<VoteSetBits>): VoteSetBits;
@@ -443,8 +444,8 @@ export declare const VoteSetBits: {
 };
 export declare const Message: {
     typeUrl: string;
-    encode(message: Message, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Message;
+    encode(message: Message, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Message;
     fromJSON(object: any): Message;
     toJSON(message: Message): unknown;
     fromPartial(object: Partial<Message>): Message;

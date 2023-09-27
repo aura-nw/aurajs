@@ -1,5 +1,6 @@
 import { Params, ParamsAmino, ParamsSDKType, Validator, ValidatorAmino, ValidatorSDKType, Delegation, DelegationAmino, DelegationSDKType, UnbondingDelegation, UnbondingDelegationAmino, UnbondingDelegationSDKType, Redelegation, RedelegationAmino, RedelegationSDKType } from "./staking";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** GenesisState defines the staking module's genesis state. */
 export interface GenesisState {
     /** params defines all the parameters of related to deposit. */
@@ -72,7 +73,7 @@ export interface LastValidatorPower {
     /** address is the address of the validator. */
     address: string;
     /** power defines the power of the validator. */
-    power: bigint;
+    power: Long;
 }
 export interface LastValidatorPowerProtoMsg {
     typeUrl: "/cosmos.staking.v1beta1.LastValidatorPower";
@@ -92,12 +93,12 @@ export interface LastValidatorPowerAminoMsg {
 /** LastValidatorPower required for validator set update logic. */
 export interface LastValidatorPowerSDKType {
     address: string;
-    power: bigint;
+    power: Long;
 }
 export declare const GenesisState: {
     typeUrl: string;
-    encode(message: GenesisState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GenesisState;
+    encode(message: GenesisState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GenesisState;
     fromJSON(object: any): GenesisState;
     toJSON(message: GenesisState): unknown;
     fromPartial(object: Partial<GenesisState>): GenesisState;
@@ -111,8 +112,8 @@ export declare const GenesisState: {
 };
 export declare const LastValidatorPower: {
     typeUrl: string;
-    encode(message: LastValidatorPower, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): LastValidatorPower;
+    encode(message: LastValidatorPower, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): LastValidatorPower;
     fromJSON(object: any): LastValidatorPower;
     toJSON(message: LastValidatorPower): unknown;
     fromPartial(object: Partial<LastValidatorPower>): LastValidatorPower;

@@ -1,6 +1,6 @@
 import { PublicKey, PublicKeyAmino, PublicKeySDKType } from "../crypto/keys";
 import { Vote, VoteAmino, VoteSDKType, Proposal, ProposalAmino, ProposalSDKType } from "../types/types";
-import { BinaryReader, BinaryWriter } from "../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { isSet } from "../../helpers";
 export enum Errors {
   ERRORS_UNKNOWN = 0,
@@ -287,7 +287,7 @@ function createBaseRemoteSignerError(): RemoteSignerError {
 }
 export const RemoteSignerError = {
   typeUrl: "/tendermint.privval.RemoteSignerError",
-  encode(message: RemoteSignerError, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: RemoteSignerError, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.code !== 0) {
       writer.uint32(8).int32(message.code);
     }
@@ -296,8 +296,8 @@ export const RemoteSignerError = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): RemoteSignerError {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): RemoteSignerError {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseRemoteSignerError();
     while (reader.pos < end) {
@@ -369,14 +369,14 @@ function createBasePubKeyRequest(): PubKeyRequest {
 }
 export const PubKeyRequest = {
   typeUrl: "/tendermint.privval.PubKeyRequest",
-  encode(message: PubKeyRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: PubKeyRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.chainId !== "") {
       writer.uint32(10).string(message.chainId);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): PubKeyRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): PubKeyRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBasePubKeyRequest();
     while (reader.pos < end) {
@@ -441,7 +441,7 @@ function createBasePubKeyResponse(): PubKeyResponse {
 }
 export const PubKeyResponse = {
   typeUrl: "/tendermint.privval.PubKeyResponse",
-  encode(message: PubKeyResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: PubKeyResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.pubKey !== undefined) {
       PublicKey.encode(message.pubKey, writer.uint32(10).fork()).ldelim();
     }
@@ -450,8 +450,8 @@ export const PubKeyResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): PubKeyResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): PubKeyResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBasePubKeyResponse();
     while (reader.pos < end) {
@@ -524,7 +524,7 @@ function createBaseSignVoteRequest(): SignVoteRequest {
 }
 export const SignVoteRequest = {
   typeUrl: "/tendermint.privval.SignVoteRequest",
-  encode(message: SignVoteRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: SignVoteRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.vote !== undefined) {
       Vote.encode(message.vote, writer.uint32(10).fork()).ldelim();
     }
@@ -533,8 +533,8 @@ export const SignVoteRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): SignVoteRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): SignVoteRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseSignVoteRequest();
     while (reader.pos < end) {
@@ -607,7 +607,7 @@ function createBaseSignedVoteResponse(): SignedVoteResponse {
 }
 export const SignedVoteResponse = {
   typeUrl: "/tendermint.privval.SignedVoteResponse",
-  encode(message: SignedVoteResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: SignedVoteResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.vote !== undefined) {
       Vote.encode(message.vote, writer.uint32(10).fork()).ldelim();
     }
@@ -616,8 +616,8 @@ export const SignedVoteResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): SignedVoteResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): SignedVoteResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseSignedVoteResponse();
     while (reader.pos < end) {
@@ -690,7 +690,7 @@ function createBaseSignProposalRequest(): SignProposalRequest {
 }
 export const SignProposalRequest = {
   typeUrl: "/tendermint.privval.SignProposalRequest",
-  encode(message: SignProposalRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: SignProposalRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.proposal !== undefined) {
       Proposal.encode(message.proposal, writer.uint32(10).fork()).ldelim();
     }
@@ -699,8 +699,8 @@ export const SignProposalRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): SignProposalRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): SignProposalRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseSignProposalRequest();
     while (reader.pos < end) {
@@ -773,7 +773,7 @@ function createBaseSignedProposalResponse(): SignedProposalResponse {
 }
 export const SignedProposalResponse = {
   typeUrl: "/tendermint.privval.SignedProposalResponse",
-  encode(message: SignedProposalResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: SignedProposalResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.proposal !== undefined) {
       Proposal.encode(message.proposal, writer.uint32(10).fork()).ldelim();
     }
@@ -782,8 +782,8 @@ export const SignedProposalResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): SignedProposalResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): SignedProposalResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseSignedProposalResponse();
     while (reader.pos < end) {
@@ -853,11 +853,11 @@ function createBasePingRequest(): PingRequest {
 }
 export const PingRequest = {
   typeUrl: "/tendermint.privval.PingRequest",
-  encode(_: PingRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: PingRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): PingRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): PingRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBasePingRequest();
     while (reader.pos < end) {
@@ -909,11 +909,11 @@ function createBasePingResponse(): PingResponse {
 }
 export const PingResponse = {
   typeUrl: "/tendermint.privval.PingResponse",
-  encode(_: PingResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: PingResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): PingResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): PingResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBasePingResponse();
     while (reader.pos < end) {
@@ -974,7 +974,7 @@ function createBaseMessage(): Message {
 }
 export const Message = {
   typeUrl: "/tendermint.privval.Message",
-  encode(message: Message, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: Message, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.pubKeyRequest !== undefined) {
       PubKeyRequest.encode(message.pubKeyRequest, writer.uint32(10).fork()).ldelim();
     }
@@ -1001,8 +1001,8 @@ export const Message = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Message {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): Message {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMessage();
     while (reader.pos < end) {

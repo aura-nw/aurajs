@@ -1,6 +1,7 @@
 import { Message, MessageAmino, MessageSDKType } from "./types";
 import { EventDataRoundState, EventDataRoundStateAmino, EventDataRoundStateSDKType } from "../types/events";
-import { BinaryReader, BinaryWriter } from "../../binary";
+import { Long } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** MsgInfo are msgs from the reactor which may update the state */
 export interface MsgInfo {
     msg: Message;
@@ -27,7 +28,7 @@ export interface MsgInfoSDKType {
 /** TimeoutInfo internally generated messages which may update the state */
 export interface TimeoutInfo {
     duration: string;
-    height: bigint;
+    height: Long;
     round: number;
     step: number;
 }
@@ -49,7 +50,7 @@ export interface TimeoutInfoAminoMsg {
 /** TimeoutInfo internally generated messages which may update the state */
 export interface TimeoutInfoSDKType {
     duration: string;
-    height: bigint;
+    height: Long;
     round: number;
     step: number;
 }
@@ -58,7 +59,7 @@ export interface TimeoutInfoSDKType {
  * @internal used by scripts/wal2json util.
  */
 export interface EndHeight {
-    height: bigint;
+    height: Long;
 }
 export interface EndHeightProtoMsg {
     typeUrl: "/tendermint.consensus.EndHeight";
@@ -80,7 +81,7 @@ export interface EndHeightAminoMsg {
  * @internal used by scripts/wal2json util.
  */
 export interface EndHeightSDKType {
-    height: bigint;
+    height: Long;
 }
 export interface WALMessage {
     eventDataRoundState?: EventDataRoundState;
@@ -133,8 +134,8 @@ export interface TimedWALMessageSDKType {
 }
 export declare const MsgInfo: {
     typeUrl: string;
-    encode(message: MsgInfo, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgInfo;
+    encode(message: MsgInfo, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgInfo;
     fromJSON(object: any): MsgInfo;
     toJSON(message: MsgInfo): unknown;
     fromPartial(object: Partial<MsgInfo>): MsgInfo;
@@ -147,8 +148,8 @@ export declare const MsgInfo: {
 };
 export declare const TimeoutInfo: {
     typeUrl: string;
-    encode(message: TimeoutInfo, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): TimeoutInfo;
+    encode(message: TimeoutInfo, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TimeoutInfo;
     fromJSON(object: any): TimeoutInfo;
     toJSON(message: TimeoutInfo): unknown;
     fromPartial(object: Partial<TimeoutInfo>): TimeoutInfo;
@@ -161,8 +162,8 @@ export declare const TimeoutInfo: {
 };
 export declare const EndHeight: {
     typeUrl: string;
-    encode(message: EndHeight, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): EndHeight;
+    encode(message: EndHeight, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): EndHeight;
     fromJSON(object: any): EndHeight;
     toJSON(message: EndHeight): unknown;
     fromPartial(object: Partial<EndHeight>): EndHeight;
@@ -175,8 +176,8 @@ export declare const EndHeight: {
 };
 export declare const WALMessage: {
     typeUrl: string;
-    encode(message: WALMessage, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): WALMessage;
+    encode(message: WALMessage, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): WALMessage;
     fromJSON(object: any): WALMessage;
     toJSON(message: WALMessage): unknown;
     fromPartial(object: Partial<WALMessage>): WALMessage;
@@ -189,8 +190,8 @@ export declare const WALMessage: {
 };
 export declare const TimedWALMessage: {
     typeUrl: string;
-    encode(message: TimedWALMessage, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): TimedWALMessage;
+    encode(message: TimedWALMessage, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TimedWALMessage;
     fromJSON(object: any): TimedWALMessage;
     toJSON(message: TimedWALMessage): unknown;
     fromPartial(object: Partial<TimedWALMessage>): TimedWALMessage;

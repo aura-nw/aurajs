@@ -1,15 +1,10 @@
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
-import { SendAuthorization, SendAuthorizationProtoMsg, SendAuthorizationSDKType } from "../../bank/v1beta1/authz";
-import { StakeAuthorization, StakeAuthorizationProtoMsg, StakeAuthorizationSDKType } from "../../staking/v1beta1/authz";
-import { TransferAuthorization, TransferAuthorizationProtoMsg, TransferAuthorizationSDKType } from "../../../ibc/applications/transfer/v1/authz";
-import { ContractExecutionAuthorization, ContractExecutionAuthorizationProtoMsg, ContractExecutionAuthorizationSDKType, ContractMigrationAuthorization, ContractMigrationAuthorizationProtoMsg, ContractMigrationAuthorizationSDKType } from "../../../cosmwasm/wasm/v1/authz";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
+import * as _m0 from "protobufjs/minimal";
 /**
  * GenericAuthorization gives the grantee unrestricted permissions to execute
  * the provided method on behalf of the granter's account.
  */
 export interface GenericAuthorization {
-    $typeUrl?: string;
     /** Msg, identified by it's type URL, to grant unrestricted permissions to execute */
     msg: string;
 }
@@ -34,7 +29,6 @@ export interface GenericAuthorizationAminoMsg {
  * the provided method on behalf of the granter's account.
  */
 export interface GenericAuthorizationSDKType {
-    $typeUrl?: string;
     msg: string;
 }
 /**
@@ -42,7 +36,7 @@ export interface GenericAuthorizationSDKType {
  * the provide method with expiration time.
  */
 export interface Grant {
-    authorization: (GenericAuthorization & SendAuthorization & StakeAuthorization & TransferAuthorization & ContractExecutionAuthorization & ContractMigrationAuthorization & Any) | undefined;
+    authorization: Any;
     /**
      * time when the grant will expire and will be pruned. If null, then the grant
      * doesn't have a time expiration (other conditions  in `authorization`
@@ -54,9 +48,6 @@ export interface GrantProtoMsg {
     typeUrl: "/cosmos.authz.v1beta1.Grant";
     value: Uint8Array;
 }
-export type GrantEncoded = Omit<Grant, "authorization"> & {
-    authorization?: GenericAuthorizationProtoMsg | SendAuthorizationProtoMsg | StakeAuthorizationProtoMsg | TransferAuthorizationProtoMsg | ContractExecutionAuthorizationProtoMsg | ContractMigrationAuthorizationProtoMsg | AnyProtoMsg | undefined;
-};
 /**
  * Grant gives permissions to execute
  * the provide method with expiration time.
@@ -79,7 +70,7 @@ export interface GrantAminoMsg {
  * the provide method with expiration time.
  */
 export interface GrantSDKType {
-    authorization: GenericAuthorizationSDKType | SendAuthorizationSDKType | StakeAuthorizationSDKType | TransferAuthorizationSDKType | ContractExecutionAuthorizationSDKType | ContractMigrationAuthorizationSDKType | AnySDKType | undefined;
+    authorization: AnySDKType;
     expiration?: Date;
 }
 /**
@@ -89,16 +80,13 @@ export interface GrantSDKType {
 export interface GrantAuthorization {
     granter: string;
     grantee: string;
-    authorization: (GenericAuthorization & SendAuthorization & StakeAuthorization & TransferAuthorization & ContractExecutionAuthorization & ContractMigrationAuthorization & Any) | undefined;
+    authorization: Any;
     expiration: Date;
 }
 export interface GrantAuthorizationProtoMsg {
     typeUrl: "/cosmos.authz.v1beta1.GrantAuthorization";
     value: Uint8Array;
 }
-export type GrantAuthorizationEncoded = Omit<GrantAuthorization, "authorization"> & {
-    authorization?: GenericAuthorizationProtoMsg | SendAuthorizationProtoMsg | StakeAuthorizationProtoMsg | TransferAuthorizationProtoMsg | ContractExecutionAuthorizationProtoMsg | ContractMigrationAuthorizationProtoMsg | AnyProtoMsg | undefined;
-};
 /**
  * GrantAuthorization extends a grant with both the addresses of the grantee and granter.
  * It is used in genesis.proto and query.proto
@@ -120,7 +108,7 @@ export interface GrantAuthorizationAminoMsg {
 export interface GrantAuthorizationSDKType {
     granter: string;
     grantee: string;
-    authorization: GenericAuthorizationSDKType | SendAuthorizationSDKType | StakeAuthorizationSDKType | TransferAuthorizationSDKType | ContractExecutionAuthorizationSDKType | ContractMigrationAuthorizationSDKType | AnySDKType | undefined;
+    authorization: AnySDKType;
     expiration: Date;
 }
 /** GrantQueueItem contains the list of TypeURL of a sdk.Msg. */
@@ -147,8 +135,8 @@ export interface GrantQueueItemSDKType {
 }
 export declare const GenericAuthorization: {
     typeUrl: string;
-    encode(message: GenericAuthorization, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GenericAuthorization;
+    encode(message: GenericAuthorization, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GenericAuthorization;
     fromJSON(object: any): GenericAuthorization;
     toJSON(message: GenericAuthorization): unknown;
     fromPartial(object: Partial<GenericAuthorization>): GenericAuthorization;
@@ -162,8 +150,8 @@ export declare const GenericAuthorization: {
 };
 export declare const Grant: {
     typeUrl: string;
-    encode(message: Grant, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Grant;
+    encode(message: Grant, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Grant;
     fromJSON(object: any): Grant;
     toJSON(message: Grant): unknown;
     fromPartial(object: Partial<Grant>): Grant;
@@ -177,8 +165,8 @@ export declare const Grant: {
 };
 export declare const GrantAuthorization: {
     typeUrl: string;
-    encode(message: GrantAuthorization, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GrantAuthorization;
+    encode(message: GrantAuthorization, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GrantAuthorization;
     fromJSON(object: any): GrantAuthorization;
     toJSON(message: GrantAuthorization): unknown;
     fromPartial(object: Partial<GrantAuthorization>): GrantAuthorization;
@@ -192,8 +180,8 @@ export declare const GrantAuthorization: {
 };
 export declare const GrantQueueItem: {
     typeUrl: string;
-    encode(message: GrantQueueItem, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GrantQueueItem;
+    encode(message: GrantQueueItem, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GrantQueueItem;
     fromJSON(object: any): GrantQueueItem;
     toJSON(message: GrantQueueItem): unknown;
     fromPartial(object: Partial<GrantQueueItem>): GrantQueueItem;
@@ -205,6 +193,3 @@ export declare const GrantQueueItem: {
     toProto(message: GrantQueueItem): Uint8Array;
     toProtoMsg(message: GrantQueueItem): GrantQueueItemProtoMsg;
 };
-export declare const Cosmos_authzv1beta1Authorization_InterfaceDecoder: (input: BinaryReader | Uint8Array) => GenericAuthorization | SendAuthorization | StakeAuthorization | TransferAuthorization | ContractExecutionAuthorization | ContractMigrationAuthorization | Any;
-export declare const Cosmos_authzv1beta1Authorization_FromAmino: (content: AnyAmino) => Any;
-export declare const Cosmos_authzv1beta1Authorization_ToAmino: (content: Any) => AnyAmino;

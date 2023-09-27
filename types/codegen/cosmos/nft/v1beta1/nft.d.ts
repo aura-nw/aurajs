@@ -1,5 +1,5 @@
 import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** Class defines the class of the nft type. */
 export interface Class {
     /** id defines the unique identifier of the NFT classification, similar to the contract address of ERC721 */
@@ -96,8 +96,8 @@ export interface NFTSDKType {
 }
 export declare const Class: {
     typeUrl: string;
-    encode(message: Class, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Class;
+    encode(message: Class, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Class;
     fromJSON(object: any): Class;
     toJSON(message: Class): unknown;
     fromPartial(object: Partial<Class>): Class;
@@ -111,8 +111,8 @@ export declare const Class: {
 };
 export declare const NFT: {
     typeUrl: string;
-    encode(message: NFT, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): NFT;
+    encode(message: NFT, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): NFT;
     fromJSON(object: any): NFT;
     toJSON(message: NFT): unknown;
     fromPartial(object: Partial<NFT>): NFT;

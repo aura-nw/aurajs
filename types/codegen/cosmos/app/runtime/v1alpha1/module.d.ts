@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** Module is the config object for the runtime module. */
 export interface Module {
     /** app_name is the name of the app. */
@@ -122,8 +122,8 @@ export interface StoreKeyConfigSDKType {
 }
 export declare const Module: {
     typeUrl: string;
-    encode(message: Module, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Module;
+    encode(message: Module, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Module;
     fromJSON(object: any): Module;
     toJSON(message: Module): unknown;
     fromPartial(object: Partial<Module>): Module;
@@ -137,8 +137,8 @@ export declare const Module: {
 };
 export declare const StoreKeyConfig: {
     typeUrl: string;
-    encode(message: StoreKeyConfig, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): StoreKeyConfig;
+    encode(message: StoreKeyConfig, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): StoreKeyConfig;
     fromJSON(object: any): StoreKeyConfig;
     toJSON(message: StoreKeyConfig): unknown;
     fromPartial(object: Partial<StoreKeyConfig>): StoreKeyConfig;

@@ -1,5 +1,5 @@
 import { Params, ParamsAmino, ParamsSDKType } from "./mint";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /**
  * MsgUpdateParams is the Msg/UpdateParams request type.
  *
@@ -81,8 +81,8 @@ export interface MsgUpdateParamsResponseSDKType {
 }
 export declare const MsgUpdateParams: {
     typeUrl: string;
-    encode(message: MsgUpdateParams, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateParams;
+    encode(message: MsgUpdateParams, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateParams;
     fromJSON(object: any): MsgUpdateParams;
     toJSON(message: MsgUpdateParams): unknown;
     fromPartial(object: Partial<MsgUpdateParams>): MsgUpdateParams;
@@ -96,8 +96,8 @@ export declare const MsgUpdateParams: {
 };
 export declare const MsgUpdateParamsResponse: {
     typeUrl: string;
-    encode(_: MsgUpdateParamsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateParamsResponse;
+    encode(_: MsgUpdateParamsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateParamsResponse;
     fromJSON(_: any): MsgUpdateParamsResponse;
     toJSON(_: MsgUpdateParamsResponse): unknown;
     fromPartial(_: Partial<MsgUpdateParamsResponse>): MsgUpdateParamsResponse;

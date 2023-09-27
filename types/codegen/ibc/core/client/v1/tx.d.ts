@@ -1,5 +1,5 @@
 import { Any, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** MsgCreateClient defines a message to create an IBC client */
 export interface MsgCreateClient {
     /** light client state */
@@ -273,8 +273,8 @@ export interface MsgSubmitMisbehaviourResponseSDKType {
 }
 export declare const MsgCreateClient: {
     typeUrl: string;
-    encode(message: MsgCreateClient, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgCreateClient;
+    encode(message: MsgCreateClient, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreateClient;
     fromJSON(object: any): MsgCreateClient;
     toJSON(message: MsgCreateClient): unknown;
     fromPartial(object: Partial<MsgCreateClient>): MsgCreateClient;
@@ -288,8 +288,8 @@ export declare const MsgCreateClient: {
 };
 export declare const MsgCreateClientResponse: {
     typeUrl: string;
-    encode(_: MsgCreateClientResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgCreateClientResponse;
+    encode(_: MsgCreateClientResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreateClientResponse;
     fromJSON(_: any): MsgCreateClientResponse;
     toJSON(_: MsgCreateClientResponse): unknown;
     fromPartial(_: Partial<MsgCreateClientResponse>): MsgCreateClientResponse;
@@ -303,8 +303,8 @@ export declare const MsgCreateClientResponse: {
 };
 export declare const MsgUpdateClient: {
     typeUrl: string;
-    encode(message: MsgUpdateClient, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateClient;
+    encode(message: MsgUpdateClient, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateClient;
     fromJSON(object: any): MsgUpdateClient;
     toJSON(message: MsgUpdateClient): unknown;
     fromPartial(object: Partial<MsgUpdateClient>): MsgUpdateClient;
@@ -318,8 +318,8 @@ export declare const MsgUpdateClient: {
 };
 export declare const MsgUpdateClientResponse: {
     typeUrl: string;
-    encode(_: MsgUpdateClientResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateClientResponse;
+    encode(_: MsgUpdateClientResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateClientResponse;
     fromJSON(_: any): MsgUpdateClientResponse;
     toJSON(_: MsgUpdateClientResponse): unknown;
     fromPartial(_: Partial<MsgUpdateClientResponse>): MsgUpdateClientResponse;
@@ -333,8 +333,8 @@ export declare const MsgUpdateClientResponse: {
 };
 export declare const MsgUpgradeClient: {
     typeUrl: string;
-    encode(message: MsgUpgradeClient, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpgradeClient;
+    encode(message: MsgUpgradeClient, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpgradeClient;
     fromJSON(object: any): MsgUpgradeClient;
     toJSON(message: MsgUpgradeClient): unknown;
     fromPartial(object: Partial<MsgUpgradeClient>): MsgUpgradeClient;
@@ -348,8 +348,8 @@ export declare const MsgUpgradeClient: {
 };
 export declare const MsgUpgradeClientResponse: {
     typeUrl: string;
-    encode(_: MsgUpgradeClientResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpgradeClientResponse;
+    encode(_: MsgUpgradeClientResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpgradeClientResponse;
     fromJSON(_: any): MsgUpgradeClientResponse;
     toJSON(_: MsgUpgradeClientResponse): unknown;
     fromPartial(_: Partial<MsgUpgradeClientResponse>): MsgUpgradeClientResponse;
@@ -363,8 +363,8 @@ export declare const MsgUpgradeClientResponse: {
 };
 export declare const MsgSubmitMisbehaviour: {
     typeUrl: string;
-    encode(message: MsgSubmitMisbehaviour, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgSubmitMisbehaviour;
+    encode(message: MsgSubmitMisbehaviour, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgSubmitMisbehaviour;
     fromJSON(object: any): MsgSubmitMisbehaviour;
     toJSON(message: MsgSubmitMisbehaviour): unknown;
     fromPartial(object: Partial<MsgSubmitMisbehaviour>): MsgSubmitMisbehaviour;
@@ -378,8 +378,8 @@ export declare const MsgSubmitMisbehaviour: {
 };
 export declare const MsgSubmitMisbehaviourResponse: {
     typeUrl: string;
-    encode(_: MsgSubmitMisbehaviourResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgSubmitMisbehaviourResponse;
+    encode(_: MsgSubmitMisbehaviourResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgSubmitMisbehaviourResponse;
     fromJSON(_: any): MsgSubmitMisbehaviourResponse;
     toJSON(_: MsgSubmitMisbehaviourResponse): unknown;
     fromPartial(_: Partial<MsgSubmitMisbehaviourResponse>): MsgSubmitMisbehaviourResponse;

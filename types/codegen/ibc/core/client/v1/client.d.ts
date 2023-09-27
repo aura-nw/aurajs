@@ -1,6 +1,7 @@
 import { Any, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
 import { Plan, PlanAmino, PlanSDKType } from "../../../../cosmos/upgrade/v1beta1/upgrade";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * IdentifiedClientState defines a client state with an additional client
  * identifier field.
@@ -116,7 +117,6 @@ export interface ClientConsensusStatesSDKType {
  * chain parameters (with exception to latest height, frozen height, and chain-id).
  */
 export interface ClientUpdateProposal {
-    $typeUrl?: string;
     /** the title of the update proposal */
     title: string;
     /** the description of the proposal */
@@ -163,7 +163,6 @@ export interface ClientUpdateProposalAminoMsg {
  * chain parameters (with exception to latest height, frozen height, and chain-id).
  */
 export interface ClientUpdateProposalSDKType {
-    $typeUrl?: string;
     title: string;
     description: string;
     subject_client_id: string;
@@ -174,7 +173,6 @@ export interface ClientUpdateProposalSDKType {
  * upgrade.
  */
 export interface UpgradeProposal {
-    $typeUrl?: string;
     title: string;
     description: string;
     plan: Plan;
@@ -219,7 +217,6 @@ export interface UpgradeProposalAminoMsg {
  * upgrade.
  */
 export interface UpgradeProposalSDKType {
-    $typeUrl?: string;
     title: string;
     description: string;
     plan: PlanSDKType;
@@ -239,9 +236,9 @@ export interface UpgradeProposalSDKType {
  */
 export interface Height {
     /** the revision that the client is currently on */
-    revisionNumber: bigint;
+    revisionNumber: Long;
     /** the height within the given revision */
-    revisionHeight: bigint;
+    revisionHeight: Long;
 }
 export interface HeightProtoMsg {
     typeUrl: "/ibc.core.client.v1.Height";
@@ -282,8 +279,8 @@ export interface HeightAminoMsg {
  * gets reset
  */
 export interface HeightSDKType {
-    revision_number: bigint;
-    revision_height: bigint;
+    revision_number: Long;
+    revision_height: Long;
 }
 /** Params defines the set of IBC light client parameters. */
 export interface Params {
@@ -317,8 +314,8 @@ export interface ParamsSDKType {
 }
 export declare const IdentifiedClientState: {
     typeUrl: string;
-    encode(message: IdentifiedClientState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): IdentifiedClientState;
+    encode(message: IdentifiedClientState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): IdentifiedClientState;
     fromJSON(object: any): IdentifiedClientState;
     toJSON(message: IdentifiedClientState): unknown;
     fromPartial(object: Partial<IdentifiedClientState>): IdentifiedClientState;
@@ -332,8 +329,8 @@ export declare const IdentifiedClientState: {
 };
 export declare const ConsensusStateWithHeight: {
     typeUrl: string;
-    encode(message: ConsensusStateWithHeight, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ConsensusStateWithHeight;
+    encode(message: ConsensusStateWithHeight, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ConsensusStateWithHeight;
     fromJSON(object: any): ConsensusStateWithHeight;
     toJSON(message: ConsensusStateWithHeight): unknown;
     fromPartial(object: Partial<ConsensusStateWithHeight>): ConsensusStateWithHeight;
@@ -347,8 +344,8 @@ export declare const ConsensusStateWithHeight: {
 };
 export declare const ClientConsensusStates: {
     typeUrl: string;
-    encode(message: ClientConsensusStates, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ClientConsensusStates;
+    encode(message: ClientConsensusStates, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ClientConsensusStates;
     fromJSON(object: any): ClientConsensusStates;
     toJSON(message: ClientConsensusStates): unknown;
     fromPartial(object: Partial<ClientConsensusStates>): ClientConsensusStates;
@@ -362,8 +359,8 @@ export declare const ClientConsensusStates: {
 };
 export declare const ClientUpdateProposal: {
     typeUrl: string;
-    encode(message: ClientUpdateProposal, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ClientUpdateProposal;
+    encode(message: ClientUpdateProposal, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ClientUpdateProposal;
     fromJSON(object: any): ClientUpdateProposal;
     toJSON(message: ClientUpdateProposal): unknown;
     fromPartial(object: Partial<ClientUpdateProposal>): ClientUpdateProposal;
@@ -377,8 +374,8 @@ export declare const ClientUpdateProposal: {
 };
 export declare const UpgradeProposal: {
     typeUrl: string;
-    encode(message: UpgradeProposal, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): UpgradeProposal;
+    encode(message: UpgradeProposal, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): UpgradeProposal;
     fromJSON(object: any): UpgradeProposal;
     toJSON(message: UpgradeProposal): unknown;
     fromPartial(object: Partial<UpgradeProposal>): UpgradeProposal;
@@ -392,8 +389,8 @@ export declare const UpgradeProposal: {
 };
 export declare const Height: {
     typeUrl: string;
-    encode(message: Height, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Height;
+    encode(message: Height, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Height;
     fromJSON(object: any): Height;
     toJSON(message: Height): unknown;
     fromPartial(object: Partial<Height>): Height;
@@ -407,8 +404,8 @@ export declare const Height: {
 };
 export declare const Params: {
     typeUrl: string;
-    encode(message: Params, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Params;
+    encode(message: Params, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Params;
     fromJSON(object: any): Params;
     toJSON(message: Params): unknown;
     fromPartial(object: Partial<Params>): Params;

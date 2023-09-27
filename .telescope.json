@@ -1,12 +1,12 @@
 {
   "protoDirs": [
     "proto",
+    "tendermint/proto",
     "cosmos-proto/proto",
     "cosmos-sdk-v0.45.11/proto",
     "ibc-go-v3.3.0/proto",
     "wasmd-v0.29.1/proto",
     "ics23/proto",
-    "tendermint/proto",
     "aurad-v0.4.3/proto"
   ],
   "outPath": "./src/codegen",
@@ -23,7 +23,8 @@
     "prototypes": {
       "typingsFormat": {
         "timestamp": "date",
-        "duration": "string"
+        "duration": "string",
+        "num64": "long"
       },
       "methods": {
         "fromJSON": true,
@@ -36,6 +37,9 @@
         "fromProto": false,
         "toProto": false
       }
+    },
+    "interfaces":{
+      "enabled": false
     }
   }
 }

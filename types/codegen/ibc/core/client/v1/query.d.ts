@@ -1,7 +1,8 @@
 import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../../../cosmos/base/query/v1beta1/pagination";
 import { Any, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
 import { Height, HeightAmino, HeightSDKType, IdentifiedClientState, IdentifiedClientStateAmino, IdentifiedClientStateSDKType, ConsensusStateWithHeight, ConsensusStateWithHeightAmino, ConsensusStateWithHeightSDKType, Params, ParamsAmino, ParamsSDKType } from "./client";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * QueryClientStateRequest is the request type for the Query/ClientState RPC
  * method
@@ -153,9 +154,9 @@ export interface QueryConsensusStateRequest {
     /** client identifier */
     clientId: string;
     /** consensus state revision number */
-    revisionNumber: bigint;
+    revisionNumber: Long;
     /** consensus state revision height */
-    revisionHeight: bigint;
+    revisionHeight: Long;
     /**
      * latest_height overrrides the height field and queries the latest stored
      * ConsensusState
@@ -195,8 +196,8 @@ export interface QueryConsensusStateRequestAminoMsg {
  */
 export interface QueryConsensusStateRequestSDKType {
     client_id: string;
-    revision_number: bigint;
-    revision_height: bigint;
+    revision_number: Long;
+    revision_height: Long;
     latest_height: boolean;
 }
 /**
@@ -617,8 +618,8 @@ export interface QueryUpgradedConsensusStateResponseSDKType {
 }
 export declare const QueryClientStateRequest: {
     typeUrl: string;
-    encode(message: QueryClientStateRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryClientStateRequest;
+    encode(message: QueryClientStateRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryClientStateRequest;
     fromJSON(object: any): QueryClientStateRequest;
     toJSON(message: QueryClientStateRequest): unknown;
     fromPartial(object: Partial<QueryClientStateRequest>): QueryClientStateRequest;
@@ -632,8 +633,8 @@ export declare const QueryClientStateRequest: {
 };
 export declare const QueryClientStateResponse: {
     typeUrl: string;
-    encode(message: QueryClientStateResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryClientStateResponse;
+    encode(message: QueryClientStateResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryClientStateResponse;
     fromJSON(object: any): QueryClientStateResponse;
     toJSON(message: QueryClientStateResponse): unknown;
     fromPartial(object: Partial<QueryClientStateResponse>): QueryClientStateResponse;
@@ -647,8 +648,8 @@ export declare const QueryClientStateResponse: {
 };
 export declare const QueryClientStatesRequest: {
     typeUrl: string;
-    encode(message: QueryClientStatesRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryClientStatesRequest;
+    encode(message: QueryClientStatesRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryClientStatesRequest;
     fromJSON(object: any): QueryClientStatesRequest;
     toJSON(message: QueryClientStatesRequest): unknown;
     fromPartial(object: Partial<QueryClientStatesRequest>): QueryClientStatesRequest;
@@ -662,8 +663,8 @@ export declare const QueryClientStatesRequest: {
 };
 export declare const QueryClientStatesResponse: {
     typeUrl: string;
-    encode(message: QueryClientStatesResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryClientStatesResponse;
+    encode(message: QueryClientStatesResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryClientStatesResponse;
     fromJSON(object: any): QueryClientStatesResponse;
     toJSON(message: QueryClientStatesResponse): unknown;
     fromPartial(object: Partial<QueryClientStatesResponse>): QueryClientStatesResponse;
@@ -677,8 +678,8 @@ export declare const QueryClientStatesResponse: {
 };
 export declare const QueryConsensusStateRequest: {
     typeUrl: string;
-    encode(message: QueryConsensusStateRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryConsensusStateRequest;
+    encode(message: QueryConsensusStateRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryConsensusStateRequest;
     fromJSON(object: any): QueryConsensusStateRequest;
     toJSON(message: QueryConsensusStateRequest): unknown;
     fromPartial(object: Partial<QueryConsensusStateRequest>): QueryConsensusStateRequest;
@@ -692,8 +693,8 @@ export declare const QueryConsensusStateRequest: {
 };
 export declare const QueryConsensusStateResponse: {
     typeUrl: string;
-    encode(message: QueryConsensusStateResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryConsensusStateResponse;
+    encode(message: QueryConsensusStateResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryConsensusStateResponse;
     fromJSON(object: any): QueryConsensusStateResponse;
     toJSON(message: QueryConsensusStateResponse): unknown;
     fromPartial(object: Partial<QueryConsensusStateResponse>): QueryConsensusStateResponse;
@@ -707,8 +708,8 @@ export declare const QueryConsensusStateResponse: {
 };
 export declare const QueryConsensusStatesRequest: {
     typeUrl: string;
-    encode(message: QueryConsensusStatesRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryConsensusStatesRequest;
+    encode(message: QueryConsensusStatesRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryConsensusStatesRequest;
     fromJSON(object: any): QueryConsensusStatesRequest;
     toJSON(message: QueryConsensusStatesRequest): unknown;
     fromPartial(object: Partial<QueryConsensusStatesRequest>): QueryConsensusStatesRequest;
@@ -722,8 +723,8 @@ export declare const QueryConsensusStatesRequest: {
 };
 export declare const QueryConsensusStatesResponse: {
     typeUrl: string;
-    encode(message: QueryConsensusStatesResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryConsensusStatesResponse;
+    encode(message: QueryConsensusStatesResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryConsensusStatesResponse;
     fromJSON(object: any): QueryConsensusStatesResponse;
     toJSON(message: QueryConsensusStatesResponse): unknown;
     fromPartial(object: Partial<QueryConsensusStatesResponse>): QueryConsensusStatesResponse;
@@ -737,8 +738,8 @@ export declare const QueryConsensusStatesResponse: {
 };
 export declare const QueryConsensusStateHeightsRequest: {
     typeUrl: string;
-    encode(message: QueryConsensusStateHeightsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryConsensusStateHeightsRequest;
+    encode(message: QueryConsensusStateHeightsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryConsensusStateHeightsRequest;
     fromJSON(object: any): QueryConsensusStateHeightsRequest;
     toJSON(message: QueryConsensusStateHeightsRequest): unknown;
     fromPartial(object: Partial<QueryConsensusStateHeightsRequest>): QueryConsensusStateHeightsRequest;
@@ -752,8 +753,8 @@ export declare const QueryConsensusStateHeightsRequest: {
 };
 export declare const QueryConsensusStateHeightsResponse: {
     typeUrl: string;
-    encode(message: QueryConsensusStateHeightsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryConsensusStateHeightsResponse;
+    encode(message: QueryConsensusStateHeightsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryConsensusStateHeightsResponse;
     fromJSON(object: any): QueryConsensusStateHeightsResponse;
     toJSON(message: QueryConsensusStateHeightsResponse): unknown;
     fromPartial(object: Partial<QueryConsensusStateHeightsResponse>): QueryConsensusStateHeightsResponse;
@@ -767,8 +768,8 @@ export declare const QueryConsensusStateHeightsResponse: {
 };
 export declare const QueryClientStatusRequest: {
     typeUrl: string;
-    encode(message: QueryClientStatusRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryClientStatusRequest;
+    encode(message: QueryClientStatusRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryClientStatusRequest;
     fromJSON(object: any): QueryClientStatusRequest;
     toJSON(message: QueryClientStatusRequest): unknown;
     fromPartial(object: Partial<QueryClientStatusRequest>): QueryClientStatusRequest;
@@ -782,8 +783,8 @@ export declare const QueryClientStatusRequest: {
 };
 export declare const QueryClientStatusResponse: {
     typeUrl: string;
-    encode(message: QueryClientStatusResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryClientStatusResponse;
+    encode(message: QueryClientStatusResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryClientStatusResponse;
     fromJSON(object: any): QueryClientStatusResponse;
     toJSON(message: QueryClientStatusResponse): unknown;
     fromPartial(object: Partial<QueryClientStatusResponse>): QueryClientStatusResponse;
@@ -797,8 +798,8 @@ export declare const QueryClientStatusResponse: {
 };
 export declare const QueryClientParamsRequest: {
     typeUrl: string;
-    encode(_: QueryClientParamsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryClientParamsRequest;
+    encode(_: QueryClientParamsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryClientParamsRequest;
     fromJSON(_: any): QueryClientParamsRequest;
     toJSON(_: QueryClientParamsRequest): unknown;
     fromPartial(_: Partial<QueryClientParamsRequest>): QueryClientParamsRequest;
@@ -812,8 +813,8 @@ export declare const QueryClientParamsRequest: {
 };
 export declare const QueryClientParamsResponse: {
     typeUrl: string;
-    encode(message: QueryClientParamsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryClientParamsResponse;
+    encode(message: QueryClientParamsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryClientParamsResponse;
     fromJSON(object: any): QueryClientParamsResponse;
     toJSON(message: QueryClientParamsResponse): unknown;
     fromPartial(object: Partial<QueryClientParamsResponse>): QueryClientParamsResponse;
@@ -827,8 +828,8 @@ export declare const QueryClientParamsResponse: {
 };
 export declare const QueryUpgradedClientStateRequest: {
     typeUrl: string;
-    encode(_: QueryUpgradedClientStateRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryUpgradedClientStateRequest;
+    encode(_: QueryUpgradedClientStateRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryUpgradedClientStateRequest;
     fromJSON(_: any): QueryUpgradedClientStateRequest;
     toJSON(_: QueryUpgradedClientStateRequest): unknown;
     fromPartial(_: Partial<QueryUpgradedClientStateRequest>): QueryUpgradedClientStateRequest;
@@ -842,8 +843,8 @@ export declare const QueryUpgradedClientStateRequest: {
 };
 export declare const QueryUpgradedClientStateResponse: {
     typeUrl: string;
-    encode(message: QueryUpgradedClientStateResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryUpgradedClientStateResponse;
+    encode(message: QueryUpgradedClientStateResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryUpgradedClientStateResponse;
     fromJSON(object: any): QueryUpgradedClientStateResponse;
     toJSON(message: QueryUpgradedClientStateResponse): unknown;
     fromPartial(object: Partial<QueryUpgradedClientStateResponse>): QueryUpgradedClientStateResponse;
@@ -857,8 +858,8 @@ export declare const QueryUpgradedClientStateResponse: {
 };
 export declare const QueryUpgradedConsensusStateRequest: {
     typeUrl: string;
-    encode(_: QueryUpgradedConsensusStateRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryUpgradedConsensusStateRequest;
+    encode(_: QueryUpgradedConsensusStateRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryUpgradedConsensusStateRequest;
     fromJSON(_: any): QueryUpgradedConsensusStateRequest;
     toJSON(_: QueryUpgradedConsensusStateRequest): unknown;
     fromPartial(_: Partial<QueryUpgradedConsensusStateRequest>): QueryUpgradedConsensusStateRequest;
@@ -872,8 +873,8 @@ export declare const QueryUpgradedConsensusStateRequest: {
 };
 export declare const QueryUpgradedConsensusStateResponse: {
     typeUrl: string;
-    encode(message: QueryUpgradedConsensusStateResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryUpgradedConsensusStateResponse;
+    encode(message: QueryUpgradedConsensusStateResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryUpgradedConsensusStateResponse;
     fromJSON(object: any): QueryUpgradedConsensusStateResponse;
     toJSON(message: QueryUpgradedConsensusStateResponse): unknown;
     fromPartial(object: Partial<QueryUpgradedConsensusStateResponse>): QueryUpgradedConsensusStateResponse;

@@ -1,6 +1,6 @@
 import { Coin, CoinAmino, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
 import { PacketId, PacketIdAmino, PacketIdSDKType } from "../../../core/channel/v1/channel";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** Fee defines the ICS29 receive, acknowledgement and timeout fees */
 export interface Fee {
     /** the packet receive fee */
@@ -116,8 +116,8 @@ export interface IdentifiedPacketFeesSDKType {
 }
 export declare const Fee: {
     typeUrl: string;
-    encode(message: Fee, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Fee;
+    encode(message: Fee, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Fee;
     fromJSON(object: any): Fee;
     toJSON(message: Fee): unknown;
     fromPartial(object: Partial<Fee>): Fee;
@@ -131,8 +131,8 @@ export declare const Fee: {
 };
 export declare const PacketFee: {
     typeUrl: string;
-    encode(message: PacketFee, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): PacketFee;
+    encode(message: PacketFee, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PacketFee;
     fromJSON(object: any): PacketFee;
     toJSON(message: PacketFee): unknown;
     fromPartial(object: Partial<PacketFee>): PacketFee;
@@ -146,8 +146,8 @@ export declare const PacketFee: {
 };
 export declare const PacketFees: {
     typeUrl: string;
-    encode(message: PacketFees, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): PacketFees;
+    encode(message: PacketFees, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PacketFees;
     fromJSON(object: any): PacketFees;
     toJSON(message: PacketFees): unknown;
     fromPartial(object: Partial<PacketFees>): PacketFees;
@@ -161,8 +161,8 @@ export declare const PacketFees: {
 };
 export declare const IdentifiedPacketFees: {
     typeUrl: string;
-    encode(message: IdentifiedPacketFees, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): IdentifiedPacketFees;
+    encode(message: IdentifiedPacketFees, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): IdentifiedPacketFees;
     fromJSON(object: any): IdentifiedPacketFees;
     toJSON(message: IdentifiedPacketFees): unknown;
     fromPartial(object: Partial<IdentifiedPacketFees>): IdentifiedPacketFees;

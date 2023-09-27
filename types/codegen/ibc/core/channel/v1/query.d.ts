@@ -2,7 +2,8 @@ import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageRe
 import { Channel, ChannelAmino, ChannelSDKType, IdentifiedChannel, IdentifiedChannelAmino, IdentifiedChannelSDKType, PacketState, PacketStateAmino, PacketStateSDKType } from "./channel";
 import { Height, HeightAmino, HeightSDKType, IdentifiedClientState, IdentifiedClientStateAmino, IdentifiedClientStateSDKType } from "../../client/v1/client";
 import { Any, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** QueryChannelRequest is the request type for the Query/Channel RPC method */
 export interface QueryChannelRequest {
     /** port unique identifier */
@@ -292,9 +293,9 @@ export interface QueryChannelConsensusStateRequest {
     /** channel unique identifier */
     channelId: string;
     /** revision number of the consensus state */
-    revisionNumber: bigint;
+    revisionNumber: Long;
     /** revision height of the consensus state */
-    revisionHeight: bigint;
+    revisionHeight: Long;
 }
 export interface QueryChannelConsensusStateRequestProtoMsg {
     typeUrl: "/ibc.core.channel.v1.QueryChannelConsensusStateRequest";
@@ -325,8 +326,8 @@ export interface QueryChannelConsensusStateRequestAminoMsg {
 export interface QueryChannelConsensusStateRequestSDKType {
     port_id: string;
     channel_id: string;
-    revision_number: bigint;
-    revision_height: bigint;
+    revision_number: Long;
+    revision_height: Long;
 }
 /**
  * QueryChannelClientStateResponse is the Response type for the
@@ -384,7 +385,7 @@ export interface QueryPacketCommitmentRequest {
     /** channel unique identifier */
     channelId: string;
     /** packet sequence */
-    sequence: bigint;
+    sequence: Long;
 }
 export interface QueryPacketCommitmentRequestProtoMsg {
     typeUrl: "/ibc.core.channel.v1.QueryPacketCommitmentRequest";
@@ -413,7 +414,7 @@ export interface QueryPacketCommitmentRequestAminoMsg {
 export interface QueryPacketCommitmentRequestSDKType {
     port_id: string;
     channel_id: string;
-    sequence: bigint;
+    sequence: Long;
 }
 /**
  * QueryPacketCommitmentResponse defines the client query response for a packet
@@ -549,7 +550,7 @@ export interface QueryPacketReceiptRequest {
     /** channel unique identifier */
     channelId: string;
     /** packet sequence */
-    sequence: bigint;
+    sequence: Long;
 }
 export interface QueryPacketReceiptRequestProtoMsg {
     typeUrl: "/ibc.core.channel.v1.QueryPacketReceiptRequest";
@@ -578,7 +579,7 @@ export interface QueryPacketReceiptRequestAminoMsg {
 export interface QueryPacketReceiptRequestSDKType {
     port_id: string;
     channel_id: string;
-    sequence: bigint;
+    sequence: Long;
 }
 /**
  * QueryPacketReceiptResponse defines the client query response for a packet
@@ -634,7 +635,7 @@ export interface QueryPacketAcknowledgementRequest {
     /** channel unique identifier */
     channelId: string;
     /** packet sequence */
-    sequence: bigint;
+    sequence: Long;
 }
 export interface QueryPacketAcknowledgementRequestProtoMsg {
     typeUrl: "/ibc.core.channel.v1.QueryPacketAcknowledgementRequest";
@@ -663,7 +664,7 @@ export interface QueryPacketAcknowledgementRequestAminoMsg {
 export interface QueryPacketAcknowledgementRequestSDKType {
     port_id: string;
     channel_id: string;
-    sequence: bigint;
+    sequence: Long;
 }
 /**
  * QueryPacketAcknowledgementResponse defines the client query response for a
@@ -721,7 +722,7 @@ export interface QueryPacketAcknowledgementsRequest {
     /** pagination request */
     pagination: PageRequest;
     /** list of packet sequences */
-    packetCommitmentSequences: bigint[];
+    packetCommitmentSequences: Long[];
 }
 export interface QueryPacketAcknowledgementsRequestProtoMsg {
     typeUrl: "/ibc.core.channel.v1.QueryPacketAcknowledgementsRequest";
@@ -753,7 +754,7 @@ export interface QueryPacketAcknowledgementsRequestSDKType {
     port_id: string;
     channel_id: string;
     pagination: PageRequestSDKType;
-    packet_commitment_sequences: bigint[];
+    packet_commitment_sequences: Long[];
 }
 /**
  * QueryPacketAcknowledgemetsResponse is the request type for the
@@ -804,7 +805,7 @@ export interface QueryUnreceivedPacketsRequest {
     /** channel unique identifier */
     channelId: string;
     /** list of packet sequences */
-    packetCommitmentSequences: bigint[];
+    packetCommitmentSequences: Long[];
 }
 export interface QueryUnreceivedPacketsRequestProtoMsg {
     typeUrl: "/ibc.core.channel.v1.QueryUnreceivedPacketsRequest";
@@ -833,7 +834,7 @@ export interface QueryUnreceivedPacketsRequestAminoMsg {
 export interface QueryUnreceivedPacketsRequestSDKType {
     port_id: string;
     channel_id: string;
-    packet_commitment_sequences: bigint[];
+    packet_commitment_sequences: Long[];
 }
 /**
  * QueryUnreceivedPacketsResponse is the response type for the
@@ -841,7 +842,7 @@ export interface QueryUnreceivedPacketsRequestSDKType {
  */
 export interface QueryUnreceivedPacketsResponse {
     /** list of unreceived packet sequences */
-    sequences: bigint[];
+    sequences: Long[];
     /** query block height */
     height: Height;
 }
@@ -868,7 +869,7 @@ export interface QueryUnreceivedPacketsResponseAminoMsg {
  * Query/UnreceivedPacketCommitments RPC method
  */
 export interface QueryUnreceivedPacketsResponseSDKType {
-    sequences: bigint[];
+    sequences: Long[];
     height: HeightSDKType;
 }
 /**
@@ -881,7 +882,7 @@ export interface QueryUnreceivedAcksRequest {
     /** channel unique identifier */
     channelId: string;
     /** list of acknowledgement sequences */
-    packetAckSequences: bigint[];
+    packetAckSequences: Long[];
 }
 export interface QueryUnreceivedAcksRequestProtoMsg {
     typeUrl: "/ibc.core.channel.v1.QueryUnreceivedAcksRequest";
@@ -910,7 +911,7 @@ export interface QueryUnreceivedAcksRequestAminoMsg {
 export interface QueryUnreceivedAcksRequestSDKType {
     port_id: string;
     channel_id: string;
-    packet_ack_sequences: bigint[];
+    packet_ack_sequences: Long[];
 }
 /**
  * QueryUnreceivedAcksResponse is the response type for the
@@ -918,7 +919,7 @@ export interface QueryUnreceivedAcksRequestSDKType {
  */
 export interface QueryUnreceivedAcksResponse {
     /** list of unreceived acknowledgement sequences */
-    sequences: bigint[];
+    sequences: Long[];
     /** query block height */
     height: Height;
 }
@@ -945,7 +946,7 @@ export interface QueryUnreceivedAcksResponseAminoMsg {
  * Query/UnreceivedAcks RPC method
  */
 export interface QueryUnreceivedAcksResponseSDKType {
-    sequences: bigint[];
+    sequences: Long[];
     height: HeightSDKType;
 }
 /**
@@ -990,7 +991,7 @@ export interface QueryNextSequenceReceiveRequestSDKType {
  */
 export interface QueryNextSequenceReceiveResponse {
     /** next sequence receive number */
-    nextSequenceReceive: bigint;
+    nextSequenceReceive: Long;
     /** merkle proof of existence */
     proof: Uint8Array;
     /** height at which the proof was retrieved */
@@ -1021,14 +1022,14 @@ export interface QueryNextSequenceReceiveResponseAminoMsg {
  * Query/QueryNextSequenceReceiveResponse RPC method
  */
 export interface QueryNextSequenceReceiveResponseSDKType {
-    next_sequence_receive: bigint;
+    next_sequence_receive: Long;
     proof: Uint8Array;
     proof_height: HeightSDKType;
 }
 export declare const QueryChannelRequest: {
     typeUrl: string;
-    encode(message: QueryChannelRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryChannelRequest;
+    encode(message: QueryChannelRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryChannelRequest;
     fromJSON(object: any): QueryChannelRequest;
     toJSON(message: QueryChannelRequest): unknown;
     fromPartial(object: Partial<QueryChannelRequest>): QueryChannelRequest;
@@ -1042,8 +1043,8 @@ export declare const QueryChannelRequest: {
 };
 export declare const QueryChannelResponse: {
     typeUrl: string;
-    encode(message: QueryChannelResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryChannelResponse;
+    encode(message: QueryChannelResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryChannelResponse;
     fromJSON(object: any): QueryChannelResponse;
     toJSON(message: QueryChannelResponse): unknown;
     fromPartial(object: Partial<QueryChannelResponse>): QueryChannelResponse;
@@ -1057,8 +1058,8 @@ export declare const QueryChannelResponse: {
 };
 export declare const QueryChannelsRequest: {
     typeUrl: string;
-    encode(message: QueryChannelsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryChannelsRequest;
+    encode(message: QueryChannelsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryChannelsRequest;
     fromJSON(object: any): QueryChannelsRequest;
     toJSON(message: QueryChannelsRequest): unknown;
     fromPartial(object: Partial<QueryChannelsRequest>): QueryChannelsRequest;
@@ -1072,8 +1073,8 @@ export declare const QueryChannelsRequest: {
 };
 export declare const QueryChannelsResponse: {
     typeUrl: string;
-    encode(message: QueryChannelsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryChannelsResponse;
+    encode(message: QueryChannelsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryChannelsResponse;
     fromJSON(object: any): QueryChannelsResponse;
     toJSON(message: QueryChannelsResponse): unknown;
     fromPartial(object: Partial<QueryChannelsResponse>): QueryChannelsResponse;
@@ -1087,8 +1088,8 @@ export declare const QueryChannelsResponse: {
 };
 export declare const QueryConnectionChannelsRequest: {
     typeUrl: string;
-    encode(message: QueryConnectionChannelsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryConnectionChannelsRequest;
+    encode(message: QueryConnectionChannelsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryConnectionChannelsRequest;
     fromJSON(object: any): QueryConnectionChannelsRequest;
     toJSON(message: QueryConnectionChannelsRequest): unknown;
     fromPartial(object: Partial<QueryConnectionChannelsRequest>): QueryConnectionChannelsRequest;
@@ -1102,8 +1103,8 @@ export declare const QueryConnectionChannelsRequest: {
 };
 export declare const QueryConnectionChannelsResponse: {
     typeUrl: string;
-    encode(message: QueryConnectionChannelsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryConnectionChannelsResponse;
+    encode(message: QueryConnectionChannelsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryConnectionChannelsResponse;
     fromJSON(object: any): QueryConnectionChannelsResponse;
     toJSON(message: QueryConnectionChannelsResponse): unknown;
     fromPartial(object: Partial<QueryConnectionChannelsResponse>): QueryConnectionChannelsResponse;
@@ -1117,8 +1118,8 @@ export declare const QueryConnectionChannelsResponse: {
 };
 export declare const QueryChannelClientStateRequest: {
     typeUrl: string;
-    encode(message: QueryChannelClientStateRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryChannelClientStateRequest;
+    encode(message: QueryChannelClientStateRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryChannelClientStateRequest;
     fromJSON(object: any): QueryChannelClientStateRequest;
     toJSON(message: QueryChannelClientStateRequest): unknown;
     fromPartial(object: Partial<QueryChannelClientStateRequest>): QueryChannelClientStateRequest;
@@ -1132,8 +1133,8 @@ export declare const QueryChannelClientStateRequest: {
 };
 export declare const QueryChannelClientStateResponse: {
     typeUrl: string;
-    encode(message: QueryChannelClientStateResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryChannelClientStateResponse;
+    encode(message: QueryChannelClientStateResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryChannelClientStateResponse;
     fromJSON(object: any): QueryChannelClientStateResponse;
     toJSON(message: QueryChannelClientStateResponse): unknown;
     fromPartial(object: Partial<QueryChannelClientStateResponse>): QueryChannelClientStateResponse;
@@ -1147,8 +1148,8 @@ export declare const QueryChannelClientStateResponse: {
 };
 export declare const QueryChannelConsensusStateRequest: {
     typeUrl: string;
-    encode(message: QueryChannelConsensusStateRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryChannelConsensusStateRequest;
+    encode(message: QueryChannelConsensusStateRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryChannelConsensusStateRequest;
     fromJSON(object: any): QueryChannelConsensusStateRequest;
     toJSON(message: QueryChannelConsensusStateRequest): unknown;
     fromPartial(object: Partial<QueryChannelConsensusStateRequest>): QueryChannelConsensusStateRequest;
@@ -1162,8 +1163,8 @@ export declare const QueryChannelConsensusStateRequest: {
 };
 export declare const QueryChannelConsensusStateResponse: {
     typeUrl: string;
-    encode(message: QueryChannelConsensusStateResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryChannelConsensusStateResponse;
+    encode(message: QueryChannelConsensusStateResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryChannelConsensusStateResponse;
     fromJSON(object: any): QueryChannelConsensusStateResponse;
     toJSON(message: QueryChannelConsensusStateResponse): unknown;
     fromPartial(object: Partial<QueryChannelConsensusStateResponse>): QueryChannelConsensusStateResponse;
@@ -1177,8 +1178,8 @@ export declare const QueryChannelConsensusStateResponse: {
 };
 export declare const QueryPacketCommitmentRequest: {
     typeUrl: string;
-    encode(message: QueryPacketCommitmentRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryPacketCommitmentRequest;
+    encode(message: QueryPacketCommitmentRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryPacketCommitmentRequest;
     fromJSON(object: any): QueryPacketCommitmentRequest;
     toJSON(message: QueryPacketCommitmentRequest): unknown;
     fromPartial(object: Partial<QueryPacketCommitmentRequest>): QueryPacketCommitmentRequest;
@@ -1192,8 +1193,8 @@ export declare const QueryPacketCommitmentRequest: {
 };
 export declare const QueryPacketCommitmentResponse: {
     typeUrl: string;
-    encode(message: QueryPacketCommitmentResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryPacketCommitmentResponse;
+    encode(message: QueryPacketCommitmentResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryPacketCommitmentResponse;
     fromJSON(object: any): QueryPacketCommitmentResponse;
     toJSON(message: QueryPacketCommitmentResponse): unknown;
     fromPartial(object: Partial<QueryPacketCommitmentResponse>): QueryPacketCommitmentResponse;
@@ -1207,8 +1208,8 @@ export declare const QueryPacketCommitmentResponse: {
 };
 export declare const QueryPacketCommitmentsRequest: {
     typeUrl: string;
-    encode(message: QueryPacketCommitmentsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryPacketCommitmentsRequest;
+    encode(message: QueryPacketCommitmentsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryPacketCommitmentsRequest;
     fromJSON(object: any): QueryPacketCommitmentsRequest;
     toJSON(message: QueryPacketCommitmentsRequest): unknown;
     fromPartial(object: Partial<QueryPacketCommitmentsRequest>): QueryPacketCommitmentsRequest;
@@ -1222,8 +1223,8 @@ export declare const QueryPacketCommitmentsRequest: {
 };
 export declare const QueryPacketCommitmentsResponse: {
     typeUrl: string;
-    encode(message: QueryPacketCommitmentsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryPacketCommitmentsResponse;
+    encode(message: QueryPacketCommitmentsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryPacketCommitmentsResponse;
     fromJSON(object: any): QueryPacketCommitmentsResponse;
     toJSON(message: QueryPacketCommitmentsResponse): unknown;
     fromPartial(object: Partial<QueryPacketCommitmentsResponse>): QueryPacketCommitmentsResponse;
@@ -1237,8 +1238,8 @@ export declare const QueryPacketCommitmentsResponse: {
 };
 export declare const QueryPacketReceiptRequest: {
     typeUrl: string;
-    encode(message: QueryPacketReceiptRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryPacketReceiptRequest;
+    encode(message: QueryPacketReceiptRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryPacketReceiptRequest;
     fromJSON(object: any): QueryPacketReceiptRequest;
     toJSON(message: QueryPacketReceiptRequest): unknown;
     fromPartial(object: Partial<QueryPacketReceiptRequest>): QueryPacketReceiptRequest;
@@ -1252,8 +1253,8 @@ export declare const QueryPacketReceiptRequest: {
 };
 export declare const QueryPacketReceiptResponse: {
     typeUrl: string;
-    encode(message: QueryPacketReceiptResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryPacketReceiptResponse;
+    encode(message: QueryPacketReceiptResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryPacketReceiptResponse;
     fromJSON(object: any): QueryPacketReceiptResponse;
     toJSON(message: QueryPacketReceiptResponse): unknown;
     fromPartial(object: Partial<QueryPacketReceiptResponse>): QueryPacketReceiptResponse;
@@ -1267,8 +1268,8 @@ export declare const QueryPacketReceiptResponse: {
 };
 export declare const QueryPacketAcknowledgementRequest: {
     typeUrl: string;
-    encode(message: QueryPacketAcknowledgementRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryPacketAcknowledgementRequest;
+    encode(message: QueryPacketAcknowledgementRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryPacketAcknowledgementRequest;
     fromJSON(object: any): QueryPacketAcknowledgementRequest;
     toJSON(message: QueryPacketAcknowledgementRequest): unknown;
     fromPartial(object: Partial<QueryPacketAcknowledgementRequest>): QueryPacketAcknowledgementRequest;
@@ -1282,8 +1283,8 @@ export declare const QueryPacketAcknowledgementRequest: {
 };
 export declare const QueryPacketAcknowledgementResponse: {
     typeUrl: string;
-    encode(message: QueryPacketAcknowledgementResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryPacketAcknowledgementResponse;
+    encode(message: QueryPacketAcknowledgementResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryPacketAcknowledgementResponse;
     fromJSON(object: any): QueryPacketAcknowledgementResponse;
     toJSON(message: QueryPacketAcknowledgementResponse): unknown;
     fromPartial(object: Partial<QueryPacketAcknowledgementResponse>): QueryPacketAcknowledgementResponse;
@@ -1297,8 +1298,8 @@ export declare const QueryPacketAcknowledgementResponse: {
 };
 export declare const QueryPacketAcknowledgementsRequest: {
     typeUrl: string;
-    encode(message: QueryPacketAcknowledgementsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryPacketAcknowledgementsRequest;
+    encode(message: QueryPacketAcknowledgementsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryPacketAcknowledgementsRequest;
     fromJSON(object: any): QueryPacketAcknowledgementsRequest;
     toJSON(message: QueryPacketAcknowledgementsRequest): unknown;
     fromPartial(object: Partial<QueryPacketAcknowledgementsRequest>): QueryPacketAcknowledgementsRequest;
@@ -1312,8 +1313,8 @@ export declare const QueryPacketAcknowledgementsRequest: {
 };
 export declare const QueryPacketAcknowledgementsResponse: {
     typeUrl: string;
-    encode(message: QueryPacketAcknowledgementsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryPacketAcknowledgementsResponse;
+    encode(message: QueryPacketAcknowledgementsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryPacketAcknowledgementsResponse;
     fromJSON(object: any): QueryPacketAcknowledgementsResponse;
     toJSON(message: QueryPacketAcknowledgementsResponse): unknown;
     fromPartial(object: Partial<QueryPacketAcknowledgementsResponse>): QueryPacketAcknowledgementsResponse;
@@ -1327,8 +1328,8 @@ export declare const QueryPacketAcknowledgementsResponse: {
 };
 export declare const QueryUnreceivedPacketsRequest: {
     typeUrl: string;
-    encode(message: QueryUnreceivedPacketsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryUnreceivedPacketsRequest;
+    encode(message: QueryUnreceivedPacketsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryUnreceivedPacketsRequest;
     fromJSON(object: any): QueryUnreceivedPacketsRequest;
     toJSON(message: QueryUnreceivedPacketsRequest): unknown;
     fromPartial(object: Partial<QueryUnreceivedPacketsRequest>): QueryUnreceivedPacketsRequest;
@@ -1342,8 +1343,8 @@ export declare const QueryUnreceivedPacketsRequest: {
 };
 export declare const QueryUnreceivedPacketsResponse: {
     typeUrl: string;
-    encode(message: QueryUnreceivedPacketsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryUnreceivedPacketsResponse;
+    encode(message: QueryUnreceivedPacketsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryUnreceivedPacketsResponse;
     fromJSON(object: any): QueryUnreceivedPacketsResponse;
     toJSON(message: QueryUnreceivedPacketsResponse): unknown;
     fromPartial(object: Partial<QueryUnreceivedPacketsResponse>): QueryUnreceivedPacketsResponse;
@@ -1357,8 +1358,8 @@ export declare const QueryUnreceivedPacketsResponse: {
 };
 export declare const QueryUnreceivedAcksRequest: {
     typeUrl: string;
-    encode(message: QueryUnreceivedAcksRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryUnreceivedAcksRequest;
+    encode(message: QueryUnreceivedAcksRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryUnreceivedAcksRequest;
     fromJSON(object: any): QueryUnreceivedAcksRequest;
     toJSON(message: QueryUnreceivedAcksRequest): unknown;
     fromPartial(object: Partial<QueryUnreceivedAcksRequest>): QueryUnreceivedAcksRequest;
@@ -1372,8 +1373,8 @@ export declare const QueryUnreceivedAcksRequest: {
 };
 export declare const QueryUnreceivedAcksResponse: {
     typeUrl: string;
-    encode(message: QueryUnreceivedAcksResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryUnreceivedAcksResponse;
+    encode(message: QueryUnreceivedAcksResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryUnreceivedAcksResponse;
     fromJSON(object: any): QueryUnreceivedAcksResponse;
     toJSON(message: QueryUnreceivedAcksResponse): unknown;
     fromPartial(object: Partial<QueryUnreceivedAcksResponse>): QueryUnreceivedAcksResponse;
@@ -1387,8 +1388,8 @@ export declare const QueryUnreceivedAcksResponse: {
 };
 export declare const QueryNextSequenceReceiveRequest: {
     typeUrl: string;
-    encode(message: QueryNextSequenceReceiveRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryNextSequenceReceiveRequest;
+    encode(message: QueryNextSequenceReceiveRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryNextSequenceReceiveRequest;
     fromJSON(object: any): QueryNextSequenceReceiveRequest;
     toJSON(message: QueryNextSequenceReceiveRequest): unknown;
     fromPartial(object: Partial<QueryNextSequenceReceiveRequest>): QueryNextSequenceReceiveRequest;
@@ -1402,8 +1403,8 @@ export declare const QueryNextSequenceReceiveRequest: {
 };
 export declare const QueryNextSequenceReceiveResponse: {
     typeUrl: string;
-    encode(message: QueryNextSequenceReceiveResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryNextSequenceReceiveResponse;
+    encode(message: QueryNextSequenceReceiveResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryNextSequenceReceiveResponse;
     fromJSON(object: any): QueryNextSequenceReceiveResponse;
     toJSON(message: QueryNextSequenceReceiveResponse): unknown;
     fromPartial(object: Partial<QueryNextSequenceReceiveResponse>): QueryNextSequenceReceiveResponse;

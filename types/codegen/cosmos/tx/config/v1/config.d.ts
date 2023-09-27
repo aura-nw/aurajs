@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** Config is the config object of the x/auth/tx package. */
 export interface Config {
     /**
@@ -40,8 +40,8 @@ export interface ConfigSDKType {
 }
 export declare const Config: {
     typeUrl: string;
-    encode(message: Config, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Config;
+    encode(message: Config, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Config;
     fromJSON(object: any): Config;
     toJSON(message: Config): unknown;
     fromPartial(object: Partial<Config>): Config;

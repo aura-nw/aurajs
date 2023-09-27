@@ -1,6 +1,6 @@
 import { Params, ParamsAmino, ParamsSDKType, Metadata, MetadataAmino, MetadataSDKType, SendEnabled, SendEnabledAmino, SendEnabledSDKType } from "./bank";
 import { Coin, CoinAmino, CoinSDKType } from "../../base/v1beta1/coin";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** GenesisState defines the bank module's genesis state. */
 export interface GenesisState {
     /** params defines all the parameters of the module. */
@@ -95,8 +95,8 @@ export interface BalanceSDKType {
 }
 export declare const GenesisState: {
     typeUrl: string;
-    encode(message: GenesisState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GenesisState;
+    encode(message: GenesisState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GenesisState;
     fromJSON(object: any): GenesisState;
     toJSON(message: GenesisState): unknown;
     fromPartial(object: Partial<GenesisState>): GenesisState;
@@ -110,8 +110,8 @@ export declare const GenesisState: {
 };
 export declare const Balance: {
     typeUrl: string;
-    encode(message: Balance, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Balance;
+    encode(message: Balance, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Balance;
     fromJSON(object: any): Balance;
     toJSON(message: Balance): unknown;
     fromPartial(object: Partial<Balance>): Balance;

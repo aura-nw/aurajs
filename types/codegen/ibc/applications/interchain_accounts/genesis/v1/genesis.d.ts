@@ -4,7 +4,7 @@ import { ParamsSDKType as Params1SDKType } from "../../controller/v1/controller"
 import { Params as Params2 } from "../../host/v1/host";
 import { ParamsAmino as Params2Amino } from "../../host/v1/host";
 import { ParamsSDKType as Params2SDKType } from "../../host/v1/host";
-import { BinaryReader, BinaryWriter } from "../../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** GenesisState defines the interchain accounts genesis state */
 export interface GenesisState {
     controllerGenesisState: ControllerGenesisState;
@@ -152,8 +152,8 @@ export interface RegisteredInterchainAccountSDKType {
 }
 export declare const GenesisState: {
     typeUrl: string;
-    encode(message: GenesisState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GenesisState;
+    encode(message: GenesisState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GenesisState;
     fromJSON(object: any): GenesisState;
     toJSON(message: GenesisState): unknown;
     fromPartial(object: Partial<GenesisState>): GenesisState;
@@ -167,8 +167,8 @@ export declare const GenesisState: {
 };
 export declare const ControllerGenesisState: {
     typeUrl: string;
-    encode(message: ControllerGenesisState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ControllerGenesisState;
+    encode(message: ControllerGenesisState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ControllerGenesisState;
     fromJSON(object: any): ControllerGenesisState;
     toJSON(message: ControllerGenesisState): unknown;
     fromPartial(object: Partial<ControllerGenesisState>): ControllerGenesisState;
@@ -182,8 +182,8 @@ export declare const ControllerGenesisState: {
 };
 export declare const HostGenesisState: {
     typeUrl: string;
-    encode(message: HostGenesisState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): HostGenesisState;
+    encode(message: HostGenesisState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): HostGenesisState;
     fromJSON(object: any): HostGenesisState;
     toJSON(message: HostGenesisState): unknown;
     fromPartial(object: Partial<HostGenesisState>): HostGenesisState;
@@ -197,8 +197,8 @@ export declare const HostGenesisState: {
 };
 export declare const ActiveChannel: {
     typeUrl: string;
-    encode(message: ActiveChannel, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ActiveChannel;
+    encode(message: ActiveChannel, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ActiveChannel;
     fromJSON(object: any): ActiveChannel;
     toJSON(message: ActiveChannel): unknown;
     fromPartial(object: Partial<ActiveChannel>): ActiveChannel;
@@ -212,8 +212,8 @@ export declare const ActiveChannel: {
 };
 export declare const RegisteredInterchainAccount: {
     typeUrl: string;
-    encode(message: RegisteredInterchainAccount, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): RegisteredInterchainAccount;
+    encode(message: RegisteredInterchainAccount, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): RegisteredInterchainAccount;
     fromJSON(object: any): RegisteredInterchainAccount;
     toJSON(message: RegisteredInterchainAccount): unknown;
     fromPartial(object: Partial<RegisteredInterchainAccount>): RegisteredInterchainAccount;

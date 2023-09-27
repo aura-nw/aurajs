@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** AppDescriptor describes a cosmos-sdk based application */
 export interface AppDescriptor {
     /**
@@ -719,8 +719,8 @@ export interface QueryMethodDescriptorSDKType {
 }
 export declare const AppDescriptor: {
     typeUrl: string;
-    encode(message: AppDescriptor, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): AppDescriptor;
+    encode(message: AppDescriptor, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): AppDescriptor;
     fromJSON(object: any): AppDescriptor;
     toJSON(message: AppDescriptor): unknown;
     fromPartial(object: Partial<AppDescriptor>): AppDescriptor;
@@ -734,8 +734,8 @@ export declare const AppDescriptor: {
 };
 export declare const TxDescriptor: {
     typeUrl: string;
-    encode(message: TxDescriptor, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): TxDescriptor;
+    encode(message: TxDescriptor, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TxDescriptor;
     fromJSON(object: any): TxDescriptor;
     toJSON(message: TxDescriptor): unknown;
     fromPartial(object: Partial<TxDescriptor>): TxDescriptor;
@@ -749,8 +749,8 @@ export declare const TxDescriptor: {
 };
 export declare const AuthnDescriptor: {
     typeUrl: string;
-    encode(message: AuthnDescriptor, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): AuthnDescriptor;
+    encode(message: AuthnDescriptor, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): AuthnDescriptor;
     fromJSON(object: any): AuthnDescriptor;
     toJSON(message: AuthnDescriptor): unknown;
     fromPartial(object: Partial<AuthnDescriptor>): AuthnDescriptor;
@@ -764,8 +764,8 @@ export declare const AuthnDescriptor: {
 };
 export declare const SigningModeDescriptor: {
     typeUrl: string;
-    encode(message: SigningModeDescriptor, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SigningModeDescriptor;
+    encode(message: SigningModeDescriptor, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SigningModeDescriptor;
     fromJSON(object: any): SigningModeDescriptor;
     toJSON(message: SigningModeDescriptor): unknown;
     fromPartial(object: Partial<SigningModeDescriptor>): SigningModeDescriptor;
@@ -779,8 +779,8 @@ export declare const SigningModeDescriptor: {
 };
 export declare const ChainDescriptor: {
     typeUrl: string;
-    encode(message: ChainDescriptor, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ChainDescriptor;
+    encode(message: ChainDescriptor, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ChainDescriptor;
     fromJSON(object: any): ChainDescriptor;
     toJSON(message: ChainDescriptor): unknown;
     fromPartial(object: Partial<ChainDescriptor>): ChainDescriptor;
@@ -794,8 +794,8 @@ export declare const ChainDescriptor: {
 };
 export declare const CodecDescriptor: {
     typeUrl: string;
-    encode(message: CodecDescriptor, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): CodecDescriptor;
+    encode(message: CodecDescriptor, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): CodecDescriptor;
     fromJSON(object: any): CodecDescriptor;
     toJSON(message: CodecDescriptor): unknown;
     fromPartial(object: Partial<CodecDescriptor>): CodecDescriptor;
@@ -809,8 +809,8 @@ export declare const CodecDescriptor: {
 };
 export declare const InterfaceDescriptor: {
     typeUrl: string;
-    encode(message: InterfaceDescriptor, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): InterfaceDescriptor;
+    encode(message: InterfaceDescriptor, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): InterfaceDescriptor;
     fromJSON(object: any): InterfaceDescriptor;
     toJSON(message: InterfaceDescriptor): unknown;
     fromPartial(object: Partial<InterfaceDescriptor>): InterfaceDescriptor;
@@ -824,8 +824,8 @@ export declare const InterfaceDescriptor: {
 };
 export declare const InterfaceImplementerDescriptor: {
     typeUrl: string;
-    encode(message: InterfaceImplementerDescriptor, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): InterfaceImplementerDescriptor;
+    encode(message: InterfaceImplementerDescriptor, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): InterfaceImplementerDescriptor;
     fromJSON(object: any): InterfaceImplementerDescriptor;
     toJSON(message: InterfaceImplementerDescriptor): unknown;
     fromPartial(object: Partial<InterfaceImplementerDescriptor>): InterfaceImplementerDescriptor;
@@ -839,8 +839,8 @@ export declare const InterfaceImplementerDescriptor: {
 };
 export declare const InterfaceAcceptingMessageDescriptor: {
     typeUrl: string;
-    encode(message: InterfaceAcceptingMessageDescriptor, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): InterfaceAcceptingMessageDescriptor;
+    encode(message: InterfaceAcceptingMessageDescriptor, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): InterfaceAcceptingMessageDescriptor;
     fromJSON(object: any): InterfaceAcceptingMessageDescriptor;
     toJSON(message: InterfaceAcceptingMessageDescriptor): unknown;
     fromPartial(object: Partial<InterfaceAcceptingMessageDescriptor>): InterfaceAcceptingMessageDescriptor;
@@ -854,8 +854,8 @@ export declare const InterfaceAcceptingMessageDescriptor: {
 };
 export declare const ConfigurationDescriptor: {
     typeUrl: string;
-    encode(message: ConfigurationDescriptor, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ConfigurationDescriptor;
+    encode(message: ConfigurationDescriptor, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ConfigurationDescriptor;
     fromJSON(object: any): ConfigurationDescriptor;
     toJSON(message: ConfigurationDescriptor): unknown;
     fromPartial(object: Partial<ConfigurationDescriptor>): ConfigurationDescriptor;
@@ -869,8 +869,8 @@ export declare const ConfigurationDescriptor: {
 };
 export declare const MsgDescriptor: {
     typeUrl: string;
-    encode(message: MsgDescriptor, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgDescriptor;
+    encode(message: MsgDescriptor, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgDescriptor;
     fromJSON(object: any): MsgDescriptor;
     toJSON(message: MsgDescriptor): unknown;
     fromPartial(object: Partial<MsgDescriptor>): MsgDescriptor;
@@ -884,8 +884,8 @@ export declare const MsgDescriptor: {
 };
 export declare const GetAuthnDescriptorRequest: {
     typeUrl: string;
-    encode(_: GetAuthnDescriptorRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetAuthnDescriptorRequest;
+    encode(_: GetAuthnDescriptorRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetAuthnDescriptorRequest;
     fromJSON(_: any): GetAuthnDescriptorRequest;
     toJSON(_: GetAuthnDescriptorRequest): unknown;
     fromPartial(_: Partial<GetAuthnDescriptorRequest>): GetAuthnDescriptorRequest;
@@ -899,8 +899,8 @@ export declare const GetAuthnDescriptorRequest: {
 };
 export declare const GetAuthnDescriptorResponse: {
     typeUrl: string;
-    encode(message: GetAuthnDescriptorResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetAuthnDescriptorResponse;
+    encode(message: GetAuthnDescriptorResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetAuthnDescriptorResponse;
     fromJSON(object: any): GetAuthnDescriptorResponse;
     toJSON(message: GetAuthnDescriptorResponse): unknown;
     fromPartial(object: Partial<GetAuthnDescriptorResponse>): GetAuthnDescriptorResponse;
@@ -914,8 +914,8 @@ export declare const GetAuthnDescriptorResponse: {
 };
 export declare const GetChainDescriptorRequest: {
     typeUrl: string;
-    encode(_: GetChainDescriptorRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetChainDescriptorRequest;
+    encode(_: GetChainDescriptorRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetChainDescriptorRequest;
     fromJSON(_: any): GetChainDescriptorRequest;
     toJSON(_: GetChainDescriptorRequest): unknown;
     fromPartial(_: Partial<GetChainDescriptorRequest>): GetChainDescriptorRequest;
@@ -929,8 +929,8 @@ export declare const GetChainDescriptorRequest: {
 };
 export declare const GetChainDescriptorResponse: {
     typeUrl: string;
-    encode(message: GetChainDescriptorResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetChainDescriptorResponse;
+    encode(message: GetChainDescriptorResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetChainDescriptorResponse;
     fromJSON(object: any): GetChainDescriptorResponse;
     toJSON(message: GetChainDescriptorResponse): unknown;
     fromPartial(object: Partial<GetChainDescriptorResponse>): GetChainDescriptorResponse;
@@ -944,8 +944,8 @@ export declare const GetChainDescriptorResponse: {
 };
 export declare const GetCodecDescriptorRequest: {
     typeUrl: string;
-    encode(_: GetCodecDescriptorRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetCodecDescriptorRequest;
+    encode(_: GetCodecDescriptorRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetCodecDescriptorRequest;
     fromJSON(_: any): GetCodecDescriptorRequest;
     toJSON(_: GetCodecDescriptorRequest): unknown;
     fromPartial(_: Partial<GetCodecDescriptorRequest>): GetCodecDescriptorRequest;
@@ -959,8 +959,8 @@ export declare const GetCodecDescriptorRequest: {
 };
 export declare const GetCodecDescriptorResponse: {
     typeUrl: string;
-    encode(message: GetCodecDescriptorResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetCodecDescriptorResponse;
+    encode(message: GetCodecDescriptorResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetCodecDescriptorResponse;
     fromJSON(object: any): GetCodecDescriptorResponse;
     toJSON(message: GetCodecDescriptorResponse): unknown;
     fromPartial(object: Partial<GetCodecDescriptorResponse>): GetCodecDescriptorResponse;
@@ -974,8 +974,8 @@ export declare const GetCodecDescriptorResponse: {
 };
 export declare const GetConfigurationDescriptorRequest: {
     typeUrl: string;
-    encode(_: GetConfigurationDescriptorRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetConfigurationDescriptorRequest;
+    encode(_: GetConfigurationDescriptorRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetConfigurationDescriptorRequest;
     fromJSON(_: any): GetConfigurationDescriptorRequest;
     toJSON(_: GetConfigurationDescriptorRequest): unknown;
     fromPartial(_: Partial<GetConfigurationDescriptorRequest>): GetConfigurationDescriptorRequest;
@@ -989,8 +989,8 @@ export declare const GetConfigurationDescriptorRequest: {
 };
 export declare const GetConfigurationDescriptorResponse: {
     typeUrl: string;
-    encode(message: GetConfigurationDescriptorResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetConfigurationDescriptorResponse;
+    encode(message: GetConfigurationDescriptorResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetConfigurationDescriptorResponse;
     fromJSON(object: any): GetConfigurationDescriptorResponse;
     toJSON(message: GetConfigurationDescriptorResponse): unknown;
     fromPartial(object: Partial<GetConfigurationDescriptorResponse>): GetConfigurationDescriptorResponse;
@@ -1004,8 +1004,8 @@ export declare const GetConfigurationDescriptorResponse: {
 };
 export declare const GetQueryServicesDescriptorRequest: {
     typeUrl: string;
-    encode(_: GetQueryServicesDescriptorRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetQueryServicesDescriptorRequest;
+    encode(_: GetQueryServicesDescriptorRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetQueryServicesDescriptorRequest;
     fromJSON(_: any): GetQueryServicesDescriptorRequest;
     toJSON(_: GetQueryServicesDescriptorRequest): unknown;
     fromPartial(_: Partial<GetQueryServicesDescriptorRequest>): GetQueryServicesDescriptorRequest;
@@ -1019,8 +1019,8 @@ export declare const GetQueryServicesDescriptorRequest: {
 };
 export declare const GetQueryServicesDescriptorResponse: {
     typeUrl: string;
-    encode(message: GetQueryServicesDescriptorResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetQueryServicesDescriptorResponse;
+    encode(message: GetQueryServicesDescriptorResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetQueryServicesDescriptorResponse;
     fromJSON(object: any): GetQueryServicesDescriptorResponse;
     toJSON(message: GetQueryServicesDescriptorResponse): unknown;
     fromPartial(object: Partial<GetQueryServicesDescriptorResponse>): GetQueryServicesDescriptorResponse;
@@ -1034,8 +1034,8 @@ export declare const GetQueryServicesDescriptorResponse: {
 };
 export declare const GetTxDescriptorRequest: {
     typeUrl: string;
-    encode(_: GetTxDescriptorRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetTxDescriptorRequest;
+    encode(_: GetTxDescriptorRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetTxDescriptorRequest;
     fromJSON(_: any): GetTxDescriptorRequest;
     toJSON(_: GetTxDescriptorRequest): unknown;
     fromPartial(_: Partial<GetTxDescriptorRequest>): GetTxDescriptorRequest;
@@ -1049,8 +1049,8 @@ export declare const GetTxDescriptorRequest: {
 };
 export declare const GetTxDescriptorResponse: {
     typeUrl: string;
-    encode(message: GetTxDescriptorResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetTxDescriptorResponse;
+    encode(message: GetTxDescriptorResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetTxDescriptorResponse;
     fromJSON(object: any): GetTxDescriptorResponse;
     toJSON(message: GetTxDescriptorResponse): unknown;
     fromPartial(object: Partial<GetTxDescriptorResponse>): GetTxDescriptorResponse;
@@ -1064,8 +1064,8 @@ export declare const GetTxDescriptorResponse: {
 };
 export declare const QueryServicesDescriptor: {
     typeUrl: string;
-    encode(message: QueryServicesDescriptor, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryServicesDescriptor;
+    encode(message: QueryServicesDescriptor, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryServicesDescriptor;
     fromJSON(object: any): QueryServicesDescriptor;
     toJSON(message: QueryServicesDescriptor): unknown;
     fromPartial(object: Partial<QueryServicesDescriptor>): QueryServicesDescriptor;
@@ -1079,8 +1079,8 @@ export declare const QueryServicesDescriptor: {
 };
 export declare const QueryServiceDescriptor: {
     typeUrl: string;
-    encode(message: QueryServiceDescriptor, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryServiceDescriptor;
+    encode(message: QueryServiceDescriptor, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryServiceDescriptor;
     fromJSON(object: any): QueryServiceDescriptor;
     toJSON(message: QueryServiceDescriptor): unknown;
     fromPartial(object: Partial<QueryServiceDescriptor>): QueryServiceDescriptor;
@@ -1094,8 +1094,8 @@ export declare const QueryServiceDescriptor: {
 };
 export declare const QueryMethodDescriptor: {
     typeUrl: string;
-    encode(message: QueryMethodDescriptor, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryMethodDescriptor;
+    encode(message: QueryMethodDescriptor, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryMethodDescriptor;
     fromJSON(object: any): QueryMethodDescriptor;
     toJSON(message: QueryMethodDescriptor): unknown;
     fromPartial(object: Partial<QueryMethodDescriptor>): QueryMethodDescriptor;

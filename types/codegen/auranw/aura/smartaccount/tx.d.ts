@@ -1,5 +1,6 @@
 import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export interface MsgRecover {
     /** Sender is the actor who signs the message */
     creator: string;
@@ -52,7 +53,7 @@ export interface MsgActivateAccount {
     /** AccountAddress is the actor who signs the message */
     accountAddress: string;
     /** CodeID indicates which wasm binary code is to be used for this contract */
-    codeId: bigint;
+    codeId: Long;
     /** an arbitrary value provided by the sender. Size can be 1 to 64. */
     salt: Uint8Array;
     /** InitMsg is the JSON-encoded instantiate message for the contract */
@@ -82,7 +83,7 @@ export interface MsgActivateAccountAminoMsg {
 }
 export interface MsgActivateAccountSDKType {
     account_address: string;
-    code_id: bigint;
+    code_id: Long;
     salt: Uint8Array;
     init_msg: Uint8Array;
     pub_key: AnySDKType;
@@ -106,8 +107,8 @@ export interface MsgActivateAccountResponseSDKType {
 }
 export declare const MsgRecover: {
     typeUrl: string;
-    encode(message: MsgRecover, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgRecover;
+    encode(message: MsgRecover, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgRecover;
     fromJSON(object: any): MsgRecover;
     toJSON(message: MsgRecover): unknown;
     fromPartial(object: Partial<MsgRecover>): MsgRecover;
@@ -120,8 +121,8 @@ export declare const MsgRecover: {
 };
 export declare const MsgRecoverResponse: {
     typeUrl: string;
-    encode(_: MsgRecoverResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgRecoverResponse;
+    encode(_: MsgRecoverResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgRecoverResponse;
     fromJSON(_: any): MsgRecoverResponse;
     toJSON(_: MsgRecoverResponse): unknown;
     fromPartial(_: Partial<MsgRecoverResponse>): MsgRecoverResponse;
@@ -134,8 +135,8 @@ export declare const MsgRecoverResponse: {
 };
 export declare const MsgActivateAccount: {
     typeUrl: string;
-    encode(message: MsgActivateAccount, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgActivateAccount;
+    encode(message: MsgActivateAccount, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgActivateAccount;
     fromJSON(object: any): MsgActivateAccount;
     toJSON(message: MsgActivateAccount): unknown;
     fromPartial(object: Partial<MsgActivateAccount>): MsgActivateAccount;
@@ -148,8 +149,8 @@ export declare const MsgActivateAccount: {
 };
 export declare const MsgActivateAccountResponse: {
     typeUrl: string;
-    encode(message: MsgActivateAccountResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgActivateAccountResponse;
+    encode(message: MsgActivateAccountResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgActivateAccountResponse;
     fromJSON(object: any): MsgActivateAccountResponse;
     toJSON(message: MsgActivateAccountResponse): unknown;
     fromPartial(object: Partial<MsgActivateAccountResponse>): MsgActivateAccountResponse;

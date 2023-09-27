@@ -1,7 +1,8 @@
 import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
 import { Params, ParamsAmino, ParamsSDKType, ValidatorOutstandingRewards, ValidatorOutstandingRewardsAmino, ValidatorOutstandingRewardsSDKType, ValidatorAccumulatedCommission, ValidatorAccumulatedCommissionAmino, ValidatorAccumulatedCommissionSDKType, ValidatorSlashEvent, ValidatorSlashEventAmino, ValidatorSlashEventSDKType, DelegationDelegatorReward, DelegationDelegatorRewardAmino, DelegationDelegatorRewardSDKType } from "./distribution";
 import { DecCoin, DecCoinAmino, DecCoinSDKType } from "../../base/v1beta1/coin";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
 export interface QueryParamsRequest {
 }
@@ -225,9 +226,9 @@ export interface QueryValidatorSlashesRequest {
     /** validator_address defines the validator address to query for. */
     validatorAddress: string;
     /** starting_height defines the optional starting height to query the slashes. */
-    startingHeight: bigint;
+    startingHeight: Long;
     /** starting_height defines the optional ending height to query the slashes. */
-    endingHeight: bigint;
+    endingHeight: Long;
     /** pagination defines an optional pagination for the request. */
     pagination: PageRequest;
 }
@@ -259,8 +260,8 @@ export interface QueryValidatorSlashesRequestAminoMsg {
  */
 export interface QueryValidatorSlashesRequestSDKType {
     validator_address: string;
-    starting_height: bigint;
-    ending_height: bigint;
+    starting_height: Long;
+    ending_height: Long;
     pagination: PageRequestSDKType;
 }
 /**
@@ -616,8 +617,8 @@ export interface QueryCommunityPoolResponseSDKType {
 }
 export declare const QueryParamsRequest: {
     typeUrl: string;
-    encode(_: QueryParamsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsRequest;
+    encode(_: QueryParamsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsRequest;
     fromJSON(_: any): QueryParamsRequest;
     toJSON(_: QueryParamsRequest): unknown;
     fromPartial(_: Partial<QueryParamsRequest>): QueryParamsRequest;
@@ -631,8 +632,8 @@ export declare const QueryParamsRequest: {
 };
 export declare const QueryParamsResponse: {
     typeUrl: string;
-    encode(message: QueryParamsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsResponse;
+    encode(message: QueryParamsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse;
     fromJSON(object: any): QueryParamsResponse;
     toJSON(message: QueryParamsResponse): unknown;
     fromPartial(object: Partial<QueryParamsResponse>): QueryParamsResponse;
@@ -646,8 +647,8 @@ export declare const QueryParamsResponse: {
 };
 export declare const QueryValidatorDistributionInfoRequest: {
     typeUrl: string;
-    encode(message: QueryValidatorDistributionInfoRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryValidatorDistributionInfoRequest;
+    encode(message: QueryValidatorDistributionInfoRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryValidatorDistributionInfoRequest;
     fromJSON(object: any): QueryValidatorDistributionInfoRequest;
     toJSON(message: QueryValidatorDistributionInfoRequest): unknown;
     fromPartial(object: Partial<QueryValidatorDistributionInfoRequest>): QueryValidatorDistributionInfoRequest;
@@ -661,8 +662,8 @@ export declare const QueryValidatorDistributionInfoRequest: {
 };
 export declare const QueryValidatorDistributionInfoResponse: {
     typeUrl: string;
-    encode(message: QueryValidatorDistributionInfoResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryValidatorDistributionInfoResponse;
+    encode(message: QueryValidatorDistributionInfoResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryValidatorDistributionInfoResponse;
     fromJSON(object: any): QueryValidatorDistributionInfoResponse;
     toJSON(message: QueryValidatorDistributionInfoResponse): unknown;
     fromPartial(object: Partial<QueryValidatorDistributionInfoResponse>): QueryValidatorDistributionInfoResponse;
@@ -676,8 +677,8 @@ export declare const QueryValidatorDistributionInfoResponse: {
 };
 export declare const QueryValidatorOutstandingRewardsRequest: {
     typeUrl: string;
-    encode(message: QueryValidatorOutstandingRewardsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryValidatorOutstandingRewardsRequest;
+    encode(message: QueryValidatorOutstandingRewardsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryValidatorOutstandingRewardsRequest;
     fromJSON(object: any): QueryValidatorOutstandingRewardsRequest;
     toJSON(message: QueryValidatorOutstandingRewardsRequest): unknown;
     fromPartial(object: Partial<QueryValidatorOutstandingRewardsRequest>): QueryValidatorOutstandingRewardsRequest;
@@ -691,8 +692,8 @@ export declare const QueryValidatorOutstandingRewardsRequest: {
 };
 export declare const QueryValidatorOutstandingRewardsResponse: {
     typeUrl: string;
-    encode(message: QueryValidatorOutstandingRewardsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryValidatorOutstandingRewardsResponse;
+    encode(message: QueryValidatorOutstandingRewardsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryValidatorOutstandingRewardsResponse;
     fromJSON(object: any): QueryValidatorOutstandingRewardsResponse;
     toJSON(message: QueryValidatorOutstandingRewardsResponse): unknown;
     fromPartial(object: Partial<QueryValidatorOutstandingRewardsResponse>): QueryValidatorOutstandingRewardsResponse;
@@ -706,8 +707,8 @@ export declare const QueryValidatorOutstandingRewardsResponse: {
 };
 export declare const QueryValidatorCommissionRequest: {
     typeUrl: string;
-    encode(message: QueryValidatorCommissionRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryValidatorCommissionRequest;
+    encode(message: QueryValidatorCommissionRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryValidatorCommissionRequest;
     fromJSON(object: any): QueryValidatorCommissionRequest;
     toJSON(message: QueryValidatorCommissionRequest): unknown;
     fromPartial(object: Partial<QueryValidatorCommissionRequest>): QueryValidatorCommissionRequest;
@@ -721,8 +722,8 @@ export declare const QueryValidatorCommissionRequest: {
 };
 export declare const QueryValidatorCommissionResponse: {
     typeUrl: string;
-    encode(message: QueryValidatorCommissionResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryValidatorCommissionResponse;
+    encode(message: QueryValidatorCommissionResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryValidatorCommissionResponse;
     fromJSON(object: any): QueryValidatorCommissionResponse;
     toJSON(message: QueryValidatorCommissionResponse): unknown;
     fromPartial(object: Partial<QueryValidatorCommissionResponse>): QueryValidatorCommissionResponse;
@@ -736,8 +737,8 @@ export declare const QueryValidatorCommissionResponse: {
 };
 export declare const QueryValidatorSlashesRequest: {
     typeUrl: string;
-    encode(message: QueryValidatorSlashesRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryValidatorSlashesRequest;
+    encode(message: QueryValidatorSlashesRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryValidatorSlashesRequest;
     fromJSON(object: any): QueryValidatorSlashesRequest;
     toJSON(message: QueryValidatorSlashesRequest): unknown;
     fromPartial(object: Partial<QueryValidatorSlashesRequest>): QueryValidatorSlashesRequest;
@@ -751,8 +752,8 @@ export declare const QueryValidatorSlashesRequest: {
 };
 export declare const QueryValidatorSlashesResponse: {
     typeUrl: string;
-    encode(message: QueryValidatorSlashesResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryValidatorSlashesResponse;
+    encode(message: QueryValidatorSlashesResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryValidatorSlashesResponse;
     fromJSON(object: any): QueryValidatorSlashesResponse;
     toJSON(message: QueryValidatorSlashesResponse): unknown;
     fromPartial(object: Partial<QueryValidatorSlashesResponse>): QueryValidatorSlashesResponse;
@@ -766,8 +767,8 @@ export declare const QueryValidatorSlashesResponse: {
 };
 export declare const QueryDelegationRewardsRequest: {
     typeUrl: string;
-    encode(message: QueryDelegationRewardsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryDelegationRewardsRequest;
+    encode(message: QueryDelegationRewardsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDelegationRewardsRequest;
     fromJSON(object: any): QueryDelegationRewardsRequest;
     toJSON(message: QueryDelegationRewardsRequest): unknown;
     fromPartial(object: Partial<QueryDelegationRewardsRequest>): QueryDelegationRewardsRequest;
@@ -781,8 +782,8 @@ export declare const QueryDelegationRewardsRequest: {
 };
 export declare const QueryDelegationRewardsResponse: {
     typeUrl: string;
-    encode(message: QueryDelegationRewardsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryDelegationRewardsResponse;
+    encode(message: QueryDelegationRewardsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDelegationRewardsResponse;
     fromJSON(object: any): QueryDelegationRewardsResponse;
     toJSON(message: QueryDelegationRewardsResponse): unknown;
     fromPartial(object: Partial<QueryDelegationRewardsResponse>): QueryDelegationRewardsResponse;
@@ -796,8 +797,8 @@ export declare const QueryDelegationRewardsResponse: {
 };
 export declare const QueryDelegationTotalRewardsRequest: {
     typeUrl: string;
-    encode(message: QueryDelegationTotalRewardsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryDelegationTotalRewardsRequest;
+    encode(message: QueryDelegationTotalRewardsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDelegationTotalRewardsRequest;
     fromJSON(object: any): QueryDelegationTotalRewardsRequest;
     toJSON(message: QueryDelegationTotalRewardsRequest): unknown;
     fromPartial(object: Partial<QueryDelegationTotalRewardsRequest>): QueryDelegationTotalRewardsRequest;
@@ -811,8 +812,8 @@ export declare const QueryDelegationTotalRewardsRequest: {
 };
 export declare const QueryDelegationTotalRewardsResponse: {
     typeUrl: string;
-    encode(message: QueryDelegationTotalRewardsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryDelegationTotalRewardsResponse;
+    encode(message: QueryDelegationTotalRewardsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDelegationTotalRewardsResponse;
     fromJSON(object: any): QueryDelegationTotalRewardsResponse;
     toJSON(message: QueryDelegationTotalRewardsResponse): unknown;
     fromPartial(object: Partial<QueryDelegationTotalRewardsResponse>): QueryDelegationTotalRewardsResponse;
@@ -826,8 +827,8 @@ export declare const QueryDelegationTotalRewardsResponse: {
 };
 export declare const QueryDelegatorValidatorsRequest: {
     typeUrl: string;
-    encode(message: QueryDelegatorValidatorsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryDelegatorValidatorsRequest;
+    encode(message: QueryDelegatorValidatorsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDelegatorValidatorsRequest;
     fromJSON(object: any): QueryDelegatorValidatorsRequest;
     toJSON(message: QueryDelegatorValidatorsRequest): unknown;
     fromPartial(object: Partial<QueryDelegatorValidatorsRequest>): QueryDelegatorValidatorsRequest;
@@ -841,8 +842,8 @@ export declare const QueryDelegatorValidatorsRequest: {
 };
 export declare const QueryDelegatorValidatorsResponse: {
     typeUrl: string;
-    encode(message: QueryDelegatorValidatorsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryDelegatorValidatorsResponse;
+    encode(message: QueryDelegatorValidatorsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDelegatorValidatorsResponse;
     fromJSON(object: any): QueryDelegatorValidatorsResponse;
     toJSON(message: QueryDelegatorValidatorsResponse): unknown;
     fromPartial(object: Partial<QueryDelegatorValidatorsResponse>): QueryDelegatorValidatorsResponse;
@@ -856,8 +857,8 @@ export declare const QueryDelegatorValidatorsResponse: {
 };
 export declare const QueryDelegatorWithdrawAddressRequest: {
     typeUrl: string;
-    encode(message: QueryDelegatorWithdrawAddressRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryDelegatorWithdrawAddressRequest;
+    encode(message: QueryDelegatorWithdrawAddressRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDelegatorWithdrawAddressRequest;
     fromJSON(object: any): QueryDelegatorWithdrawAddressRequest;
     toJSON(message: QueryDelegatorWithdrawAddressRequest): unknown;
     fromPartial(object: Partial<QueryDelegatorWithdrawAddressRequest>): QueryDelegatorWithdrawAddressRequest;
@@ -871,8 +872,8 @@ export declare const QueryDelegatorWithdrawAddressRequest: {
 };
 export declare const QueryDelegatorWithdrawAddressResponse: {
     typeUrl: string;
-    encode(message: QueryDelegatorWithdrawAddressResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryDelegatorWithdrawAddressResponse;
+    encode(message: QueryDelegatorWithdrawAddressResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDelegatorWithdrawAddressResponse;
     fromJSON(object: any): QueryDelegatorWithdrawAddressResponse;
     toJSON(message: QueryDelegatorWithdrawAddressResponse): unknown;
     fromPartial(object: Partial<QueryDelegatorWithdrawAddressResponse>): QueryDelegatorWithdrawAddressResponse;
@@ -886,8 +887,8 @@ export declare const QueryDelegatorWithdrawAddressResponse: {
 };
 export declare const QueryCommunityPoolRequest: {
     typeUrl: string;
-    encode(_: QueryCommunityPoolRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryCommunityPoolRequest;
+    encode(_: QueryCommunityPoolRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryCommunityPoolRequest;
     fromJSON(_: any): QueryCommunityPoolRequest;
     toJSON(_: QueryCommunityPoolRequest): unknown;
     fromPartial(_: Partial<QueryCommunityPoolRequest>): QueryCommunityPoolRequest;
@@ -901,8 +902,8 @@ export declare const QueryCommunityPoolRequest: {
 };
 export declare const QueryCommunityPoolResponse: {
     typeUrl: string;
-    encode(message: QueryCommunityPoolResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryCommunityPoolResponse;
+    encode(message: QueryCommunityPoolResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryCommunityPoolResponse;
     fromJSON(object: any): QueryCommunityPoolResponse;
     toJSON(message: QueryCommunityPoolResponse): unknown;
     fromPartial(object: Partial<QueryCommunityPoolResponse>): QueryCommunityPoolResponse;

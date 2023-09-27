@@ -1,5 +1,6 @@
 import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** Plan specifies information about a planned upgrade and when it should occur. */
 export interface Plan {
     /**
@@ -20,7 +21,7 @@ export interface Plan {
     /** @deprecated */
     time: Date;
     /** The height at which the upgrade must be performed. */
-    height: bigint;
+    height: Long;
     /**
      * Any application specific upgrade info to be included on-chain
      * such as a git commit that validators could automatically upgrade to
@@ -81,7 +82,7 @@ export interface PlanSDKType {
     name: string;
     /** @deprecated */
     time: Date;
-    height: bigint;
+    height: Long;
     info: string;
     /** @deprecated */
     upgraded_client_state: AnySDKType;
@@ -94,7 +95,6 @@ export interface PlanSDKType {
  */
 /** @deprecated */
 export interface SoftwareUpgradeProposal {
-    $typeUrl?: string;
     /** title of the proposal */
     title: string;
     /** description of the proposal */
@@ -133,7 +133,6 @@ export interface SoftwareUpgradeProposalAminoMsg {
  */
 /** @deprecated */
 export interface SoftwareUpgradeProposalSDKType {
-    $typeUrl?: string;
     title: string;
     description: string;
     plan: PlanSDKType;
@@ -146,7 +145,6 @@ export interface SoftwareUpgradeProposalSDKType {
  */
 /** @deprecated */
 export interface CancelSoftwareUpgradeProposal {
-    $typeUrl?: string;
     /** title of the proposal */
     title: string;
     /** description of the proposal */
@@ -181,7 +179,6 @@ export interface CancelSoftwareUpgradeProposalAminoMsg {
  */
 /** @deprecated */
 export interface CancelSoftwareUpgradeProposalSDKType {
-    $typeUrl?: string;
     title: string;
     description: string;
 }
@@ -194,7 +191,7 @@ export interface ModuleVersion {
     /** name of the app module */
     name: string;
     /** consensus version of the app module */
-    version: bigint;
+    version: Long;
 }
 export interface ModuleVersionProtoMsg {
     typeUrl: "/cosmos.upgrade.v1beta1.ModuleVersion";
@@ -222,12 +219,12 @@ export interface ModuleVersionAminoMsg {
  */
 export interface ModuleVersionSDKType {
     name: string;
-    version: bigint;
+    version: Long;
 }
 export declare const Plan: {
     typeUrl: string;
-    encode(message: Plan, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Plan;
+    encode(message: Plan, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Plan;
     fromJSON(object: any): Plan;
     toJSON(message: Plan): unknown;
     fromPartial(object: Partial<Plan>): Plan;
@@ -241,8 +238,8 @@ export declare const Plan: {
 };
 export declare const SoftwareUpgradeProposal: {
     typeUrl: string;
-    encode(message: SoftwareUpgradeProposal, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SoftwareUpgradeProposal;
+    encode(message: SoftwareUpgradeProposal, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SoftwareUpgradeProposal;
     fromJSON(object: any): SoftwareUpgradeProposal;
     toJSON(message: SoftwareUpgradeProposal): unknown;
     fromPartial(object: Partial<SoftwareUpgradeProposal>): SoftwareUpgradeProposal;
@@ -256,8 +253,8 @@ export declare const SoftwareUpgradeProposal: {
 };
 export declare const CancelSoftwareUpgradeProposal: {
     typeUrl: string;
-    encode(message: CancelSoftwareUpgradeProposal, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): CancelSoftwareUpgradeProposal;
+    encode(message: CancelSoftwareUpgradeProposal, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): CancelSoftwareUpgradeProposal;
     fromJSON(object: any): CancelSoftwareUpgradeProposal;
     toJSON(message: CancelSoftwareUpgradeProposal): unknown;
     fromPartial(object: Partial<CancelSoftwareUpgradeProposal>): CancelSoftwareUpgradeProposal;
@@ -271,8 +268,8 @@ export declare const CancelSoftwareUpgradeProposal: {
 };
 export declare const ModuleVersion: {
     typeUrl: string;
-    encode(message: ModuleVersion, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ModuleVersion;
+    encode(message: ModuleVersion, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ModuleVersion;
     fromJSON(object: any): ModuleVersion;
     toJSON(message: ModuleVersion): unknown;
     fromPartial(object: Partial<ModuleVersion>): ModuleVersion;

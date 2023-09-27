@@ -1,5 +1,5 @@
 import { Config, ConfigAmino, ConfigSDKType } from "./config";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** QueryConfigRequest is the Query/Config request type. */
 export interface QueryConfigRequest {
 }
@@ -41,8 +41,8 @@ export interface QueryConfigResponseSDKType {
 }
 export declare const QueryConfigRequest: {
     typeUrl: string;
-    encode(_: QueryConfigRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryConfigRequest;
+    encode(_: QueryConfigRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryConfigRequest;
     fromJSON(_: any): QueryConfigRequest;
     toJSON(_: QueryConfigRequest): unknown;
     fromPartial(_: Partial<QueryConfigRequest>): QueryConfigRequest;
@@ -56,8 +56,8 @@ export declare const QueryConfigRequest: {
 };
 export declare const QueryConfigResponse: {
     typeUrl: string;
-    encode(message: QueryConfigResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryConfigResponse;
+    encode(message: QueryConfigResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryConfigResponse;
     fromJSON(object: any): QueryConfigResponse;
     toJSON(message: QueryConfigResponse): unknown;
     fromPartial(object: Partial<QueryConfigResponse>): QueryConfigResponse;

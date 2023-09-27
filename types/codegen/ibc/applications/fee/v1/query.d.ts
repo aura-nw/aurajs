@@ -3,13 +3,14 @@ import { PacketId, PacketIdAmino, PacketIdSDKType } from "../../../core/channel/
 import { IdentifiedPacketFees, IdentifiedPacketFeesAmino, IdentifiedPacketFeesSDKType } from "./fee";
 import { Coin, CoinAmino, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
 import { FeeEnabledChannel, FeeEnabledChannelAmino, FeeEnabledChannelSDKType } from "./genesis";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** QueryIncentivizedPacketsRequest defines the request type for the IncentivizedPackets rpc */
 export interface QueryIncentivizedPacketsRequest {
     /** pagination defines an optional pagination for the request. */
     pagination: PageRequest;
     /** block height at which to query */
-    queryHeight: bigint;
+    queryHeight: Long;
 }
 export interface QueryIncentivizedPacketsRequestProtoMsg {
     typeUrl: "/ibc.applications.fee.v1.QueryIncentivizedPacketsRequest";
@@ -29,7 +30,7 @@ export interface QueryIncentivizedPacketsRequestAminoMsg {
 /** QueryIncentivizedPacketsRequest defines the request type for the IncentivizedPackets rpc */
 export interface QueryIncentivizedPacketsRequestSDKType {
     pagination: PageRequestSDKType;
-    query_height: bigint;
+    query_height: Long;
 }
 /** QueryIncentivizedPacketsResponse defines the response type for the IncentivizedPackets rpc */
 export interface QueryIncentivizedPacketsResponse {
@@ -58,7 +59,7 @@ export interface QueryIncentivizedPacketRequest {
     /** unique packet identifier comprised of channel ID, port ID and sequence */
     packetId: PacketId;
     /** block height at which to query */
-    queryHeight: bigint;
+    queryHeight: Long;
 }
 export interface QueryIncentivizedPacketRequestProtoMsg {
     typeUrl: "/ibc.applications.fee.v1.QueryIncentivizedPacketRequest";
@@ -78,7 +79,7 @@ export interface QueryIncentivizedPacketRequestAminoMsg {
 /** QueryIncentivizedPacketRequest defines the request type for the IncentivizedPacket rpc */
 export interface QueryIncentivizedPacketRequestSDKType {
     packet_id: PacketIdSDKType;
-    query_height: bigint;
+    query_height: Long;
 }
 /** QueryIncentivizedPacketsResponse defines the response type for the IncentivizedPacket rpc */
 export interface QueryIncentivizedPacketResponse {
@@ -112,7 +113,7 @@ export interface QueryIncentivizedPacketsForChannelRequest {
     portId: string;
     channelId: string;
     /** Height to query at */
-    queryHeight: bigint;
+    queryHeight: Long;
 }
 export interface QueryIncentivizedPacketsForChannelRequestProtoMsg {
     typeUrl: "/ibc.applications.fee.v1.QueryIncentivizedPacketsForChannelRequest";
@@ -142,7 +143,7 @@ export interface QueryIncentivizedPacketsForChannelRequestSDKType {
     pagination: PageRequestSDKType;
     port_id: string;
     channel_id: string;
-    query_height: bigint;
+    query_height: Long;
 }
 /** QueryIncentivizedPacketsResponse defines the response type for the incentivized packets RPC */
 export interface QueryIncentivizedPacketsForChannelResponse {
@@ -401,7 +402,7 @@ export interface QueryFeeEnabledChannelsRequest {
     /** pagination defines an optional pagination for the request. */
     pagination: PageRequest;
     /** block height at which to query */
-    queryHeight: bigint;
+    queryHeight: Long;
 }
 export interface QueryFeeEnabledChannelsRequestProtoMsg {
     typeUrl: "/ibc.applications.fee.v1.QueryFeeEnabledChannelsRequest";
@@ -421,7 +422,7 @@ export interface QueryFeeEnabledChannelsRequestAminoMsg {
 /** QueryFeeEnabledChannelsRequest defines the request type for the FeeEnabledChannels rpc */
 export interface QueryFeeEnabledChannelsRequestSDKType {
     pagination: PageRequestSDKType;
-    query_height: bigint;
+    query_height: Long;
 }
 /** QueryFeeEnabledChannelsResponse defines the response type for the FeeEnabledChannels rpc */
 export interface QueryFeeEnabledChannelsResponse {
@@ -496,8 +497,8 @@ export interface QueryFeeEnabledChannelResponseSDKType {
 }
 export declare const QueryIncentivizedPacketsRequest: {
     typeUrl: string;
-    encode(message: QueryIncentivizedPacketsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryIncentivizedPacketsRequest;
+    encode(message: QueryIncentivizedPacketsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryIncentivizedPacketsRequest;
     fromJSON(object: any): QueryIncentivizedPacketsRequest;
     toJSON(message: QueryIncentivizedPacketsRequest): unknown;
     fromPartial(object: Partial<QueryIncentivizedPacketsRequest>): QueryIncentivizedPacketsRequest;
@@ -511,8 +512,8 @@ export declare const QueryIncentivizedPacketsRequest: {
 };
 export declare const QueryIncentivizedPacketsResponse: {
     typeUrl: string;
-    encode(message: QueryIncentivizedPacketsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryIncentivizedPacketsResponse;
+    encode(message: QueryIncentivizedPacketsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryIncentivizedPacketsResponse;
     fromJSON(object: any): QueryIncentivizedPacketsResponse;
     toJSON(message: QueryIncentivizedPacketsResponse): unknown;
     fromPartial(object: Partial<QueryIncentivizedPacketsResponse>): QueryIncentivizedPacketsResponse;
@@ -526,8 +527,8 @@ export declare const QueryIncentivizedPacketsResponse: {
 };
 export declare const QueryIncentivizedPacketRequest: {
     typeUrl: string;
-    encode(message: QueryIncentivizedPacketRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryIncentivizedPacketRequest;
+    encode(message: QueryIncentivizedPacketRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryIncentivizedPacketRequest;
     fromJSON(object: any): QueryIncentivizedPacketRequest;
     toJSON(message: QueryIncentivizedPacketRequest): unknown;
     fromPartial(object: Partial<QueryIncentivizedPacketRequest>): QueryIncentivizedPacketRequest;
@@ -541,8 +542,8 @@ export declare const QueryIncentivizedPacketRequest: {
 };
 export declare const QueryIncentivizedPacketResponse: {
     typeUrl: string;
-    encode(message: QueryIncentivizedPacketResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryIncentivizedPacketResponse;
+    encode(message: QueryIncentivizedPacketResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryIncentivizedPacketResponse;
     fromJSON(object: any): QueryIncentivizedPacketResponse;
     toJSON(message: QueryIncentivizedPacketResponse): unknown;
     fromPartial(object: Partial<QueryIncentivizedPacketResponse>): QueryIncentivizedPacketResponse;
@@ -556,8 +557,8 @@ export declare const QueryIncentivizedPacketResponse: {
 };
 export declare const QueryIncentivizedPacketsForChannelRequest: {
     typeUrl: string;
-    encode(message: QueryIncentivizedPacketsForChannelRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryIncentivizedPacketsForChannelRequest;
+    encode(message: QueryIncentivizedPacketsForChannelRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryIncentivizedPacketsForChannelRequest;
     fromJSON(object: any): QueryIncentivizedPacketsForChannelRequest;
     toJSON(message: QueryIncentivizedPacketsForChannelRequest): unknown;
     fromPartial(object: Partial<QueryIncentivizedPacketsForChannelRequest>): QueryIncentivizedPacketsForChannelRequest;
@@ -571,8 +572,8 @@ export declare const QueryIncentivizedPacketsForChannelRequest: {
 };
 export declare const QueryIncentivizedPacketsForChannelResponse: {
     typeUrl: string;
-    encode(message: QueryIncentivizedPacketsForChannelResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryIncentivizedPacketsForChannelResponse;
+    encode(message: QueryIncentivizedPacketsForChannelResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryIncentivizedPacketsForChannelResponse;
     fromJSON(object: any): QueryIncentivizedPacketsForChannelResponse;
     toJSON(message: QueryIncentivizedPacketsForChannelResponse): unknown;
     fromPartial(object: Partial<QueryIncentivizedPacketsForChannelResponse>): QueryIncentivizedPacketsForChannelResponse;
@@ -586,8 +587,8 @@ export declare const QueryIncentivizedPacketsForChannelResponse: {
 };
 export declare const QueryTotalRecvFeesRequest: {
     typeUrl: string;
-    encode(message: QueryTotalRecvFeesRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryTotalRecvFeesRequest;
+    encode(message: QueryTotalRecvFeesRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryTotalRecvFeesRequest;
     fromJSON(object: any): QueryTotalRecvFeesRequest;
     toJSON(message: QueryTotalRecvFeesRequest): unknown;
     fromPartial(object: Partial<QueryTotalRecvFeesRequest>): QueryTotalRecvFeesRequest;
@@ -601,8 +602,8 @@ export declare const QueryTotalRecvFeesRequest: {
 };
 export declare const QueryTotalRecvFeesResponse: {
     typeUrl: string;
-    encode(message: QueryTotalRecvFeesResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryTotalRecvFeesResponse;
+    encode(message: QueryTotalRecvFeesResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryTotalRecvFeesResponse;
     fromJSON(object: any): QueryTotalRecvFeesResponse;
     toJSON(message: QueryTotalRecvFeesResponse): unknown;
     fromPartial(object: Partial<QueryTotalRecvFeesResponse>): QueryTotalRecvFeesResponse;
@@ -616,8 +617,8 @@ export declare const QueryTotalRecvFeesResponse: {
 };
 export declare const QueryTotalAckFeesRequest: {
     typeUrl: string;
-    encode(message: QueryTotalAckFeesRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryTotalAckFeesRequest;
+    encode(message: QueryTotalAckFeesRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryTotalAckFeesRequest;
     fromJSON(object: any): QueryTotalAckFeesRequest;
     toJSON(message: QueryTotalAckFeesRequest): unknown;
     fromPartial(object: Partial<QueryTotalAckFeesRequest>): QueryTotalAckFeesRequest;
@@ -631,8 +632,8 @@ export declare const QueryTotalAckFeesRequest: {
 };
 export declare const QueryTotalAckFeesResponse: {
     typeUrl: string;
-    encode(message: QueryTotalAckFeesResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryTotalAckFeesResponse;
+    encode(message: QueryTotalAckFeesResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryTotalAckFeesResponse;
     fromJSON(object: any): QueryTotalAckFeesResponse;
     toJSON(message: QueryTotalAckFeesResponse): unknown;
     fromPartial(object: Partial<QueryTotalAckFeesResponse>): QueryTotalAckFeesResponse;
@@ -646,8 +647,8 @@ export declare const QueryTotalAckFeesResponse: {
 };
 export declare const QueryTotalTimeoutFeesRequest: {
     typeUrl: string;
-    encode(message: QueryTotalTimeoutFeesRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryTotalTimeoutFeesRequest;
+    encode(message: QueryTotalTimeoutFeesRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryTotalTimeoutFeesRequest;
     fromJSON(object: any): QueryTotalTimeoutFeesRequest;
     toJSON(message: QueryTotalTimeoutFeesRequest): unknown;
     fromPartial(object: Partial<QueryTotalTimeoutFeesRequest>): QueryTotalTimeoutFeesRequest;
@@ -661,8 +662,8 @@ export declare const QueryTotalTimeoutFeesRequest: {
 };
 export declare const QueryTotalTimeoutFeesResponse: {
     typeUrl: string;
-    encode(message: QueryTotalTimeoutFeesResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryTotalTimeoutFeesResponse;
+    encode(message: QueryTotalTimeoutFeesResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryTotalTimeoutFeesResponse;
     fromJSON(object: any): QueryTotalTimeoutFeesResponse;
     toJSON(message: QueryTotalTimeoutFeesResponse): unknown;
     fromPartial(object: Partial<QueryTotalTimeoutFeesResponse>): QueryTotalTimeoutFeesResponse;
@@ -676,8 +677,8 @@ export declare const QueryTotalTimeoutFeesResponse: {
 };
 export declare const QueryPayeeRequest: {
     typeUrl: string;
-    encode(message: QueryPayeeRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryPayeeRequest;
+    encode(message: QueryPayeeRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryPayeeRequest;
     fromJSON(object: any): QueryPayeeRequest;
     toJSON(message: QueryPayeeRequest): unknown;
     fromPartial(object: Partial<QueryPayeeRequest>): QueryPayeeRequest;
@@ -691,8 +692,8 @@ export declare const QueryPayeeRequest: {
 };
 export declare const QueryPayeeResponse: {
     typeUrl: string;
-    encode(message: QueryPayeeResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryPayeeResponse;
+    encode(message: QueryPayeeResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryPayeeResponse;
     fromJSON(object: any): QueryPayeeResponse;
     toJSON(message: QueryPayeeResponse): unknown;
     fromPartial(object: Partial<QueryPayeeResponse>): QueryPayeeResponse;
@@ -706,8 +707,8 @@ export declare const QueryPayeeResponse: {
 };
 export declare const QueryCounterpartyPayeeRequest: {
     typeUrl: string;
-    encode(message: QueryCounterpartyPayeeRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryCounterpartyPayeeRequest;
+    encode(message: QueryCounterpartyPayeeRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryCounterpartyPayeeRequest;
     fromJSON(object: any): QueryCounterpartyPayeeRequest;
     toJSON(message: QueryCounterpartyPayeeRequest): unknown;
     fromPartial(object: Partial<QueryCounterpartyPayeeRequest>): QueryCounterpartyPayeeRequest;
@@ -721,8 +722,8 @@ export declare const QueryCounterpartyPayeeRequest: {
 };
 export declare const QueryCounterpartyPayeeResponse: {
     typeUrl: string;
-    encode(message: QueryCounterpartyPayeeResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryCounterpartyPayeeResponse;
+    encode(message: QueryCounterpartyPayeeResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryCounterpartyPayeeResponse;
     fromJSON(object: any): QueryCounterpartyPayeeResponse;
     toJSON(message: QueryCounterpartyPayeeResponse): unknown;
     fromPartial(object: Partial<QueryCounterpartyPayeeResponse>): QueryCounterpartyPayeeResponse;
@@ -736,8 +737,8 @@ export declare const QueryCounterpartyPayeeResponse: {
 };
 export declare const QueryFeeEnabledChannelsRequest: {
     typeUrl: string;
-    encode(message: QueryFeeEnabledChannelsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryFeeEnabledChannelsRequest;
+    encode(message: QueryFeeEnabledChannelsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryFeeEnabledChannelsRequest;
     fromJSON(object: any): QueryFeeEnabledChannelsRequest;
     toJSON(message: QueryFeeEnabledChannelsRequest): unknown;
     fromPartial(object: Partial<QueryFeeEnabledChannelsRequest>): QueryFeeEnabledChannelsRequest;
@@ -751,8 +752,8 @@ export declare const QueryFeeEnabledChannelsRequest: {
 };
 export declare const QueryFeeEnabledChannelsResponse: {
     typeUrl: string;
-    encode(message: QueryFeeEnabledChannelsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryFeeEnabledChannelsResponse;
+    encode(message: QueryFeeEnabledChannelsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryFeeEnabledChannelsResponse;
     fromJSON(object: any): QueryFeeEnabledChannelsResponse;
     toJSON(message: QueryFeeEnabledChannelsResponse): unknown;
     fromPartial(object: Partial<QueryFeeEnabledChannelsResponse>): QueryFeeEnabledChannelsResponse;
@@ -766,8 +767,8 @@ export declare const QueryFeeEnabledChannelsResponse: {
 };
 export declare const QueryFeeEnabledChannelRequest: {
     typeUrl: string;
-    encode(message: QueryFeeEnabledChannelRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryFeeEnabledChannelRequest;
+    encode(message: QueryFeeEnabledChannelRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryFeeEnabledChannelRequest;
     fromJSON(object: any): QueryFeeEnabledChannelRequest;
     toJSON(message: QueryFeeEnabledChannelRequest): unknown;
     fromPartial(object: Partial<QueryFeeEnabledChannelRequest>): QueryFeeEnabledChannelRequest;
@@ -781,8 +782,8 @@ export declare const QueryFeeEnabledChannelRequest: {
 };
 export declare const QueryFeeEnabledChannelResponse: {
     typeUrl: string;
-    encode(message: QueryFeeEnabledChannelResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryFeeEnabledChannelResponse;
+    encode(message: QueryFeeEnabledChannelResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryFeeEnabledChannelResponse;
     fromJSON(object: any): QueryFeeEnabledChannelResponse;
     toJSON(message: QueryFeeEnabledChannelResponse): unknown;
     fromPartial(object: Partial<QueryFeeEnabledChannelResponse>): QueryFeeEnabledChannelResponse;

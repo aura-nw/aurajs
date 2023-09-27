@@ -1,5 +1,5 @@
 import { PublicKey, PublicKeyAmino, PublicKeySDKType } from "../crypto/keys";
-import { BinaryReader, BinaryWriter } from "../../binary";
+import * as _m0 from "protobufjs/minimal";
 export interface PacketPing {
 }
 export interface PacketPingProtoMsg {
@@ -96,8 +96,8 @@ export interface AuthSigMessageSDKType {
 }
 export declare const PacketPing: {
     typeUrl: string;
-    encode(_: PacketPing, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): PacketPing;
+    encode(_: PacketPing, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PacketPing;
     fromJSON(_: any): PacketPing;
     toJSON(_: PacketPing): unknown;
     fromPartial(_: Partial<PacketPing>): PacketPing;
@@ -110,8 +110,8 @@ export declare const PacketPing: {
 };
 export declare const PacketPong: {
     typeUrl: string;
-    encode(_: PacketPong, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): PacketPong;
+    encode(_: PacketPong, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PacketPong;
     fromJSON(_: any): PacketPong;
     toJSON(_: PacketPong): unknown;
     fromPartial(_: Partial<PacketPong>): PacketPong;
@@ -124,8 +124,8 @@ export declare const PacketPong: {
 };
 export declare const PacketMsg: {
     typeUrl: string;
-    encode(message: PacketMsg, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): PacketMsg;
+    encode(message: PacketMsg, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PacketMsg;
     fromJSON(object: any): PacketMsg;
     toJSON(message: PacketMsg): unknown;
     fromPartial(object: Partial<PacketMsg>): PacketMsg;
@@ -138,8 +138,8 @@ export declare const PacketMsg: {
 };
 export declare const Packet: {
     typeUrl: string;
-    encode(message: Packet, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Packet;
+    encode(message: Packet, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Packet;
     fromJSON(object: any): Packet;
     toJSON(message: Packet): unknown;
     fromPartial(object: Partial<Packet>): Packet;
@@ -152,8 +152,8 @@ export declare const Packet: {
 };
 export declare const AuthSigMessage: {
     typeUrl: string;
-    encode(message: AuthSigMessage, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): AuthSigMessage;
+    encode(message: AuthSigMessage, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): AuthSigMessage;
     fromJSON(object: any): AuthSigMessage;
     toJSON(message: AuthSigMessage): unknown;
     fromPartial(object: Partial<AuthSigMessage>): AuthSigMessage;

@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /**
  * Metadata defines the ICS29 channel specific metadata encoded into the channel version bytestring
  * See ICS004: https://github.com/cosmos/ibc/tree/master/spec/core/ics-004-channel-and-packet-semantics#Versioning
@@ -37,8 +37,8 @@ export interface MetadataSDKType {
 }
 export declare const Metadata: {
     typeUrl: string;
-    encode(message: Metadata, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Metadata;
+    encode(message: Metadata, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Metadata;
     fromJSON(object: any): Metadata;
     toJSON(message: Metadata): unknown;
     fromPartial(object: Partial<Metadata>): Metadata;

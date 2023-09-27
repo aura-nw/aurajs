@@ -1,7 +1,8 @@
 import { Description, DescriptionAmino, DescriptionSDKType, CommissionRates, CommissionRatesAmino, CommissionRatesSDKType, Params, ParamsAmino, ParamsSDKType } from "./staking";
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
+import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
 import { Coin, CoinAmino, CoinSDKType } from "../../base/v1beta1/coin";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** MsgCreateValidator defines a SDK message for creating a new validator. */
 export interface MsgCreateValidator {
     description: Description;
@@ -9,16 +10,13 @@ export interface MsgCreateValidator {
     minSelfDelegation: string;
     delegatorAddress: string;
     validatorAddress: string;
-    pubkey: (Any) | undefined;
+    pubkey: Any;
     value: Coin;
 }
 export interface MsgCreateValidatorProtoMsg {
     typeUrl: "/cosmos.staking.v1beta1.MsgCreateValidator";
     value: Uint8Array;
 }
-export type MsgCreateValidatorEncoded = Omit<MsgCreateValidator, "pubkey"> & {
-    pubkey?: AnyProtoMsg | undefined;
-};
 /** MsgCreateValidator defines a SDK message for creating a new validator. */
 export interface MsgCreateValidatorAmino {
     description?: DescriptionAmino;
@@ -40,7 +38,7 @@ export interface MsgCreateValidatorSDKType {
     min_self_delegation: string;
     delegator_address: string;
     validator_address: string;
-    pubkey: AnySDKType | undefined;
+    pubkey: AnySDKType;
     value: CoinSDKType;
 }
 /** MsgCreateValidatorResponse defines the Msg/CreateValidator response type. */
@@ -294,7 +292,7 @@ export interface MsgCancelUnbondingDelegation {
     /** amount is always less than or equal to unbonding delegation entry balance */
     amount: Coin;
     /** creation_height is the height which the unbonding took place. */
-    creationHeight: bigint;
+    creationHeight: Long;
 }
 export interface MsgCancelUnbondingDelegationProtoMsg {
     typeUrl: "/cosmos.staking.v1beta1.MsgCancelUnbondingDelegation";
@@ -326,7 +324,7 @@ export interface MsgCancelUnbondingDelegationSDKType {
     delegator_address: string;
     validator_address: string;
     amount: CoinSDKType;
-    creation_height: bigint;
+    creation_height: Long;
 }
 /**
  * MsgCancelUnbondingDelegationResponse
@@ -438,8 +436,8 @@ export interface MsgUpdateParamsResponseSDKType {
 }
 export declare const MsgCreateValidator: {
     typeUrl: string;
-    encode(message: MsgCreateValidator, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgCreateValidator;
+    encode(message: MsgCreateValidator, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreateValidator;
     fromJSON(object: any): MsgCreateValidator;
     toJSON(message: MsgCreateValidator): unknown;
     fromPartial(object: Partial<MsgCreateValidator>): MsgCreateValidator;
@@ -453,8 +451,8 @@ export declare const MsgCreateValidator: {
 };
 export declare const MsgCreateValidatorResponse: {
     typeUrl: string;
-    encode(_: MsgCreateValidatorResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgCreateValidatorResponse;
+    encode(_: MsgCreateValidatorResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreateValidatorResponse;
     fromJSON(_: any): MsgCreateValidatorResponse;
     toJSON(_: MsgCreateValidatorResponse): unknown;
     fromPartial(_: Partial<MsgCreateValidatorResponse>): MsgCreateValidatorResponse;
@@ -468,8 +466,8 @@ export declare const MsgCreateValidatorResponse: {
 };
 export declare const MsgEditValidator: {
     typeUrl: string;
-    encode(message: MsgEditValidator, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgEditValidator;
+    encode(message: MsgEditValidator, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgEditValidator;
     fromJSON(object: any): MsgEditValidator;
     toJSON(message: MsgEditValidator): unknown;
     fromPartial(object: Partial<MsgEditValidator>): MsgEditValidator;
@@ -483,8 +481,8 @@ export declare const MsgEditValidator: {
 };
 export declare const MsgEditValidatorResponse: {
     typeUrl: string;
-    encode(_: MsgEditValidatorResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgEditValidatorResponse;
+    encode(_: MsgEditValidatorResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgEditValidatorResponse;
     fromJSON(_: any): MsgEditValidatorResponse;
     toJSON(_: MsgEditValidatorResponse): unknown;
     fromPartial(_: Partial<MsgEditValidatorResponse>): MsgEditValidatorResponse;
@@ -498,8 +496,8 @@ export declare const MsgEditValidatorResponse: {
 };
 export declare const MsgDelegate: {
     typeUrl: string;
-    encode(message: MsgDelegate, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgDelegate;
+    encode(message: MsgDelegate, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgDelegate;
     fromJSON(object: any): MsgDelegate;
     toJSON(message: MsgDelegate): unknown;
     fromPartial(object: Partial<MsgDelegate>): MsgDelegate;
@@ -513,8 +511,8 @@ export declare const MsgDelegate: {
 };
 export declare const MsgDelegateResponse: {
     typeUrl: string;
-    encode(_: MsgDelegateResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgDelegateResponse;
+    encode(_: MsgDelegateResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgDelegateResponse;
     fromJSON(_: any): MsgDelegateResponse;
     toJSON(_: MsgDelegateResponse): unknown;
     fromPartial(_: Partial<MsgDelegateResponse>): MsgDelegateResponse;
@@ -528,8 +526,8 @@ export declare const MsgDelegateResponse: {
 };
 export declare const MsgBeginRedelegate: {
     typeUrl: string;
-    encode(message: MsgBeginRedelegate, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgBeginRedelegate;
+    encode(message: MsgBeginRedelegate, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgBeginRedelegate;
     fromJSON(object: any): MsgBeginRedelegate;
     toJSON(message: MsgBeginRedelegate): unknown;
     fromPartial(object: Partial<MsgBeginRedelegate>): MsgBeginRedelegate;
@@ -543,8 +541,8 @@ export declare const MsgBeginRedelegate: {
 };
 export declare const MsgBeginRedelegateResponse: {
     typeUrl: string;
-    encode(message: MsgBeginRedelegateResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgBeginRedelegateResponse;
+    encode(message: MsgBeginRedelegateResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgBeginRedelegateResponse;
     fromJSON(object: any): MsgBeginRedelegateResponse;
     toJSON(message: MsgBeginRedelegateResponse): unknown;
     fromPartial(object: Partial<MsgBeginRedelegateResponse>): MsgBeginRedelegateResponse;
@@ -558,8 +556,8 @@ export declare const MsgBeginRedelegateResponse: {
 };
 export declare const MsgUndelegate: {
     typeUrl: string;
-    encode(message: MsgUndelegate, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUndelegate;
+    encode(message: MsgUndelegate, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUndelegate;
     fromJSON(object: any): MsgUndelegate;
     toJSON(message: MsgUndelegate): unknown;
     fromPartial(object: Partial<MsgUndelegate>): MsgUndelegate;
@@ -573,8 +571,8 @@ export declare const MsgUndelegate: {
 };
 export declare const MsgUndelegateResponse: {
     typeUrl: string;
-    encode(message: MsgUndelegateResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUndelegateResponse;
+    encode(message: MsgUndelegateResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUndelegateResponse;
     fromJSON(object: any): MsgUndelegateResponse;
     toJSON(message: MsgUndelegateResponse): unknown;
     fromPartial(object: Partial<MsgUndelegateResponse>): MsgUndelegateResponse;
@@ -588,8 +586,8 @@ export declare const MsgUndelegateResponse: {
 };
 export declare const MsgCancelUnbondingDelegation: {
     typeUrl: string;
-    encode(message: MsgCancelUnbondingDelegation, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgCancelUnbondingDelegation;
+    encode(message: MsgCancelUnbondingDelegation, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCancelUnbondingDelegation;
     fromJSON(object: any): MsgCancelUnbondingDelegation;
     toJSON(message: MsgCancelUnbondingDelegation): unknown;
     fromPartial(object: Partial<MsgCancelUnbondingDelegation>): MsgCancelUnbondingDelegation;
@@ -603,8 +601,8 @@ export declare const MsgCancelUnbondingDelegation: {
 };
 export declare const MsgCancelUnbondingDelegationResponse: {
     typeUrl: string;
-    encode(_: MsgCancelUnbondingDelegationResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgCancelUnbondingDelegationResponse;
+    encode(_: MsgCancelUnbondingDelegationResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCancelUnbondingDelegationResponse;
     fromJSON(_: any): MsgCancelUnbondingDelegationResponse;
     toJSON(_: MsgCancelUnbondingDelegationResponse): unknown;
     fromPartial(_: Partial<MsgCancelUnbondingDelegationResponse>): MsgCancelUnbondingDelegationResponse;
@@ -618,8 +616,8 @@ export declare const MsgCancelUnbondingDelegationResponse: {
 };
 export declare const MsgUpdateParams: {
     typeUrl: string;
-    encode(message: MsgUpdateParams, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateParams;
+    encode(message: MsgUpdateParams, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateParams;
     fromJSON(object: any): MsgUpdateParams;
     toJSON(message: MsgUpdateParams): unknown;
     fromPartial(object: Partial<MsgUpdateParams>): MsgUpdateParams;
@@ -633,8 +631,8 @@ export declare const MsgUpdateParams: {
 };
 export declare const MsgUpdateParamsResponse: {
     typeUrl: string;
-    encode(_: MsgUpdateParamsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateParamsResponse;
+    encode(_: MsgUpdateParamsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateParamsResponse;
     fromJSON(_: any): MsgUpdateParamsResponse;
     toJSON(_: MsgUpdateParamsResponse): unknown;
     fromPartial(_: Partial<MsgUpdateParamsResponse>): MsgUpdateParamsResponse;
@@ -646,6 +644,3 @@ export declare const MsgUpdateParamsResponse: {
     toProto(message: MsgUpdateParamsResponse): Uint8Array;
     toProtoMsg(message: MsgUpdateParamsResponse): MsgUpdateParamsResponseProtoMsg;
 };
-export declare const Cosmos_cryptoPubKey_InterfaceDecoder: (input: BinaryReader | Uint8Array) => Any;
-export declare const Cosmos_cryptoPubKey_FromAmino: (content: AnyAmino) => import("cosmjs-types/google/protobuf/any").Any;
-export declare const Cosmos_cryptoPubKey_ToAmino: (content: Any) => import("@cosmjs/amino").Pubkey;

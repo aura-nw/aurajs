@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** Pairs defines a repeated slice of Pair objects. */
 export interface Pairs {
     pairs: Pair[];
@@ -44,8 +44,8 @@ export interface PairSDKType {
 }
 export declare const Pairs: {
     typeUrl: string;
-    encode(message: Pairs, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Pairs;
+    encode(message: Pairs, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Pairs;
     fromJSON(object: any): Pairs;
     toJSON(message: Pairs): unknown;
     fromPartial(object: Partial<Pairs>): Pairs;
@@ -59,8 +59,8 @@ export declare const Pairs: {
 };
 export declare const Pair: {
     typeUrl: string;
-    encode(message: Pair, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Pair;
+    encode(message: Pair, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Pair;
     fromJSON(object: any): Pair;
     toJSON(message: Pair): unknown;
     fromPartial(object: Partial<Pair>): Pair;

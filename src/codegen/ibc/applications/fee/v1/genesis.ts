@@ -1,6 +1,6 @@
 import { IdentifiedPacketFees, IdentifiedPacketFeesAmino, IdentifiedPacketFeesSDKType } from "./fee";
 import { PacketId, PacketIdAmino, PacketIdSDKType } from "../../../core/channel/v1/channel";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { isSet } from "../../../../helpers";
 /** GenesisState defines the ICS29 fee middleware genesis state */
 export interface GenesisState {
@@ -182,7 +182,7 @@ function createBaseGenesisState(): GenesisState {
 }
 export const GenesisState = {
   typeUrl: "/ibc.applications.fee.v1.GenesisState",
-  encode(message: GenesisState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: GenesisState, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.identifiedFees) {
       IdentifiedPacketFees.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -200,8 +200,8 @@ export const GenesisState = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): GenesisState {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): GenesisState {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseGenesisState();
     while (reader.pos < end) {
@@ -344,7 +344,7 @@ function createBaseFeeEnabledChannel(): FeeEnabledChannel {
 }
 export const FeeEnabledChannel = {
   typeUrl: "/ibc.applications.fee.v1.FeeEnabledChannel",
-  encode(message: FeeEnabledChannel, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: FeeEnabledChannel, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.portId !== "") {
       writer.uint32(10).string(message.portId);
     }
@@ -353,8 +353,8 @@ export const FeeEnabledChannel = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): FeeEnabledChannel {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): FeeEnabledChannel {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseFeeEnabledChannel();
     while (reader.pos < end) {
@@ -434,7 +434,7 @@ function createBaseRegisteredPayee(): RegisteredPayee {
 }
 export const RegisteredPayee = {
   typeUrl: "/ibc.applications.fee.v1.RegisteredPayee",
-  encode(message: RegisteredPayee, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: RegisteredPayee, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.channelId !== "") {
       writer.uint32(10).string(message.channelId);
     }
@@ -446,8 +446,8 @@ export const RegisteredPayee = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): RegisteredPayee {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): RegisteredPayee {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseRegisteredPayee();
     while (reader.pos < end) {
@@ -535,7 +535,7 @@ function createBaseRegisteredCounterpartyPayee(): RegisteredCounterpartyPayee {
 }
 export const RegisteredCounterpartyPayee = {
   typeUrl: "/ibc.applications.fee.v1.RegisteredCounterpartyPayee",
-  encode(message: RegisteredCounterpartyPayee, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: RegisteredCounterpartyPayee, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.channelId !== "") {
       writer.uint32(10).string(message.channelId);
     }
@@ -547,8 +547,8 @@ export const RegisteredCounterpartyPayee = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): RegisteredCounterpartyPayee {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): RegisteredCounterpartyPayee {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseRegisteredCounterpartyPayee();
     while (reader.pos < end) {
@@ -635,7 +635,7 @@ function createBaseForwardRelayerAddress(): ForwardRelayerAddress {
 }
 export const ForwardRelayerAddress = {
   typeUrl: "/ibc.applications.fee.v1.ForwardRelayerAddress",
-  encode(message: ForwardRelayerAddress, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: ForwardRelayerAddress, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
@@ -644,8 +644,8 @@ export const ForwardRelayerAddress = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): ForwardRelayerAddress {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): ForwardRelayerAddress {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseForwardRelayerAddress();
     while (reader.pos < end) {

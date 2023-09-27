@@ -1,6 +1,6 @@
 import { Header, HeaderAmino, HeaderSDKType, Data, DataAmino, DataSDKType, Commit, CommitAmino, CommitSDKType } from "./types";
 import { EvidenceList, EvidenceListAmino, EvidenceListSDKType } from "./evidence";
-import { BinaryReader, BinaryWriter } from "../../binary";
+import * as _m0 from "protobufjs/minimal";
 export interface Block {
     header: Header;
     data: Data;
@@ -29,8 +29,8 @@ export interface BlockSDKType {
 }
 export declare const Block: {
     typeUrl: string;
-    encode(message: Block, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Block;
+    encode(message: Block, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Block;
     fromJSON(object: any): Block;
     toJSON(message: Block): unknown;
     fromPartial(object: Partial<Block>): Block;

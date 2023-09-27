@@ -3,7 +3,8 @@ import { ValidatorSet, ValidatorSetAmino, ValidatorSetSDKType } from "../types/v
 import { ConsensusParams, ConsensusParamsAmino, ConsensusParamsSDKType } from "../types/params";
 import { Consensus, ConsensusAmino, ConsensusSDKType } from "../version/types";
 import { BlockID, BlockIDAmino, BlockIDSDKType } from "../types/types";
-import { BinaryReader, BinaryWriter } from "../../binary";
+import { Long } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * ABCIResponses retains the responses
  * of the various ABCI calls during block processing.
@@ -45,7 +46,7 @@ export interface ABCIResponsesSDKType {
 /** ValidatorsInfo represents the latest validator set, or the last height it changed */
 export interface ValidatorsInfo {
     validatorSet: ValidatorSet;
-    lastHeightChanged: bigint;
+    lastHeightChanged: Long;
 }
 export interface ValidatorsInfoProtoMsg {
     typeUrl: "/tendermint.state.ValidatorsInfo";
@@ -63,12 +64,12 @@ export interface ValidatorsInfoAminoMsg {
 /** ValidatorsInfo represents the latest validator set, or the last height it changed */
 export interface ValidatorsInfoSDKType {
     validator_set: ValidatorSetSDKType;
-    last_height_changed: bigint;
+    last_height_changed: Long;
 }
 /** ConsensusParamsInfo represents the latest consensus params, or the last height it changed */
 export interface ConsensusParamsInfo {
     consensusParams: ConsensusParams;
-    lastHeightChanged: bigint;
+    lastHeightChanged: Long;
 }
 export interface ConsensusParamsInfoProtoMsg {
     typeUrl: "/tendermint.state.ConsensusParamsInfo";
@@ -86,11 +87,11 @@ export interface ConsensusParamsInfoAminoMsg {
 /** ConsensusParamsInfo represents the latest consensus params, or the last height it changed */
 export interface ConsensusParamsInfoSDKType {
     consensus_params: ConsensusParamsSDKType;
-    last_height_changed: bigint;
+    last_height_changed: Long;
 }
 export interface ABCIResponsesInfo {
     abciResponses: ABCIResponses;
-    height: bigint;
+    height: Long;
 }
 export interface ABCIResponsesInfoProtoMsg {
     typeUrl: "/tendermint.state.ABCIResponsesInfo";
@@ -106,7 +107,7 @@ export interface ABCIResponsesInfoAminoMsg {
 }
 export interface ABCIResponsesInfoSDKType {
     abci_responses: ABCIResponsesSDKType;
-    height: bigint;
+    height: Long;
 }
 export interface Version {
     consensus: Consensus;
@@ -132,9 +133,9 @@ export interface State {
     version: Version;
     /** immutable */
     chainId: string;
-    initialHeight: bigint;
+    initialHeight: Long;
     /** LastBlockHeight=0 at genesis (ie. block(H=0) does not exist) */
-    lastBlockHeight: bigint;
+    lastBlockHeight: Long;
     lastBlockId: BlockID;
     lastBlockTime: Date;
     /**
@@ -148,13 +149,13 @@ export interface State {
     nextValidators: ValidatorSet;
     validators: ValidatorSet;
     lastValidators: ValidatorSet;
-    lastHeightValidatorsChanged: bigint;
+    lastHeightValidatorsChanged: Long;
     /**
      * Consensus parameters used for validating blocks.
      * Changes returned by EndBlock and updated after Commit.
      */
     consensusParams: ConsensusParams;
-    lastHeightConsensusParamsChanged: bigint;
+    lastHeightConsensusParamsChanged: Long;
     /** Merkle root of the results from executing prev block */
     lastResultsHash: Uint8Array;
     /** the latest AppHash we've received from calling abci.Commit() */
@@ -203,23 +204,23 @@ export interface StateAminoMsg {
 export interface StateSDKType {
     version: VersionSDKType;
     chain_id: string;
-    initial_height: bigint;
-    last_block_height: bigint;
+    initial_height: Long;
+    last_block_height: Long;
     last_block_id: BlockIDSDKType;
     last_block_time: Date;
     next_validators: ValidatorSetSDKType;
     validators: ValidatorSetSDKType;
     last_validators: ValidatorSetSDKType;
-    last_height_validators_changed: bigint;
+    last_height_validators_changed: Long;
     consensus_params: ConsensusParamsSDKType;
-    last_height_consensus_params_changed: bigint;
+    last_height_consensus_params_changed: Long;
     last_results_hash: Uint8Array;
     app_hash: Uint8Array;
 }
 export declare const ABCIResponses: {
     typeUrl: string;
-    encode(message: ABCIResponses, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ABCIResponses;
+    encode(message: ABCIResponses, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ABCIResponses;
     fromJSON(object: any): ABCIResponses;
     toJSON(message: ABCIResponses): unknown;
     fromPartial(object: Partial<ABCIResponses>): ABCIResponses;
@@ -232,8 +233,8 @@ export declare const ABCIResponses: {
 };
 export declare const ValidatorsInfo: {
     typeUrl: string;
-    encode(message: ValidatorsInfo, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ValidatorsInfo;
+    encode(message: ValidatorsInfo, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ValidatorsInfo;
     fromJSON(object: any): ValidatorsInfo;
     toJSON(message: ValidatorsInfo): unknown;
     fromPartial(object: Partial<ValidatorsInfo>): ValidatorsInfo;
@@ -246,8 +247,8 @@ export declare const ValidatorsInfo: {
 };
 export declare const ConsensusParamsInfo: {
     typeUrl: string;
-    encode(message: ConsensusParamsInfo, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ConsensusParamsInfo;
+    encode(message: ConsensusParamsInfo, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ConsensusParamsInfo;
     fromJSON(object: any): ConsensusParamsInfo;
     toJSON(message: ConsensusParamsInfo): unknown;
     fromPartial(object: Partial<ConsensusParamsInfo>): ConsensusParamsInfo;
@@ -260,8 +261,8 @@ export declare const ConsensusParamsInfo: {
 };
 export declare const ABCIResponsesInfo: {
     typeUrl: string;
-    encode(message: ABCIResponsesInfo, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ABCIResponsesInfo;
+    encode(message: ABCIResponsesInfo, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ABCIResponsesInfo;
     fromJSON(object: any): ABCIResponsesInfo;
     toJSON(message: ABCIResponsesInfo): unknown;
     fromPartial(object: Partial<ABCIResponsesInfo>): ABCIResponsesInfo;
@@ -274,8 +275,8 @@ export declare const ABCIResponsesInfo: {
 };
 export declare const Version: {
     typeUrl: string;
-    encode(message: Version, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Version;
+    encode(message: Version, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Version;
     fromJSON(object: any): Version;
     toJSON(message: Version): unknown;
     fromPartial(object: Partial<Version>): Version;
@@ -288,8 +289,8 @@ export declare const Version: {
 };
 export declare const State: {
     typeUrl: string;
-    encode(message: State, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): State;
+    encode(message: State, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): State;
     fromJSON(object: any): State;
     toJSON(message: State): unknown;
     fromPartial(object: Partial<State>): State;

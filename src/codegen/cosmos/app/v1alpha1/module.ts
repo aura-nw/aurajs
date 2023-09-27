@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { isSet } from "../../../helpers";
 /** ModuleDescriptor describes an app module. */
 export interface ModuleDescriptor {
@@ -211,7 +211,7 @@ function createBaseModuleDescriptor(): ModuleDescriptor {
 }
 export const ModuleDescriptor = {
   typeUrl: "/cosmos.app.v1alpha1.ModuleDescriptor",
-  encode(message: ModuleDescriptor, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: ModuleDescriptor, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.goImport !== "") {
       writer.uint32(10).string(message.goImport);
     }
@@ -223,8 +223,8 @@ export const ModuleDescriptor = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): ModuleDescriptor {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): ModuleDescriptor {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseModuleDescriptor();
     while (reader.pos < end) {
@@ -327,7 +327,7 @@ function createBasePackageReference(): PackageReference {
 }
 export const PackageReference = {
   typeUrl: "/cosmos.app.v1alpha1.PackageReference",
-  encode(message: PackageReference, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: PackageReference, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.name !== "") {
       writer.uint32(10).string(message.name);
     }
@@ -336,8 +336,8 @@ export const PackageReference = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): PackageReference {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): PackageReference {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBasePackageReference();
     while (reader.pos < end) {
@@ -415,14 +415,14 @@ function createBaseMigrateFromInfo(): MigrateFromInfo {
 }
 export const MigrateFromInfo = {
   typeUrl: "/cosmos.app.v1alpha1.MigrateFromInfo",
-  encode(message: MigrateFromInfo, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MigrateFromInfo, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.module !== "") {
       writer.uint32(10).string(message.module);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MigrateFromInfo {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MigrateFromInfo {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMigrateFromInfo();
     while (reader.pos < end) {

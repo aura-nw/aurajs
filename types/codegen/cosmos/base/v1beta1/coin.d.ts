@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /**
  * Coin defines a token with a denomination and an amount.
  *
@@ -117,8 +117,8 @@ export interface DecProtoSDKType {
 }
 export declare const Coin: {
     typeUrl: string;
-    encode(message: Coin, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Coin;
+    encode(message: Coin, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Coin;
     fromJSON(object: any): Coin;
     toJSON(message: Coin): unknown;
     fromPartial(object: Partial<Coin>): Coin;
@@ -132,8 +132,8 @@ export declare const Coin: {
 };
 export declare const DecCoin: {
     typeUrl: string;
-    encode(message: DecCoin, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): DecCoin;
+    encode(message: DecCoin, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): DecCoin;
     fromJSON(object: any): DecCoin;
     toJSON(message: DecCoin): unknown;
     fromPartial(object: Partial<DecCoin>): DecCoin;
@@ -147,8 +147,8 @@ export declare const DecCoin: {
 };
 export declare const IntProto: {
     typeUrl: string;
-    encode(message: IntProto, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): IntProto;
+    encode(message: IntProto, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): IntProto;
     fromJSON(object: any): IntProto;
     toJSON(message: IntProto): unknown;
     fromPartial(object: Partial<IntProto>): IntProto;
@@ -162,8 +162,8 @@ export declare const IntProto: {
 };
 export declare const DecProto: {
     typeUrl: string;
-    encode(message: DecProto, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): DecProto;
+    encode(message: DecProto, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): DecProto;
     fromJSON(object: any): DecProto;
     toJSON(message: DecProto): unknown;
     fromPartial(object: Partial<DecProto>): DecProto;

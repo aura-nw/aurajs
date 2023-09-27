@@ -1,5 +1,5 @@
 import { ModuleOptions, ModuleOptionsAmino, ModuleOptionsSDKType } from "./options";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { isSet, isObject } from "../../../helpers";
 /** AppOptionsRequest is the RemoteInfoService/AppOptions request type. */
 export interface AppOptionsRequest {}
@@ -68,11 +68,11 @@ function createBaseAppOptionsRequest(): AppOptionsRequest {
 }
 export const AppOptionsRequest = {
   typeUrl: "/cosmos.autocli.v1.AppOptionsRequest",
-  encode(_: AppOptionsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: AppOptionsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): AppOptionsRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): AppOptionsRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseAppOptionsRequest();
     while (reader.pos < end) {
@@ -132,7 +132,7 @@ function createBaseAppOptionsResponse_ModuleOptionsEntry(): AppOptionsResponse_M
   };
 }
 export const AppOptionsResponse_ModuleOptionsEntry = {
-  encode(message: AppOptionsResponse_ModuleOptionsEntry, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: AppOptionsResponse_ModuleOptionsEntry, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.key !== "") {
       writer.uint32(10).string(message.key);
     }
@@ -141,8 +141,8 @@ export const AppOptionsResponse_ModuleOptionsEntry = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): AppOptionsResponse_ModuleOptionsEntry {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): AppOptionsResponse_ModuleOptionsEntry {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseAppOptionsResponse_ModuleOptionsEntry();
     while (reader.pos < end) {
@@ -208,7 +208,7 @@ function createBaseAppOptionsResponse(): AppOptionsResponse {
 }
 export const AppOptionsResponse = {
   typeUrl: "/cosmos.autocli.v1.AppOptionsResponse",
-  encode(message: AppOptionsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: AppOptionsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     Object.entries(message.moduleOptions).forEach(([key, value]) => {
       AppOptionsResponse_ModuleOptionsEntry.encode({
         key: (key as any),
@@ -217,8 +217,8 @@ export const AppOptionsResponse = {
     });
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): AppOptionsResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): AppOptionsResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseAppOptionsResponse();
     while (reader.pos < end) {

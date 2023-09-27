@@ -2,7 +2,8 @@ import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
 import { SignMode } from "../signing/v1beta1/signing";
 import { CompactBitArray, CompactBitArrayAmino, CompactBitArraySDKType } from "../../crypto/multisig/v1beta1/multisig";
 import { Coin, CoinAmino, CoinSDKType } from "../../base/v1beta1/coin";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** Tx is the standard type used for broadcasting transactions. */
 export interface Tx {
     /** body is the processable content of the transaction */
@@ -138,7 +139,7 @@ export interface SignDoc {
      */
     chainId: string;
     /** account_number is the account number of the account in state */
-    accountNumber: bigint;
+    accountNumber: Long;
 }
 export interface SignDocProtoMsg {
     typeUrl: "/cosmos.tx.v1beta1.SignDoc";
@@ -174,7 +175,7 @@ export interface SignDocSDKType {
     body_bytes: Uint8Array;
     auth_info_bytes: Uint8Array;
     chain_id: string;
-    account_number: bigint;
+    account_number: Long;
 }
 /**
  * SignDocDirectAux is the type used for generating sign bytes for
@@ -197,9 +198,9 @@ export interface SignDocDirectAux {
      */
     chainId: string;
     /** account_number is the account number of the account in state. */
-    accountNumber: bigint;
+    accountNumber: Long;
     /** sequence is the sequence number of the signing account. */
-    sequence: bigint;
+    sequence: Long;
     /**
      * Tip is the optional tip used for transactions fees paid in another denom.
      * It should be left empty if the signer is not the tipper for this
@@ -262,8 +263,8 @@ export interface SignDocDirectAuxSDKType {
     body_bytes: Uint8Array;
     public_key: AnySDKType;
     chain_id: string;
-    account_number: bigint;
-    sequence: bigint;
+    account_number: Long;
+    sequence: Long;
     tip: TipSDKType;
 }
 /** TxBody is the body of a transaction that all signers sign over. */
@@ -288,7 +289,7 @@ export interface TxBody {
      * timeout is the block height after which this transaction will not
      * be processed by the chain
      */
-    timeoutHeight: bigint;
+    timeoutHeight: Long;
     /**
      * extension_options are arbitrary options that can be added by chains
      * when the default options are not sufficient. If any of these are present
@@ -350,7 +351,7 @@ export interface TxBodyAminoMsg {
 export interface TxBodySDKType {
     messages: AnySDKType[];
     memo: string;
-    timeout_height: bigint;
+    timeout_height: Long;
     extension_options: AnySDKType[];
     non_critical_extension_options: AnySDKType[];
 }
@@ -450,7 +451,7 @@ export interface SignerInfo {
      * number of committed transactions signed by a given address. It is used to
      * prevent replay attacks.
      */
-    sequence: bigint;
+    sequence: Long;
 }
 export interface SignerInfoProtoMsg {
     typeUrl: "/cosmos.tx.v1beta1.SignerInfo";
@@ -490,7 +491,7 @@ export interface SignerInfoAminoMsg {
 export interface SignerInfoSDKType {
     public_key: AnySDKType;
     mode_info: ModeInfoSDKType;
-    sequence: bigint;
+    sequence: Long;
 }
 /** ModeInfo describes the signing mode of a single or nested multisig signer. */
 export interface ModeInfo {
@@ -598,7 +599,7 @@ export interface Fee {
      * gas_limit is the maximum gas that can be used in transaction processing
      * before an out of gas error occurs
      */
-    gasLimit: bigint;
+    gasLimit: Long;
     /**
      * if unset, the first signer is responsible for paying the fees. If set, the specified account must pay the fees.
      * the payer must be a tx signer (and thus have signed this field in AuthInfo).
@@ -653,7 +654,7 @@ export interface FeeAminoMsg {
  */
 export interface FeeSDKType {
     amount: CoinSDKType[];
-    gas_limit: bigint;
+    gas_limit: Long;
     payer: string;
     granter: string;
 }
@@ -772,8 +773,8 @@ export interface AuxSignerDataSDKType {
 }
 export declare const Tx: {
     typeUrl: string;
-    encode(message: Tx, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Tx;
+    encode(message: Tx, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Tx;
     fromJSON(object: any): Tx;
     toJSON(message: Tx): unknown;
     fromPartial(object: Partial<Tx>): Tx;
@@ -787,8 +788,8 @@ export declare const Tx: {
 };
 export declare const TxRaw: {
     typeUrl: string;
-    encode(message: TxRaw, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): TxRaw;
+    encode(message: TxRaw, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TxRaw;
     fromJSON(object: any): TxRaw;
     toJSON(message: TxRaw): unknown;
     fromPartial(object: Partial<TxRaw>): TxRaw;
@@ -802,8 +803,8 @@ export declare const TxRaw: {
 };
 export declare const SignDoc: {
     typeUrl: string;
-    encode(message: SignDoc, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SignDoc;
+    encode(message: SignDoc, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SignDoc;
     fromJSON(object: any): SignDoc;
     toJSON(message: SignDoc): unknown;
     fromPartial(object: Partial<SignDoc>): SignDoc;
@@ -817,8 +818,8 @@ export declare const SignDoc: {
 };
 export declare const SignDocDirectAux: {
     typeUrl: string;
-    encode(message: SignDocDirectAux, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SignDocDirectAux;
+    encode(message: SignDocDirectAux, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SignDocDirectAux;
     fromJSON(object: any): SignDocDirectAux;
     toJSON(message: SignDocDirectAux): unknown;
     fromPartial(object: Partial<SignDocDirectAux>): SignDocDirectAux;
@@ -832,8 +833,8 @@ export declare const SignDocDirectAux: {
 };
 export declare const TxBody: {
     typeUrl: string;
-    encode(message: TxBody, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): TxBody;
+    encode(message: TxBody, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TxBody;
     fromJSON(object: any): TxBody;
     toJSON(message: TxBody): unknown;
     fromPartial(object: Partial<TxBody>): TxBody;
@@ -847,8 +848,8 @@ export declare const TxBody: {
 };
 export declare const AuthInfo: {
     typeUrl: string;
-    encode(message: AuthInfo, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): AuthInfo;
+    encode(message: AuthInfo, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): AuthInfo;
     fromJSON(object: any): AuthInfo;
     toJSON(message: AuthInfo): unknown;
     fromPartial(object: Partial<AuthInfo>): AuthInfo;
@@ -862,8 +863,8 @@ export declare const AuthInfo: {
 };
 export declare const SignerInfo: {
     typeUrl: string;
-    encode(message: SignerInfo, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SignerInfo;
+    encode(message: SignerInfo, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SignerInfo;
     fromJSON(object: any): SignerInfo;
     toJSON(message: SignerInfo): unknown;
     fromPartial(object: Partial<SignerInfo>): SignerInfo;
@@ -877,8 +878,8 @@ export declare const SignerInfo: {
 };
 export declare const ModeInfo: {
     typeUrl: string;
-    encode(message: ModeInfo, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ModeInfo;
+    encode(message: ModeInfo, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ModeInfo;
     fromJSON(object: any): ModeInfo;
     toJSON(message: ModeInfo): unknown;
     fromPartial(object: Partial<ModeInfo>): ModeInfo;
@@ -892,8 +893,8 @@ export declare const ModeInfo: {
 };
 export declare const ModeInfo_Single: {
     typeUrl: string;
-    encode(message: ModeInfo_Single, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ModeInfo_Single;
+    encode(message: ModeInfo_Single, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ModeInfo_Single;
     fromJSON(object: any): ModeInfo_Single;
     toJSON(message: ModeInfo_Single): unknown;
     fromPartial(object: Partial<ModeInfo_Single>): ModeInfo_Single;
@@ -907,8 +908,8 @@ export declare const ModeInfo_Single: {
 };
 export declare const ModeInfo_Multi: {
     typeUrl: string;
-    encode(message: ModeInfo_Multi, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ModeInfo_Multi;
+    encode(message: ModeInfo_Multi, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ModeInfo_Multi;
     fromJSON(object: any): ModeInfo_Multi;
     toJSON(message: ModeInfo_Multi): unknown;
     fromPartial(object: Partial<ModeInfo_Multi>): ModeInfo_Multi;
@@ -922,8 +923,8 @@ export declare const ModeInfo_Multi: {
 };
 export declare const Fee: {
     typeUrl: string;
-    encode(message: Fee, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Fee;
+    encode(message: Fee, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Fee;
     fromJSON(object: any): Fee;
     toJSON(message: Fee): unknown;
     fromPartial(object: Partial<Fee>): Fee;
@@ -937,8 +938,8 @@ export declare const Fee: {
 };
 export declare const Tip: {
     typeUrl: string;
-    encode(message: Tip, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Tip;
+    encode(message: Tip, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Tip;
     fromJSON(object: any): Tip;
     toJSON(message: Tip): unknown;
     fromPartial(object: Partial<Tip>): Tip;
@@ -952,8 +953,8 @@ export declare const Tip: {
 };
 export declare const AuxSignerData: {
     typeUrl: string;
-    encode(message: AuxSignerData, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): AuxSignerData;
+    encode(message: AuxSignerData, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): AuxSignerData;
     fromJSON(object: any): AuxSignerData;
     toJSON(message: AuxSignerData): unknown;
     fromPartial(object: Partial<AuxSignerData>): AuxSignerData;

@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** MsgSend represents a message to send a nft from one account to another account. */
 export interface MsgSend {
     /** class_id defines the unique identifier of the nft classification, similar to the contract address of ERC721 */
@@ -55,8 +55,8 @@ export interface MsgSendResponseSDKType {
 }
 export declare const MsgSend: {
     typeUrl: string;
-    encode(message: MsgSend, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgSend;
+    encode(message: MsgSend, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgSend;
     fromJSON(object: any): MsgSend;
     toJSON(message: MsgSend): unknown;
     fromPartial(object: Partial<MsgSend>): MsgSend;
@@ -70,8 +70,8 @@ export declare const MsgSend: {
 };
 export declare const MsgSendResponse: {
     typeUrl: string;
-    encode(_: MsgSendResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgSendResponse;
+    encode(_: MsgSendResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgSendResponse;
     fromJSON(_: any): MsgSendResponse;
     toJSON(_: MsgSendResponse): unknown;
     fromPartial(_: Partial<MsgSendResponse>): MsgSendResponse;

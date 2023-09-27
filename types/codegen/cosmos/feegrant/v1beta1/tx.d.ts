@@ -1,6 +1,5 @@
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
-import { BasicAllowance, BasicAllowanceProtoMsg, BasicAllowanceSDKType, PeriodicAllowance, PeriodicAllowanceProtoMsg, PeriodicAllowanceSDKType, AllowedMsgAllowance, AllowedMsgAllowanceProtoMsg, AllowedMsgAllowanceSDKType } from "./feegrant";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
+import * as _m0 from "protobufjs/minimal";
 /**
  * MsgGrantAllowance adds permission for Grantee to spend up to Allowance
  * of fees from the account of Granter.
@@ -11,15 +10,12 @@ export interface MsgGrantAllowance {
     /** grantee is the address of the user being granted an allowance of another user's funds. */
     grantee: string;
     /** allowance can be any of basic, periodic, allowed fee allowance. */
-    allowance: (BasicAllowance & PeriodicAllowance & AllowedMsgAllowance & Any) | undefined;
+    allowance: Any;
 }
 export interface MsgGrantAllowanceProtoMsg {
     typeUrl: "/cosmos.feegrant.v1beta1.MsgGrantAllowance";
     value: Uint8Array;
 }
-export type MsgGrantAllowanceEncoded = Omit<MsgGrantAllowance, "allowance"> & {
-    /** allowance can be any of basic, periodic, allowed fee allowance. */ allowance?: BasicAllowanceProtoMsg | PeriodicAllowanceProtoMsg | AllowedMsgAllowanceProtoMsg | AnyProtoMsg | undefined;
-};
 /**
  * MsgGrantAllowance adds permission for Grantee to spend up to Allowance
  * of fees from the account of Granter.
@@ -43,7 +39,7 @@ export interface MsgGrantAllowanceAminoMsg {
 export interface MsgGrantAllowanceSDKType {
     granter: string;
     grantee: string;
-    allowance: BasicAllowanceSDKType | PeriodicAllowanceSDKType | AllowedMsgAllowanceSDKType | AnySDKType | undefined;
+    allowance: AnySDKType;
 }
 /** MsgGrantAllowanceResponse defines the Msg/GrantAllowanceResponse response type. */
 export interface MsgGrantAllowanceResponse {
@@ -108,8 +104,8 @@ export interface MsgRevokeAllowanceResponseSDKType {
 }
 export declare const MsgGrantAllowance: {
     typeUrl: string;
-    encode(message: MsgGrantAllowance, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgGrantAllowance;
+    encode(message: MsgGrantAllowance, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgGrantAllowance;
     fromJSON(object: any): MsgGrantAllowance;
     toJSON(message: MsgGrantAllowance): unknown;
     fromPartial(object: Partial<MsgGrantAllowance>): MsgGrantAllowance;
@@ -123,8 +119,8 @@ export declare const MsgGrantAllowance: {
 };
 export declare const MsgGrantAllowanceResponse: {
     typeUrl: string;
-    encode(_: MsgGrantAllowanceResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgGrantAllowanceResponse;
+    encode(_: MsgGrantAllowanceResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgGrantAllowanceResponse;
     fromJSON(_: any): MsgGrantAllowanceResponse;
     toJSON(_: MsgGrantAllowanceResponse): unknown;
     fromPartial(_: Partial<MsgGrantAllowanceResponse>): MsgGrantAllowanceResponse;
@@ -138,8 +134,8 @@ export declare const MsgGrantAllowanceResponse: {
 };
 export declare const MsgRevokeAllowance: {
     typeUrl: string;
-    encode(message: MsgRevokeAllowance, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgRevokeAllowance;
+    encode(message: MsgRevokeAllowance, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgRevokeAllowance;
     fromJSON(object: any): MsgRevokeAllowance;
     toJSON(message: MsgRevokeAllowance): unknown;
     fromPartial(object: Partial<MsgRevokeAllowance>): MsgRevokeAllowance;
@@ -153,8 +149,8 @@ export declare const MsgRevokeAllowance: {
 };
 export declare const MsgRevokeAllowanceResponse: {
     typeUrl: string;
-    encode(_: MsgRevokeAllowanceResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgRevokeAllowanceResponse;
+    encode(_: MsgRevokeAllowanceResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgRevokeAllowanceResponse;
     fromJSON(_: any): MsgRevokeAllowanceResponse;
     toJSON(_: MsgRevokeAllowanceResponse): unknown;
     fromPartial(_: Partial<MsgRevokeAllowanceResponse>): MsgRevokeAllowanceResponse;
@@ -166,6 +162,3 @@ export declare const MsgRevokeAllowanceResponse: {
     toProto(message: MsgRevokeAllowanceResponse): Uint8Array;
     toProtoMsg(message: MsgRevokeAllowanceResponse): MsgRevokeAllowanceResponseProtoMsg;
 };
-export declare const Cosmos_feegrantv1beta1FeeAllowanceI_InterfaceDecoder: (input: BinaryReader | Uint8Array) => BasicAllowance | PeriodicAllowance | AllowedMsgAllowance | Any;
-export declare const Cosmos_feegrantv1beta1FeeAllowanceI_FromAmino: (content: AnyAmino) => Any;
-export declare const Cosmos_feegrantv1beta1FeeAllowanceI_ToAmino: (content: Any) => AnyAmino;

@@ -1,5 +1,5 @@
 import { Params, ParamsAmino, ParamsSDKType } from "./mint";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
 export interface QueryParamsRequest {
 }
@@ -146,8 +146,8 @@ export interface QueryAnnualProvisionsResponseSDKType {
 }
 export declare const QueryParamsRequest: {
     typeUrl: string;
-    encode(_: QueryParamsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsRequest;
+    encode(_: QueryParamsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsRequest;
     fromJSON(_: any): QueryParamsRequest;
     toJSON(_: QueryParamsRequest): unknown;
     fromPartial(_: Partial<QueryParamsRequest>): QueryParamsRequest;
@@ -161,8 +161,8 @@ export declare const QueryParamsRequest: {
 };
 export declare const QueryParamsResponse: {
     typeUrl: string;
-    encode(message: QueryParamsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsResponse;
+    encode(message: QueryParamsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse;
     fromJSON(object: any): QueryParamsResponse;
     toJSON(message: QueryParamsResponse): unknown;
     fromPartial(object: Partial<QueryParamsResponse>): QueryParamsResponse;
@@ -176,8 +176,8 @@ export declare const QueryParamsResponse: {
 };
 export declare const QueryInflationRequest: {
     typeUrl: string;
-    encode(_: QueryInflationRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryInflationRequest;
+    encode(_: QueryInflationRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryInflationRequest;
     fromJSON(_: any): QueryInflationRequest;
     toJSON(_: QueryInflationRequest): unknown;
     fromPartial(_: Partial<QueryInflationRequest>): QueryInflationRequest;
@@ -191,8 +191,8 @@ export declare const QueryInflationRequest: {
 };
 export declare const QueryInflationResponse: {
     typeUrl: string;
-    encode(message: QueryInflationResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryInflationResponse;
+    encode(message: QueryInflationResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryInflationResponse;
     fromJSON(object: any): QueryInflationResponse;
     toJSON(message: QueryInflationResponse): unknown;
     fromPartial(object: Partial<QueryInflationResponse>): QueryInflationResponse;
@@ -206,8 +206,8 @@ export declare const QueryInflationResponse: {
 };
 export declare const QueryAnnualProvisionsRequest: {
     typeUrl: string;
-    encode(_: QueryAnnualProvisionsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryAnnualProvisionsRequest;
+    encode(_: QueryAnnualProvisionsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAnnualProvisionsRequest;
     fromJSON(_: any): QueryAnnualProvisionsRequest;
     toJSON(_: QueryAnnualProvisionsRequest): unknown;
     fromPartial(_: Partial<QueryAnnualProvisionsRequest>): QueryAnnualProvisionsRequest;
@@ -221,8 +221,8 @@ export declare const QueryAnnualProvisionsRequest: {
 };
 export declare const QueryAnnualProvisionsResponse: {
     typeUrl: string;
-    encode(message: QueryAnnualProvisionsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryAnnualProvisionsResponse;
+    encode(message: QueryAnnualProvisionsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAnnualProvisionsResponse;
     fromJSON(object: any): QueryAnnualProvisionsResponse;
     toJSON(message: QueryAnnualProvisionsResponse): unknown;
     fromPartial(object: Partial<QueryAnnualProvisionsResponse>): QueryAnnualProvisionsResponse;

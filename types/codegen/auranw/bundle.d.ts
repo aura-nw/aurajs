@@ -84,8 +84,8 @@ export declare namespace auranw {
             };
             MsgRecover: {
                 typeUrl: string;
-                encode(message: _219.MsgRecover, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _219.MsgRecover;
+                encode(message: _219.MsgRecover, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _219.MsgRecover;
                 fromJSON(object: any): _219.MsgRecover;
                 toJSON(message: _219.MsgRecover): unknown;
                 fromPartial(object: Partial<_219.MsgRecover>): _219.MsgRecover;
@@ -98,8 +98,8 @@ export declare namespace auranw {
             };
             MsgRecoverResponse: {
                 typeUrl: string;
-                encode(_: _219.MsgRecoverResponse, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _219.MsgRecoverResponse;
+                encode(_: _219.MsgRecoverResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _219.MsgRecoverResponse;
                 fromJSON(_: any): _219.MsgRecoverResponse;
                 toJSON(_: _219.MsgRecoverResponse): unknown;
                 fromPartial(_: Partial<_219.MsgRecoverResponse>): _219.MsgRecoverResponse;
@@ -112,8 +112,8 @@ export declare namespace auranw {
             };
             MsgActivateAccount: {
                 typeUrl: string;
-                encode(message: _219.MsgActivateAccount, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _219.MsgActivateAccount;
+                encode(message: _219.MsgActivateAccount, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _219.MsgActivateAccount;
                 fromJSON(object: any): _219.MsgActivateAccount;
                 toJSON(message: _219.MsgActivateAccount): unknown;
                 fromPartial(object: Partial<_219.MsgActivateAccount>): _219.MsgActivateAccount;
@@ -126,8 +126,8 @@ export declare namespace auranw {
             };
             MsgActivateAccountResponse: {
                 typeUrl: string;
-                encode(message: _219.MsgActivateAccountResponse, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _219.MsgActivateAccountResponse;
+                encode(message: _219.MsgActivateAccountResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _219.MsgActivateAccountResponse;
                 fromJSON(object: any): _219.MsgActivateAccountResponse;
                 toJSON(message: _219.MsgActivateAccountResponse): unknown;
                 fromPartial(object: Partial<_219.MsgActivateAccountResponse>): _219.MsgActivateAccountResponse;
@@ -140,8 +140,8 @@ export declare namespace auranw {
             };
             QueryParamsRequest: {
                 typeUrl: string;
-                encode(_: _218.QueryParamsRequest, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _218.QueryParamsRequest;
+                encode(_: _218.QueryParamsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _218.QueryParamsRequest;
                 fromJSON(_: any): _218.QueryParamsRequest;
                 toJSON(_: _218.QueryParamsRequest): unknown;
                 fromPartial(_: Partial<_218.QueryParamsRequest>): _218.QueryParamsRequest;
@@ -154,8 +154,8 @@ export declare namespace auranw {
             };
             QueryParamsResponse: {
                 typeUrl: string;
-                encode(message: _218.QueryParamsResponse, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _218.QueryParamsResponse;
+                encode(message: _218.QueryParamsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _218.QueryParamsResponse;
                 fromJSON(object: any): _218.QueryParamsResponse;
                 toJSON(message: _218.QueryParamsResponse): unknown;
                 fromPartial(object: Partial<_218.QueryParamsResponse>): _218.QueryParamsResponse;
@@ -168,8 +168,8 @@ export declare namespace auranw {
             };
             QueryGenerateAccountRequest: {
                 typeUrl: string;
-                encode(message: _218.QueryGenerateAccountRequest, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _218.QueryGenerateAccountRequest;
+                encode(message: _218.QueryGenerateAccountRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _218.QueryGenerateAccountRequest;
                 fromJSON(object: any): _218.QueryGenerateAccountRequest;
                 toJSON(message: _218.QueryGenerateAccountRequest): unknown;
                 fromPartial(object: Partial<_218.QueryGenerateAccountRequest>): _218.QueryGenerateAccountRequest;
@@ -182,8 +182,8 @@ export declare namespace auranw {
             };
             QueryGenerateAccountResponse: {
                 typeUrl: string;
-                encode(message: _218.QueryGenerateAccountResponse, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _218.QueryGenerateAccountResponse;
+                encode(message: _218.QueryGenerateAccountResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _218.QueryGenerateAccountResponse;
                 fromJSON(object: any): _218.QueryGenerateAccountResponse;
                 toJSON(message: _218.QueryGenerateAccountResponse): unknown;
                 fromPartial(object: Partial<_218.QueryGenerateAccountResponse>): _218.QueryGenerateAccountResponse;
@@ -196,8 +196,8 @@ export declare namespace auranw {
             };
             CodeID: {
                 typeUrl: string;
-                encode(message: _217.CodeID, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _217.CodeID;
+                encode(message: _217.CodeID, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _217.CodeID;
                 fromJSON(object: any): _217.CodeID;
                 toJSON(message: _217.CodeID): unknown;
                 fromPartial(object: Partial<_217.CodeID>): _217.CodeID;
@@ -210,8 +210,8 @@ export declare namespace auranw {
             };
             Params: {
                 typeUrl: string;
-                encode(message: _217.Params, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _217.Params;
+                encode(message: _217.Params, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _217.Params;
                 fromJSON(object: any): _217.Params;
                 toJSON(message: _217.Params): unknown;
                 fromPartial(object: Partial<_217.Params>): _217.Params;
@@ -224,8 +224,8 @@ export declare namespace auranw {
             };
             GenesisState: {
                 typeUrl: string;
-                encode(message: _216.GenesisState, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _216.GenesisState;
+                encode(message: _216.GenesisState, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _216.GenesisState;
                 fromJSON(object: any): _216.GenesisState;
                 toJSON(message: _216.GenesisState): unknown;
                 fromPartial(object: Partial<_216.GenesisState>): _216.GenesisState;
@@ -238,8 +238,8 @@ export declare namespace auranw {
             };
             SmartAccount: {
                 typeUrl: string;
-                encode(message: _215.SmartAccount, writer?: import("..").BinaryWriter): import("..").BinaryWriter;
-                decode(input: Uint8Array | import("..").BinaryReader, length?: number): _215.SmartAccount;
+                encode(message: _215.SmartAccount, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _215.SmartAccount;
                 fromJSON(object: any): _215.SmartAccount;
                 toJSON(message: _215.SmartAccount): unknown;
                 fromPartial(object: Partial<_215.SmartAccount>): _215.SmartAccount;

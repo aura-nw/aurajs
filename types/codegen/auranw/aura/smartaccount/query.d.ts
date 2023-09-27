@@ -1,6 +1,7 @@
 import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
 import { Params, ParamsAmino, ParamsSDKType } from "./params";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** QueryParamsRequest is request type for the Query/Params RPC method. */
 export interface QueryParamsRequest {
 }
@@ -42,7 +43,7 @@ export interface QueryParamsResponseSDKType {
 }
 export interface QueryGenerateAccountRequest {
     /** CodeID indicates which wasm binary code is to be used for creating account */
-    codeId: bigint;
+    codeId: Long;
     /** an arbitrary value provided by the sender. Size can be 1 to 64. */
     salt: Uint8Array;
     /** InitMsg is the JSON-encoded instantiate message for creating account */
@@ -69,7 +70,7 @@ export interface QueryGenerateAccountRequestAminoMsg {
     value: QueryGenerateAccountRequestAmino;
 }
 export interface QueryGenerateAccountRequestSDKType {
-    code_id: bigint;
+    code_id: Long;
     salt: Uint8Array;
     init_msg: Uint8Array;
     public_key: AnySDKType;
@@ -93,8 +94,8 @@ export interface QueryGenerateAccountResponseSDKType {
 }
 export declare const QueryParamsRequest: {
     typeUrl: string;
-    encode(_: QueryParamsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsRequest;
+    encode(_: QueryParamsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsRequest;
     fromJSON(_: any): QueryParamsRequest;
     toJSON(_: QueryParamsRequest): unknown;
     fromPartial(_: Partial<QueryParamsRequest>): QueryParamsRequest;
@@ -107,8 +108,8 @@ export declare const QueryParamsRequest: {
 };
 export declare const QueryParamsResponse: {
     typeUrl: string;
-    encode(message: QueryParamsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsResponse;
+    encode(message: QueryParamsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse;
     fromJSON(object: any): QueryParamsResponse;
     toJSON(message: QueryParamsResponse): unknown;
     fromPartial(object: Partial<QueryParamsResponse>): QueryParamsResponse;
@@ -121,8 +122,8 @@ export declare const QueryParamsResponse: {
 };
 export declare const QueryGenerateAccountRequest: {
     typeUrl: string;
-    encode(message: QueryGenerateAccountRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGenerateAccountRequest;
+    encode(message: QueryGenerateAccountRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGenerateAccountRequest;
     fromJSON(object: any): QueryGenerateAccountRequest;
     toJSON(message: QueryGenerateAccountRequest): unknown;
     fromPartial(object: Partial<QueryGenerateAccountRequest>): QueryGenerateAccountRequest;
@@ -135,8 +136,8 @@ export declare const QueryGenerateAccountRequest: {
 };
 export declare const QueryGenerateAccountResponse: {
     typeUrl: string;
-    encode(message: QueryGenerateAccountResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGenerateAccountResponse;
+    encode(message: QueryGenerateAccountResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGenerateAccountResponse;
     fromJSON(object: any): QueryGenerateAccountResponse;
     toJSON(message: QueryGenerateAccountResponse): unknown;
     fromPartial(object: Partial<QueryGenerateAccountResponse>): QueryGenerateAccountResponse;

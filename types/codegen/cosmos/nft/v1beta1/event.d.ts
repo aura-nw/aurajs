@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** EventSend is emitted on Msg/Send */
 export interface EventSend {
     /** class_id associated with the nft */
@@ -102,8 +102,8 @@ export interface EventBurnSDKType {
 }
 export declare const EventSend: {
     typeUrl: string;
-    encode(message: EventSend, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): EventSend;
+    encode(message: EventSend, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): EventSend;
     fromJSON(object: any): EventSend;
     toJSON(message: EventSend): unknown;
     fromPartial(object: Partial<EventSend>): EventSend;
@@ -117,8 +117,8 @@ export declare const EventSend: {
 };
 export declare const EventMint: {
     typeUrl: string;
-    encode(message: EventMint, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): EventMint;
+    encode(message: EventMint, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): EventMint;
     fromJSON(object: any): EventMint;
     toJSON(message: EventMint): unknown;
     fromPartial(object: Partial<EventMint>): EventMint;
@@ -132,8 +132,8 @@ export declare const EventMint: {
 };
 export declare const EventBurn: {
     typeUrl: string;
-    encode(message: EventBurn, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): EventBurn;
+    encode(message: EventBurn, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): EventBurn;
     fromJSON(object: any): EventBurn;
     toJSON(message: EventBurn): unknown;
     fromPartial(object: Partial<EventBurn>): EventBurn;

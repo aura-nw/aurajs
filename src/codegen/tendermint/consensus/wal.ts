@@ -2,8 +2,8 @@ import { Message, MessageAmino, MessageSDKType } from "./types";
 import { Duration } from "../../google/protobuf/duration";
 import { EventDataRoundState, EventDataRoundStateAmino, EventDataRoundStateSDKType } from "../types/events";
 import { Timestamp } from "../../google/protobuf/timestamp";
-import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet, toDuration, fromDuration, toTimestamp, fromTimestamp, fromJsonTimestamp } from "../../helpers";
+import { Long, isSet, toDuration, fromDuration, toTimestamp, fromTimestamp, fromJsonTimestamp } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** MsgInfo are msgs from the reactor which may update the state */
 export interface MsgInfo {
   msg: Message;
@@ -30,7 +30,7 @@ export interface MsgInfoSDKType {
 /** TimeoutInfo internally generated messages which may update the state */
 export interface TimeoutInfo {
   duration: string;
-  height: bigint;
+  height: Long;
   round: number;
   step: number;
 }
@@ -52,7 +52,7 @@ export interface TimeoutInfoAminoMsg {
 /** TimeoutInfo internally generated messages which may update the state */
 export interface TimeoutInfoSDKType {
   duration: string;
-  height: bigint;
+  height: Long;
   round: number;
   step: number;
 }
@@ -61,7 +61,7 @@ export interface TimeoutInfoSDKType {
  * @internal used by scripts/wal2json util.
  */
 export interface EndHeight {
-  height: bigint;
+  height: Long;
 }
 export interface EndHeightProtoMsg {
   typeUrl: "/tendermint.consensus.EndHeight";
@@ -83,7 +83,7 @@ export interface EndHeightAminoMsg {
  * @internal used by scripts/wal2json util.
  */
 export interface EndHeightSDKType {
-  height: bigint;
+  height: Long;
 }
 export interface WALMessage {
   eventDataRoundState?: EventDataRoundState;
@@ -142,7 +142,7 @@ function createBaseMsgInfo(): MsgInfo {
 }
 export const MsgInfo = {
   typeUrl: "/tendermint.consensus.MsgInfo",
-  encode(message: MsgInfo, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgInfo, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.msg !== undefined) {
       Message.encode(message.msg, writer.uint32(10).fork()).ldelim();
     }
@@ -151,8 +151,8 @@ export const MsgInfo = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgInfo {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgInfo {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgInfo();
     while (reader.pos < end) {
@@ -220,18 +220,18 @@ export const MsgInfo = {
 function createBaseTimeoutInfo(): TimeoutInfo {
   return {
     duration: Duration.fromPartial({}),
-    height: BigInt(0),
+    height: Long.ZERO,
     round: 0,
     step: 0
   };
 }
 export const TimeoutInfo = {
   typeUrl: "/tendermint.consensus.TimeoutInfo",
-  encode(message: TimeoutInfo, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: TimeoutInfo, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.duration !== undefined) {
       Duration.encode(toDuration(message.duration), writer.uint32(10).fork()).ldelim();
     }
-    if (message.height !== BigInt(0)) {
+    if (!message.height.isZero()) {
       writer.uint32(16).int64(message.height);
     }
     if (message.round !== 0) {
@@ -242,8 +242,8 @@ export const TimeoutInfo = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): TimeoutInfo {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): TimeoutInfo {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseTimeoutInfo();
     while (reader.pos < end) {
@@ -253,7 +253,7 @@ export const TimeoutInfo = {
           message.duration = fromDuration(Duration.decode(reader, reader.uint32()));
           break;
         case 2:
-          message.height = reader.int64();
+          message.height = (reader.int64() as Long);
           break;
         case 3:
           message.round = reader.int32();
@@ -271,7 +271,7 @@ export const TimeoutInfo = {
   fromJSON(object: any): TimeoutInfo {
     return {
       duration: isSet(object.duration) ? String(object.duration) : undefined,
-      height: isSet(object.height) ? BigInt(object.height.toString()) : BigInt(0),
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
       round: isSet(object.round) ? Number(object.round) : 0,
       step: isSet(object.step) ? Number(object.step) : 0
     };
@@ -279,7 +279,7 @@ export const TimeoutInfo = {
   toJSON(message: TimeoutInfo): unknown {
     const obj: any = {};
     message.duration !== undefined && (obj.duration = message.duration);
-    message.height !== undefined && (obj.height = (message.height || BigInt(0)).toString());
+    message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
     message.round !== undefined && (obj.round = Math.round(message.round));
     message.step !== undefined && (obj.step = Math.round(message.step));
     return obj;
@@ -287,7 +287,7 @@ export const TimeoutInfo = {
   fromPartial(object: Partial<TimeoutInfo>): TimeoutInfo {
     const message = createBaseTimeoutInfo();
     message.duration = object.duration ?? undefined;
-    message.height = object.height !== undefined && object.height !== null ? BigInt(object.height.toString()) : BigInt(0);
+    message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
     message.round = object.round ?? 0;
     message.step = object.step ?? 0;
     return message;
@@ -295,7 +295,7 @@ export const TimeoutInfo = {
   fromAmino(object: TimeoutInfoAmino): TimeoutInfo {
     return {
       duration: object?.duration ? Duration.fromAmino(object.duration) : undefined,
-      height: BigInt(object.height),
+      height: Long.fromString(object.height),
       round: object.round,
       step: object.step
     };
@@ -326,26 +326,26 @@ export const TimeoutInfo = {
 };
 function createBaseEndHeight(): EndHeight {
   return {
-    height: BigInt(0)
+    height: Long.ZERO
   };
 }
 export const EndHeight = {
   typeUrl: "/tendermint.consensus.EndHeight",
-  encode(message: EndHeight, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.height !== BigInt(0)) {
+  encode(message: EndHeight, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.height.isZero()) {
       writer.uint32(8).int64(message.height);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): EndHeight {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): EndHeight {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseEndHeight();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.height = reader.int64();
+          message.height = (reader.int64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -356,22 +356,22 @@ export const EndHeight = {
   },
   fromJSON(object: any): EndHeight {
     return {
-      height: isSet(object.height) ? BigInt(object.height.toString()) : BigInt(0)
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO
     };
   },
   toJSON(message: EndHeight): unknown {
     const obj: any = {};
-    message.height !== undefined && (obj.height = (message.height || BigInt(0)).toString());
+    message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
     return obj;
   },
   fromPartial(object: Partial<EndHeight>): EndHeight {
     const message = createBaseEndHeight();
-    message.height = object.height !== undefined && object.height !== null ? BigInt(object.height.toString()) : BigInt(0);
+    message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
     return message;
   },
   fromAmino(object: EndHeightAmino): EndHeight {
     return {
-      height: BigInt(object.height)
+      height: Long.fromString(object.height)
     };
   },
   toAmino(message: EndHeight): EndHeightAmino {
@@ -405,7 +405,7 @@ function createBaseWALMessage(): WALMessage {
 }
 export const WALMessage = {
   typeUrl: "/tendermint.consensus.WALMessage",
-  encode(message: WALMessage, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: WALMessage, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.eventDataRoundState !== undefined) {
       EventDataRoundState.encode(message.eventDataRoundState, writer.uint32(10).fork()).ldelim();
     }
@@ -420,8 +420,8 @@ export const WALMessage = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): WALMessage {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): WALMessage {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseWALMessage();
     while (reader.pos < end) {
@@ -510,7 +510,7 @@ function createBaseTimedWALMessage(): TimedWALMessage {
 }
 export const TimedWALMessage = {
   typeUrl: "/tendermint.consensus.TimedWALMessage",
-  encode(message: TimedWALMessage, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: TimedWALMessage, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.time !== undefined) {
       Timestamp.encode(toTimestamp(message.time), writer.uint32(10).fork()).ldelim();
     }
@@ -519,8 +519,8 @@ export const TimedWALMessage = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): TimedWALMessage {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): TimedWALMessage {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseTimedWALMessage();
     while (reader.pos < end) {

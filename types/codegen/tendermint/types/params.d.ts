@@ -1,4 +1,5 @@
-import { BinaryReader, BinaryWriter } from "../../binary";
+import { Long } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * ConsensusParams contains consensus critical parameters that determine the
  * validity of blocks.
@@ -43,12 +44,19 @@ export interface BlockParams {
      * Max block size, in bytes.
      * Note: must be greater than 0
      */
-    maxBytes: bigint;
+    maxBytes: Long;
     /**
      * Max gas per block.
      * Note: must be greater or equal to -1
      */
-    maxGas: bigint;
+    maxGas: Long;
+    /**
+     * Minimum time increment between consecutive blocks (in milliseconds) If the
+     * block header timestamp is ahead of the system clock, decrease this value.
+     *
+     * Not exposed to the application.
+     */
+    timeIotaMs: Long;
 }
 export interface BlockParamsProtoMsg {
     typeUrl: "/tendermint.types.BlockParams";
@@ -66,6 +74,13 @@ export interface BlockParamsAmino {
      * Note: must be greater or equal to -1
      */
     max_gas: string;
+    /**
+     * Minimum time increment between consecutive blocks (in milliseconds) If the
+     * block header timestamp is ahead of the system clock, decrease this value.
+     *
+     * Not exposed to the application.
+     */
+    time_iota_ms: string;
 }
 export interface BlockParamsAminoMsg {
     type: "/tendermint.types.BlockParams";
@@ -73,8 +88,9 @@ export interface BlockParamsAminoMsg {
 }
 /** BlockParams contains limits on the block size. */
 export interface BlockParamsSDKType {
-    max_bytes: bigint;
-    max_gas: bigint;
+    max_bytes: Long;
+    max_gas: Long;
+    time_iota_ms: Long;
 }
 /** EvidenceParams determine how we handle evidence of malfeasance. */
 export interface EvidenceParams {
@@ -84,7 +100,7 @@ export interface EvidenceParams {
      * The basic formula for calculating this is: MaxAgeDuration / {average block
      * time}.
      */
-    maxAgeNumBlocks: bigint;
+    maxAgeNumBlocks: Long;
     /**
      * Max age of evidence, in time.
      *
@@ -98,7 +114,7 @@ export interface EvidenceParams {
      * and should fall comfortably under the max block bytes.
      * Default is 1048576 or 1MB
      */
-    maxBytes: bigint;
+    maxBytes: Long;
 }
 export interface EvidenceParamsProtoMsg {
     typeUrl: "/tendermint.types.EvidenceParams";
@@ -134,9 +150,9 @@ export interface EvidenceParamsAminoMsg {
 }
 /** EvidenceParams determine how we handle evidence of malfeasance. */
 export interface EvidenceParamsSDKType {
-    max_age_num_blocks: bigint;
+    max_age_num_blocks: Long;
     max_age_duration: string;
-    max_bytes: bigint;
+    max_bytes: Long;
 }
 /**
  * ValidatorParams restrict the public key types validators can use.
@@ -169,7 +185,7 @@ export interface ValidatorParamsSDKType {
 }
 /** VersionParams contains the ABCI application version. */
 export interface VersionParams {
-    app: bigint;
+    appVersion: Long;
 }
 export interface VersionParamsProtoMsg {
     typeUrl: "/tendermint.types.VersionParams";
@@ -177,7 +193,7 @@ export interface VersionParamsProtoMsg {
 }
 /** VersionParams contains the ABCI application version. */
 export interface VersionParamsAmino {
-    app: string;
+    app_version: string;
 }
 export interface VersionParamsAminoMsg {
     type: "/tendermint.types.VersionParams";
@@ -185,7 +201,7 @@ export interface VersionParamsAminoMsg {
 }
 /** VersionParams contains the ABCI application version. */
 export interface VersionParamsSDKType {
-    app: bigint;
+    app_version: Long;
 }
 /**
  * HashedParams is a subset of ConsensusParams.
@@ -193,8 +209,8 @@ export interface VersionParamsSDKType {
  * It is hashed into the Header.ConsensusHash.
  */
 export interface HashedParams {
-    blockMaxBytes: bigint;
-    blockMaxGas: bigint;
+    blockMaxBytes: Long;
+    blockMaxGas: Long;
 }
 export interface HashedParamsProtoMsg {
     typeUrl: "/tendermint.types.HashedParams";
@@ -219,13 +235,13 @@ export interface HashedParamsAminoMsg {
  * It is hashed into the Header.ConsensusHash.
  */
 export interface HashedParamsSDKType {
-    block_max_bytes: bigint;
-    block_max_gas: bigint;
+    block_max_bytes: Long;
+    block_max_gas: Long;
 }
 export declare const ConsensusParams: {
     typeUrl: string;
-    encode(message: ConsensusParams, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ConsensusParams;
+    encode(message: ConsensusParams, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ConsensusParams;
     fromJSON(object: any): ConsensusParams;
     toJSON(message: ConsensusParams): unknown;
     fromPartial(object: Partial<ConsensusParams>): ConsensusParams;
@@ -238,8 +254,8 @@ export declare const ConsensusParams: {
 };
 export declare const BlockParams: {
     typeUrl: string;
-    encode(message: BlockParams, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): BlockParams;
+    encode(message: BlockParams, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): BlockParams;
     fromJSON(object: any): BlockParams;
     toJSON(message: BlockParams): unknown;
     fromPartial(object: Partial<BlockParams>): BlockParams;
@@ -252,8 +268,8 @@ export declare const BlockParams: {
 };
 export declare const EvidenceParams: {
     typeUrl: string;
-    encode(message: EvidenceParams, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): EvidenceParams;
+    encode(message: EvidenceParams, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): EvidenceParams;
     fromJSON(object: any): EvidenceParams;
     toJSON(message: EvidenceParams): unknown;
     fromPartial(object: Partial<EvidenceParams>): EvidenceParams;
@@ -266,8 +282,8 @@ export declare const EvidenceParams: {
 };
 export declare const ValidatorParams: {
     typeUrl: string;
-    encode(message: ValidatorParams, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ValidatorParams;
+    encode(message: ValidatorParams, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ValidatorParams;
     fromJSON(object: any): ValidatorParams;
     toJSON(message: ValidatorParams): unknown;
     fromPartial(object: Partial<ValidatorParams>): ValidatorParams;
@@ -280,8 +296,8 @@ export declare const ValidatorParams: {
 };
 export declare const VersionParams: {
     typeUrl: string;
-    encode(message: VersionParams, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): VersionParams;
+    encode(message: VersionParams, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): VersionParams;
     fromJSON(object: any): VersionParams;
     toJSON(message: VersionParams): unknown;
     fromPartial(object: Partial<VersionParams>): VersionParams;
@@ -294,8 +310,8 @@ export declare const VersionParams: {
 };
 export declare const HashedParams: {
     typeUrl: string;
-    encode(message: HashedParams, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): HashedParams;
+    encode(message: HashedParams, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): HashedParams;
     fromJSON(object: any): HashedParams;
     toJSON(message: HashedParams): unknown;
     fromPartial(object: Partial<HashedParams>): HashedParams;

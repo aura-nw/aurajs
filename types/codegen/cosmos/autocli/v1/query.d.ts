@@ -1,5 +1,5 @@
 import { ModuleOptions, ModuleOptionsAmino, ModuleOptionsSDKType } from "./options";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** AppOptionsRequest is the RemoteInfoService/AppOptions request type. */
 export interface AppOptionsRequest {
 }
@@ -67,8 +67,8 @@ export interface AppOptionsResponseSDKType {
 }
 export declare const AppOptionsRequest: {
     typeUrl: string;
-    encode(_: AppOptionsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): AppOptionsRequest;
+    encode(_: AppOptionsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): AppOptionsRequest;
     fromJSON(_: any): AppOptionsRequest;
     toJSON(_: AppOptionsRequest): unknown;
     fromPartial(_: Partial<AppOptionsRequest>): AppOptionsRequest;
@@ -81,8 +81,8 @@ export declare const AppOptionsRequest: {
     toProtoMsg(message: AppOptionsRequest): AppOptionsRequestProtoMsg;
 };
 export declare const AppOptionsResponse_ModuleOptionsEntry: {
-    encode(message: AppOptionsResponse_ModuleOptionsEntry, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): AppOptionsResponse_ModuleOptionsEntry;
+    encode(message: AppOptionsResponse_ModuleOptionsEntry, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): AppOptionsResponse_ModuleOptionsEntry;
     fromJSON(object: any): AppOptionsResponse_ModuleOptionsEntry;
     toJSON(message: AppOptionsResponse_ModuleOptionsEntry): unknown;
     fromPartial(object: Partial<AppOptionsResponse_ModuleOptionsEntry>): AppOptionsResponse_ModuleOptionsEntry;
@@ -94,8 +94,8 @@ export declare const AppOptionsResponse_ModuleOptionsEntry: {
 };
 export declare const AppOptionsResponse: {
     typeUrl: string;
-    encode(message: AppOptionsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): AppOptionsResponse;
+    encode(message: AppOptionsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): AppOptionsResponse;
     fromJSON(object: any): AppOptionsResponse;
     toJSON(message: AppOptionsResponse): unknown;
     fromPartial(object: Partial<AppOptionsResponse>): AppOptionsResponse;

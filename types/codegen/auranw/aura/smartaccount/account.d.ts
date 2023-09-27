@@ -1,16 +1,16 @@
 import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * SmartAccount is a smart contract that is capable of initiating txs.
  *
  * This account type is similar to BaseAccount
  */
 export interface SmartAccount {
-    $typeUrl?: string;
     address: string;
     pubKey: Any;
-    accountNumber: bigint;
-    sequence: bigint;
+    accountNumber: Long;
+    sequence: Long;
 }
 export interface SmartAccountProtoMsg {
     typeUrl: "/auranw.aura.smartaccount.SmartAccount";
@@ -37,16 +37,15 @@ export interface SmartAccountAminoMsg {
  * This account type is similar to BaseAccount
  */
 export interface SmartAccountSDKType {
-    $typeUrl?: string;
     address: string;
     pub_key: AnySDKType;
-    account_number: bigint;
-    sequence: bigint;
+    account_number: Long;
+    sequence: Long;
 }
 export declare const SmartAccount: {
     typeUrl: string;
-    encode(message: SmartAccount, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SmartAccount;
+    encode(message: SmartAccount, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SmartAccount;
     fromJSON(object: any): SmartAccount;
     toJSON(message: SmartAccount): unknown;
     fromPartial(object: Partial<SmartAccount>): SmartAccount;

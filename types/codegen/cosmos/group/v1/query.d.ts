@@ -1,10 +1,11 @@
 import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
 import { GroupInfo, GroupInfoAmino, GroupInfoSDKType, GroupPolicyInfo, GroupPolicyInfoAmino, GroupPolicyInfoSDKType, GroupMember, GroupMemberAmino, GroupMemberSDKType, Proposal, ProposalAmino, ProposalSDKType, Vote, VoteAmino, VoteSDKType, TallyResult, TallyResultAmino, TallyResultSDKType } from "./types";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** QueryGroupInfoRequest is the Query/GroupInfo request type. */
 export interface QueryGroupInfoRequest {
     /** group_id is the unique ID of the group. */
-    groupId: bigint;
+    groupId: Long;
 }
 export interface QueryGroupInfoRequestProtoMsg {
     typeUrl: "/cosmos.group.v1.QueryGroupInfoRequest";
@@ -21,7 +22,7 @@ export interface QueryGroupInfoRequestAminoMsg {
 }
 /** QueryGroupInfoRequest is the Query/GroupInfo request type. */
 export interface QueryGroupInfoRequestSDKType {
-    group_id: bigint;
+    group_id: Long;
 }
 /** QueryGroupInfoResponse is the Query/GroupInfo response type. */
 export interface QueryGroupInfoResponse {
@@ -92,7 +93,7 @@ export interface QueryGroupPolicyInfoResponseSDKType {
 /** QueryGroupMembersRequest is the Query/GroupMembers request type. */
 export interface QueryGroupMembersRequest {
     /** group_id is the unique ID of the group. */
-    groupId: bigint;
+    groupId: Long;
     /** pagination defines an optional pagination for the request. */
     pagination: PageRequest;
 }
@@ -113,7 +114,7 @@ export interface QueryGroupMembersRequestAminoMsg {
 }
 /** QueryGroupMembersRequest is the Query/GroupMembers request type. */
 export interface QueryGroupMembersRequestSDKType {
-    group_id: bigint;
+    group_id: Long;
     pagination: PageRequestSDKType;
 }
 /** QueryGroupMembersResponse is the Query/GroupMembersResponse response type. */
@@ -200,7 +201,7 @@ export interface QueryGroupsByAdminResponseSDKType {
 /** QueryGroupPoliciesByGroupRequest is the Query/GroupPoliciesByGroup request type. */
 export interface QueryGroupPoliciesByGroupRequest {
     /** group_id is the unique ID of the group policy's group. */
-    groupId: bigint;
+    groupId: Long;
     /** pagination defines an optional pagination for the request. */
     pagination: PageRequest;
 }
@@ -221,7 +222,7 @@ export interface QueryGroupPoliciesByGroupRequestAminoMsg {
 }
 /** QueryGroupPoliciesByGroupRequest is the Query/GroupPoliciesByGroup request type. */
 export interface QueryGroupPoliciesByGroupRequestSDKType {
-    group_id: bigint;
+    group_id: Long;
     pagination: PageRequestSDKType;
 }
 /** QueryGroupPoliciesByGroupResponse is the Query/GroupPoliciesByGroup response type. */
@@ -308,7 +309,7 @@ export interface QueryGroupPoliciesByAdminResponseSDKType {
 /** QueryProposalRequest is the Query/Proposal request type. */
 export interface QueryProposalRequest {
     /** proposal_id is the unique ID of a proposal. */
-    proposalId: bigint;
+    proposalId: Long;
 }
 export interface QueryProposalRequestProtoMsg {
     typeUrl: "/cosmos.group.v1.QueryProposalRequest";
@@ -325,7 +326,7 @@ export interface QueryProposalRequestAminoMsg {
 }
 /** QueryProposalRequest is the Query/Proposal request type. */
 export interface QueryProposalRequestSDKType {
-    proposal_id: bigint;
+    proposal_id: Long;
 }
 /** QueryProposalResponse is the Query/Proposal response type. */
 export interface QueryProposalResponse {
@@ -406,7 +407,7 @@ export interface QueryProposalsByGroupPolicyResponseSDKType {
 /** QueryVoteByProposalVoterRequest is the Query/VoteByProposalVoter request type. */
 export interface QueryVoteByProposalVoterRequest {
     /** proposal_id is the unique ID of a proposal. */
-    proposalId: bigint;
+    proposalId: Long;
     /** voter is a proposal voter account address. */
     voter: string;
 }
@@ -427,7 +428,7 @@ export interface QueryVoteByProposalVoterRequestAminoMsg {
 }
 /** QueryVoteByProposalVoterRequest is the Query/VoteByProposalVoter request type. */
 export interface QueryVoteByProposalVoterRequestSDKType {
-    proposal_id: bigint;
+    proposal_id: Long;
     voter: string;
 }
 /** QueryVoteByProposalVoterResponse is the Query/VoteByProposalVoter response type. */
@@ -455,7 +456,7 @@ export interface QueryVoteByProposalVoterResponseSDKType {
 /** QueryVotesByProposalRequest is the Query/VotesByProposal request type. */
 export interface QueryVotesByProposalRequest {
     /** proposal_id is the unique ID of a proposal. */
-    proposalId: bigint;
+    proposalId: Long;
     /** pagination defines an optional pagination for the request. */
     pagination: PageRequest;
 }
@@ -476,7 +477,7 @@ export interface QueryVotesByProposalRequestAminoMsg {
 }
 /** QueryVotesByProposalRequest is the Query/VotesByProposal request type. */
 export interface QueryVotesByProposalRequestSDKType {
-    proposal_id: bigint;
+    proposal_id: Long;
     pagination: PageRequestSDKType;
 }
 /** QueryVotesByProposalResponse is the Query/VotesByProposal response type. */
@@ -617,7 +618,7 @@ export interface QueryGroupsByMemberResponseSDKType {
 /** QueryTallyResultRequest is the Query/TallyResult request type. */
 export interface QueryTallyResultRequest {
     /** proposal_id is the unique id of a proposal. */
-    proposalId: bigint;
+    proposalId: Long;
 }
 export interface QueryTallyResultRequestProtoMsg {
     typeUrl: "/cosmos.group.v1.QueryTallyResultRequest";
@@ -634,7 +635,7 @@ export interface QueryTallyResultRequestAminoMsg {
 }
 /** QueryTallyResultRequest is the Query/TallyResult request type. */
 export interface QueryTallyResultRequestSDKType {
-    proposal_id: bigint;
+    proposal_id: Long;
 }
 /** QueryTallyResultResponse is the Query/TallyResult response type. */
 export interface QueryTallyResultResponse {
@@ -733,8 +734,8 @@ export interface QueryGroupsResponseSDKType {
 }
 export declare const QueryGroupInfoRequest: {
     typeUrl: string;
-    encode(message: QueryGroupInfoRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGroupInfoRequest;
+    encode(message: QueryGroupInfoRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGroupInfoRequest;
     fromJSON(object: any): QueryGroupInfoRequest;
     toJSON(message: QueryGroupInfoRequest): unknown;
     fromPartial(object: Partial<QueryGroupInfoRequest>): QueryGroupInfoRequest;
@@ -748,8 +749,8 @@ export declare const QueryGroupInfoRequest: {
 };
 export declare const QueryGroupInfoResponse: {
     typeUrl: string;
-    encode(message: QueryGroupInfoResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGroupInfoResponse;
+    encode(message: QueryGroupInfoResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGroupInfoResponse;
     fromJSON(object: any): QueryGroupInfoResponse;
     toJSON(message: QueryGroupInfoResponse): unknown;
     fromPartial(object: Partial<QueryGroupInfoResponse>): QueryGroupInfoResponse;
@@ -763,8 +764,8 @@ export declare const QueryGroupInfoResponse: {
 };
 export declare const QueryGroupPolicyInfoRequest: {
     typeUrl: string;
-    encode(message: QueryGroupPolicyInfoRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGroupPolicyInfoRequest;
+    encode(message: QueryGroupPolicyInfoRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGroupPolicyInfoRequest;
     fromJSON(object: any): QueryGroupPolicyInfoRequest;
     toJSON(message: QueryGroupPolicyInfoRequest): unknown;
     fromPartial(object: Partial<QueryGroupPolicyInfoRequest>): QueryGroupPolicyInfoRequest;
@@ -778,8 +779,8 @@ export declare const QueryGroupPolicyInfoRequest: {
 };
 export declare const QueryGroupPolicyInfoResponse: {
     typeUrl: string;
-    encode(message: QueryGroupPolicyInfoResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGroupPolicyInfoResponse;
+    encode(message: QueryGroupPolicyInfoResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGroupPolicyInfoResponse;
     fromJSON(object: any): QueryGroupPolicyInfoResponse;
     toJSON(message: QueryGroupPolicyInfoResponse): unknown;
     fromPartial(object: Partial<QueryGroupPolicyInfoResponse>): QueryGroupPolicyInfoResponse;
@@ -793,8 +794,8 @@ export declare const QueryGroupPolicyInfoResponse: {
 };
 export declare const QueryGroupMembersRequest: {
     typeUrl: string;
-    encode(message: QueryGroupMembersRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGroupMembersRequest;
+    encode(message: QueryGroupMembersRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGroupMembersRequest;
     fromJSON(object: any): QueryGroupMembersRequest;
     toJSON(message: QueryGroupMembersRequest): unknown;
     fromPartial(object: Partial<QueryGroupMembersRequest>): QueryGroupMembersRequest;
@@ -808,8 +809,8 @@ export declare const QueryGroupMembersRequest: {
 };
 export declare const QueryGroupMembersResponse: {
     typeUrl: string;
-    encode(message: QueryGroupMembersResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGroupMembersResponse;
+    encode(message: QueryGroupMembersResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGroupMembersResponse;
     fromJSON(object: any): QueryGroupMembersResponse;
     toJSON(message: QueryGroupMembersResponse): unknown;
     fromPartial(object: Partial<QueryGroupMembersResponse>): QueryGroupMembersResponse;
@@ -823,8 +824,8 @@ export declare const QueryGroupMembersResponse: {
 };
 export declare const QueryGroupsByAdminRequest: {
     typeUrl: string;
-    encode(message: QueryGroupsByAdminRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGroupsByAdminRequest;
+    encode(message: QueryGroupsByAdminRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGroupsByAdminRequest;
     fromJSON(object: any): QueryGroupsByAdminRequest;
     toJSON(message: QueryGroupsByAdminRequest): unknown;
     fromPartial(object: Partial<QueryGroupsByAdminRequest>): QueryGroupsByAdminRequest;
@@ -838,8 +839,8 @@ export declare const QueryGroupsByAdminRequest: {
 };
 export declare const QueryGroupsByAdminResponse: {
     typeUrl: string;
-    encode(message: QueryGroupsByAdminResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGroupsByAdminResponse;
+    encode(message: QueryGroupsByAdminResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGroupsByAdminResponse;
     fromJSON(object: any): QueryGroupsByAdminResponse;
     toJSON(message: QueryGroupsByAdminResponse): unknown;
     fromPartial(object: Partial<QueryGroupsByAdminResponse>): QueryGroupsByAdminResponse;
@@ -853,8 +854,8 @@ export declare const QueryGroupsByAdminResponse: {
 };
 export declare const QueryGroupPoliciesByGroupRequest: {
     typeUrl: string;
-    encode(message: QueryGroupPoliciesByGroupRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGroupPoliciesByGroupRequest;
+    encode(message: QueryGroupPoliciesByGroupRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGroupPoliciesByGroupRequest;
     fromJSON(object: any): QueryGroupPoliciesByGroupRequest;
     toJSON(message: QueryGroupPoliciesByGroupRequest): unknown;
     fromPartial(object: Partial<QueryGroupPoliciesByGroupRequest>): QueryGroupPoliciesByGroupRequest;
@@ -868,8 +869,8 @@ export declare const QueryGroupPoliciesByGroupRequest: {
 };
 export declare const QueryGroupPoliciesByGroupResponse: {
     typeUrl: string;
-    encode(message: QueryGroupPoliciesByGroupResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGroupPoliciesByGroupResponse;
+    encode(message: QueryGroupPoliciesByGroupResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGroupPoliciesByGroupResponse;
     fromJSON(object: any): QueryGroupPoliciesByGroupResponse;
     toJSON(message: QueryGroupPoliciesByGroupResponse): unknown;
     fromPartial(object: Partial<QueryGroupPoliciesByGroupResponse>): QueryGroupPoliciesByGroupResponse;
@@ -883,8 +884,8 @@ export declare const QueryGroupPoliciesByGroupResponse: {
 };
 export declare const QueryGroupPoliciesByAdminRequest: {
     typeUrl: string;
-    encode(message: QueryGroupPoliciesByAdminRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGroupPoliciesByAdminRequest;
+    encode(message: QueryGroupPoliciesByAdminRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGroupPoliciesByAdminRequest;
     fromJSON(object: any): QueryGroupPoliciesByAdminRequest;
     toJSON(message: QueryGroupPoliciesByAdminRequest): unknown;
     fromPartial(object: Partial<QueryGroupPoliciesByAdminRequest>): QueryGroupPoliciesByAdminRequest;
@@ -898,8 +899,8 @@ export declare const QueryGroupPoliciesByAdminRequest: {
 };
 export declare const QueryGroupPoliciesByAdminResponse: {
     typeUrl: string;
-    encode(message: QueryGroupPoliciesByAdminResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGroupPoliciesByAdminResponse;
+    encode(message: QueryGroupPoliciesByAdminResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGroupPoliciesByAdminResponse;
     fromJSON(object: any): QueryGroupPoliciesByAdminResponse;
     toJSON(message: QueryGroupPoliciesByAdminResponse): unknown;
     fromPartial(object: Partial<QueryGroupPoliciesByAdminResponse>): QueryGroupPoliciesByAdminResponse;
@@ -913,8 +914,8 @@ export declare const QueryGroupPoliciesByAdminResponse: {
 };
 export declare const QueryProposalRequest: {
     typeUrl: string;
-    encode(message: QueryProposalRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryProposalRequest;
+    encode(message: QueryProposalRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryProposalRequest;
     fromJSON(object: any): QueryProposalRequest;
     toJSON(message: QueryProposalRequest): unknown;
     fromPartial(object: Partial<QueryProposalRequest>): QueryProposalRequest;
@@ -928,8 +929,8 @@ export declare const QueryProposalRequest: {
 };
 export declare const QueryProposalResponse: {
     typeUrl: string;
-    encode(message: QueryProposalResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryProposalResponse;
+    encode(message: QueryProposalResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryProposalResponse;
     fromJSON(object: any): QueryProposalResponse;
     toJSON(message: QueryProposalResponse): unknown;
     fromPartial(object: Partial<QueryProposalResponse>): QueryProposalResponse;
@@ -943,8 +944,8 @@ export declare const QueryProposalResponse: {
 };
 export declare const QueryProposalsByGroupPolicyRequest: {
     typeUrl: string;
-    encode(message: QueryProposalsByGroupPolicyRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryProposalsByGroupPolicyRequest;
+    encode(message: QueryProposalsByGroupPolicyRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryProposalsByGroupPolicyRequest;
     fromJSON(object: any): QueryProposalsByGroupPolicyRequest;
     toJSON(message: QueryProposalsByGroupPolicyRequest): unknown;
     fromPartial(object: Partial<QueryProposalsByGroupPolicyRequest>): QueryProposalsByGroupPolicyRequest;
@@ -958,8 +959,8 @@ export declare const QueryProposalsByGroupPolicyRequest: {
 };
 export declare const QueryProposalsByGroupPolicyResponse: {
     typeUrl: string;
-    encode(message: QueryProposalsByGroupPolicyResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryProposalsByGroupPolicyResponse;
+    encode(message: QueryProposalsByGroupPolicyResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryProposalsByGroupPolicyResponse;
     fromJSON(object: any): QueryProposalsByGroupPolicyResponse;
     toJSON(message: QueryProposalsByGroupPolicyResponse): unknown;
     fromPartial(object: Partial<QueryProposalsByGroupPolicyResponse>): QueryProposalsByGroupPolicyResponse;
@@ -973,8 +974,8 @@ export declare const QueryProposalsByGroupPolicyResponse: {
 };
 export declare const QueryVoteByProposalVoterRequest: {
     typeUrl: string;
-    encode(message: QueryVoteByProposalVoterRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryVoteByProposalVoterRequest;
+    encode(message: QueryVoteByProposalVoterRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryVoteByProposalVoterRequest;
     fromJSON(object: any): QueryVoteByProposalVoterRequest;
     toJSON(message: QueryVoteByProposalVoterRequest): unknown;
     fromPartial(object: Partial<QueryVoteByProposalVoterRequest>): QueryVoteByProposalVoterRequest;
@@ -988,8 +989,8 @@ export declare const QueryVoteByProposalVoterRequest: {
 };
 export declare const QueryVoteByProposalVoterResponse: {
     typeUrl: string;
-    encode(message: QueryVoteByProposalVoterResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryVoteByProposalVoterResponse;
+    encode(message: QueryVoteByProposalVoterResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryVoteByProposalVoterResponse;
     fromJSON(object: any): QueryVoteByProposalVoterResponse;
     toJSON(message: QueryVoteByProposalVoterResponse): unknown;
     fromPartial(object: Partial<QueryVoteByProposalVoterResponse>): QueryVoteByProposalVoterResponse;
@@ -1003,8 +1004,8 @@ export declare const QueryVoteByProposalVoterResponse: {
 };
 export declare const QueryVotesByProposalRequest: {
     typeUrl: string;
-    encode(message: QueryVotesByProposalRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryVotesByProposalRequest;
+    encode(message: QueryVotesByProposalRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryVotesByProposalRequest;
     fromJSON(object: any): QueryVotesByProposalRequest;
     toJSON(message: QueryVotesByProposalRequest): unknown;
     fromPartial(object: Partial<QueryVotesByProposalRequest>): QueryVotesByProposalRequest;
@@ -1018,8 +1019,8 @@ export declare const QueryVotesByProposalRequest: {
 };
 export declare const QueryVotesByProposalResponse: {
     typeUrl: string;
-    encode(message: QueryVotesByProposalResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryVotesByProposalResponse;
+    encode(message: QueryVotesByProposalResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryVotesByProposalResponse;
     fromJSON(object: any): QueryVotesByProposalResponse;
     toJSON(message: QueryVotesByProposalResponse): unknown;
     fromPartial(object: Partial<QueryVotesByProposalResponse>): QueryVotesByProposalResponse;
@@ -1033,8 +1034,8 @@ export declare const QueryVotesByProposalResponse: {
 };
 export declare const QueryVotesByVoterRequest: {
     typeUrl: string;
-    encode(message: QueryVotesByVoterRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryVotesByVoterRequest;
+    encode(message: QueryVotesByVoterRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryVotesByVoterRequest;
     fromJSON(object: any): QueryVotesByVoterRequest;
     toJSON(message: QueryVotesByVoterRequest): unknown;
     fromPartial(object: Partial<QueryVotesByVoterRequest>): QueryVotesByVoterRequest;
@@ -1048,8 +1049,8 @@ export declare const QueryVotesByVoterRequest: {
 };
 export declare const QueryVotesByVoterResponse: {
     typeUrl: string;
-    encode(message: QueryVotesByVoterResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryVotesByVoterResponse;
+    encode(message: QueryVotesByVoterResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryVotesByVoterResponse;
     fromJSON(object: any): QueryVotesByVoterResponse;
     toJSON(message: QueryVotesByVoterResponse): unknown;
     fromPartial(object: Partial<QueryVotesByVoterResponse>): QueryVotesByVoterResponse;
@@ -1063,8 +1064,8 @@ export declare const QueryVotesByVoterResponse: {
 };
 export declare const QueryGroupsByMemberRequest: {
     typeUrl: string;
-    encode(message: QueryGroupsByMemberRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGroupsByMemberRequest;
+    encode(message: QueryGroupsByMemberRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGroupsByMemberRequest;
     fromJSON(object: any): QueryGroupsByMemberRequest;
     toJSON(message: QueryGroupsByMemberRequest): unknown;
     fromPartial(object: Partial<QueryGroupsByMemberRequest>): QueryGroupsByMemberRequest;
@@ -1078,8 +1079,8 @@ export declare const QueryGroupsByMemberRequest: {
 };
 export declare const QueryGroupsByMemberResponse: {
     typeUrl: string;
-    encode(message: QueryGroupsByMemberResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGroupsByMemberResponse;
+    encode(message: QueryGroupsByMemberResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGroupsByMemberResponse;
     fromJSON(object: any): QueryGroupsByMemberResponse;
     toJSON(message: QueryGroupsByMemberResponse): unknown;
     fromPartial(object: Partial<QueryGroupsByMemberResponse>): QueryGroupsByMemberResponse;
@@ -1093,8 +1094,8 @@ export declare const QueryGroupsByMemberResponse: {
 };
 export declare const QueryTallyResultRequest: {
     typeUrl: string;
-    encode(message: QueryTallyResultRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryTallyResultRequest;
+    encode(message: QueryTallyResultRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryTallyResultRequest;
     fromJSON(object: any): QueryTallyResultRequest;
     toJSON(message: QueryTallyResultRequest): unknown;
     fromPartial(object: Partial<QueryTallyResultRequest>): QueryTallyResultRequest;
@@ -1108,8 +1109,8 @@ export declare const QueryTallyResultRequest: {
 };
 export declare const QueryTallyResultResponse: {
     typeUrl: string;
-    encode(message: QueryTallyResultResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryTallyResultResponse;
+    encode(message: QueryTallyResultResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryTallyResultResponse;
     fromJSON(object: any): QueryTallyResultResponse;
     toJSON(message: QueryTallyResultResponse): unknown;
     fromPartial(object: Partial<QueryTallyResultResponse>): QueryTallyResultResponse;
@@ -1123,8 +1124,8 @@ export declare const QueryTallyResultResponse: {
 };
 export declare const QueryGroupsRequest: {
     typeUrl: string;
-    encode(message: QueryGroupsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGroupsRequest;
+    encode(message: QueryGroupsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGroupsRequest;
     fromJSON(object: any): QueryGroupsRequest;
     toJSON(message: QueryGroupsRequest): unknown;
     fromPartial(object: Partial<QueryGroupsRequest>): QueryGroupsRequest;
@@ -1138,8 +1139,8 @@ export declare const QueryGroupsRequest: {
 };
 export declare const QueryGroupsResponse: {
     typeUrl: string;
-    encode(message: QueryGroupsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGroupsResponse;
+    encode(message: QueryGroupsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGroupsResponse;
     fromJSON(object: any): QueryGroupsResponse;
     toJSON(message: QueryGroupsResponse): unknown;
     fromPartial(object: Partial<QueryGroupsResponse>): QueryGroupsResponse;

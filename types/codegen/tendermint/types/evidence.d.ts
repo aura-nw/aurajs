@@ -1,6 +1,7 @@
 import { Vote, VoteAmino, VoteSDKType, LightBlock, LightBlockAmino, LightBlockSDKType } from "./types";
 import { Validator, ValidatorAmino, ValidatorSDKType } from "./validator";
-import { BinaryReader, BinaryWriter } from "../../binary";
+import { Long } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export interface Evidence {
     duplicateVoteEvidence?: DuplicateVoteEvidence;
     lightClientAttackEvidence?: LightClientAttackEvidence;
@@ -25,8 +26,8 @@ export interface EvidenceSDKType {
 export interface DuplicateVoteEvidence {
     voteA: Vote;
     voteB: Vote;
-    totalVotingPower: bigint;
-    validatorPower: bigint;
+    totalVotingPower: Long;
+    validatorPower: Long;
     timestamp: Date;
 }
 export interface DuplicateVoteEvidenceProtoMsg {
@@ -49,16 +50,16 @@ export interface DuplicateVoteEvidenceAminoMsg {
 export interface DuplicateVoteEvidenceSDKType {
     vote_a: VoteSDKType;
     vote_b: VoteSDKType;
-    total_voting_power: bigint;
-    validator_power: bigint;
+    total_voting_power: Long;
+    validator_power: Long;
     timestamp: Date;
 }
 /** LightClientAttackEvidence contains evidence of a set of validators attempting to mislead a light client. */
 export interface LightClientAttackEvidence {
     conflictingBlock: LightBlock;
-    commonHeight: bigint;
+    commonHeight: Long;
     byzantineValidators: Validator[];
-    totalVotingPower: bigint;
+    totalVotingPower: Long;
     timestamp: Date;
 }
 export interface LightClientAttackEvidenceProtoMsg {
@@ -80,9 +81,9 @@ export interface LightClientAttackEvidenceAminoMsg {
 /** LightClientAttackEvidence contains evidence of a set of validators attempting to mislead a light client. */
 export interface LightClientAttackEvidenceSDKType {
     conflicting_block: LightBlockSDKType;
-    common_height: bigint;
+    common_height: Long;
     byzantine_validators: ValidatorSDKType[];
-    total_voting_power: bigint;
+    total_voting_power: Long;
     timestamp: Date;
 }
 export interface EvidenceList {
@@ -104,8 +105,8 @@ export interface EvidenceListSDKType {
 }
 export declare const Evidence: {
     typeUrl: string;
-    encode(message: Evidence, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Evidence;
+    encode(message: Evidence, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Evidence;
     fromJSON(object: any): Evidence;
     toJSON(message: Evidence): unknown;
     fromPartial(object: Partial<Evidence>): Evidence;
@@ -118,8 +119,8 @@ export declare const Evidence: {
 };
 export declare const DuplicateVoteEvidence: {
     typeUrl: string;
-    encode(message: DuplicateVoteEvidence, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): DuplicateVoteEvidence;
+    encode(message: DuplicateVoteEvidence, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): DuplicateVoteEvidence;
     fromJSON(object: any): DuplicateVoteEvidence;
     toJSON(message: DuplicateVoteEvidence): unknown;
     fromPartial(object: Partial<DuplicateVoteEvidence>): DuplicateVoteEvidence;
@@ -132,8 +133,8 @@ export declare const DuplicateVoteEvidence: {
 };
 export declare const LightClientAttackEvidence: {
     typeUrl: string;
-    encode(message: LightClientAttackEvidence, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): LightClientAttackEvidence;
+    encode(message: LightClientAttackEvidence, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): LightClientAttackEvidence;
     fromJSON(object: any): LightClientAttackEvidence;
     toJSON(message: LightClientAttackEvidence): unknown;
     fromPartial(object: Partial<LightClientAttackEvidence>): LightClientAttackEvidence;
@@ -146,8 +147,8 @@ export declare const LightClientAttackEvidence: {
 };
 export declare const EvidenceList: {
     typeUrl: string;
-    encode(message: EvidenceList, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): EvidenceList;
+    encode(message: EvidenceList, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): EvidenceList;
     fromJSON(object: any): EvidenceList;
     toJSON(message: EvidenceList): unknown;
     fromPartial(object: Partial<EvidenceList>): EvidenceList;

@@ -1,7 +1,7 @@
 import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
 import { NFT, NFTAmino, NFTSDKType, Class, ClassAmino, ClassSDKType } from "./nft";
-import { BinaryReader, BinaryWriter } from "../../../binary";
-import { isSet } from "../../../helpers";
+import { Long, isSet } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** QueryBalanceRequest is the request type for the Query/Balance RPC method */
 export interface QueryBalanceRequest {
   /** class_id associated with the nft */
@@ -32,7 +32,7 @@ export interface QueryBalanceRequestSDKType {
 /** QueryBalanceResponse is the response type for the Query/Balance RPC method */
 export interface QueryBalanceResponse {
   /** amount is the number of all NFTs of a given class owned by the owner */
-  amount: bigint;
+  amount: Long;
 }
 export interface QueryBalanceResponseProtoMsg {
   typeUrl: "/cosmos.nft.v1beta1.QueryBalanceResponse";
@@ -49,7 +49,7 @@ export interface QueryBalanceResponseAminoMsg {
 }
 /** QueryBalanceResponse is the response type for the Query/Balance RPC method */
 export interface QueryBalanceResponseSDKType {
-  amount: bigint;
+  amount: Long;
 }
 /** QueryOwnerRequest is the request type for the Query/Owner RPC method */
 export interface QueryOwnerRequest {
@@ -125,7 +125,7 @@ export interface QuerySupplyRequestSDKType {
 /** QuerySupplyResponse is the response type for the Query/Supply RPC method */
 export interface QuerySupplyResponse {
   /** amount is the number of all NFTs from the given class */
-  amount: bigint;
+  amount: Long;
 }
 export interface QuerySupplyResponseProtoMsg {
   typeUrl: "/cosmos.nft.v1beta1.QuerySupplyResponse";
@@ -142,7 +142,7 @@ export interface QuerySupplyResponseAminoMsg {
 }
 /** QuerySupplyResponse is the response type for the Query/Supply RPC method */
 export interface QuerySupplyResponseSDKType {
-  amount: bigint;
+  amount: Long;
 }
 /** QueryNFTstRequest is the request type for the Query/NFTs RPC method */
 export interface QueryNFTsRequest {
@@ -353,7 +353,7 @@ function createBaseQueryBalanceRequest(): QueryBalanceRequest {
 }
 export const QueryBalanceRequest = {
   typeUrl: "/cosmos.nft.v1beta1.QueryBalanceRequest",
-  encode(message: QueryBalanceRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryBalanceRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.classId !== "") {
       writer.uint32(10).string(message.classId);
     }
@@ -362,8 +362,8 @@ export const QueryBalanceRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryBalanceRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryBalanceRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryBalanceRequest();
     while (reader.pos < end) {
@@ -436,26 +436,26 @@ export const QueryBalanceRequest = {
 };
 function createBaseQueryBalanceResponse(): QueryBalanceResponse {
   return {
-    amount: BigInt(0)
+    amount: Long.UZERO
   };
 }
 export const QueryBalanceResponse = {
   typeUrl: "/cosmos.nft.v1beta1.QueryBalanceResponse",
-  encode(message: QueryBalanceResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.amount !== BigInt(0)) {
+  encode(message: QueryBalanceResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.amount.isZero()) {
       writer.uint32(8).uint64(message.amount);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryBalanceResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryBalanceResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryBalanceResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.amount = reader.uint64();
+          message.amount = (reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -466,22 +466,22 @@ export const QueryBalanceResponse = {
   },
   fromJSON(object: any): QueryBalanceResponse {
     return {
-      amount: isSet(object.amount) ? BigInt(object.amount.toString()) : BigInt(0)
+      amount: isSet(object.amount) ? Long.fromValue(object.amount) : Long.UZERO
     };
   },
   toJSON(message: QueryBalanceResponse): unknown {
     const obj: any = {};
-    message.amount !== undefined && (obj.amount = (message.amount || BigInt(0)).toString());
+    message.amount !== undefined && (obj.amount = (message.amount || Long.UZERO).toString());
     return obj;
   },
   fromPartial(object: Partial<QueryBalanceResponse>): QueryBalanceResponse {
     const message = createBaseQueryBalanceResponse();
-    message.amount = object.amount !== undefined && object.amount !== null ? BigInt(object.amount.toString()) : BigInt(0);
+    message.amount = object.amount !== undefined && object.amount !== null ? Long.fromValue(object.amount) : Long.UZERO;
     return message;
   },
   fromAmino(object: QueryBalanceResponseAmino): QueryBalanceResponse {
     return {
-      amount: BigInt(object.amount)
+      amount: Long.fromString(object.amount)
     };
   },
   toAmino(message: QueryBalanceResponse): QueryBalanceResponseAmino {
@@ -519,7 +519,7 @@ function createBaseQueryOwnerRequest(): QueryOwnerRequest {
 }
 export const QueryOwnerRequest = {
   typeUrl: "/cosmos.nft.v1beta1.QueryOwnerRequest",
-  encode(message: QueryOwnerRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryOwnerRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.classId !== "") {
       writer.uint32(10).string(message.classId);
     }
@@ -528,8 +528,8 @@ export const QueryOwnerRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryOwnerRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryOwnerRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryOwnerRequest();
     while (reader.pos < end) {
@@ -607,14 +607,14 @@ function createBaseQueryOwnerResponse(): QueryOwnerResponse {
 }
 export const QueryOwnerResponse = {
   typeUrl: "/cosmos.nft.v1beta1.QueryOwnerResponse",
-  encode(message: QueryOwnerResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryOwnerResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryOwnerResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryOwnerResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryOwnerResponse();
     while (reader.pos < end) {
@@ -684,14 +684,14 @@ function createBaseQuerySupplyRequest(): QuerySupplyRequest {
 }
 export const QuerySupplyRequest = {
   typeUrl: "/cosmos.nft.v1beta1.QuerySupplyRequest",
-  encode(message: QuerySupplyRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QuerySupplyRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.classId !== "") {
       writer.uint32(10).string(message.classId);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QuerySupplyRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QuerySupplyRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQuerySupplyRequest();
     while (reader.pos < end) {
@@ -756,26 +756,26 @@ export const QuerySupplyRequest = {
 };
 function createBaseQuerySupplyResponse(): QuerySupplyResponse {
   return {
-    amount: BigInt(0)
+    amount: Long.UZERO
   };
 }
 export const QuerySupplyResponse = {
   typeUrl: "/cosmos.nft.v1beta1.QuerySupplyResponse",
-  encode(message: QuerySupplyResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.amount !== BigInt(0)) {
+  encode(message: QuerySupplyResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.amount.isZero()) {
       writer.uint32(8).uint64(message.amount);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QuerySupplyResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QuerySupplyResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQuerySupplyResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.amount = reader.uint64();
+          message.amount = (reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -786,22 +786,22 @@ export const QuerySupplyResponse = {
   },
   fromJSON(object: any): QuerySupplyResponse {
     return {
-      amount: isSet(object.amount) ? BigInt(object.amount.toString()) : BigInt(0)
+      amount: isSet(object.amount) ? Long.fromValue(object.amount) : Long.UZERO
     };
   },
   toJSON(message: QuerySupplyResponse): unknown {
     const obj: any = {};
-    message.amount !== undefined && (obj.amount = (message.amount || BigInt(0)).toString());
+    message.amount !== undefined && (obj.amount = (message.amount || Long.UZERO).toString());
     return obj;
   },
   fromPartial(object: Partial<QuerySupplyResponse>): QuerySupplyResponse {
     const message = createBaseQuerySupplyResponse();
-    message.amount = object.amount !== undefined && object.amount !== null ? BigInt(object.amount.toString()) : BigInt(0);
+    message.amount = object.amount !== undefined && object.amount !== null ? Long.fromValue(object.amount) : Long.UZERO;
     return message;
   },
   fromAmino(object: QuerySupplyResponseAmino): QuerySupplyResponse {
     return {
-      amount: BigInt(object.amount)
+      amount: Long.fromString(object.amount)
     };
   },
   toAmino(message: QuerySupplyResponse): QuerySupplyResponseAmino {
@@ -840,7 +840,7 @@ function createBaseQueryNFTsRequest(): QueryNFTsRequest {
 }
 export const QueryNFTsRequest = {
   typeUrl: "/cosmos.nft.v1beta1.QueryNFTsRequest",
-  encode(message: QueryNFTsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryNFTsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.classId !== "") {
       writer.uint32(10).string(message.classId);
     }
@@ -852,8 +852,8 @@ export const QueryNFTsRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryNFTsRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryNFTsRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryNFTsRequest();
     while (reader.pos < end) {
@@ -940,7 +940,7 @@ function createBaseQueryNFTsResponse(): QueryNFTsResponse {
 }
 export const QueryNFTsResponse = {
   typeUrl: "/cosmos.nft.v1beta1.QueryNFTsResponse",
-  encode(message: QueryNFTsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryNFTsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.nfts) {
       NFT.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -949,8 +949,8 @@ export const QueryNFTsResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryNFTsResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryNFTsResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryNFTsResponse();
     while (reader.pos < end) {
@@ -1037,7 +1037,7 @@ function createBaseQueryNFTRequest(): QueryNFTRequest {
 }
 export const QueryNFTRequest = {
   typeUrl: "/cosmos.nft.v1beta1.QueryNFTRequest",
-  encode(message: QueryNFTRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryNFTRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.classId !== "") {
       writer.uint32(10).string(message.classId);
     }
@@ -1046,8 +1046,8 @@ export const QueryNFTRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryNFTRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryNFTRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryNFTRequest();
     while (reader.pos < end) {
@@ -1125,14 +1125,14 @@ function createBaseQueryNFTResponse(): QueryNFTResponse {
 }
 export const QueryNFTResponse = {
   typeUrl: "/cosmos.nft.v1beta1.QueryNFTResponse",
-  encode(message: QueryNFTResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryNFTResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.nft !== undefined) {
       NFT.encode(message.nft, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryNFTResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryNFTResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryNFTResponse();
     while (reader.pos < end) {
@@ -1202,14 +1202,14 @@ function createBaseQueryClassRequest(): QueryClassRequest {
 }
 export const QueryClassRequest = {
   typeUrl: "/cosmos.nft.v1beta1.QueryClassRequest",
-  encode(message: QueryClassRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryClassRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.classId !== "") {
       writer.uint32(10).string(message.classId);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryClassRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryClassRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryClassRequest();
     while (reader.pos < end) {
@@ -1279,14 +1279,14 @@ function createBaseQueryClassResponse(): QueryClassResponse {
 }
 export const QueryClassResponse = {
   typeUrl: "/cosmos.nft.v1beta1.QueryClassResponse",
-  encode(message: QueryClassResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryClassResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.class !== undefined) {
       Class.encode(message.class, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryClassResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryClassResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryClassResponse();
     while (reader.pos < end) {
@@ -1356,14 +1356,14 @@ function createBaseQueryClassesRequest(): QueryClassesRequest {
 }
 export const QueryClassesRequest = {
   typeUrl: "/cosmos.nft.v1beta1.QueryClassesRequest",
-  encode(message: QueryClassesRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryClassesRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.pagination !== undefined) {
       PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryClassesRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryClassesRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryClassesRequest();
     while (reader.pos < end) {
@@ -1434,7 +1434,7 @@ function createBaseQueryClassesResponse(): QueryClassesResponse {
 }
 export const QueryClassesResponse = {
   typeUrl: "/cosmos.nft.v1beta1.QueryClassesResponse",
-  encode(message: QueryClassesResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: QueryClassesResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.classes) {
       Class.encode(v!, writer.uint32(10).fork()).ldelim();
     }
@@ -1443,8 +1443,8 @@ export const QueryClassesResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): QueryClassesResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryClassesResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryClassesResponse();
     while (reader.pos < end) {

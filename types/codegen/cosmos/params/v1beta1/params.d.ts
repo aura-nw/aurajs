@@ -1,7 +1,6 @@
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** ParameterChangeProposal defines a proposal to change one or more parameters. */
 export interface ParameterChangeProposal {
-    $typeUrl?: string;
     title: string;
     description: string;
     changes: ParamChange[];
@@ -22,7 +21,6 @@ export interface ParameterChangeProposalAminoMsg {
 }
 /** ParameterChangeProposal defines a proposal to change one or more parameters. */
 export interface ParameterChangeProposalSDKType {
-    $typeUrl?: string;
     title: string;
     description: string;
     changes: ParamChangeSDKType[];
@@ -64,8 +62,8 @@ export interface ParamChangeSDKType {
 }
 export declare const ParameterChangeProposal: {
     typeUrl: string;
-    encode(message: ParameterChangeProposal, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ParameterChangeProposal;
+    encode(message: ParameterChangeProposal, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ParameterChangeProposal;
     fromJSON(object: any): ParameterChangeProposal;
     toJSON(message: ParameterChangeProposal): unknown;
     fromPartial(object: Partial<ParameterChangeProposal>): ParameterChangeProposal;
@@ -79,8 +77,8 @@ export declare const ParameterChangeProposal: {
 };
 export declare const ParamChange: {
     typeUrl: string;
-    encode(message: ParamChange, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ParamChange;
+    encode(message: ParamChange, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ParamChange;
     fromJSON(object: any): ParamChange;
     toJSON(message: ParamChange): unknown;
     fromPartial(object: Partial<ParamChange>): ParamChange;

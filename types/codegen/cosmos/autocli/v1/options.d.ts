@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** ModuleOptions describes the CLI options for a Cosmos SDK module. */
 export interface ModuleOptions {
     /** tx describes the tx command for the module. */
@@ -377,8 +377,8 @@ export interface PositionalArgDescriptorSDKType {
 }
 export declare const ModuleOptions: {
     typeUrl: string;
-    encode(message: ModuleOptions, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ModuleOptions;
+    encode(message: ModuleOptions, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ModuleOptions;
     fromJSON(object: any): ModuleOptions;
     toJSON(message: ModuleOptions): unknown;
     fromPartial(object: Partial<ModuleOptions>): ModuleOptions;
@@ -391,8 +391,8 @@ export declare const ModuleOptions: {
     toProtoMsg(message: ModuleOptions): ModuleOptionsProtoMsg;
 };
 export declare const ServiceCommandDescriptor_SubCommandsEntry: {
-    encode(message: ServiceCommandDescriptor_SubCommandsEntry, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ServiceCommandDescriptor_SubCommandsEntry;
+    encode(message: ServiceCommandDescriptor_SubCommandsEntry, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ServiceCommandDescriptor_SubCommandsEntry;
     fromJSON(object: any): ServiceCommandDescriptor_SubCommandsEntry;
     toJSON(message: ServiceCommandDescriptor_SubCommandsEntry): unknown;
     fromPartial(object: Partial<ServiceCommandDescriptor_SubCommandsEntry>): ServiceCommandDescriptor_SubCommandsEntry;
@@ -404,8 +404,8 @@ export declare const ServiceCommandDescriptor_SubCommandsEntry: {
 };
 export declare const ServiceCommandDescriptor: {
     typeUrl: string;
-    encode(message: ServiceCommandDescriptor, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ServiceCommandDescriptor;
+    encode(message: ServiceCommandDescriptor, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ServiceCommandDescriptor;
     fromJSON(object: any): ServiceCommandDescriptor;
     toJSON(message: ServiceCommandDescriptor): unknown;
     fromPartial(object: Partial<ServiceCommandDescriptor>): ServiceCommandDescriptor;
@@ -418,8 +418,8 @@ export declare const ServiceCommandDescriptor: {
     toProtoMsg(message: ServiceCommandDescriptor): ServiceCommandDescriptorProtoMsg;
 };
 export declare const RpcCommandOptions_FlagOptionsEntry: {
-    encode(message: RpcCommandOptions_FlagOptionsEntry, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): RpcCommandOptions_FlagOptionsEntry;
+    encode(message: RpcCommandOptions_FlagOptionsEntry, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): RpcCommandOptions_FlagOptionsEntry;
     fromJSON(object: any): RpcCommandOptions_FlagOptionsEntry;
     toJSON(message: RpcCommandOptions_FlagOptionsEntry): unknown;
     fromPartial(object: Partial<RpcCommandOptions_FlagOptionsEntry>): RpcCommandOptions_FlagOptionsEntry;
@@ -431,8 +431,8 @@ export declare const RpcCommandOptions_FlagOptionsEntry: {
 };
 export declare const RpcCommandOptions: {
     typeUrl: string;
-    encode(message: RpcCommandOptions, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): RpcCommandOptions;
+    encode(message: RpcCommandOptions, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): RpcCommandOptions;
     fromJSON(object: any): RpcCommandOptions;
     toJSON(message: RpcCommandOptions): unknown;
     fromPartial(object: Partial<RpcCommandOptions>): RpcCommandOptions;
@@ -446,8 +446,8 @@ export declare const RpcCommandOptions: {
 };
 export declare const FlagOptions: {
     typeUrl: string;
-    encode(message: FlagOptions, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): FlagOptions;
+    encode(message: FlagOptions, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): FlagOptions;
     fromJSON(object: any): FlagOptions;
     toJSON(message: FlagOptions): unknown;
     fromPartial(object: Partial<FlagOptions>): FlagOptions;
@@ -461,8 +461,8 @@ export declare const FlagOptions: {
 };
 export declare const PositionalArgDescriptor: {
     typeUrl: string;
-    encode(message: PositionalArgDescriptor, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): PositionalArgDescriptor;
+    encode(message: PositionalArgDescriptor, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PositionalArgDescriptor;
     fromJSON(object: any): PositionalArgDescriptor;
     toJSON(message: PositionalArgDescriptor): unknown;
     fromPartial(object: Partial<PositionalArgDescriptor>): PositionalArgDescriptor;

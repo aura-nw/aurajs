@@ -5,11 +5,11 @@
   */
 export * from "./gogoproto/bundle";
 export * from "./google/bundle";
+export * from "./tendermint/bundle";
 export * from "./cosmos_proto/bundle";
 export * from "./amino/bundle";
 export * from "./cosmos/bundle";
 export * from "./cosmos/client";
-export * from "./tendermint/bundle";
 export * from "./ibc/bundle";
 export * from "./ibc/client";
 export * from "./cosmwasm/bundle";
@@ -18,6 +18,3 @@ export * from "./aura/bundle";
 export * from "./aura/client";
 export * from "./auranw/bundle";
 export * from "./auranw/client";
-export * from "./varint";
-export * from "./utf8";
-export * from "./binary";

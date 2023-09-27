@@ -1,5 +1,5 @@
 import { Height, HeightAmino, HeightSDKType } from "../../../core/client/v1/client";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** ClientState defines the 09-localhost client state */
 export interface ClientState {
     /** the latest block height */
@@ -24,8 +24,8 @@ export interface ClientStateSDKType {
 }
 export declare const ClientState: {
     typeUrl: string;
-    encode(message: ClientState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ClientState;
+    encode(message: ClientState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ClientState;
     fromJSON(object: any): ClientState;
     toJSON(message: ClientState): unknown;
     fromPartial(object: Partial<ClientState>): ClientState;

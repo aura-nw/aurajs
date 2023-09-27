@@ -1,6 +1,7 @@
 import { AccessConfig, AccessConfigAmino, AccessConfigSDKType, Params, ParamsAmino, ParamsSDKType } from "./types";
 import { Coin, CoinAmino, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** MsgStoreCode submit Wasm code to the system */
 export interface MsgStoreCode {
     /** Sender is the actor that signed the messages */
@@ -42,7 +43,7 @@ export interface MsgStoreCodeSDKType {
 /** MsgStoreCodeResponse returns store result data. */
 export interface MsgStoreCodeResponse {
     /** CodeID is the reference to the stored WASM code */
-    codeId: bigint;
+    codeId: Long;
     /** Checksum is the sha256 hash of the stored code */
     checksum: Uint8Array;
 }
@@ -63,7 +64,7 @@ export interface MsgStoreCodeResponseAminoMsg {
 }
 /** MsgStoreCodeResponse returns store result data. */
 export interface MsgStoreCodeResponseSDKType {
-    code_id: bigint;
+    code_id: Long;
     checksum: Uint8Array;
 }
 /**
@@ -76,7 +77,7 @@ export interface MsgInstantiateContract {
     /** Admin is an optional address that can execute migrations */
     admin: string;
     /** CodeID is the reference to the stored WASM code */
-    codeId: bigint;
+    codeId: Long;
     /** Label is optional metadata to be stored with a contract instance. */
     label: string;
     /** Msg json encoded message to be passed to the contract on instantiation */
@@ -117,7 +118,7 @@ export interface MsgInstantiateContractAminoMsg {
 export interface MsgInstantiateContractSDKType {
     sender: string;
     admin: string;
-    code_id: bigint;
+    code_id: Long;
     label: string;
     msg: Uint8Array;
     funds: CoinSDKType[];
@@ -159,7 +160,7 @@ export interface MsgInstantiateContract2 {
     /** Admin is an optional address that can execute migrations */
     admin: string;
     /** CodeID is the reference to the stored WASM code */
-    codeId: bigint;
+    codeId: Long;
     /** Label is optional metadata to be stored with a contract instance. */
     label: string;
     /** Msg json encoded message to be passed to the contract on instantiation */
@@ -214,7 +215,7 @@ export interface MsgInstantiateContract2AminoMsg {
 export interface MsgInstantiateContract2SDKType {
     sender: string;
     admin: string;
-    code_id: bigint;
+    code_id: Long;
     label: string;
     msg: Uint8Array;
     funds: CoinSDKType[];
@@ -314,7 +315,7 @@ export interface MsgMigrateContract {
     /** Contract is the address of the smart contract */
     contract: string;
     /** CodeID references the new WASM code */
-    codeId: bigint;
+    codeId: Long;
     /** Msg json encoded message to be passed to the contract on migration */
     msg: Uint8Array;
 }
@@ -341,7 +342,7 @@ export interface MsgMigrateContractAminoMsg {
 export interface MsgMigrateContractSDKType {
     sender: string;
     contract: string;
-    code_id: bigint;
+    code_id: Long;
     msg: Uint8Array;
 }
 /** MsgMigrateContractResponse returns contract migration result data. */
@@ -470,7 +471,7 @@ export interface MsgUpdateInstantiateConfig {
     /** Sender is the that actor that signed the messages */
     sender: string;
     /** CodeID references the stored WASM code */
-    codeId: bigint;
+    codeId: Long;
     /** NewInstantiatePermission is the new access control */
     newInstantiatePermission: AccessConfig;
 }
@@ -494,7 +495,7 @@ export interface MsgUpdateInstantiateConfigAminoMsg {
 /** MsgUpdateInstantiateConfig updates instantiate config for a smart contract */
 export interface MsgUpdateInstantiateConfigSDKType {
     sender: string;
-    code_id: bigint;
+    code_id: Long;
     new_instantiate_permission: AccessConfigSDKType;
 }
 /** MsgUpdateInstantiateConfigResponse returns empty data */
@@ -683,7 +684,7 @@ export interface MsgPinCodes {
     /** Authority is the address of the governance account. */
     authority: string;
     /** CodeIDs references the new WASM codes */
-    codeIds: bigint[];
+    codeIds: Long[];
 }
 export interface MsgPinCodesProtoMsg {
     typeUrl: "/cosmwasm.wasm.v1.MsgPinCodes";
@@ -711,7 +712,7 @@ export interface MsgPinCodesAminoMsg {
  */
 export interface MsgPinCodesSDKType {
     authority: string;
-    code_ids: bigint[];
+    code_ids: Long[];
 }
 /**
  * MsgPinCodesResponse defines the response structure for executing a
@@ -754,7 +755,7 @@ export interface MsgUnpinCodes {
     /** Authority is the address of the governance account. */
     authority: string;
     /** CodeIDs references the WASM codes */
-    codeIds: bigint[];
+    codeIds: Long[];
 }
 export interface MsgUnpinCodesProtoMsg {
     typeUrl: "/cosmwasm.wasm.v1.MsgUnpinCodes";
@@ -782,7 +783,7 @@ export interface MsgUnpinCodesAminoMsg {
  */
 export interface MsgUnpinCodesSDKType {
     authority: string;
-    code_ids: bigint[];
+    code_ids: Long[];
 }
 /**
  * MsgUnpinCodesResponse defines the response structure for executing a
@@ -1091,8 +1092,8 @@ export interface MsgRemoveCodeUploadParamsAddressesResponseSDKType {
 }
 export declare const MsgStoreCode: {
     typeUrl: string;
-    encode(message: MsgStoreCode, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgStoreCode;
+    encode(message: MsgStoreCode, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgStoreCode;
     fromJSON(object: any): MsgStoreCode;
     toJSON(message: MsgStoreCode): unknown;
     fromPartial(object: Partial<MsgStoreCode>): MsgStoreCode;
@@ -1106,8 +1107,8 @@ export declare const MsgStoreCode: {
 };
 export declare const MsgStoreCodeResponse: {
     typeUrl: string;
-    encode(message: MsgStoreCodeResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgStoreCodeResponse;
+    encode(message: MsgStoreCodeResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgStoreCodeResponse;
     fromJSON(object: any): MsgStoreCodeResponse;
     toJSON(message: MsgStoreCodeResponse): unknown;
     fromPartial(object: Partial<MsgStoreCodeResponse>): MsgStoreCodeResponse;
@@ -1121,8 +1122,8 @@ export declare const MsgStoreCodeResponse: {
 };
 export declare const MsgInstantiateContract: {
     typeUrl: string;
-    encode(message: MsgInstantiateContract, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgInstantiateContract;
+    encode(message: MsgInstantiateContract, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgInstantiateContract;
     fromJSON(object: any): MsgInstantiateContract;
     toJSON(message: MsgInstantiateContract): unknown;
     fromPartial(object: Partial<MsgInstantiateContract>): MsgInstantiateContract;
@@ -1136,8 +1137,8 @@ export declare const MsgInstantiateContract: {
 };
 export declare const MsgInstantiateContractResponse: {
     typeUrl: string;
-    encode(message: MsgInstantiateContractResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgInstantiateContractResponse;
+    encode(message: MsgInstantiateContractResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgInstantiateContractResponse;
     fromJSON(object: any): MsgInstantiateContractResponse;
     toJSON(message: MsgInstantiateContractResponse): unknown;
     fromPartial(object: Partial<MsgInstantiateContractResponse>): MsgInstantiateContractResponse;
@@ -1151,8 +1152,8 @@ export declare const MsgInstantiateContractResponse: {
 };
 export declare const MsgInstantiateContract2: {
     typeUrl: string;
-    encode(message: MsgInstantiateContract2, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgInstantiateContract2;
+    encode(message: MsgInstantiateContract2, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgInstantiateContract2;
     fromJSON(object: any): MsgInstantiateContract2;
     toJSON(message: MsgInstantiateContract2): unknown;
     fromPartial(object: Partial<MsgInstantiateContract2>): MsgInstantiateContract2;
@@ -1166,8 +1167,8 @@ export declare const MsgInstantiateContract2: {
 };
 export declare const MsgInstantiateContract2Response: {
     typeUrl: string;
-    encode(message: MsgInstantiateContract2Response, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgInstantiateContract2Response;
+    encode(message: MsgInstantiateContract2Response, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgInstantiateContract2Response;
     fromJSON(object: any): MsgInstantiateContract2Response;
     toJSON(message: MsgInstantiateContract2Response): unknown;
     fromPartial(object: Partial<MsgInstantiateContract2Response>): MsgInstantiateContract2Response;
@@ -1181,8 +1182,8 @@ export declare const MsgInstantiateContract2Response: {
 };
 export declare const MsgExecuteContract: {
     typeUrl: string;
-    encode(message: MsgExecuteContract, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgExecuteContract;
+    encode(message: MsgExecuteContract, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgExecuteContract;
     fromJSON(object: any): MsgExecuteContract;
     toJSON(message: MsgExecuteContract): unknown;
     fromPartial(object: Partial<MsgExecuteContract>): MsgExecuteContract;
@@ -1196,8 +1197,8 @@ export declare const MsgExecuteContract: {
 };
 export declare const MsgExecuteContractResponse: {
     typeUrl: string;
-    encode(message: MsgExecuteContractResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgExecuteContractResponse;
+    encode(message: MsgExecuteContractResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgExecuteContractResponse;
     fromJSON(object: any): MsgExecuteContractResponse;
     toJSON(message: MsgExecuteContractResponse): unknown;
     fromPartial(object: Partial<MsgExecuteContractResponse>): MsgExecuteContractResponse;
@@ -1211,8 +1212,8 @@ export declare const MsgExecuteContractResponse: {
 };
 export declare const MsgMigrateContract: {
     typeUrl: string;
-    encode(message: MsgMigrateContract, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgMigrateContract;
+    encode(message: MsgMigrateContract, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgMigrateContract;
     fromJSON(object: any): MsgMigrateContract;
     toJSON(message: MsgMigrateContract): unknown;
     fromPartial(object: Partial<MsgMigrateContract>): MsgMigrateContract;
@@ -1226,8 +1227,8 @@ export declare const MsgMigrateContract: {
 };
 export declare const MsgMigrateContractResponse: {
     typeUrl: string;
-    encode(message: MsgMigrateContractResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgMigrateContractResponse;
+    encode(message: MsgMigrateContractResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgMigrateContractResponse;
     fromJSON(object: any): MsgMigrateContractResponse;
     toJSON(message: MsgMigrateContractResponse): unknown;
     fromPartial(object: Partial<MsgMigrateContractResponse>): MsgMigrateContractResponse;
@@ -1241,8 +1242,8 @@ export declare const MsgMigrateContractResponse: {
 };
 export declare const MsgUpdateAdmin: {
     typeUrl: string;
-    encode(message: MsgUpdateAdmin, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateAdmin;
+    encode(message: MsgUpdateAdmin, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateAdmin;
     fromJSON(object: any): MsgUpdateAdmin;
     toJSON(message: MsgUpdateAdmin): unknown;
     fromPartial(object: Partial<MsgUpdateAdmin>): MsgUpdateAdmin;
@@ -1256,8 +1257,8 @@ export declare const MsgUpdateAdmin: {
 };
 export declare const MsgUpdateAdminResponse: {
     typeUrl: string;
-    encode(_: MsgUpdateAdminResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateAdminResponse;
+    encode(_: MsgUpdateAdminResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateAdminResponse;
     fromJSON(_: any): MsgUpdateAdminResponse;
     toJSON(_: MsgUpdateAdminResponse): unknown;
     fromPartial(_: Partial<MsgUpdateAdminResponse>): MsgUpdateAdminResponse;
@@ -1271,8 +1272,8 @@ export declare const MsgUpdateAdminResponse: {
 };
 export declare const MsgClearAdmin: {
     typeUrl: string;
-    encode(message: MsgClearAdmin, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgClearAdmin;
+    encode(message: MsgClearAdmin, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgClearAdmin;
     fromJSON(object: any): MsgClearAdmin;
     toJSON(message: MsgClearAdmin): unknown;
     fromPartial(object: Partial<MsgClearAdmin>): MsgClearAdmin;
@@ -1286,8 +1287,8 @@ export declare const MsgClearAdmin: {
 };
 export declare const MsgClearAdminResponse: {
     typeUrl: string;
-    encode(_: MsgClearAdminResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgClearAdminResponse;
+    encode(_: MsgClearAdminResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgClearAdminResponse;
     fromJSON(_: any): MsgClearAdminResponse;
     toJSON(_: MsgClearAdminResponse): unknown;
     fromPartial(_: Partial<MsgClearAdminResponse>): MsgClearAdminResponse;
@@ -1301,8 +1302,8 @@ export declare const MsgClearAdminResponse: {
 };
 export declare const MsgUpdateInstantiateConfig: {
     typeUrl: string;
-    encode(message: MsgUpdateInstantiateConfig, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateInstantiateConfig;
+    encode(message: MsgUpdateInstantiateConfig, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateInstantiateConfig;
     fromJSON(object: any): MsgUpdateInstantiateConfig;
     toJSON(message: MsgUpdateInstantiateConfig): unknown;
     fromPartial(object: Partial<MsgUpdateInstantiateConfig>): MsgUpdateInstantiateConfig;
@@ -1316,8 +1317,8 @@ export declare const MsgUpdateInstantiateConfig: {
 };
 export declare const MsgUpdateInstantiateConfigResponse: {
     typeUrl: string;
-    encode(_: MsgUpdateInstantiateConfigResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateInstantiateConfigResponse;
+    encode(_: MsgUpdateInstantiateConfigResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateInstantiateConfigResponse;
     fromJSON(_: any): MsgUpdateInstantiateConfigResponse;
     toJSON(_: MsgUpdateInstantiateConfigResponse): unknown;
     fromPartial(_: Partial<MsgUpdateInstantiateConfigResponse>): MsgUpdateInstantiateConfigResponse;
@@ -1331,8 +1332,8 @@ export declare const MsgUpdateInstantiateConfigResponse: {
 };
 export declare const MsgUpdateParams: {
     typeUrl: string;
-    encode(message: MsgUpdateParams, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateParams;
+    encode(message: MsgUpdateParams, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateParams;
     fromJSON(object: any): MsgUpdateParams;
     toJSON(message: MsgUpdateParams): unknown;
     fromPartial(object: Partial<MsgUpdateParams>): MsgUpdateParams;
@@ -1346,8 +1347,8 @@ export declare const MsgUpdateParams: {
 };
 export declare const MsgUpdateParamsResponse: {
     typeUrl: string;
-    encode(_: MsgUpdateParamsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateParamsResponse;
+    encode(_: MsgUpdateParamsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateParamsResponse;
     fromJSON(_: any): MsgUpdateParamsResponse;
     toJSON(_: MsgUpdateParamsResponse): unknown;
     fromPartial(_: Partial<MsgUpdateParamsResponse>): MsgUpdateParamsResponse;
@@ -1361,8 +1362,8 @@ export declare const MsgUpdateParamsResponse: {
 };
 export declare const MsgSudoContract: {
     typeUrl: string;
-    encode(message: MsgSudoContract, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgSudoContract;
+    encode(message: MsgSudoContract, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgSudoContract;
     fromJSON(object: any): MsgSudoContract;
     toJSON(message: MsgSudoContract): unknown;
     fromPartial(object: Partial<MsgSudoContract>): MsgSudoContract;
@@ -1376,8 +1377,8 @@ export declare const MsgSudoContract: {
 };
 export declare const MsgSudoContractResponse: {
     typeUrl: string;
-    encode(message: MsgSudoContractResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgSudoContractResponse;
+    encode(message: MsgSudoContractResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgSudoContractResponse;
     fromJSON(object: any): MsgSudoContractResponse;
     toJSON(message: MsgSudoContractResponse): unknown;
     fromPartial(object: Partial<MsgSudoContractResponse>): MsgSudoContractResponse;
@@ -1391,8 +1392,8 @@ export declare const MsgSudoContractResponse: {
 };
 export declare const MsgPinCodes: {
     typeUrl: string;
-    encode(message: MsgPinCodes, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgPinCodes;
+    encode(message: MsgPinCodes, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgPinCodes;
     fromJSON(object: any): MsgPinCodes;
     toJSON(message: MsgPinCodes): unknown;
     fromPartial(object: Partial<MsgPinCodes>): MsgPinCodes;
@@ -1406,8 +1407,8 @@ export declare const MsgPinCodes: {
 };
 export declare const MsgPinCodesResponse: {
     typeUrl: string;
-    encode(_: MsgPinCodesResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgPinCodesResponse;
+    encode(_: MsgPinCodesResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgPinCodesResponse;
     fromJSON(_: any): MsgPinCodesResponse;
     toJSON(_: MsgPinCodesResponse): unknown;
     fromPartial(_: Partial<MsgPinCodesResponse>): MsgPinCodesResponse;
@@ -1421,8 +1422,8 @@ export declare const MsgPinCodesResponse: {
 };
 export declare const MsgUnpinCodes: {
     typeUrl: string;
-    encode(message: MsgUnpinCodes, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUnpinCodes;
+    encode(message: MsgUnpinCodes, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUnpinCodes;
     fromJSON(object: any): MsgUnpinCodes;
     toJSON(message: MsgUnpinCodes): unknown;
     fromPartial(object: Partial<MsgUnpinCodes>): MsgUnpinCodes;
@@ -1436,8 +1437,8 @@ export declare const MsgUnpinCodes: {
 };
 export declare const MsgUnpinCodesResponse: {
     typeUrl: string;
-    encode(_: MsgUnpinCodesResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUnpinCodesResponse;
+    encode(_: MsgUnpinCodesResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUnpinCodesResponse;
     fromJSON(_: any): MsgUnpinCodesResponse;
     toJSON(_: MsgUnpinCodesResponse): unknown;
     fromPartial(_: Partial<MsgUnpinCodesResponse>): MsgUnpinCodesResponse;
@@ -1451,8 +1452,8 @@ export declare const MsgUnpinCodesResponse: {
 };
 export declare const MsgStoreAndInstantiateContract: {
     typeUrl: string;
-    encode(message: MsgStoreAndInstantiateContract, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgStoreAndInstantiateContract;
+    encode(message: MsgStoreAndInstantiateContract, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgStoreAndInstantiateContract;
     fromJSON(object: any): MsgStoreAndInstantiateContract;
     toJSON(message: MsgStoreAndInstantiateContract): unknown;
     fromPartial(object: Partial<MsgStoreAndInstantiateContract>): MsgStoreAndInstantiateContract;
@@ -1466,8 +1467,8 @@ export declare const MsgStoreAndInstantiateContract: {
 };
 export declare const MsgStoreAndInstantiateContractResponse: {
     typeUrl: string;
-    encode(message: MsgStoreAndInstantiateContractResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgStoreAndInstantiateContractResponse;
+    encode(message: MsgStoreAndInstantiateContractResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgStoreAndInstantiateContractResponse;
     fromJSON(object: any): MsgStoreAndInstantiateContractResponse;
     toJSON(message: MsgStoreAndInstantiateContractResponse): unknown;
     fromPartial(object: Partial<MsgStoreAndInstantiateContractResponse>): MsgStoreAndInstantiateContractResponse;
@@ -1481,8 +1482,8 @@ export declare const MsgStoreAndInstantiateContractResponse: {
 };
 export declare const MsgAddCodeUploadParamsAddresses: {
     typeUrl: string;
-    encode(message: MsgAddCodeUploadParamsAddresses, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgAddCodeUploadParamsAddresses;
+    encode(message: MsgAddCodeUploadParamsAddresses, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgAddCodeUploadParamsAddresses;
     fromJSON(object: any): MsgAddCodeUploadParamsAddresses;
     toJSON(message: MsgAddCodeUploadParamsAddresses): unknown;
     fromPartial(object: Partial<MsgAddCodeUploadParamsAddresses>): MsgAddCodeUploadParamsAddresses;
@@ -1496,8 +1497,8 @@ export declare const MsgAddCodeUploadParamsAddresses: {
 };
 export declare const MsgAddCodeUploadParamsAddressesResponse: {
     typeUrl: string;
-    encode(_: MsgAddCodeUploadParamsAddressesResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgAddCodeUploadParamsAddressesResponse;
+    encode(_: MsgAddCodeUploadParamsAddressesResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgAddCodeUploadParamsAddressesResponse;
     fromJSON(_: any): MsgAddCodeUploadParamsAddressesResponse;
     toJSON(_: MsgAddCodeUploadParamsAddressesResponse): unknown;
     fromPartial(_: Partial<MsgAddCodeUploadParamsAddressesResponse>): MsgAddCodeUploadParamsAddressesResponse;
@@ -1511,8 +1512,8 @@ export declare const MsgAddCodeUploadParamsAddressesResponse: {
 };
 export declare const MsgRemoveCodeUploadParamsAddresses: {
     typeUrl: string;
-    encode(message: MsgRemoveCodeUploadParamsAddresses, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgRemoveCodeUploadParamsAddresses;
+    encode(message: MsgRemoveCodeUploadParamsAddresses, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgRemoveCodeUploadParamsAddresses;
     fromJSON(object: any): MsgRemoveCodeUploadParamsAddresses;
     toJSON(message: MsgRemoveCodeUploadParamsAddresses): unknown;
     fromPartial(object: Partial<MsgRemoveCodeUploadParamsAddresses>): MsgRemoveCodeUploadParamsAddresses;
@@ -1526,8 +1527,8 @@ export declare const MsgRemoveCodeUploadParamsAddresses: {
 };
 export declare const MsgRemoveCodeUploadParamsAddressesResponse: {
     typeUrl: string;
-    encode(_: MsgRemoveCodeUploadParamsAddressesResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgRemoveCodeUploadParamsAddressesResponse;
+    encode(_: MsgRemoveCodeUploadParamsAddressesResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgRemoveCodeUploadParamsAddressesResponse;
     fromJSON(_: any): MsgRemoveCodeUploadParamsAddressesResponse;
     toJSON(_: MsgRemoveCodeUploadParamsAddressesResponse): unknown;
     fromPartial(_: Partial<MsgRemoveCodeUploadParamsAddressesResponse>): MsgRemoveCodeUploadParamsAddressesResponse;

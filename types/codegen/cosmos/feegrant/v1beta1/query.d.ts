@@ -1,6 +1,6 @@
 import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
 import { Grant, GrantAmino, GrantSDKType } from "./feegrant";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** QueryAllowanceRequest is the request type for the Query/Allowance RPC method. */
 export interface QueryAllowanceRequest {
     /** granter is the address of the user granting an allowance of their funds. */
@@ -180,8 +180,8 @@ export interface QueryAllowancesByGranterResponseSDKType {
 }
 export declare const QueryAllowanceRequest: {
     typeUrl: string;
-    encode(message: QueryAllowanceRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryAllowanceRequest;
+    encode(message: QueryAllowanceRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllowanceRequest;
     fromJSON(object: any): QueryAllowanceRequest;
     toJSON(message: QueryAllowanceRequest): unknown;
     fromPartial(object: Partial<QueryAllowanceRequest>): QueryAllowanceRequest;
@@ -195,8 +195,8 @@ export declare const QueryAllowanceRequest: {
 };
 export declare const QueryAllowanceResponse: {
     typeUrl: string;
-    encode(message: QueryAllowanceResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryAllowanceResponse;
+    encode(message: QueryAllowanceResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllowanceResponse;
     fromJSON(object: any): QueryAllowanceResponse;
     toJSON(message: QueryAllowanceResponse): unknown;
     fromPartial(object: Partial<QueryAllowanceResponse>): QueryAllowanceResponse;
@@ -210,8 +210,8 @@ export declare const QueryAllowanceResponse: {
 };
 export declare const QueryAllowancesRequest: {
     typeUrl: string;
-    encode(message: QueryAllowancesRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryAllowancesRequest;
+    encode(message: QueryAllowancesRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllowancesRequest;
     fromJSON(object: any): QueryAllowancesRequest;
     toJSON(message: QueryAllowancesRequest): unknown;
     fromPartial(object: Partial<QueryAllowancesRequest>): QueryAllowancesRequest;
@@ -225,8 +225,8 @@ export declare const QueryAllowancesRequest: {
 };
 export declare const QueryAllowancesResponse: {
     typeUrl: string;
-    encode(message: QueryAllowancesResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryAllowancesResponse;
+    encode(message: QueryAllowancesResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllowancesResponse;
     fromJSON(object: any): QueryAllowancesResponse;
     toJSON(message: QueryAllowancesResponse): unknown;
     fromPartial(object: Partial<QueryAllowancesResponse>): QueryAllowancesResponse;
@@ -240,8 +240,8 @@ export declare const QueryAllowancesResponse: {
 };
 export declare const QueryAllowancesByGranterRequest: {
     typeUrl: string;
-    encode(message: QueryAllowancesByGranterRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryAllowancesByGranterRequest;
+    encode(message: QueryAllowancesByGranterRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllowancesByGranterRequest;
     fromJSON(object: any): QueryAllowancesByGranterRequest;
     toJSON(message: QueryAllowancesByGranterRequest): unknown;
     fromPartial(object: Partial<QueryAllowancesByGranterRequest>): QueryAllowancesByGranterRequest;
@@ -255,8 +255,8 @@ export declare const QueryAllowancesByGranterRequest: {
 };
 export declare const QueryAllowancesByGranterResponse: {
     typeUrl: string;
-    encode(message: QueryAllowancesByGranterResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryAllowancesByGranterResponse;
+    encode(message: QueryAllowancesByGranterResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllowancesByGranterResponse;
     fromJSON(object: any): QueryAllowancesByGranterResponse;
     toJSON(message: QueryAllowancesByGranterResponse): unknown;
     fromPartial(object: Partial<QueryAllowancesByGranterResponse>): QueryAllowancesByGranterResponse;

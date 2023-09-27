@@ -1,5 +1,5 @@
 import { FileDescriptorProto, FileDescriptorProtoAmino, FileDescriptorProtoSDKType } from "../../../google/protobuf/descriptor";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** FileDescriptorsRequest is the Query/FileDescriptors request type. */
 export interface FileDescriptorsRequest {
 }
@@ -41,8 +41,8 @@ export interface FileDescriptorsResponseSDKType {
 }
 export declare const FileDescriptorsRequest: {
     typeUrl: string;
-    encode(_: FileDescriptorsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): FileDescriptorsRequest;
+    encode(_: FileDescriptorsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): FileDescriptorsRequest;
     fromJSON(_: any): FileDescriptorsRequest;
     toJSON(_: FileDescriptorsRequest): unknown;
     fromPartial(_: Partial<FileDescriptorsRequest>): FileDescriptorsRequest;
@@ -56,8 +56,8 @@ export declare const FileDescriptorsRequest: {
 };
 export declare const FileDescriptorsResponse: {
     typeUrl: string;
-    encode(message: FileDescriptorsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): FileDescriptorsResponse;
+    encode(message: FileDescriptorsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): FileDescriptorsResponse;
     fromJSON(object: any): FileDescriptorsResponse;
     toJSON(message: FileDescriptorsResponse): unknown;
     fromPartial(object: Partial<FileDescriptorsResponse>): FileDescriptorsResponse;

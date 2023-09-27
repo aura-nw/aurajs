@@ -1,6 +1,7 @@
 import { CompactBitArray, CompactBitArrayAmino, CompactBitArraySDKType } from "../../../crypto/multisig/v1beta1/multisig";
 import { Any, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * SignMode represents a signing mode with its own security guarantees.
  *
@@ -98,7 +99,7 @@ export interface SignatureDescriptor {
      * number of committed transactions signed by a given address. It is used to prevent
      * replay attacks.
      */
-    sequence: bigint;
+    sequence: Long;
 }
 export interface SignatureDescriptorProtoMsg {
     typeUrl: "/cosmos.tx.signing.v1beta1.SignatureDescriptor";
@@ -134,7 +135,7 @@ export interface SignatureDescriptorAminoMsg {
 export interface SignatureDescriptorSDKType {
     public_key: AnySDKType;
     data: SignatureDescriptor_DataSDKType;
-    sequence: bigint;
+    sequence: Long;
 }
 /** Data represents signature data */
 export interface SignatureDescriptor_Data {
@@ -219,8 +220,8 @@ export interface SignatureDescriptor_Data_MultiSDKType {
 }
 export declare const SignatureDescriptors: {
     typeUrl: string;
-    encode(message: SignatureDescriptors, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SignatureDescriptors;
+    encode(message: SignatureDescriptors, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SignatureDescriptors;
     fromJSON(object: any): SignatureDescriptors;
     toJSON(message: SignatureDescriptors): unknown;
     fromPartial(object: Partial<SignatureDescriptors>): SignatureDescriptors;
@@ -234,8 +235,8 @@ export declare const SignatureDescriptors: {
 };
 export declare const SignatureDescriptor: {
     typeUrl: string;
-    encode(message: SignatureDescriptor, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SignatureDescriptor;
+    encode(message: SignatureDescriptor, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SignatureDescriptor;
     fromJSON(object: any): SignatureDescriptor;
     toJSON(message: SignatureDescriptor): unknown;
     fromPartial(object: Partial<SignatureDescriptor>): SignatureDescriptor;
@@ -249,8 +250,8 @@ export declare const SignatureDescriptor: {
 };
 export declare const SignatureDescriptor_Data: {
     typeUrl: string;
-    encode(message: SignatureDescriptor_Data, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SignatureDescriptor_Data;
+    encode(message: SignatureDescriptor_Data, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SignatureDescriptor_Data;
     fromJSON(object: any): SignatureDescriptor_Data;
     toJSON(message: SignatureDescriptor_Data): unknown;
     fromPartial(object: Partial<SignatureDescriptor_Data>): SignatureDescriptor_Data;
@@ -264,8 +265,8 @@ export declare const SignatureDescriptor_Data: {
 };
 export declare const SignatureDescriptor_Data_Single: {
     typeUrl: string;
-    encode(message: SignatureDescriptor_Data_Single, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SignatureDescriptor_Data_Single;
+    encode(message: SignatureDescriptor_Data_Single, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SignatureDescriptor_Data_Single;
     fromJSON(object: any): SignatureDescriptor_Data_Single;
     toJSON(message: SignatureDescriptor_Data_Single): unknown;
     fromPartial(object: Partial<SignatureDescriptor_Data_Single>): SignatureDescriptor_Data_Single;
@@ -279,8 +280,8 @@ export declare const SignatureDescriptor_Data_Single: {
 };
 export declare const SignatureDescriptor_Data_Multi: {
     typeUrl: string;
-    encode(message: SignatureDescriptor_Data_Multi, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SignatureDescriptor_Data_Multi;
+    encode(message: SignatureDescriptor_Data_Multi, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SignatureDescriptor_Data_Multi;
     fromJSON(object: any): SignatureDescriptor_Data_Multi;
     toJSON(message: SignatureDescriptor_Data_Multi): unknown;
     fromPartial(object: Partial<SignatureDescriptor_Data_Multi>): SignatureDescriptor_Data_Multi;

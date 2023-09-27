@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** ConfigRequest defines the request structure for the Config gRPC query. */
 export interface ConfigRequest {
 }
@@ -38,8 +38,8 @@ export interface ConfigResponseSDKType {
 }
 export declare const ConfigRequest: {
     typeUrl: string;
-    encode(_: ConfigRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ConfigRequest;
+    encode(_: ConfigRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ConfigRequest;
     fromJSON(_: any): ConfigRequest;
     toJSON(_: ConfigRequest): unknown;
     fromPartial(_: Partial<ConfigRequest>): ConfigRequest;
@@ -53,8 +53,8 @@ export declare const ConfigRequest: {
 };
 export declare const ConfigResponse: {
     typeUrl: string;
-    encode(message: ConfigResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ConfigResponse;
+    encode(message: ConfigResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ConfigResponse;
     fromJSON(object: any): ConfigResponse;
     toJSON(message: ConfigResponse): unknown;
     fromPartial(object: Partial<ConfigResponse>): ConfigResponse;

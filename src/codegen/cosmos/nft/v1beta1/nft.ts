@@ -1,5 +1,5 @@
 import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { isSet } from "../../../helpers";
 /** Class defines the class of the nft type. */
 export interface Class {
@@ -108,7 +108,7 @@ function createBaseClass(): Class {
 }
 export const Class = {
   typeUrl: "/cosmos.nft.v1beta1.Class",
-  encode(message: Class, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: Class, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.id !== "") {
       writer.uint32(10).string(message.id);
     }
@@ -132,8 +132,8 @@ export const Class = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Class {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): Class {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseClass();
     while (reader.pos < end) {
@@ -255,7 +255,7 @@ function createBaseNFT(): NFT {
 }
 export const NFT = {
   typeUrl: "/cosmos.nft.v1beta1.NFT",
-  encode(message: NFT, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: NFT, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.classId !== "") {
       writer.uint32(10).string(message.classId);
     }
@@ -273,8 +273,8 @@ export const NFT = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): NFT {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): NFT {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseNFT();
     while (reader.pos < end) {

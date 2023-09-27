@@ -1,6 +1,7 @@
 import { Coin, CoinAmino, CoinSDKType } from "../../base/v1beta1/coin";
 import { Period, PeriodAmino, PeriodSDKType } from "./vesting";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * MsgCreateVestingAccount defines a message that enables creating a vesting
  * account.
@@ -10,7 +11,7 @@ export interface MsgCreateVestingAccount {
     toAddress: string;
     amount: Coin[];
     /** end of vesting as unix time (in seconds). */
-    endTime: bigint;
+    endTime: Long;
     delayed: boolean;
 }
 export interface MsgCreateVestingAccountProtoMsg {
@@ -41,7 +42,7 @@ export interface MsgCreateVestingAccountSDKType {
     from_address: string;
     to_address: string;
     amount: CoinSDKType[];
-    end_time: bigint;
+    end_time: Long;
     delayed: boolean;
 }
 /** MsgCreateVestingAccountResponse defines the Msg/CreateVestingAccount response type. */
@@ -141,7 +142,7 @@ export interface MsgCreatePeriodicVestingAccount {
     fromAddress: string;
     toAddress: string;
     /** start of vesting as unix time (in seconds). */
-    startTime: bigint;
+    startTime: Long;
     vestingPeriods: Period[];
 }
 export interface MsgCreatePeriodicVestingAccountProtoMsg {
@@ -174,7 +175,7 @@ export interface MsgCreatePeriodicVestingAccountAminoMsg {
 export interface MsgCreatePeriodicVestingAccountSDKType {
     from_address: string;
     to_address: string;
-    start_time: bigint;
+    start_time: Long;
     vesting_periods: PeriodSDKType[];
 }
 /**
@@ -211,8 +212,8 @@ export interface MsgCreatePeriodicVestingAccountResponseSDKType {
 }
 export declare const MsgCreateVestingAccount: {
     typeUrl: string;
-    encode(message: MsgCreateVestingAccount, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgCreateVestingAccount;
+    encode(message: MsgCreateVestingAccount, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreateVestingAccount;
     fromJSON(object: any): MsgCreateVestingAccount;
     toJSON(message: MsgCreateVestingAccount): unknown;
     fromPartial(object: Partial<MsgCreateVestingAccount>): MsgCreateVestingAccount;
@@ -226,8 +227,8 @@ export declare const MsgCreateVestingAccount: {
 };
 export declare const MsgCreateVestingAccountResponse: {
     typeUrl: string;
-    encode(_: MsgCreateVestingAccountResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgCreateVestingAccountResponse;
+    encode(_: MsgCreateVestingAccountResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreateVestingAccountResponse;
     fromJSON(_: any): MsgCreateVestingAccountResponse;
     toJSON(_: MsgCreateVestingAccountResponse): unknown;
     fromPartial(_: Partial<MsgCreateVestingAccountResponse>): MsgCreateVestingAccountResponse;
@@ -241,8 +242,8 @@ export declare const MsgCreateVestingAccountResponse: {
 };
 export declare const MsgCreatePermanentLockedAccount: {
     typeUrl: string;
-    encode(message: MsgCreatePermanentLockedAccount, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgCreatePermanentLockedAccount;
+    encode(message: MsgCreatePermanentLockedAccount, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreatePermanentLockedAccount;
     fromJSON(object: any): MsgCreatePermanentLockedAccount;
     toJSON(message: MsgCreatePermanentLockedAccount): unknown;
     fromPartial(object: Partial<MsgCreatePermanentLockedAccount>): MsgCreatePermanentLockedAccount;
@@ -256,8 +257,8 @@ export declare const MsgCreatePermanentLockedAccount: {
 };
 export declare const MsgCreatePermanentLockedAccountResponse: {
     typeUrl: string;
-    encode(_: MsgCreatePermanentLockedAccountResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgCreatePermanentLockedAccountResponse;
+    encode(_: MsgCreatePermanentLockedAccountResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreatePermanentLockedAccountResponse;
     fromJSON(_: any): MsgCreatePermanentLockedAccountResponse;
     toJSON(_: MsgCreatePermanentLockedAccountResponse): unknown;
     fromPartial(_: Partial<MsgCreatePermanentLockedAccountResponse>): MsgCreatePermanentLockedAccountResponse;
@@ -271,8 +272,8 @@ export declare const MsgCreatePermanentLockedAccountResponse: {
 };
 export declare const MsgCreatePeriodicVestingAccount: {
     typeUrl: string;
-    encode(message: MsgCreatePeriodicVestingAccount, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgCreatePeriodicVestingAccount;
+    encode(message: MsgCreatePeriodicVestingAccount, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreatePeriodicVestingAccount;
     fromJSON(object: any): MsgCreatePeriodicVestingAccount;
     toJSON(message: MsgCreatePeriodicVestingAccount): unknown;
     fromPartial(object: Partial<MsgCreatePeriodicVestingAccount>): MsgCreatePeriodicVestingAccount;
@@ -286,8 +287,8 @@ export declare const MsgCreatePeriodicVestingAccount: {
 };
 export declare const MsgCreatePeriodicVestingAccountResponse: {
     typeUrl: string;
-    encode(_: MsgCreatePeriodicVestingAccountResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgCreatePeriodicVestingAccountResponse;
+    encode(_: MsgCreatePeriodicVestingAccountResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreatePeriodicVestingAccountResponse;
     fromJSON(_: any): MsgCreatePeriodicVestingAccountResponse;
     toJSON(_: MsgCreatePeriodicVestingAccountResponse): unknown;
     fromPartial(_: Partial<MsgCreatePeriodicVestingAccountResponse>): MsgCreatePeriodicVestingAccountResponse;

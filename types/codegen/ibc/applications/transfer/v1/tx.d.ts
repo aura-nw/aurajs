@@ -1,6 +1,7 @@
 import { Coin, CoinAmino, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
 import { Height, HeightAmino, HeightSDKType } from "../../../core/client/v1/client";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * MsgTransfer defines a msg to transfer fungible tokens (i.e Coins) between
  * ICS20 enabled chains. See ICS Spec here:
@@ -26,7 +27,7 @@ export interface MsgTransfer {
      * Timeout timestamp in absolute nanoseconds since unix epoch.
      * The timeout is disabled when set to 0.
      */
-    timeoutTimestamp: bigint;
+    timeoutTimestamp: Long;
     /** optional memo */
     memo: string;
 }
@@ -79,13 +80,13 @@ export interface MsgTransferSDKType {
     sender: string;
     receiver: string;
     timeout_height: HeightSDKType;
-    timeout_timestamp: bigint;
+    timeout_timestamp: Long;
     memo: string;
 }
 /** MsgTransferResponse defines the Msg/Transfer response type. */
 export interface MsgTransferResponse {
     /** sequence number of the transfer packet sent */
-    sequence: bigint;
+    sequence: Long;
 }
 export interface MsgTransferResponseProtoMsg {
     typeUrl: "/ibc.applications.transfer.v1.MsgTransferResponse";
@@ -102,12 +103,12 @@ export interface MsgTransferResponseAminoMsg {
 }
 /** MsgTransferResponse defines the Msg/Transfer response type. */
 export interface MsgTransferResponseSDKType {
-    sequence: bigint;
+    sequence: Long;
 }
 export declare const MsgTransfer: {
     typeUrl: string;
-    encode(message: MsgTransfer, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgTransfer;
+    encode(message: MsgTransfer, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgTransfer;
     fromJSON(object: any): MsgTransfer;
     toJSON(message: MsgTransfer): unknown;
     fromPartial(object: Partial<MsgTransfer>): MsgTransfer;
@@ -121,8 +122,8 @@ export declare const MsgTransfer: {
 };
 export declare const MsgTransferResponse: {
     typeUrl: string;
-    encode(message: MsgTransferResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgTransferResponse;
+    encode(message: MsgTransferResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgTransferResponse;
     fromJSON(object: any): MsgTransferResponse;
     toJSON(message: MsgTransferResponse): unknown;
     fromPartial(object: Partial<MsgTransferResponse>): MsgTransferResponse;

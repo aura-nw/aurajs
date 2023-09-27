@@ -1,7 +1,8 @@
 import { Counterparty, CounterpartyAmino, CounterpartySDKType, Version, VersionAmino, VersionSDKType } from "./connection";
 import { Any, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
 import { Height, HeightAmino, HeightSDKType } from "../../client/v1/client";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * MsgConnectionOpenInit defines the msg sent by an account on Chain A to
  * initialize a connection with Chain B.
@@ -10,7 +11,7 @@ export interface MsgConnectionOpenInit {
     clientId: string;
     counterparty: Counterparty;
     version: Version;
-    delayPeriod: bigint;
+    delayPeriod: Long;
     signer: string;
 }
 export interface MsgConnectionOpenInitProtoMsg {
@@ -40,7 +41,7 @@ export interface MsgConnectionOpenInitSDKType {
     client_id: string;
     counterparty: CounterpartySDKType;
     version: VersionSDKType;
-    delay_period: bigint;
+    delay_period: Long;
     signer: string;
 }
 /**
@@ -80,7 +81,7 @@ export interface MsgConnectionOpenTry {
     previousConnectionId: string;
     clientState: Any;
     counterparty: Counterparty;
-    delayPeriod: bigint;
+    delayPeriod: Long;
     counterpartyVersions: Version[];
     proofHeight: Height;
     /**
@@ -143,7 +144,7 @@ export interface MsgConnectionOpenTrySDKType {
     previous_connection_id: string;
     client_state: AnySDKType;
     counterparty: CounterpartySDKType;
-    delay_period: bigint;
+    delay_period: Long;
     counterparty_versions: VersionSDKType[];
     proof_height: HeightSDKType;
     proof_init: Uint8Array;
@@ -328,8 +329,8 @@ export interface MsgConnectionOpenConfirmResponseSDKType {
 }
 export declare const MsgConnectionOpenInit: {
     typeUrl: string;
-    encode(message: MsgConnectionOpenInit, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgConnectionOpenInit;
+    encode(message: MsgConnectionOpenInit, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgConnectionOpenInit;
     fromJSON(object: any): MsgConnectionOpenInit;
     toJSON(message: MsgConnectionOpenInit): unknown;
     fromPartial(object: Partial<MsgConnectionOpenInit>): MsgConnectionOpenInit;
@@ -343,8 +344,8 @@ export declare const MsgConnectionOpenInit: {
 };
 export declare const MsgConnectionOpenInitResponse: {
     typeUrl: string;
-    encode(_: MsgConnectionOpenInitResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgConnectionOpenInitResponse;
+    encode(_: MsgConnectionOpenInitResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgConnectionOpenInitResponse;
     fromJSON(_: any): MsgConnectionOpenInitResponse;
     toJSON(_: MsgConnectionOpenInitResponse): unknown;
     fromPartial(_: Partial<MsgConnectionOpenInitResponse>): MsgConnectionOpenInitResponse;
@@ -358,8 +359,8 @@ export declare const MsgConnectionOpenInitResponse: {
 };
 export declare const MsgConnectionOpenTry: {
     typeUrl: string;
-    encode(message: MsgConnectionOpenTry, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgConnectionOpenTry;
+    encode(message: MsgConnectionOpenTry, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgConnectionOpenTry;
     fromJSON(object: any): MsgConnectionOpenTry;
     toJSON(message: MsgConnectionOpenTry): unknown;
     fromPartial(object: Partial<MsgConnectionOpenTry>): MsgConnectionOpenTry;
@@ -373,8 +374,8 @@ export declare const MsgConnectionOpenTry: {
 };
 export declare const MsgConnectionOpenTryResponse: {
     typeUrl: string;
-    encode(_: MsgConnectionOpenTryResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgConnectionOpenTryResponse;
+    encode(_: MsgConnectionOpenTryResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgConnectionOpenTryResponse;
     fromJSON(_: any): MsgConnectionOpenTryResponse;
     toJSON(_: MsgConnectionOpenTryResponse): unknown;
     fromPartial(_: Partial<MsgConnectionOpenTryResponse>): MsgConnectionOpenTryResponse;
@@ -388,8 +389,8 @@ export declare const MsgConnectionOpenTryResponse: {
 };
 export declare const MsgConnectionOpenAck: {
     typeUrl: string;
-    encode(message: MsgConnectionOpenAck, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgConnectionOpenAck;
+    encode(message: MsgConnectionOpenAck, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgConnectionOpenAck;
     fromJSON(object: any): MsgConnectionOpenAck;
     toJSON(message: MsgConnectionOpenAck): unknown;
     fromPartial(object: Partial<MsgConnectionOpenAck>): MsgConnectionOpenAck;
@@ -403,8 +404,8 @@ export declare const MsgConnectionOpenAck: {
 };
 export declare const MsgConnectionOpenAckResponse: {
     typeUrl: string;
-    encode(_: MsgConnectionOpenAckResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgConnectionOpenAckResponse;
+    encode(_: MsgConnectionOpenAckResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgConnectionOpenAckResponse;
     fromJSON(_: any): MsgConnectionOpenAckResponse;
     toJSON(_: MsgConnectionOpenAckResponse): unknown;
     fromPartial(_: Partial<MsgConnectionOpenAckResponse>): MsgConnectionOpenAckResponse;
@@ -418,8 +419,8 @@ export declare const MsgConnectionOpenAckResponse: {
 };
 export declare const MsgConnectionOpenConfirm: {
     typeUrl: string;
-    encode(message: MsgConnectionOpenConfirm, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgConnectionOpenConfirm;
+    encode(message: MsgConnectionOpenConfirm, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgConnectionOpenConfirm;
     fromJSON(object: any): MsgConnectionOpenConfirm;
     toJSON(message: MsgConnectionOpenConfirm): unknown;
     fromPartial(object: Partial<MsgConnectionOpenConfirm>): MsgConnectionOpenConfirm;
@@ -433,8 +434,8 @@ export declare const MsgConnectionOpenConfirm: {
 };
 export declare const MsgConnectionOpenConfirmResponse: {
     typeUrl: string;
-    encode(_: MsgConnectionOpenConfirmResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgConnectionOpenConfirmResponse;
+    encode(_: MsgConnectionOpenConfirmResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgConnectionOpenConfirmResponse;
     fromJSON(_: any): MsgConnectionOpenConfirmResponse;
     toJSON(_: MsgConnectionOpenConfirmResponse): unknown;
     fromPartial(_: Partial<MsgConnectionOpenConfirmResponse>): MsgConnectionOpenConfirmResponse;

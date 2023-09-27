@@ -1,5 +1,5 @@
 import { PublicKey, PublicKeyAmino, PublicKeySDKType } from "../crypto/keys";
-import { BinaryReader, BinaryWriter } from "../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { isSet, bytesFromBase64, base64FromBytes } from "../../helpers";
 export interface PacketPing {}
 export interface PacketPingProtoMsg {
@@ -94,11 +94,11 @@ function createBasePacketPing(): PacketPing {
 }
 export const PacketPing = {
   typeUrl: "/tendermint.p2p.PacketPing",
-  encode(_: PacketPing, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: PacketPing, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): PacketPing {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): PacketPing {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBasePacketPing();
     while (reader.pos < end) {
@@ -150,11 +150,11 @@ function createBasePacketPong(): PacketPong {
 }
 export const PacketPong = {
   typeUrl: "/tendermint.p2p.PacketPong",
-  encode(_: PacketPong, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: PacketPong, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): PacketPong {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): PacketPong {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBasePacketPong();
     while (reader.pos < end) {
@@ -210,7 +210,7 @@ function createBasePacketMsg(): PacketMsg {
 }
 export const PacketMsg = {
   typeUrl: "/tendermint.p2p.PacketMsg",
-  encode(message: PacketMsg, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: PacketMsg, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.channelId !== 0) {
       writer.uint32(8).int32(message.channelId);
     }
@@ -222,8 +222,8 @@ export const PacketMsg = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): PacketMsg {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): PacketMsg {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBasePacketMsg();
     while (reader.pos < end) {
@@ -305,7 +305,7 @@ function createBasePacket(): Packet {
 }
 export const Packet = {
   typeUrl: "/tendermint.p2p.Packet",
-  encode(message: Packet, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: Packet, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.packetPing !== undefined) {
       PacketPing.encode(message.packetPing, writer.uint32(10).fork()).ldelim();
     }
@@ -317,8 +317,8 @@ export const Packet = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Packet {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): Packet {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBasePacket();
     while (reader.pos < end) {
@@ -399,7 +399,7 @@ function createBaseAuthSigMessage(): AuthSigMessage {
 }
 export const AuthSigMessage = {
   typeUrl: "/tendermint.p2p.AuthSigMessage",
-  encode(message: AuthSigMessage, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: AuthSigMessage, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.pubKey !== undefined) {
       PublicKey.encode(message.pubKey, writer.uint32(10).fork()).ldelim();
     }
@@ -408,8 +408,8 @@ export const AuthSigMessage = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): AuthSigMessage {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): AuthSigMessage {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseAuthSigMessage();
     while (reader.pos < end) {

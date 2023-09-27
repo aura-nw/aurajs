@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { bytesFromBase64, base64FromBytes, isSet } from "../../helpers";
 export interface Txs {
   txs: Uint8Array[];
@@ -41,14 +41,14 @@ function createBaseTxs(): Txs {
 }
 export const Txs = {
   typeUrl: "/tendermint.mempool.Txs",
-  encode(message: Txs, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: Txs, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.txs) {
       writer.uint32(10).bytes(v!);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Txs {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): Txs {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseTxs();
     while (reader.pos < end) {
@@ -120,14 +120,14 @@ function createBaseMessage(): Message {
 }
 export const Message = {
   typeUrl: "/tendermint.mempool.Message",
-  encode(message: Message, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: Message, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.txs !== undefined) {
       Txs.encode(message.txs, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Message {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): Message {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMessage();
     while (reader.pos < end) {

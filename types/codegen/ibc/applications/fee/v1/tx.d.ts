@@ -1,6 +1,6 @@
 import { Fee, FeeAmino, FeeSDKType, PacketFee, PacketFeeAmino, PacketFeeSDKType } from "./fee";
 import { PacketId, PacketIdAmino, PacketIdSDKType } from "../../../core/channel/v1/channel";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** MsgRegisterPayee defines the request type for the RegisterPayee rpc */
 export interface MsgRegisterPayee {
     /** unique port identifier */
@@ -235,8 +235,8 @@ export interface MsgPayPacketFeeAsyncResponseSDKType {
 }
 export declare const MsgRegisterPayee: {
     typeUrl: string;
-    encode(message: MsgRegisterPayee, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgRegisterPayee;
+    encode(message: MsgRegisterPayee, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgRegisterPayee;
     fromJSON(object: any): MsgRegisterPayee;
     toJSON(message: MsgRegisterPayee): unknown;
     fromPartial(object: Partial<MsgRegisterPayee>): MsgRegisterPayee;
@@ -250,8 +250,8 @@ export declare const MsgRegisterPayee: {
 };
 export declare const MsgRegisterPayeeResponse: {
     typeUrl: string;
-    encode(_: MsgRegisterPayeeResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgRegisterPayeeResponse;
+    encode(_: MsgRegisterPayeeResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgRegisterPayeeResponse;
     fromJSON(_: any): MsgRegisterPayeeResponse;
     toJSON(_: MsgRegisterPayeeResponse): unknown;
     fromPartial(_: Partial<MsgRegisterPayeeResponse>): MsgRegisterPayeeResponse;
@@ -265,8 +265,8 @@ export declare const MsgRegisterPayeeResponse: {
 };
 export declare const MsgRegisterCounterpartyPayee: {
     typeUrl: string;
-    encode(message: MsgRegisterCounterpartyPayee, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgRegisterCounterpartyPayee;
+    encode(message: MsgRegisterCounterpartyPayee, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgRegisterCounterpartyPayee;
     fromJSON(object: any): MsgRegisterCounterpartyPayee;
     toJSON(message: MsgRegisterCounterpartyPayee): unknown;
     fromPartial(object: Partial<MsgRegisterCounterpartyPayee>): MsgRegisterCounterpartyPayee;
@@ -280,8 +280,8 @@ export declare const MsgRegisterCounterpartyPayee: {
 };
 export declare const MsgRegisterCounterpartyPayeeResponse: {
     typeUrl: string;
-    encode(_: MsgRegisterCounterpartyPayeeResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgRegisterCounterpartyPayeeResponse;
+    encode(_: MsgRegisterCounterpartyPayeeResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgRegisterCounterpartyPayeeResponse;
     fromJSON(_: any): MsgRegisterCounterpartyPayeeResponse;
     toJSON(_: MsgRegisterCounterpartyPayeeResponse): unknown;
     fromPartial(_: Partial<MsgRegisterCounterpartyPayeeResponse>): MsgRegisterCounterpartyPayeeResponse;
@@ -295,8 +295,8 @@ export declare const MsgRegisterCounterpartyPayeeResponse: {
 };
 export declare const MsgPayPacketFee: {
     typeUrl: string;
-    encode(message: MsgPayPacketFee, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgPayPacketFee;
+    encode(message: MsgPayPacketFee, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgPayPacketFee;
     fromJSON(object: any): MsgPayPacketFee;
     toJSON(message: MsgPayPacketFee): unknown;
     fromPartial(object: Partial<MsgPayPacketFee>): MsgPayPacketFee;
@@ -310,8 +310,8 @@ export declare const MsgPayPacketFee: {
 };
 export declare const MsgPayPacketFeeResponse: {
     typeUrl: string;
-    encode(_: MsgPayPacketFeeResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgPayPacketFeeResponse;
+    encode(_: MsgPayPacketFeeResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgPayPacketFeeResponse;
     fromJSON(_: any): MsgPayPacketFeeResponse;
     toJSON(_: MsgPayPacketFeeResponse): unknown;
     fromPartial(_: Partial<MsgPayPacketFeeResponse>): MsgPayPacketFeeResponse;
@@ -325,8 +325,8 @@ export declare const MsgPayPacketFeeResponse: {
 };
 export declare const MsgPayPacketFeeAsync: {
     typeUrl: string;
-    encode(message: MsgPayPacketFeeAsync, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgPayPacketFeeAsync;
+    encode(message: MsgPayPacketFeeAsync, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgPayPacketFeeAsync;
     fromJSON(object: any): MsgPayPacketFeeAsync;
     toJSON(message: MsgPayPacketFeeAsync): unknown;
     fromPartial(object: Partial<MsgPayPacketFeeAsync>): MsgPayPacketFeeAsync;
@@ -340,8 +340,8 @@ export declare const MsgPayPacketFeeAsync: {
 };
 export declare const MsgPayPacketFeeAsyncResponse: {
     typeUrl: string;
-    encode(_: MsgPayPacketFeeAsyncResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgPayPacketFeeAsyncResponse;
+    encode(_: MsgPayPacketFeeAsyncResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgPayPacketFeeAsyncResponse;
     fromJSON(_: any): MsgPayPacketFeeAsyncResponse;
     toJSON(_: MsgPayPacketFeeAsyncResponse): unknown;
     fromPartial(_: Partial<MsgPayPacketFeeAsyncResponse>): MsgPayPacketFeeAsyncResponse;

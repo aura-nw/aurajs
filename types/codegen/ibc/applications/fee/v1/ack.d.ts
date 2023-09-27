@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** IncentivizedAcknowledgement is the acknowledgement format to be used by applications wrapped in the fee middleware */
 export interface IncentivizedAcknowledgement {
     /** the underlying app acknowledgement bytes */
@@ -33,8 +33,8 @@ export interface IncentivizedAcknowledgementSDKType {
 }
 export declare const IncentivizedAcknowledgement: {
     typeUrl: string;
-    encode(message: IncentivizedAcknowledgement, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): IncentivizedAcknowledgement;
+    encode(message: IncentivizedAcknowledgement, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): IncentivizedAcknowledgement;
     fromJSON(object: any): IncentivizedAcknowledgement;
     toJSON(message: IncentivizedAcknowledgement): unknown;
     fromPartial(object: Partial<IncentivizedAcknowledgement>): IncentivizedAcknowledgement;

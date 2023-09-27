@@ -2,7 +2,8 @@ import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageRe
 import { ConnectionEnd, ConnectionEndAmino, ConnectionEndSDKType, IdentifiedConnection, IdentifiedConnectionAmino, IdentifiedConnectionSDKType } from "./connection";
 import { Height, HeightAmino, HeightSDKType, IdentifiedClientState, IdentifiedClientStateAmino, IdentifiedClientStateSDKType, Params, ParamsAmino, ParamsSDKType } from "../../client/v1/client";
 import { Any, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * QueryConnectionRequest is the request type for the Query/Connection RPC
  * method
@@ -299,8 +300,8 @@ export interface QueryConnectionClientStateResponseSDKType {
 export interface QueryConnectionConsensusStateRequest {
     /** connection identifier */
     connectionId: string;
-    revisionNumber: bigint;
-    revisionHeight: bigint;
+    revisionNumber: Long;
+    revisionHeight: Long;
 }
 export interface QueryConnectionConsensusStateRequestProtoMsg {
     typeUrl: "/ibc.core.connection.v1.QueryConnectionConsensusStateRequest";
@@ -326,8 +327,8 @@ export interface QueryConnectionConsensusStateRequestAminoMsg {
  */
 export interface QueryConnectionConsensusStateRequestSDKType {
     connection_id: string;
-    revision_number: bigint;
-    revision_height: bigint;
+    revision_number: Long;
+    revision_height: Long;
 }
 /**
  * QueryConnectionConsensusStateResponse is the response type for the
@@ -416,8 +417,8 @@ export interface QueryConnectionParamsResponseSDKType {
 }
 export declare const QueryConnectionRequest: {
     typeUrl: string;
-    encode(message: QueryConnectionRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryConnectionRequest;
+    encode(message: QueryConnectionRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryConnectionRequest;
     fromJSON(object: any): QueryConnectionRequest;
     toJSON(message: QueryConnectionRequest): unknown;
     fromPartial(object: Partial<QueryConnectionRequest>): QueryConnectionRequest;
@@ -431,8 +432,8 @@ export declare const QueryConnectionRequest: {
 };
 export declare const QueryConnectionResponse: {
     typeUrl: string;
-    encode(message: QueryConnectionResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryConnectionResponse;
+    encode(message: QueryConnectionResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryConnectionResponse;
     fromJSON(object: any): QueryConnectionResponse;
     toJSON(message: QueryConnectionResponse): unknown;
     fromPartial(object: Partial<QueryConnectionResponse>): QueryConnectionResponse;
@@ -446,8 +447,8 @@ export declare const QueryConnectionResponse: {
 };
 export declare const QueryConnectionsRequest: {
     typeUrl: string;
-    encode(message: QueryConnectionsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryConnectionsRequest;
+    encode(message: QueryConnectionsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryConnectionsRequest;
     fromJSON(object: any): QueryConnectionsRequest;
     toJSON(message: QueryConnectionsRequest): unknown;
     fromPartial(object: Partial<QueryConnectionsRequest>): QueryConnectionsRequest;
@@ -461,8 +462,8 @@ export declare const QueryConnectionsRequest: {
 };
 export declare const QueryConnectionsResponse: {
     typeUrl: string;
-    encode(message: QueryConnectionsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryConnectionsResponse;
+    encode(message: QueryConnectionsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryConnectionsResponse;
     fromJSON(object: any): QueryConnectionsResponse;
     toJSON(message: QueryConnectionsResponse): unknown;
     fromPartial(object: Partial<QueryConnectionsResponse>): QueryConnectionsResponse;
@@ -476,8 +477,8 @@ export declare const QueryConnectionsResponse: {
 };
 export declare const QueryClientConnectionsRequest: {
     typeUrl: string;
-    encode(message: QueryClientConnectionsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryClientConnectionsRequest;
+    encode(message: QueryClientConnectionsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryClientConnectionsRequest;
     fromJSON(object: any): QueryClientConnectionsRequest;
     toJSON(message: QueryClientConnectionsRequest): unknown;
     fromPartial(object: Partial<QueryClientConnectionsRequest>): QueryClientConnectionsRequest;
@@ -491,8 +492,8 @@ export declare const QueryClientConnectionsRequest: {
 };
 export declare const QueryClientConnectionsResponse: {
     typeUrl: string;
-    encode(message: QueryClientConnectionsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryClientConnectionsResponse;
+    encode(message: QueryClientConnectionsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryClientConnectionsResponse;
     fromJSON(object: any): QueryClientConnectionsResponse;
     toJSON(message: QueryClientConnectionsResponse): unknown;
     fromPartial(object: Partial<QueryClientConnectionsResponse>): QueryClientConnectionsResponse;
@@ -506,8 +507,8 @@ export declare const QueryClientConnectionsResponse: {
 };
 export declare const QueryConnectionClientStateRequest: {
     typeUrl: string;
-    encode(message: QueryConnectionClientStateRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryConnectionClientStateRequest;
+    encode(message: QueryConnectionClientStateRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryConnectionClientStateRequest;
     fromJSON(object: any): QueryConnectionClientStateRequest;
     toJSON(message: QueryConnectionClientStateRequest): unknown;
     fromPartial(object: Partial<QueryConnectionClientStateRequest>): QueryConnectionClientStateRequest;
@@ -521,8 +522,8 @@ export declare const QueryConnectionClientStateRequest: {
 };
 export declare const QueryConnectionClientStateResponse: {
     typeUrl: string;
-    encode(message: QueryConnectionClientStateResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryConnectionClientStateResponse;
+    encode(message: QueryConnectionClientStateResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryConnectionClientStateResponse;
     fromJSON(object: any): QueryConnectionClientStateResponse;
     toJSON(message: QueryConnectionClientStateResponse): unknown;
     fromPartial(object: Partial<QueryConnectionClientStateResponse>): QueryConnectionClientStateResponse;
@@ -536,8 +537,8 @@ export declare const QueryConnectionClientStateResponse: {
 };
 export declare const QueryConnectionConsensusStateRequest: {
     typeUrl: string;
-    encode(message: QueryConnectionConsensusStateRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryConnectionConsensusStateRequest;
+    encode(message: QueryConnectionConsensusStateRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryConnectionConsensusStateRequest;
     fromJSON(object: any): QueryConnectionConsensusStateRequest;
     toJSON(message: QueryConnectionConsensusStateRequest): unknown;
     fromPartial(object: Partial<QueryConnectionConsensusStateRequest>): QueryConnectionConsensusStateRequest;
@@ -551,8 +552,8 @@ export declare const QueryConnectionConsensusStateRequest: {
 };
 export declare const QueryConnectionConsensusStateResponse: {
     typeUrl: string;
-    encode(message: QueryConnectionConsensusStateResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryConnectionConsensusStateResponse;
+    encode(message: QueryConnectionConsensusStateResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryConnectionConsensusStateResponse;
     fromJSON(object: any): QueryConnectionConsensusStateResponse;
     toJSON(message: QueryConnectionConsensusStateResponse): unknown;
     fromPartial(object: Partial<QueryConnectionConsensusStateResponse>): QueryConnectionConsensusStateResponse;
@@ -566,8 +567,8 @@ export declare const QueryConnectionConsensusStateResponse: {
 };
 export declare const QueryConnectionParamsRequest: {
     typeUrl: string;
-    encode(_: QueryConnectionParamsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryConnectionParamsRequest;
+    encode(_: QueryConnectionParamsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryConnectionParamsRequest;
     fromJSON(_: any): QueryConnectionParamsRequest;
     toJSON(_: QueryConnectionParamsRequest): unknown;
     fromPartial(_: Partial<QueryConnectionParamsRequest>): QueryConnectionParamsRequest;
@@ -581,8 +582,8 @@ export declare const QueryConnectionParamsRequest: {
 };
 export declare const QueryConnectionParamsResponse: {
     typeUrl: string;
-    encode(message: QueryConnectionParamsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryConnectionParamsResponse;
+    encode(message: QueryConnectionParamsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryConnectionParamsResponse;
     fromJSON(object: any): QueryConnectionParamsResponse;
     toJSON(message: QueryConnectionParamsResponse): unknown;
     fromPartial(object: Partial<QueryConnectionParamsResponse>): QueryConnectionParamsResponse;

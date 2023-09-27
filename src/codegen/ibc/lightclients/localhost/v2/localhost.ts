@@ -1,5 +1,5 @@
 import { Height, HeightAmino, HeightSDKType } from "../../../core/client/v1/client";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { isSet } from "../../../../helpers";
 /** ClientState defines the 09-localhost client state */
 export interface ClientState {
@@ -30,14 +30,14 @@ function createBaseClientState(): ClientState {
 }
 export const ClientState = {
   typeUrl: "/ibc.lightclients.localhost.v2.ClientState",
-  encode(message: ClientState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: ClientState, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.latestHeight !== undefined) {
       Height.encode(message.latestHeight, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): ClientState {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): ClientState {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseClientState();
     while (reader.pos < end) {

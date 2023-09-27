@@ -1,4 +1,5 @@
-import { BinaryReader, BinaryWriter } from "../../binary";
+import { Long } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * A Duration represents a signed, fixed-length span of time represented
  * as a count of seconds and fractions of seconds at nanosecond
@@ -65,7 +66,7 @@ export interface Duration {
      * to +315,576,000,000 inclusive. Note: these bounds are computed from:
      * 60 sec/min * 60 min/hr * 24 hr/day * 365.25 days/year * 10000 years
      */
-    seconds: bigint;
+    seconds: Long;
     /**
      * Signed fractions of a second at nanosecond resolution of the span
      * of time. Durations less than one second are represented with a 0
@@ -206,13 +207,13 @@ export interface DurationAminoMsg {
  * microsecond should be expressed in JSON format as "3.000001s".
  */
 export interface DurationSDKType {
-    seconds: bigint;
+    seconds: Long;
     nanos: number;
 }
 export declare const Duration: {
     typeUrl: string;
-    encode(message: Duration, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Duration;
+    encode(message: Duration, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Duration;
     fromJSON(object: any): Duration;
     toJSON(message: Duration): unknown;
     fromPartial(object: Partial<Duration>): Duration;

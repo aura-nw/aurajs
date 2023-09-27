@@ -1,7 +1,8 @@
-import { BinaryReader, BinaryWriter } from "../../binary";
+import { Long } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export interface BlockStoreState {
-    base: bigint;
-    height: bigint;
+    base: Long;
+    height: Long;
 }
 export interface BlockStoreStateProtoMsg {
     typeUrl: "/tendermint.store.BlockStoreState";
@@ -16,13 +17,13 @@ export interface BlockStoreStateAminoMsg {
     value: BlockStoreStateAmino;
 }
 export interface BlockStoreStateSDKType {
-    base: bigint;
-    height: bigint;
+    base: Long;
+    height: Long;
 }
 export declare const BlockStoreState: {
     typeUrl: string;
-    encode(message: BlockStoreState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): BlockStoreState;
+    encode(message: BlockStoreState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): BlockStoreState;
     fromJSON(object: any): BlockStoreState;
     toJSON(message: BlockStoreState): unknown;
     fromPartial(object: Partial<BlockStoreState>): BlockStoreState;

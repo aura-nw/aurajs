@@ -1,7 +1,7 @@
-import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet } from "../../helpers";
+import { Long, isSet } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export interface EventDataRoundState {
-  height: bigint;
+  height: Long;
   round: number;
   step: string;
 }
@@ -19,21 +19,21 @@ export interface EventDataRoundStateAminoMsg {
   value: EventDataRoundStateAmino;
 }
 export interface EventDataRoundStateSDKType {
-  height: bigint;
+  height: Long;
   round: number;
   step: string;
 }
 function createBaseEventDataRoundState(): EventDataRoundState {
   return {
-    height: BigInt(0),
+    height: Long.ZERO,
     round: 0,
     step: ""
   };
 }
 export const EventDataRoundState = {
   typeUrl: "/tendermint.types.EventDataRoundState",
-  encode(message: EventDataRoundState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.height !== BigInt(0)) {
+  encode(message: EventDataRoundState, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.height.isZero()) {
       writer.uint32(8).int64(message.height);
     }
     if (message.round !== 0) {
@@ -44,15 +44,15 @@ export const EventDataRoundState = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): EventDataRoundState {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): EventDataRoundState {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseEventDataRoundState();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.height = reader.int64();
+          message.height = (reader.int64() as Long);
           break;
         case 2:
           message.round = reader.int32();
@@ -69,28 +69,28 @@ export const EventDataRoundState = {
   },
   fromJSON(object: any): EventDataRoundState {
     return {
-      height: isSet(object.height) ? BigInt(object.height.toString()) : BigInt(0),
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
       round: isSet(object.round) ? Number(object.round) : 0,
       step: isSet(object.step) ? String(object.step) : ""
     };
   },
   toJSON(message: EventDataRoundState): unknown {
     const obj: any = {};
-    message.height !== undefined && (obj.height = (message.height || BigInt(0)).toString());
+    message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
     message.round !== undefined && (obj.round = Math.round(message.round));
     message.step !== undefined && (obj.step = message.step);
     return obj;
   },
   fromPartial(object: Partial<EventDataRoundState>): EventDataRoundState {
     const message = createBaseEventDataRoundState();
-    message.height = object.height !== undefined && object.height !== null ? BigInt(object.height.toString()) : BigInt(0);
+    message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
     message.round = object.round ?? 0;
     message.step = object.step ?? "";
     return message;
   },
   fromAmino(object: EventDataRoundStateAmino): EventDataRoundState {
     return {
-      height: BigInt(object.height),
+      height: Long.fromString(object.height),
       round: object.round,
       step: object.step
     };

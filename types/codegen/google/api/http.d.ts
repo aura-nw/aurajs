@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../../binary";
+import * as _m0 from "protobufjs/minimal";
 /**
  * Defines the HTTP configuration for an API service. It contains a list of
  * [HttpRule][google.api.HttpRule], each specifying the mapping of an RPC method
@@ -1026,8 +1026,8 @@ export interface CustomHttpPatternSDKType {
 }
 export declare const Http: {
     typeUrl: string;
-    encode(message: Http, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Http;
+    encode(message: Http, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Http;
     fromJSON(object: any): Http;
     toJSON(message: Http): unknown;
     fromPartial(object: Partial<Http>): Http;
@@ -1040,8 +1040,8 @@ export declare const Http: {
 };
 export declare const HttpRule: {
     typeUrl: string;
-    encode(message: HttpRule, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): HttpRule;
+    encode(message: HttpRule, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): HttpRule;
     fromJSON(object: any): HttpRule;
     toJSON(message: HttpRule): unknown;
     fromPartial(object: Partial<HttpRule>): HttpRule;
@@ -1054,8 +1054,8 @@ export declare const HttpRule: {
 };
 export declare const CustomHttpPattern: {
     typeUrl: string;
-    encode(message: CustomHttpPattern, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): CustomHttpPattern;
+    encode(message: CustomHttpPattern, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): CustomHttpPattern;
     fromJSON(object: any): CustomHttpPattern;
     toJSON(message: CustomHttpPattern): unknown;
     fromPartial(object: Partial<CustomHttpPattern>): CustomHttpPattern;

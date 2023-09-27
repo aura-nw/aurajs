@@ -1,6 +1,7 @@
 import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../../base/query/v1beta1/pagination";
 import { Any, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** GetRequest is the Query/Get request type. */
 export interface GetRequest {
     /** message_name is the fully-qualified message name of the ORM table being queried. */
@@ -231,12 +232,12 @@ export interface IndexValue {
      * uint specifies a value for an uint32, fixed32, uint64, or fixed64
      * index field.
      */
-    uint?: bigint;
+    uint?: Long;
     /**
      * int64 specifies a value for an int32, sfixed32, int64, or sfixed64
      * index field.
      */
-    int?: bigint;
+    int?: Long;
     /** str specifies a value for a string index field. */
     str?: string;
     /** bytes specifies a value for a bytes index field. */
@@ -285,8 +286,8 @@ export interface IndexValueAminoMsg {
 }
 /** IndexValue represents the value of a field in an ORM index expression. */
 export interface IndexValueSDKType {
-    uint?: bigint;
-    int?: bigint;
+    uint?: Long;
+    int?: Long;
     str?: string;
     bytes?: Uint8Array;
     enum?: string;
@@ -296,8 +297,8 @@ export interface IndexValueSDKType {
 }
 export declare const GetRequest: {
     typeUrl: string;
-    encode(message: GetRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetRequest;
+    encode(message: GetRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetRequest;
     fromJSON(object: any): GetRequest;
     toJSON(message: GetRequest): unknown;
     fromPartial(object: Partial<GetRequest>): GetRequest;
@@ -311,8 +312,8 @@ export declare const GetRequest: {
 };
 export declare const GetResponse: {
     typeUrl: string;
-    encode(message: GetResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GetResponse;
+    encode(message: GetResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GetResponse;
     fromJSON(object: any): GetResponse;
     toJSON(message: GetResponse): unknown;
     fromPartial(object: Partial<GetResponse>): GetResponse;
@@ -326,8 +327,8 @@ export declare const GetResponse: {
 };
 export declare const ListRequest: {
     typeUrl: string;
-    encode(message: ListRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ListRequest;
+    encode(message: ListRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ListRequest;
     fromJSON(object: any): ListRequest;
     toJSON(message: ListRequest): unknown;
     fromPartial(object: Partial<ListRequest>): ListRequest;
@@ -341,8 +342,8 @@ export declare const ListRequest: {
 };
 export declare const ListRequest_Prefix: {
     typeUrl: string;
-    encode(message: ListRequest_Prefix, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ListRequest_Prefix;
+    encode(message: ListRequest_Prefix, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ListRequest_Prefix;
     fromJSON(object: any): ListRequest_Prefix;
     toJSON(message: ListRequest_Prefix): unknown;
     fromPartial(object: Partial<ListRequest_Prefix>): ListRequest_Prefix;
@@ -356,8 +357,8 @@ export declare const ListRequest_Prefix: {
 };
 export declare const ListRequest_Range: {
     typeUrl: string;
-    encode(message: ListRequest_Range, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ListRequest_Range;
+    encode(message: ListRequest_Range, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ListRequest_Range;
     fromJSON(object: any): ListRequest_Range;
     toJSON(message: ListRequest_Range): unknown;
     fromPartial(object: Partial<ListRequest_Range>): ListRequest_Range;
@@ -371,8 +372,8 @@ export declare const ListRequest_Range: {
 };
 export declare const ListResponse: {
     typeUrl: string;
-    encode(message: ListResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ListResponse;
+    encode(message: ListResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ListResponse;
     fromJSON(object: any): ListResponse;
     toJSON(message: ListResponse): unknown;
     fromPartial(object: Partial<ListResponse>): ListResponse;
@@ -386,8 +387,8 @@ export declare const ListResponse: {
 };
 export declare const IndexValue: {
     typeUrl: string;
-    encode(message: IndexValue, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): IndexValue;
+    encode(message: IndexValue, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): IndexValue;
     fromJSON(object: any): IndexValue;
     toJSON(message: IndexValue): unknown;
     fromPartial(object: Partial<IndexValue>): IndexValue;

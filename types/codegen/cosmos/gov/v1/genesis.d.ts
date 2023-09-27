@@ -1,9 +1,10 @@
 import { Deposit, DepositAmino, DepositSDKType, Vote, VoteAmino, VoteSDKType, Proposal, ProposalAmino, ProposalSDKType, DepositParams, DepositParamsAmino, DepositParamsSDKType, VotingParams, VotingParamsAmino, VotingParamsSDKType, TallyParams, TallyParamsAmino, TallyParamsSDKType, Params, ParamsAmino, ParamsSDKType } from "./gov";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** GenesisState defines the gov module's genesis state. */
 export interface GenesisState {
     /** starting_proposal_id is the ID of the starting proposal. */
-    startingProposalId: bigint;
+    startingProposalId: Long;
     /** deposits defines all the deposits present at genesis. */
     deposits: Deposit[];
     /** votes defines all the votes present at genesis. */
@@ -80,7 +81,7 @@ export interface GenesisStateAminoMsg {
 }
 /** GenesisState defines the gov module's genesis state. */
 export interface GenesisStateSDKType {
-    starting_proposal_id: bigint;
+    starting_proposal_id: Long;
     deposits: DepositSDKType[];
     votes: VoteSDKType[];
     proposals: ProposalSDKType[];
@@ -94,8 +95,8 @@ export interface GenesisStateSDKType {
 }
 export declare const GenesisState: {
     typeUrl: string;
-    encode(message: GenesisState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GenesisState;
+    encode(message: GenesisState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GenesisState;
     fromJSON(object: any): GenesisState;
     toJSON(message: GenesisState): unknown;
     fromPartial(object: Partial<GenesisState>): GenesisState;

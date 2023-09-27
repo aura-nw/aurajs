@@ -1,5 +1,6 @@
 import { Height, HeightAmino, HeightSDKType } from "../../client/v1/client";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * State defines if a channel is in one of the following states:
  * CLOSED, INIT, TRYOPEN, OPEN or UNINITIALIZED.
@@ -205,7 +206,7 @@ export interface Packet {
      * with an earlier sequence number must be sent and received before a Packet
      * with a later sequence number.
      */
-    sequence: bigint;
+    sequence: Long;
     /** identifies the port on the sending chain. */
     sourcePort: string;
     /** identifies the channel end on the sending chain. */
@@ -219,7 +220,7 @@ export interface Packet {
     /** block height after which the packet times out */
     timeoutHeight: Height;
     /** block timestamp (in nanoseconds) after which the packet times out */
-    timeoutTimestamp: bigint;
+    timeoutTimestamp: Long;
 }
 export interface PacketProtoMsg {
     typeUrl: "/ibc.core.channel.v1.Packet";
@@ -254,14 +255,14 @@ export interface PacketAminoMsg {
 }
 /** Packet defines a type that carries data across different chains through IBC */
 export interface PacketSDKType {
-    sequence: bigint;
+    sequence: Long;
     source_port: string;
     source_channel: string;
     destination_port: string;
     destination_channel: string;
     data: Uint8Array;
     timeout_height: HeightSDKType;
-    timeout_timestamp: bigint;
+    timeout_timestamp: Long;
 }
 /**
  * PacketState defines the generic type necessary to retrieve and store
@@ -275,7 +276,7 @@ export interface PacketState {
     /** channel unique identifier. */
     channelId: string;
     /** packet sequence. */
-    sequence: bigint;
+    sequence: Long;
     /** embedded data that represents packet state. */
     data: Uint8Array;
 }
@@ -312,7 +313,7 @@ export interface PacketStateAminoMsg {
 export interface PacketStateSDKType {
     port_id: string;
     channel_id: string;
-    sequence: bigint;
+    sequence: Long;
     data: Uint8Array;
 }
 /**
@@ -326,7 +327,7 @@ export interface PacketId {
     /** channel unique identifier */
     channelId: string;
     /** packet sequence */
-    sequence: bigint;
+    sequence: Long;
 }
 export interface PacketIdProtoMsg {
     typeUrl: "/ibc.core.channel.v1.PacketId";
@@ -357,7 +358,7 @@ export interface PacketIdAminoMsg {
 export interface PacketIdSDKType {
     port_id: string;
     channel_id: string;
-    sequence: bigint;
+    sequence: Long;
 }
 /**
  * Acknowledgement is the recommended acknowledgement format to be used by
@@ -408,8 +409,8 @@ export interface AcknowledgementSDKType {
 }
 export declare const Channel: {
     typeUrl: string;
-    encode(message: Channel, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Channel;
+    encode(message: Channel, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Channel;
     fromJSON(object: any): Channel;
     toJSON(message: Channel): unknown;
     fromPartial(object: Partial<Channel>): Channel;
@@ -423,8 +424,8 @@ export declare const Channel: {
 };
 export declare const IdentifiedChannel: {
     typeUrl: string;
-    encode(message: IdentifiedChannel, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): IdentifiedChannel;
+    encode(message: IdentifiedChannel, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): IdentifiedChannel;
     fromJSON(object: any): IdentifiedChannel;
     toJSON(message: IdentifiedChannel): unknown;
     fromPartial(object: Partial<IdentifiedChannel>): IdentifiedChannel;
@@ -438,8 +439,8 @@ export declare const IdentifiedChannel: {
 };
 export declare const Counterparty: {
     typeUrl: string;
-    encode(message: Counterparty, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Counterparty;
+    encode(message: Counterparty, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Counterparty;
     fromJSON(object: any): Counterparty;
     toJSON(message: Counterparty): unknown;
     fromPartial(object: Partial<Counterparty>): Counterparty;
@@ -453,8 +454,8 @@ export declare const Counterparty: {
 };
 export declare const Packet: {
     typeUrl: string;
-    encode(message: Packet, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Packet;
+    encode(message: Packet, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Packet;
     fromJSON(object: any): Packet;
     toJSON(message: Packet): unknown;
     fromPartial(object: Partial<Packet>): Packet;
@@ -468,8 +469,8 @@ export declare const Packet: {
 };
 export declare const PacketState: {
     typeUrl: string;
-    encode(message: PacketState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): PacketState;
+    encode(message: PacketState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PacketState;
     fromJSON(object: any): PacketState;
     toJSON(message: PacketState): unknown;
     fromPartial(object: Partial<PacketState>): PacketState;
@@ -483,8 +484,8 @@ export declare const PacketState: {
 };
 export declare const PacketId: {
     typeUrl: string;
-    encode(message: PacketId, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): PacketId;
+    encode(message: PacketId, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PacketId;
     fromJSON(object: any): PacketId;
     toJSON(message: PacketId): unknown;
     fromPartial(object: Partial<PacketId>): PacketId;
@@ -498,8 +499,8 @@ export declare const PacketId: {
 };
 export declare const Acknowledgement: {
     typeUrl: string;
-    encode(message: Acknowledgement, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Acknowledgement;
+    encode(message: Acknowledgement, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Acknowledgement;
     fromJSON(object: any): Acknowledgement;
     toJSON(message: Acknowledgement): unknown;
     fromPartial(object: Partial<Acknowledgement>): Acknowledgement;

@@ -1,7 +1,7 @@
 import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
 import { Coin, CoinAmino, CoinSDKType } from "../../base/v1beta1/coin";
 import { Params, ParamsAmino, ParamsSDKType, Metadata, MetadataAmino, MetadataSDKType, SendEnabled, SendEnabledAmino, SendEnabledSDKType } from "./bank";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** QueryBalanceRequest is the request type for the Query/Balance RPC method. */
 export interface QueryBalanceRequest {
     /** address is the address to query balances for. */
@@ -763,8 +763,8 @@ export interface QuerySendEnabledResponseSDKType {
 }
 export declare const QueryBalanceRequest: {
     typeUrl: string;
-    encode(message: QueryBalanceRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryBalanceRequest;
+    encode(message: QueryBalanceRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryBalanceRequest;
     fromJSON(object: any): QueryBalanceRequest;
     toJSON(message: QueryBalanceRequest): unknown;
     fromPartial(object: Partial<QueryBalanceRequest>): QueryBalanceRequest;
@@ -778,8 +778,8 @@ export declare const QueryBalanceRequest: {
 };
 export declare const QueryBalanceResponse: {
     typeUrl: string;
-    encode(message: QueryBalanceResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryBalanceResponse;
+    encode(message: QueryBalanceResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryBalanceResponse;
     fromJSON(object: any): QueryBalanceResponse;
     toJSON(message: QueryBalanceResponse): unknown;
     fromPartial(object: Partial<QueryBalanceResponse>): QueryBalanceResponse;
@@ -793,8 +793,8 @@ export declare const QueryBalanceResponse: {
 };
 export declare const QueryAllBalancesRequest: {
     typeUrl: string;
-    encode(message: QueryAllBalancesRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryAllBalancesRequest;
+    encode(message: QueryAllBalancesRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllBalancesRequest;
     fromJSON(object: any): QueryAllBalancesRequest;
     toJSON(message: QueryAllBalancesRequest): unknown;
     fromPartial(object: Partial<QueryAllBalancesRequest>): QueryAllBalancesRequest;
@@ -808,8 +808,8 @@ export declare const QueryAllBalancesRequest: {
 };
 export declare const QueryAllBalancesResponse: {
     typeUrl: string;
-    encode(message: QueryAllBalancesResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryAllBalancesResponse;
+    encode(message: QueryAllBalancesResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllBalancesResponse;
     fromJSON(object: any): QueryAllBalancesResponse;
     toJSON(message: QueryAllBalancesResponse): unknown;
     fromPartial(object: Partial<QueryAllBalancesResponse>): QueryAllBalancesResponse;
@@ -823,8 +823,8 @@ export declare const QueryAllBalancesResponse: {
 };
 export declare const QuerySpendableBalancesRequest: {
     typeUrl: string;
-    encode(message: QuerySpendableBalancesRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QuerySpendableBalancesRequest;
+    encode(message: QuerySpendableBalancesRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QuerySpendableBalancesRequest;
     fromJSON(object: any): QuerySpendableBalancesRequest;
     toJSON(message: QuerySpendableBalancesRequest): unknown;
     fromPartial(object: Partial<QuerySpendableBalancesRequest>): QuerySpendableBalancesRequest;
@@ -838,8 +838,8 @@ export declare const QuerySpendableBalancesRequest: {
 };
 export declare const QuerySpendableBalancesResponse: {
     typeUrl: string;
-    encode(message: QuerySpendableBalancesResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QuerySpendableBalancesResponse;
+    encode(message: QuerySpendableBalancesResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QuerySpendableBalancesResponse;
     fromJSON(object: any): QuerySpendableBalancesResponse;
     toJSON(message: QuerySpendableBalancesResponse): unknown;
     fromPartial(object: Partial<QuerySpendableBalancesResponse>): QuerySpendableBalancesResponse;
@@ -853,8 +853,8 @@ export declare const QuerySpendableBalancesResponse: {
 };
 export declare const QuerySpendableBalanceByDenomRequest: {
     typeUrl: string;
-    encode(message: QuerySpendableBalanceByDenomRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QuerySpendableBalanceByDenomRequest;
+    encode(message: QuerySpendableBalanceByDenomRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QuerySpendableBalanceByDenomRequest;
     fromJSON(object: any): QuerySpendableBalanceByDenomRequest;
     toJSON(message: QuerySpendableBalanceByDenomRequest): unknown;
     fromPartial(object: Partial<QuerySpendableBalanceByDenomRequest>): QuerySpendableBalanceByDenomRequest;
@@ -868,8 +868,8 @@ export declare const QuerySpendableBalanceByDenomRequest: {
 };
 export declare const QuerySpendableBalanceByDenomResponse: {
     typeUrl: string;
-    encode(message: QuerySpendableBalanceByDenomResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QuerySpendableBalanceByDenomResponse;
+    encode(message: QuerySpendableBalanceByDenomResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QuerySpendableBalanceByDenomResponse;
     fromJSON(object: any): QuerySpendableBalanceByDenomResponse;
     toJSON(message: QuerySpendableBalanceByDenomResponse): unknown;
     fromPartial(object: Partial<QuerySpendableBalanceByDenomResponse>): QuerySpendableBalanceByDenomResponse;
@@ -883,8 +883,8 @@ export declare const QuerySpendableBalanceByDenomResponse: {
 };
 export declare const QueryTotalSupplyRequest: {
     typeUrl: string;
-    encode(message: QueryTotalSupplyRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryTotalSupplyRequest;
+    encode(message: QueryTotalSupplyRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryTotalSupplyRequest;
     fromJSON(object: any): QueryTotalSupplyRequest;
     toJSON(message: QueryTotalSupplyRequest): unknown;
     fromPartial(object: Partial<QueryTotalSupplyRequest>): QueryTotalSupplyRequest;
@@ -898,8 +898,8 @@ export declare const QueryTotalSupplyRequest: {
 };
 export declare const QueryTotalSupplyResponse: {
     typeUrl: string;
-    encode(message: QueryTotalSupplyResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryTotalSupplyResponse;
+    encode(message: QueryTotalSupplyResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryTotalSupplyResponse;
     fromJSON(object: any): QueryTotalSupplyResponse;
     toJSON(message: QueryTotalSupplyResponse): unknown;
     fromPartial(object: Partial<QueryTotalSupplyResponse>): QueryTotalSupplyResponse;
@@ -913,8 +913,8 @@ export declare const QueryTotalSupplyResponse: {
 };
 export declare const QuerySupplyOfRequest: {
     typeUrl: string;
-    encode(message: QuerySupplyOfRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QuerySupplyOfRequest;
+    encode(message: QuerySupplyOfRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QuerySupplyOfRequest;
     fromJSON(object: any): QuerySupplyOfRequest;
     toJSON(message: QuerySupplyOfRequest): unknown;
     fromPartial(object: Partial<QuerySupplyOfRequest>): QuerySupplyOfRequest;
@@ -928,8 +928,8 @@ export declare const QuerySupplyOfRequest: {
 };
 export declare const QuerySupplyOfResponse: {
     typeUrl: string;
-    encode(message: QuerySupplyOfResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QuerySupplyOfResponse;
+    encode(message: QuerySupplyOfResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QuerySupplyOfResponse;
     fromJSON(object: any): QuerySupplyOfResponse;
     toJSON(message: QuerySupplyOfResponse): unknown;
     fromPartial(object: Partial<QuerySupplyOfResponse>): QuerySupplyOfResponse;
@@ -943,8 +943,8 @@ export declare const QuerySupplyOfResponse: {
 };
 export declare const QueryParamsRequest: {
     typeUrl: string;
-    encode(_: QueryParamsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsRequest;
+    encode(_: QueryParamsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsRequest;
     fromJSON(_: any): QueryParamsRequest;
     toJSON(_: QueryParamsRequest): unknown;
     fromPartial(_: Partial<QueryParamsRequest>): QueryParamsRequest;
@@ -958,8 +958,8 @@ export declare const QueryParamsRequest: {
 };
 export declare const QueryParamsResponse: {
     typeUrl: string;
-    encode(message: QueryParamsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsResponse;
+    encode(message: QueryParamsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse;
     fromJSON(object: any): QueryParamsResponse;
     toJSON(message: QueryParamsResponse): unknown;
     fromPartial(object: Partial<QueryParamsResponse>): QueryParamsResponse;
@@ -973,8 +973,8 @@ export declare const QueryParamsResponse: {
 };
 export declare const QueryDenomsMetadataRequest: {
     typeUrl: string;
-    encode(message: QueryDenomsMetadataRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryDenomsMetadataRequest;
+    encode(message: QueryDenomsMetadataRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomsMetadataRequest;
     fromJSON(object: any): QueryDenomsMetadataRequest;
     toJSON(message: QueryDenomsMetadataRequest): unknown;
     fromPartial(object: Partial<QueryDenomsMetadataRequest>): QueryDenomsMetadataRequest;
@@ -988,8 +988,8 @@ export declare const QueryDenomsMetadataRequest: {
 };
 export declare const QueryDenomsMetadataResponse: {
     typeUrl: string;
-    encode(message: QueryDenomsMetadataResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryDenomsMetadataResponse;
+    encode(message: QueryDenomsMetadataResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomsMetadataResponse;
     fromJSON(object: any): QueryDenomsMetadataResponse;
     toJSON(message: QueryDenomsMetadataResponse): unknown;
     fromPartial(object: Partial<QueryDenomsMetadataResponse>): QueryDenomsMetadataResponse;
@@ -1003,8 +1003,8 @@ export declare const QueryDenomsMetadataResponse: {
 };
 export declare const QueryDenomMetadataRequest: {
     typeUrl: string;
-    encode(message: QueryDenomMetadataRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryDenomMetadataRequest;
+    encode(message: QueryDenomMetadataRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomMetadataRequest;
     fromJSON(object: any): QueryDenomMetadataRequest;
     toJSON(message: QueryDenomMetadataRequest): unknown;
     fromPartial(object: Partial<QueryDenomMetadataRequest>): QueryDenomMetadataRequest;
@@ -1018,8 +1018,8 @@ export declare const QueryDenomMetadataRequest: {
 };
 export declare const QueryDenomMetadataResponse: {
     typeUrl: string;
-    encode(message: QueryDenomMetadataResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryDenomMetadataResponse;
+    encode(message: QueryDenomMetadataResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomMetadataResponse;
     fromJSON(object: any): QueryDenomMetadataResponse;
     toJSON(message: QueryDenomMetadataResponse): unknown;
     fromPartial(object: Partial<QueryDenomMetadataResponse>): QueryDenomMetadataResponse;
@@ -1033,8 +1033,8 @@ export declare const QueryDenomMetadataResponse: {
 };
 export declare const QueryDenomOwnersRequest: {
     typeUrl: string;
-    encode(message: QueryDenomOwnersRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryDenomOwnersRequest;
+    encode(message: QueryDenomOwnersRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomOwnersRequest;
     fromJSON(object: any): QueryDenomOwnersRequest;
     toJSON(message: QueryDenomOwnersRequest): unknown;
     fromPartial(object: Partial<QueryDenomOwnersRequest>): QueryDenomOwnersRequest;
@@ -1048,8 +1048,8 @@ export declare const QueryDenomOwnersRequest: {
 };
 export declare const DenomOwner: {
     typeUrl: string;
-    encode(message: DenomOwner, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): DenomOwner;
+    encode(message: DenomOwner, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): DenomOwner;
     fromJSON(object: any): DenomOwner;
     toJSON(message: DenomOwner): unknown;
     fromPartial(object: Partial<DenomOwner>): DenomOwner;
@@ -1063,8 +1063,8 @@ export declare const DenomOwner: {
 };
 export declare const QueryDenomOwnersResponse: {
     typeUrl: string;
-    encode(message: QueryDenomOwnersResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryDenomOwnersResponse;
+    encode(message: QueryDenomOwnersResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryDenomOwnersResponse;
     fromJSON(object: any): QueryDenomOwnersResponse;
     toJSON(message: QueryDenomOwnersResponse): unknown;
     fromPartial(object: Partial<QueryDenomOwnersResponse>): QueryDenomOwnersResponse;
@@ -1078,8 +1078,8 @@ export declare const QueryDenomOwnersResponse: {
 };
 export declare const QuerySendEnabledRequest: {
     typeUrl: string;
-    encode(message: QuerySendEnabledRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QuerySendEnabledRequest;
+    encode(message: QuerySendEnabledRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QuerySendEnabledRequest;
     fromJSON(object: any): QuerySendEnabledRequest;
     toJSON(message: QuerySendEnabledRequest): unknown;
     fromPartial(object: Partial<QuerySendEnabledRequest>): QuerySendEnabledRequest;
@@ -1093,8 +1093,8 @@ export declare const QuerySendEnabledRequest: {
 };
 export declare const QuerySendEnabledResponse: {
     typeUrl: string;
-    encode(message: QuerySendEnabledResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QuerySendEnabledResponse;
+    encode(message: QuerySendEnabledResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QuerySendEnabledResponse;
     fromJSON(object: any): QuerySendEnabledResponse;
     toJSON(message: QuerySendEnabledResponse): unknown;
     fromPartial(object: Partial<QuerySendEnabledResponse>): QuerySendEnabledResponse;

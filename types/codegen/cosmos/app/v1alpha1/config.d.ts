@@ -1,5 +1,5 @@
 import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /**
  * Config represents the configuration for a Cosmos SDK ABCI app.
  * It is intended that all state machine logic including the version of
@@ -156,8 +156,8 @@ export interface GolangBindingSDKType {
 }
 export declare const Config: {
     typeUrl: string;
-    encode(message: Config, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Config;
+    encode(message: Config, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Config;
     fromJSON(object: any): Config;
     toJSON(message: Config): unknown;
     fromPartial(object: Partial<Config>): Config;
@@ -171,8 +171,8 @@ export declare const Config: {
 };
 export declare const ModuleConfig: {
     typeUrl: string;
-    encode(message: ModuleConfig, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ModuleConfig;
+    encode(message: ModuleConfig, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ModuleConfig;
     fromJSON(object: any): ModuleConfig;
     toJSON(message: ModuleConfig): unknown;
     fromPartial(object: Partial<ModuleConfig>): ModuleConfig;
@@ -186,8 +186,8 @@ export declare const ModuleConfig: {
 };
 export declare const GolangBinding: {
     typeUrl: string;
-    encode(message: GolangBinding, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GolangBinding;
+    encode(message: GolangBinding, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GolangBinding;
     fromJSON(object: any): GolangBinding;
     toJSON(message: GolangBinding): unknown;
     fromPartial(object: Partial<GolangBinding>): GolangBinding;

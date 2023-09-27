@@ -1,6 +1,6 @@
 import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
 import { Grant, GrantAmino, GrantSDKType, GrantAuthorization, GrantAuthorizationAmino, GrantAuthorizationSDKType } from "./authz";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** QueryGrantsRequest is the request type for the Query/Grants RPC method. */
 export interface QueryGrantsRequest {
     granter: string;
@@ -167,8 +167,8 @@ export interface QueryGranteeGrantsResponseSDKType {
 }
 export declare const QueryGrantsRequest: {
     typeUrl: string;
-    encode(message: QueryGrantsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGrantsRequest;
+    encode(message: QueryGrantsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGrantsRequest;
     fromJSON(object: any): QueryGrantsRequest;
     toJSON(message: QueryGrantsRequest): unknown;
     fromPartial(object: Partial<QueryGrantsRequest>): QueryGrantsRequest;
@@ -182,8 +182,8 @@ export declare const QueryGrantsRequest: {
 };
 export declare const QueryGrantsResponse: {
     typeUrl: string;
-    encode(message: QueryGrantsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGrantsResponse;
+    encode(message: QueryGrantsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGrantsResponse;
     fromJSON(object: any): QueryGrantsResponse;
     toJSON(message: QueryGrantsResponse): unknown;
     fromPartial(object: Partial<QueryGrantsResponse>): QueryGrantsResponse;
@@ -197,8 +197,8 @@ export declare const QueryGrantsResponse: {
 };
 export declare const QueryGranterGrantsRequest: {
     typeUrl: string;
-    encode(message: QueryGranterGrantsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGranterGrantsRequest;
+    encode(message: QueryGranterGrantsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGranterGrantsRequest;
     fromJSON(object: any): QueryGranterGrantsRequest;
     toJSON(message: QueryGranterGrantsRequest): unknown;
     fromPartial(object: Partial<QueryGranterGrantsRequest>): QueryGranterGrantsRequest;
@@ -212,8 +212,8 @@ export declare const QueryGranterGrantsRequest: {
 };
 export declare const QueryGranterGrantsResponse: {
     typeUrl: string;
-    encode(message: QueryGranterGrantsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGranterGrantsResponse;
+    encode(message: QueryGranterGrantsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGranterGrantsResponse;
     fromJSON(object: any): QueryGranterGrantsResponse;
     toJSON(message: QueryGranterGrantsResponse): unknown;
     fromPartial(object: Partial<QueryGranterGrantsResponse>): QueryGranterGrantsResponse;
@@ -227,8 +227,8 @@ export declare const QueryGranterGrantsResponse: {
 };
 export declare const QueryGranteeGrantsRequest: {
     typeUrl: string;
-    encode(message: QueryGranteeGrantsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGranteeGrantsRequest;
+    encode(message: QueryGranteeGrantsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGranteeGrantsRequest;
     fromJSON(object: any): QueryGranteeGrantsRequest;
     toJSON(message: QueryGranteeGrantsRequest): unknown;
     fromPartial(object: Partial<QueryGranteeGrantsRequest>): QueryGranteeGrantsRequest;
@@ -242,8 +242,8 @@ export declare const QueryGranteeGrantsRequest: {
 };
 export declare const QueryGranteeGrantsResponse: {
     typeUrl: string;
-    encode(message: QueryGranteeGrantsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryGranteeGrantsResponse;
+    encode(message: QueryGranteeGrantsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryGranteeGrantsResponse;
     fromJSON(object: any): QueryGranteeGrantsResponse;
     toJSON(message: QueryGranteeGrantsResponse): unknown;
     fromPartial(object: Partial<QueryGranteeGrantsResponse>): QueryGranteeGrantsResponse;

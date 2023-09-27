@@ -1,10 +1,11 @@
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * CommitInfo defines commit information used by the multi-store when committing
  * a version/height.
  */
 export interface CommitInfo {
-    version: bigint;
+    version: Long;
     storeInfos: StoreInfo[];
     timestamp: Date;
 }
@@ -30,7 +31,7 @@ export interface CommitInfoAminoMsg {
  * a version/height.
  */
 export interface CommitInfoSDKType {
-    version: bigint;
+    version: Long;
     store_infos: StoreInfoSDKType[];
     timestamp: Date;
 }
@@ -71,7 +72,7 @@ export interface StoreInfoSDKType {
  * committed.
  */
 export interface CommitID {
-    version: bigint;
+    version: Long;
     hash: Uint8Array;
 }
 export interface CommitIDProtoMsg {
@@ -95,13 +96,13 @@ export interface CommitIDAminoMsg {
  * committed.
  */
 export interface CommitIDSDKType {
-    version: bigint;
+    version: Long;
     hash: Uint8Array;
 }
 export declare const CommitInfo: {
     typeUrl: string;
-    encode(message: CommitInfo, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): CommitInfo;
+    encode(message: CommitInfo, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): CommitInfo;
     fromJSON(object: any): CommitInfo;
     toJSON(message: CommitInfo): unknown;
     fromPartial(object: Partial<CommitInfo>): CommitInfo;
@@ -115,8 +116,8 @@ export declare const CommitInfo: {
 };
 export declare const StoreInfo: {
     typeUrl: string;
-    encode(message: StoreInfo, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): StoreInfo;
+    encode(message: StoreInfo, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): StoreInfo;
     fromJSON(object: any): StoreInfo;
     toJSON(message: StoreInfo): unknown;
     fromPartial(object: Partial<StoreInfo>): StoreInfo;
@@ -130,8 +131,8 @@ export declare const StoreInfo: {
 };
 export declare const CommitID: {
     typeUrl: string;
-    encode(message: CommitID, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): CommitID;
+    encode(message: CommitID, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): CommitID;
     fromJSON(object: any): CommitID;
     toJSON(message: CommitID): unknown;
     fromPartial(object: Partial<CommitID>): CommitID;

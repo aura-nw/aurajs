@@ -1,9 +1,8 @@
 import { BaseAccount, BaseAccountAmino, BaseAccountSDKType } from "../../../../cosmos/auth/v1beta1/auth";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { isSet } from "../../../../helpers";
 /** An InterchainAccount is defined as a BaseAccount & the address of the account owner on the controller chain */
 export interface InterchainAccount {
-  $typeUrl?: string;
   baseAccount: BaseAccount;
   accountOwner: string;
 }
@@ -22,20 +21,18 @@ export interface InterchainAccountAminoMsg {
 }
 /** An InterchainAccount is defined as a BaseAccount & the address of the account owner on the controller chain */
 export interface InterchainAccountSDKType {
-  $typeUrl?: string;
   base_account: BaseAccountSDKType;
   account_owner: string;
 }
 function createBaseInterchainAccount(): InterchainAccount {
   return {
-    $typeUrl: "/ibc.applications.interchain_accounts.v1.InterchainAccount",
     baseAccount: BaseAccount.fromPartial({}),
     accountOwner: ""
   };
 }
 export const InterchainAccount = {
   typeUrl: "/ibc.applications.interchain_accounts.v1.InterchainAccount",
-  encode(message: InterchainAccount, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: InterchainAccount, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.baseAccount !== undefined) {
       BaseAccount.encode(message.baseAccount, writer.uint32(10).fork()).ldelim();
     }
@@ -44,8 +41,8 @@ export const InterchainAccount = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): InterchainAccount {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): InterchainAccount {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseInterchainAccount();
     while (reader.pos < end) {

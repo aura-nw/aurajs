@@ -1,6 +1,6 @@
 import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
 import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** QueryEvidenceRequest is the request type for the Query/Evidence RPC method. */
 export interface QueryEvidenceRequest {
     /**
@@ -136,8 +136,8 @@ export interface QueryAllEvidenceResponseSDKType {
 }
 export declare const QueryEvidenceRequest: {
     typeUrl: string;
-    encode(message: QueryEvidenceRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryEvidenceRequest;
+    encode(message: QueryEvidenceRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryEvidenceRequest;
     fromJSON(object: any): QueryEvidenceRequest;
     toJSON(message: QueryEvidenceRequest): unknown;
     fromPartial(object: Partial<QueryEvidenceRequest>): QueryEvidenceRequest;
@@ -151,8 +151,8 @@ export declare const QueryEvidenceRequest: {
 };
 export declare const QueryEvidenceResponse: {
     typeUrl: string;
-    encode(message: QueryEvidenceResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryEvidenceResponse;
+    encode(message: QueryEvidenceResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryEvidenceResponse;
     fromJSON(object: any): QueryEvidenceResponse;
     toJSON(message: QueryEvidenceResponse): unknown;
     fromPartial(object: Partial<QueryEvidenceResponse>): QueryEvidenceResponse;
@@ -166,8 +166,8 @@ export declare const QueryEvidenceResponse: {
 };
 export declare const QueryAllEvidenceRequest: {
     typeUrl: string;
-    encode(message: QueryAllEvidenceRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryAllEvidenceRequest;
+    encode(message: QueryAllEvidenceRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllEvidenceRequest;
     fromJSON(object: any): QueryAllEvidenceRequest;
     toJSON(message: QueryAllEvidenceRequest): unknown;
     fromPartial(object: Partial<QueryAllEvidenceRequest>): QueryAllEvidenceRequest;
@@ -181,8 +181,8 @@ export declare const QueryAllEvidenceRequest: {
 };
 export declare const QueryAllEvidenceResponse: {
     typeUrl: string;
-    encode(message: QueryAllEvidenceResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryAllEvidenceResponse;
+    encode(message: QueryAllEvidenceResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllEvidenceResponse;
     fromJSON(object: any): QueryAllEvidenceResponse;
     toJSON(message: QueryAllEvidenceResponse): unknown;
     fromPartial(object: Partial<QueryAllEvidenceResponse>): QueryAllEvidenceResponse;

@@ -1,6 +1,6 @@
 import { IdentifiedPacketFees, IdentifiedPacketFeesAmino, IdentifiedPacketFeesSDKType } from "./fee";
 import { PacketId, PacketIdAmino, PacketIdSDKType } from "../../../core/channel/v1/channel";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** GenesisState defines the ICS29 fee middleware genesis state */
 export interface GenesisState {
     /** list of identified packet fees */
@@ -172,8 +172,8 @@ export interface ForwardRelayerAddressSDKType {
 }
 export declare const GenesisState: {
     typeUrl: string;
-    encode(message: GenesisState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GenesisState;
+    encode(message: GenesisState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GenesisState;
     fromJSON(object: any): GenesisState;
     toJSON(message: GenesisState): unknown;
     fromPartial(object: Partial<GenesisState>): GenesisState;
@@ -187,8 +187,8 @@ export declare const GenesisState: {
 };
 export declare const FeeEnabledChannel: {
     typeUrl: string;
-    encode(message: FeeEnabledChannel, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): FeeEnabledChannel;
+    encode(message: FeeEnabledChannel, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): FeeEnabledChannel;
     fromJSON(object: any): FeeEnabledChannel;
     toJSON(message: FeeEnabledChannel): unknown;
     fromPartial(object: Partial<FeeEnabledChannel>): FeeEnabledChannel;
@@ -202,8 +202,8 @@ export declare const FeeEnabledChannel: {
 };
 export declare const RegisteredPayee: {
     typeUrl: string;
-    encode(message: RegisteredPayee, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): RegisteredPayee;
+    encode(message: RegisteredPayee, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): RegisteredPayee;
     fromJSON(object: any): RegisteredPayee;
     toJSON(message: RegisteredPayee): unknown;
     fromPartial(object: Partial<RegisteredPayee>): RegisteredPayee;
@@ -217,8 +217,8 @@ export declare const RegisteredPayee: {
 };
 export declare const RegisteredCounterpartyPayee: {
     typeUrl: string;
-    encode(message: RegisteredCounterpartyPayee, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): RegisteredCounterpartyPayee;
+    encode(message: RegisteredCounterpartyPayee, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): RegisteredCounterpartyPayee;
     fromJSON(object: any): RegisteredCounterpartyPayee;
     toJSON(message: RegisteredCounterpartyPayee): unknown;
     fromPartial(object: Partial<RegisteredCounterpartyPayee>): RegisteredCounterpartyPayee;
@@ -232,8 +232,8 @@ export declare const RegisteredCounterpartyPayee: {
 };
 export declare const ForwardRelayerAddress: {
     typeUrl: string;
-    encode(message: ForwardRelayerAddress, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ForwardRelayerAddress;
+    encode(message: ForwardRelayerAddress, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ForwardRelayerAddress;
     fromJSON(object: any): ForwardRelayerAddress;
     toJSON(message: ForwardRelayerAddress): unknown;
     fromPartial(object: Partial<ForwardRelayerAddress>): ForwardRelayerAddress;

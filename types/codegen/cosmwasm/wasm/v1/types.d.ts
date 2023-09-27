@@ -1,5 +1,6 @@
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** AccessType permission types */
 export declare enum AccessType {
     /** ACCESS_TYPE_UNSPECIFIED - AccessTypeUnspecified placeholder for empty value */
@@ -133,7 +134,7 @@ export interface CodeInfoSDKType {
 /** ContractInfo stores a WASM contract instance */
 export interface ContractInfo {
     /** CodeID is the reference to the stored Wasm code */
-    codeId: bigint;
+    codeId: Long;
     /** Creator address who initially instantiated the contract */
     creator: string;
     /** Admin is an optional address that can execute migrations */
@@ -147,19 +148,12 @@ export interface ContractInfo {
      * Extension is an extension point to store custom metadata within the
      * persistence model.
      */
-    extension: (Any) | undefined;
+    extension: Any;
 }
 export interface ContractInfoProtoMsg {
     typeUrl: "/cosmwasm.wasm.v1.ContractInfo";
     value: Uint8Array;
 }
-export type ContractInfoEncoded = Omit<ContractInfo, "extension"> & {
-    /**
-     * Extension is an extension point to store custom metadata within the
-     * persistence model.
-     */
-    extension?: AnyProtoMsg | undefined;
-};
 /** ContractInfo stores a WASM contract instance */
 export interface ContractInfoAmino {
     /** CodeID is the reference to the stored Wasm code */
@@ -185,19 +179,19 @@ export interface ContractInfoAminoMsg {
 }
 /** ContractInfo stores a WASM contract instance */
 export interface ContractInfoSDKType {
-    code_id: bigint;
+    code_id: Long;
     creator: string;
     admin: string;
     label: string;
     created: AbsoluteTxPositionSDKType;
     ibc_port_id: string;
-    extension: AnySDKType | undefined;
+    extension: AnySDKType;
 }
 /** ContractCodeHistoryEntry metadata to a contract. */
 export interface ContractCodeHistoryEntry {
     operation: ContractCodeHistoryOperationType;
     /** CodeID is the reference to the stored WASM code */
-    codeId: bigint;
+    codeId: Long;
     /** Updated Tx position when the operation was executed. */
     updated: AbsoluteTxPosition;
     msg: Uint8Array;
@@ -222,7 +216,7 @@ export interface ContractCodeHistoryEntryAminoMsg {
 /** ContractCodeHistoryEntry metadata to a contract. */
 export interface ContractCodeHistoryEntrySDKType {
     operation: ContractCodeHistoryOperationType;
-    code_id: bigint;
+    code_id: Long;
     updated: AbsoluteTxPositionSDKType;
     msg: Uint8Array;
 }
@@ -232,12 +226,12 @@ export interface ContractCodeHistoryEntrySDKType {
  */
 export interface AbsoluteTxPosition {
     /** BlockHeight is the block the contract was created at */
-    blockHeight: bigint;
+    blockHeight: Long;
     /**
      * TxIndex is a monotonic counter within the block (actual transaction index,
      * or gas consumed)
      */
-    txIndex: bigint;
+    txIndex: Long;
 }
 export interface AbsoluteTxPositionProtoMsg {
     typeUrl: "/cosmwasm.wasm.v1.AbsoluteTxPosition";
@@ -265,8 +259,8 @@ export interface AbsoluteTxPositionAminoMsg {
  * ordering of transactions.
  */
 export interface AbsoluteTxPositionSDKType {
-    block_height: bigint;
-    tx_index: bigint;
+    block_height: Long;
+    tx_index: Long;
 }
 /** Model is a struct that holds a KV pair */
 export interface Model {
@@ -297,8 +291,8 @@ export interface ModelSDKType {
 }
 export declare const AccessTypeParam: {
     typeUrl: string;
-    encode(message: AccessTypeParam, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): AccessTypeParam;
+    encode(message: AccessTypeParam, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): AccessTypeParam;
     fromJSON(object: any): AccessTypeParam;
     toJSON(message: AccessTypeParam): unknown;
     fromPartial(object: Partial<AccessTypeParam>): AccessTypeParam;
@@ -312,8 +306,8 @@ export declare const AccessTypeParam: {
 };
 export declare const AccessConfig: {
     typeUrl: string;
-    encode(message: AccessConfig, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): AccessConfig;
+    encode(message: AccessConfig, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): AccessConfig;
     fromJSON(object: any): AccessConfig;
     toJSON(message: AccessConfig): unknown;
     fromPartial(object: Partial<AccessConfig>): AccessConfig;
@@ -327,8 +321,8 @@ export declare const AccessConfig: {
 };
 export declare const Params: {
     typeUrl: string;
-    encode(message: Params, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Params;
+    encode(message: Params, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Params;
     fromJSON(object: any): Params;
     toJSON(message: Params): unknown;
     fromPartial(object: Partial<Params>): Params;
@@ -342,8 +336,8 @@ export declare const Params: {
 };
 export declare const CodeInfo: {
     typeUrl: string;
-    encode(message: CodeInfo, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): CodeInfo;
+    encode(message: CodeInfo, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): CodeInfo;
     fromJSON(object: any): CodeInfo;
     toJSON(message: CodeInfo): unknown;
     fromPartial(object: Partial<CodeInfo>): CodeInfo;
@@ -357,8 +351,8 @@ export declare const CodeInfo: {
 };
 export declare const ContractInfo: {
     typeUrl: string;
-    encode(message: ContractInfo, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ContractInfo;
+    encode(message: ContractInfo, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ContractInfo;
     fromJSON(object: any): ContractInfo;
     toJSON(message: ContractInfo): unknown;
     fromPartial(object: Partial<ContractInfo>): ContractInfo;
@@ -372,8 +366,8 @@ export declare const ContractInfo: {
 };
 export declare const ContractCodeHistoryEntry: {
     typeUrl: string;
-    encode(message: ContractCodeHistoryEntry, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ContractCodeHistoryEntry;
+    encode(message: ContractCodeHistoryEntry, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ContractCodeHistoryEntry;
     fromJSON(object: any): ContractCodeHistoryEntry;
     toJSON(message: ContractCodeHistoryEntry): unknown;
     fromPartial(object: Partial<ContractCodeHistoryEntry>): ContractCodeHistoryEntry;
@@ -387,8 +381,8 @@ export declare const ContractCodeHistoryEntry: {
 };
 export declare const AbsoluteTxPosition: {
     typeUrl: string;
-    encode(message: AbsoluteTxPosition, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): AbsoluteTxPosition;
+    encode(message: AbsoluteTxPosition, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): AbsoluteTxPosition;
     fromJSON(object: any): AbsoluteTxPosition;
     toJSON(message: AbsoluteTxPosition): unknown;
     fromPartial(object: Partial<AbsoluteTxPosition>): AbsoluteTxPosition;
@@ -402,8 +396,8 @@ export declare const AbsoluteTxPosition: {
 };
 export declare const Model: {
     typeUrl: string;
-    encode(message: Model, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Model;
+    encode(message: Model, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Model;
     fromJSON(object: any): Model;
     toJSON(message: Model): unknown;
     fromPartial(object: Partial<Model>): Model;
@@ -415,6 +409,3 @@ export declare const Model: {
     toProto(message: Model): Uint8Array;
     toProtoMsg(message: Model): ModelProtoMsg;
 };
-export declare const Cosmwasm_wasmv1ContractInfoExtension_InterfaceDecoder: (input: BinaryReader | Uint8Array) => Any;
-export declare const Cosmwasm_wasmv1ContractInfoExtension_FromAmino: (content: AnyAmino) => Any;
-export declare const Cosmwasm_wasmv1ContractInfoExtension_ToAmino: (content: Any) => AnyAmino;

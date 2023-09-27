@@ -1,6 +1,6 @@
-import { BinaryReader, BinaryWriter } from "../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { isSet, bytesFromBase64, base64FromBytes } from "../../helpers";
-/** PublicKey defines the keys available for use with Validators */
+/** PublicKey defines the keys available for use with Tendermint Validators */
 export interface PublicKey {
   ed25519?: Uint8Array;
   secp256k1?: Uint8Array;
@@ -9,7 +9,7 @@ export interface PublicKeyProtoMsg {
   typeUrl: "/tendermint.crypto.PublicKey";
   value: Uint8Array;
 }
-/** PublicKey defines the keys available for use with Validators */
+/** PublicKey defines the keys available for use with Tendermint Validators */
 export interface PublicKeyAmino {
   ed25519?: Uint8Array;
   secp256k1?: Uint8Array;
@@ -18,7 +18,7 @@ export interface PublicKeyAminoMsg {
   type: "/tendermint.crypto.PublicKey";
   value: PublicKeyAmino;
 }
-/** PublicKey defines the keys available for use with Validators */
+/** PublicKey defines the keys available for use with Tendermint Validators */
 export interface PublicKeySDKType {
   ed25519?: Uint8Array;
   secp256k1?: Uint8Array;
@@ -31,7 +31,7 @@ function createBasePublicKey(): PublicKey {
 }
 export const PublicKey = {
   typeUrl: "/tendermint.crypto.PublicKey",
-  encode(message: PublicKey, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: PublicKey, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.ed25519 !== undefined) {
       writer.uint32(10).bytes(message.ed25519);
     }
@@ -40,8 +40,8 @@ export const PublicKey = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): PublicKey {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): PublicKey {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBasePublicKey();
     while (reader.pos < end) {

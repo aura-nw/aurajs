@@ -1,5 +1,5 @@
 import { Any, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /**
  * Type defines a classification of message issued from a controller chain to its associated interchain accounts
  * host
@@ -63,8 +63,8 @@ export interface CosmosTxSDKType {
 }
 export declare const InterchainAccountPacketData: {
     typeUrl: string;
-    encode(message: InterchainAccountPacketData, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): InterchainAccountPacketData;
+    encode(message: InterchainAccountPacketData, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): InterchainAccountPacketData;
     fromJSON(object: any): InterchainAccountPacketData;
     toJSON(message: InterchainAccountPacketData): unknown;
     fromPartial(object: Partial<InterchainAccountPacketData>): InterchainAccountPacketData;
@@ -78,8 +78,8 @@ export declare const InterchainAccountPacketData: {
 };
 export declare const CosmosTx: {
     typeUrl: string;
-    encode(message: CosmosTx, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): CosmosTx;
+    encode(message: CosmosTx, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): CosmosTx;
     fromJSON(object: any): CosmosTx;
     toJSON(message: CosmosTx): unknown;
     fromPartial(object: Partial<CosmosTx>): CosmosTx;

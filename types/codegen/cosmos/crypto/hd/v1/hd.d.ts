@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** BIP44Params is used as path field in ledger item in Record. */
 export interface BIP44Params {
     /** purpose is a constant set to 44' (or 0x8000002C) following the BIP43 recommendation */
@@ -49,8 +49,8 @@ export interface BIP44ParamsSDKType {
 }
 export declare const BIP44Params: {
     typeUrl: string;
-    encode(message: BIP44Params, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): BIP44Params;
+    encode(message: BIP44Params, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): BIP44Params;
     fromJSON(object: any): BIP44Params;
     toJSON(message: BIP44Params): unknown;
     fromPartial(object: Partial<BIP44Params>): BIP44Params;

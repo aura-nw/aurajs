@@ -1,6 +1,6 @@
 import { Duration } from "../../google/protobuf/duration";
-import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet, toDuration, fromDuration } from "../../helpers";
+import { Long, isSet, toDuration, fromDuration } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * ConsensusParams contains consensus critical parameters that determine the
  * validity of blocks.
@@ -45,12 +45,19 @@ export interface BlockParams {
    * Max block size, in bytes.
    * Note: must be greater than 0
    */
-  maxBytes: bigint;
+  maxBytes: Long;
   /**
    * Max gas per block.
    * Note: must be greater or equal to -1
    */
-  maxGas: bigint;
+  maxGas: Long;
+  /**
+   * Minimum time increment between consecutive blocks (in milliseconds) If the
+   * block header timestamp is ahead of the system clock, decrease this value.
+   * 
+   * Not exposed to the application.
+   */
+  timeIotaMs: Long;
 }
 export interface BlockParamsProtoMsg {
   typeUrl: "/tendermint.types.BlockParams";
@@ -68,6 +75,13 @@ export interface BlockParamsAmino {
    * Note: must be greater or equal to -1
    */
   max_gas: string;
+  /**
+   * Minimum time increment between consecutive blocks (in milliseconds) If the
+   * block header timestamp is ahead of the system clock, decrease this value.
+   * 
+   * Not exposed to the application.
+   */
+  time_iota_ms: string;
 }
 export interface BlockParamsAminoMsg {
   type: "/tendermint.types.BlockParams";
@@ -75,8 +89,9 @@ export interface BlockParamsAminoMsg {
 }
 /** BlockParams contains limits on the block size. */
 export interface BlockParamsSDKType {
-  max_bytes: bigint;
-  max_gas: bigint;
+  max_bytes: Long;
+  max_gas: Long;
+  time_iota_ms: Long;
 }
 /** EvidenceParams determine how we handle evidence of malfeasance. */
 export interface EvidenceParams {
@@ -86,7 +101,7 @@ export interface EvidenceParams {
    * The basic formula for calculating this is: MaxAgeDuration / {average block
    * time}.
    */
-  maxAgeNumBlocks: bigint;
+  maxAgeNumBlocks: Long;
   /**
    * Max age of evidence, in time.
    * 
@@ -100,7 +115,7 @@ export interface EvidenceParams {
    * and should fall comfortably under the max block bytes.
    * Default is 1048576 or 1MB
    */
-  maxBytes: bigint;
+  maxBytes: Long;
 }
 export interface EvidenceParamsProtoMsg {
   typeUrl: "/tendermint.types.EvidenceParams";
@@ -136,9 +151,9 @@ export interface EvidenceParamsAminoMsg {
 }
 /** EvidenceParams determine how we handle evidence of malfeasance. */
 export interface EvidenceParamsSDKType {
-  max_age_num_blocks: bigint;
+  max_age_num_blocks: Long;
   max_age_duration: string;
-  max_bytes: bigint;
+  max_bytes: Long;
 }
 /**
  * ValidatorParams restrict the public key types validators can use.
@@ -171,7 +186,7 @@ export interface ValidatorParamsSDKType {
 }
 /** VersionParams contains the ABCI application version. */
 export interface VersionParams {
-  app: bigint;
+  appVersion: Long;
 }
 export interface VersionParamsProtoMsg {
   typeUrl: "/tendermint.types.VersionParams";
@@ -179,7 +194,7 @@ export interface VersionParamsProtoMsg {
 }
 /** VersionParams contains the ABCI application version. */
 export interface VersionParamsAmino {
-  app: string;
+  app_version: string;
 }
 export interface VersionParamsAminoMsg {
   type: "/tendermint.types.VersionParams";
@@ -187,7 +202,7 @@ export interface VersionParamsAminoMsg {
 }
 /** VersionParams contains the ABCI application version. */
 export interface VersionParamsSDKType {
-  app: bigint;
+  app_version: Long;
 }
 /**
  * HashedParams is a subset of ConsensusParams.
@@ -195,8 +210,8 @@ export interface VersionParamsSDKType {
  * It is hashed into the Header.ConsensusHash.
  */
 export interface HashedParams {
-  blockMaxBytes: bigint;
-  blockMaxGas: bigint;
+  blockMaxBytes: Long;
+  blockMaxGas: Long;
 }
 export interface HashedParamsProtoMsg {
   typeUrl: "/tendermint.types.HashedParams";
@@ -221,8 +236,8 @@ export interface HashedParamsAminoMsg {
  * It is hashed into the Header.ConsensusHash.
  */
 export interface HashedParamsSDKType {
-  block_max_bytes: bigint;
-  block_max_gas: bigint;
+  block_max_bytes: Long;
+  block_max_gas: Long;
 }
 function createBaseConsensusParams(): ConsensusParams {
   return {
@@ -234,7 +249,7 @@ function createBaseConsensusParams(): ConsensusParams {
 }
 export const ConsensusParams = {
   typeUrl: "/tendermint.types.ConsensusParams",
-  encode(message: ConsensusParams, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: ConsensusParams, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.block !== undefined) {
       BlockParams.encode(message.block, writer.uint32(10).fork()).ldelim();
     }
@@ -249,8 +264,8 @@ export const ConsensusParams = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): ConsensusParams {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): ConsensusParams {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseConsensusParams();
     while (reader.pos < end) {
@@ -333,33 +348,40 @@ export const ConsensusParams = {
 };
 function createBaseBlockParams(): BlockParams {
   return {
-    maxBytes: BigInt(0),
-    maxGas: BigInt(0)
+    maxBytes: Long.ZERO,
+    maxGas: Long.ZERO,
+    timeIotaMs: Long.ZERO
   };
 }
 export const BlockParams = {
   typeUrl: "/tendermint.types.BlockParams",
-  encode(message: BlockParams, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.maxBytes !== BigInt(0)) {
+  encode(message: BlockParams, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.maxBytes.isZero()) {
       writer.uint32(8).int64(message.maxBytes);
     }
-    if (message.maxGas !== BigInt(0)) {
+    if (!message.maxGas.isZero()) {
       writer.uint32(16).int64(message.maxGas);
+    }
+    if (!message.timeIotaMs.isZero()) {
+      writer.uint32(24).int64(message.timeIotaMs);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): BlockParams {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): BlockParams {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseBlockParams();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.maxBytes = reader.int64();
+          message.maxBytes = (reader.int64() as Long);
           break;
         case 2:
-          message.maxGas = reader.int64();
+          message.maxGas = (reader.int64() as Long);
+          break;
+        case 3:
+          message.timeIotaMs = (reader.int64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -370,32 +392,37 @@ export const BlockParams = {
   },
   fromJSON(object: any): BlockParams {
     return {
-      maxBytes: isSet(object.maxBytes) ? BigInt(object.maxBytes.toString()) : BigInt(0),
-      maxGas: isSet(object.maxGas) ? BigInt(object.maxGas.toString()) : BigInt(0)
+      maxBytes: isSet(object.maxBytes) ? Long.fromValue(object.maxBytes) : Long.ZERO,
+      maxGas: isSet(object.maxGas) ? Long.fromValue(object.maxGas) : Long.ZERO,
+      timeIotaMs: isSet(object.timeIotaMs) ? Long.fromValue(object.timeIotaMs) : Long.ZERO
     };
   },
   toJSON(message: BlockParams): unknown {
     const obj: any = {};
-    message.maxBytes !== undefined && (obj.maxBytes = (message.maxBytes || BigInt(0)).toString());
-    message.maxGas !== undefined && (obj.maxGas = (message.maxGas || BigInt(0)).toString());
+    message.maxBytes !== undefined && (obj.maxBytes = (message.maxBytes || Long.ZERO).toString());
+    message.maxGas !== undefined && (obj.maxGas = (message.maxGas || Long.ZERO).toString());
+    message.timeIotaMs !== undefined && (obj.timeIotaMs = (message.timeIotaMs || Long.ZERO).toString());
     return obj;
   },
   fromPartial(object: Partial<BlockParams>): BlockParams {
     const message = createBaseBlockParams();
-    message.maxBytes = object.maxBytes !== undefined && object.maxBytes !== null ? BigInt(object.maxBytes.toString()) : BigInt(0);
-    message.maxGas = object.maxGas !== undefined && object.maxGas !== null ? BigInt(object.maxGas.toString()) : BigInt(0);
+    message.maxBytes = object.maxBytes !== undefined && object.maxBytes !== null ? Long.fromValue(object.maxBytes) : Long.ZERO;
+    message.maxGas = object.maxGas !== undefined && object.maxGas !== null ? Long.fromValue(object.maxGas) : Long.ZERO;
+    message.timeIotaMs = object.timeIotaMs !== undefined && object.timeIotaMs !== null ? Long.fromValue(object.timeIotaMs) : Long.ZERO;
     return message;
   },
   fromAmino(object: BlockParamsAmino): BlockParams {
     return {
-      maxBytes: BigInt(object.max_bytes),
-      maxGas: BigInt(object.max_gas)
+      maxBytes: Long.fromString(object.max_bytes),
+      maxGas: Long.fromString(object.max_gas),
+      timeIotaMs: Long.fromString(object.time_iota_ms)
     };
   },
   toAmino(message: BlockParams): BlockParamsAmino {
     const obj: any = {};
     obj.max_bytes = message.maxBytes ? message.maxBytes.toString() : undefined;
     obj.max_gas = message.maxGas ? message.maxGas.toString() : undefined;
+    obj.time_iota_ms = message.timeIotaMs ? message.timeIotaMs.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: BlockParamsAminoMsg): BlockParams {
@@ -416,40 +443,40 @@ export const BlockParams = {
 };
 function createBaseEvidenceParams(): EvidenceParams {
   return {
-    maxAgeNumBlocks: BigInt(0),
+    maxAgeNumBlocks: Long.ZERO,
     maxAgeDuration: Duration.fromPartial({}),
-    maxBytes: BigInt(0)
+    maxBytes: Long.ZERO
   };
 }
 export const EvidenceParams = {
   typeUrl: "/tendermint.types.EvidenceParams",
-  encode(message: EvidenceParams, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.maxAgeNumBlocks !== BigInt(0)) {
+  encode(message: EvidenceParams, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.maxAgeNumBlocks.isZero()) {
       writer.uint32(8).int64(message.maxAgeNumBlocks);
     }
     if (message.maxAgeDuration !== undefined) {
       Duration.encode(toDuration(message.maxAgeDuration), writer.uint32(18).fork()).ldelim();
     }
-    if (message.maxBytes !== BigInt(0)) {
+    if (!message.maxBytes.isZero()) {
       writer.uint32(24).int64(message.maxBytes);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): EvidenceParams {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): EvidenceParams {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseEvidenceParams();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.maxAgeNumBlocks = reader.int64();
+          message.maxAgeNumBlocks = (reader.int64() as Long);
           break;
         case 2:
           message.maxAgeDuration = fromDuration(Duration.decode(reader, reader.uint32()));
           break;
         case 3:
-          message.maxBytes = reader.int64();
+          message.maxBytes = (reader.int64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -460,30 +487,30 @@ export const EvidenceParams = {
   },
   fromJSON(object: any): EvidenceParams {
     return {
-      maxAgeNumBlocks: isSet(object.maxAgeNumBlocks) ? BigInt(object.maxAgeNumBlocks.toString()) : BigInt(0),
+      maxAgeNumBlocks: isSet(object.maxAgeNumBlocks) ? Long.fromValue(object.maxAgeNumBlocks) : Long.ZERO,
       maxAgeDuration: isSet(object.maxAgeDuration) ? String(object.maxAgeDuration) : undefined,
-      maxBytes: isSet(object.maxBytes) ? BigInt(object.maxBytes.toString()) : BigInt(0)
+      maxBytes: isSet(object.maxBytes) ? Long.fromValue(object.maxBytes) : Long.ZERO
     };
   },
   toJSON(message: EvidenceParams): unknown {
     const obj: any = {};
-    message.maxAgeNumBlocks !== undefined && (obj.maxAgeNumBlocks = (message.maxAgeNumBlocks || BigInt(0)).toString());
+    message.maxAgeNumBlocks !== undefined && (obj.maxAgeNumBlocks = (message.maxAgeNumBlocks || Long.ZERO).toString());
     message.maxAgeDuration !== undefined && (obj.maxAgeDuration = message.maxAgeDuration);
-    message.maxBytes !== undefined && (obj.maxBytes = (message.maxBytes || BigInt(0)).toString());
+    message.maxBytes !== undefined && (obj.maxBytes = (message.maxBytes || Long.ZERO).toString());
     return obj;
   },
   fromPartial(object: Partial<EvidenceParams>): EvidenceParams {
     const message = createBaseEvidenceParams();
-    message.maxAgeNumBlocks = object.maxAgeNumBlocks !== undefined && object.maxAgeNumBlocks !== null ? BigInt(object.maxAgeNumBlocks.toString()) : BigInt(0);
+    message.maxAgeNumBlocks = object.maxAgeNumBlocks !== undefined && object.maxAgeNumBlocks !== null ? Long.fromValue(object.maxAgeNumBlocks) : Long.ZERO;
     message.maxAgeDuration = object.maxAgeDuration ?? undefined;
-    message.maxBytes = object.maxBytes !== undefined && object.maxBytes !== null ? BigInt(object.maxBytes.toString()) : BigInt(0);
+    message.maxBytes = object.maxBytes !== undefined && object.maxBytes !== null ? Long.fromValue(object.maxBytes) : Long.ZERO;
     return message;
   },
   fromAmino(object: EvidenceParamsAmino): EvidenceParams {
     return {
-      maxAgeNumBlocks: BigInt(object.max_age_num_blocks),
+      maxAgeNumBlocks: Long.fromString(object.max_age_num_blocks),
       maxAgeDuration: object?.max_age_duration ? Duration.fromAmino(object.max_age_duration) : undefined,
-      maxBytes: BigInt(object.max_bytes)
+      maxBytes: Long.fromString(object.max_bytes)
     };
   },
   toAmino(message: EvidenceParams): EvidenceParamsAmino {
@@ -516,14 +543,14 @@ function createBaseValidatorParams(): ValidatorParams {
 }
 export const ValidatorParams = {
   typeUrl: "/tendermint.types.ValidatorParams",
-  encode(message: ValidatorParams, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: ValidatorParams, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.pubKeyTypes) {
       writer.uint32(10).string(v!);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): ValidatorParams {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): ValidatorParams {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseValidatorParams();
     while (reader.pos < end) {
@@ -590,26 +617,26 @@ export const ValidatorParams = {
 };
 function createBaseVersionParams(): VersionParams {
   return {
-    app: BigInt(0)
+    appVersion: Long.UZERO
   };
 }
 export const VersionParams = {
   typeUrl: "/tendermint.types.VersionParams",
-  encode(message: VersionParams, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.app !== BigInt(0)) {
-      writer.uint32(8).uint64(message.app);
+  encode(message: VersionParams, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.appVersion.isZero()) {
+      writer.uint32(8).uint64(message.appVersion);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): VersionParams {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): VersionParams {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseVersionParams();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.app = reader.uint64();
+          message.appVersion = (reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -620,27 +647,27 @@ export const VersionParams = {
   },
   fromJSON(object: any): VersionParams {
     return {
-      app: isSet(object.app) ? BigInt(object.app.toString()) : BigInt(0)
+      appVersion: isSet(object.appVersion) ? Long.fromValue(object.appVersion) : Long.UZERO
     };
   },
   toJSON(message: VersionParams): unknown {
     const obj: any = {};
-    message.app !== undefined && (obj.app = (message.app || BigInt(0)).toString());
+    message.appVersion !== undefined && (obj.appVersion = (message.appVersion || Long.UZERO).toString());
     return obj;
   },
   fromPartial(object: Partial<VersionParams>): VersionParams {
     const message = createBaseVersionParams();
-    message.app = object.app !== undefined && object.app !== null ? BigInt(object.app.toString()) : BigInt(0);
+    message.appVersion = object.appVersion !== undefined && object.appVersion !== null ? Long.fromValue(object.appVersion) : Long.UZERO;
     return message;
   },
   fromAmino(object: VersionParamsAmino): VersionParams {
     return {
-      app: BigInt(object.app)
+      appVersion: Long.fromString(object.app_version)
     };
   },
   toAmino(message: VersionParams): VersionParamsAmino {
     const obj: any = {};
-    obj.app = message.app ? message.app.toString() : undefined;
+    obj.app_version = message.appVersion ? message.appVersion.toString() : undefined;
     return obj;
   },
   fromAminoMsg(object: VersionParamsAminoMsg): VersionParams {
@@ -661,33 +688,33 @@ export const VersionParams = {
 };
 function createBaseHashedParams(): HashedParams {
   return {
-    blockMaxBytes: BigInt(0),
-    blockMaxGas: BigInt(0)
+    blockMaxBytes: Long.ZERO,
+    blockMaxGas: Long.ZERO
   };
 }
 export const HashedParams = {
   typeUrl: "/tendermint.types.HashedParams",
-  encode(message: HashedParams, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.blockMaxBytes !== BigInt(0)) {
+  encode(message: HashedParams, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.blockMaxBytes.isZero()) {
       writer.uint32(8).int64(message.blockMaxBytes);
     }
-    if (message.blockMaxGas !== BigInt(0)) {
+    if (!message.blockMaxGas.isZero()) {
       writer.uint32(16).int64(message.blockMaxGas);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): HashedParams {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): HashedParams {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseHashedParams();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.blockMaxBytes = reader.int64();
+          message.blockMaxBytes = (reader.int64() as Long);
           break;
         case 2:
-          message.blockMaxGas = reader.int64();
+          message.blockMaxGas = (reader.int64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -698,26 +725,26 @@ export const HashedParams = {
   },
   fromJSON(object: any): HashedParams {
     return {
-      blockMaxBytes: isSet(object.blockMaxBytes) ? BigInt(object.blockMaxBytes.toString()) : BigInt(0),
-      blockMaxGas: isSet(object.blockMaxGas) ? BigInt(object.blockMaxGas.toString()) : BigInt(0)
+      blockMaxBytes: isSet(object.blockMaxBytes) ? Long.fromValue(object.blockMaxBytes) : Long.ZERO,
+      blockMaxGas: isSet(object.blockMaxGas) ? Long.fromValue(object.blockMaxGas) : Long.ZERO
     };
   },
   toJSON(message: HashedParams): unknown {
     const obj: any = {};
-    message.blockMaxBytes !== undefined && (obj.blockMaxBytes = (message.blockMaxBytes || BigInt(0)).toString());
-    message.blockMaxGas !== undefined && (obj.blockMaxGas = (message.blockMaxGas || BigInt(0)).toString());
+    message.blockMaxBytes !== undefined && (obj.blockMaxBytes = (message.blockMaxBytes || Long.ZERO).toString());
+    message.blockMaxGas !== undefined && (obj.blockMaxGas = (message.blockMaxGas || Long.ZERO).toString());
     return obj;
   },
   fromPartial(object: Partial<HashedParams>): HashedParams {
     const message = createBaseHashedParams();
-    message.blockMaxBytes = object.blockMaxBytes !== undefined && object.blockMaxBytes !== null ? BigInt(object.blockMaxBytes.toString()) : BigInt(0);
-    message.blockMaxGas = object.blockMaxGas !== undefined && object.blockMaxGas !== null ? BigInt(object.blockMaxGas.toString()) : BigInt(0);
+    message.blockMaxBytes = object.blockMaxBytes !== undefined && object.blockMaxBytes !== null ? Long.fromValue(object.blockMaxBytes) : Long.ZERO;
+    message.blockMaxGas = object.blockMaxGas !== undefined && object.blockMaxGas !== null ? Long.fromValue(object.blockMaxGas) : Long.ZERO;
     return message;
   },
   fromAmino(object: HashedParamsAmino): HashedParams {
     return {
-      blockMaxBytes: BigInt(object.block_max_bytes),
-      blockMaxGas: BigInt(object.block_max_gas)
+      blockMaxBytes: Long.fromString(object.block_max_bytes),
+      blockMaxGas: Long.fromString(object.block_max_gas)
     };
   },
   toAmino(message: HashedParams): HashedParamsAmino {

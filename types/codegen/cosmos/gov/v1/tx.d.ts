@@ -1,13 +1,8 @@
-import { Any, AnyProtoMsg, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
+import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
 import { Coin, CoinAmino, CoinSDKType } from "../../base/v1beta1/coin";
 import { VoteOption, WeightedVoteOption, WeightedVoteOptionAmino, WeightedVoteOptionSDKType, Params, ParamsAmino, ParamsSDKType } from "./gov";
-import { CommunityPoolSpendProposal, CommunityPoolSpendProposalProtoMsg, CommunityPoolSpendProposalSDKType, CommunityPoolSpendProposalWithDeposit, CommunityPoolSpendProposalWithDepositProtoMsg, CommunityPoolSpendProposalWithDepositSDKType } from "../../distribution/v1beta1/distribution";
-import { TextProposal, TextProposalProtoMsg, TextProposalSDKType } from "../v1beta1/gov";
-import { ParameterChangeProposal, ParameterChangeProposalProtoMsg, ParameterChangeProposalSDKType } from "../../params/v1beta1/params";
-import { SoftwareUpgradeProposal, SoftwareUpgradeProposalProtoMsg, SoftwareUpgradeProposalSDKType, CancelSoftwareUpgradeProposal, CancelSoftwareUpgradeProposalProtoMsg, CancelSoftwareUpgradeProposalSDKType } from "../../upgrade/v1beta1/upgrade";
-import { ClientUpdateProposal, ClientUpdateProposalProtoMsg, ClientUpdateProposalSDKType, UpgradeProposal, UpgradeProposalProtoMsg, UpgradeProposalSDKType } from "../../../ibc/core/client/v1/client";
-import { StoreCodeProposal, StoreCodeProposalProtoMsg, StoreCodeProposalSDKType, InstantiateContractProposal, InstantiateContractProposalProtoMsg, InstantiateContractProposalSDKType, InstantiateContract2Proposal, InstantiateContract2ProposalProtoMsg, InstantiateContract2ProposalSDKType, MigrateContractProposal, MigrateContractProposalProtoMsg, MigrateContractProposalSDKType, SudoContractProposal, SudoContractProposalProtoMsg, SudoContractProposalSDKType, ExecuteContractProposal, ExecuteContractProposalProtoMsg, ExecuteContractProposalSDKType, UpdateAdminProposal, UpdateAdminProposalProtoMsg, UpdateAdminProposalSDKType, ClearAdminProposal, ClearAdminProposalProtoMsg, ClearAdminProposalSDKType, PinCodesProposal, PinCodesProposalProtoMsg, PinCodesProposalSDKType, UnpinCodesProposal, UnpinCodesProposalProtoMsg, UnpinCodesProposalSDKType, UpdateInstantiateConfigProposal, UpdateInstantiateConfigProposalProtoMsg, UpdateInstantiateConfigProposalSDKType, StoreAndInstantiateContractProposal, StoreAndInstantiateContractProposalProtoMsg, StoreAndInstantiateContractProposalSDKType } from "../../../cosmwasm/wasm/v1/proposal";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * MsgSubmitProposal defines an sdk.Msg type that supports submitting arbitrary
  * proposal Content.
@@ -83,7 +78,7 @@ export interface MsgSubmitProposalSDKType {
 /** MsgSubmitProposalResponse defines the Msg/SubmitProposal response type. */
 export interface MsgSubmitProposalResponse {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: bigint;
+    proposalId: Long;
 }
 export interface MsgSubmitProposalResponseProtoMsg {
     typeUrl: "/cosmos.gov.v1.MsgSubmitProposalResponse";
@@ -100,7 +95,7 @@ export interface MsgSubmitProposalResponseAminoMsg {
 }
 /** MsgSubmitProposalResponse defines the Msg/SubmitProposal response type. */
 export interface MsgSubmitProposalResponseSDKType {
-    proposal_id: bigint;
+    proposal_id: Long;
 }
 /**
  * MsgExecLegacyContent is used to wrap the legacy content field into a message.
@@ -108,7 +103,7 @@ export interface MsgSubmitProposalResponseSDKType {
  */
 export interface MsgExecLegacyContent {
     /** content is the proposal's content. */
-    content: (CommunityPoolSpendProposal & CommunityPoolSpendProposalWithDeposit & TextProposal & ParameterChangeProposal & SoftwareUpgradeProposal & CancelSoftwareUpgradeProposal & ClientUpdateProposal & UpgradeProposal & StoreCodeProposal & InstantiateContractProposal & InstantiateContract2Proposal & MigrateContractProposal & SudoContractProposal & ExecuteContractProposal & UpdateAdminProposal & ClearAdminProposal & PinCodesProposal & UnpinCodesProposal & UpdateInstantiateConfigProposal & StoreAndInstantiateContractProposal & Any) | undefined;
+    content: Any;
     /** authority must be the gov module address. */
     authority: string;
 }
@@ -116,9 +111,6 @@ export interface MsgExecLegacyContentProtoMsg {
     typeUrl: "/cosmos.gov.v1.MsgExecLegacyContent";
     value: Uint8Array;
 }
-export type MsgExecLegacyContentEncoded = Omit<MsgExecLegacyContent, "content"> & {
-    /** content is the proposal's content. */ content?: CommunityPoolSpendProposalProtoMsg | CommunityPoolSpendProposalWithDepositProtoMsg | TextProposalProtoMsg | ParameterChangeProposalProtoMsg | SoftwareUpgradeProposalProtoMsg | CancelSoftwareUpgradeProposalProtoMsg | ClientUpdateProposalProtoMsg | UpgradeProposalProtoMsg | StoreCodeProposalProtoMsg | InstantiateContractProposalProtoMsg | InstantiateContract2ProposalProtoMsg | MigrateContractProposalProtoMsg | SudoContractProposalProtoMsg | ExecuteContractProposalProtoMsg | UpdateAdminProposalProtoMsg | ClearAdminProposalProtoMsg | PinCodesProposalProtoMsg | UnpinCodesProposalProtoMsg | UpdateInstantiateConfigProposalProtoMsg | StoreAndInstantiateContractProposalProtoMsg | AnyProtoMsg | undefined;
-};
 /**
  * MsgExecLegacyContent is used to wrap the legacy content field into a message.
  * This ensures backwards compatibility with v1beta1.MsgSubmitProposal.
@@ -138,7 +130,7 @@ export interface MsgExecLegacyContentAminoMsg {
  * This ensures backwards compatibility with v1beta1.MsgSubmitProposal.
  */
 export interface MsgExecLegacyContentSDKType {
-    content: CommunityPoolSpendProposalSDKType | CommunityPoolSpendProposalWithDepositSDKType | TextProposalSDKType | ParameterChangeProposalSDKType | SoftwareUpgradeProposalSDKType | CancelSoftwareUpgradeProposalSDKType | ClientUpdateProposalSDKType | UpgradeProposalSDKType | StoreCodeProposalSDKType | InstantiateContractProposalSDKType | InstantiateContract2ProposalSDKType | MigrateContractProposalSDKType | SudoContractProposalSDKType | ExecuteContractProposalSDKType | UpdateAdminProposalSDKType | ClearAdminProposalSDKType | PinCodesProposalSDKType | UnpinCodesProposalSDKType | UpdateInstantiateConfigProposalSDKType | StoreAndInstantiateContractProposalSDKType | AnySDKType | undefined;
+    content: AnySDKType;
     authority: string;
 }
 /** MsgExecLegacyContentResponse defines the Msg/ExecLegacyContent response type. */
@@ -161,7 +153,7 @@ export interface MsgExecLegacyContentResponseSDKType {
 /** MsgVote defines a message to cast a vote. */
 export interface MsgVote {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: bigint;
+    proposalId: Long;
     /** voter is the voter address for the proposal. */
     voter: string;
     /** option defines the vote option. */
@@ -190,7 +182,7 @@ export interface MsgVoteAminoMsg {
 }
 /** MsgVote defines a message to cast a vote. */
 export interface MsgVoteSDKType {
-    proposal_id: bigint;
+    proposal_id: Long;
     voter: string;
     option: VoteOption;
     metadata: string;
@@ -215,7 +207,7 @@ export interface MsgVoteResponseSDKType {
 /** MsgVoteWeighted defines a message to cast a vote. */
 export interface MsgVoteWeighted {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: bigint;
+    proposalId: Long;
     /** voter is the voter address for the proposal. */
     voter: string;
     /** options defines the weighted vote options. */
@@ -244,7 +236,7 @@ export interface MsgVoteWeightedAminoMsg {
 }
 /** MsgVoteWeighted defines a message to cast a vote. */
 export interface MsgVoteWeightedSDKType {
-    proposal_id: bigint;
+    proposal_id: Long;
     voter: string;
     options: WeightedVoteOptionSDKType[];
     metadata: string;
@@ -269,7 +261,7 @@ export interface MsgVoteWeightedResponseSDKType {
 /** MsgDeposit defines a message to submit a deposit to an existing proposal. */
 export interface MsgDeposit {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: bigint;
+    proposalId: Long;
     /** depositor defines the deposit addresses from the proposals. */
     depositor: string;
     /** amount to be deposited by depositor. */
@@ -294,7 +286,7 @@ export interface MsgDepositAminoMsg {
 }
 /** MsgDeposit defines a message to submit a deposit to an existing proposal. */
 export interface MsgDepositSDKType {
-    proposal_id: bigint;
+    proposal_id: Long;
     depositor: string;
     amount: CoinSDKType[];
 }
@@ -396,8 +388,8 @@ export interface MsgUpdateParamsResponseSDKType {
 }
 export declare const MsgSubmitProposal: {
     typeUrl: string;
-    encode(message: MsgSubmitProposal, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgSubmitProposal;
+    encode(message: MsgSubmitProposal, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgSubmitProposal;
     fromJSON(object: any): MsgSubmitProposal;
     toJSON(message: MsgSubmitProposal): unknown;
     fromPartial(object: Partial<MsgSubmitProposal>): MsgSubmitProposal;
@@ -411,8 +403,8 @@ export declare const MsgSubmitProposal: {
 };
 export declare const MsgSubmitProposalResponse: {
     typeUrl: string;
-    encode(message: MsgSubmitProposalResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgSubmitProposalResponse;
+    encode(message: MsgSubmitProposalResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgSubmitProposalResponse;
     fromJSON(object: any): MsgSubmitProposalResponse;
     toJSON(message: MsgSubmitProposalResponse): unknown;
     fromPartial(object: Partial<MsgSubmitProposalResponse>): MsgSubmitProposalResponse;
@@ -426,8 +418,8 @@ export declare const MsgSubmitProposalResponse: {
 };
 export declare const MsgExecLegacyContent: {
     typeUrl: string;
-    encode(message: MsgExecLegacyContent, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgExecLegacyContent;
+    encode(message: MsgExecLegacyContent, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgExecLegacyContent;
     fromJSON(object: any): MsgExecLegacyContent;
     toJSON(message: MsgExecLegacyContent): unknown;
     fromPartial(object: Partial<MsgExecLegacyContent>): MsgExecLegacyContent;
@@ -441,8 +433,8 @@ export declare const MsgExecLegacyContent: {
 };
 export declare const MsgExecLegacyContentResponse: {
     typeUrl: string;
-    encode(_: MsgExecLegacyContentResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgExecLegacyContentResponse;
+    encode(_: MsgExecLegacyContentResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgExecLegacyContentResponse;
     fromJSON(_: any): MsgExecLegacyContentResponse;
     toJSON(_: MsgExecLegacyContentResponse): unknown;
     fromPartial(_: Partial<MsgExecLegacyContentResponse>): MsgExecLegacyContentResponse;
@@ -456,8 +448,8 @@ export declare const MsgExecLegacyContentResponse: {
 };
 export declare const MsgVote: {
     typeUrl: string;
-    encode(message: MsgVote, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgVote;
+    encode(message: MsgVote, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgVote;
     fromJSON(object: any): MsgVote;
     toJSON(message: MsgVote): unknown;
     fromPartial(object: Partial<MsgVote>): MsgVote;
@@ -471,8 +463,8 @@ export declare const MsgVote: {
 };
 export declare const MsgVoteResponse: {
     typeUrl: string;
-    encode(_: MsgVoteResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgVoteResponse;
+    encode(_: MsgVoteResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgVoteResponse;
     fromJSON(_: any): MsgVoteResponse;
     toJSON(_: MsgVoteResponse): unknown;
     fromPartial(_: Partial<MsgVoteResponse>): MsgVoteResponse;
@@ -486,8 +478,8 @@ export declare const MsgVoteResponse: {
 };
 export declare const MsgVoteWeighted: {
     typeUrl: string;
-    encode(message: MsgVoteWeighted, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgVoteWeighted;
+    encode(message: MsgVoteWeighted, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgVoteWeighted;
     fromJSON(object: any): MsgVoteWeighted;
     toJSON(message: MsgVoteWeighted): unknown;
     fromPartial(object: Partial<MsgVoteWeighted>): MsgVoteWeighted;
@@ -501,8 +493,8 @@ export declare const MsgVoteWeighted: {
 };
 export declare const MsgVoteWeightedResponse: {
     typeUrl: string;
-    encode(_: MsgVoteWeightedResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgVoteWeightedResponse;
+    encode(_: MsgVoteWeightedResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgVoteWeightedResponse;
     fromJSON(_: any): MsgVoteWeightedResponse;
     toJSON(_: MsgVoteWeightedResponse): unknown;
     fromPartial(_: Partial<MsgVoteWeightedResponse>): MsgVoteWeightedResponse;
@@ -516,8 +508,8 @@ export declare const MsgVoteWeightedResponse: {
 };
 export declare const MsgDeposit: {
     typeUrl: string;
-    encode(message: MsgDeposit, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgDeposit;
+    encode(message: MsgDeposit, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgDeposit;
     fromJSON(object: any): MsgDeposit;
     toJSON(message: MsgDeposit): unknown;
     fromPartial(object: Partial<MsgDeposit>): MsgDeposit;
@@ -531,8 +523,8 @@ export declare const MsgDeposit: {
 };
 export declare const MsgDepositResponse: {
     typeUrl: string;
-    encode(_: MsgDepositResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgDepositResponse;
+    encode(_: MsgDepositResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgDepositResponse;
     fromJSON(_: any): MsgDepositResponse;
     toJSON(_: MsgDepositResponse): unknown;
     fromPartial(_: Partial<MsgDepositResponse>): MsgDepositResponse;
@@ -546,8 +538,8 @@ export declare const MsgDepositResponse: {
 };
 export declare const MsgUpdateParams: {
     typeUrl: string;
-    encode(message: MsgUpdateParams, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateParams;
+    encode(message: MsgUpdateParams, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateParams;
     fromJSON(object: any): MsgUpdateParams;
     toJSON(message: MsgUpdateParams): unknown;
     fromPartial(object: Partial<MsgUpdateParams>): MsgUpdateParams;
@@ -561,8 +553,8 @@ export declare const MsgUpdateParams: {
 };
 export declare const MsgUpdateParamsResponse: {
     typeUrl: string;
-    encode(_: MsgUpdateParamsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateParamsResponse;
+    encode(_: MsgUpdateParamsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateParamsResponse;
     fromJSON(_: any): MsgUpdateParamsResponse;
     toJSON(_: MsgUpdateParamsResponse): unknown;
     fromPartial(_: Partial<MsgUpdateParamsResponse>): MsgUpdateParamsResponse;
@@ -574,6 +566,3 @@ export declare const MsgUpdateParamsResponse: {
     toProto(message: MsgUpdateParamsResponse): Uint8Array;
     toProtoMsg(message: MsgUpdateParamsResponse): MsgUpdateParamsResponseProtoMsg;
 };
-export declare const Cosmos_govv1beta1Content_InterfaceDecoder: (input: BinaryReader | Uint8Array) => CommunityPoolSpendProposal | CommunityPoolSpendProposalWithDeposit | TextProposal | ParameterChangeProposal | SoftwareUpgradeProposal | CancelSoftwareUpgradeProposal | ClientUpdateProposal | UpgradeProposal | StoreCodeProposal | InstantiateContractProposal | InstantiateContract2Proposal | MigrateContractProposal | SudoContractProposal | ExecuteContractProposal | UpdateAdminProposal | ClearAdminProposal | PinCodesProposal | UnpinCodesProposal | UpdateInstantiateConfigProposal | StoreAndInstantiateContractProposal | Any;
-export declare const Cosmos_govv1beta1Content_FromAmino: (content: AnyAmino) => Any;
-export declare const Cosmos_govv1beta1Content_ToAmino: (content: Any) => AnyAmino;

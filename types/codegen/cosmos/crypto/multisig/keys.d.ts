@@ -1,5 +1,5 @@
 import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /**
  * LegacyAminoPubKey specifies a public key type
  * which nests multiple public keys and a threshold,
@@ -37,8 +37,8 @@ export interface LegacyAminoPubKeySDKType {
 }
 export declare const LegacyAminoPubKey: {
     typeUrl: string;
-    encode(message: LegacyAminoPubKey, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): LegacyAminoPubKey;
+    encode(message: LegacyAminoPubKey, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): LegacyAminoPubKey;
     fromJSON(object: any): LegacyAminoPubKey;
     toJSON(message: LegacyAminoPubKey): unknown;
     fromPartial(object: Partial<LegacyAminoPubKey>): LegacyAminoPubKey;

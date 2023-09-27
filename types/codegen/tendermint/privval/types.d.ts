@@ -1,6 +1,6 @@
 import { PublicKey, PublicKeyAmino, PublicKeySDKType } from "../crypto/keys";
 import { Vote, VoteAmino, VoteSDKType, Proposal, ProposalAmino, ProposalSDKType } from "../types/types";
-import { BinaryReader, BinaryWriter } from "../../binary";
+import * as _m0 from "protobufjs/minimal";
 export declare enum Errors {
     ERRORS_UNKNOWN = 0,
     ERRORS_UNEXPECTED_RESPONSE = 1,
@@ -243,8 +243,8 @@ export interface MessageSDKType {
 }
 export declare const RemoteSignerError: {
     typeUrl: string;
-    encode(message: RemoteSignerError, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): RemoteSignerError;
+    encode(message: RemoteSignerError, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): RemoteSignerError;
     fromJSON(object: any): RemoteSignerError;
     toJSON(message: RemoteSignerError): unknown;
     fromPartial(object: Partial<RemoteSignerError>): RemoteSignerError;
@@ -257,8 +257,8 @@ export declare const RemoteSignerError: {
 };
 export declare const PubKeyRequest: {
     typeUrl: string;
-    encode(message: PubKeyRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): PubKeyRequest;
+    encode(message: PubKeyRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PubKeyRequest;
     fromJSON(object: any): PubKeyRequest;
     toJSON(message: PubKeyRequest): unknown;
     fromPartial(object: Partial<PubKeyRequest>): PubKeyRequest;
@@ -271,8 +271,8 @@ export declare const PubKeyRequest: {
 };
 export declare const PubKeyResponse: {
     typeUrl: string;
-    encode(message: PubKeyResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): PubKeyResponse;
+    encode(message: PubKeyResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PubKeyResponse;
     fromJSON(object: any): PubKeyResponse;
     toJSON(message: PubKeyResponse): unknown;
     fromPartial(object: Partial<PubKeyResponse>): PubKeyResponse;
@@ -285,8 +285,8 @@ export declare const PubKeyResponse: {
 };
 export declare const SignVoteRequest: {
     typeUrl: string;
-    encode(message: SignVoteRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SignVoteRequest;
+    encode(message: SignVoteRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SignVoteRequest;
     fromJSON(object: any): SignVoteRequest;
     toJSON(message: SignVoteRequest): unknown;
     fromPartial(object: Partial<SignVoteRequest>): SignVoteRequest;
@@ -299,8 +299,8 @@ export declare const SignVoteRequest: {
 };
 export declare const SignedVoteResponse: {
     typeUrl: string;
-    encode(message: SignedVoteResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SignedVoteResponse;
+    encode(message: SignedVoteResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SignedVoteResponse;
     fromJSON(object: any): SignedVoteResponse;
     toJSON(message: SignedVoteResponse): unknown;
     fromPartial(object: Partial<SignedVoteResponse>): SignedVoteResponse;
@@ -313,8 +313,8 @@ export declare const SignedVoteResponse: {
 };
 export declare const SignProposalRequest: {
     typeUrl: string;
-    encode(message: SignProposalRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SignProposalRequest;
+    encode(message: SignProposalRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SignProposalRequest;
     fromJSON(object: any): SignProposalRequest;
     toJSON(message: SignProposalRequest): unknown;
     fromPartial(object: Partial<SignProposalRequest>): SignProposalRequest;
@@ -327,8 +327,8 @@ export declare const SignProposalRequest: {
 };
 export declare const SignedProposalResponse: {
     typeUrl: string;
-    encode(message: SignedProposalResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SignedProposalResponse;
+    encode(message: SignedProposalResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SignedProposalResponse;
     fromJSON(object: any): SignedProposalResponse;
     toJSON(message: SignedProposalResponse): unknown;
     fromPartial(object: Partial<SignedProposalResponse>): SignedProposalResponse;
@@ -341,8 +341,8 @@ export declare const SignedProposalResponse: {
 };
 export declare const PingRequest: {
     typeUrl: string;
-    encode(_: PingRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): PingRequest;
+    encode(_: PingRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PingRequest;
     fromJSON(_: any): PingRequest;
     toJSON(_: PingRequest): unknown;
     fromPartial(_: Partial<PingRequest>): PingRequest;
@@ -355,8 +355,8 @@ export declare const PingRequest: {
 };
 export declare const PingResponse: {
     typeUrl: string;
-    encode(_: PingResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): PingResponse;
+    encode(_: PingResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PingResponse;
     fromJSON(_: any): PingResponse;
     toJSON(_: PingResponse): unknown;
     fromPartial(_: Partial<PingResponse>): PingResponse;
@@ -369,8 +369,8 @@ export declare const PingResponse: {
 };
 export declare const Message: {
     typeUrl: string;
-    encode(message: Message, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Message;
+    encode(message: Message, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Message;
     fromJSON(object: any): Message;
     toJSON(message: Message): unknown;
     fromPartial(object: Partial<Message>): Message;

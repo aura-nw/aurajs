@@ -1,8 +1,9 @@
 import { Block, BlockAmino, BlockSDKType } from "../types/block";
-import { BinaryReader, BinaryWriter } from "../../binary";
+import { Long } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** BlockRequest requests a block for a specific height */
 export interface BlockRequest {
-    height: bigint;
+    height: Long;
 }
 export interface BlockRequestProtoMsg {
     typeUrl: "/tendermint.blockchain.BlockRequest";
@@ -18,11 +19,11 @@ export interface BlockRequestAminoMsg {
 }
 /** BlockRequest requests a block for a specific height */
 export interface BlockRequestSDKType {
-    height: bigint;
+    height: Long;
 }
 /** NoBlockResponse informs the node that the peer does not have block at the requested height */
 export interface NoBlockResponse {
-    height: bigint;
+    height: Long;
 }
 export interface NoBlockResponseProtoMsg {
     typeUrl: "/tendermint.blockchain.NoBlockResponse";
@@ -38,7 +39,7 @@ export interface NoBlockResponseAminoMsg {
 }
 /** NoBlockResponse informs the node that the peer does not have block at the requested height */
 export interface NoBlockResponseSDKType {
-    height: bigint;
+    height: Long;
 }
 /** BlockResponse returns block to the requested */
 export interface BlockResponse {
@@ -79,8 +80,8 @@ export interface StatusRequestSDKType {
 }
 /** StatusResponse is a peer response to inform their status. */
 export interface StatusResponse {
-    height: bigint;
-    base: bigint;
+    height: Long;
+    base: Long;
 }
 export interface StatusResponseProtoMsg {
     typeUrl: "/tendermint.blockchain.StatusResponse";
@@ -97,8 +98,8 @@ export interface StatusResponseAminoMsg {
 }
 /** StatusResponse is a peer response to inform their status. */
 export interface StatusResponseSDKType {
-    height: bigint;
-    base: bigint;
+    height: Long;
+    base: Long;
 }
 export interface Message {
     blockRequest?: BlockRequest;
@@ -131,8 +132,8 @@ export interface MessageSDKType {
 }
 export declare const BlockRequest: {
     typeUrl: string;
-    encode(message: BlockRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): BlockRequest;
+    encode(message: BlockRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): BlockRequest;
     fromJSON(object: any): BlockRequest;
     toJSON(message: BlockRequest): unknown;
     fromPartial(object: Partial<BlockRequest>): BlockRequest;
@@ -145,8 +146,8 @@ export declare const BlockRequest: {
 };
 export declare const NoBlockResponse: {
     typeUrl: string;
-    encode(message: NoBlockResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): NoBlockResponse;
+    encode(message: NoBlockResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): NoBlockResponse;
     fromJSON(object: any): NoBlockResponse;
     toJSON(message: NoBlockResponse): unknown;
     fromPartial(object: Partial<NoBlockResponse>): NoBlockResponse;
@@ -159,8 +160,8 @@ export declare const NoBlockResponse: {
 };
 export declare const BlockResponse: {
     typeUrl: string;
-    encode(message: BlockResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): BlockResponse;
+    encode(message: BlockResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): BlockResponse;
     fromJSON(object: any): BlockResponse;
     toJSON(message: BlockResponse): unknown;
     fromPartial(object: Partial<BlockResponse>): BlockResponse;
@@ -173,8 +174,8 @@ export declare const BlockResponse: {
 };
 export declare const StatusRequest: {
     typeUrl: string;
-    encode(_: StatusRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): StatusRequest;
+    encode(_: StatusRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): StatusRequest;
     fromJSON(_: any): StatusRequest;
     toJSON(_: StatusRequest): unknown;
     fromPartial(_: Partial<StatusRequest>): StatusRequest;
@@ -187,8 +188,8 @@ export declare const StatusRequest: {
 };
 export declare const StatusResponse: {
     typeUrl: string;
-    encode(message: StatusResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): StatusResponse;
+    encode(message: StatusResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): StatusResponse;
     fromJSON(object: any): StatusResponse;
     toJSON(message: StatusResponse): unknown;
     fromPartial(object: Partial<StatusResponse>): StatusResponse;
@@ -201,8 +202,8 @@ export declare const StatusResponse: {
 };
 export declare const Message: {
     typeUrl: string;
-    encode(message: Message, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Message;
+    encode(message: Message, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Message;
     fromJSON(object: any): Message;
     toJSON(message: Message): unknown;
     fromPartial(object: Partial<Message>): Message;

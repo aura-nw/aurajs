@@ -1,13 +1,14 @@
 import { Any, AnyAmino, AnySDKType } from "../../../../google/protobuf/any";
 import { Event, EventAmino, EventSDKType } from "../../../../tendermint/abci/types";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * TxResponse defines a structure containing relevant tx data and metadata. The
  * tags are stringified and the log is JSON decoded.
  */
 export interface TxResponse {
     /** The block height */
-    height: bigint;
+    height: Long;
     /** The transaction hash. */
     txhash: string;
     /** Namespace for the Code */
@@ -26,9 +27,9 @@ export interface TxResponse {
     /** Additional information. May be non-deterministic. */
     info: string;
     /** Amount of gas requested for transaction. */
-    gasWanted: bigint;
+    gasWanted: Long;
     /** Amount of gas consumed by transaction. */
-    gasUsed: bigint;
+    gasUsed: Long;
     /** The request transaction bytes. */
     tx: Any;
     /**
@@ -106,7 +107,7 @@ export interface TxResponseAminoMsg {
  * tags are stringified and the log is JSON decoded.
  */
 export interface TxResponseSDKType {
-    height: bigint;
+    height: Long;
     txhash: string;
     codespace: string;
     code: number;
@@ -114,8 +115,8 @@ export interface TxResponseSDKType {
     raw_log: string;
     logs: ABCIMessageLogSDKType[];
     info: string;
-    gas_wanted: bigint;
-    gas_used: bigint;
+    gas_wanted: Long;
+    gas_used: Long;
     tx: AnySDKType;
     timestamp: string;
     events: EventSDKType[];
@@ -221,9 +222,9 @@ export interface AttributeSDKType {
 /** GasInfo defines tx execution gas context. */
 export interface GasInfo {
     /** GasWanted is the maximum units of work we allow this tx to perform. */
-    gasWanted: bigint;
+    gasWanted: Long;
     /** GasUsed is the amount of gas actually consumed. */
-    gasUsed: bigint;
+    gasUsed: Long;
 }
 export interface GasInfoProtoMsg {
     typeUrl: "/cosmos.base.abci.v1beta1.GasInfo";
@@ -242,8 +243,8 @@ export interface GasInfoAminoMsg {
 }
 /** GasInfo defines tx execution gas context. */
 export interface GasInfoSDKType {
-    gas_wanted: bigint;
-    gas_used: bigint;
+    gas_wanted: Long;
+    gas_used: Long;
 }
 /** Result is the union of ResponseFormat and ResponseCheckTx. */
 export interface Result {
@@ -426,15 +427,15 @@ export interface TxMsgDataSDKType {
 /** SearchTxsResult defines a structure for querying txs pageable */
 export interface SearchTxsResult {
     /** Count of all txs */
-    totalCount: bigint;
+    totalCount: Long;
     /** Count of txs in current page */
-    count: bigint;
+    count: Long;
     /** Index of current page, start from 1 */
-    pageNumber: bigint;
+    pageNumber: Long;
     /** Count of total pages */
-    pageTotal: bigint;
+    pageTotal: Long;
     /** Max count txs per page */
-    limit: bigint;
+    limit: Long;
     /** List of txs in current page */
     txs: TxResponse[];
 }
@@ -463,17 +464,17 @@ export interface SearchTxsResultAminoMsg {
 }
 /** SearchTxsResult defines a structure for querying txs pageable */
 export interface SearchTxsResultSDKType {
-    total_count: bigint;
-    count: bigint;
-    page_number: bigint;
-    page_total: bigint;
-    limit: bigint;
+    total_count: Long;
+    count: Long;
+    page_number: Long;
+    page_total: Long;
+    limit: Long;
     txs: TxResponseSDKType[];
 }
 export declare const TxResponse: {
     typeUrl: string;
-    encode(message: TxResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): TxResponse;
+    encode(message: TxResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TxResponse;
     fromJSON(object: any): TxResponse;
     toJSON(message: TxResponse): unknown;
     fromPartial(object: Partial<TxResponse>): TxResponse;
@@ -487,8 +488,8 @@ export declare const TxResponse: {
 };
 export declare const ABCIMessageLog: {
     typeUrl: string;
-    encode(message: ABCIMessageLog, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ABCIMessageLog;
+    encode(message: ABCIMessageLog, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ABCIMessageLog;
     fromJSON(object: any): ABCIMessageLog;
     toJSON(message: ABCIMessageLog): unknown;
     fromPartial(object: Partial<ABCIMessageLog>): ABCIMessageLog;
@@ -502,8 +503,8 @@ export declare const ABCIMessageLog: {
 };
 export declare const StringEvent: {
     typeUrl: string;
-    encode(message: StringEvent, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): StringEvent;
+    encode(message: StringEvent, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): StringEvent;
     fromJSON(object: any): StringEvent;
     toJSON(message: StringEvent): unknown;
     fromPartial(object: Partial<StringEvent>): StringEvent;
@@ -517,8 +518,8 @@ export declare const StringEvent: {
 };
 export declare const Attribute: {
     typeUrl: string;
-    encode(message: Attribute, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Attribute;
+    encode(message: Attribute, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Attribute;
     fromJSON(object: any): Attribute;
     toJSON(message: Attribute): unknown;
     fromPartial(object: Partial<Attribute>): Attribute;
@@ -532,8 +533,8 @@ export declare const Attribute: {
 };
 export declare const GasInfo: {
     typeUrl: string;
-    encode(message: GasInfo, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GasInfo;
+    encode(message: GasInfo, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GasInfo;
     fromJSON(object: any): GasInfo;
     toJSON(message: GasInfo): unknown;
     fromPartial(object: Partial<GasInfo>): GasInfo;
@@ -547,8 +548,8 @@ export declare const GasInfo: {
 };
 export declare const Result: {
     typeUrl: string;
-    encode(message: Result, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Result;
+    encode(message: Result, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Result;
     fromJSON(object: any): Result;
     toJSON(message: Result): unknown;
     fromPartial(object: Partial<Result>): Result;
@@ -562,8 +563,8 @@ export declare const Result: {
 };
 export declare const SimulationResponse: {
     typeUrl: string;
-    encode(message: SimulationResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SimulationResponse;
+    encode(message: SimulationResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SimulationResponse;
     fromJSON(object: any): SimulationResponse;
     toJSON(message: SimulationResponse): unknown;
     fromPartial(object: Partial<SimulationResponse>): SimulationResponse;
@@ -577,8 +578,8 @@ export declare const SimulationResponse: {
 };
 export declare const MsgData: {
     typeUrl: string;
-    encode(message: MsgData, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgData;
+    encode(message: MsgData, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgData;
     fromJSON(object: any): MsgData;
     toJSON(message: MsgData): unknown;
     fromPartial(object: Partial<MsgData>): MsgData;
@@ -592,8 +593,8 @@ export declare const MsgData: {
 };
 export declare const TxMsgData: {
     typeUrl: string;
-    encode(message: TxMsgData, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): TxMsgData;
+    encode(message: TxMsgData, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TxMsgData;
     fromJSON(object: any): TxMsgData;
     toJSON(message: TxMsgData): unknown;
     fromPartial(object: Partial<TxMsgData>): TxMsgData;
@@ -607,8 +608,8 @@ export declare const TxMsgData: {
 };
 export declare const SearchTxsResult: {
     typeUrl: string;
-    encode(message: SearchTxsResult, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SearchTxsResult;
+    encode(message: SearchTxsResult, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SearchTxsResult;
     fromJSON(object: any): SearchTxsResult;
     toJSON(message: SearchTxsResult): unknown;
     fromPartial(object: Partial<SearchTxsResult>): SearchTxsResult;

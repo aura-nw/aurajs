@@ -1,4 +1,5 @@
-import { BinaryReader, BinaryWriter } from "../../binary";
+import { Long } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export interface Message {
     snapshotsRequest?: SnapshotsRequest;
     snapshotsResponse?: SnapshotsResponse;
@@ -40,7 +41,7 @@ export interface SnapshotsRequestAminoMsg {
 export interface SnapshotsRequestSDKType {
 }
 export interface SnapshotsResponse {
-    height: bigint;
+    height: Long;
     format: number;
     chunks: number;
     hash: Uint8Array;
@@ -62,14 +63,14 @@ export interface SnapshotsResponseAminoMsg {
     value: SnapshotsResponseAmino;
 }
 export interface SnapshotsResponseSDKType {
-    height: bigint;
+    height: Long;
     format: number;
     chunks: number;
     hash: Uint8Array;
     metadata: Uint8Array;
 }
 export interface ChunkRequest {
-    height: bigint;
+    height: Long;
     format: number;
     index: number;
 }
@@ -87,12 +88,12 @@ export interface ChunkRequestAminoMsg {
     value: ChunkRequestAmino;
 }
 export interface ChunkRequestSDKType {
-    height: bigint;
+    height: Long;
     format: number;
     index: number;
 }
 export interface ChunkResponse {
-    height: bigint;
+    height: Long;
     format: number;
     index: number;
     chunk: Uint8Array;
@@ -114,7 +115,7 @@ export interface ChunkResponseAminoMsg {
     value: ChunkResponseAmino;
 }
 export interface ChunkResponseSDKType {
-    height: bigint;
+    height: Long;
     format: number;
     index: number;
     chunk: Uint8Array;
@@ -122,8 +123,8 @@ export interface ChunkResponseSDKType {
 }
 export declare const Message: {
     typeUrl: string;
-    encode(message: Message, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Message;
+    encode(message: Message, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Message;
     fromJSON(object: any): Message;
     toJSON(message: Message): unknown;
     fromPartial(object: Partial<Message>): Message;
@@ -136,8 +137,8 @@ export declare const Message: {
 };
 export declare const SnapshotsRequest: {
     typeUrl: string;
-    encode(_: SnapshotsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SnapshotsRequest;
+    encode(_: SnapshotsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SnapshotsRequest;
     fromJSON(_: any): SnapshotsRequest;
     toJSON(_: SnapshotsRequest): unknown;
     fromPartial(_: Partial<SnapshotsRequest>): SnapshotsRequest;
@@ -150,8 +151,8 @@ export declare const SnapshotsRequest: {
 };
 export declare const SnapshotsResponse: {
     typeUrl: string;
-    encode(message: SnapshotsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SnapshotsResponse;
+    encode(message: SnapshotsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SnapshotsResponse;
     fromJSON(object: any): SnapshotsResponse;
     toJSON(message: SnapshotsResponse): unknown;
     fromPartial(object: Partial<SnapshotsResponse>): SnapshotsResponse;
@@ -164,8 +165,8 @@ export declare const SnapshotsResponse: {
 };
 export declare const ChunkRequest: {
     typeUrl: string;
-    encode(message: ChunkRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ChunkRequest;
+    encode(message: ChunkRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ChunkRequest;
     fromJSON(object: any): ChunkRequest;
     toJSON(message: ChunkRequest): unknown;
     fromPartial(object: Partial<ChunkRequest>): ChunkRequest;
@@ -178,8 +179,8 @@ export declare const ChunkRequest: {
 };
 export declare const ChunkResponse: {
     typeUrl: string;
-    encode(message: ChunkResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ChunkResponse;
+    encode(message: ChunkResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ChunkResponse;
     fromJSON(object: any): ChunkResponse;
     toJSON(message: ChunkResponse): unknown;
     fromPartial(object: Partial<ChunkResponse>): ChunkResponse;

@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { isSet } from "../../../../helpers";
 /**
  * Metadata defines the ICS29 channel specific metadata encoded into the channel version bytestring
@@ -44,7 +44,7 @@ function createBaseMetadata(): Metadata {
 }
 export const Metadata = {
   typeUrl: "/ibc.applications.fee.v1.Metadata",
-  encode(message: Metadata, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: Metadata, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.feeVersion !== "") {
       writer.uint32(10).string(message.feeVersion);
     }
@@ -53,8 +53,8 @@ export const Metadata = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Metadata {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): Metadata {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMetadata();
     while (reader.pos < end) {

@@ -1,16 +1,16 @@
 import { Any, AnyAmino, AnySDKType } from "../../../google/protobuf/any";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * BaseAccount defines a base account type. It contains all the necessary fields
  * for basic account functionality. Any custom account type should extend this
  * type for additional functionality (e.g. vesting).
  */
 export interface BaseAccount {
-    $typeUrl?: string;
     address: string;
     pubKey: Any;
-    accountNumber: bigint;
-    sequence: bigint;
+    accountNumber: Long;
+    sequence: Long;
 }
 export interface BaseAccountProtoMsg {
     typeUrl: "/cosmos.auth.v1beta1.BaseAccount";
@@ -37,15 +37,13 @@ export interface BaseAccountAminoMsg {
  * type for additional functionality (e.g. vesting).
  */
 export interface BaseAccountSDKType {
-    $typeUrl?: string;
     address: string;
     pub_key: AnySDKType;
-    account_number: bigint;
-    sequence: bigint;
+    account_number: Long;
+    sequence: Long;
 }
 /** ModuleAccount defines an account for modules that holds coins on a pool. */
 export interface ModuleAccount {
-    $typeUrl?: string;
     baseAccount: BaseAccount;
     name: string;
     permissions: string[];
@@ -66,7 +64,6 @@ export interface ModuleAccountAminoMsg {
 }
 /** ModuleAccount defines an account for modules that holds coins on a pool. */
 export interface ModuleAccountSDKType {
-    $typeUrl?: string;
     base_account: BaseAccountSDKType;
     name: string;
     permissions: string[];
@@ -118,11 +115,11 @@ export interface ModuleCredentialSDKType {
 }
 /** Params defines the parameters for the auth module. */
 export interface Params {
-    maxMemoCharacters: bigint;
-    txSigLimit: bigint;
-    txSizeCostPerByte: bigint;
-    sigVerifyCostEd25519: bigint;
-    sigVerifyCostSecp256k1: bigint;
+    maxMemoCharacters: Long;
+    txSigLimit: Long;
+    txSizeCostPerByte: Long;
+    sigVerifyCostEd25519: Long;
+    sigVerifyCostSecp256k1: Long;
 }
 export interface ParamsProtoMsg {
     typeUrl: "/cosmos.auth.v1beta1.Params";
@@ -142,16 +139,16 @@ export interface ParamsAminoMsg {
 }
 /** Params defines the parameters for the auth module. */
 export interface ParamsSDKType {
-    max_memo_characters: bigint;
-    tx_sig_limit: bigint;
-    tx_size_cost_per_byte: bigint;
-    sig_verify_cost_ed25519: bigint;
-    sig_verify_cost_secp256k1: bigint;
+    max_memo_characters: Long;
+    tx_sig_limit: Long;
+    tx_size_cost_per_byte: Long;
+    sig_verify_cost_ed25519: Long;
+    sig_verify_cost_secp256k1: Long;
 }
 export declare const BaseAccount: {
     typeUrl: string;
-    encode(message: BaseAccount, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): BaseAccount;
+    encode(message: BaseAccount, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): BaseAccount;
     fromJSON(object: any): BaseAccount;
     toJSON(message: BaseAccount): unknown;
     fromPartial(object: Partial<BaseAccount>): BaseAccount;
@@ -165,8 +162,8 @@ export declare const BaseAccount: {
 };
 export declare const ModuleAccount: {
     typeUrl: string;
-    encode(message: ModuleAccount, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ModuleAccount;
+    encode(message: ModuleAccount, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ModuleAccount;
     fromJSON(object: any): ModuleAccount;
     toJSON(message: ModuleAccount): unknown;
     fromPartial(object: Partial<ModuleAccount>): ModuleAccount;
@@ -180,8 +177,8 @@ export declare const ModuleAccount: {
 };
 export declare const ModuleCredential: {
     typeUrl: string;
-    encode(message: ModuleCredential, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ModuleCredential;
+    encode(message: ModuleCredential, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ModuleCredential;
     fromJSON(object: any): ModuleCredential;
     toJSON(message: ModuleCredential): unknown;
     fromPartial(object: Partial<ModuleCredential>): ModuleCredential;
@@ -195,8 +192,8 @@ export declare const ModuleCredential: {
 };
 export declare const Params: {
     typeUrl: string;
-    encode(message: Params, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Params;
+    encode(message: Params, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Params;
     fromJSON(object: any): Params;
     toJSON(message: Params): unknown;
     fromPartial(object: Partial<Params>): Params;

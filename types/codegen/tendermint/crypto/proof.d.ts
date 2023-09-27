@@ -1,7 +1,8 @@
-import { BinaryReader, BinaryWriter } from "../../binary";
+import { Long } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export interface Proof {
-    total: bigint;
-    index: bigint;
+    total: Long;
+    index: Long;
     leafHash: Uint8Array;
     aunts: Uint8Array[];
 }
@@ -20,8 +21,8 @@ export interface ProofAminoMsg {
     value: ProofAmino;
 }
 export interface ProofSDKType {
-    total: bigint;
-    index: bigint;
+    total: Long;
+    index: Long;
     leaf_hash: Uint8Array;
     aunts: Uint8Array[];
 }
@@ -132,8 +133,8 @@ export interface ProofOpsSDKType {
 }
 export declare const Proof: {
     typeUrl: string;
-    encode(message: Proof, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Proof;
+    encode(message: Proof, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Proof;
     fromJSON(object: any): Proof;
     toJSON(message: Proof): unknown;
     fromPartial(object: Partial<Proof>): Proof;
@@ -146,8 +147,8 @@ export declare const Proof: {
 };
 export declare const ValueOp: {
     typeUrl: string;
-    encode(message: ValueOp, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ValueOp;
+    encode(message: ValueOp, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ValueOp;
     fromJSON(object: any): ValueOp;
     toJSON(message: ValueOp): unknown;
     fromPartial(object: Partial<ValueOp>): ValueOp;
@@ -160,8 +161,8 @@ export declare const ValueOp: {
 };
 export declare const DominoOp: {
     typeUrl: string;
-    encode(message: DominoOp, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): DominoOp;
+    encode(message: DominoOp, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): DominoOp;
     fromJSON(object: any): DominoOp;
     toJSON(message: DominoOp): unknown;
     fromPartial(object: Partial<DominoOp>): DominoOp;
@@ -174,8 +175,8 @@ export declare const DominoOp: {
 };
 export declare const ProofOp: {
     typeUrl: string;
-    encode(message: ProofOp, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ProofOp;
+    encode(message: ProofOp, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ProofOp;
     fromJSON(object: any): ProofOp;
     toJSON(message: ProofOp): unknown;
     fromPartial(object: Partial<ProofOp>): ProofOp;
@@ -188,8 +189,8 @@ export declare const ProofOp: {
 };
 export declare const ProofOps: {
     typeUrl: string;
-    encode(message: ProofOps, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ProofOps;
+    encode(message: ProofOps, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ProofOps;
     fromJSON(object: any): ProofOps;
     toJSON(message: ProofOps): unknown;
     fromPartial(object: Partial<ProofOps>): ProofOps;

@@ -1,10 +1,11 @@
 import { Params, ParamsAmino, ParamsSDKType } from "./params";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** GenesisState defines the smartaccount module's genesis state. */
 export interface GenesisState {
     params: Params;
     /** this line is used by starport scaffolding # genesis/proto/state */
-    smartAccountId: bigint;
+    smartAccountId: Long;
 }
 export interface GenesisStateProtoMsg {
     typeUrl: "/aura.smartaccount.v1beta1.GenesisState";
@@ -23,12 +24,12 @@ export interface GenesisStateAminoMsg {
 /** GenesisState defines the smartaccount module's genesis state. */
 export interface GenesisStateSDKType {
     params: ParamsSDKType;
-    smart_account_id: bigint;
+    smart_account_id: Long;
 }
 export declare const GenesisState: {
     typeUrl: string;
-    encode(message: GenesisState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GenesisState;
+    encode(message: GenesisState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GenesisState;
     fromJSON(object: any): GenesisState;
     toJSON(message: GenesisState): unknown;
     fromPartial(object: Partial<GenesisState>): GenesisState;

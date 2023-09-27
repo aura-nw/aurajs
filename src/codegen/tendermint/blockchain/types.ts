@@ -1,9 +1,9 @@
 import { Block, BlockAmino, BlockSDKType } from "../types/block";
-import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet } from "../../helpers";
+import { Long, isSet } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** BlockRequest requests a block for a specific height */
 export interface BlockRequest {
-  height: bigint;
+  height: Long;
 }
 export interface BlockRequestProtoMsg {
   typeUrl: "/tendermint.blockchain.BlockRequest";
@@ -19,11 +19,11 @@ export interface BlockRequestAminoMsg {
 }
 /** BlockRequest requests a block for a specific height */
 export interface BlockRequestSDKType {
-  height: bigint;
+  height: Long;
 }
 /** NoBlockResponse informs the node that the peer does not have block at the requested height */
 export interface NoBlockResponse {
-  height: bigint;
+  height: Long;
 }
 export interface NoBlockResponseProtoMsg {
   typeUrl: "/tendermint.blockchain.NoBlockResponse";
@@ -39,7 +39,7 @@ export interface NoBlockResponseAminoMsg {
 }
 /** NoBlockResponse informs the node that the peer does not have block at the requested height */
 export interface NoBlockResponseSDKType {
-  height: bigint;
+  height: Long;
 }
 /** BlockResponse returns block to the requested */
 export interface BlockResponse {
@@ -77,8 +77,8 @@ export interface StatusRequestAminoMsg {
 export interface StatusRequestSDKType {}
 /** StatusResponse is a peer response to inform their status. */
 export interface StatusResponse {
-  height: bigint;
-  base: bigint;
+  height: Long;
+  base: Long;
 }
 export interface StatusResponseProtoMsg {
   typeUrl: "/tendermint.blockchain.StatusResponse";
@@ -95,8 +95,8 @@ export interface StatusResponseAminoMsg {
 }
 /** StatusResponse is a peer response to inform their status. */
 export interface StatusResponseSDKType {
-  height: bigint;
-  base: bigint;
+  height: Long;
+  base: Long;
 }
 export interface Message {
   blockRequest?: BlockRequest;
@@ -129,26 +129,26 @@ export interface MessageSDKType {
 }
 function createBaseBlockRequest(): BlockRequest {
   return {
-    height: BigInt(0)
+    height: Long.ZERO
   };
 }
 export const BlockRequest = {
   typeUrl: "/tendermint.blockchain.BlockRequest",
-  encode(message: BlockRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.height !== BigInt(0)) {
+  encode(message: BlockRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.height.isZero()) {
       writer.uint32(8).int64(message.height);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): BlockRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): BlockRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseBlockRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.height = reader.int64();
+          message.height = (reader.int64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -159,22 +159,22 @@ export const BlockRequest = {
   },
   fromJSON(object: any): BlockRequest {
     return {
-      height: isSet(object.height) ? BigInt(object.height.toString()) : BigInt(0)
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO
     };
   },
   toJSON(message: BlockRequest): unknown {
     const obj: any = {};
-    message.height !== undefined && (obj.height = (message.height || BigInt(0)).toString());
+    message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
     return obj;
   },
   fromPartial(object: Partial<BlockRequest>): BlockRequest {
     const message = createBaseBlockRequest();
-    message.height = object.height !== undefined && object.height !== null ? BigInt(object.height.toString()) : BigInt(0);
+    message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
     return message;
   },
   fromAmino(object: BlockRequestAmino): BlockRequest {
     return {
-      height: BigInt(object.height)
+      height: Long.fromString(object.height)
     };
   },
   toAmino(message: BlockRequest): BlockRequestAmino {
@@ -200,26 +200,26 @@ export const BlockRequest = {
 };
 function createBaseNoBlockResponse(): NoBlockResponse {
   return {
-    height: BigInt(0)
+    height: Long.ZERO
   };
 }
 export const NoBlockResponse = {
   typeUrl: "/tendermint.blockchain.NoBlockResponse",
-  encode(message: NoBlockResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.height !== BigInt(0)) {
+  encode(message: NoBlockResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.height.isZero()) {
       writer.uint32(8).int64(message.height);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): NoBlockResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): NoBlockResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseNoBlockResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.height = reader.int64();
+          message.height = (reader.int64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -230,22 +230,22 @@ export const NoBlockResponse = {
   },
   fromJSON(object: any): NoBlockResponse {
     return {
-      height: isSet(object.height) ? BigInt(object.height.toString()) : BigInt(0)
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO
     };
   },
   toJSON(message: NoBlockResponse): unknown {
     const obj: any = {};
-    message.height !== undefined && (obj.height = (message.height || BigInt(0)).toString());
+    message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
     return obj;
   },
   fromPartial(object: Partial<NoBlockResponse>): NoBlockResponse {
     const message = createBaseNoBlockResponse();
-    message.height = object.height !== undefined && object.height !== null ? BigInt(object.height.toString()) : BigInt(0);
+    message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
     return message;
   },
   fromAmino(object: NoBlockResponseAmino): NoBlockResponse {
     return {
-      height: BigInt(object.height)
+      height: Long.fromString(object.height)
     };
   },
   toAmino(message: NoBlockResponse): NoBlockResponseAmino {
@@ -276,14 +276,14 @@ function createBaseBlockResponse(): BlockResponse {
 }
 export const BlockResponse = {
   typeUrl: "/tendermint.blockchain.BlockResponse",
-  encode(message: BlockResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: BlockResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.block !== undefined) {
       Block.encode(message.block, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): BlockResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): BlockResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseBlockResponse();
     while (reader.pos < end) {
@@ -345,11 +345,11 @@ function createBaseStatusRequest(): StatusRequest {
 }
 export const StatusRequest = {
   typeUrl: "/tendermint.blockchain.StatusRequest",
-  encode(_: StatusRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: StatusRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): StatusRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): StatusRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseStatusRequest();
     while (reader.pos < end) {
@@ -398,33 +398,33 @@ export const StatusRequest = {
 };
 function createBaseStatusResponse(): StatusResponse {
   return {
-    height: BigInt(0),
-    base: BigInt(0)
+    height: Long.ZERO,
+    base: Long.ZERO
   };
 }
 export const StatusResponse = {
   typeUrl: "/tendermint.blockchain.StatusResponse",
-  encode(message: StatusResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.height !== BigInt(0)) {
+  encode(message: StatusResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.height.isZero()) {
       writer.uint32(8).int64(message.height);
     }
-    if (message.base !== BigInt(0)) {
+    if (!message.base.isZero()) {
       writer.uint32(16).int64(message.base);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): StatusResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): StatusResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseStatusResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.height = reader.int64();
+          message.height = (reader.int64() as Long);
           break;
         case 2:
-          message.base = reader.int64();
+          message.base = (reader.int64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -435,26 +435,26 @@ export const StatusResponse = {
   },
   fromJSON(object: any): StatusResponse {
     return {
-      height: isSet(object.height) ? BigInt(object.height.toString()) : BigInt(0),
-      base: isSet(object.base) ? BigInt(object.base.toString()) : BigInt(0)
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
+      base: isSet(object.base) ? Long.fromValue(object.base) : Long.ZERO
     };
   },
   toJSON(message: StatusResponse): unknown {
     const obj: any = {};
-    message.height !== undefined && (obj.height = (message.height || BigInt(0)).toString());
-    message.base !== undefined && (obj.base = (message.base || BigInt(0)).toString());
+    message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
+    message.base !== undefined && (obj.base = (message.base || Long.ZERO).toString());
     return obj;
   },
   fromPartial(object: Partial<StatusResponse>): StatusResponse {
     const message = createBaseStatusResponse();
-    message.height = object.height !== undefined && object.height !== null ? BigInt(object.height.toString()) : BigInt(0);
-    message.base = object.base !== undefined && object.base !== null ? BigInt(object.base.toString()) : BigInt(0);
+    message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
+    message.base = object.base !== undefined && object.base !== null ? Long.fromValue(object.base) : Long.ZERO;
     return message;
   },
   fromAmino(object: StatusResponseAmino): StatusResponse {
     return {
-      height: BigInt(object.height),
-      base: BigInt(object.base)
+      height: Long.fromString(object.height),
+      base: Long.fromString(object.base)
     };
   },
   toAmino(message: StatusResponse): StatusResponseAmino {
@@ -490,7 +490,7 @@ function createBaseMessage(): Message {
 }
 export const Message = {
   typeUrl: "/tendermint.blockchain.Message",
-  encode(message: Message, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: Message, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.blockRequest !== undefined) {
       BlockRequest.encode(message.blockRequest, writer.uint32(10).fork()).ldelim();
     }
@@ -508,8 +508,8 @@ export const Message = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Message {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): Message {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMessage();
     while (reader.pos < end) {

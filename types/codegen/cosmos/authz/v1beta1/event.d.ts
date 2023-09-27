@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** EventGrant is emitted on Msg/Grant */
 export interface EventGrant {
     /** Msg type URL for which an autorization is granted */
@@ -65,8 +65,8 @@ export interface EventRevokeSDKType {
 }
 export declare const EventGrant: {
     typeUrl: string;
-    encode(message: EventGrant, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): EventGrant;
+    encode(message: EventGrant, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): EventGrant;
     fromJSON(object: any): EventGrant;
     toJSON(message: EventGrant): unknown;
     fromPartial(object: Partial<EventGrant>): EventGrant;
@@ -80,8 +80,8 @@ export declare const EventGrant: {
 };
 export declare const EventRevoke: {
     typeUrl: string;
-    encode(message: EventRevoke, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): EventRevoke;
+    encode(message: EventRevoke, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): EventRevoke;
     fromJSON(object: any): EventRevoke;
     toJSON(message: EventRevoke): unknown;
     fromPartial(object: Partial<EventRevoke>): EventRevoke;

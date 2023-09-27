@@ -1,7 +1,8 @@
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export interface BitArray {
-    bits: bigint;
-    elems: bigint[];
+    bits: Long;
+    elems: Long[];
 }
 export interface BitArrayProtoMsg {
     typeUrl: "/tendermint.libs.bits.BitArray";
@@ -16,13 +17,13 @@ export interface BitArrayAminoMsg {
     value: BitArrayAmino;
 }
 export interface BitArraySDKType {
-    bits: bigint;
-    elems: bigint[];
+    bits: Long;
+    elems: Long[];
 }
 export declare const BitArray: {
     typeUrl: string;
-    encode(message: BitArray, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): BitArray;
+    encode(message: BitArray, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): BitArray;
     fromJSON(object: any): BitArray;
     toJSON(message: BitArray): unknown;
     fromPartial(object: Partial<BitArray>): BitArray;

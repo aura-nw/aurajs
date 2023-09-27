@@ -1,5 +1,6 @@
 import { IdentifiedClientState, IdentifiedClientStateAmino, IdentifiedClientStateSDKType, ClientConsensusStates, ClientConsensusStatesAmino, ClientConsensusStatesSDKType, Params, ParamsAmino, ParamsSDKType } from "./client";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** GenesisState defines the ibc client submodule's genesis state. */
 export interface GenesisState {
     /** client states with their corresponding identifiers */
@@ -12,7 +13,7 @@ export interface GenesisState {
     /** create localhost on initialization */
     createLocalhost: boolean;
     /** the sequence for the next generated client identifier */
-    nextClientSequence: bigint;
+    nextClientSequence: Long;
 }
 export interface GenesisStateProtoMsg {
     typeUrl: "/ibc.core.client.v1.GenesisState";
@@ -43,7 +44,7 @@ export interface GenesisStateSDKType {
     clients_metadata: IdentifiedGenesisMetadataSDKType[];
     params: ParamsSDKType;
     create_localhost: boolean;
-    next_client_sequence: bigint;
+    next_client_sequence: Long;
 }
 /**
  * GenesisMetadata defines the genesis type for metadata that clients may return
@@ -115,8 +116,8 @@ export interface IdentifiedGenesisMetadataSDKType {
 }
 export declare const GenesisState: {
     typeUrl: string;
-    encode(message: GenesisState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GenesisState;
+    encode(message: GenesisState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GenesisState;
     fromJSON(object: any): GenesisState;
     toJSON(message: GenesisState): unknown;
     fromPartial(object: Partial<GenesisState>): GenesisState;
@@ -130,8 +131,8 @@ export declare const GenesisState: {
 };
 export declare const GenesisMetadata: {
     typeUrl: string;
-    encode(message: GenesisMetadata, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GenesisMetadata;
+    encode(message: GenesisMetadata, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GenesisMetadata;
     fromJSON(object: any): GenesisMetadata;
     toJSON(message: GenesisMetadata): unknown;
     fromPartial(object: Partial<GenesisMetadata>): GenesisMetadata;
@@ -145,8 +146,8 @@ export declare const GenesisMetadata: {
 };
 export declare const IdentifiedGenesisMetadata: {
     typeUrl: string;
-    encode(message: IdentifiedGenesisMetadata, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): IdentifiedGenesisMetadata;
+    encode(message: IdentifiedGenesisMetadata, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): IdentifiedGenesisMetadata;
     fromJSON(object: any): IdentifiedGenesisMetadata;
     toJSON(message: IdentifiedGenesisMetadata): unknown;
     fromPartial(object: Partial<IdentifiedGenesisMetadata>): IdentifiedGenesisMetadata;

@@ -1,6 +1,6 @@
 import { Coin, CoinAmino, CoinSDKType } from "../../base/v1beta1/coin";
 import { Params, ParamsAmino, ParamsSDKType } from "./distribution";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /**
  * MsgSetWithdrawAddress sets the withdraw address for
  * a delegator (or validator self-delegation).
@@ -390,8 +390,8 @@ export interface MsgCommunityPoolSpendResponseSDKType {
 }
 export declare const MsgSetWithdrawAddress: {
     typeUrl: string;
-    encode(message: MsgSetWithdrawAddress, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgSetWithdrawAddress;
+    encode(message: MsgSetWithdrawAddress, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgSetWithdrawAddress;
     fromJSON(object: any): MsgSetWithdrawAddress;
     toJSON(message: MsgSetWithdrawAddress): unknown;
     fromPartial(object: Partial<MsgSetWithdrawAddress>): MsgSetWithdrawAddress;
@@ -405,8 +405,8 @@ export declare const MsgSetWithdrawAddress: {
 };
 export declare const MsgSetWithdrawAddressResponse: {
     typeUrl: string;
-    encode(_: MsgSetWithdrawAddressResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgSetWithdrawAddressResponse;
+    encode(_: MsgSetWithdrawAddressResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgSetWithdrawAddressResponse;
     fromJSON(_: any): MsgSetWithdrawAddressResponse;
     toJSON(_: MsgSetWithdrawAddressResponse): unknown;
     fromPartial(_: Partial<MsgSetWithdrawAddressResponse>): MsgSetWithdrawAddressResponse;
@@ -420,8 +420,8 @@ export declare const MsgSetWithdrawAddressResponse: {
 };
 export declare const MsgWithdrawDelegatorReward: {
     typeUrl: string;
-    encode(message: MsgWithdrawDelegatorReward, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgWithdrawDelegatorReward;
+    encode(message: MsgWithdrawDelegatorReward, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgWithdrawDelegatorReward;
     fromJSON(object: any): MsgWithdrawDelegatorReward;
     toJSON(message: MsgWithdrawDelegatorReward): unknown;
     fromPartial(object: Partial<MsgWithdrawDelegatorReward>): MsgWithdrawDelegatorReward;
@@ -435,8 +435,8 @@ export declare const MsgWithdrawDelegatorReward: {
 };
 export declare const MsgWithdrawDelegatorRewardResponse: {
     typeUrl: string;
-    encode(message: MsgWithdrawDelegatorRewardResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgWithdrawDelegatorRewardResponse;
+    encode(message: MsgWithdrawDelegatorRewardResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgWithdrawDelegatorRewardResponse;
     fromJSON(object: any): MsgWithdrawDelegatorRewardResponse;
     toJSON(message: MsgWithdrawDelegatorRewardResponse): unknown;
     fromPartial(object: Partial<MsgWithdrawDelegatorRewardResponse>): MsgWithdrawDelegatorRewardResponse;
@@ -450,8 +450,8 @@ export declare const MsgWithdrawDelegatorRewardResponse: {
 };
 export declare const MsgWithdrawValidatorCommission: {
     typeUrl: string;
-    encode(message: MsgWithdrawValidatorCommission, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgWithdrawValidatorCommission;
+    encode(message: MsgWithdrawValidatorCommission, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgWithdrawValidatorCommission;
     fromJSON(object: any): MsgWithdrawValidatorCommission;
     toJSON(message: MsgWithdrawValidatorCommission): unknown;
     fromPartial(object: Partial<MsgWithdrawValidatorCommission>): MsgWithdrawValidatorCommission;
@@ -465,8 +465,8 @@ export declare const MsgWithdrawValidatorCommission: {
 };
 export declare const MsgWithdrawValidatorCommissionResponse: {
     typeUrl: string;
-    encode(message: MsgWithdrawValidatorCommissionResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgWithdrawValidatorCommissionResponse;
+    encode(message: MsgWithdrawValidatorCommissionResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgWithdrawValidatorCommissionResponse;
     fromJSON(object: any): MsgWithdrawValidatorCommissionResponse;
     toJSON(message: MsgWithdrawValidatorCommissionResponse): unknown;
     fromPartial(object: Partial<MsgWithdrawValidatorCommissionResponse>): MsgWithdrawValidatorCommissionResponse;
@@ -480,8 +480,8 @@ export declare const MsgWithdrawValidatorCommissionResponse: {
 };
 export declare const MsgFundCommunityPool: {
     typeUrl: string;
-    encode(message: MsgFundCommunityPool, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgFundCommunityPool;
+    encode(message: MsgFundCommunityPool, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgFundCommunityPool;
     fromJSON(object: any): MsgFundCommunityPool;
     toJSON(message: MsgFundCommunityPool): unknown;
     fromPartial(object: Partial<MsgFundCommunityPool>): MsgFundCommunityPool;
@@ -495,8 +495,8 @@ export declare const MsgFundCommunityPool: {
 };
 export declare const MsgFundCommunityPoolResponse: {
     typeUrl: string;
-    encode(_: MsgFundCommunityPoolResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgFundCommunityPoolResponse;
+    encode(_: MsgFundCommunityPoolResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgFundCommunityPoolResponse;
     fromJSON(_: any): MsgFundCommunityPoolResponse;
     toJSON(_: MsgFundCommunityPoolResponse): unknown;
     fromPartial(_: Partial<MsgFundCommunityPoolResponse>): MsgFundCommunityPoolResponse;
@@ -510,8 +510,8 @@ export declare const MsgFundCommunityPoolResponse: {
 };
 export declare const MsgUpdateParams: {
     typeUrl: string;
-    encode(message: MsgUpdateParams, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateParams;
+    encode(message: MsgUpdateParams, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateParams;
     fromJSON(object: any): MsgUpdateParams;
     toJSON(message: MsgUpdateParams): unknown;
     fromPartial(object: Partial<MsgUpdateParams>): MsgUpdateParams;
@@ -525,8 +525,8 @@ export declare const MsgUpdateParams: {
 };
 export declare const MsgUpdateParamsResponse: {
     typeUrl: string;
-    encode(_: MsgUpdateParamsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateParamsResponse;
+    encode(_: MsgUpdateParamsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateParamsResponse;
     fromJSON(_: any): MsgUpdateParamsResponse;
     toJSON(_: MsgUpdateParamsResponse): unknown;
     fromPartial(_: Partial<MsgUpdateParamsResponse>): MsgUpdateParamsResponse;
@@ -540,8 +540,8 @@ export declare const MsgUpdateParamsResponse: {
 };
 export declare const MsgCommunityPoolSpend: {
     typeUrl: string;
-    encode(message: MsgCommunityPoolSpend, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgCommunityPoolSpend;
+    encode(message: MsgCommunityPoolSpend, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCommunityPoolSpend;
     fromJSON(object: any): MsgCommunityPoolSpend;
     toJSON(message: MsgCommunityPoolSpend): unknown;
     fromPartial(object: Partial<MsgCommunityPoolSpend>): MsgCommunityPoolSpend;
@@ -555,8 +555,8 @@ export declare const MsgCommunityPoolSpend: {
 };
 export declare const MsgCommunityPoolSpendResponse: {
     typeUrl: string;
-    encode(_: MsgCommunityPoolSpendResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgCommunityPoolSpendResponse;
+    encode(_: MsgCommunityPoolSpendResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgCommunityPoolSpendResponse;
     fromJSON(_: any): MsgCommunityPoolSpendResponse;
     toJSON(_: MsgCommunityPoolSpendResponse): unknown;
     fromPartial(_: Partial<MsgCommunityPoolSpendResponse>): MsgCommunityPoolSpendResponse;

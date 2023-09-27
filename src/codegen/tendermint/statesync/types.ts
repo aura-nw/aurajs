@@ -1,5 +1,5 @@
-import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet, bytesFromBase64, base64FromBytes } from "../../helpers";
+import { Long, isSet, bytesFromBase64, base64FromBytes } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export interface Message {
   snapshotsRequest?: SnapshotsRequest;
   snapshotsResponse?: SnapshotsResponse;
@@ -38,7 +38,7 @@ export interface SnapshotsRequestAminoMsg {
 }
 export interface SnapshotsRequestSDKType {}
 export interface SnapshotsResponse {
-  height: bigint;
+  height: Long;
   format: number;
   chunks: number;
   hash: Uint8Array;
@@ -60,14 +60,14 @@ export interface SnapshotsResponseAminoMsg {
   value: SnapshotsResponseAmino;
 }
 export interface SnapshotsResponseSDKType {
-  height: bigint;
+  height: Long;
   format: number;
   chunks: number;
   hash: Uint8Array;
   metadata: Uint8Array;
 }
 export interface ChunkRequest {
-  height: bigint;
+  height: Long;
   format: number;
   index: number;
 }
@@ -85,12 +85,12 @@ export interface ChunkRequestAminoMsg {
   value: ChunkRequestAmino;
 }
 export interface ChunkRequestSDKType {
-  height: bigint;
+  height: Long;
   format: number;
   index: number;
 }
 export interface ChunkResponse {
-  height: bigint;
+  height: Long;
   format: number;
   index: number;
   chunk: Uint8Array;
@@ -112,7 +112,7 @@ export interface ChunkResponseAminoMsg {
   value: ChunkResponseAmino;
 }
 export interface ChunkResponseSDKType {
-  height: bigint;
+  height: Long;
   format: number;
   index: number;
   chunk: Uint8Array;
@@ -128,7 +128,7 @@ function createBaseMessage(): Message {
 }
 export const Message = {
   typeUrl: "/tendermint.statesync.Message",
-  encode(message: Message, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: Message, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.snapshotsRequest !== undefined) {
       SnapshotsRequest.encode(message.snapshotsRequest, writer.uint32(10).fork()).ldelim();
     }
@@ -143,8 +143,8 @@ export const Message = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Message {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): Message {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMessage();
     while (reader.pos < end) {
@@ -230,11 +230,11 @@ function createBaseSnapshotsRequest(): SnapshotsRequest {
 }
 export const SnapshotsRequest = {
   typeUrl: "/tendermint.statesync.SnapshotsRequest",
-  encode(_: SnapshotsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: SnapshotsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): SnapshotsRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): SnapshotsRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseSnapshotsRequest();
     while (reader.pos < end) {
@@ -283,7 +283,7 @@ export const SnapshotsRequest = {
 };
 function createBaseSnapshotsResponse(): SnapshotsResponse {
   return {
-    height: BigInt(0),
+    height: Long.UZERO,
     format: 0,
     chunks: 0,
     hash: new Uint8Array(),
@@ -292,8 +292,8 @@ function createBaseSnapshotsResponse(): SnapshotsResponse {
 }
 export const SnapshotsResponse = {
   typeUrl: "/tendermint.statesync.SnapshotsResponse",
-  encode(message: SnapshotsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.height !== BigInt(0)) {
+  encode(message: SnapshotsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.height.isZero()) {
       writer.uint32(8).uint64(message.height);
     }
     if (message.format !== 0) {
@@ -310,15 +310,15 @@ export const SnapshotsResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): SnapshotsResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): SnapshotsResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseSnapshotsResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.height = reader.uint64();
+          message.height = (reader.uint64() as Long);
           break;
         case 2:
           message.format = reader.uint32();
@@ -341,7 +341,7 @@ export const SnapshotsResponse = {
   },
   fromJSON(object: any): SnapshotsResponse {
     return {
-      height: isSet(object.height) ? BigInt(object.height.toString()) : BigInt(0),
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.UZERO,
       format: isSet(object.format) ? Number(object.format) : 0,
       chunks: isSet(object.chunks) ? Number(object.chunks) : 0,
       hash: isSet(object.hash) ? bytesFromBase64(object.hash) : new Uint8Array(),
@@ -350,7 +350,7 @@ export const SnapshotsResponse = {
   },
   toJSON(message: SnapshotsResponse): unknown {
     const obj: any = {};
-    message.height !== undefined && (obj.height = (message.height || BigInt(0)).toString());
+    message.height !== undefined && (obj.height = (message.height || Long.UZERO).toString());
     message.format !== undefined && (obj.format = Math.round(message.format));
     message.chunks !== undefined && (obj.chunks = Math.round(message.chunks));
     message.hash !== undefined && (obj.hash = base64FromBytes(message.hash !== undefined ? message.hash : new Uint8Array()));
@@ -359,7 +359,7 @@ export const SnapshotsResponse = {
   },
   fromPartial(object: Partial<SnapshotsResponse>): SnapshotsResponse {
     const message = createBaseSnapshotsResponse();
-    message.height = object.height !== undefined && object.height !== null ? BigInt(object.height.toString()) : BigInt(0);
+    message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.UZERO;
     message.format = object.format ?? 0;
     message.chunks = object.chunks ?? 0;
     message.hash = object.hash ?? new Uint8Array();
@@ -368,7 +368,7 @@ export const SnapshotsResponse = {
   },
   fromAmino(object: SnapshotsResponseAmino): SnapshotsResponse {
     return {
-      height: BigInt(object.height),
+      height: Long.fromString(object.height),
       format: object.format,
       chunks: object.chunks,
       hash: object.hash,
@@ -402,15 +402,15 @@ export const SnapshotsResponse = {
 };
 function createBaseChunkRequest(): ChunkRequest {
   return {
-    height: BigInt(0),
+    height: Long.UZERO,
     format: 0,
     index: 0
   };
 }
 export const ChunkRequest = {
   typeUrl: "/tendermint.statesync.ChunkRequest",
-  encode(message: ChunkRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.height !== BigInt(0)) {
+  encode(message: ChunkRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.height.isZero()) {
       writer.uint32(8).uint64(message.height);
     }
     if (message.format !== 0) {
@@ -421,15 +421,15 @@ export const ChunkRequest = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): ChunkRequest {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): ChunkRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseChunkRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.height = reader.uint64();
+          message.height = (reader.uint64() as Long);
           break;
         case 2:
           message.format = reader.uint32();
@@ -446,28 +446,28 @@ export const ChunkRequest = {
   },
   fromJSON(object: any): ChunkRequest {
     return {
-      height: isSet(object.height) ? BigInt(object.height.toString()) : BigInt(0),
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.UZERO,
       format: isSet(object.format) ? Number(object.format) : 0,
       index: isSet(object.index) ? Number(object.index) : 0
     };
   },
   toJSON(message: ChunkRequest): unknown {
     const obj: any = {};
-    message.height !== undefined && (obj.height = (message.height || BigInt(0)).toString());
+    message.height !== undefined && (obj.height = (message.height || Long.UZERO).toString());
     message.format !== undefined && (obj.format = Math.round(message.format));
     message.index !== undefined && (obj.index = Math.round(message.index));
     return obj;
   },
   fromPartial(object: Partial<ChunkRequest>): ChunkRequest {
     const message = createBaseChunkRequest();
-    message.height = object.height !== undefined && object.height !== null ? BigInt(object.height.toString()) : BigInt(0);
+    message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.UZERO;
     message.format = object.format ?? 0;
     message.index = object.index ?? 0;
     return message;
   },
   fromAmino(object: ChunkRequestAmino): ChunkRequest {
     return {
-      height: BigInt(object.height),
+      height: Long.fromString(object.height),
       format: object.format,
       index: object.index
     };
@@ -497,7 +497,7 @@ export const ChunkRequest = {
 };
 function createBaseChunkResponse(): ChunkResponse {
   return {
-    height: BigInt(0),
+    height: Long.UZERO,
     format: 0,
     index: 0,
     chunk: new Uint8Array(),
@@ -506,8 +506,8 @@ function createBaseChunkResponse(): ChunkResponse {
 }
 export const ChunkResponse = {
   typeUrl: "/tendermint.statesync.ChunkResponse",
-  encode(message: ChunkResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.height !== BigInt(0)) {
+  encode(message: ChunkResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.height.isZero()) {
       writer.uint32(8).uint64(message.height);
     }
     if (message.format !== 0) {
@@ -524,15 +524,15 @@ export const ChunkResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): ChunkResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): ChunkResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseChunkResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.height = reader.uint64();
+          message.height = (reader.uint64() as Long);
           break;
         case 2:
           message.format = reader.uint32();
@@ -555,7 +555,7 @@ export const ChunkResponse = {
   },
   fromJSON(object: any): ChunkResponse {
     return {
-      height: isSet(object.height) ? BigInt(object.height.toString()) : BigInt(0),
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.UZERO,
       format: isSet(object.format) ? Number(object.format) : 0,
       index: isSet(object.index) ? Number(object.index) : 0,
       chunk: isSet(object.chunk) ? bytesFromBase64(object.chunk) : new Uint8Array(),
@@ -564,7 +564,7 @@ export const ChunkResponse = {
   },
   toJSON(message: ChunkResponse): unknown {
     const obj: any = {};
-    message.height !== undefined && (obj.height = (message.height || BigInt(0)).toString());
+    message.height !== undefined && (obj.height = (message.height || Long.UZERO).toString());
     message.format !== undefined && (obj.format = Math.round(message.format));
     message.index !== undefined && (obj.index = Math.round(message.index));
     message.chunk !== undefined && (obj.chunk = base64FromBytes(message.chunk !== undefined ? message.chunk : new Uint8Array()));
@@ -573,7 +573,7 @@ export const ChunkResponse = {
   },
   fromPartial(object: Partial<ChunkResponse>): ChunkResponse {
     const message = createBaseChunkResponse();
-    message.height = object.height !== undefined && object.height !== null ? BigInt(object.height.toString()) : BigInt(0);
+    message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.UZERO;
     message.format = object.format ?? 0;
     message.index = object.index ?? 0;
     message.chunk = object.chunk ?? new Uint8Array();
@@ -582,7 +582,7 @@ export const ChunkResponse = {
   },
   fromAmino(object: ChunkResponseAmino): ChunkResponse {
     return {
-      height: BigInt(object.height),
+      height: Long.fromString(object.height),
       format: object.format,
       index: object.index,
       chunk: object.chunk,

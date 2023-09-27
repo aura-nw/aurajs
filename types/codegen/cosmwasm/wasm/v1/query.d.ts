@@ -1,6 +1,7 @@
 import { PageRequest, PageRequestAmino, PageRequestSDKType, PageResponse, PageResponseAmino, PageResponseSDKType } from "../../../cosmos/base/query/v1beta1/pagination";
 import { ContractInfo, ContractInfoAmino, ContractInfoSDKType, ContractCodeHistoryEntry, ContractCodeHistoryEntryAmino, ContractCodeHistoryEntrySDKType, Model, ModelAmino, ModelSDKType, AccessConfig, AccessConfigAmino, AccessConfigSDKType, Params, ParamsAmino, ParamsSDKType } from "./types";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * QueryContractInfoRequest is the request type for the Query/ContractInfo RPC
  * method
@@ -145,7 +146,7 @@ export interface QueryContractsByCodeRequest {
      * grpc-gateway_out does not support Go style CodID
      * pagination defines an optional pagination for the request.
      */
-    codeId: bigint;
+    codeId: Long;
     pagination: PageRequest;
 }
 export interface QueryContractsByCodeRequestProtoMsg {
@@ -173,7 +174,7 @@ export interface QueryContractsByCodeRequestAminoMsg {
  * RPC method
  */
 export interface QueryContractsByCodeRequestSDKType {
-    code_id: bigint;
+    code_id: Long;
     pagination: PageRequestSDKType;
 }
 /**
@@ -417,7 +418,7 @@ export interface QuerySmartContractStateResponseSDKType {
 /** QueryCodeRequest is the request type for the Query/Code RPC method */
 export interface QueryCodeRequest {
     /** grpc-gateway_out does not support Go style CodID */
-    codeId: bigint;
+    codeId: Long;
 }
 export interface QueryCodeRequestProtoMsg {
     typeUrl: "/cosmwasm.wasm.v1.QueryCodeRequest";
@@ -434,11 +435,11 @@ export interface QueryCodeRequestAminoMsg {
 }
 /** QueryCodeRequest is the request type for the Query/Code RPC method */
 export interface QueryCodeRequestSDKType {
-    code_id: bigint;
+    code_id: Long;
 }
 /** CodeInfoResponse contains code meta data from CodeInfo */
 export interface CodeInfoResponse {
-    codeId: bigint;
+    codeId: Long;
     creator: string;
     dataHash: Uint8Array;
     instantiatePermission: AccessConfig;
@@ -460,7 +461,7 @@ export interface CodeInfoResponseAminoMsg {
 }
 /** CodeInfoResponse contains code meta data from CodeInfo */
 export interface CodeInfoResponseSDKType {
-    code_id: bigint;
+    code_id: Long;
     creator: string;
     data_hash: Uint8Array;
     instantiate_permission: AccessConfigSDKType;
@@ -571,7 +572,7 @@ export interface QueryPinnedCodesRequestSDKType {
  * Query/PinnedCodes RPC method
  */
 export interface QueryPinnedCodesResponse {
-    codeIds: bigint[];
+    codeIds: Long[];
     /** pagination defines the pagination in the response. */
     pagination: PageResponse;
 }
@@ -597,7 +598,7 @@ export interface QueryPinnedCodesResponseAminoMsg {
  * Query/PinnedCodes RPC method
  */
 export interface QueryPinnedCodesResponseSDKType {
-    code_ids: bigint[];
+    code_ids: Long[];
     pagination: PageResponseSDKType;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
@@ -713,8 +714,8 @@ export interface QueryContractsByCreatorResponseSDKType {
 }
 export declare const QueryContractInfoRequest: {
     typeUrl: string;
-    encode(message: QueryContractInfoRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryContractInfoRequest;
+    encode(message: QueryContractInfoRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryContractInfoRequest;
     fromJSON(object: any): QueryContractInfoRequest;
     toJSON(message: QueryContractInfoRequest): unknown;
     fromPartial(object: Partial<QueryContractInfoRequest>): QueryContractInfoRequest;
@@ -728,8 +729,8 @@ export declare const QueryContractInfoRequest: {
 };
 export declare const QueryContractInfoResponse: {
     typeUrl: string;
-    encode(message: QueryContractInfoResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryContractInfoResponse;
+    encode(message: QueryContractInfoResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryContractInfoResponse;
     fromJSON(object: any): QueryContractInfoResponse;
     toJSON(message: QueryContractInfoResponse): unknown;
     fromPartial(object: Partial<QueryContractInfoResponse>): QueryContractInfoResponse;
@@ -743,8 +744,8 @@ export declare const QueryContractInfoResponse: {
 };
 export declare const QueryContractHistoryRequest: {
     typeUrl: string;
-    encode(message: QueryContractHistoryRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryContractHistoryRequest;
+    encode(message: QueryContractHistoryRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryContractHistoryRequest;
     fromJSON(object: any): QueryContractHistoryRequest;
     toJSON(message: QueryContractHistoryRequest): unknown;
     fromPartial(object: Partial<QueryContractHistoryRequest>): QueryContractHistoryRequest;
@@ -758,8 +759,8 @@ export declare const QueryContractHistoryRequest: {
 };
 export declare const QueryContractHistoryResponse: {
     typeUrl: string;
-    encode(message: QueryContractHistoryResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryContractHistoryResponse;
+    encode(message: QueryContractHistoryResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryContractHistoryResponse;
     fromJSON(object: any): QueryContractHistoryResponse;
     toJSON(message: QueryContractHistoryResponse): unknown;
     fromPartial(object: Partial<QueryContractHistoryResponse>): QueryContractHistoryResponse;
@@ -773,8 +774,8 @@ export declare const QueryContractHistoryResponse: {
 };
 export declare const QueryContractsByCodeRequest: {
     typeUrl: string;
-    encode(message: QueryContractsByCodeRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryContractsByCodeRequest;
+    encode(message: QueryContractsByCodeRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryContractsByCodeRequest;
     fromJSON(object: any): QueryContractsByCodeRequest;
     toJSON(message: QueryContractsByCodeRequest): unknown;
     fromPartial(object: Partial<QueryContractsByCodeRequest>): QueryContractsByCodeRequest;
@@ -788,8 +789,8 @@ export declare const QueryContractsByCodeRequest: {
 };
 export declare const QueryContractsByCodeResponse: {
     typeUrl: string;
-    encode(message: QueryContractsByCodeResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryContractsByCodeResponse;
+    encode(message: QueryContractsByCodeResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryContractsByCodeResponse;
     fromJSON(object: any): QueryContractsByCodeResponse;
     toJSON(message: QueryContractsByCodeResponse): unknown;
     fromPartial(object: Partial<QueryContractsByCodeResponse>): QueryContractsByCodeResponse;
@@ -803,8 +804,8 @@ export declare const QueryContractsByCodeResponse: {
 };
 export declare const QueryAllContractStateRequest: {
     typeUrl: string;
-    encode(message: QueryAllContractStateRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryAllContractStateRequest;
+    encode(message: QueryAllContractStateRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllContractStateRequest;
     fromJSON(object: any): QueryAllContractStateRequest;
     toJSON(message: QueryAllContractStateRequest): unknown;
     fromPartial(object: Partial<QueryAllContractStateRequest>): QueryAllContractStateRequest;
@@ -818,8 +819,8 @@ export declare const QueryAllContractStateRequest: {
 };
 export declare const QueryAllContractStateResponse: {
     typeUrl: string;
-    encode(message: QueryAllContractStateResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryAllContractStateResponse;
+    encode(message: QueryAllContractStateResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAllContractStateResponse;
     fromJSON(object: any): QueryAllContractStateResponse;
     toJSON(message: QueryAllContractStateResponse): unknown;
     fromPartial(object: Partial<QueryAllContractStateResponse>): QueryAllContractStateResponse;
@@ -833,8 +834,8 @@ export declare const QueryAllContractStateResponse: {
 };
 export declare const QueryRawContractStateRequest: {
     typeUrl: string;
-    encode(message: QueryRawContractStateRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryRawContractStateRequest;
+    encode(message: QueryRawContractStateRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryRawContractStateRequest;
     fromJSON(object: any): QueryRawContractStateRequest;
     toJSON(message: QueryRawContractStateRequest): unknown;
     fromPartial(object: Partial<QueryRawContractStateRequest>): QueryRawContractStateRequest;
@@ -848,8 +849,8 @@ export declare const QueryRawContractStateRequest: {
 };
 export declare const QueryRawContractStateResponse: {
     typeUrl: string;
-    encode(message: QueryRawContractStateResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryRawContractStateResponse;
+    encode(message: QueryRawContractStateResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryRawContractStateResponse;
     fromJSON(object: any): QueryRawContractStateResponse;
     toJSON(message: QueryRawContractStateResponse): unknown;
     fromPartial(object: Partial<QueryRawContractStateResponse>): QueryRawContractStateResponse;
@@ -863,8 +864,8 @@ export declare const QueryRawContractStateResponse: {
 };
 export declare const QuerySmartContractStateRequest: {
     typeUrl: string;
-    encode(message: QuerySmartContractStateRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QuerySmartContractStateRequest;
+    encode(message: QuerySmartContractStateRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QuerySmartContractStateRequest;
     fromJSON(object: any): QuerySmartContractStateRequest;
     toJSON(message: QuerySmartContractStateRequest): unknown;
     fromPartial(object: Partial<QuerySmartContractStateRequest>): QuerySmartContractStateRequest;
@@ -878,8 +879,8 @@ export declare const QuerySmartContractStateRequest: {
 };
 export declare const QuerySmartContractStateResponse: {
     typeUrl: string;
-    encode(message: QuerySmartContractStateResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QuerySmartContractStateResponse;
+    encode(message: QuerySmartContractStateResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QuerySmartContractStateResponse;
     fromJSON(object: any): QuerySmartContractStateResponse;
     toJSON(message: QuerySmartContractStateResponse): unknown;
     fromPartial(object: Partial<QuerySmartContractStateResponse>): QuerySmartContractStateResponse;
@@ -893,8 +894,8 @@ export declare const QuerySmartContractStateResponse: {
 };
 export declare const QueryCodeRequest: {
     typeUrl: string;
-    encode(message: QueryCodeRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryCodeRequest;
+    encode(message: QueryCodeRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryCodeRequest;
     fromJSON(object: any): QueryCodeRequest;
     toJSON(message: QueryCodeRequest): unknown;
     fromPartial(object: Partial<QueryCodeRequest>): QueryCodeRequest;
@@ -908,8 +909,8 @@ export declare const QueryCodeRequest: {
 };
 export declare const CodeInfoResponse: {
     typeUrl: string;
-    encode(message: CodeInfoResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): CodeInfoResponse;
+    encode(message: CodeInfoResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): CodeInfoResponse;
     fromJSON(object: any): CodeInfoResponse;
     toJSON(message: CodeInfoResponse): unknown;
     fromPartial(object: Partial<CodeInfoResponse>): CodeInfoResponse;
@@ -923,8 +924,8 @@ export declare const CodeInfoResponse: {
 };
 export declare const QueryCodeResponse: {
     typeUrl: string;
-    encode(message: QueryCodeResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryCodeResponse;
+    encode(message: QueryCodeResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryCodeResponse;
     fromJSON(object: any): QueryCodeResponse;
     toJSON(message: QueryCodeResponse): unknown;
     fromPartial(object: Partial<QueryCodeResponse>): QueryCodeResponse;
@@ -938,8 +939,8 @@ export declare const QueryCodeResponse: {
 };
 export declare const QueryCodesRequest: {
     typeUrl: string;
-    encode(message: QueryCodesRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryCodesRequest;
+    encode(message: QueryCodesRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryCodesRequest;
     fromJSON(object: any): QueryCodesRequest;
     toJSON(message: QueryCodesRequest): unknown;
     fromPartial(object: Partial<QueryCodesRequest>): QueryCodesRequest;
@@ -953,8 +954,8 @@ export declare const QueryCodesRequest: {
 };
 export declare const QueryCodesResponse: {
     typeUrl: string;
-    encode(message: QueryCodesResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryCodesResponse;
+    encode(message: QueryCodesResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryCodesResponse;
     fromJSON(object: any): QueryCodesResponse;
     toJSON(message: QueryCodesResponse): unknown;
     fromPartial(object: Partial<QueryCodesResponse>): QueryCodesResponse;
@@ -968,8 +969,8 @@ export declare const QueryCodesResponse: {
 };
 export declare const QueryPinnedCodesRequest: {
     typeUrl: string;
-    encode(message: QueryPinnedCodesRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryPinnedCodesRequest;
+    encode(message: QueryPinnedCodesRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryPinnedCodesRequest;
     fromJSON(object: any): QueryPinnedCodesRequest;
     toJSON(message: QueryPinnedCodesRequest): unknown;
     fromPartial(object: Partial<QueryPinnedCodesRequest>): QueryPinnedCodesRequest;
@@ -983,8 +984,8 @@ export declare const QueryPinnedCodesRequest: {
 };
 export declare const QueryPinnedCodesResponse: {
     typeUrl: string;
-    encode(message: QueryPinnedCodesResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryPinnedCodesResponse;
+    encode(message: QueryPinnedCodesResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryPinnedCodesResponse;
     fromJSON(object: any): QueryPinnedCodesResponse;
     toJSON(message: QueryPinnedCodesResponse): unknown;
     fromPartial(object: Partial<QueryPinnedCodesResponse>): QueryPinnedCodesResponse;
@@ -998,8 +999,8 @@ export declare const QueryPinnedCodesResponse: {
 };
 export declare const QueryParamsRequest: {
     typeUrl: string;
-    encode(_: QueryParamsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsRequest;
+    encode(_: QueryParamsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsRequest;
     fromJSON(_: any): QueryParamsRequest;
     toJSON(_: QueryParamsRequest): unknown;
     fromPartial(_: Partial<QueryParamsRequest>): QueryParamsRequest;
@@ -1013,8 +1014,8 @@ export declare const QueryParamsRequest: {
 };
 export declare const QueryParamsResponse: {
     typeUrl: string;
-    encode(message: QueryParamsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryParamsResponse;
+    encode(message: QueryParamsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse;
     fromJSON(object: any): QueryParamsResponse;
     toJSON(message: QueryParamsResponse): unknown;
     fromPartial(object: Partial<QueryParamsResponse>): QueryParamsResponse;
@@ -1028,8 +1029,8 @@ export declare const QueryParamsResponse: {
 };
 export declare const QueryContractsByCreatorRequest: {
     typeUrl: string;
-    encode(message: QueryContractsByCreatorRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryContractsByCreatorRequest;
+    encode(message: QueryContractsByCreatorRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryContractsByCreatorRequest;
     fromJSON(object: any): QueryContractsByCreatorRequest;
     toJSON(message: QueryContractsByCreatorRequest): unknown;
     fromPartial(object: Partial<QueryContractsByCreatorRequest>): QueryContractsByCreatorRequest;
@@ -1043,8 +1044,8 @@ export declare const QueryContractsByCreatorRequest: {
 };
 export declare const QueryContractsByCreatorResponse: {
     typeUrl: string;
-    encode(message: QueryContractsByCreatorResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryContractsByCreatorResponse;
+    encode(message: QueryContractsByCreatorResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryContractsByCreatorResponse;
     fromJSON(object: any): QueryContractsByCreatorResponse;
     toJSON(message: QueryContractsByCreatorResponse): unknown;
     fromPartial(object: Partial<QueryContractsByCreatorResponse>): QueryContractsByCreatorResponse;

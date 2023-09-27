@@ -1,9 +1,10 @@
 import { PublicKey, PublicKeyAmino, PublicKeySDKType } from "../crypto/keys";
-import { BinaryReader, BinaryWriter } from "../../binary";
+import { Long } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export interface ValidatorSet {
     validators: Validator[];
     proposer: Validator;
-    totalVotingPower: bigint;
+    totalVotingPower: Long;
 }
 export interface ValidatorSetProtoMsg {
     typeUrl: "/tendermint.types.ValidatorSet";
@@ -21,13 +22,13 @@ export interface ValidatorSetAminoMsg {
 export interface ValidatorSetSDKType {
     validators: ValidatorSDKType[];
     proposer: ValidatorSDKType;
-    total_voting_power: bigint;
+    total_voting_power: Long;
 }
 export interface Validator {
     address: Uint8Array;
     pubKey: PublicKey;
-    votingPower: bigint;
-    proposerPriority: bigint;
+    votingPower: Long;
+    proposerPriority: Long;
 }
 export interface ValidatorProtoMsg {
     typeUrl: "/tendermint.types.Validator";
@@ -46,12 +47,12 @@ export interface ValidatorAminoMsg {
 export interface ValidatorSDKType {
     address: Uint8Array;
     pub_key: PublicKeySDKType;
-    voting_power: bigint;
-    proposer_priority: bigint;
+    voting_power: Long;
+    proposer_priority: Long;
 }
 export interface SimpleValidator {
     pubKey: PublicKey;
-    votingPower: bigint;
+    votingPower: Long;
 }
 export interface SimpleValidatorProtoMsg {
     typeUrl: "/tendermint.types.SimpleValidator";
@@ -67,12 +68,12 @@ export interface SimpleValidatorAminoMsg {
 }
 export interface SimpleValidatorSDKType {
     pub_key: PublicKeySDKType;
-    voting_power: bigint;
+    voting_power: Long;
 }
 export declare const ValidatorSet: {
     typeUrl: string;
-    encode(message: ValidatorSet, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ValidatorSet;
+    encode(message: ValidatorSet, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ValidatorSet;
     fromJSON(object: any): ValidatorSet;
     toJSON(message: ValidatorSet): unknown;
     fromPartial(object: Partial<ValidatorSet>): ValidatorSet;
@@ -85,8 +86,8 @@ export declare const ValidatorSet: {
 };
 export declare const Validator: {
     typeUrl: string;
-    encode(message: Validator, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Validator;
+    encode(message: Validator, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Validator;
     fromJSON(object: any): Validator;
     toJSON(message: Validator): unknown;
     fromPartial(object: Partial<Validator>): Validator;
@@ -99,8 +100,8 @@ export declare const Validator: {
 };
 export declare const SimpleValidator: {
     typeUrl: string;
-    encode(message: SimpleValidator, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): SimpleValidator;
+    encode(message: SimpleValidator, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): SimpleValidator;
     fromJSON(object: any): SimpleValidator;
     toJSON(message: SimpleValidator): unknown;
     fromPartial(object: Partial<SimpleValidator>): SimpleValidator;

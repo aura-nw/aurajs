@@ -1,6 +1,7 @@
 import { Channel, ChannelAmino, ChannelSDKType, Packet, PacketAmino, PacketSDKType } from "./channel";
 import { Height, HeightAmino, HeightSDKType } from "../../client/v1/client";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import { Long } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** ResponseResultType defines the possible outcomes of the execution of a message */
 export declare enum ResponseResultType {
     /** RESPONSE_RESULT_TYPE_UNSPECIFIED - Default zero value enumeration */
@@ -457,7 +458,7 @@ export interface MsgTimeout {
     packet: Packet;
     proofUnreceived: Uint8Array;
     proofHeight: Height;
-    nextSequenceRecv: bigint;
+    nextSequenceRecv: Long;
     signer: string;
 }
 export interface MsgTimeoutProtoMsg {
@@ -481,7 +482,7 @@ export interface MsgTimeoutSDKType {
     packet: PacketSDKType;
     proof_unreceived: Uint8Array;
     proof_height: HeightSDKType;
-    next_sequence_recv: bigint;
+    next_sequence_recv: Long;
     signer: string;
 }
 /** MsgTimeoutResponse defines the Msg/Timeout response type. */
@@ -510,7 +511,7 @@ export interface MsgTimeoutOnClose {
     proofUnreceived: Uint8Array;
     proofClose: Uint8Array;
     proofHeight: Height;
-    nextSequenceRecv: bigint;
+    nextSequenceRecv: Long;
     signer: string;
 }
 export interface MsgTimeoutOnCloseProtoMsg {
@@ -536,7 +537,7 @@ export interface MsgTimeoutOnCloseSDKType {
     proof_unreceived: Uint8Array;
     proof_close: Uint8Array;
     proof_height: HeightSDKType;
-    next_sequence_recv: bigint;
+    next_sequence_recv: Long;
     signer: string;
 }
 /** MsgTimeoutOnCloseResponse defines the Msg/TimeoutOnClose response type. */
@@ -613,8 +614,8 @@ export interface MsgAcknowledgementResponseSDKType {
 }
 export declare const MsgChannelOpenInit: {
     typeUrl: string;
-    encode(message: MsgChannelOpenInit, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgChannelOpenInit;
+    encode(message: MsgChannelOpenInit, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelOpenInit;
     fromJSON(object: any): MsgChannelOpenInit;
     toJSON(message: MsgChannelOpenInit): unknown;
     fromPartial(object: Partial<MsgChannelOpenInit>): MsgChannelOpenInit;
@@ -628,8 +629,8 @@ export declare const MsgChannelOpenInit: {
 };
 export declare const MsgChannelOpenInitResponse: {
     typeUrl: string;
-    encode(message: MsgChannelOpenInitResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgChannelOpenInitResponse;
+    encode(message: MsgChannelOpenInitResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelOpenInitResponse;
     fromJSON(object: any): MsgChannelOpenInitResponse;
     toJSON(message: MsgChannelOpenInitResponse): unknown;
     fromPartial(object: Partial<MsgChannelOpenInitResponse>): MsgChannelOpenInitResponse;
@@ -643,8 +644,8 @@ export declare const MsgChannelOpenInitResponse: {
 };
 export declare const MsgChannelOpenTry: {
     typeUrl: string;
-    encode(message: MsgChannelOpenTry, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgChannelOpenTry;
+    encode(message: MsgChannelOpenTry, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelOpenTry;
     fromJSON(object: any): MsgChannelOpenTry;
     toJSON(message: MsgChannelOpenTry): unknown;
     fromPartial(object: Partial<MsgChannelOpenTry>): MsgChannelOpenTry;
@@ -658,8 +659,8 @@ export declare const MsgChannelOpenTry: {
 };
 export declare const MsgChannelOpenTryResponse: {
     typeUrl: string;
-    encode(message: MsgChannelOpenTryResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgChannelOpenTryResponse;
+    encode(message: MsgChannelOpenTryResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelOpenTryResponse;
     fromJSON(object: any): MsgChannelOpenTryResponse;
     toJSON(message: MsgChannelOpenTryResponse): unknown;
     fromPartial(object: Partial<MsgChannelOpenTryResponse>): MsgChannelOpenTryResponse;
@@ -673,8 +674,8 @@ export declare const MsgChannelOpenTryResponse: {
 };
 export declare const MsgChannelOpenAck: {
     typeUrl: string;
-    encode(message: MsgChannelOpenAck, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgChannelOpenAck;
+    encode(message: MsgChannelOpenAck, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelOpenAck;
     fromJSON(object: any): MsgChannelOpenAck;
     toJSON(message: MsgChannelOpenAck): unknown;
     fromPartial(object: Partial<MsgChannelOpenAck>): MsgChannelOpenAck;
@@ -688,8 +689,8 @@ export declare const MsgChannelOpenAck: {
 };
 export declare const MsgChannelOpenAckResponse: {
     typeUrl: string;
-    encode(_: MsgChannelOpenAckResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgChannelOpenAckResponse;
+    encode(_: MsgChannelOpenAckResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelOpenAckResponse;
     fromJSON(_: any): MsgChannelOpenAckResponse;
     toJSON(_: MsgChannelOpenAckResponse): unknown;
     fromPartial(_: Partial<MsgChannelOpenAckResponse>): MsgChannelOpenAckResponse;
@@ -703,8 +704,8 @@ export declare const MsgChannelOpenAckResponse: {
 };
 export declare const MsgChannelOpenConfirm: {
     typeUrl: string;
-    encode(message: MsgChannelOpenConfirm, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgChannelOpenConfirm;
+    encode(message: MsgChannelOpenConfirm, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelOpenConfirm;
     fromJSON(object: any): MsgChannelOpenConfirm;
     toJSON(message: MsgChannelOpenConfirm): unknown;
     fromPartial(object: Partial<MsgChannelOpenConfirm>): MsgChannelOpenConfirm;
@@ -718,8 +719,8 @@ export declare const MsgChannelOpenConfirm: {
 };
 export declare const MsgChannelOpenConfirmResponse: {
     typeUrl: string;
-    encode(_: MsgChannelOpenConfirmResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgChannelOpenConfirmResponse;
+    encode(_: MsgChannelOpenConfirmResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelOpenConfirmResponse;
     fromJSON(_: any): MsgChannelOpenConfirmResponse;
     toJSON(_: MsgChannelOpenConfirmResponse): unknown;
     fromPartial(_: Partial<MsgChannelOpenConfirmResponse>): MsgChannelOpenConfirmResponse;
@@ -733,8 +734,8 @@ export declare const MsgChannelOpenConfirmResponse: {
 };
 export declare const MsgChannelCloseInit: {
     typeUrl: string;
-    encode(message: MsgChannelCloseInit, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgChannelCloseInit;
+    encode(message: MsgChannelCloseInit, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelCloseInit;
     fromJSON(object: any): MsgChannelCloseInit;
     toJSON(message: MsgChannelCloseInit): unknown;
     fromPartial(object: Partial<MsgChannelCloseInit>): MsgChannelCloseInit;
@@ -748,8 +749,8 @@ export declare const MsgChannelCloseInit: {
 };
 export declare const MsgChannelCloseInitResponse: {
     typeUrl: string;
-    encode(_: MsgChannelCloseInitResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgChannelCloseInitResponse;
+    encode(_: MsgChannelCloseInitResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelCloseInitResponse;
     fromJSON(_: any): MsgChannelCloseInitResponse;
     toJSON(_: MsgChannelCloseInitResponse): unknown;
     fromPartial(_: Partial<MsgChannelCloseInitResponse>): MsgChannelCloseInitResponse;
@@ -763,8 +764,8 @@ export declare const MsgChannelCloseInitResponse: {
 };
 export declare const MsgChannelCloseConfirm: {
     typeUrl: string;
-    encode(message: MsgChannelCloseConfirm, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgChannelCloseConfirm;
+    encode(message: MsgChannelCloseConfirm, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelCloseConfirm;
     fromJSON(object: any): MsgChannelCloseConfirm;
     toJSON(message: MsgChannelCloseConfirm): unknown;
     fromPartial(object: Partial<MsgChannelCloseConfirm>): MsgChannelCloseConfirm;
@@ -778,8 +779,8 @@ export declare const MsgChannelCloseConfirm: {
 };
 export declare const MsgChannelCloseConfirmResponse: {
     typeUrl: string;
-    encode(_: MsgChannelCloseConfirmResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgChannelCloseConfirmResponse;
+    encode(_: MsgChannelCloseConfirmResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgChannelCloseConfirmResponse;
     fromJSON(_: any): MsgChannelCloseConfirmResponse;
     toJSON(_: MsgChannelCloseConfirmResponse): unknown;
     fromPartial(_: Partial<MsgChannelCloseConfirmResponse>): MsgChannelCloseConfirmResponse;
@@ -793,8 +794,8 @@ export declare const MsgChannelCloseConfirmResponse: {
 };
 export declare const MsgRecvPacket: {
     typeUrl: string;
-    encode(message: MsgRecvPacket, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgRecvPacket;
+    encode(message: MsgRecvPacket, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgRecvPacket;
     fromJSON(object: any): MsgRecvPacket;
     toJSON(message: MsgRecvPacket): unknown;
     fromPartial(object: Partial<MsgRecvPacket>): MsgRecvPacket;
@@ -808,8 +809,8 @@ export declare const MsgRecvPacket: {
 };
 export declare const MsgRecvPacketResponse: {
     typeUrl: string;
-    encode(message: MsgRecvPacketResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgRecvPacketResponse;
+    encode(message: MsgRecvPacketResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgRecvPacketResponse;
     fromJSON(object: any): MsgRecvPacketResponse;
     toJSON(message: MsgRecvPacketResponse): unknown;
     fromPartial(object: Partial<MsgRecvPacketResponse>): MsgRecvPacketResponse;
@@ -823,8 +824,8 @@ export declare const MsgRecvPacketResponse: {
 };
 export declare const MsgTimeout: {
     typeUrl: string;
-    encode(message: MsgTimeout, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgTimeout;
+    encode(message: MsgTimeout, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgTimeout;
     fromJSON(object: any): MsgTimeout;
     toJSON(message: MsgTimeout): unknown;
     fromPartial(object: Partial<MsgTimeout>): MsgTimeout;
@@ -838,8 +839,8 @@ export declare const MsgTimeout: {
 };
 export declare const MsgTimeoutResponse: {
     typeUrl: string;
-    encode(message: MsgTimeoutResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgTimeoutResponse;
+    encode(message: MsgTimeoutResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgTimeoutResponse;
     fromJSON(object: any): MsgTimeoutResponse;
     toJSON(message: MsgTimeoutResponse): unknown;
     fromPartial(object: Partial<MsgTimeoutResponse>): MsgTimeoutResponse;
@@ -853,8 +854,8 @@ export declare const MsgTimeoutResponse: {
 };
 export declare const MsgTimeoutOnClose: {
     typeUrl: string;
-    encode(message: MsgTimeoutOnClose, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgTimeoutOnClose;
+    encode(message: MsgTimeoutOnClose, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgTimeoutOnClose;
     fromJSON(object: any): MsgTimeoutOnClose;
     toJSON(message: MsgTimeoutOnClose): unknown;
     fromPartial(object: Partial<MsgTimeoutOnClose>): MsgTimeoutOnClose;
@@ -868,8 +869,8 @@ export declare const MsgTimeoutOnClose: {
 };
 export declare const MsgTimeoutOnCloseResponse: {
     typeUrl: string;
-    encode(message: MsgTimeoutOnCloseResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgTimeoutOnCloseResponse;
+    encode(message: MsgTimeoutOnCloseResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgTimeoutOnCloseResponse;
     fromJSON(object: any): MsgTimeoutOnCloseResponse;
     toJSON(message: MsgTimeoutOnCloseResponse): unknown;
     fromPartial(object: Partial<MsgTimeoutOnCloseResponse>): MsgTimeoutOnCloseResponse;
@@ -883,8 +884,8 @@ export declare const MsgTimeoutOnCloseResponse: {
 };
 export declare const MsgAcknowledgement: {
     typeUrl: string;
-    encode(message: MsgAcknowledgement, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgAcknowledgement;
+    encode(message: MsgAcknowledgement, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgAcknowledgement;
     fromJSON(object: any): MsgAcknowledgement;
     toJSON(message: MsgAcknowledgement): unknown;
     fromPartial(object: Partial<MsgAcknowledgement>): MsgAcknowledgement;
@@ -898,8 +899,8 @@ export declare const MsgAcknowledgement: {
 };
 export declare const MsgAcknowledgementResponse: {
     typeUrl: string;
-    encode(message: MsgAcknowledgementResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgAcknowledgementResponse;
+    encode(message: MsgAcknowledgementResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgAcknowledgementResponse;
     fromJSON(object: any): MsgAcknowledgementResponse;
     toJSON(message: MsgAcknowledgementResponse): unknown;
     fromPartial(object: Partial<MsgAcknowledgementResponse>): MsgAcknowledgementResponse;

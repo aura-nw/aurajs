@@ -1,5 +1,6 @@
 import { Plan, PlanAmino, PlanSDKType, ModuleVersion, ModuleVersionAmino, ModuleVersionSDKType } from "./upgrade";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /**
  * QueryCurrentPlanRequest is the request type for the Query/CurrentPlan RPC
  * method.
@@ -94,7 +95,7 @@ export interface QueryAppliedPlanRequestSDKType {
  */
 export interface QueryAppliedPlanResponse {
     /** height is the block height at which the plan was applied. */
-    height: bigint;
+    height: Long;
 }
 export interface QueryAppliedPlanResponseProtoMsg {
     typeUrl: "/cosmos.upgrade.v1beta1.QueryAppliedPlanResponse";
@@ -117,7 +118,7 @@ export interface QueryAppliedPlanResponseAminoMsg {
  * method.
  */
 export interface QueryAppliedPlanResponseSDKType {
-    height: bigint;
+    height: Long;
 }
 /**
  * QueryUpgradedConsensusStateRequest is the request type for the Query/UpgradedConsensusState
@@ -129,7 +130,7 @@ export interface QueryUpgradedConsensusStateRequest {
      * last height of the current chain must be sent in request
      * as this is the height under which next consensus state is stored
      */
-    lastHeight: bigint;
+    lastHeight: Long;
 }
 export interface QueryUpgradedConsensusStateRequestProtoMsg {
     typeUrl: "/cosmos.upgrade.v1beta1.QueryUpgradedConsensusStateRequest";
@@ -157,7 +158,7 @@ export interface QueryUpgradedConsensusStateRequestAminoMsg {
  */
 /** @deprecated */
 export interface QueryUpgradedConsensusStateRequestSDKType {
-    last_height: bigint;
+    last_height: Long;
 }
 /**
  * QueryUpgradedConsensusStateResponse is the response type for the Query/UpgradedConsensusState
@@ -338,8 +339,8 @@ export interface QueryAuthorityResponseSDKType {
 }
 export declare const QueryCurrentPlanRequest: {
     typeUrl: string;
-    encode(_: QueryCurrentPlanRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryCurrentPlanRequest;
+    encode(_: QueryCurrentPlanRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryCurrentPlanRequest;
     fromJSON(_: any): QueryCurrentPlanRequest;
     toJSON(_: QueryCurrentPlanRequest): unknown;
     fromPartial(_: Partial<QueryCurrentPlanRequest>): QueryCurrentPlanRequest;
@@ -353,8 +354,8 @@ export declare const QueryCurrentPlanRequest: {
 };
 export declare const QueryCurrentPlanResponse: {
     typeUrl: string;
-    encode(message: QueryCurrentPlanResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryCurrentPlanResponse;
+    encode(message: QueryCurrentPlanResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryCurrentPlanResponse;
     fromJSON(object: any): QueryCurrentPlanResponse;
     toJSON(message: QueryCurrentPlanResponse): unknown;
     fromPartial(object: Partial<QueryCurrentPlanResponse>): QueryCurrentPlanResponse;
@@ -368,8 +369,8 @@ export declare const QueryCurrentPlanResponse: {
 };
 export declare const QueryAppliedPlanRequest: {
     typeUrl: string;
-    encode(message: QueryAppliedPlanRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryAppliedPlanRequest;
+    encode(message: QueryAppliedPlanRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAppliedPlanRequest;
     fromJSON(object: any): QueryAppliedPlanRequest;
     toJSON(message: QueryAppliedPlanRequest): unknown;
     fromPartial(object: Partial<QueryAppliedPlanRequest>): QueryAppliedPlanRequest;
@@ -383,8 +384,8 @@ export declare const QueryAppliedPlanRequest: {
 };
 export declare const QueryAppliedPlanResponse: {
     typeUrl: string;
-    encode(message: QueryAppliedPlanResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryAppliedPlanResponse;
+    encode(message: QueryAppliedPlanResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAppliedPlanResponse;
     fromJSON(object: any): QueryAppliedPlanResponse;
     toJSON(message: QueryAppliedPlanResponse): unknown;
     fromPartial(object: Partial<QueryAppliedPlanResponse>): QueryAppliedPlanResponse;
@@ -398,8 +399,8 @@ export declare const QueryAppliedPlanResponse: {
 };
 export declare const QueryUpgradedConsensusStateRequest: {
     typeUrl: string;
-    encode(message: QueryUpgradedConsensusStateRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryUpgradedConsensusStateRequest;
+    encode(message: QueryUpgradedConsensusStateRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryUpgradedConsensusStateRequest;
     fromJSON(object: any): QueryUpgradedConsensusStateRequest;
     toJSON(message: QueryUpgradedConsensusStateRequest): unknown;
     fromPartial(object: Partial<QueryUpgradedConsensusStateRequest>): QueryUpgradedConsensusStateRequest;
@@ -413,8 +414,8 @@ export declare const QueryUpgradedConsensusStateRequest: {
 };
 export declare const QueryUpgradedConsensusStateResponse: {
     typeUrl: string;
-    encode(message: QueryUpgradedConsensusStateResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryUpgradedConsensusStateResponse;
+    encode(message: QueryUpgradedConsensusStateResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryUpgradedConsensusStateResponse;
     fromJSON(object: any): QueryUpgradedConsensusStateResponse;
     toJSON(message: QueryUpgradedConsensusStateResponse): unknown;
     fromPartial(object: Partial<QueryUpgradedConsensusStateResponse>): QueryUpgradedConsensusStateResponse;
@@ -428,8 +429,8 @@ export declare const QueryUpgradedConsensusStateResponse: {
 };
 export declare const QueryModuleVersionsRequest: {
     typeUrl: string;
-    encode(message: QueryModuleVersionsRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryModuleVersionsRequest;
+    encode(message: QueryModuleVersionsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryModuleVersionsRequest;
     fromJSON(object: any): QueryModuleVersionsRequest;
     toJSON(message: QueryModuleVersionsRequest): unknown;
     fromPartial(object: Partial<QueryModuleVersionsRequest>): QueryModuleVersionsRequest;
@@ -443,8 +444,8 @@ export declare const QueryModuleVersionsRequest: {
 };
 export declare const QueryModuleVersionsResponse: {
     typeUrl: string;
-    encode(message: QueryModuleVersionsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryModuleVersionsResponse;
+    encode(message: QueryModuleVersionsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryModuleVersionsResponse;
     fromJSON(object: any): QueryModuleVersionsResponse;
     toJSON(message: QueryModuleVersionsResponse): unknown;
     fromPartial(object: Partial<QueryModuleVersionsResponse>): QueryModuleVersionsResponse;
@@ -458,8 +459,8 @@ export declare const QueryModuleVersionsResponse: {
 };
 export declare const QueryAuthorityRequest: {
     typeUrl: string;
-    encode(_: QueryAuthorityRequest, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryAuthorityRequest;
+    encode(_: QueryAuthorityRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAuthorityRequest;
     fromJSON(_: any): QueryAuthorityRequest;
     toJSON(_: QueryAuthorityRequest): unknown;
     fromPartial(_: Partial<QueryAuthorityRequest>): QueryAuthorityRequest;
@@ -473,8 +474,8 @@ export declare const QueryAuthorityRequest: {
 };
 export declare const QueryAuthorityResponse: {
     typeUrl: string;
-    encode(message: QueryAuthorityResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): QueryAuthorityResponse;
+    encode(message: QueryAuthorityResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAuthorityResponse;
     fromJSON(object: any): QueryAuthorityResponse;
     toJSON(message: QueryAuthorityResponse): unknown;
     fromPartial(object: Partial<QueryAuthorityResponse>): QueryAuthorityResponse;

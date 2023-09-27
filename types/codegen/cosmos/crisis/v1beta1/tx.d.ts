@@ -1,5 +1,5 @@
 import { Coin, CoinAmino, CoinSDKType } from "../../base/v1beta1/coin";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** MsgVerifyInvariant represents a message to verify a particular invariance. */
 export interface MsgVerifyInvariant {
     /** sender is the account address of private key to send coins to fee collector account. */
@@ -122,8 +122,8 @@ export interface MsgUpdateParamsResponseSDKType {
 }
 export declare const MsgVerifyInvariant: {
     typeUrl: string;
-    encode(message: MsgVerifyInvariant, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgVerifyInvariant;
+    encode(message: MsgVerifyInvariant, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgVerifyInvariant;
     fromJSON(object: any): MsgVerifyInvariant;
     toJSON(message: MsgVerifyInvariant): unknown;
     fromPartial(object: Partial<MsgVerifyInvariant>): MsgVerifyInvariant;
@@ -137,8 +137,8 @@ export declare const MsgVerifyInvariant: {
 };
 export declare const MsgVerifyInvariantResponse: {
     typeUrl: string;
-    encode(_: MsgVerifyInvariantResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgVerifyInvariantResponse;
+    encode(_: MsgVerifyInvariantResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgVerifyInvariantResponse;
     fromJSON(_: any): MsgVerifyInvariantResponse;
     toJSON(_: MsgVerifyInvariantResponse): unknown;
     fromPartial(_: Partial<MsgVerifyInvariantResponse>): MsgVerifyInvariantResponse;
@@ -152,8 +152,8 @@ export declare const MsgVerifyInvariantResponse: {
 };
 export declare const MsgUpdateParams: {
     typeUrl: string;
-    encode(message: MsgUpdateParams, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateParams;
+    encode(message: MsgUpdateParams, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateParams;
     fromJSON(object: any): MsgUpdateParams;
     toJSON(message: MsgUpdateParams): unknown;
     fromPartial(object: Partial<MsgUpdateParams>): MsgUpdateParams;
@@ -167,8 +167,8 @@ export declare const MsgUpdateParams: {
 };
 export declare const MsgUpdateParamsResponse: {
     typeUrl: string;
-    encode(_: MsgUpdateParamsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateParamsResponse;
+    encode(_: MsgUpdateParamsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateParamsResponse;
     fromJSON(_: any): MsgUpdateParamsResponse;
     toJSON(_: MsgUpdateParamsResponse): unknown;
     fromPartial(_: Partial<MsgUpdateParamsResponse>): MsgUpdateParamsResponse;

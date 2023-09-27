@@ -1,5 +1,5 @@
 import { Params, ParamsAmino, ParamsSDKType } from "./slashing";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 /** MsgUnjail defines the Msg/Unjail request type */
 export interface MsgUnjail {
     validatorAddr: string;
@@ -118,8 +118,8 @@ export interface MsgUpdateParamsResponseSDKType {
 }
 export declare const MsgUnjail: {
     typeUrl: string;
-    encode(message: MsgUnjail, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUnjail;
+    encode(message: MsgUnjail, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUnjail;
     fromJSON(object: any): MsgUnjail;
     toJSON(message: MsgUnjail): unknown;
     fromPartial(object: Partial<MsgUnjail>): MsgUnjail;
@@ -133,8 +133,8 @@ export declare const MsgUnjail: {
 };
 export declare const MsgUnjailResponse: {
     typeUrl: string;
-    encode(_: MsgUnjailResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUnjailResponse;
+    encode(_: MsgUnjailResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUnjailResponse;
     fromJSON(_: any): MsgUnjailResponse;
     toJSON(_: MsgUnjailResponse): unknown;
     fromPartial(_: Partial<MsgUnjailResponse>): MsgUnjailResponse;
@@ -148,8 +148,8 @@ export declare const MsgUnjailResponse: {
 };
 export declare const MsgUpdateParams: {
     typeUrl: string;
-    encode(message: MsgUpdateParams, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateParams;
+    encode(message: MsgUpdateParams, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateParams;
     fromJSON(object: any): MsgUpdateParams;
     toJSON(message: MsgUpdateParams): unknown;
     fromPartial(object: Partial<MsgUpdateParams>): MsgUpdateParams;
@@ -163,8 +163,8 @@ export declare const MsgUpdateParams: {
 };
 export declare const MsgUpdateParamsResponse: {
     typeUrl: string;
-    encode(_: MsgUpdateParamsResponse, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): MsgUpdateParamsResponse;
+    encode(_: MsgUpdateParamsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateParamsResponse;
     fromJSON(_: any): MsgUpdateParamsResponse;
     toJSON(_: MsgUpdateParamsResponse): unknown;
     fromPartial(_: Partial<MsgUpdateParamsResponse>): MsgUpdateParamsResponse;

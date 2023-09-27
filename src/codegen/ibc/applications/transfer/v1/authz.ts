@@ -1,5 +1,5 @@
 import { Coin, CoinAmino, CoinSDKType } from "../../../../cosmos/base/v1beta1/coin";
-import { BinaryReader, BinaryWriter } from "../../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { isSet } from "../../../../helpers";
 /** Allocation defines the spend limit for a particular port and channel */
 export interface Allocation {
@@ -43,7 +43,6 @@ export interface AllocationSDKType {
  * the granter's account for ibc transfer on a specific channel
  */
 export interface TransferAuthorization {
-  $typeUrl?: string;
   /** port and channel amounts */
   allocations: Allocation[];
 }
@@ -68,7 +67,6 @@ export interface TransferAuthorizationAminoMsg {
  * the granter's account for ibc transfer on a specific channel
  */
 export interface TransferAuthorizationSDKType {
-  $typeUrl?: string;
   allocations: AllocationSDKType[];
 }
 function createBaseAllocation(): Allocation {
@@ -81,7 +79,7 @@ function createBaseAllocation(): Allocation {
 }
 export const Allocation = {
   typeUrl: "/ibc.applications.transfer.v1.Allocation",
-  encode(message: Allocation, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: Allocation, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.sourcePort !== "") {
       writer.uint32(10).string(message.sourcePort);
     }
@@ -96,8 +94,8 @@ export const Allocation = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): Allocation {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): Allocation {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseAllocation();
     while (reader.pos < end) {
@@ -202,20 +200,19 @@ export const Allocation = {
 };
 function createBaseTransferAuthorization(): TransferAuthorization {
   return {
-    $typeUrl: "/ibc.applications.transfer.v1.TransferAuthorization",
     allocations: []
   };
 }
 export const TransferAuthorization = {
   typeUrl: "/ibc.applications.transfer.v1.TransferAuthorization",
-  encode(message: TransferAuthorization, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: TransferAuthorization, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.allocations) {
       Allocation.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): TransferAuthorization {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): TransferAuthorization {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseTransferAuthorization();
     while (reader.pos < end) {

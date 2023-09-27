@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../binary";
+import * as _m0 from "protobufjs/minimal";
 export declare enum ScalarType {
     SCALAR_TYPE_UNSPECIFIED = 0,
     SCALAR_TYPE_STRING = 1,
@@ -147,8 +147,8 @@ export interface ScalarDescriptorSDKType {
 }
 export declare const InterfaceDescriptor: {
     typeUrl: string;
-    encode(message: InterfaceDescriptor, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): InterfaceDescriptor;
+    encode(message: InterfaceDescriptor, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): InterfaceDescriptor;
     fromJSON(object: any): InterfaceDescriptor;
     toJSON(message: InterfaceDescriptor): unknown;
     fromPartial(object: Partial<InterfaceDescriptor>): InterfaceDescriptor;
@@ -161,8 +161,8 @@ export declare const InterfaceDescriptor: {
 };
 export declare const ScalarDescriptor: {
     typeUrl: string;
-    encode(message: ScalarDescriptor, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): ScalarDescriptor;
+    encode(message: ScalarDescriptor, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ScalarDescriptor;
     fromJSON(object: any): ScalarDescriptor;
     toJSON(message: ScalarDescriptor): unknown;
     fromPartial(object: Partial<ScalarDescriptor>): ScalarDescriptor;

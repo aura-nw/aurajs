@@ -1,6 +1,6 @@
 import { InterchainAccountPacketData, InterchainAccountPacketDataAmino, InterchainAccountPacketDataSDKType } from "../../v1/packet";
-import { BinaryReader, BinaryWriter } from "../../../../../binary";
-import { isSet } from "../../../../../helpers";
+import { Long, isSet } from "../../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** MsgRegisterInterchainAccount defines the payload for Msg/RegisterAccount */
 export interface MsgRegisterInterchainAccount {
   owner: string;
@@ -59,7 +59,7 @@ export interface MsgSendTx {
    * Relative timeout timestamp provided will be added to the current block time during transaction execution.
    * The timeout timestamp must be non-zero.
    */
-  relativeTimeout: bigint;
+  relativeTimeout: Long;
 }
 export interface MsgSendTxProtoMsg {
   typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgSendTx";
@@ -85,11 +85,11 @@ export interface MsgSendTxSDKType {
   owner: string;
   connection_id: string;
   packet_data: InterchainAccountPacketDataSDKType;
-  relative_timeout: bigint;
+  relative_timeout: Long;
 }
 /** MsgSendTxResponse defines the response for MsgSendTx */
 export interface MsgSendTxResponse {
-  sequence: bigint;
+  sequence: Long;
 }
 export interface MsgSendTxResponseProtoMsg {
   typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgSendTxResponse";
@@ -105,7 +105,7 @@ export interface MsgSendTxResponseAminoMsg {
 }
 /** MsgSendTxResponse defines the response for MsgSendTx */
 export interface MsgSendTxResponseSDKType {
-  sequence: bigint;
+  sequence: Long;
 }
 function createBaseMsgRegisterInterchainAccount(): MsgRegisterInterchainAccount {
   return {
@@ -116,7 +116,7 @@ function createBaseMsgRegisterInterchainAccount(): MsgRegisterInterchainAccount 
 }
 export const MsgRegisterInterchainAccount = {
   typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgRegisterInterchainAccount",
-  encode(message: MsgRegisterInterchainAccount, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgRegisterInterchainAccount, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
     }
@@ -128,8 +128,8 @@ export const MsgRegisterInterchainAccount = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgRegisterInterchainAccount {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgRegisterInterchainAccount {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgRegisterInterchainAccount();
     while (reader.pos < end) {
@@ -216,7 +216,7 @@ function createBaseMsgRegisterInterchainAccountResponse(): MsgRegisterInterchain
 }
 export const MsgRegisterInterchainAccountResponse = {
   typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgRegisterInterchainAccountResponse",
-  encode(message: MsgRegisterInterchainAccountResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgRegisterInterchainAccountResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.channelId !== "") {
       writer.uint32(10).string(message.channelId);
     }
@@ -225,8 +225,8 @@ export const MsgRegisterInterchainAccountResponse = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgRegisterInterchainAccountResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgRegisterInterchainAccountResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgRegisterInterchainAccountResponse();
     while (reader.pos < end) {
@@ -302,12 +302,12 @@ function createBaseMsgSendTx(): MsgSendTx {
     owner: "",
     connectionId: "",
     packetData: InterchainAccountPacketData.fromPartial({}),
-    relativeTimeout: BigInt(0)
+    relativeTimeout: Long.UZERO
   };
 }
 export const MsgSendTx = {
   typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgSendTx",
-  encode(message: MsgSendTx, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: MsgSendTx, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.owner !== "") {
       writer.uint32(10).string(message.owner);
     }
@@ -317,13 +317,13 @@ export const MsgSendTx = {
     if (message.packetData !== undefined) {
       InterchainAccountPacketData.encode(message.packetData, writer.uint32(26).fork()).ldelim();
     }
-    if (message.relativeTimeout !== BigInt(0)) {
+    if (!message.relativeTimeout.isZero()) {
       writer.uint32(32).uint64(message.relativeTimeout);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgSendTx {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgSendTx {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgSendTx();
     while (reader.pos < end) {
@@ -339,7 +339,7 @@ export const MsgSendTx = {
           message.packetData = InterchainAccountPacketData.decode(reader, reader.uint32());
           break;
         case 4:
-          message.relativeTimeout = reader.uint64();
+          message.relativeTimeout = (reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -353,7 +353,7 @@ export const MsgSendTx = {
       owner: isSet(object.owner) ? String(object.owner) : "",
       connectionId: isSet(object.connectionId) ? String(object.connectionId) : "",
       packetData: isSet(object.packetData) ? InterchainAccountPacketData.fromJSON(object.packetData) : undefined,
-      relativeTimeout: isSet(object.relativeTimeout) ? BigInt(object.relativeTimeout.toString()) : BigInt(0)
+      relativeTimeout: isSet(object.relativeTimeout) ? Long.fromValue(object.relativeTimeout) : Long.UZERO
     };
   },
   toJSON(message: MsgSendTx): unknown {
@@ -361,7 +361,7 @@ export const MsgSendTx = {
     message.owner !== undefined && (obj.owner = message.owner);
     message.connectionId !== undefined && (obj.connectionId = message.connectionId);
     message.packetData !== undefined && (obj.packetData = message.packetData ? InterchainAccountPacketData.toJSON(message.packetData) : undefined);
-    message.relativeTimeout !== undefined && (obj.relativeTimeout = (message.relativeTimeout || BigInt(0)).toString());
+    message.relativeTimeout !== undefined && (obj.relativeTimeout = (message.relativeTimeout || Long.UZERO).toString());
     return obj;
   },
   fromPartial(object: Partial<MsgSendTx>): MsgSendTx {
@@ -369,7 +369,7 @@ export const MsgSendTx = {
     message.owner = object.owner ?? "";
     message.connectionId = object.connectionId ?? "";
     message.packetData = object.packetData !== undefined && object.packetData !== null ? InterchainAccountPacketData.fromPartial(object.packetData) : undefined;
-    message.relativeTimeout = object.relativeTimeout !== undefined && object.relativeTimeout !== null ? BigInt(object.relativeTimeout.toString()) : BigInt(0);
+    message.relativeTimeout = object.relativeTimeout !== undefined && object.relativeTimeout !== null ? Long.fromValue(object.relativeTimeout) : Long.UZERO;
     return message;
   },
   fromAmino(object: MsgSendTxAmino): MsgSendTx {
@@ -377,7 +377,7 @@ export const MsgSendTx = {
       owner: object.owner,
       connectionId: object.connection_id,
       packetData: object?.packet_data ? InterchainAccountPacketData.fromAmino(object.packet_data) : undefined,
-      relativeTimeout: BigInt(object.relative_timeout)
+      relativeTimeout: Long.fromString(object.relative_timeout)
     };
   },
   toAmino(message: MsgSendTx): MsgSendTxAmino {
@@ -412,26 +412,26 @@ export const MsgSendTx = {
 };
 function createBaseMsgSendTxResponse(): MsgSendTxResponse {
   return {
-    sequence: BigInt(0)
+    sequence: Long.UZERO
   };
 }
 export const MsgSendTxResponse = {
   typeUrl: "/ibc.applications.interchain_accounts.controller.v1.MsgSendTxResponse",
-  encode(message: MsgSendTxResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.sequence !== BigInt(0)) {
+  encode(message: MsgSendTxResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.sequence.isZero()) {
       writer.uint32(8).uint64(message.sequence);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): MsgSendTxResponse {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgSendTxResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgSendTxResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.sequence = reader.uint64();
+          message.sequence = (reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -442,22 +442,22 @@ export const MsgSendTxResponse = {
   },
   fromJSON(object: any): MsgSendTxResponse {
     return {
-      sequence: isSet(object.sequence) ? BigInt(object.sequence.toString()) : BigInt(0)
+      sequence: isSet(object.sequence) ? Long.fromValue(object.sequence) : Long.UZERO
     };
   },
   toJSON(message: MsgSendTxResponse): unknown {
     const obj: any = {};
-    message.sequence !== undefined && (obj.sequence = (message.sequence || BigInt(0)).toString());
+    message.sequence !== undefined && (obj.sequence = (message.sequence || Long.UZERO).toString());
     return obj;
   },
   fromPartial(object: Partial<MsgSendTxResponse>): MsgSendTxResponse {
     const message = createBaseMsgSendTxResponse();
-    message.sequence = object.sequence !== undefined && object.sequence !== null ? BigInt(object.sequence.toString()) : BigInt(0);
+    message.sequence = object.sequence !== undefined && object.sequence !== null ? Long.fromValue(object.sequence) : Long.UZERO;
     return message;
   },
   fromAmino(object: MsgSendTxResponseAmino): MsgSendTxResponse {
     return {
-      sequence: BigInt(object.sequence)
+      sequence: Long.fromString(object.sequence)
     };
   },
   toAmino(message: MsgSendTxResponse): MsgSendTxResponseAmino {

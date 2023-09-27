@@ -1,7 +1,8 @@
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export interface CodeID {
     /** whitelist code id */
-    codeId: bigint;
+    codeId: Long;
     /** status of code id */
     status: boolean;
 }
@@ -20,7 +21,7 @@ export interface CodeIDAminoMsg {
     value: CodeIDAmino;
 }
 export interface CodeIDSDKType {
-    code_id: bigint;
+    code_id: Long;
     status: boolean;
 }
 /** Params defines the parameters for the module. */
@@ -33,7 +34,7 @@ export interface Params {
     /** list of diable messages for smartaccount */
     disableMsgsList: string[];
     /** limit how much gas can be consumed by the `pre_execute` method */
-    maxGasExecute: bigint;
+    maxGasExecute: Long;
 }
 export interface ParamsProtoMsg {
     typeUrl: "/aura.smartaccount.v1beta1.Params";
@@ -59,12 +60,12 @@ export interface ParamsAminoMsg {
 export interface ParamsSDKType {
     whitelist_code_id: CodeIDSDKType[];
     disable_msgs_list: string[];
-    max_gas_execute: bigint;
+    max_gas_execute: Long;
 }
 export declare const CodeID: {
     typeUrl: string;
-    encode(message: CodeID, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): CodeID;
+    encode(message: CodeID, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): CodeID;
     fromJSON(object: any): CodeID;
     toJSON(message: CodeID): unknown;
     fromPartial(object: Partial<CodeID>): CodeID;
@@ -77,8 +78,8 @@ export declare const CodeID: {
 };
 export declare const Params: {
     typeUrl: string;
-    encode(message: Params, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): Params;
+    encode(message: Params, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): Params;
     fromJSON(object: any): Params;
     toJSON(message: Params): unknown;
     fromPartial(object: Partial<Params>): Params;

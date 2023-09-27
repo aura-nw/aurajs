@@ -1,8 +1,8 @@
-import { BinaryReader, BinaryWriter } from "../../binary";
-import { isSet } from "../../helpers";
+import { Long, isSet } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export interface BlockStoreState {
-  base: bigint;
-  height: bigint;
+  base: Long;
+  height: Long;
 }
 export interface BlockStoreStateProtoMsg {
   typeUrl: "/tendermint.store.BlockStoreState";
@@ -17,38 +17,38 @@ export interface BlockStoreStateAminoMsg {
   value: BlockStoreStateAmino;
 }
 export interface BlockStoreStateSDKType {
-  base: bigint;
-  height: bigint;
+  base: Long;
+  height: Long;
 }
 function createBaseBlockStoreState(): BlockStoreState {
   return {
-    base: BigInt(0),
-    height: BigInt(0)
+    base: Long.ZERO,
+    height: Long.ZERO
   };
 }
 export const BlockStoreState = {
   typeUrl: "/tendermint.store.BlockStoreState",
-  encode(message: BlockStoreState, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.base !== BigInt(0)) {
+  encode(message: BlockStoreState, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (!message.base.isZero()) {
       writer.uint32(8).int64(message.base);
     }
-    if (message.height !== BigInt(0)) {
+    if (!message.height.isZero()) {
       writer.uint32(16).int64(message.height);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): BlockStoreState {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): BlockStoreState {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseBlockStoreState();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.base = reader.int64();
+          message.base = (reader.int64() as Long);
           break;
         case 2:
-          message.height = reader.int64();
+          message.height = (reader.int64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -59,26 +59,26 @@ export const BlockStoreState = {
   },
   fromJSON(object: any): BlockStoreState {
     return {
-      base: isSet(object.base) ? BigInt(object.base.toString()) : BigInt(0),
-      height: isSet(object.height) ? BigInt(object.height.toString()) : BigInt(0)
+      base: isSet(object.base) ? Long.fromValue(object.base) : Long.ZERO,
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO
     };
   },
   toJSON(message: BlockStoreState): unknown {
     const obj: any = {};
-    message.base !== undefined && (obj.base = (message.base || BigInt(0)).toString());
-    message.height !== undefined && (obj.height = (message.height || BigInt(0)).toString());
+    message.base !== undefined && (obj.base = (message.base || Long.ZERO).toString());
+    message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
     return obj;
   },
   fromPartial(object: Partial<BlockStoreState>): BlockStoreState {
     const message = createBaseBlockStoreState();
-    message.base = object.base !== undefined && object.base !== null ? BigInt(object.base.toString()) : BigInt(0);
-    message.height = object.height !== undefined && object.height !== null ? BigInt(object.height.toString()) : BigInt(0);
+    message.base = object.base !== undefined && object.base !== null ? Long.fromValue(object.base) : Long.ZERO;
+    message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
     return message;
   },
   fromAmino(object: BlockStoreStateAmino): BlockStoreState {
     return {
-      base: BigInt(object.base),
-      height: BigInt(object.height)
+      base: Long.fromString(object.base),
+      height: Long.fromString(object.height)
     };
   },
   toAmino(message: BlockStoreState): BlockStoreStateAmino {

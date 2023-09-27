@@ -1,9 +1,10 @@
 import { CapabilityOwners, CapabilityOwnersAmino, CapabilityOwnersSDKType } from "./capability";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { Long } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** GenesisOwners defines the capability owners with their corresponding index. */
 export interface GenesisOwners {
     /** index is the index of the capability owner. */
-    index: bigint;
+    index: Long;
     /** index_owners are the owners at the given index. */
     indexOwners: CapabilityOwners;
 }
@@ -24,13 +25,13 @@ export interface GenesisOwnersAminoMsg {
 }
 /** GenesisOwners defines the capability owners with their corresponding index. */
 export interface GenesisOwnersSDKType {
-    index: bigint;
+    index: Long;
     index_owners: CapabilityOwnersSDKType;
 }
 /** GenesisState defines the capability module's genesis state. */
 export interface GenesisState {
     /** index is the capability global index. */
-    index: bigint;
+    index: Long;
     /**
      * owners represents a map from index to owners of the capability index
      * index key is string to allow amino marshalling.
@@ -57,13 +58,13 @@ export interface GenesisStateAminoMsg {
 }
 /** GenesisState defines the capability module's genesis state. */
 export interface GenesisStateSDKType {
-    index: bigint;
+    index: Long;
     owners: GenesisOwnersSDKType[];
 }
 export declare const GenesisOwners: {
     typeUrl: string;
-    encode(message: GenesisOwners, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GenesisOwners;
+    encode(message: GenesisOwners, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GenesisOwners;
     fromJSON(object: any): GenesisOwners;
     toJSON(message: GenesisOwners): unknown;
     fromPartial(object: Partial<GenesisOwners>): GenesisOwners;
@@ -77,8 +78,8 @@ export declare const GenesisOwners: {
 };
 export declare const GenesisState: {
     typeUrl: string;
-    encode(message: GenesisState, writer?: BinaryWriter): BinaryWriter;
-    decode(input: BinaryReader | Uint8Array, length?: number): GenesisState;
+    encode(message: GenesisState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): GenesisState;
     fromJSON(object: any): GenesisState;
     toJSON(message: GenesisState): unknown;
     fromPartial(object: Partial<GenesisState>): GenesisState;

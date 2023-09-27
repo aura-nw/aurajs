@@ -1,5 +1,5 @@
 import { ResponseCheckTx, ResponseCheckTxAmino, ResponseCheckTxSDKType, ResponseDeliverTx, ResponseDeliverTxAmino, ResponseDeliverTxSDKType } from "../../abci/types";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
 export interface RequestPing {}
 export interface RequestPingProtoMsg {
@@ -65,11 +65,11 @@ function createBaseRequestPing(): RequestPing {
 }
 export const RequestPing = {
   typeUrl: "/tendermint.rpc.grpc.RequestPing",
-  encode(_: RequestPing, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: RequestPing, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): RequestPing {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): RequestPing {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseRequestPing();
     while (reader.pos < end) {
@@ -123,14 +123,14 @@ function createBaseRequestBroadcastTx(): RequestBroadcastTx {
 }
 export const RequestBroadcastTx = {
   typeUrl: "/tendermint.rpc.grpc.RequestBroadcastTx",
-  encode(message: RequestBroadcastTx, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: RequestBroadcastTx, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.tx.length !== 0) {
       writer.uint32(10).bytes(message.tx);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): RequestBroadcastTx {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): RequestBroadcastTx {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseRequestBroadcastTx();
     while (reader.pos < end) {
@@ -192,11 +192,11 @@ function createBaseResponsePing(): ResponsePing {
 }
 export const ResponsePing = {
   typeUrl: "/tendermint.rpc.grpc.ResponsePing",
-  encode(_: ResponsePing, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(_: ResponsePing, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): ResponsePing {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): ResponsePing {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseResponsePing();
     while (reader.pos < end) {
@@ -251,7 +251,7 @@ function createBaseResponseBroadcastTx(): ResponseBroadcastTx {
 }
 export const ResponseBroadcastTx = {
   typeUrl: "/tendermint.rpc.grpc.ResponseBroadcastTx",
-  encode(message: ResponseBroadcastTx, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: ResponseBroadcastTx, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.checkTx !== undefined) {
       ResponseCheckTx.encode(message.checkTx, writer.uint32(10).fork()).ldelim();
     }
@@ -260,8 +260,8 @@ export const ResponseBroadcastTx = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): ResponseBroadcastTx {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): ResponseBroadcastTx {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseResponseBroadcastTx();
     while (reader.pos < end) {

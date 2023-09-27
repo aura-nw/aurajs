@@ -1,4 +1,4 @@
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import * as _m0 from "protobufjs/minimal";
 import { isSet } from "../../../helpers";
 /** TableDescriptor describes an ORM table. */
 export interface TableDescriptor {
@@ -236,7 +236,7 @@ function createBaseTableDescriptor(): TableDescriptor {
 }
 export const TableDescriptor = {
   typeUrl: "/cosmos.orm.v1.TableDescriptor",
-  encode(message: TableDescriptor, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: TableDescriptor, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.primaryKey !== undefined) {
       PrimaryKeyDescriptor.encode(message.primaryKey, writer.uint32(10).fork()).ldelim();
     }
@@ -248,8 +248,8 @@ export const TableDescriptor = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): TableDescriptor {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): TableDescriptor {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseTableDescriptor();
     while (reader.pos < end) {
@@ -344,7 +344,7 @@ function createBasePrimaryKeyDescriptor(): PrimaryKeyDescriptor {
 }
 export const PrimaryKeyDescriptor = {
   typeUrl: "/cosmos.orm.v1.PrimaryKeyDescriptor",
-  encode(message: PrimaryKeyDescriptor, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: PrimaryKeyDescriptor, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.fields !== "") {
       writer.uint32(10).string(message.fields);
     }
@@ -353,8 +353,8 @@ export const PrimaryKeyDescriptor = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): PrimaryKeyDescriptor {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): PrimaryKeyDescriptor {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBasePrimaryKeyDescriptor();
     while (reader.pos < end) {
@@ -434,7 +434,7 @@ function createBaseSecondaryIndexDescriptor(): SecondaryIndexDescriptor {
 }
 export const SecondaryIndexDescriptor = {
   typeUrl: "/cosmos.orm.v1.SecondaryIndexDescriptor",
-  encode(message: SecondaryIndexDescriptor, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: SecondaryIndexDescriptor, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.fields !== "") {
       writer.uint32(10).string(message.fields);
     }
@@ -446,8 +446,8 @@ export const SecondaryIndexDescriptor = {
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): SecondaryIndexDescriptor {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): SecondaryIndexDescriptor {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseSecondaryIndexDescriptor();
     while (reader.pos < end) {
@@ -533,14 +533,14 @@ function createBaseSingletonDescriptor(): SingletonDescriptor {
 }
 export const SingletonDescriptor = {
   typeUrl: "/cosmos.orm.v1.SingletonDescriptor",
-  encode(message: SingletonDescriptor, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
+  encode(message: SingletonDescriptor, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.id !== 0) {
       writer.uint32(8).uint32(message.id);
     }
     return writer;
   },
-  decode(input: BinaryReader | Uint8Array, length?: number): SingletonDescriptor {
-    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): SingletonDescriptor {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseSingletonDescriptor();
     while (reader.pos < end) {
