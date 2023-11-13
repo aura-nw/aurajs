@@ -17,7 +17,7 @@ export interface AppOptionsRequestAminoMsg {
 export interface AppOptionsRequestSDKType {}
 export interface AppOptionsResponse_ModuleOptionsEntry {
   key: string;
-  value: ModuleOptions;
+  value?: ModuleOptions;
 }
 export interface AppOptionsResponse_ModuleOptionsEntryProtoMsg {
   typeUrl: string;
@@ -33,7 +33,7 @@ export interface AppOptionsResponse_ModuleOptionsEntryAminoMsg {
 }
 export interface AppOptionsResponse_ModuleOptionsEntrySDKType {
   key: string;
-  value: ModuleOptionsSDKType;
+  value?: ModuleOptionsSDKType;
 }
 /** AppOptionsResponse is the RemoteInfoService/AppOptions response type. */
 export interface AppOptionsResponse {
@@ -128,7 +128,7 @@ export const AppOptionsRequest = {
 function createBaseAppOptionsResponse_ModuleOptionsEntry(): AppOptionsResponse_ModuleOptionsEntry {
   return {
     key: "",
-    value: ModuleOptions.fromPartial({})
+    value: undefined
   };
 }
 export const AppOptionsResponse_ModuleOptionsEntry = {

@@ -13,8 +13,8 @@ import * as _m0 from "protobufjs/minimal";
  */
 export interface ABCIResponses {
   deliverTxs: ResponseDeliverTx[];
-  endBlock: ResponseEndBlock;
-  beginBlock: ResponseBeginBlock;
+  endBlock?: ResponseEndBlock;
+  beginBlock?: ResponseBeginBlock;
 }
 export interface ABCIResponsesProtoMsg {
   typeUrl: "/tendermint.state.ABCIResponses";
@@ -41,12 +41,12 @@ export interface ABCIResponsesAminoMsg {
  */
 export interface ABCIResponsesSDKType {
   deliver_txs: ResponseDeliverTxSDKType[];
-  end_block: ResponseEndBlockSDKType;
-  begin_block: ResponseBeginBlockSDKType;
+  end_block?: ResponseEndBlockSDKType;
+  begin_block?: ResponseBeginBlockSDKType;
 }
 /** ValidatorsInfo represents the latest validator set, or the last height it changed */
 export interface ValidatorsInfo {
-  validatorSet: ValidatorSet;
+  validatorSet?: ValidatorSet;
   lastHeightChanged: Long;
 }
 export interface ValidatorsInfoProtoMsg {
@@ -64,7 +64,7 @@ export interface ValidatorsInfoAminoMsg {
 }
 /** ValidatorsInfo represents the latest validator set, or the last height it changed */
 export interface ValidatorsInfoSDKType {
-  validator_set: ValidatorSetSDKType;
+  validator_set?: ValidatorSetSDKType;
   last_height_changed: Long;
 }
 /** ConsensusParamsInfo represents the latest consensus params, or the last height it changed */
@@ -91,7 +91,7 @@ export interface ConsensusParamsInfoSDKType {
   last_height_changed: Long;
 }
 export interface ABCIResponsesInfo {
-  abciResponses: ABCIResponses;
+  abciResponses?: ABCIResponses;
   height: Long;
 }
 export interface ABCIResponsesInfoProtoMsg {
@@ -107,7 +107,7 @@ export interface ABCIResponsesInfoAminoMsg {
   value: ABCIResponsesInfoAmino;
 }
 export interface ABCIResponsesInfoSDKType {
-  abci_responses: ABCIResponsesSDKType;
+  abci_responses?: ABCIResponsesSDKType;
   height: Long;
 }
 export interface Version {
@@ -147,9 +147,9 @@ export interface State {
    * we set s.LastHeightValidatorsChanged = s.LastBlockHeight + 1 + 1
    * Extra +1 due to nextValSet delay.
    */
-  nextValidators: ValidatorSet;
-  validators: ValidatorSet;
-  lastValidators: ValidatorSet;
+  nextValidators?: ValidatorSet;
+  validators?: ValidatorSet;
+  lastValidators?: ValidatorSet;
   lastHeightValidatorsChanged: Long;
   /**
    * Consensus parameters used for validating blocks.
@@ -209,9 +209,9 @@ export interface StateSDKType {
   last_block_height: Long;
   last_block_id: BlockIDSDKType;
   last_block_time: Date;
-  next_validators: ValidatorSetSDKType;
-  validators: ValidatorSetSDKType;
-  last_validators: ValidatorSetSDKType;
+  next_validators?: ValidatorSetSDKType;
+  validators?: ValidatorSetSDKType;
+  last_validators?: ValidatorSetSDKType;
   last_height_validators_changed: Long;
   consensus_params: ConsensusParamsSDKType;
   last_height_consensus_params_changed: Long;
@@ -221,8 +221,8 @@ export interface StateSDKType {
 function createBaseABCIResponses(): ABCIResponses {
   return {
     deliverTxs: [],
-    endBlock: ResponseEndBlock.fromPartial({}),
-    beginBlock: ResponseBeginBlock.fromPartial({})
+    endBlock: undefined,
+    beginBlock: undefined
   };
 }
 export const ABCIResponses = {
@@ -323,7 +323,7 @@ export const ABCIResponses = {
 };
 function createBaseValidatorsInfo(): ValidatorsInfo {
   return {
-    validatorSet: ValidatorSet.fromPartial({}),
+    validatorSet: undefined,
     lastHeightChanged: Long.ZERO
   };
 }
@@ -489,7 +489,7 @@ export const ConsensusParamsInfo = {
 };
 function createBaseABCIResponsesInfo(): ABCIResponsesInfo {
   return {
-    abciResponses: ABCIResponses.fromPartial({}),
+    abciResponses: undefined,
     height: Long.ZERO
   };
 }
@@ -661,9 +661,9 @@ function createBaseState(): State {
     lastBlockHeight: Long.ZERO,
     lastBlockId: BlockID.fromPartial({}),
     lastBlockTime: new Date(),
-    nextValidators: ValidatorSet.fromPartial({}),
-    validators: ValidatorSet.fromPartial({}),
-    lastValidators: ValidatorSet.fromPartial({}),
+    nextValidators: undefined,
+    validators: undefined,
+    lastValidators: undefined,
     lastHeightValidatorsChanged: Long.ZERO,
     consensusParams: ConsensusParams.fromPartial({}),
     lastHeightConsensusParamsChanged: Long.ZERO,

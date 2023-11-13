@@ -10,7 +10,7 @@ export interface MsgCreateValidator {
     minSelfDelegation: string;
     delegatorAddress: string;
     validatorAddress: string;
-    pubkey: Any;
+    pubkey?: Any;
     value: Coin;
 }
 export interface MsgCreateValidatorProtoMsg {
@@ -38,7 +38,7 @@ export interface MsgCreateValidatorSDKType {
     min_self_delegation: string;
     delegator_address: string;
     validator_address: string;
-    pubkey: AnySDKType;
+    pubkey?: AnySDKType;
     value: CoinSDKType;
 }
 /** MsgCreateValidatorResponse defines the Msg/CreateValidator response type. */

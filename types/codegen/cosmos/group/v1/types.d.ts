@@ -175,7 +175,7 @@ export interface ThresholdDecisionPolicy {
      */
     threshold: string;
     /** windows defines the different windows for voting and execution. */
-    windows: DecisionPolicyWindows;
+    windows?: DecisionPolicyWindows;
 }
 export interface ThresholdDecisionPolicyProtoMsg {
     typeUrl: "/cosmos.group.v1.ThresholdDecisionPolicy";
@@ -212,7 +212,7 @@ export interface ThresholdDecisionPolicyAminoMsg {
  */
 export interface ThresholdDecisionPolicySDKType {
     threshold: string;
-    windows: DecisionPolicyWindowsSDKType;
+    windows?: DecisionPolicyWindowsSDKType;
 }
 /**
  * PercentageDecisionPolicy is a decision policy where a proposal passes when
@@ -229,7 +229,7 @@ export interface PercentageDecisionPolicy {
      */
     percentage: string;
     /** windows defines the different windows for voting and execution. */
-    windows: DecisionPolicyWindows;
+    windows?: DecisionPolicyWindows;
 }
 export interface PercentageDecisionPolicyProtoMsg {
     typeUrl: "/cosmos.group.v1.PercentageDecisionPolicy";
@@ -266,7 +266,7 @@ export interface PercentageDecisionPolicyAminoMsg {
  */
 export interface PercentageDecisionPolicySDKType {
     percentage: string;
-    windows: DecisionPolicyWindowsSDKType;
+    windows?: DecisionPolicyWindowsSDKType;
 }
 /** DecisionPolicyWindows defines the different windows for voting and execution. */
 export interface DecisionPolicyWindows {
@@ -387,7 +387,7 @@ export interface GroupMember {
     /** group_id is the unique ID of the group. */
     groupId: Long;
     /** member is the member data. */
-    member: Member;
+    member?: Member;
 }
 export interface GroupMemberProtoMsg {
     typeUrl: "/cosmos.group.v1.GroupMember";
@@ -407,7 +407,7 @@ export interface GroupMemberAminoMsg {
 /** GroupMember represents the relationship between a group and a member. */
 export interface GroupMemberSDKType {
     group_id: Long;
-    member: MemberSDKType;
+    member?: MemberSDKType;
 }
 /** GroupPolicyInfo represents the high-level on-chain information for a group policy. */
 export interface GroupPolicyInfo {
@@ -429,7 +429,7 @@ export interface GroupPolicyInfo {
      */
     version: Long;
     /** decision_policy specifies the group policy's decision policy. */
-    decisionPolicy: Any;
+    decisionPolicy?: Any;
     /** created_at is a timestamp specifying when a group policy was created. */
     createdAt: Date;
 }
@@ -472,7 +472,7 @@ export interface GroupPolicyInfoSDKType {
     admin: string;
     metadata: string;
     version: Long;
-    decision_policy: AnySDKType;
+    decision_policy?: AnySDKType;
     created_at: Date;
 }
 /**

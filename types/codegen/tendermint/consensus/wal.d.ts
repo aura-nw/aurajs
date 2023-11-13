@@ -112,7 +112,7 @@ export interface WALMessageSDKType {
 /** TimedWALMessage wraps WALMessage and adds Time for debugging purposes. */
 export interface TimedWALMessage {
     time: Date;
-    msg: WALMessage;
+    msg?: WALMessage;
 }
 export interface TimedWALMessageProtoMsg {
     typeUrl: "/tendermint.consensus.TimedWALMessage";
@@ -130,7 +130,7 @@ export interface TimedWALMessageAminoMsg {
 /** TimedWALMessage wraps WALMessage and adds Time for debugging purposes. */
 export interface TimedWALMessageSDKType {
     time: Date;
-    msg: WALMessageSDKType;
+    msg?: WALMessageSDKType;
 }
 export declare const MsgInfo: {
     typeUrl: string;

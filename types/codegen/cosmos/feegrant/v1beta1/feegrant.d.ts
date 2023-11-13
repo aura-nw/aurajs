@@ -13,7 +13,7 @@ export interface BasicAllowance {
      */
     spendLimit: Coin[];
     /** expiration specifies an optional time when this allowance expires */
-    expiration: Date;
+    expiration?: Date;
 }
 export interface BasicAllowanceProtoMsg {
     typeUrl: "/cosmos.feegrant.v1beta1.BasicAllowance";
@@ -43,7 +43,7 @@ export interface BasicAllowanceAminoMsg {
  */
 export interface BasicAllowanceSDKType {
     spend_limit: CoinSDKType[];
-    expiration: Date;
+    expiration?: Date;
 }
 /**
  * PeriodicAllowance extends Allowance to allow for both a maximum cap,
@@ -119,7 +119,7 @@ export interface PeriodicAllowanceSDKType {
 /** AllowedMsgAllowance creates allowance only for specified message types. */
 export interface AllowedMsgAllowance {
     /** allowance can be any of basic and periodic fee allowance. */
-    allowance: Any;
+    allowance?: Any;
     /** allowed_messages are the messages for which the grantee has the access. */
     allowedMessages: string[];
 }
@@ -140,7 +140,7 @@ export interface AllowedMsgAllowanceAminoMsg {
 }
 /** AllowedMsgAllowance creates allowance only for specified message types. */
 export interface AllowedMsgAllowanceSDKType {
-    allowance: AnySDKType;
+    allowance?: AnySDKType;
     allowed_messages: string[];
 }
 /** Grant is stored in the KVStore to record a grant with full context */
@@ -150,7 +150,7 @@ export interface Grant {
     /** grantee is the address of the user being granted an allowance of another user's funds. */
     grantee: string;
     /** allowance can be any of basic, periodic, allowed fee allowance. */
-    allowance: Any;
+    allowance?: Any;
 }
 export interface GrantProtoMsg {
     typeUrl: "/cosmos.feegrant.v1beta1.Grant";
@@ -173,7 +173,34 @@ export interface GrantAminoMsg {
 export interface GrantSDKType {
     granter: string;
     grantee: string;
-    allowance: AnySDKType;
+    allowance?: AnySDKType;
+}
+/** AllowedContractAllowance creates allowance only for specified contract address. */
+export interface AllowedContractAllowance {
+    /** allowance can be any of basic and periodic fee allowance. */
+    allowance?: Any;
+    /** allowed_address are the addresses for which the grantee has the access. */
+    allowedAddress: string[];
+}
+export interface AllowedContractAllowanceProtoMsg {
+    typeUrl: "/cosmos.feegrant.v1beta1.AllowedContractAllowance";
+    value: Uint8Array;
+}
+/** AllowedContractAllowance creates allowance only for specified contract address. */
+export interface AllowedContractAllowanceAmino {
+    /** allowance can be any of basic and periodic fee allowance. */
+    allowance?: AnyAmino;
+    /** allowed_address are the addresses for which the grantee has the access. */
+    allowed_address: string[];
+}
+export interface AllowedContractAllowanceAminoMsg {
+    type: "cosmos-sdk/AllowedContractAllowance";
+    value: AllowedContractAllowanceAmino;
+}
+/** AllowedContractAllowance creates allowance only for specified contract address. */
+export interface AllowedContractAllowanceSDKType {
+    allowance?: AnySDKType;
+    allowed_address: string[];
 }
 export declare const BasicAllowance: {
     typeUrl: string;
@@ -234,4 +261,19 @@ export declare const Grant: {
     fromProtoMsg(message: GrantProtoMsg): Grant;
     toProto(message: Grant): Uint8Array;
     toProtoMsg(message: Grant): GrantProtoMsg;
+};
+export declare const AllowedContractAllowance: {
+    typeUrl: string;
+    encode(message: AllowedContractAllowance, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): AllowedContractAllowance;
+    fromJSON(object: any): AllowedContractAllowance;
+    toJSON(message: AllowedContractAllowance): unknown;
+    fromPartial(object: Partial<AllowedContractAllowance>): AllowedContractAllowance;
+    fromAmino(object: AllowedContractAllowanceAmino): AllowedContractAllowance;
+    toAmino(message: AllowedContractAllowance): AllowedContractAllowanceAmino;
+    fromAminoMsg(object: AllowedContractAllowanceAminoMsg): AllowedContractAllowance;
+    toAminoMsg(message: AllowedContractAllowance): AllowedContractAllowanceAminoMsg;
+    fromProtoMsg(message: AllowedContractAllowanceProtoMsg): AllowedContractAllowance;
+    toProto(message: AllowedContractAllowance): Uint8Array;
+    toProtoMsg(message: AllowedContractAllowance): AllowedContractAllowanceProtoMsg;
 };

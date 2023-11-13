@@ -2,7 +2,7 @@ import { BaseAccount, BaseAccountAmino, BaseAccountSDKType } from "../../../../c
 import * as _m0 from "protobufjs/minimal";
 /** An InterchainAccount is defined as a BaseAccount & the address of the account owner on the controller chain */
 export interface InterchainAccount {
-    baseAccount: BaseAccount;
+    baseAccount?: BaseAccount;
     accountOwner: string;
 }
 export interface InterchainAccountProtoMsg {
@@ -20,7 +20,7 @@ export interface InterchainAccountAminoMsg {
 }
 /** An InterchainAccount is defined as a BaseAccount & the address of the account owner on the controller chain */
 export interface InterchainAccountSDKType {
-    base_account: BaseAccountSDKType;
+    base_account?: BaseAccountSDKType;
     account_owner: string;
 }
 export declare const InterchainAccount: {

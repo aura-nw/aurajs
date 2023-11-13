@@ -154,8 +154,8 @@ export interface Misbehaviour {
     /** ClientID is deprecated */
     /** @deprecated */
     clientId: string;
-    header1: Header;
-    header2: Header;
+    header1?: Header;
+    header2?: Header;
 }
 export interface MisbehaviourProtoMsg {
     typeUrl: "/ibc.lightclients.tendermint.v1.Misbehaviour";
@@ -183,8 +183,8 @@ export interface MisbehaviourAminoMsg {
 export interface MisbehaviourSDKType {
     /** @deprecated */
     client_id: string;
-    header_1: HeaderSDKType;
-    header_2: HeaderSDKType;
+    header_1?: HeaderSDKType;
+    header_2?: HeaderSDKType;
 }
 /**
  * Header defines the Tendermint client consensus Header.
@@ -201,10 +201,10 @@ export interface MisbehaviourSDKType {
  * trusted validator set at the TrustedHeight.
  */
 export interface Header {
-    signedHeader: SignedHeader;
-    validatorSet: ValidatorSet;
+    signedHeader?: SignedHeader;
+    validatorSet?: ValidatorSet;
     trustedHeight: Height;
-    trustedValidators: ValidatorSet;
+    trustedValidators?: ValidatorSet;
 }
 export interface HeaderProtoMsg {
     typeUrl: "/ibc.lightclients.tendermint.v1.Header";
@@ -249,10 +249,10 @@ export interface HeaderAminoMsg {
  * trusted validator set at the TrustedHeight.
  */
 export interface HeaderSDKType {
-    signed_header: SignedHeaderSDKType;
-    validator_set: ValidatorSetSDKType;
+    signed_header?: SignedHeaderSDKType;
+    validator_set?: ValidatorSetSDKType;
     trusted_height: HeightSDKType;
-    trusted_validators: ValidatorSetSDKType;
+    trusted_validators?: ValidatorSetSDKType;
 }
 /**
  * Fraction defines the protobuf message type for tmmath.Fraction that only

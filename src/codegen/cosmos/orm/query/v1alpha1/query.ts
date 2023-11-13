@@ -58,7 +58,7 @@ export interface GetResponse {
    * result is the result of the get query. If no value is found, the gRPC
    * status code NOT_FOUND will be returned.
    */
-  result: Any;
+  result?: Any;
 }
 export interface GetResponseProtoMsg {
   typeUrl: "/cosmos.orm.query.v1alpha1.GetResponse";
@@ -78,7 +78,7 @@ export interface GetResponseAminoMsg {
 }
 /** GetResponse is the Query/Get response type. */
 export interface GetResponseSDKType {
-  result: AnySDKType;
+  result?: AnySDKType;
 }
 /** ListRequest is the Query/List request type. */
 export interface ListRequest {
@@ -94,7 +94,7 @@ export interface ListRequest {
   /** range defines a range query. */
   range?: ListRequest_Range;
   /** pagination is the pagination request. */
-  pagination: PageRequest;
+  pagination?: PageRequest;
 }
 export interface ListRequestProtoMsg {
   typeUrl: "/cosmos.orm.query.v1alpha1.ListRequest";
@@ -126,7 +126,7 @@ export interface ListRequestSDKType {
   index: string;
   prefix?: ListRequest_PrefixSDKType;
   range?: ListRequest_RangeSDKType;
-  pagination: PageRequestSDKType;
+  pagination?: PageRequestSDKType;
 }
 /** Prefix specifies the arguments to a prefix query. */
 export interface ListRequest_Prefix {
@@ -206,7 +206,7 @@ export interface ListResponse {
   /** results are the results of the query. */
   results: Any[];
   /** pagination is the pagination response. */
-  pagination: PageResponse;
+  pagination?: PageResponse;
 }
 export interface ListResponseProtoMsg {
   typeUrl: "/cosmos.orm.query.v1alpha1.ListResponse";
@@ -226,7 +226,7 @@ export interface ListResponseAminoMsg {
 /** ListResponse is the Query/List response type. */
 export interface ListResponseSDKType {
   results: AnySDKType[];
-  pagination: PageResponseSDKType;
+  pagination?: PageResponseSDKType;
 }
 /** IndexValue represents the value of a field in an ORM index expression. */
 export interface IndexValue {
@@ -408,7 +408,7 @@ export const GetRequest = {
 };
 function createBaseGetResponse(): GetResponse {
   return {
-    result: Any.fromPartial({})
+    result: undefined
   };
 }
 export const GetResponse = {
@@ -489,7 +489,7 @@ function createBaseListRequest(): ListRequest {
     index: "",
     prefix: undefined,
     range: undefined,
-    pagination: PageRequest.fromPartial({})
+    pagination: undefined
   };
 }
 export const ListRequest = {
@@ -801,7 +801,7 @@ export const ListRequest_Range = {
 function createBaseListResponse(): ListResponse {
   return {
     results: [],
-    pagination: PageResponse.fromPartial({})
+    pagination: undefined
   };
 }
 export const ListResponse = {

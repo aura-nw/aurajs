@@ -8,7 +8,7 @@ import * as _m0 from "protobufjs/minimal";
 /** QueryIncentivizedPacketsRequest defines the request type for the IncentivizedPackets rpc */
 export interface QueryIncentivizedPacketsRequest {
   /** pagination defines an optional pagination for the request. */
-  pagination: PageRequest;
+  pagination?: PageRequest;
   /** block height at which to query */
   queryHeight: Long;
 }
@@ -29,7 +29,7 @@ export interface QueryIncentivizedPacketsRequestAminoMsg {
 }
 /** QueryIncentivizedPacketsRequest defines the request type for the IncentivizedPackets rpc */
 export interface QueryIncentivizedPacketsRequestSDKType {
-  pagination: PageRequestSDKType;
+  pagination?: PageRequestSDKType;
   query_height: Long;
 }
 /** QueryIncentivizedPacketsResponse defines the response type for the IncentivizedPackets rpc */
@@ -109,7 +109,7 @@ export interface QueryIncentivizedPacketResponseSDKType {
  */
 export interface QueryIncentivizedPacketsForChannelRequest {
   /** pagination defines an optional pagination for the request. */
-  pagination: PageRequest;
+  pagination?: PageRequest;
   portId: string;
   channelId: string;
   /** Height to query at */
@@ -140,7 +140,7 @@ export interface QueryIncentivizedPacketsForChannelRequestAminoMsg {
  * for a specific channel
  */
 export interface QueryIncentivizedPacketsForChannelRequestSDKType {
-  pagination: PageRequestSDKType;
+  pagination?: PageRequestSDKType;
   port_id: string;
   channel_id: string;
   query_height: Long;
@@ -400,7 +400,7 @@ export interface QueryCounterpartyPayeeResponseSDKType {
 /** QueryFeeEnabledChannelsRequest defines the request type for the FeeEnabledChannels rpc */
 export interface QueryFeeEnabledChannelsRequest {
   /** pagination defines an optional pagination for the request. */
-  pagination: PageRequest;
+  pagination?: PageRequest;
   /** block height at which to query */
   queryHeight: Long;
 }
@@ -421,7 +421,7 @@ export interface QueryFeeEnabledChannelsRequestAminoMsg {
 }
 /** QueryFeeEnabledChannelsRequest defines the request type for the FeeEnabledChannels rpc */
 export interface QueryFeeEnabledChannelsRequestSDKType {
-  pagination: PageRequestSDKType;
+  pagination?: PageRequestSDKType;
   query_height: Long;
 }
 /** QueryFeeEnabledChannelsResponse defines the response type for the FeeEnabledChannels rpc */
@@ -497,7 +497,7 @@ export interface QueryFeeEnabledChannelResponseSDKType {
 }
 function createBaseQueryIncentivizedPacketsRequest(): QueryIncentivizedPacketsRequest {
   return {
-    pagination: PageRequest.fromPartial({}),
+    pagination: undefined,
     queryHeight: Long.UZERO
   };
 }
@@ -837,7 +837,7 @@ export const QueryIncentivizedPacketResponse = {
 };
 function createBaseQueryIncentivizedPacketsForChannelRequest(): QueryIncentivizedPacketsForChannelRequest {
   return {
-    pagination: PageRequest.fromPartial({}),
+    pagination: undefined,
     portId: "",
     channelId: "",
     queryHeight: Long.UZERO
@@ -1853,7 +1853,7 @@ export const QueryCounterpartyPayeeResponse = {
 };
 function createBaseQueryFeeEnabledChannelsRequest(): QueryFeeEnabledChannelsRequest {
   return {
-    pagination: PageRequest.fromPartial({}),
+    pagination: undefined,
     queryHeight: Long.UZERO
   };
 }

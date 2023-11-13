@@ -46,7 +46,7 @@ export interface QueryGenerateAccountRequest {
   /** InitMsg is the JSON-encoded instantiate message for creating account */
   initMsg: Uint8Array;
   /** PubKey of account */
-  publicKey: Any;
+  publicKey?: Any;
 }
 export interface QueryGenerateAccountRequestProtoMsg {
   typeUrl: "/aura.smartaccount.v1beta1.QueryGenerateAccountRequest";
@@ -70,7 +70,7 @@ export interface QueryGenerateAccountRequestSDKType {
   code_id: Long;
   salt: Uint8Array;
   init_msg: Uint8Array;
-  public_key: AnySDKType;
+  public_key?: AnySDKType;
 }
 export interface QueryGenerateAccountResponse {
   address: string;
@@ -221,7 +221,7 @@ function createBaseQueryGenerateAccountRequest(): QueryGenerateAccountRequest {
     codeId: Long.UZERO,
     salt: new Uint8Array(),
     initMsg: new Uint8Array(),
-    publicKey: Any.fromPartial({})
+    publicKey: undefined
   };
 }
 export const QueryGenerateAccountRequest = {

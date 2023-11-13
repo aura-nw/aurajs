@@ -8,7 +8,7 @@ import * as _m0 from "protobufjs/minimal";
  */
 export interface SmartAccount {
   address: string;
-  pubKey: Any;
+  pubKey?: Any;
   accountNumber: Long;
   sequence: Long;
 }
@@ -38,14 +38,14 @@ export interface SmartAccountAminoMsg {
  */
 export interface SmartAccountSDKType {
   address: string;
-  pub_key: AnySDKType;
+  pub_key?: AnySDKType;
   account_number: Long;
   sequence: Long;
 }
 function createBaseSmartAccount(): SmartAccount {
   return {
     address: "",
-    pubKey: Any.fromPartial({}),
+    pubKey: undefined,
     accountNumber: Long.UZERO,
     sequence: Long.UZERO
   };

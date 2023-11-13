@@ -16,7 +16,7 @@ export interface BasicAllowance {
    */
   spendLimit: Coin[];
   /** expiration specifies an optional time when this allowance expires */
-  expiration: Date;
+  expiration?: Date;
 }
 export interface BasicAllowanceProtoMsg {
   typeUrl: "/cosmos.feegrant.v1beta1.BasicAllowance";
@@ -46,7 +46,7 @@ export interface BasicAllowanceAminoMsg {
  */
 export interface BasicAllowanceSDKType {
   spend_limit: CoinSDKType[];
-  expiration: Date;
+  expiration?: Date;
 }
 /**
  * PeriodicAllowance extends Allowance to allow for both a maximum cap,
@@ -122,7 +122,7 @@ export interface PeriodicAllowanceSDKType {
 /** AllowedMsgAllowance creates allowance only for specified message types. */
 export interface AllowedMsgAllowance {
   /** allowance can be any of basic and periodic fee allowance. */
-  allowance: Any;
+  allowance?: Any;
   /** allowed_messages are the messages for which the grantee has the access. */
   allowedMessages: string[];
 }
@@ -143,7 +143,7 @@ export interface AllowedMsgAllowanceAminoMsg {
 }
 /** AllowedMsgAllowance creates allowance only for specified message types. */
 export interface AllowedMsgAllowanceSDKType {
-  allowance: AnySDKType;
+  allowance?: AnySDKType;
   allowed_messages: string[];
 }
 /** Grant is stored in the KVStore to record a grant with full context */
@@ -153,7 +153,7 @@ export interface Grant {
   /** grantee is the address of the user being granted an allowance of another user's funds. */
   grantee: string;
   /** allowance can be any of basic, periodic, allowed fee allowance. */
-  allowance: Any;
+  allowance?: Any;
 }
 export interface GrantProtoMsg {
   typeUrl: "/cosmos.feegrant.v1beta1.Grant";
@@ -176,12 +176,39 @@ export interface GrantAminoMsg {
 export interface GrantSDKType {
   granter: string;
   grantee: string;
-  allowance: AnySDKType;
+  allowance?: AnySDKType;
+}
+/** AllowedContractAllowance creates allowance only for specified contract address. */
+export interface AllowedContractAllowance {
+  /** allowance can be any of basic and periodic fee allowance. */
+  allowance?: Any;
+  /** allowed_address are the addresses for which the grantee has the access. */
+  allowedAddress: string[];
+}
+export interface AllowedContractAllowanceProtoMsg {
+  typeUrl: "/cosmos.feegrant.v1beta1.AllowedContractAllowance";
+  value: Uint8Array;
+}
+/** AllowedContractAllowance creates allowance only for specified contract address. */
+export interface AllowedContractAllowanceAmino {
+  /** allowance can be any of basic and periodic fee allowance. */
+  allowance?: AnyAmino;
+  /** allowed_address are the addresses for which the grantee has the access. */
+  allowed_address: string[];
+}
+export interface AllowedContractAllowanceAminoMsg {
+  type: "cosmos-sdk/AllowedContractAllowance";
+  value: AllowedContractAllowanceAmino;
+}
+/** AllowedContractAllowance creates allowance only for specified contract address. */
+export interface AllowedContractAllowanceSDKType {
+  allowance?: AnySDKType;
+  allowed_address: string[];
 }
 function createBaseBasicAllowance(): BasicAllowance {
   return {
     spendLimit: [],
-    expiration: new Date()
+    expiration: undefined
   };
 }
 export const BasicAllowance = {
@@ -240,7 +267,7 @@ export const BasicAllowance = {
   fromAmino(object: BasicAllowanceAmino): BasicAllowance {
     return {
       spendLimit: Array.isArray(object?.spend_limit) ? object.spend_limit.map((e: any) => Coin.fromAmino(e)) : [],
-      expiration: object.expiration
+      expiration: object?.expiration
     };
   },
   toAmino(message: BasicAllowance): BasicAllowanceAmino {
@@ -418,7 +445,7 @@ export const PeriodicAllowance = {
 };
 function createBaseAllowedMsgAllowance(): AllowedMsgAllowance {
   return {
-    allowance: Any.fromPartial({}),
+    allowance: undefined,
     allowedMessages: []
   };
 }
@@ -517,7 +544,7 @@ function createBaseGrant(): Grant {
   return {
     granter: "",
     grantee: "",
-    allowance: Any.fromPartial({})
+    allowance: undefined
   };
 }
 export const Grant = {
@@ -611,6 +638,103 @@ export const Grant = {
     return {
       typeUrl: "/cosmos.feegrant.v1beta1.Grant",
       value: Grant.encode(message).finish()
+    };
+  }
+};
+function createBaseAllowedContractAllowance(): AllowedContractAllowance {
+  return {
+    allowance: undefined,
+    allowedAddress: []
+  };
+}
+export const AllowedContractAllowance = {
+  typeUrl: "/cosmos.feegrant.v1beta1.AllowedContractAllowance",
+  encode(message: AllowedContractAllowance, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.allowance !== undefined) {
+      Any.encode(message.allowance, writer.uint32(10).fork()).ldelim();
+    }
+    for (const v of message.allowedAddress) {
+      writer.uint32(18).string(v!);
+    }
+    return writer;
+  },
+  decode(input: _m0.Reader | Uint8Array, length?: number): AllowedContractAllowance {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseAllowedContractAllowance();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.allowance = Any.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.allowedAddress.push(reader.string());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+  fromJSON(object: any): AllowedContractAllowance {
+    return {
+      allowance: isSet(object.allowance) ? Any.fromJSON(object.allowance) : undefined,
+      allowedAddress: Array.isArray(object?.allowedAddress) ? object.allowedAddress.map((e: any) => String(e)) : []
+    };
+  },
+  toJSON(message: AllowedContractAllowance): unknown {
+    const obj: any = {};
+    message.allowance !== undefined && (obj.allowance = message.allowance ? Any.toJSON(message.allowance) : undefined);
+    if (message.allowedAddress) {
+      obj.allowedAddress = message.allowedAddress.map(e => e);
+    } else {
+      obj.allowedAddress = [];
+    }
+    return obj;
+  },
+  fromPartial(object: Partial<AllowedContractAllowance>): AllowedContractAllowance {
+    const message = createBaseAllowedContractAllowance();
+    message.allowance = object.allowance !== undefined && object.allowance !== null ? Any.fromPartial(object.allowance) : undefined;
+    message.allowedAddress = object.allowedAddress?.map(e => e) || [];
+    return message;
+  },
+  fromAmino(object: AllowedContractAllowanceAmino): AllowedContractAllowance {
+    return {
+      allowance: object?.allowance ? Any.fromAmino(object.allowance) : undefined,
+      allowedAddress: Array.isArray(object?.allowed_address) ? object.allowed_address.map((e: any) => e) : []
+    };
+  },
+  toAmino(message: AllowedContractAllowance): AllowedContractAllowanceAmino {
+    const obj: any = {};
+    obj.allowance = message.allowance ? Any.toAmino(message.allowance) : undefined;
+    if (message.allowedAddress) {
+      obj.allowed_address = message.allowedAddress.map(e => e);
+    } else {
+      obj.allowed_address = [];
+    }
+    return obj;
+  },
+  fromAminoMsg(object: AllowedContractAllowanceAminoMsg): AllowedContractAllowance {
+    return AllowedContractAllowance.fromAmino(object.value);
+  },
+  toAminoMsg(message: AllowedContractAllowance): AllowedContractAllowanceAminoMsg {
+    return {
+      type: "cosmos-sdk/AllowedContractAllowance",
+      value: AllowedContractAllowance.toAmino(message)
+    };
+  },
+  fromProtoMsg(message: AllowedContractAllowanceProtoMsg): AllowedContractAllowance {
+    return AllowedContractAllowance.decode(message.value);
+  },
+  toProto(message: AllowedContractAllowance): Uint8Array {
+    return AllowedContractAllowance.encode(message).finish();
+  },
+  toProtoMsg(message: AllowedContractAllowance): AllowedContractAllowanceProtoMsg {
+    return {
+      typeUrl: "/cosmos.feegrant.v1beta1.AllowedContractAllowance",
+      value: AllowedContractAllowance.encode(message).finish()
     };
   }
 };

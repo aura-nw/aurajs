@@ -58,7 +58,7 @@ export interface NewValidBlock {
     height: Long;
     round: number;
     blockPartSetHeader: PartSetHeader;
-    blockParts: BitArray;
+    blockParts?: BitArray;
     isCommit: boolean;
 }
 export interface NewValidBlockProtoMsg {
@@ -90,7 +90,7 @@ export interface NewValidBlockSDKType {
     height: Long;
     round: number;
     block_part_set_header: PartSetHeaderSDKType;
-    block_parts: BitArraySDKType;
+    block_parts?: BitArraySDKType;
     is_commit: boolean;
 }
 /** Proposal is sent when a new block is proposed. */
@@ -167,7 +167,7 @@ export interface BlockPartSDKType {
 }
 /** Vote is sent when voting for a proposal (or lack thereof). */
 export interface Vote {
-    vote: Vote1;
+    vote?: Vote1;
 }
 export interface VoteProtoMsg {
     typeUrl: "/tendermint.consensus.Vote";
@@ -183,7 +183,7 @@ export interface VoteAminoMsg {
 }
 /** Vote is sent when voting for a proposal (or lack thereof). */
 export interface VoteSDKType {
-    vote: Vote1SDKType;
+    vote?: Vote1SDKType;
 }
 /** HasVote is sent to indicate that a particular vote has been received. */
 export interface HasVote {

@@ -117,7 +117,7 @@ export interface GetTxsEventRequest {
    * Deprecated post v0.46.x: use page and limit instead.
    */
   /** @deprecated */
-  pagination: PageRequest;
+  pagination?: PageRequest;
   orderBy: OrderBy;
   /** page is the page number to query, starts at 1. If not provided, will default to first page. */
   page: Long;
@@ -164,7 +164,7 @@ export interface GetTxsEventRequestAminoMsg {
 export interface GetTxsEventRequestSDKType {
   events: string[];
   /** @deprecated */
-  pagination: PageRequestSDKType;
+  pagination?: PageRequestSDKType;
   order_by: OrderBy;
   page: Long;
   limit: Long;
@@ -183,7 +183,7 @@ export interface GetTxsEventResponse {
    * Deprecated post v0.46.x: use total instead.
    */
   /** @deprecated */
-  pagination: PageResponse;
+  pagination?: PageResponse;
   /** total is total number of results available */
   total: Long;
 }
@@ -221,7 +221,7 @@ export interface GetTxsEventResponseSDKType {
   txs: TxSDKType[];
   tx_responses: TxResponseSDKType[];
   /** @deprecated */
-  pagination: PageResponseSDKType;
+  pagination?: PageResponseSDKType;
   total: Long;
 }
 /**
@@ -264,7 +264,7 @@ export interface BroadcastTxRequestSDKType {
  */
 export interface BroadcastTxResponse {
   /** tx_response is the queried TxResponses. */
-  txResponse: TxResponse;
+  txResponse?: TxResponse;
 }
 export interface BroadcastTxResponseProtoMsg {
   typeUrl: "/cosmos.tx.v1beta1.BroadcastTxResponse";
@@ -287,7 +287,7 @@ export interface BroadcastTxResponseAminoMsg {
  * Service.BroadcastTx method.
  */
 export interface BroadcastTxResponseSDKType {
-  tx_response: TxResponseSDKType;
+  tx_response?: TxResponseSDKType;
 }
 /**
  * SimulateRequest is the request type for the Service.Simulate
@@ -299,7 +299,7 @@ export interface SimulateRequest {
    * Deprecated. Send raw tx bytes instead.
    */
   /** @deprecated */
-  tx: Tx;
+  tx?: Tx;
   /**
    * tx_bytes is the raw transaction.
    * 
@@ -339,7 +339,7 @@ export interface SimulateRequestAminoMsg {
  */
 export interface SimulateRequestSDKType {
   /** @deprecated */
-  tx: TxSDKType;
+  tx?: TxSDKType;
   tx_bytes: Uint8Array;
 }
 /**
@@ -348,9 +348,9 @@ export interface SimulateRequestSDKType {
  */
 export interface SimulateResponse {
   /** gas_info is the information about gas used in the simulation. */
-  gasInfo: GasInfo;
+  gasInfo?: GasInfo;
   /** result is the result of the simulation. */
-  result: Result;
+  result?: Result;
 }
 export interface SimulateResponseProtoMsg {
   typeUrl: "/cosmos.tx.v1beta1.SimulateResponse";
@@ -375,8 +375,8 @@ export interface SimulateResponseAminoMsg {
  * Service.SimulateRPC method.
  */
 export interface SimulateResponseSDKType {
-  gas_info: GasInfoSDKType;
-  result: ResultSDKType;
+  gas_info?: GasInfoSDKType;
+  result?: ResultSDKType;
 }
 /**
  * GetTxRequest is the request type for the Service.GetTx
@@ -412,9 +412,9 @@ export interface GetTxRequestSDKType {
 /** GetTxResponse is the response type for the Service.GetTx method. */
 export interface GetTxResponse {
   /** tx is the queried transaction. */
-  tx: Tx;
+  tx?: Tx;
   /** tx_response is the queried TxResponses. */
-  txResponse: TxResponse;
+  txResponse?: TxResponse;
 }
 export interface GetTxResponseProtoMsg {
   typeUrl: "/cosmos.tx.v1beta1.GetTxResponse";
@@ -433,8 +433,8 @@ export interface GetTxResponseAminoMsg {
 }
 /** GetTxResponse is the response type for the Service.GetTx method. */
 export interface GetTxResponseSDKType {
-  tx: TxSDKType;
-  tx_response: TxResponseSDKType;
+  tx?: TxSDKType;
+  tx_response?: TxResponseSDKType;
 }
 /**
  * GetBlockWithTxsRequest is the request type for the Service.GetBlockWithTxs
@@ -446,7 +446,7 @@ export interface GetBlockWithTxsRequest {
   /** height is the height of the block to query. */
   height: Long;
   /** pagination defines a pagination for the request. */
-  pagination: PageRequest;
+  pagination?: PageRequest;
 }
 export interface GetBlockWithTxsRequestProtoMsg {
   typeUrl: "/cosmos.tx.v1beta1.GetBlockWithTxsRequest";
@@ -476,7 +476,7 @@ export interface GetBlockWithTxsRequestAminoMsg {
  */
 export interface GetBlockWithTxsRequestSDKType {
   height: Long;
-  pagination: PageRequestSDKType;
+  pagination?: PageRequestSDKType;
 }
 /**
  * GetBlockWithTxsResponse is the response type for the Service.GetBlockWithTxs method.
@@ -486,10 +486,10 @@ export interface GetBlockWithTxsRequestSDKType {
 export interface GetBlockWithTxsResponse {
   /** txs are the transactions in the block. */
   txs: Tx[];
-  blockId: BlockID;
-  block: Block;
+  blockId?: BlockID;
+  block?: Block;
   /** pagination defines a pagination for the response. */
-  pagination: PageResponse;
+  pagination?: PageResponse;
 }
 export interface GetBlockWithTxsResponseProtoMsg {
   typeUrl: "/cosmos.tx.v1beta1.GetBlockWithTxsResponse";
@@ -519,9 +519,9 @@ export interface GetBlockWithTxsResponseAminoMsg {
  */
 export interface GetBlockWithTxsResponseSDKType {
   txs: TxSDKType[];
-  block_id: BlockIDSDKType;
-  block: BlockSDKType;
-  pagination: PageResponseSDKType;
+  block_id?: BlockIDSDKType;
+  block?: BlockSDKType;
+  pagination?: PageResponseSDKType;
 }
 /**
  * TxDecodeRequest is the request type for the Service.TxDecode
@@ -568,7 +568,7 @@ export interface TxDecodeRequestSDKType {
  */
 export interface TxDecodeResponse {
   /** tx is the decoded transaction. */
-  tx: Tx;
+  tx?: Tx;
 }
 export interface TxDecodeResponseProtoMsg {
   typeUrl: "/cosmos.tx.v1beta1.TxDecodeResponse";
@@ -595,7 +595,7 @@ export interface TxDecodeResponseAminoMsg {
  * Since: cosmos-sdk 0.47
  */
 export interface TxDecodeResponseSDKType {
-  tx: TxSDKType;
+  tx?: TxSDKType;
 }
 /**
  * TxEncodeRequest is the request type for the Service.TxEncode
@@ -605,7 +605,7 @@ export interface TxDecodeResponseSDKType {
  */
 export interface TxEncodeRequest {
   /** tx is the transaction to encode. */
-  tx: Tx;
+  tx?: Tx;
 }
 export interface TxEncodeRequestProtoMsg {
   typeUrl: "/cosmos.tx.v1beta1.TxEncodeRequest";
@@ -632,7 +632,7 @@ export interface TxEncodeRequestAminoMsg {
  * Since: cosmos-sdk 0.47
  */
 export interface TxEncodeRequestSDKType {
-  tx: TxSDKType;
+  tx?: TxSDKType;
 }
 /**
  * TxEncodeResponse is the response type for the
@@ -814,7 +814,7 @@ export interface TxDecodeAminoResponseSDKType {
 function createBaseGetTxsEventRequest(): GetTxsEventRequest {
   return {
     events: [],
-    pagination: PageRequest.fromPartial({}),
+    pagination: undefined,
     orderBy: 0,
     page: Long.UZERO,
     limit: Long.UZERO
@@ -948,7 +948,7 @@ function createBaseGetTxsEventResponse(): GetTxsEventResponse {
   return {
     txs: [],
     txResponses: [],
-    pagination: PageResponse.fromPartial({}),
+    pagination: undefined,
     total: Long.UZERO
   };
 }
@@ -1164,7 +1164,7 @@ export const BroadcastTxRequest = {
 };
 function createBaseBroadcastTxResponse(): BroadcastTxResponse {
   return {
-    txResponse: TxResponse.fromPartial({})
+    txResponse: undefined
   };
 }
 export const BroadcastTxResponse = {
@@ -1241,7 +1241,7 @@ export const BroadcastTxResponse = {
 };
 function createBaseSimulateRequest(): SimulateRequest {
   return {
-    tx: Tx.fromPartial({}),
+    tx: undefined,
     txBytes: new Uint8Array()
   };
 }
@@ -1330,8 +1330,8 @@ export const SimulateRequest = {
 };
 function createBaseSimulateResponse(): SimulateResponse {
   return {
-    gasInfo: GasInfo.fromPartial({}),
-    result: Result.fromPartial({})
+    gasInfo: undefined,
+    result: undefined
   };
 }
 export const SimulateResponse = {
@@ -1496,8 +1496,8 @@ export const GetTxRequest = {
 };
 function createBaseGetTxResponse(): GetTxResponse {
   return {
-    tx: Tx.fromPartial({}),
-    txResponse: TxResponse.fromPartial({})
+    tx: undefined,
+    txResponse: undefined
   };
 }
 export const GetTxResponse = {
@@ -1586,7 +1586,7 @@ export const GetTxResponse = {
 function createBaseGetBlockWithTxsRequest(): GetBlockWithTxsRequest {
   return {
     height: Long.ZERO,
-    pagination: PageRequest.fromPartial({})
+    pagination: undefined
   };
 }
 export const GetBlockWithTxsRequest = {
@@ -1675,9 +1675,9 @@ export const GetBlockWithTxsRequest = {
 function createBaseGetBlockWithTxsResponse(): GetBlockWithTxsResponse {
   return {
     txs: [],
-    blockId: BlockID.fromPartial({}),
-    block: Block.fromPartial({}),
-    pagination: PageResponse.fromPartial({})
+    blockId: undefined,
+    block: undefined,
+    pagination: undefined
   };
 }
 export const GetBlockWithTxsResponse = {
@@ -1872,7 +1872,7 @@ export const TxDecodeRequest = {
 };
 function createBaseTxDecodeResponse(): TxDecodeResponse {
   return {
-    tx: Tx.fromPartial({})
+    tx: undefined
   };
 }
 export const TxDecodeResponse = {
@@ -1949,7 +1949,7 @@ export const TxDecodeResponse = {
 };
 function createBaseTxEncodeRequest(): TxEncodeRequest {
   return {
-    tx: Tx.fromPartial({})
+    tx: undefined
   };
 }
 export const TxEncodeRequest = {

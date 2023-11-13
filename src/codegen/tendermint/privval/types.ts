@@ -101,7 +101,7 @@ export interface PubKeyRequestSDKType {
 /** PubKeyResponse is a response message containing the public key. */
 export interface PubKeyResponse {
   pubKey: PublicKey;
-  error: RemoteSignerError;
+  error?: RemoteSignerError;
 }
 export interface PubKeyResponseProtoMsg {
   typeUrl: "/tendermint.privval.PubKeyResponse";
@@ -119,11 +119,11 @@ export interface PubKeyResponseAminoMsg {
 /** PubKeyResponse is a response message containing the public key. */
 export interface PubKeyResponseSDKType {
   pub_key: PublicKeySDKType;
-  error: RemoteSignerErrorSDKType;
+  error?: RemoteSignerErrorSDKType;
 }
 /** SignVoteRequest is a request to sign a vote */
 export interface SignVoteRequest {
-  vote: Vote;
+  vote?: Vote;
   chainId: string;
 }
 export interface SignVoteRequestProtoMsg {
@@ -141,13 +141,13 @@ export interface SignVoteRequestAminoMsg {
 }
 /** SignVoteRequest is a request to sign a vote */
 export interface SignVoteRequestSDKType {
-  vote: VoteSDKType;
+  vote?: VoteSDKType;
   chain_id: string;
 }
 /** SignedVoteResponse is a response containing a signed vote or an error */
 export interface SignedVoteResponse {
   vote: Vote;
-  error: RemoteSignerError;
+  error?: RemoteSignerError;
 }
 export interface SignedVoteResponseProtoMsg {
   typeUrl: "/tendermint.privval.SignedVoteResponse";
@@ -165,11 +165,11 @@ export interface SignedVoteResponseAminoMsg {
 /** SignedVoteResponse is a response containing a signed vote or an error */
 export interface SignedVoteResponseSDKType {
   vote: VoteSDKType;
-  error: RemoteSignerErrorSDKType;
+  error?: RemoteSignerErrorSDKType;
 }
 /** SignProposalRequest is a request to sign a proposal */
 export interface SignProposalRequest {
-  proposal: Proposal;
+  proposal?: Proposal;
   chainId: string;
 }
 export interface SignProposalRequestProtoMsg {
@@ -187,13 +187,13 @@ export interface SignProposalRequestAminoMsg {
 }
 /** SignProposalRequest is a request to sign a proposal */
 export interface SignProposalRequestSDKType {
-  proposal: ProposalSDKType;
+  proposal?: ProposalSDKType;
   chain_id: string;
 }
 /** SignedProposalResponse is response containing a signed proposal or an error */
 export interface SignedProposalResponse {
   proposal: Proposal;
-  error: RemoteSignerError;
+  error?: RemoteSignerError;
 }
 export interface SignedProposalResponseProtoMsg {
   typeUrl: "/tendermint.privval.SignedProposalResponse";
@@ -211,7 +211,7 @@ export interface SignedProposalResponseAminoMsg {
 /** SignedProposalResponse is response containing a signed proposal or an error */
 export interface SignedProposalResponseSDKType {
   proposal: ProposalSDKType;
-  error: RemoteSignerErrorSDKType;
+  error?: RemoteSignerErrorSDKType;
 }
 /** PingRequest is a request to confirm that the connection is alive. */
 export interface PingRequest {}
@@ -436,7 +436,7 @@ export const PubKeyRequest = {
 function createBasePubKeyResponse(): PubKeyResponse {
   return {
     pubKey: PublicKey.fromPartial({}),
-    error: RemoteSignerError.fromPartial({})
+    error: undefined
   };
 }
 export const PubKeyResponse = {
@@ -518,7 +518,7 @@ export const PubKeyResponse = {
 };
 function createBaseSignVoteRequest(): SignVoteRequest {
   return {
-    vote: Vote.fromPartial({}),
+    vote: undefined,
     chainId: ""
   };
 }
@@ -602,7 +602,7 @@ export const SignVoteRequest = {
 function createBaseSignedVoteResponse(): SignedVoteResponse {
   return {
     vote: Vote.fromPartial({}),
-    error: RemoteSignerError.fromPartial({})
+    error: undefined
   };
 }
 export const SignedVoteResponse = {
@@ -684,7 +684,7 @@ export const SignedVoteResponse = {
 };
 function createBaseSignProposalRequest(): SignProposalRequest {
   return {
-    proposal: Proposal.fromPartial({}),
+    proposal: undefined,
     chainId: ""
   };
 }
@@ -768,7 +768,7 @@ export const SignProposalRequest = {
 function createBaseSignedProposalResponse(): SignedProposalResponse {
   return {
     proposal: Proposal.fromPartial({}),
-    error: RemoteSignerError.fromPartial({})
+    error: undefined
   };
 }
 export const SignedProposalResponse = {

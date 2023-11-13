@@ -12,7 +12,7 @@ export interface Block {
   header: Header;
   data: Data;
   evidence: EvidenceList;
-  lastCommit: Commit;
+  lastCommit?: Commit;
 }
 export interface BlockProtoMsg {
   typeUrl: "/cosmos.base.tendermint.v1beta1.Block";
@@ -40,7 +40,7 @@ export interface BlockSDKType {
   header: HeaderSDKType;
   data: DataSDKType;
   evidence: EvidenceListSDKType;
-  last_commit: CommitSDKType;
+  last_commit?: CommitSDKType;
 }
 /** Header defines the structure of a Tendermint block header. */
 export interface Header {
@@ -132,7 +132,7 @@ function createBaseBlock(): Block {
     header: Header.fromPartial({}),
     data: Data.fromPartial({}),
     evidence: EvidenceList.fromPartial({}),
-    lastCommit: Commit.fromPartial({})
+    lastCommit: undefined
   };
 }
 export const Block = {

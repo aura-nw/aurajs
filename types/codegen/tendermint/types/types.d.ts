@@ -349,8 +349,8 @@ export interface ProposalSDKType {
     signature: Uint8Array;
 }
 export interface SignedHeader {
-    header: Header;
-    commit: Commit;
+    header?: Header;
+    commit?: Commit;
 }
 export interface SignedHeaderProtoMsg {
     typeUrl: "/tendermint.types.SignedHeader";
@@ -365,12 +365,12 @@ export interface SignedHeaderAminoMsg {
     value: SignedHeaderAmino;
 }
 export interface SignedHeaderSDKType {
-    header: HeaderSDKType;
-    commit: CommitSDKType;
+    header?: HeaderSDKType;
+    commit?: CommitSDKType;
 }
 export interface LightBlock {
-    signedHeader: SignedHeader;
-    validatorSet: ValidatorSet;
+    signedHeader?: SignedHeader;
+    validatorSet?: ValidatorSet;
 }
 export interface LightBlockProtoMsg {
     typeUrl: "/tendermint.types.LightBlock";
@@ -385,8 +385,8 @@ export interface LightBlockAminoMsg {
     value: LightBlockAmino;
 }
 export interface LightBlockSDKType {
-    signed_header: SignedHeaderSDKType;
-    validator_set: ValidatorSetSDKType;
+    signed_header?: SignedHeaderSDKType;
+    validator_set?: ValidatorSetSDKType;
 }
 export interface BlockMeta {
     blockId: BlockID;
@@ -418,7 +418,7 @@ export interface BlockMetaSDKType {
 export interface TxProof {
     rootHash: Uint8Array;
     data: Uint8Array;
-    proof: Proof;
+    proof?: Proof;
 }
 export interface TxProofProtoMsg {
     typeUrl: "/tendermint.types.TxProof";
@@ -438,7 +438,7 @@ export interface TxProofAminoMsg {
 export interface TxProofSDKType {
     root_hash: Uint8Array;
     data: Uint8Array;
-    proof: ProofSDKType;
+    proof?: ProofSDKType;
 }
 export declare const PartSetHeader: {
     typeUrl: string;

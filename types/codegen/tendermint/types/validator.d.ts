@@ -3,7 +3,7 @@ import { Long } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
 export interface ValidatorSet {
     validators: Validator[];
-    proposer: Validator;
+    proposer?: Validator;
     totalVotingPower: Long;
 }
 export interface ValidatorSetProtoMsg {
@@ -21,7 +21,7 @@ export interface ValidatorSetAminoMsg {
 }
 export interface ValidatorSetSDKType {
     validators: ValidatorSDKType[];
-    proposer: ValidatorSDKType;
+    proposer?: ValidatorSDKType;
     total_voting_power: Long;
 }
 export interface Validator {
@@ -51,7 +51,7 @@ export interface ValidatorSDKType {
     proposer_priority: Long;
 }
 export interface SimpleValidator {
-    pubKey: PublicKey;
+    pubKey?: PublicKey;
     votingPower: Long;
 }
 export interface SimpleValidatorProtoMsg {
@@ -67,7 +67,7 @@ export interface SimpleValidatorAminoMsg {
     value: SimpleValidatorAmino;
 }
 export interface SimpleValidatorSDKType {
-    pub_key: PublicKeySDKType;
+    pub_key?: PublicKeySDKType;
     voting_power: Long;
 }
 export declare const ValidatorSet: {

@@ -2,9 +2,9 @@ import * as _m0 from "protobufjs/minimal";
 /** ModuleOptions describes the CLI options for a Cosmos SDK module. */
 export interface ModuleOptions {
     /** tx describes the tx command for the module. */
-    tx: ServiceCommandDescriptor;
+    tx?: ServiceCommandDescriptor;
     /** query describes the tx command for the module. */
-    query: ServiceCommandDescriptor;
+    query?: ServiceCommandDescriptor;
 }
 export interface ModuleOptionsProtoMsg {
     typeUrl: "/cosmos.autocli.v1.ModuleOptions";
@@ -23,12 +23,12 @@ export interface ModuleOptionsAminoMsg {
 }
 /** ModuleOptions describes the CLI options for a Cosmos SDK module. */
 export interface ModuleOptionsSDKType {
-    tx: ServiceCommandDescriptorSDKType;
-    query: ServiceCommandDescriptorSDKType;
+    tx?: ServiceCommandDescriptorSDKType;
+    query?: ServiceCommandDescriptorSDKType;
 }
 export interface ServiceCommandDescriptor_SubCommandsEntry {
     key: string;
-    value: ServiceCommandDescriptor;
+    value?: ServiceCommandDescriptor;
 }
 export interface ServiceCommandDescriptor_SubCommandsEntryProtoMsg {
     typeUrl: string;
@@ -44,7 +44,7 @@ export interface ServiceCommandDescriptor_SubCommandsEntryAminoMsg {
 }
 export interface ServiceCommandDescriptor_SubCommandsEntrySDKType {
     key: string;
-    value: ServiceCommandDescriptorSDKType;
+    value?: ServiceCommandDescriptorSDKType;
 }
 /** ServiceCommandDescriptor describes a CLI command based on a protobuf service. */
 export interface ServiceCommandDescriptor {
@@ -110,7 +110,7 @@ export interface ServiceCommandDescriptorSDKType {
 }
 export interface RpcCommandOptions_FlagOptionsEntry {
     key: string;
-    value: FlagOptions;
+    value?: FlagOptions;
 }
 export interface RpcCommandOptions_FlagOptionsEntryProtoMsg {
     typeUrl: string;
@@ -126,7 +126,7 @@ export interface RpcCommandOptions_FlagOptionsEntryAminoMsg {
 }
 export interface RpcCommandOptions_FlagOptionsEntrySDKType {
     key: string;
-    value: FlagOptionsSDKType;
+    value?: FlagOptionsSDKType;
 }
 /**
  * RpcCommandOptions specifies options for commands generated from protobuf

@@ -13,7 +13,7 @@ export interface MsgStoreCode {
    * InstantiatePermission access control to apply on contract creation,
    * optional
    */
-  instantiatePermission: AccessConfig;
+  instantiatePermission?: AccessConfig;
 }
 export interface MsgStoreCodeProtoMsg {
   typeUrl: "/cosmwasm.wasm.v1.MsgStoreCode";
@@ -39,7 +39,7 @@ export interface MsgStoreCodeAminoMsg {
 export interface MsgStoreCodeSDKType {
   sender: string;
   wasm_byte_code: Uint8Array;
-  instantiate_permission: AccessConfigSDKType;
+  instantiate_permission?: AccessConfigSDKType;
 }
 /** MsgStoreCodeResponse returns store result data. */
 export interface MsgStoreCodeResponse {
@@ -468,7 +468,7 @@ export interface MsgUpdateInstantiateConfig {
   /** CodeID references the stored WASM code */
   codeId: Long;
   /** NewInstantiatePermission is the new access control */
-  newInstantiatePermission: AccessConfig;
+  newInstantiatePermission?: AccessConfig;
 }
 export interface MsgUpdateInstantiateConfigProtoMsg {
   typeUrl: "/cosmwasm.wasm.v1.MsgUpdateInstantiateConfig";
@@ -491,7 +491,7 @@ export interface MsgUpdateInstantiateConfigAminoMsg {
 export interface MsgUpdateInstantiateConfigSDKType {
   sender: string;
   code_id: Long;
-  new_instantiate_permission: AccessConfigSDKType;
+  new_instantiate_permission?: AccessConfigSDKType;
 }
 /** MsgUpdateInstantiateConfigResponse returns empty data */
 export interface MsgUpdateInstantiateConfigResponse {}
@@ -812,7 +812,7 @@ export interface MsgStoreAndInstantiateContract {
   /** WASMByteCode can be raw or gzip compressed */
   wasmByteCode: Uint8Array;
   /** InstantiatePermission to apply on contract creation, optional */
-  instantiatePermission: AccessConfig;
+  instantiatePermission?: AccessConfig;
   /**
    * UnpinCode code on upload, optional. As default the uploaded contract is
    * pinned to cache.
@@ -901,7 +901,7 @@ export interface MsgStoreAndInstantiateContractAminoMsg {
 export interface MsgStoreAndInstantiateContractSDKType {
   authority: string;
   wasm_byte_code: Uint8Array;
-  instantiate_permission: AccessConfigSDKType;
+  instantiate_permission?: AccessConfigSDKType;
   unpin_code: boolean;
   admin: string;
   label: string;
@@ -1071,7 +1071,7 @@ function createBaseMsgStoreCode(): MsgStoreCode {
   return {
     sender: "",
     wasmByteCode: new Uint8Array(),
-    instantiatePermission: AccessConfig.fromPartial({})
+    instantiatePermission: undefined
   };
 }
 export const MsgStoreCode = {
@@ -2455,7 +2455,7 @@ function createBaseMsgUpdateInstantiateConfig(): MsgUpdateInstantiateConfig {
   return {
     sender: "",
     codeId: Long.UZERO,
-    newInstantiatePermission: AccessConfig.fromPartial({})
+    newInstantiatePermission: undefined
   };
 }
 export const MsgUpdateInstantiateConfig = {
@@ -3283,7 +3283,7 @@ function createBaseMsgStoreAndInstantiateContract(): MsgStoreAndInstantiateContr
   return {
     authority: "",
     wasmByteCode: new Uint8Array(),
-    instantiatePermission: AccessConfig.fromPartial({}),
+    instantiatePermission: undefined,
     unpinCode: false,
     admin: "",
     label: "",

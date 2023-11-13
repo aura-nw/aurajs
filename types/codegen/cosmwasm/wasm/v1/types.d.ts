@@ -142,13 +142,13 @@ export interface ContractInfo {
     /** Label is optional metadata to be stored with a contract instance. */
     label: string;
     /** Created Tx position when the contract was instantiated. */
-    created: AbsoluteTxPosition;
+    created?: AbsoluteTxPosition;
     ibcPortId: string;
     /**
      * Extension is an extension point to store custom metadata within the
      * persistence model.
      */
-    extension: Any;
+    extension?: Any;
 }
 export interface ContractInfoProtoMsg {
     typeUrl: "/cosmwasm.wasm.v1.ContractInfo";
@@ -183,9 +183,9 @@ export interface ContractInfoSDKType {
     creator: string;
     admin: string;
     label: string;
-    created: AbsoluteTxPositionSDKType;
+    created?: AbsoluteTxPositionSDKType;
     ibc_port_id: string;
-    extension: AnySDKType;
+    extension?: AnySDKType;
 }
 /** ContractCodeHistoryEntry metadata to a contract. */
 export interface ContractCodeHistoryEntry {
@@ -193,7 +193,7 @@ export interface ContractCodeHistoryEntry {
     /** CodeID is the reference to the stored WASM code */
     codeId: Long;
     /** Updated Tx position when the operation was executed. */
-    updated: AbsoluteTxPosition;
+    updated?: AbsoluteTxPosition;
     msg: Uint8Array;
 }
 export interface ContractCodeHistoryEntryProtoMsg {
@@ -217,7 +217,7 @@ export interface ContractCodeHistoryEntryAminoMsg {
 export interface ContractCodeHistoryEntrySDKType {
     operation: ContractCodeHistoryOperationType;
     code_id: Long;
-    updated: AbsoluteTxPositionSDKType;
+    updated?: AbsoluteTxPositionSDKType;
     msg: Uint8Array;
 }
 /**

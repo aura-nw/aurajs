@@ -136,17 +136,17 @@ export interface Proposal {
      * querying a proposal via gRPC, this field is not populated until the
      * proposal's voting period has ended.
      */
-    finalTallyResult: TallyResult;
+    finalTallyResult?: TallyResult;
     /** submit_time is the time of proposal submission. */
-    submitTime: Date;
+    submitTime?: Date;
     /** deposit_end_time is the end time for deposition. */
-    depositEndTime: Date;
+    depositEndTime?: Date;
     /** total_deposit is the total deposit on the proposal. */
     totalDeposit: Coin[];
     /** voting_start_time is the starting time to vote on a proposal. */
-    votingStartTime: Date;
+    votingStartTime?: Date;
     /** voting_end_time is the end time of voting on a proposal. */
-    votingEndTime: Date;
+    votingEndTime?: Date;
     /** metadata is any arbitrary metadata attached to the proposal. */
     metadata: string;
     /**
@@ -226,12 +226,12 @@ export interface ProposalSDKType {
     id: Long;
     messages: AnySDKType[];
     status: ProposalStatus;
-    final_tally_result: TallyResultSDKType;
-    submit_time: Date;
-    deposit_end_time: Date;
+    final_tally_result?: TallyResultSDKType;
+    submit_time?: Date;
+    deposit_end_time?: Date;
     total_deposit: CoinSDKType[];
-    voting_start_time: Date;
-    voting_end_time: Date;
+    voting_start_time?: Date;
+    voting_end_time?: Date;
     metadata: string;
     title: string;
     summary: string;
@@ -328,7 +328,7 @@ export interface DepositParams {
      * Maximum period for Atom holders to deposit on a proposal. Initial value: 2
      * months.
      */
-    maxDepositPeriod: string;
+    maxDepositPeriod?: string;
 }
 export interface DepositParamsProtoMsg {
     typeUrl: "/cosmos.gov.v1.DepositParams";
@@ -351,12 +351,12 @@ export interface DepositParamsAminoMsg {
 /** DepositParams defines the params for deposits on governance proposals. */
 export interface DepositParamsSDKType {
     min_deposit: CoinSDKType[];
-    max_deposit_period: string;
+    max_deposit_period?: string;
 }
 /** VotingParams defines the params for voting on governance proposals. */
 export interface VotingParams {
     /** Duration of the voting period. */
-    votingPeriod: string;
+    votingPeriod?: string;
 }
 export interface VotingParamsProtoMsg {
     typeUrl: "/cosmos.gov.v1.VotingParams";
@@ -373,7 +373,7 @@ export interface VotingParamsAminoMsg {
 }
 /** VotingParams defines the params for voting on governance proposals. */
 export interface VotingParamsSDKType {
-    voting_period: string;
+    voting_period?: string;
 }
 /** TallyParams defines the params for tallying votes on governance proposals. */
 export interface TallyParams {
@@ -431,9 +431,9 @@ export interface Params {
      * Maximum period for Atom holders to deposit on a proposal. Initial value: 2
      * months.
      */
-    maxDepositPeriod: string;
+    maxDepositPeriod?: string;
     /** Duration of the voting period. */
-    votingPeriod: string;
+    votingPeriod?: string;
     /**
      * Minimum percentage of total stake needed to vote for a result to be
      *  considered valid.
@@ -506,8 +506,8 @@ export interface ParamsAminoMsg {
  */
 export interface ParamsSDKType {
     min_deposit: CoinSDKType[];
-    max_deposit_period: string;
-    voting_period: string;
+    max_deposit_period?: string;
+    voting_period?: string;
     quorum: string;
     threshold: string;
     veto_threshold: string;

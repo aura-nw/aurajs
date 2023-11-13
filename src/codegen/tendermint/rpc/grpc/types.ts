@@ -41,8 +41,8 @@ export interface ResponsePingAminoMsg {
 }
 export interface ResponsePingSDKType {}
 export interface ResponseBroadcastTx {
-  checkTx: ResponseCheckTx;
-  deliverTx: ResponseDeliverTx;
+  checkTx?: ResponseCheckTx;
+  deliverTx?: ResponseDeliverTx;
 }
 export interface ResponseBroadcastTxProtoMsg {
   typeUrl: "/tendermint.rpc.grpc.ResponseBroadcastTx";
@@ -57,8 +57,8 @@ export interface ResponseBroadcastTxAminoMsg {
   value: ResponseBroadcastTxAmino;
 }
 export interface ResponseBroadcastTxSDKType {
-  check_tx: ResponseCheckTxSDKType;
-  deliver_tx: ResponseDeliverTxSDKType;
+  check_tx?: ResponseCheckTxSDKType;
+  deliver_tx?: ResponseDeliverTxSDKType;
 }
 function createBaseRequestPing(): RequestPing {
   return {};
@@ -245,8 +245,8 @@ export const ResponsePing = {
 };
 function createBaseResponseBroadcastTx(): ResponseBroadcastTx {
   return {
-    checkTx: ResponseCheckTx.fromPartial({}),
-    deliverTx: ResponseDeliverTx.fromPartial({})
+    checkTx: undefined,
+    deliverTx: undefined
   };
 }
 export const ResponseBroadcastTx = {

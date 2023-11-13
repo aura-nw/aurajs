@@ -7,12 +7,12 @@ import * as _m0 from "protobufjs/minimal";
 /** Tx is the standard type used for broadcasting transactions. */
 export interface Tx {
   /** body is the processable content of the transaction */
-  body: TxBody;
+  body?: TxBody;
   /**
    * auth_info is the authorization related content of the transaction,
    * specifically signers, signer modes and fee
    */
-  authInfo: AuthInfo;
+  authInfo?: AuthInfo;
   /**
    * signatures is a list of signatures that matches the length and order of
    * AuthInfo's signer_infos to allow connecting signature meta information like
@@ -46,8 +46,8 @@ export interface TxAminoMsg {
 }
 /** Tx is the standard type used for broadcasting transactions. */
 export interface TxSDKType {
-  body: TxBodySDKType;
-  auth_info: AuthInfoSDKType;
+  body?: TxBodySDKType;
+  auth_info?: AuthInfoSDKType;
   signatures: Uint8Array[];
 }
 /**
@@ -190,7 +190,7 @@ export interface SignDocDirectAux {
    */
   bodyBytes: Uint8Array;
   /** public_key is the public key of the signing account. */
-  publicKey: Any;
+  publicKey?: Any;
   /**
    * chain_id is the identifier of the chain this transaction targets.
    * It prevents signed transactions from being used on another chain by an
@@ -209,7 +209,7 @@ export interface SignDocDirectAux {
    * This field is ignored if the chain didn't enable tips, i.e. didn't add the
    * `TipDecorator` in its posthandler.
    */
-  tip: Tip;
+  tip?: Tip;
 }
 export interface SignDocDirectAuxProtoMsg {
   typeUrl: "/cosmos.tx.v1beta1.SignDocDirectAux";
@@ -261,11 +261,11 @@ export interface SignDocDirectAuxAminoMsg {
  */
 export interface SignDocDirectAuxSDKType {
   body_bytes: Uint8Array;
-  public_key: AnySDKType;
+  public_key?: AnySDKType;
   chain_id: string;
   account_number: Long;
   sequence: Long;
-  tip: TipSDKType;
+  tip?: TipSDKType;
 }
 /** TxBody is the body of a transaction that all signers sign over. */
 export interface TxBody {
@@ -373,7 +373,7 @@ export interface AuthInfo {
    * based on the cost of evaluating the body and doing signature verification
    * of the signers. This can be estimated via simulation.
    */
-  fee: Fee;
+  fee?: Fee;
   /**
    * Tip is the optional tip used for transactions fees paid in another denom.
    * 
@@ -382,7 +382,7 @@ export interface AuthInfo {
    * 
    * Since: cosmos-sdk 0.46
    */
-  tip: Tip;
+  tip?: Tip;
 }
 export interface AuthInfoProtoMsg {
   typeUrl: "/cosmos.tx.v1beta1.AuthInfo";
@@ -427,8 +427,8 @@ export interface AuthInfoAminoMsg {
  */
 export interface AuthInfoSDKType {
   signer_infos: SignerInfoSDKType[];
-  fee: FeeSDKType;
-  tip: TipSDKType;
+  fee?: FeeSDKType;
+  tip?: TipSDKType;
 }
 /**
  * SignerInfo describes the public key and signing mode of a single top-level
@@ -440,12 +440,12 @@ export interface SignerInfo {
    * that already exist in state. If unset, the verifier can use the required \
    * signer address for this position and lookup the public key.
    */
-  publicKey: Any;
+  publicKey?: Any;
   /**
    * mode_info describes the signing mode of the signer and is a nested
    * structure to support nested multisig pubkey's
    */
-  modeInfo: ModeInfo;
+  modeInfo?: ModeInfo;
   /**
    * sequence is the sequence of the account, which describes the
    * number of committed transactions signed by a given address. It is used to
@@ -489,8 +489,8 @@ export interface SignerInfoAminoMsg {
  * signer.
  */
 export interface SignerInfoSDKType {
-  public_key: AnySDKType;
-  mode_info: ModeInfoSDKType;
+  public_key?: AnySDKType;
+  mode_info?: ModeInfoSDKType;
   sequence: Long;
 }
 /** ModeInfo describes the signing mode of a single or nested multisig signer. */
@@ -557,7 +557,7 @@ export interface ModeInfo_SingleSDKType {
 /** Multi is the mode info for a multisig public key */
 export interface ModeInfo_Multi {
   /** bitarray specifies which keys within the multisig are signing */
-  bitarray: CompactBitArray;
+  bitarray?: CompactBitArray;
   /**
    * mode_infos is the corresponding modes of the signers of the multisig
    * which could include nested multisig public keys
@@ -584,7 +584,7 @@ export interface ModeInfo_MultiAminoMsg {
 }
 /** Multi is the mode info for a multisig public key */
 export interface ModeInfo_MultiSDKType {
-  bitarray: CompactBitArraySDKType;
+  bitarray?: CompactBitArraySDKType;
   mode_infos: ModeInfoSDKType[];
 }
 /**
@@ -717,7 +717,7 @@ export interface AuxSignerData {
    * signs. Note: we use the same sign doc even if we're signing with
    * LEGACY_AMINO_JSON.
    */
-  signDoc: SignDocDirectAux;
+  signDoc?: SignDocDirectAux;
   /** mode is the signing mode of the single signer. */
   mode: SignMode;
   /** sig is the signature of the sign doc. */
@@ -767,14 +767,14 @@ export interface AuxSignerDataAminoMsg {
  */
 export interface AuxSignerDataSDKType {
   address: string;
-  sign_doc: SignDocDirectAuxSDKType;
+  sign_doc?: SignDocDirectAuxSDKType;
   mode: SignMode;
   sig: Uint8Array;
 }
 function createBaseTx(): Tx {
   return {
-    body: TxBody.fromPartial({}),
-    authInfo: AuthInfo.fromPartial({}),
+    body: undefined,
+    authInfo: undefined,
     signatures: []
   };
 }
@@ -1105,11 +1105,11 @@ export const SignDoc = {
 function createBaseSignDocDirectAux(): SignDocDirectAux {
   return {
     bodyBytes: new Uint8Array(),
-    publicKey: Any.fromPartial({}),
+    publicKey: undefined,
     chainId: "",
     accountNumber: Long.UZERO,
     sequence: Long.UZERO,
-    tip: Tip.fromPartial({})
+    tip: undefined
   };
 }
 export const SignDocDirectAux = {
@@ -1391,8 +1391,8 @@ export const TxBody = {
 function createBaseAuthInfo(): AuthInfo {
   return {
     signerInfos: [],
-    fee: Fee.fromPartial({}),
-    tip: Tip.fromPartial({})
+    fee: undefined,
+    tip: undefined
   };
 }
 export const AuthInfo = {
@@ -1499,8 +1499,8 @@ export const AuthInfo = {
 };
 function createBaseSignerInfo(): SignerInfo {
   return {
-    publicKey: Any.fromPartial({}),
-    modeInfo: ModeInfo.fromPartial({}),
+    publicKey: undefined,
+    modeInfo: undefined,
     sequence: Long.UZERO
   };
 }
@@ -1766,7 +1766,7 @@ export const ModeInfo_Single = {
 };
 function createBaseModeInfo_Multi(): ModeInfo_Multi {
   return {
-    bitarray: CompactBitArray.fromPartial({}),
+    bitarray: undefined,
     modeInfos: []
   };
 }
@@ -2082,7 +2082,7 @@ export const Tip = {
 function createBaseAuxSignerData(): AuxSignerData {
   return {
     address: "",
-    signDoc: SignDocDirectAux.fromPartial({}),
+    signDoc: undefined,
     mode: 0,
     sig: new Uint8Array()
   };

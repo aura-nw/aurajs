@@ -1,6 +1,6 @@
 {
   "name": "@aura-nw/aurajs",
-  "version": "0.1.5-beta-3-upgrade-aura-dev-branch",
+  "version": "0.1.5-beta-4-upgrade-aura-dev-branch",
   "description": "Aura javascript library, generate from telescope",
   "author": "ducnv1911 <ducnv1911@gmail.com>",
   "homepage": "https://github.com/aura-nw/aurajs#readme",
@@ -53,7 +53,7 @@
     "@babel/plugin-transform-runtime": "7.19.1",
     "@babel/preset-env": "7.19.4",
     "@babel/preset-typescript": "^7.18.6",
-    "@cosmology/telescope": "^1.0.2",
+    "@cosmology/telescope": "^1.0.12",
     "@protobufs/osmosis": "^0.2.0",
     "@protobufs/stargaze": "^0.0.12",
     "@protobufs/tendermint": "^0.0.10",

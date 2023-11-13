@@ -50,7 +50,7 @@ export interface CanonicalProposal {
   /** canonicalization requires fixed size encoding here */
   round: Long;
   polRound: Long;
-  blockId: CanonicalBlockID;
+  blockId?: CanonicalBlockID;
   timestamp: Date;
   chainId: string;
 }
@@ -79,7 +79,7 @@ export interface CanonicalProposalSDKType {
   height: Long;
   round: Long;
   pol_round: Long;
-  block_id: CanonicalBlockIDSDKType;
+  block_id?: CanonicalBlockIDSDKType;
   timestamp: Date;
   chain_id: string;
 }
@@ -90,7 +90,7 @@ export interface CanonicalVote {
   height: Long;
   /** canonicalization requires fixed size encoding here */
   round: Long;
-  blockId: CanonicalBlockID;
+  blockId?: CanonicalBlockID;
   timestamp: Date;
   chainId: string;
 }
@@ -117,7 +117,7 @@ export interface CanonicalVoteSDKType {
   type: SignedMsgType;
   height: Long;
   round: Long;
-  block_id: CanonicalBlockIDSDKType;
+  block_id?: CanonicalBlockIDSDKType;
   timestamp: Date;
   chain_id: string;
 }
@@ -293,7 +293,7 @@ function createBaseCanonicalProposal(): CanonicalProposal {
     height: Long.ZERO,
     round: Long.ZERO,
     polRound: Long.ZERO,
-    blockId: CanonicalBlockID.fromPartial({}),
+    blockId: undefined,
     timestamp: new Date(),
     chainId: ""
   };
@@ -435,7 +435,7 @@ function createBaseCanonicalVote(): CanonicalVote {
     type: 0,
     height: Long.ZERO,
     round: Long.ZERO,
-    blockId: CanonicalBlockID.fromPartial({}),
+    blockId: undefined,
     timestamp: new Date(),
     chainId: ""
   };

@@ -10,7 +10,7 @@ export interface ClientState {
   sequence: Long;
   /** frozen sequence of the solo machine */
   isFrozen: boolean;
-  consensusState: ConsensusState;
+  consensusState?: ConsensusState;
 }
 export interface ClientStateProtoMsg {
   typeUrl: "/ibc.lightclients.solomachine.v3.ClientState";
@@ -38,7 +38,7 @@ export interface ClientStateAminoMsg {
 export interface ClientStateSDKType {
   sequence: Long;
   is_frozen: boolean;
-  consensus_state: ConsensusStateSDKType;
+  consensus_state?: ConsensusStateSDKType;
 }
 /**
  * ConsensusState defines a solo machine consensus state. The sequence of a
@@ -47,7 +47,7 @@ export interface ClientStateSDKType {
  */
 export interface ConsensusState {
   /** public key of the solo machine */
-  publicKey: Any;
+  publicKey?: Any;
   /**
    * diversifier allows the same public key to be re-used across different solo
    * machine clients (potentially on different chains) without being considered
@@ -86,7 +86,7 @@ export interface ConsensusStateAminoMsg {
  * consensus state.
  */
 export interface ConsensusStateSDKType {
-  public_key: AnySDKType;
+  public_key?: AnySDKType;
   diversifier: string;
   timestamp: Long;
 }
@@ -94,7 +94,7 @@ export interface ConsensusStateSDKType {
 export interface Header {
   timestamp: Long;
   signature: Uint8Array;
-  newPublicKey: Any;
+  newPublicKey?: Any;
   newDiversifier: string;
 }
 export interface HeaderProtoMsg {
@@ -116,7 +116,7 @@ export interface HeaderAminoMsg {
 export interface HeaderSDKType {
   timestamp: Long;
   signature: Uint8Array;
-  new_public_key: AnySDKType;
+  new_public_key?: AnySDKType;
   new_diversifier: string;
 }
 /**
@@ -125,8 +125,8 @@ export interface HeaderSDKType {
  */
 export interface Misbehaviour {
   sequence: Long;
-  signatureOne: SignatureAndData;
-  signatureTwo: SignatureAndData;
+  signatureOne?: SignatureAndData;
+  signatureTwo?: SignatureAndData;
 }
 export interface MisbehaviourProtoMsg {
   typeUrl: "/ibc.lightclients.solomachine.v3.Misbehaviour";
@@ -151,8 +151,8 @@ export interface MisbehaviourAminoMsg {
  */
 export interface MisbehaviourSDKType {
   sequence: Long;
-  signature_one: SignatureAndDataSDKType;
-  signature_two: SignatureAndDataSDKType;
+  signature_one?: SignatureAndDataSDKType;
+  signature_two?: SignatureAndDataSDKType;
 }
 /**
  * SignatureAndData contains a signature and the data signed over to create that
@@ -269,7 +269,7 @@ export interface SignBytesSDKType {
 /** HeaderData returns the SignBytes data for update verification. */
 export interface HeaderData {
   /** header public key */
-  newPubKey: Any;
+  newPubKey?: Any;
   /** header diversifier */
   newDiversifier: string;
 }
@@ -290,14 +290,14 @@ export interface HeaderDataAminoMsg {
 }
 /** HeaderData returns the SignBytes data for update verification. */
 export interface HeaderDataSDKType {
-  new_pub_key: AnySDKType;
+  new_pub_key?: AnySDKType;
   new_diversifier: string;
 }
 function createBaseClientState(): ClientState {
   return {
     sequence: Long.UZERO,
     isFrozen: false,
-    consensusState: ConsensusState.fromPartial({})
+    consensusState: undefined
   };
 }
 export const ClientState = {
@@ -396,7 +396,7 @@ export const ClientState = {
 };
 function createBaseConsensusState(): ConsensusState {
   return {
-    publicKey: Any.fromPartial({}),
+    publicKey: undefined,
     diversifier: "",
     timestamp: Long.UZERO
   };
@@ -499,7 +499,7 @@ function createBaseHeader(): Header {
   return {
     timestamp: Long.UZERO,
     signature: new Uint8Array(),
-    newPublicKey: Any.fromPartial({}),
+    newPublicKey: undefined,
     newDiversifier: ""
   };
 }
@@ -611,8 +611,8 @@ export const Header = {
 function createBaseMisbehaviour(): Misbehaviour {
   return {
     sequence: Long.UZERO,
-    signatureOne: SignatureAndData.fromPartial({}),
-    signatureTwo: SignatureAndData.fromPartial({})
+    signatureOne: undefined,
+    signatureTwo: undefined
   };
 }
 export const Misbehaviour = {
@@ -1038,7 +1038,7 @@ export const SignBytes = {
 };
 function createBaseHeaderData(): HeaderData {
   return {
-    newPubKey: Any.fromPartial({}),
+    newPubKey: undefined,
     newDiversifier: ""
   };
 }

@@ -221,7 +221,7 @@ export interface EventProposalPruned {
   /** status is the proposal status (UNSPECIFIED, SUBMITTED, ACCEPTED, REJECTED, ABORTED, WITHDRAWN). */
   status: ProposalStatus;
   /** tally_result is the proposal tally result (when applicable). */
-  tallyResult: TallyResult;
+  tallyResult?: TallyResult;
 }
 export interface EventProposalPrunedProtoMsg {
   typeUrl: "/cosmos.group.v1.EventProposalPruned";
@@ -244,7 +244,7 @@ export interface EventProposalPrunedAminoMsg {
 export interface EventProposalPrunedSDKType {
   proposal_id: Long;
   status: ProposalStatus;
-  tally_result: TallyResultSDKType;
+  tally_result?: TallyResultSDKType;
 }
 function createBaseEventCreateGroup(): EventCreateGroup {
   return {
@@ -979,7 +979,7 @@ function createBaseEventProposalPruned(): EventProposalPruned {
   return {
     proposalId: Long.UZERO,
     status: 0,
-    tallyResult: TallyResult.fromPartial({})
+    tallyResult: undefined
   };
 }
 export const EventProposalPruned = {

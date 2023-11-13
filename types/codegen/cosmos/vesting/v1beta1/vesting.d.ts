@@ -7,7 +7,7 @@ import * as _m0 from "protobufjs/minimal";
  * the necessary fields needed for any vesting account implementation.
  */
 export interface BaseVestingAccount {
-    baseAccount: BaseAccount;
+    baseAccount?: BaseAccount;
     originalVesting: Coin[];
     delegatedFree: Coin[];
     delegatedVesting: Coin[];
@@ -39,7 +39,7 @@ export interface BaseVestingAccountAminoMsg {
  * the necessary fields needed for any vesting account implementation.
  */
 export interface BaseVestingAccountSDKType {
-    base_account: BaseAccountSDKType;
+    base_account?: BaseAccountSDKType;
     original_vesting: CoinSDKType[];
     delegated_free: CoinSDKType[];
     delegated_vesting: CoinSDKType[];
@@ -50,7 +50,7 @@ export interface BaseVestingAccountSDKType {
  * continuously vests by unlocking coins linearly with respect to time.
  */
 export interface ContinuousVestingAccount {
-    baseVestingAccount: BaseVestingAccount;
+    baseVestingAccount?: BaseVestingAccount;
     /** Vesting start time, as unix timestamp (in seconds). */
     startTime: Long;
 }
@@ -76,7 +76,7 @@ export interface ContinuousVestingAccountAminoMsg {
  * continuously vests by unlocking coins linearly with respect to time.
  */
 export interface ContinuousVestingAccountSDKType {
-    base_vesting_account: BaseVestingAccountSDKType;
+    base_vesting_account?: BaseVestingAccountSDKType;
     start_time: Long;
 }
 /**
@@ -85,7 +85,7 @@ export interface ContinuousVestingAccountSDKType {
  * locked until a specified time.
  */
 export interface DelayedVestingAccount {
-    baseVestingAccount: BaseVestingAccount;
+    baseVestingAccount?: BaseVestingAccount;
 }
 export interface DelayedVestingAccountProtoMsg {
     typeUrl: "/cosmos.vesting.v1beta1.DelayedVestingAccount";
@@ -109,7 +109,7 @@ export interface DelayedVestingAccountAminoMsg {
  * locked until a specified time.
  */
 export interface DelayedVestingAccountSDKType {
-    base_vesting_account: BaseVestingAccountSDKType;
+    base_vesting_account?: BaseVestingAccountSDKType;
 }
 /** Period defines a length of time and amount of coins that will vest. */
 export interface Period {
@@ -141,7 +141,7 @@ export interface PeriodSDKType {
  * periodically vests by unlocking coins during each specified period.
  */
 export interface PeriodicVestingAccount {
-    baseVestingAccount: BaseVestingAccount;
+    baseVestingAccount?: BaseVestingAccount;
     startTime: Long;
     vestingPeriods: Period[];
 }
@@ -167,7 +167,7 @@ export interface PeriodicVestingAccountAminoMsg {
  * periodically vests by unlocking coins during each specified period.
  */
 export interface PeriodicVestingAccountSDKType {
-    base_vesting_account: BaseVestingAccountSDKType;
+    base_vesting_account?: BaseVestingAccountSDKType;
     start_time: Long;
     vesting_periods: PeriodSDKType[];
 }
@@ -179,7 +179,7 @@ export interface PeriodicVestingAccountSDKType {
  * Since: cosmos-sdk 0.43
  */
 export interface PermanentLockedAccount {
-    baseVestingAccount: BaseVestingAccount;
+    baseVestingAccount?: BaseVestingAccount;
 }
 export interface PermanentLockedAccountProtoMsg {
     typeUrl: "/cosmos.vesting.v1beta1.PermanentLockedAccount";
@@ -207,7 +207,7 @@ export interface PermanentLockedAccountAminoMsg {
  * Since: cosmos-sdk 0.43
  */
 export interface PermanentLockedAccountSDKType {
-    base_vesting_account: BaseVestingAccountSDKType;
+    base_vesting_account?: BaseVestingAccountSDKType;
 }
 export declare const BaseVestingAccount: {
     typeUrl: string;

@@ -43,7 +43,7 @@ export interface NoBlockResponseSDKType {
 }
 /** BlockResponse returns block to the requested */
 export interface BlockResponse {
-    block: Block;
+    block?: Block;
 }
 export interface BlockResponseProtoMsg {
     typeUrl: "/tendermint.blockchain.BlockResponse";
@@ -59,7 +59,7 @@ export interface BlockResponseAminoMsg {
 }
 /** BlockResponse returns block to the requested */
 export interface BlockResponseSDKType {
-    block: BlockSDKType;
+    block?: BlockSDKType;
 }
 /** StatusRequest requests the status of a peer. */
 export interface StatusRequest {

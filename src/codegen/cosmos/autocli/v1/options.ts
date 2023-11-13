@@ -3,9 +3,9 @@ import { isSet, isObject } from "../../../helpers";
 /** ModuleOptions describes the CLI options for a Cosmos SDK module. */
 export interface ModuleOptions {
   /** tx describes the tx command for the module. */
-  tx: ServiceCommandDescriptor;
+  tx?: ServiceCommandDescriptor;
   /** query describes the tx command for the module. */
-  query: ServiceCommandDescriptor;
+  query?: ServiceCommandDescriptor;
 }
 export interface ModuleOptionsProtoMsg {
   typeUrl: "/cosmos.autocli.v1.ModuleOptions";
@@ -24,12 +24,12 @@ export interface ModuleOptionsAminoMsg {
 }
 /** ModuleOptions describes the CLI options for a Cosmos SDK module. */
 export interface ModuleOptionsSDKType {
-  tx: ServiceCommandDescriptorSDKType;
-  query: ServiceCommandDescriptorSDKType;
+  tx?: ServiceCommandDescriptorSDKType;
+  query?: ServiceCommandDescriptorSDKType;
 }
 export interface ServiceCommandDescriptor_SubCommandsEntry {
   key: string;
-  value: ServiceCommandDescriptor;
+  value?: ServiceCommandDescriptor;
 }
 export interface ServiceCommandDescriptor_SubCommandsEntryProtoMsg {
   typeUrl: string;
@@ -45,7 +45,7 @@ export interface ServiceCommandDescriptor_SubCommandsEntryAminoMsg {
 }
 export interface ServiceCommandDescriptor_SubCommandsEntrySDKType {
   key: string;
-  value: ServiceCommandDescriptorSDKType;
+  value?: ServiceCommandDescriptorSDKType;
 }
 /** ServiceCommandDescriptor describes a CLI command based on a protobuf service. */
 export interface ServiceCommandDescriptor {
@@ -111,7 +111,7 @@ export interface ServiceCommandDescriptorSDKType {
 }
 export interface RpcCommandOptions_FlagOptionsEntry {
   key: string;
-  value: FlagOptions;
+  value?: FlagOptions;
 }
 export interface RpcCommandOptions_FlagOptionsEntryProtoMsg {
   typeUrl: string;
@@ -127,7 +127,7 @@ export interface RpcCommandOptions_FlagOptionsEntryAminoMsg {
 }
 export interface RpcCommandOptions_FlagOptionsEntrySDKType {
   key: string;
-  value: FlagOptionsSDKType;
+  value?: FlagOptionsSDKType;
 }
 /**
  * RpcCommandOptions specifies options for commands generated from protobuf
@@ -378,8 +378,8 @@ export interface PositionalArgDescriptorSDKType {
 }
 function createBaseModuleOptions(): ModuleOptions {
   return {
-    tx: ServiceCommandDescriptor.fromPartial({}),
-    query: ServiceCommandDescriptor.fromPartial({})
+    tx: undefined,
+    query: undefined
   };
 }
 export const ModuleOptions = {
@@ -468,7 +468,7 @@ export const ModuleOptions = {
 function createBaseServiceCommandDescriptor_SubCommandsEntry(): ServiceCommandDescriptor_SubCommandsEntry {
   return {
     key: "",
-    value: ServiceCommandDescriptor.fromPartial({})
+    value: undefined
   };
 }
 export const ServiceCommandDescriptor_SubCommandsEntry = {
@@ -686,7 +686,7 @@ export const ServiceCommandDescriptor = {
 function createBaseRpcCommandOptions_FlagOptionsEntry(): RpcCommandOptions_FlagOptionsEntry {
   return {
     key: "",
-    value: FlagOptions.fromPartial({})
+    value: undefined
   };
 }
 export const RpcCommandOptions_FlagOptionsEntry = {

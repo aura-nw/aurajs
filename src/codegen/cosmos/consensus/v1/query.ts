@@ -22,7 +22,7 @@ export interface QueryParamsResponse {
    * Please note that `params.version` is not populated in this response, it is
    * tracked separately in the x/upgrade module.
    */
-  params: ConsensusParams;
+  params?: ConsensusParams;
 }
 export interface QueryParamsResponseProtoMsg {
   typeUrl: "/cosmos.consensus.v1.QueryParamsResponse";
@@ -43,7 +43,7 @@ export interface QueryParamsResponseAminoMsg {
 }
 /** QueryParamsResponse defines the response type for querying x/consensus parameters. */
 export interface QueryParamsResponseSDKType {
-  params: ConsensusParamsSDKType;
+  params?: ConsensusParamsSDKType;
 }
 function createBaseQueryParamsRequest(): QueryParamsRequest {
   return {};
@@ -109,7 +109,7 @@ export const QueryParamsRequest = {
 };
 function createBaseQueryParamsResponse(): QueryParamsResponse {
   return {
-    params: ConsensusParams.fromPartial({})
+    params: undefined
   };
 }
 export const QueryParamsResponse = {

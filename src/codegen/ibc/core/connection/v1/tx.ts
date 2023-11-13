@@ -10,7 +10,7 @@ import * as _m0 from "protobufjs/minimal";
 export interface MsgConnectionOpenInit {
   clientId: string;
   counterparty: Counterparty;
-  version: Version;
+  version?: Version;
   delayPeriod: Long;
   signer: string;
 }
@@ -40,7 +40,7 @@ export interface MsgConnectionOpenInitAminoMsg {
 export interface MsgConnectionOpenInitSDKType {
   client_id: string;
   counterparty: CounterpartySDKType;
-  version: VersionSDKType;
+  version?: VersionSDKType;
   delay_period: Long;
   signer: string;
 }
@@ -76,7 +76,7 @@ export interface MsgConnectionOpenTry {
   /** Deprecated: this field is unused. Crossing hellos are no longer supported in core IBC. */
   /** @deprecated */
   previousConnectionId: string;
-  clientState: Any;
+  clientState?: Any;
   counterparty: Counterparty;
   delayPeriod: Long;
   counterpartyVersions: Version[];
@@ -139,7 +139,7 @@ export interface MsgConnectionOpenTrySDKType {
   client_id: string;
   /** @deprecated */
   previous_connection_id: string;
-  client_state: AnySDKType;
+  client_state?: AnySDKType;
   counterparty: CounterpartySDKType;
   delay_period: Long;
   counterparty_versions: VersionSDKType[];
@@ -172,8 +172,8 @@ export interface MsgConnectionOpenTryResponseSDKType {}
 export interface MsgConnectionOpenAck {
   connectionId: string;
   counterpartyConnectionId: string;
-  version: Version;
-  clientState: Any;
+  version?: Version;
+  clientState?: Any;
   proofHeight: Height;
   /**
    * proof of the initialization the connection on Chain B: `UNITIALIZED ->
@@ -228,8 +228,8 @@ export interface MsgConnectionOpenAckAminoMsg {
 export interface MsgConnectionOpenAckSDKType {
   connection_id: string;
   counterparty_connection_id: string;
-  version: VersionSDKType;
-  client_state: AnySDKType;
+  version?: VersionSDKType;
+  client_state?: AnySDKType;
   proof_height: HeightSDKType;
   proof_try: Uint8Array;
   proof_client: Uint8Array;
@@ -319,7 +319,7 @@ function createBaseMsgConnectionOpenInit(): MsgConnectionOpenInit {
   return {
     clientId: "",
     counterparty: Counterparty.fromPartial({}),
-    version: Version.fromPartial({}),
+    version: undefined,
     delayPeriod: Long.UZERO,
     signer: ""
   };
@@ -506,7 +506,7 @@ function createBaseMsgConnectionOpenTry(): MsgConnectionOpenTry {
   return {
     clientId: "",
     previousConnectionId: "",
-    clientState: Any.fromPartial({}),
+    clientState: undefined,
     counterparty: Counterparty.fromPartial({}),
     delayPeriod: Long.UZERO,
     counterpartyVersions: [],
@@ -797,8 +797,8 @@ function createBaseMsgConnectionOpenAck(): MsgConnectionOpenAck {
   return {
     connectionId: "",
     counterpartyConnectionId: "",
-    version: Version.fromPartial({}),
-    clientState: Any.fromPartial({}),
+    version: undefined,
+    clientState: undefined,
     proofHeight: Height.fromPartial({}),
     proofTry: new Uint8Array(),
     proofClient: new Uint8Array(),

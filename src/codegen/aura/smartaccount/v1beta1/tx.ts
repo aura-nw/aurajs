@@ -7,7 +7,7 @@ export interface MsgRecover {
   /** smart-account address that need update */
   address: string;
   /** New PubKey using for signature verification of this account */
-  publicKey: Any;
+  publicKey?: Any;
   /** Credentials */
   credentials: string;
 }
@@ -32,7 +32,7 @@ export interface MsgRecoverAminoMsg {
 export interface MsgRecoverSDKType {
   creator: string;
   address: string;
-  public_key: AnySDKType;
+  public_key?: AnySDKType;
   credentials: string;
 }
 export interface MsgRecoverResponse {}
@@ -56,7 +56,7 @@ export interface MsgActivateAccount {
   /** InitMsg is the JSON-encoded instantiate message for the contract */
   initMsg: Uint8Array;
   /** Public key of smart account */
-  pubKey: Any;
+  pubKey?: Any;
 }
 export interface MsgActivateAccountProtoMsg {
   typeUrl: "/aura.smartaccount.v1beta1.MsgActivateAccount";
@@ -83,7 +83,7 @@ export interface MsgActivateAccountSDKType {
   code_id: Long;
   salt: Uint8Array;
   init_msg: Uint8Array;
-  pub_key: AnySDKType;
+  pub_key?: AnySDKType;
 }
 export interface MsgActivateAccountResponse {
   address: string;
@@ -106,7 +106,7 @@ function createBaseMsgRecover(): MsgRecover {
   return {
     creator: "",
     address: "",
-    publicKey: Any.fromPartial({}),
+    publicKey: undefined,
     credentials: ""
   };
 }
@@ -271,7 +271,7 @@ function createBaseMsgActivateAccount(): MsgActivateAccount {
     codeId: Long.UZERO,
     salt: new Uint8Array(),
     initMsg: new Uint8Array(),
-    pubKey: Any.fromPartial({})
+    pubKey: undefined
   };
 }
 export const MsgActivateAccount = {

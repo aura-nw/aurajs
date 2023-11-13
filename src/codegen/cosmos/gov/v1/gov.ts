@@ -219,17 +219,17 @@ export interface Proposal {
    * querying a proposal via gRPC, this field is not populated until the
    * proposal's voting period has ended.
    */
-  finalTallyResult: TallyResult;
+  finalTallyResult?: TallyResult;
   /** submit_time is the time of proposal submission. */
-  submitTime: Date;
+  submitTime?: Date;
   /** deposit_end_time is the end time for deposition. */
-  depositEndTime: Date;
+  depositEndTime?: Date;
   /** total_deposit is the total deposit on the proposal. */
   totalDeposit: Coin[];
   /** voting_start_time is the starting time to vote on a proposal. */
-  votingStartTime: Date;
+  votingStartTime?: Date;
   /** voting_end_time is the end time of voting on a proposal. */
-  votingEndTime: Date;
+  votingEndTime?: Date;
   /** metadata is any arbitrary metadata attached to the proposal. */
   metadata: string;
   /**
@@ -309,12 +309,12 @@ export interface ProposalSDKType {
   id: Long;
   messages: AnySDKType[];
   status: ProposalStatus;
-  final_tally_result: TallyResultSDKType;
-  submit_time: Date;
-  deposit_end_time: Date;
+  final_tally_result?: TallyResultSDKType;
+  submit_time?: Date;
+  deposit_end_time?: Date;
   total_deposit: CoinSDKType[];
-  voting_start_time: Date;
-  voting_end_time: Date;
+  voting_start_time?: Date;
+  voting_end_time?: Date;
   metadata: string;
   title: string;
   summary: string;
@@ -411,7 +411,7 @@ export interface DepositParams {
    * Maximum period for Atom holders to deposit on a proposal. Initial value: 2
    * months.
    */
-  maxDepositPeriod: string;
+  maxDepositPeriod?: string;
 }
 export interface DepositParamsProtoMsg {
   typeUrl: "/cosmos.gov.v1.DepositParams";
@@ -434,12 +434,12 @@ export interface DepositParamsAminoMsg {
 /** DepositParams defines the params for deposits on governance proposals. */
 export interface DepositParamsSDKType {
   min_deposit: CoinSDKType[];
-  max_deposit_period: string;
+  max_deposit_period?: string;
 }
 /** VotingParams defines the params for voting on governance proposals. */
 export interface VotingParams {
   /** Duration of the voting period. */
-  votingPeriod: string;
+  votingPeriod?: string;
 }
 export interface VotingParamsProtoMsg {
   typeUrl: "/cosmos.gov.v1.VotingParams";
@@ -456,7 +456,7 @@ export interface VotingParamsAminoMsg {
 }
 /** VotingParams defines the params for voting on governance proposals. */
 export interface VotingParamsSDKType {
-  voting_period: string;
+  voting_period?: string;
 }
 /** TallyParams defines the params for tallying votes on governance proposals. */
 export interface TallyParams {
@@ -514,9 +514,9 @@ export interface Params {
    * Maximum period for Atom holders to deposit on a proposal. Initial value: 2
    * months.
    */
-  maxDepositPeriod: string;
+  maxDepositPeriod?: string;
   /** Duration of the voting period. */
-  votingPeriod: string;
+  votingPeriod?: string;
   /**
    * Minimum percentage of total stake needed to vote for a result to be
    *  considered valid.
@@ -589,8 +589,8 @@ export interface ParamsAminoMsg {
  */
 export interface ParamsSDKType {
   min_deposit: CoinSDKType[];
-  max_deposit_period: string;
-  voting_period: string;
+  max_deposit_period?: string;
+  voting_period?: string;
   quorum: string;
   threshold: string;
   veto_threshold: string;
@@ -802,12 +802,12 @@ function createBaseProposal(): Proposal {
     id: Long.UZERO,
     messages: [],
     status: 0,
-    finalTallyResult: TallyResult.fromPartial({}),
-    submitTime: new Date(),
-    depositEndTime: new Date(),
+    finalTallyResult: undefined,
+    submitTime: undefined,
+    depositEndTime: undefined,
     totalDeposit: [],
-    votingStartTime: new Date(),
-    votingEndTime: new Date(),
+    votingStartTime: undefined,
+    votingEndTime: undefined,
     metadata: "",
     title: "",
     summary: "",
@@ -976,11 +976,11 @@ export const Proposal = {
       messages: Array.isArray(object?.messages) ? object.messages.map((e: any) => Any.fromAmino(e)) : [],
       status: isSet(object.status) ? proposalStatusFromJSON(object.status) : -1,
       finalTallyResult: object?.final_tally_result ? TallyResult.fromAmino(object.final_tally_result) : undefined,
-      submitTime: object.submit_time,
-      depositEndTime: object.deposit_end_time,
+      submitTime: object?.submit_time,
+      depositEndTime: object?.deposit_end_time,
       totalDeposit: Array.isArray(object?.total_deposit) ? object.total_deposit.map((e: any) => Coin.fromAmino(e)) : [],
-      votingStartTime: object.voting_start_time,
-      votingEndTime: object.voting_end_time,
+      votingStartTime: object?.voting_start_time,
+      votingEndTime: object?.voting_end_time,
       metadata: object.metadata,
       title: object.title,
       summary: object.summary,
@@ -1271,7 +1271,7 @@ export const Vote = {
 function createBaseDepositParams(): DepositParams {
   return {
     minDeposit: [],
-    maxDepositPeriod: Duration.fromPartial({})
+    maxDepositPeriod: undefined
   };
 }
 export const DepositParams = {
@@ -1367,7 +1367,7 @@ export const DepositParams = {
 };
 function createBaseVotingParams(): VotingParams {
   return {
-    votingPeriod: Duration.fromPartial({})
+    votingPeriod: undefined
   };
 }
 export const VotingParams = {
@@ -1546,8 +1546,8 @@ export const TallyParams = {
 function createBaseParams(): Params {
   return {
     minDeposit: [],
-    maxDepositPeriod: Duration.fromPartial({}),
-    votingPeriod: Duration.fromPartial({}),
+    maxDepositPeriod: undefined,
+    votingPeriod: undefined,
     quorum: "",
     threshold: "",
     vetoThreshold: "",

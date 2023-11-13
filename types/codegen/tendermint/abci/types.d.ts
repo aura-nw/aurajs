@@ -200,7 +200,7 @@ export interface RequestSetOptionSDKType {
 export interface RequestInitChain {
     time: Date;
     chainId: string;
-    consensusParams: ConsensusParams;
+    consensusParams?: ConsensusParams;
     validators: ValidatorUpdate[];
     appStateBytes: Uint8Array;
     initialHeight: Long;
@@ -224,7 +224,7 @@ export interface RequestInitChainAminoMsg {
 export interface RequestInitChainSDKType {
     time: Date;
     chain_id: string;
-    consensus_params: ConsensusParamsSDKType;
+    consensus_params?: ConsensusParamsSDKType;
     validators: ValidatorUpdateSDKType[];
     app_state_bytes: Uint8Array;
     initial_height: Long;
@@ -369,7 +369,7 @@ export interface RequestListSnapshotsSDKType {
 /** offers a snapshot to the application */
 export interface RequestOfferSnapshot {
     /** snapshot offered by peers */
-    snapshot: Snapshot;
+    snapshot?: Snapshot;
     /** light client-verified app hash for snapshot height */
     appHash: Uint8Array;
 }
@@ -390,7 +390,7 @@ export interface RequestOfferSnapshotAminoMsg {
 }
 /** offers a snapshot to the application */
 export interface RequestOfferSnapshotSDKType {
-    snapshot: SnapshotSDKType;
+    snapshot?: SnapshotSDKType;
     app_hash: Uint8Array;
 }
 /** loads a snapshot chunk */
@@ -616,7 +616,7 @@ export interface ResponseSetOptionSDKType {
     info: string;
 }
 export interface ResponseInitChain {
-    consensusParams: ConsensusParams;
+    consensusParams?: ConsensusParams;
     validators: ValidatorUpdate[];
     appHash: Uint8Array;
 }
@@ -634,7 +634,7 @@ export interface ResponseInitChainAminoMsg {
     value: ResponseInitChainAmino;
 }
 export interface ResponseInitChainSDKType {
-    consensus_params: ConsensusParamsSDKType;
+    consensus_params?: ConsensusParamsSDKType;
     validators: ValidatorUpdateSDKType[];
     app_hash: Uint8Array;
 }
@@ -647,7 +647,7 @@ export interface ResponseQuery {
     index: Long;
     key: Uint8Array;
     value: Uint8Array;
-    proofOps: ProofOps;
+    proofOps?: ProofOps;
     height: Long;
     codespace: string;
 }
@@ -679,7 +679,7 @@ export interface ResponseQuerySDKType {
     index: Long;
     key: Uint8Array;
     value: Uint8Array;
-    proof_ops: ProofOpsSDKType;
+    proof_ops?: ProofOpsSDKType;
     height: Long;
     codespace: string;
 }
@@ -803,7 +803,7 @@ export interface ResponseDeliverTxSDKType {
 }
 export interface ResponseEndBlock {
     validatorUpdates: ValidatorUpdate[];
-    consensusParamUpdates: ConsensusParams;
+    consensusParamUpdates?: ConsensusParams;
     events: Event[];
 }
 export interface ResponseEndBlockProtoMsg {
@@ -821,7 +821,7 @@ export interface ResponseEndBlockAminoMsg {
 }
 export interface ResponseEndBlockSDKType {
     validator_updates: ValidatorUpdateSDKType[];
-    consensus_param_updates: ConsensusParamsSDKType;
+    consensus_param_updates?: ConsensusParamsSDKType;
     events: EventSDKType[];
 }
 export interface ResponseCommit {
@@ -929,10 +929,10 @@ export interface ResponseApplySnapshotChunkSDKType {
  * that can be adjusted by the abci app
  */
 export interface ConsensusParams {
-    block: BlockParams;
-    evidence: EvidenceParams;
-    validator: ValidatorParams;
-    version: VersionParams;
+    block?: BlockParams;
+    evidence?: EvidenceParams;
+    validator?: ValidatorParams;
+    version?: VersionParams;
 }
 export interface ConsensusParamsProtoMsg {
     typeUrl: "/tendermint.abci.ConsensusParams";
@@ -957,10 +957,10 @@ export interface ConsensusParamsAminoMsg {
  * that can be adjusted by the abci app
  */
 export interface ConsensusParamsSDKType {
-    block: BlockParamsSDKType;
-    evidence: EvidenceParamsSDKType;
-    validator: ValidatorParamsSDKType;
-    version: VersionParamsSDKType;
+    block?: BlockParamsSDKType;
+    evidence?: EvidenceParamsSDKType;
+    validator?: ValidatorParamsSDKType;
+    version?: VersionParamsSDKType;
 }
 /** BlockParams contains limits on the block size. */
 export interface BlockParams {

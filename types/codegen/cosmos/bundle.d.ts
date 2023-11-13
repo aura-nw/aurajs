@@ -5613,6 +5613,21 @@ export declare namespace cosmos {
                 toProto(message: _95.Grant): Uint8Array;
                 toProtoMsg(message: _95.Grant): _95.GrantProtoMsg;
             };
+            AllowedContractAllowance: {
+                typeUrl: string;
+                encode(message: _95.AllowedContractAllowance, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _95.AllowedContractAllowance;
+                fromJSON(object: any): _95.AllowedContractAllowance;
+                toJSON(message: _95.AllowedContractAllowance): unknown;
+                fromPartial(object: Partial<_95.AllowedContractAllowance>): _95.AllowedContractAllowance;
+                fromAmino(object: _95.AllowedContractAllowanceAmino): _95.AllowedContractAllowance;
+                toAmino(message: _95.AllowedContractAllowance): _95.AllowedContractAllowanceAmino;
+                fromAminoMsg(object: _95.AllowedContractAllowanceAminoMsg): _95.AllowedContractAllowance;
+                toAminoMsg(message: _95.AllowedContractAllowance): _95.AllowedContractAllowanceAminoMsg;
+                fromProtoMsg(message: _95.AllowedContractAllowanceProtoMsg): _95.AllowedContractAllowance;
+                toProto(message: _95.AllowedContractAllowance): Uint8Array;
+                toProtoMsg(message: _95.AllowedContractAllowance): _95.AllowedContractAllowanceProtoMsg;
+            };
         };
     }
     namespace genutil {
