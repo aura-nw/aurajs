@@ -3,11 +3,11 @@
     "proto",
     "tendermint/proto",
     "cosmos-proto/proto",
-    "cosmos-sdk-v0.45.11/proto",
+    "cosmos-sdk-v0.47.4/proto",
     "ibc-go-v3.3.0/proto",
     "wasmd-v0.29.1/proto",
     "ics23/proto",
-    "aurad-v0.4.3/proto"
+    "aurad-v0.7.2/proto"
   ],
   "outPath": "./src/codegen",
   "options": {

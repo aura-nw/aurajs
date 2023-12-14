@@ -16,5 +16,3 @@ export * from "./cosmwasm/bundle";
 export * from "./cosmwasm/client";
 export * from "./aura/bundle";
 export * from "./aura/client";
-export * from "./auranw/bundle";
-export * from "./auranw/client";

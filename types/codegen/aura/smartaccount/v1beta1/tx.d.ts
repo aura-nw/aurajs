@@ -59,7 +59,7 @@ export interface MsgActivateAccount {
     /** InitMsg is the JSON-encoded instantiate message for the contract */
     initMsg: Uint8Array;
     /** Public key of smart account */
-    pubKey?: Any;
+    publicKey?: Any;
 }
 export interface MsgActivateAccountProtoMsg {
     typeUrl: "/aura.smartaccount.v1beta1.MsgActivateAccount";
@@ -75,7 +75,7 @@ export interface MsgActivateAccountAmino {
     /** InitMsg is the JSON-encoded instantiate message for the contract */
     init_msg: Uint8Array;
     /** Public key of smart account */
-    pub_key?: AnyAmino;
+    public_key?: AnyAmino;
 }
 export interface MsgActivateAccountAminoMsg {
     type: "/aura.smartaccount.v1beta1.MsgActivateAccount";
@@ -86,7 +86,7 @@ export interface MsgActivateAccountSDKType {
     code_id: Long;
     salt: Uint8Array;
     init_msg: Uint8Array;
-    pub_key?: AnySDKType;
+    public_key?: AnySDKType;
 }
 export interface MsgActivateAccountResponse {
     address: string;

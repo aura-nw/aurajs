@@ -1,8 +1,8 @@
 [submodule "aurad-v0.4.3"]
-	path = aurad-v0.4.3
+	path = aurad-v0.7.2
 	url = git@github.com:aura-nw/aura.git
 [submodule "cosmos-sdk"]
-	path = cosmos-sdk-v0.45.11
+	path = cosmos-sdk-v0.47.4
 	url = https://github.com/cosmos/cosmos-sdk.git
 [submodule "wasmd"]
 	path = wasmd-v0.29.1

@@ -56,7 +56,7 @@ export interface MsgActivateAccount {
   /** InitMsg is the JSON-encoded instantiate message for the contract */
   initMsg: Uint8Array;
   /** Public key of smart account */
-  pubKey?: Any;
+  publicKey?: Any;
 }
 export interface MsgActivateAccountProtoMsg {
   typeUrl: "/aura.smartaccount.v1beta1.MsgActivateAccount";
@@ -72,7 +72,7 @@ export interface MsgActivateAccountAmino {
   /** InitMsg is the JSON-encoded instantiate message for the contract */
   init_msg: Uint8Array;
   /** Public key of smart account */
-  pub_key?: AnyAmino;
+  public_key?: AnyAmino;
 }
 export interface MsgActivateAccountAminoMsg {
   type: "/aura.smartaccount.v1beta1.MsgActivateAccount";
@@ -83,7 +83,7 @@ export interface MsgActivateAccountSDKType {
   code_id: Long;
   salt: Uint8Array;
   init_msg: Uint8Array;
-  pub_key?: AnySDKType;
+  public_key?: AnySDKType;
 }
 export interface MsgActivateAccountResponse {
   address: string;
@@ -271,7 +271,7 @@ function createBaseMsgActivateAccount(): MsgActivateAccount {
     codeId: Long.UZERO,
     salt: new Uint8Array(),
     initMsg: new Uint8Array(),
-    pubKey: undefined
+    publicKey: undefined
   };
 }
 export const MsgActivateAccount = {
@@ -289,8 +289,8 @@ export const MsgActivateAccount = {
     if (message.initMsg.length !== 0) {
       writer.uint32(42).bytes(message.initMsg);
     }
-    if (message.pubKey !== undefined) {
-      Any.encode(message.pubKey, writer.uint32(34).fork()).ldelim();
+    if (message.publicKey !== undefined) {
+      Any.encode(message.publicKey, writer.uint32(34).fork()).ldelim();
     }
     return writer;
   },
@@ -314,7 +314,7 @@ export const MsgActivateAccount = {
           message.initMsg = reader.bytes();
           break;
         case 4:
-          message.pubKey = Any.decode(reader, reader.uint32());
+          message.publicKey = Any.decode(reader, reader.uint32());
           break;
         default:
           reader.skipType(tag & 7);
@@ -329,7 +329,7 @@ export const MsgActivateAccount = {
       codeId: isSet(object.codeId) ? Long.fromValue(object.codeId) : Long.UZERO,
       salt: isSet(object.salt) ? bytesFromBase64(object.salt) : new Uint8Array(),
       initMsg: isSet(object.initMsg) ? bytesFromBase64(object.initMsg) : new Uint8Array(),
-      pubKey: isSet(object.pubKey) ? Any.fromJSON(object.pubKey) : undefined
+      publicKey: isSet(object.publicKey) ? Any.fromJSON(object.publicKey) : undefined
     };
   },
   toJSON(message: MsgActivateAccount): unknown {
@@ -338,7 +338,7 @@ export const MsgActivateAccount = {
     message.codeId !== undefined && (obj.codeId = (message.codeId || Long.UZERO).toString());
     message.salt !== undefined && (obj.salt = base64FromBytes(message.salt !== undefined ? message.salt : new Uint8Array()));
     message.initMsg !== undefined && (obj.initMsg = base64FromBytes(message.initMsg !== undefined ? message.initMsg : new Uint8Array()));
-    message.pubKey !== undefined && (obj.pubKey = message.pubKey ? Any.toJSON(message.pubKey) : undefined);
+    message.publicKey !== undefined && (obj.publicKey = message.publicKey ? Any.toJSON(message.publicKey) : undefined);
     return obj;
   },
   fromPartial(object: Partial<MsgActivateAccount>): MsgActivateAccount {
@@ -347,7 +347,7 @@ export const MsgActivateAccount = {
     message.codeId = object.codeId !== undefined && object.codeId !== null ? Long.fromValue(object.codeId) : Long.UZERO;
     message.salt = object.salt ?? new Uint8Array();
     message.initMsg = object.initMsg ?? new Uint8Array();
-    message.pubKey = object.pubKey !== undefined && object.pubKey !== null ? Any.fromPartial(object.pubKey) : undefined;
+    message.publicKey = object.publicKey !== undefined && object.publicKey !== null ? Any.fromPartial(object.publicKey) : undefined;
     return message;
   },
   fromAmino(object: MsgActivateAccountAmino): MsgActivateAccount {
@@ -356,7 +356,7 @@ export const MsgActivateAccount = {
       codeId: Long.fromString(object.code_id),
       salt: object.salt,
       initMsg: object.init_msg,
-      pubKey: object?.pub_key ? Any.fromAmino(object.pub_key) : undefined
+      publicKey: object?.public_key ? Any.fromAmino(object.public_key) : undefined
     };
   },
   toAmino(message: MsgActivateAccount): MsgActivateAccountAmino {
@@ -365,7 +365,7 @@ export const MsgActivateAccount = {
     obj.code_id = message.codeId ? message.codeId.toString() : undefined;
     obj.salt = message.salt;
     obj.init_msg = message.initMsg;
-    obj.pub_key = message.pubKey ? Any.toAmino(message.pubKey) : undefined;
+    obj.public_key = message.publicKey ? Any.toAmino(message.publicKey) : undefined;
     return obj;
   },
   fromAminoMsg(object: MsgActivateAccountAminoMsg): MsgActivateAccount {
