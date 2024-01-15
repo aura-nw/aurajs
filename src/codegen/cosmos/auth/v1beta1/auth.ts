@@ -22,10 +22,10 @@ export interface BaseAccountProtoMsg {
  * type for additional functionality (e.g. vesting).
  */
 export interface BaseAccountAmino {
-  address: string;
+  address?: string;
   pub_key?: AnyAmino;
-  account_number: string;
-  sequence: string;
+  account_number?: string;
+  sequence?: string;
 }
 export interface BaseAccountAminoMsg {
   type: "cosmos-sdk/BaseAccount";
@@ -55,8 +55,8 @@ export interface ModuleAccountProtoMsg {
 /** ModuleAccount defines an account for modules that holds coins on a pool. */
 export interface ModuleAccountAmino {
   base_account?: BaseAccountAmino;
-  name: string;
-  permissions: string[];
+  name?: string;
+  permissions?: string[];
 }
 export interface ModuleAccountAminoMsg {
   type: "cosmos-sdk/ModuleAccount";
@@ -93,12 +93,12 @@ export interface ModuleCredentialProtoMsg {
  */
 export interface ModuleCredentialAmino {
   /** module_name is the name of the module used for address derivation (passed into address.Module). */
-  module_name: string;
+  module_name?: string;
   /**
    * derivation_keys is for deriving a module account address (passed into address.Module)
    * adding more keys creates sub-account addresses (passed into address.Derive)
    */
-  derivation_keys: Uint8Array[];
+  derivation_keys?: string[];
 }
 export interface ModuleCredentialAminoMsg {
   type: "cosmos-sdk/ModuleCredential";
@@ -127,11 +127,11 @@ export interface ParamsProtoMsg {
 }
 /** Params defines the parameters for the auth module. */
 export interface ParamsAmino {
-  max_memo_characters: string;
-  tx_sig_limit: string;
-  tx_size_cost_per_byte: string;
-  sig_verify_cost_ed25519: string;
-  sig_verify_cost_secp256k1: string;
+  max_memo_characters?: string;
+  tx_sig_limit?: string;
+  tx_size_cost_per_byte?: string;
+  sig_verify_cost_ed25519?: string;
+  sig_verify_cost_secp256k1?: string;
 }
 export interface ParamsAminoMsg {
   type: "cosmos-sdk/x/auth/Params";
@@ -221,12 +221,20 @@ export const BaseAccount = {
     return message;
   },
   fromAmino(object: BaseAccountAmino): BaseAccount {
-    return {
-      address: object.address,
-      pubKey: object?.pub_key ? Any.fromAmino(object.pub_key) : undefined,
-      accountNumber: Long.fromString(object.account_number),
-      sequence: Long.fromString(object.sequence)
-    };
+    const message = createBaseBaseAccount();
+    if (object.address !== undefined && object.address !== null) {
+      message.address = object.address;
+    }
+    if (object.pub_key !== undefined && object.pub_key !== null) {
+      message.pubKey = Any.fromAmino(object.pub_key);
+    }
+    if (object.account_number !== undefined && object.account_number !== null) {
+      message.accountNumber = Long.fromString(object.account_number);
+    }
+    if (object.sequence !== undefined && object.sequence !== null) {
+      message.sequence = Long.fromString(object.sequence);
+    }
+    return message;
   },
   toAmino(message: BaseAccount): BaseAccountAmino {
     const obj: any = {};
@@ -328,11 +336,15 @@ export const ModuleAccount = {
     return message;
   },
   fromAmino(object: ModuleAccountAmino): ModuleAccount {
-    return {
-      baseAccount: object?.base_account ? BaseAccount.fromAmino(object.base_account) : undefined,
-      name: object.name,
-      permissions: Array.isArray(object?.permissions) ? object.permissions.map((e: any) => e) : []
-    };
+    const message = createBaseModuleAccount();
+    if (object.base_account !== undefined && object.base_account !== null) {
+      message.baseAccount = BaseAccount.fromAmino(object.base_account);
+    }
+    if (object.name !== undefined && object.name !== null) {
+      message.name = object.name;
+    }
+    message.permissions = object.permissions?.map(e => e) || [];
+    return message;
   },
   toAmino(message: ModuleAccount): ModuleAccountAmino {
     const obj: any = {};
@@ -427,16 +439,18 @@ export const ModuleCredential = {
     return message;
   },
   fromAmino(object: ModuleCredentialAmino): ModuleCredential {
-    return {
-      moduleName: object.module_name,
-      derivationKeys: Array.isArray(object?.derivation_keys) ? object.derivation_keys.map((e: any) => e) : []
-    };
+    const message = createBaseModuleCredential();
+    if (object.module_name !== undefined && object.module_name !== null) {
+      message.moduleName = object.module_name;
+    }
+    message.derivationKeys = object.derivation_keys?.map(e => bytesFromBase64(e)) || [];
+    return message;
   },
   toAmino(message: ModuleCredential): ModuleCredentialAmino {
     const obj: any = {};
     obj.module_name = message.moduleName;
     if (message.derivationKeys) {
-      obj.derivation_keys = message.derivationKeys.map(e => e);
+      obj.derivation_keys = message.derivationKeys.map(e => base64FromBytes(e));
     } else {
       obj.derivation_keys = [];
     }
@@ -550,13 +564,23 @@ export const Params = {
     return message;
   },
   fromAmino(object: ParamsAmino): Params {
-    return {
-      maxMemoCharacters: Long.fromString(object.max_memo_characters),
-      txSigLimit: Long.fromString(object.tx_sig_limit),
-      txSizeCostPerByte: Long.fromString(object.tx_size_cost_per_byte),
-      sigVerifyCostEd25519: Long.fromString(object.sig_verify_cost_ed25519),
-      sigVerifyCostSecp256k1: Long.fromString(object.sig_verify_cost_secp256k1)
-    };
+    const message = createBaseParams();
+    if (object.max_memo_characters !== undefined && object.max_memo_characters !== null) {
+      message.maxMemoCharacters = Long.fromString(object.max_memo_characters);
+    }
+    if (object.tx_sig_limit !== undefined && object.tx_sig_limit !== null) {
+      message.txSigLimit = Long.fromString(object.tx_sig_limit);
+    }
+    if (object.tx_size_cost_per_byte !== undefined && object.tx_size_cost_per_byte !== null) {
+      message.txSizeCostPerByte = Long.fromString(object.tx_size_cost_per_byte);
+    }
+    if (object.sig_verify_cost_ed25519 !== undefined && object.sig_verify_cost_ed25519 !== null) {
+      message.sigVerifyCostEd25519 = Long.fromString(object.sig_verify_cost_ed25519);
+    }
+    if (object.sig_verify_cost_secp256k1 !== undefined && object.sig_verify_cost_secp256k1 !== null) {
+      message.sigVerifyCostSecp256k1 = Long.fromString(object.sig_verify_cost_secp256k1);
+    }
+    return message;
   },
   toAmino(message: Params): ParamsAmino {
     const obj: any = {};

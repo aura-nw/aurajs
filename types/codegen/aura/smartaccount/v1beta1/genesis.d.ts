@@ -15,7 +15,7 @@ export interface GenesisStateProtoMsg {
 export interface GenesisStateAmino {
     params?: ParamsAmino;
     /** this line is used by starport scaffolding # genesis/proto/state */
-    smart_account_id: string;
+    smart_account_id?: string;
 }
 export interface GenesisStateAminoMsg {
     type: "/aura.smartaccount.v1beta1.GenesisState";

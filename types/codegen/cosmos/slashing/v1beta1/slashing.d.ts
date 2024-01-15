@@ -36,27 +36,27 @@ export interface ValidatorSigningInfoProtoMsg {
  * liveness activity.
  */
 export interface ValidatorSigningInfoAmino {
-    address: string;
+    address?: string;
     /** Height at which validator was first a candidate OR was unjailed */
-    start_height: string;
+    start_height?: string;
     /**
      * Index which is incremented each time the validator was a bonded
      * in a block and may have signed a precommit or not. This in conjunction with the
      * `SignedBlocksWindow` param determines the index in the `MissedBlocksBitArray`.
      */
-    index_offset: string;
+    index_offset?: string;
     /** Timestamp until which the validator is jailed due to liveness downtime. */
-    jailed_until?: Date;
+    jailed_until: string;
     /**
      * Whether or not a validator has been tombstoned (killed out of validator set). It is set
      * once the validator commits an equivocation or for any other configured misbehiavor.
      */
-    tombstoned: boolean;
+    tombstoned?: boolean;
     /**
      * A counter kept to avoid unnecessary array reads.
      * Note that `Sum(MissedBlocksBitArray)` always equals `MissedBlocksCounter`.
      */
-    missed_blocks_counter: string;
+    missed_blocks_counter?: string;
 }
 export interface ValidatorSigningInfoAminoMsg {
     type: "cosmos-sdk/ValidatorSigningInfo";
@@ -88,11 +88,11 @@ export interface ParamsProtoMsg {
 }
 /** Params represents the parameters used for by the slashing module. */
 export interface ParamsAmino {
-    signed_blocks_window: string;
-    min_signed_per_window: Uint8Array;
-    downtime_jail_duration?: string;
-    slash_fraction_double_sign: Uint8Array;
-    slash_fraction_downtime: Uint8Array;
+    signed_blocks_window?: string;
+    min_signed_per_window: string;
+    downtime_jail_duration: string;
+    slash_fraction_double_sign: string;
+    slash_fraction_downtime: string;
 }
 export interface ParamsAminoMsg {
     type: "cosmos-sdk/x/slashing/Params";

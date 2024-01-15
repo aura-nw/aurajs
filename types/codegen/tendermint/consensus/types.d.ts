@@ -28,11 +28,11 @@ export interface NewRoundStepProtoMsg {
  * For every height/round/step transition
  */
 export interface NewRoundStepAmino {
-    height: string;
-    round: number;
-    step: number;
-    seconds_since_start_time: string;
-    last_commit_round: number;
+    height?: string;
+    round?: number;
+    step?: number;
+    seconds_since_start_time?: string;
+    last_commit_round?: number;
 }
 export interface NewRoundStepAminoMsg {
     type: "/tendermint.consensus.NewRoundStep";
@@ -71,11 +71,11 @@ export interface NewValidBlockProtoMsg {
  * In case the block is also committed, then IsCommit flag is set to true.
  */
 export interface NewValidBlockAmino {
-    height: string;
-    round: number;
+    height?: string;
+    round?: number;
     block_part_set_header?: PartSetHeaderAmino;
     block_parts?: BitArrayAmino;
-    is_commit: boolean;
+    is_commit?: boolean;
 }
 export interface NewValidBlockAminoMsg {
     type: "/tendermint.consensus.NewValidBlock";
@@ -125,8 +125,8 @@ export interface ProposalPOLProtoMsg {
 }
 /** ProposalPOL is sent when a previous proposal is re-proposed. */
 export interface ProposalPOLAmino {
-    height: string;
-    proposal_pol_round: number;
+    height?: string;
+    proposal_pol_round?: number;
     proposal_pol?: BitArrayAmino;
 }
 export interface ProposalPOLAminoMsg {
@@ -151,8 +151,8 @@ export interface BlockPartProtoMsg {
 }
 /** BlockPart is sent when gossipping a piece of the proposed block. */
 export interface BlockPartAmino {
-    height: string;
-    round: number;
+    height?: string;
+    round?: number;
     part?: PartAmino;
 }
 export interface BlockPartAminoMsg {
@@ -198,10 +198,10 @@ export interface HasVoteProtoMsg {
 }
 /** HasVote is sent to indicate that a particular vote has been received. */
 export interface HasVoteAmino {
-    height: string;
-    round: number;
-    type: SignedMsgType;
-    index: number;
+    height?: string;
+    round?: number;
+    type?: SignedMsgType;
+    index?: number;
 }
 export interface HasVoteAminoMsg {
     type: "/tendermint.consensus.HasVote";
@@ -227,9 +227,9 @@ export interface VoteSetMaj23ProtoMsg {
 }
 /** VoteSetMaj23 is sent to indicate that a given BlockID has seen +2/3 votes. */
 export interface VoteSetMaj23Amino {
-    height: string;
-    round: number;
-    type: SignedMsgType;
+    height?: string;
+    round?: number;
+    type?: SignedMsgType;
     block_id?: BlockIDAmino;
 }
 export interface VoteSetMaj23AminoMsg {
@@ -257,9 +257,9 @@ export interface VoteSetBitsProtoMsg {
 }
 /** VoteSetBits is sent to communicate the bit-array of votes seen for the BlockID. */
 export interface VoteSetBitsAmino {
-    height: string;
-    round: number;
-    type: SignedMsgType;
+    height?: string;
+    round?: number;
+    type?: SignedMsgType;
     block_id?: BlockIDAmino;
     votes?: BitArrayAmino;
 }

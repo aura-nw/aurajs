@@ -11,8 +11,8 @@ export interface QueryInterchainAccountRequestProtoMsg {
 }
 /** QueryInterchainAccountRequest is the request type for the Query/InterchainAccount RPC method. */
 export interface QueryInterchainAccountRequestAmino {
-    owner: string;
-    connection_id: string;
+    owner?: string;
+    connection_id?: string;
 }
 export interface QueryInterchainAccountRequestAminoMsg {
     type: "cosmos-sdk/QueryInterchainAccountRequest";
@@ -33,7 +33,7 @@ export interface QueryInterchainAccountResponseProtoMsg {
 }
 /** QueryInterchainAccountResponse the response type for the Query/InterchainAccount RPC method. */
 export interface QueryInterchainAccountResponseAmino {
-    address: string;
+    address?: string;
 }
 export interface QueryInterchainAccountResponseAminoMsg {
     type: "cosmos-sdk/QueryInterchainAccountResponse";

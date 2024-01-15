@@ -28,11 +28,11 @@ export interface StoreKVPairProtoMsg {
  */
 export interface StoreKVPairAmino {
     /** the store key for the KVStore this pair originates from */
-    store_key: string;
+    store_key?: string;
     /** true indicates a delete operation, false indicates a set operation */
-    delete: boolean;
-    key: Uint8Array;
-    value: Uint8Array;
+    delete?: boolean;
+    key?: string;
+    value?: string;
 }
 export interface StoreKVPairAminoMsg {
     type: "cosmos-sdk/StoreKVPair";
@@ -74,7 +74,7 @@ export interface BlockMetadataProtoMsg {
 export interface BlockMetadataAmino {
     request_begin_block?: RequestBeginBlockAmino;
     response_begin_block?: ResponseBeginBlockAmino;
-    deliver_txs: BlockMetadata_DeliverTxAmino[];
+    deliver_txs?: BlockMetadata_DeliverTxAmino[];
     request_end_block?: RequestEndBlockAmino;
     response_end_block?: ResponseEndBlockAmino;
     response_commit?: ResponseCommitAmino;

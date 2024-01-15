@@ -22,7 +22,7 @@ export interface RequestBroadcastTxProtoMsg {
     value: Uint8Array;
 }
 export interface RequestBroadcastTxAmino {
-    tx: Uint8Array;
+    tx?: string;
 }
 export interface RequestBroadcastTxAminoMsg {
     type: "/tendermint.rpc.grpc.RequestBroadcastTx";

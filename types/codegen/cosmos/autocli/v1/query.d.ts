@@ -26,7 +26,7 @@ export interface AppOptionsResponse_ModuleOptionsEntryProtoMsg {
     value: Uint8Array;
 }
 export interface AppOptionsResponse_ModuleOptionsEntryAmino {
-    key: string;
+    key?: string;
     value?: ModuleOptionsAmino;
 }
 export interface AppOptionsResponse_ModuleOptionsEntryAminoMsg {

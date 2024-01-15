@@ -17,13 +17,13 @@ export interface MsgRecoverProtoMsg {
 }
 export interface MsgRecoverAmino {
     /** Sender is the actor who signs the message */
-    creator: string;
+    creator?: string;
     /** smart-account address that need update */
-    address: string;
+    address?: string;
     /** New PubKey using for signature verification of this account */
     public_key?: AnyAmino;
     /** Credentials */
-    credentials: string;
+    credentials?: string;
 }
 export interface MsgRecoverAminoMsg {
     type: "/aura.smartaccount.v1beta1.MsgRecover";
@@ -67,13 +67,13 @@ export interface MsgActivateAccountProtoMsg {
 }
 export interface MsgActivateAccountAmino {
     /** AccountAddress is the actor who signs the message */
-    account_address: string;
+    account_address?: string;
     /** CodeID indicates which wasm binary code is to be used for this contract */
-    code_id: string;
+    code_id?: string;
     /** an arbitrary value provided by the sender. Size can be 1 to 64. */
-    salt: Uint8Array;
+    salt?: string;
     /** InitMsg is the JSON-encoded instantiate message for the contract */
-    init_msg: Uint8Array;
+    init_msg?: string;
     /** Public key of smart account */
     public_key?: AnyAmino;
 }
@@ -96,7 +96,7 @@ export interface MsgActivateAccountResponseProtoMsg {
     value: Uint8Array;
 }
 export interface MsgActivateAccountResponseAmino {
-    address: string;
+    address?: string;
 }
 export interface MsgActivateAccountResponseAminoMsg {
     type: "/aura.smartaccount.v1beta1.MsgActivateAccountResponse";

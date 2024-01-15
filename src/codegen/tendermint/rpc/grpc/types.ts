@@ -20,7 +20,7 @@ export interface RequestBroadcastTxProtoMsg {
   value: Uint8Array;
 }
 export interface RequestBroadcastTxAmino {
-  tx: Uint8Array;
+  tx?: string;
 }
 export interface RequestBroadcastTxAminoMsg {
   type: "/tendermint.rpc.grpc.RequestBroadcastTx";
@@ -94,7 +94,8 @@ export const RequestPing = {
     return message;
   },
   fromAmino(_: RequestPingAmino): RequestPing {
-    return {};
+    const message = createBaseRequestPing();
+    return message;
   },
   toAmino(_: RequestPing): RequestPingAmino {
     const obj: any = {};
@@ -162,13 +163,15 @@ export const RequestBroadcastTx = {
     return message;
   },
   fromAmino(object: RequestBroadcastTxAmino): RequestBroadcastTx {
-    return {
-      tx: object.tx
-    };
+    const message = createBaseRequestBroadcastTx();
+    if (object.tx !== undefined && object.tx !== null) {
+      message.tx = bytesFromBase64(object.tx);
+    }
+    return message;
   },
   toAmino(message: RequestBroadcastTx): RequestBroadcastTxAmino {
     const obj: any = {};
-    obj.tx = message.tx;
+    obj.tx = message.tx ? base64FromBytes(message.tx) : undefined;
     return obj;
   },
   fromAminoMsg(object: RequestBroadcastTxAminoMsg): RequestBroadcastTx {
@@ -221,7 +224,8 @@ export const ResponsePing = {
     return message;
   },
   fromAmino(_: ResponsePingAmino): ResponsePing {
-    return {};
+    const message = createBaseResponsePing();
+    return message;
   },
   toAmino(_: ResponsePing): ResponsePingAmino {
     const obj: any = {};
@@ -299,10 +303,14 @@ export const ResponseBroadcastTx = {
     return message;
   },
   fromAmino(object: ResponseBroadcastTxAmino): ResponseBroadcastTx {
-    return {
-      checkTx: object?.check_tx ? ResponseCheckTx.fromAmino(object.check_tx) : undefined,
-      deliverTx: object?.deliver_tx ? ResponseDeliverTx.fromAmino(object.deliver_tx) : undefined
-    };
+    const message = createBaseResponseBroadcastTx();
+    if (object.check_tx !== undefined && object.check_tx !== null) {
+      message.checkTx = ResponseCheckTx.fromAmino(object.check_tx);
+    }
+    if (object.deliver_tx !== undefined && object.deliver_tx !== null) {
+      message.deliverTx = ResponseDeliverTx.fromAmino(object.deliver_tx);
+    }
+    return message;
   },
   toAmino(message: ResponseBroadcastTx): ResponseBroadcastTxAmino {
     const obj: any = {};

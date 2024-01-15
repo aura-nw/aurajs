@@ -26,19 +26,19 @@ export interface GetRequestProtoMsg {
 /** GetRequest is the Query/Get request type. */
 export interface GetRequestAmino {
     /** message_name is the fully-qualified message name of the ORM table being queried. */
-    message_name: string;
+    message_name?: string;
     /**
      * index is the index fields expression used in orm definitions. If it
      * is empty, the table's primary key is assumed. If it is non-empty, it must
      * refer to an unique index.
      */
-    index: string;
+    index?: string;
     /**
      * values are the values of the fields corresponding to the requested index.
      * There must be as many values provided as there are fields in the index and
      * these values must correspond to the index field types.
      */
-    values: IndexValueAmino[];
+    values?: IndexValueAmino[];
 }
 export interface GetRequestAminoMsg {
     type: "cosmos-sdk/GetRequest";
@@ -101,12 +101,12 @@ export interface ListRequestProtoMsg {
 /** ListRequest is the Query/List request type. */
 export interface ListRequestAmino {
     /** message_name is the fully-qualified message name of the ORM table being queried. */
-    message_name: string;
+    message_name?: string;
     /**
      * index is the index fields expression used in orm definitions. If it
      * is empty, the table's primary key is assumed.
      */
-    index: string;
+    index?: string;
     /** prefix defines a prefix query. */
     prefix?: ListRequest_PrefixAmino;
     /** range defines a range query. */
@@ -146,7 +146,7 @@ export interface ListRequest_PrefixAmino {
      * It is valid to special a partial prefix with fewer values than
      * the number of fields in the index.
      */
-    values: IndexValueAmino[];
+    values?: IndexValueAmino[];
 }
 export interface ListRequest_PrefixAminoMsg {
     type: "cosmos-sdk/Prefix";
@@ -182,13 +182,13 @@ export interface ListRequest_RangeAmino {
      * It is valid to provide fewer values than the number of fields in the
      * index.
      */
-    start: IndexValueAmino[];
+    start?: IndexValueAmino[];
     /**
      * end specifies the inclusive ending index values for the range query.
      * It is valid to provide fewer values than the number of fields in the
      * index.
      */
-    end: IndexValueAmino[];
+    end?: IndexValueAmino[];
 }
 export interface ListRequest_RangeAminoMsg {
     type: "cosmos-sdk/Range";
@@ -213,7 +213,7 @@ export interface ListResponseProtoMsg {
 /** ListResponse is the Query/List response type. */
 export interface ListResponseAmino {
     /** results are the results of the query. */
-    results: AnyAmino[];
+    results?: AnyAmino[];
     /** pagination is the pagination response. */
     pagination?: PageResponseAmino;
 }
@@ -270,13 +270,13 @@ export interface IndexValueAmino {
     /** str specifies a value for a string index field. */
     str?: string;
     /** bytes specifies a value for a bytes index field. */
-    bytes?: Uint8Array;
+    bytes?: string;
     /** enum specifies a value for an enum index field. */
     enum?: string;
     /** bool specifies a value for a bool index field. */
     bool?: boolean;
     /** timestamp specifies a value for a timestamp index field. */
-    timestamp?: Date;
+    timestamp?: string;
     /** duration specifies a value for a duration index field. */
     duration?: string;
 }

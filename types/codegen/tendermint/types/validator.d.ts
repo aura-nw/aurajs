@@ -11,9 +11,9 @@ export interface ValidatorSetProtoMsg {
     value: Uint8Array;
 }
 export interface ValidatorSetAmino {
-    validators: ValidatorAmino[];
+    validators?: ValidatorAmino[];
     proposer?: ValidatorAmino;
-    total_voting_power: string;
+    total_voting_power?: string;
 }
 export interface ValidatorSetAminoMsg {
     type: "/tendermint.types.ValidatorSet";
@@ -35,10 +35,10 @@ export interface ValidatorProtoMsg {
     value: Uint8Array;
 }
 export interface ValidatorAmino {
-    address: Uint8Array;
+    address?: string;
     pub_key?: PublicKeyAmino;
-    voting_power: string;
-    proposer_priority: string;
+    voting_power?: string;
+    proposer_priority?: string;
 }
 export interface ValidatorAminoMsg {
     type: "/tendermint.types.Validator";
@@ -60,7 +60,7 @@ export interface SimpleValidatorProtoMsg {
 }
 export interface SimpleValidatorAmino {
     pub_key?: PublicKeyAmino;
-    voting_power: string;
+    voting_power?: string;
 }
 export interface SimpleValidatorAminoMsg {
     type: "/tendermint.types.SimpleValidator";

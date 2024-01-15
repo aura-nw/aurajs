@@ -21,7 +21,7 @@ export interface QueryClientStateRequestProtoMsg {
  */
 export interface QueryClientStateRequestAmino {
     /** client state unique identifier */
-    client_id: string;
+    client_id?: string;
 }
 export interface QueryClientStateRequestAminoMsg {
     type: "cosmos-sdk/QueryClientStateRequest";
@@ -60,7 +60,7 @@ export interface QueryClientStateResponseAmino {
     /** client state associated with the request identifier */
     client_state?: AnyAmino;
     /** merkle proof of existence */
-    proof: Uint8Array;
+    proof?: string;
     /** height at which the proof was retrieved */
     proof_height?: HeightAmino;
 }
@@ -129,7 +129,7 @@ export interface QueryClientStatesResponseProtoMsg {
  */
 export interface QueryClientStatesResponseAmino {
     /** list of stored ClientStates of the chain. */
-    client_states: IdentifiedClientStateAmino[];
+    client_states?: IdentifiedClientStateAmino[];
     /** pagination response */
     pagination?: PageResponseAmino;
 }
@@ -174,16 +174,16 @@ export interface QueryConsensusStateRequestProtoMsg {
  */
 export interface QueryConsensusStateRequestAmino {
     /** client identifier */
-    client_id: string;
+    client_id?: string;
     /** consensus state revision number */
-    revision_number: string;
+    revision_number?: string;
     /** consensus state revision height */
-    revision_height: string;
+    revision_height?: string;
     /**
      * latest_height overrrides the height field and queries the latest stored
      * ConsensusState
      */
-    latest_height: boolean;
+    latest_height?: boolean;
 }
 export interface QueryConsensusStateRequestAminoMsg {
     type: "cosmos-sdk/QueryConsensusStateRequest";
@@ -224,7 +224,7 @@ export interface QueryConsensusStateResponseAmino {
     /** consensus state associated with the client identifier at the given height */
     consensus_state?: AnyAmino;
     /** merkle proof of existence */
-    proof: Uint8Array;
+    proof?: string;
     /** height at which the proof was retrieved */
     proof_height?: HeightAmino;
 }
@@ -261,7 +261,7 @@ export interface QueryConsensusStatesRequestProtoMsg {
  */
 export interface QueryConsensusStatesRequestAmino {
     /** client identifier */
-    client_id: string;
+    client_id?: string;
     /** pagination request */
     pagination?: PageRequestAmino;
 }
@@ -297,7 +297,7 @@ export interface QueryConsensusStatesResponseProtoMsg {
  */
 export interface QueryConsensusStatesResponseAmino {
     /** consensus states associated with the identifier */
-    consensus_states: ConsensusStateWithHeightAmino[];
+    consensus_states?: ConsensusStateWithHeightAmino[];
     /** pagination response */
     pagination?: PageResponseAmino;
 }
@@ -333,7 +333,7 @@ export interface QueryConsensusStateHeightsRequestProtoMsg {
  */
 export interface QueryConsensusStateHeightsRequestAmino {
     /** client identifier */
-    client_id: string;
+    client_id?: string;
     /** pagination request */
     pagination?: PageRequestAmino;
 }
@@ -369,7 +369,7 @@ export interface QueryConsensusStateHeightsResponseProtoMsg {
  */
 export interface QueryConsensusStateHeightsResponseAmino {
     /** consensus state heights */
-    consensus_state_heights: HeightAmino[];
+    consensus_state_heights?: HeightAmino[];
     /** pagination response */
     pagination?: PageResponseAmino;
 }
@@ -403,7 +403,7 @@ export interface QueryClientStatusRequestProtoMsg {
  */
 export interface QueryClientStatusRequestAmino {
     /** client unique identifier */
-    client_id: string;
+    client_id?: string;
 }
 export interface QueryClientStatusRequestAminoMsg {
     type: "cosmos-sdk/QueryClientStatusRequest";
@@ -432,7 +432,7 @@ export interface QueryClientStatusResponseProtoMsg {
  * method. It returns the current status of the IBC client.
  */
 export interface QueryClientStatusResponseAmino {
-    status: string;
+    status?: string;
 }
 export interface QueryClientStatusResponseAminoMsg {
     type: "cosmos-sdk/QueryClientStatusResponse";

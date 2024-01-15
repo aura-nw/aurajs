@@ -34,7 +34,7 @@ export interface SendAuthorizationAmino {
      *
      * Since: cosmos-sdk 0.47
      */
-    allow_list: string[];
+    allow_list?: string[];
 }
 export interface SendAuthorizationAminoMsg {
     type: "cosmos-sdk/SendAuthorization";

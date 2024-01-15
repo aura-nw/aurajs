@@ -23,7 +23,7 @@ export interface RecordProtoMsg {
 /** Record is used for representing a key in the keyring. */
 export interface RecordAmino {
     /** name represents a name of Record */
-    name: string;
+    name?: string;
     /** pub_key represents a public key in any format */
     pub_key?: AnyAmino;
     /** local stores the private key locally. */

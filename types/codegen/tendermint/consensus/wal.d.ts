@@ -14,7 +14,7 @@ export interface MsgInfoProtoMsg {
 /** MsgInfo are msgs from the reactor which may update the state */
 export interface MsgInfoAmino {
     msg?: MessageAmino;
-    peer_id: string;
+    peer_id?: string;
 }
 export interface MsgInfoAminoMsg {
     type: "/tendermint.consensus.MsgInfo";
@@ -39,9 +39,9 @@ export interface TimeoutInfoProtoMsg {
 /** TimeoutInfo internally generated messages which may update the state */
 export interface TimeoutInfoAmino {
     duration?: string;
-    height: string;
-    round: number;
-    step: number;
+    height?: string;
+    round?: number;
+    step?: number;
 }
 export interface TimeoutInfoAminoMsg {
     type: "/tendermint.consensus.TimeoutInfo";
@@ -70,7 +70,7 @@ export interface EndHeightProtoMsg {
  * @internal used by scripts/wal2json util.
  */
 export interface EndHeightAmino {
-    height: string;
+    height?: string;
 }
 export interface EndHeightAminoMsg {
     type: "/tendermint.consensus.EndHeight";
@@ -120,7 +120,7 @@ export interface TimedWALMessageProtoMsg {
 }
 /** TimedWALMessage wraps WALMessage and adds Time for debugging purposes. */
 export interface TimedWALMessageAmino {
-    time?: Date;
+    time?: string;
     msg?: WALMessageAmino;
 }
 export interface TimedWALMessageAminoMsg {

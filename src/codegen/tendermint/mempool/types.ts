@@ -8,7 +8,7 @@ export interface TxsProtoMsg {
   value: Uint8Array;
 }
 export interface TxsAmino {
-  txs: Uint8Array[];
+  txs?: string[];
 }
 export interface TxsAminoMsg {
   type: "/tendermint.mempool.Txs";
@@ -84,14 +84,14 @@ export const Txs = {
     return message;
   },
   fromAmino(object: TxsAmino): Txs {
-    return {
-      txs: Array.isArray(object?.txs) ? object.txs.map((e: any) => e) : []
-    };
+    const message = createBaseTxs();
+    message.txs = object.txs?.map(e => bytesFromBase64(e)) || [];
+    return message;
   },
   toAmino(message: Txs): TxsAmino {
     const obj: any = {};
     if (message.txs) {
-      obj.txs = message.txs.map(e => e);
+      obj.txs = message.txs.map(e => base64FromBytes(e));
     } else {
       obj.txs = [];
     }
@@ -159,9 +159,11 @@ export const Message = {
     return message;
   },
   fromAmino(object: MessageAmino): Message {
-    return {
-      txs: object?.txs ? Txs.fromAmino(object.txs) : undefined
-    };
+    const message = createBaseMessage();
+    if (object.txs !== undefined && object.txs !== null) {
+      message.txs = Txs.fromAmino(object.txs);
+    }
+    return message;
   },
   toAmino(message: Message): MessageAmino {
     const obj: any = {};

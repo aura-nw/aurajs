@@ -13,9 +13,9 @@ export interface MsgRegisterInterchainAccountProtoMsg {
 }
 /** MsgRegisterInterchainAccount defines the payload for Msg/RegisterAccount */
 export interface MsgRegisterInterchainAccountAmino {
-    owner: string;
-    connection_id: string;
-    version: string;
+    owner?: string;
+    connection_id?: string;
+    version?: string;
 }
 export interface MsgRegisterInterchainAccountAminoMsg {
     type: "cosmos-sdk/MsgRegisterInterchainAccount";
@@ -38,8 +38,8 @@ export interface MsgRegisterInterchainAccountResponseProtoMsg {
 }
 /** MsgRegisterInterchainAccountResponse defines the response for Msg/RegisterAccount */
 export interface MsgRegisterInterchainAccountResponseAmino {
-    channel_id: string;
-    port_id: string;
+    channel_id?: string;
+    port_id?: string;
 }
 export interface MsgRegisterInterchainAccountResponseAminoMsg {
     type: "cosmos-sdk/MsgRegisterInterchainAccountResponse";
@@ -67,14 +67,14 @@ export interface MsgSendTxProtoMsg {
 }
 /** MsgSendTx defines the payload for Msg/SendTx */
 export interface MsgSendTxAmino {
-    owner: string;
-    connection_id: string;
+    owner?: string;
+    connection_id?: string;
     packet_data?: InterchainAccountPacketDataAmino;
     /**
      * Relative timeout timestamp provided will be added to the current block time during transaction execution.
      * The timeout timestamp must be non-zero.
      */
-    relative_timeout: string;
+    relative_timeout?: string;
 }
 export interface MsgSendTxAminoMsg {
     type: "cosmos-sdk/MsgSendTx";
@@ -97,7 +97,7 @@ export interface MsgSendTxResponseProtoMsg {
 }
 /** MsgSendTxResponse defines the response for MsgSendTx */
 export interface MsgSendTxResponseAmino {
-    sequence: string;
+    sequence?: string;
 }
 export interface MsgSendTxResponseAminoMsg {
     type: "cosmos-sdk/MsgSendTxResponse";

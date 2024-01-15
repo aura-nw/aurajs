@@ -12,9 +12,9 @@ export interface CodeIDProtoMsg {
 }
 export interface CodeIDAmino {
     /** whitelist code id */
-    code_id: string;
+    code_id?: string;
     /** status of code id */
-    status: boolean;
+    status?: boolean;
 }
 export interface CodeIDAminoMsg {
     type: "/aura.smartaccount.v1beta1.CodeID";
@@ -46,11 +46,11 @@ export interface ParamsAmino {
      * code_id whitelist indicates which contract can be initialized as smart account
      * using gov proposal for updates
      */
-    whitelist_code_id: CodeIDAmino[];
+    whitelist_code_id?: CodeIDAmino[];
     /** list of diable messages for smartaccount */
-    disable_msgs_list: string[];
+    disable_msgs_list?: string[];
     /** limit how much gas can be consumed by the `pre_execute` method */
-    max_gas_execute: string;
+    max_gas_execute?: string;
 }
 export interface ParamsAminoMsg {
     type: "/aura.smartaccount.v1beta1.Params";

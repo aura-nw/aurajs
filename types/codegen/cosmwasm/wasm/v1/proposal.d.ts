@@ -48,29 +48,29 @@ export interface StoreCodeProposalProtoMsg {
 /** @deprecated */
 export interface StoreCodeProposalAmino {
     /** Title is a short summary */
-    title: string;
+    title?: string;
     /** Description is a human readable text */
-    description: string;
+    description?: string;
     /** RunAs is the address that is passed to the contract's environment as sender */
-    run_as: string;
+    run_as?: string;
     /** WASMByteCode can be raw or gzip compressed */
-    wasm_byte_code: string;
+    wasm_byte_code?: string;
     /** InstantiatePermission to apply on contract creation, optional */
     instantiate_permission?: AccessConfigAmino;
     /** UnpinCode code on upload, optional */
-    unpin_code: boolean;
+    unpin_code?: boolean;
     /** Source is the URL where the code is hosted */
-    source: string;
+    source?: string;
     /**
      * Builder is the docker image used to build the code deterministically, used
      * for smart contract verification
      */
-    builder: string;
+    builder?: string;
     /**
      * CodeHash is the SHA256 sum of the code outputted by builder, used for smart
      * contract verification
      */
-    code_hash: Uint8Array;
+    code_hash?: string;
 }
 export interface StoreCodeProposalAminoMsg {
     type: "wasm/StoreCodeProposal";
@@ -132,19 +132,19 @@ export interface InstantiateContractProposalProtoMsg {
 /** @deprecated */
 export interface InstantiateContractProposalAmino {
     /** Title is a short summary */
-    title: string;
+    title?: string;
     /** Description is a human readable text */
-    description: string;
+    description?: string;
     /** RunAs is the address that is passed to the contract's environment as sender */
-    run_as: string;
+    run_as?: string;
     /** Admin is an optional address that can execute migrations */
-    admin: string;
+    admin?: string;
     /** CodeID is the reference to the stored WASM code */
-    code_id: string;
+    code_id?: string;
     /** Label is optional metadata to be stored with a constract instance. */
-    label: string;
+    label?: string;
     /** Msg json encoded message to be passed to the contract on instantiation */
-    msg: Uint8Array;
+    msg?: any;
     /** Funds coins that are transferred to the contract on instantiation */
     funds: CoinAmino[];
 }
@@ -214,28 +214,28 @@ export interface InstantiateContract2ProposalProtoMsg {
 /** @deprecated */
 export interface InstantiateContract2ProposalAmino {
     /** Title is a short summary */
-    title: string;
+    title?: string;
     /** Description is a human readable text */
-    description: string;
+    description?: string;
     /** RunAs is the address that is passed to the contract's enviroment as sender */
-    run_as: string;
+    run_as?: string;
     /** Admin is an optional address that can execute migrations */
-    admin: string;
+    admin?: string;
     /** CodeID is the reference to the stored WASM code */
-    code_id: string;
+    code_id?: string;
     /** Label is optional metadata to be stored with a constract instance. */
-    label: string;
+    label?: string;
     /** Msg json encode message to be passed to the contract on instantiation */
-    msg: Uint8Array;
+    msg?: any;
     /** Funds coins that are transferred to the contract on instantiation */
     funds: CoinAmino[];
     /** Salt is an arbitrary value provided by the sender. Size can be 1 to 64. */
-    salt: Uint8Array;
+    salt?: string;
     /**
      * FixMsg include the msg value into the hash for the predictable address.
      * Default is false
      */
-    fix_msg: boolean;
+    fix_msg?: boolean;
 }
 export interface InstantiateContract2ProposalAminoMsg {
     type: "wasm/InstantiateContract2Proposal";
@@ -292,15 +292,15 @@ export interface MigrateContractProposalProtoMsg {
 /** @deprecated */
 export interface MigrateContractProposalAmino {
     /** Title is a short summary */
-    title: string;
+    title?: string;
     /** Description is a human readable text */
-    description: string;
+    description?: string;
     /** Contract is the address of the smart contract */
-    contract: string;
+    contract?: string;
     /** CodeID references the new WASM code */
-    code_id: string;
+    code_id?: string;
     /** Msg json encoded message to be passed to the contract on migration */
-    msg: Uint8Array;
+    msg?: any;
 }
 export interface MigrateContractProposalAminoMsg {
     type: "wasm/MigrateContractProposal";
@@ -350,13 +350,13 @@ export interface SudoContractProposalProtoMsg {
 /** @deprecated */
 export interface SudoContractProposalAmino {
     /** Title is a short summary */
-    title: string;
+    title?: string;
     /** Description is a human readable text */
-    description: string;
+    description?: string;
     /** Contract is the address of the smart contract */
-    contract: string;
+    contract?: string;
     /** Msg json encoded message to be passed to the contract as sudo */
-    msg: Uint8Array;
+    msg?: any;
 }
 export interface SudoContractProposalAminoMsg {
     type: "wasm/SudoContractProposal";
@@ -409,15 +409,15 @@ export interface ExecuteContractProposalProtoMsg {
 /** @deprecated */
 export interface ExecuteContractProposalAmino {
     /** Title is a short summary */
-    title: string;
+    title?: string;
     /** Description is a human readable text */
-    description: string;
+    description?: string;
     /** RunAs is the address that is passed to the contract's environment as sender */
-    run_as: string;
+    run_as?: string;
     /** Contract is the address of the smart contract */
-    contract: string;
+    contract?: string;
     /** Msg json encoded message to be passed to the contract as execute */
-    msg: Uint8Array;
+    msg?: any;
     /** Funds coins that are transferred to the contract on instantiation */
     funds: CoinAmino[];
 }
@@ -470,13 +470,13 @@ export interface UpdateAdminProposalProtoMsg {
 /** @deprecated */
 export interface UpdateAdminProposalAmino {
     /** Title is a short summary */
-    title: string;
+    title?: string;
     /** Description is a human readable text */
-    description: string;
+    description?: string;
     /** NewAdmin address to be set */
-    new_admin: string;
+    new_admin?: string;
     /** Contract is the address of the smart contract */
-    contract: string;
+    contract?: string;
 }
 export interface UpdateAdminProposalAminoMsg {
     type: "wasm/UpdateAdminProposal";
@@ -523,11 +523,11 @@ export interface ClearAdminProposalProtoMsg {
 /** @deprecated */
 export interface ClearAdminProposalAmino {
     /** Title is a short summary */
-    title: string;
+    title?: string;
     /** Description is a human readable text */
-    description: string;
+    description?: string;
     /** Contract is the address of the smart contract */
-    contract: string;
+    contract?: string;
 }
 export interface ClearAdminProposalAminoMsg {
     type: "wasm/ClearAdminProposal";
@@ -573,11 +573,11 @@ export interface PinCodesProposalProtoMsg {
 /** @deprecated */
 export interface PinCodesProposalAmino {
     /** Title is a short summary */
-    title: string;
+    title?: string;
     /** Description is a human readable text */
-    description: string;
+    description?: string;
     /** CodeIDs references the new WASM codes */
-    code_ids: string[];
+    code_ids?: string[];
 }
 export interface PinCodesProposalAminoMsg {
     type: "wasm/PinCodesProposal";
@@ -623,11 +623,11 @@ export interface UnpinCodesProposalProtoMsg {
 /** @deprecated */
 export interface UnpinCodesProposalAmino {
     /** Title is a short summary */
-    title: string;
+    title?: string;
     /** Description is a human readable text */
-    description: string;
+    description?: string;
     /** CodeIDs references the WASM codes */
-    code_ids: string[];
+    code_ids?: string[];
 }
 export interface UnpinCodesProposalAminoMsg {
     type: "wasm/UnpinCodesProposal";
@@ -665,9 +665,9 @@ export interface AccessConfigUpdateProtoMsg {
  */
 export interface AccessConfigUpdateAmino {
     /** CodeID is the reference to the stored WASM code to be updated */
-    code_id: string;
+    code_id?: string;
     /** InstantiatePermission to apply to the set of code ids */
-    instantiate_permission?: AccessConfigAmino;
+    instantiate_permission: AccessConfigAmino;
 }
 export interface AccessConfigUpdateAminoMsg {
     type: "wasm/AccessConfigUpdate";
@@ -712,9 +712,9 @@ export interface UpdateInstantiateConfigProposalProtoMsg {
 /** @deprecated */
 export interface UpdateInstantiateConfigProposalAmino {
     /** Title is a short summary */
-    title: string;
+    title?: string;
     /** Description is a human readable text */
-    description: string;
+    description?: string;
     /**
      * AccessConfigUpdate contains the list of code ids and the access config
      * to be applied.
@@ -791,37 +791,37 @@ export interface StoreAndInstantiateContractProposalProtoMsg {
 /** @deprecated */
 export interface StoreAndInstantiateContractProposalAmino {
     /** Title is a short summary */
-    title: string;
+    title?: string;
     /** Description is a human readable text */
-    description: string;
+    description?: string;
     /** RunAs is the address that is passed to the contract's environment as sender */
-    run_as: string;
+    run_as?: string;
     /** WASMByteCode can be raw or gzip compressed */
-    wasm_byte_code: string;
+    wasm_byte_code?: string;
     /** InstantiatePermission to apply on contract creation, optional */
     instantiate_permission?: AccessConfigAmino;
     /** UnpinCode code on upload, optional */
-    unpin_code: boolean;
+    unpin_code?: boolean;
     /** Admin is an optional address that can execute migrations */
-    admin: string;
+    admin?: string;
     /** Label is optional metadata to be stored with a constract instance. */
-    label: string;
+    label?: string;
     /** Msg json encoded message to be passed to the contract on instantiation */
-    msg: Uint8Array;
+    msg?: any;
     /** Funds coins that are transferred to the contract on instantiation */
     funds: CoinAmino[];
     /** Source is the URL where the code is hosted */
-    source: string;
+    source?: string;
     /**
      * Builder is the docker image used to build the code deterministically, used
      * for smart contract verification
      */
-    builder: string;
+    builder?: string;
     /**
      * CodeHash is the SHA256 sum of the code outputted by builder, used for smart
      * contract verification
      */
-    code_hash: Uint8Array;
+    code_hash?: string;
 }
 export interface StoreAndInstantiateContractProposalAminoMsg {
     type: "wasm/StoreAndInstantiateContractProposal";

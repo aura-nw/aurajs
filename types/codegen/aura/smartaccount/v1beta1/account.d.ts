@@ -22,10 +22,10 @@ export interface SmartAccountProtoMsg {
  * This account type is similar to BaseAccount
  */
 export interface SmartAccountAmino {
-    address: string;
+    address?: string;
     pub_key?: AnyAmino;
-    account_number: string;
-    sequence: string;
+    account_number?: string;
+    sequence?: string;
 }
 export interface SmartAccountAminoMsg {
     type: "/aura.smartaccount.v1beta1.SmartAccount";

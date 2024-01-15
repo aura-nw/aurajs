@@ -42,15 +42,15 @@ export interface MsgTransferProtoMsg {
  */
 export interface MsgTransferAmino {
     /** the port on which the packet will be sent */
-    source_port: string;
+    source_port?: string;
     /** the channel by which the packet will be sent */
-    source_channel: string;
+    source_channel?: string;
     /** the tokens to be transferred */
     token?: CoinAmino;
     /** the sender address */
-    sender: string;
+    sender?: string;
     /** the recipient address on the destination chain */
-    receiver: string;
+    receiver?: string;
     /**
      * Timeout height relative to the current block height.
      * The timeout is disabled when set to 0.
@@ -60,9 +60,9 @@ export interface MsgTransferAmino {
      * Timeout timestamp in absolute nanoseconds since unix epoch.
      * The timeout is disabled when set to 0.
      */
-    timeout_timestamp: string;
+    timeout_timestamp?: string;
     /** optional memo */
-    memo: string;
+    memo?: string;
 }
 export interface MsgTransferAminoMsg {
     type: "cosmos-sdk/MsgTransfer";
@@ -95,7 +95,7 @@ export interface MsgTransferResponseProtoMsg {
 /** MsgTransferResponse defines the Msg/Transfer response type. */
 export interface MsgTransferResponseAmino {
     /** sequence number of the transfer packet sent */
-    sequence: string;
+    sequence?: string;
 }
 export interface MsgTransferResponseAminoMsg {
     type: "cosmos-sdk/MsgTransferResponse";

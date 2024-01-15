@@ -17,13 +17,13 @@ export interface MsgRecoverProtoMsg {
 }
 export interface MsgRecoverAmino {
   /** Sender is the actor who signs the message */
-  creator: string;
+  creator?: string;
   /** smart-account address that need update */
-  address: string;
+  address?: string;
   /** New PubKey using for signature verification of this account */
   public_key?: AnyAmino;
   /** Credentials */
-  credentials: string;
+  credentials?: string;
 }
 export interface MsgRecoverAminoMsg {
   type: "/aura.smartaccount.v1beta1.MsgRecover";
@@ -64,13 +64,13 @@ export interface MsgActivateAccountProtoMsg {
 }
 export interface MsgActivateAccountAmino {
   /** AccountAddress is the actor who signs the message */
-  account_address: string;
+  account_address?: string;
   /** CodeID indicates which wasm binary code is to be used for this contract */
-  code_id: string;
+  code_id?: string;
   /** an arbitrary value provided by the sender. Size can be 1 to 64. */
-  salt: Uint8Array;
+  salt?: string;
   /** InitMsg is the JSON-encoded instantiate message for the contract */
-  init_msg: Uint8Array;
+  init_msg?: string;
   /** Public key of smart account */
   public_key?: AnyAmino;
 }
@@ -93,7 +93,7 @@ export interface MsgActivateAccountResponseProtoMsg {
   value: Uint8Array;
 }
 export interface MsgActivateAccountResponseAmino {
-  address: string;
+  address?: string;
 }
 export interface MsgActivateAccountResponseAminoMsg {
   type: "/aura.smartaccount.v1beta1.MsgActivateAccountResponse";
@@ -178,12 +178,20 @@ export const MsgRecover = {
     return message;
   },
   fromAmino(object: MsgRecoverAmino): MsgRecover {
-    return {
-      creator: object.creator,
-      address: object.address,
-      publicKey: object?.public_key ? Any.fromAmino(object.public_key) : undefined,
-      credentials: object.credentials
-    };
+    const message = createBaseMsgRecover();
+    if (object.creator !== undefined && object.creator !== null) {
+      message.creator = object.creator;
+    }
+    if (object.address !== undefined && object.address !== null) {
+      message.address = object.address;
+    }
+    if (object.public_key !== undefined && object.public_key !== null) {
+      message.publicKey = Any.fromAmino(object.public_key);
+    }
+    if (object.credentials !== undefined && object.credentials !== null) {
+      message.credentials = object.credentials;
+    }
+    return message;
   },
   toAmino(message: MsgRecover): MsgRecoverAmino {
     const obj: any = {};
@@ -243,7 +251,8 @@ export const MsgRecoverResponse = {
     return message;
   },
   fromAmino(_: MsgRecoverResponseAmino): MsgRecoverResponse {
-    return {};
+    const message = createBaseMsgRecoverResponse();
+    return message;
   },
   toAmino(_: MsgRecoverResponse): MsgRecoverResponseAmino {
     const obj: any = {};
@@ -351,20 +360,30 @@ export const MsgActivateAccount = {
     return message;
   },
   fromAmino(object: MsgActivateAccountAmino): MsgActivateAccount {
-    return {
-      accountAddress: object.account_address,
-      codeId: Long.fromString(object.code_id),
-      salt: object.salt,
-      initMsg: object.init_msg,
-      publicKey: object?.public_key ? Any.fromAmino(object.public_key) : undefined
-    };
+    const message = createBaseMsgActivateAccount();
+    if (object.account_address !== undefined && object.account_address !== null) {
+      message.accountAddress = object.account_address;
+    }
+    if (object.code_id !== undefined && object.code_id !== null) {
+      message.codeId = Long.fromString(object.code_id);
+    }
+    if (object.salt !== undefined && object.salt !== null) {
+      message.salt = bytesFromBase64(object.salt);
+    }
+    if (object.init_msg !== undefined && object.init_msg !== null) {
+      message.initMsg = bytesFromBase64(object.init_msg);
+    }
+    if (object.public_key !== undefined && object.public_key !== null) {
+      message.publicKey = Any.fromAmino(object.public_key);
+    }
+    return message;
   },
   toAmino(message: MsgActivateAccount): MsgActivateAccountAmino {
     const obj: any = {};
     obj.account_address = message.accountAddress;
     obj.code_id = message.codeId ? message.codeId.toString() : undefined;
-    obj.salt = message.salt;
-    obj.init_msg = message.initMsg;
+    obj.salt = message.salt ? base64FromBytes(message.salt) : undefined;
+    obj.init_msg = message.initMsg ? base64FromBytes(message.initMsg) : undefined;
     obj.public_key = message.publicKey ? Any.toAmino(message.publicKey) : undefined;
     return obj;
   },
@@ -430,9 +449,11 @@ export const MsgActivateAccountResponse = {
     return message;
   },
   fromAmino(object: MsgActivateAccountResponseAmino): MsgActivateAccountResponse {
-    return {
-      address: object.address
-    };
+    const message = createBaseMsgActivateAccountResponse();
+    if (object.address !== undefined && object.address !== null) {
+      message.address = object.address;
+    }
+    return message;
   },
   toAmino(message: MsgActivateAccountResponse): MsgActivateAccountResponseAmino {
     const obj: any = {};

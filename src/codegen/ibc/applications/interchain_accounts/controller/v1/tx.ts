@@ -13,9 +13,9 @@ export interface MsgRegisterInterchainAccountProtoMsg {
 }
 /** MsgRegisterInterchainAccount defines the payload for Msg/RegisterAccount */
 export interface MsgRegisterInterchainAccountAmino {
-  owner: string;
-  connection_id: string;
-  version: string;
+  owner?: string;
+  connection_id?: string;
+  version?: string;
 }
 export interface MsgRegisterInterchainAccountAminoMsg {
   type: "cosmos-sdk/MsgRegisterInterchainAccount";
@@ -38,8 +38,8 @@ export interface MsgRegisterInterchainAccountResponseProtoMsg {
 }
 /** MsgRegisterInterchainAccountResponse defines the response for Msg/RegisterAccount */
 export interface MsgRegisterInterchainAccountResponseAmino {
-  channel_id: string;
-  port_id: string;
+  channel_id?: string;
+  port_id?: string;
 }
 export interface MsgRegisterInterchainAccountResponseAminoMsg {
   type: "cosmos-sdk/MsgRegisterInterchainAccountResponse";
@@ -67,14 +67,14 @@ export interface MsgSendTxProtoMsg {
 }
 /** MsgSendTx defines the payload for Msg/SendTx */
 export interface MsgSendTxAmino {
-  owner: string;
-  connection_id: string;
+  owner?: string;
+  connection_id?: string;
   packet_data?: InterchainAccountPacketDataAmino;
   /**
    * Relative timeout timestamp provided will be added to the current block time during transaction execution.
    * The timeout timestamp must be non-zero.
    */
-  relative_timeout: string;
+  relative_timeout?: string;
 }
 export interface MsgSendTxAminoMsg {
   type: "cosmos-sdk/MsgSendTx";
@@ -97,7 +97,7 @@ export interface MsgSendTxResponseProtoMsg {
 }
 /** MsgSendTxResponse defines the response for MsgSendTx */
 export interface MsgSendTxResponseAmino {
-  sequence: string;
+  sequence?: string;
 }
 export interface MsgSendTxResponseAminoMsg {
   type: "cosmos-sdk/MsgSendTxResponse";
@@ -173,11 +173,17 @@ export const MsgRegisterInterchainAccount = {
     return message;
   },
   fromAmino(object: MsgRegisterInterchainAccountAmino): MsgRegisterInterchainAccount {
-    return {
-      owner: object.owner,
-      connectionId: object.connection_id,
-      version: object.version
-    };
+    const message = createBaseMsgRegisterInterchainAccount();
+    if (object.owner !== undefined && object.owner !== null) {
+      message.owner = object.owner;
+    }
+    if (object.connection_id !== undefined && object.connection_id !== null) {
+      message.connectionId = object.connection_id;
+    }
+    if (object.version !== undefined && object.version !== null) {
+      message.version = object.version;
+    }
+    return message;
   },
   toAmino(message: MsgRegisterInterchainAccount): MsgRegisterInterchainAccountAmino {
     const obj: any = {};
@@ -264,10 +270,14 @@ export const MsgRegisterInterchainAccountResponse = {
     return message;
   },
   fromAmino(object: MsgRegisterInterchainAccountResponseAmino): MsgRegisterInterchainAccountResponse {
-    return {
-      channelId: object.channel_id,
-      portId: object.port_id
-    };
+    const message = createBaseMsgRegisterInterchainAccountResponse();
+    if (object.channel_id !== undefined && object.channel_id !== null) {
+      message.channelId = object.channel_id;
+    }
+    if (object.port_id !== undefined && object.port_id !== null) {
+      message.portId = object.port_id;
+    }
+    return message;
   },
   toAmino(message: MsgRegisterInterchainAccountResponse): MsgRegisterInterchainAccountResponseAmino {
     const obj: any = {};
@@ -373,12 +383,20 @@ export const MsgSendTx = {
     return message;
   },
   fromAmino(object: MsgSendTxAmino): MsgSendTx {
-    return {
-      owner: object.owner,
-      connectionId: object.connection_id,
-      packetData: object?.packet_data ? InterchainAccountPacketData.fromAmino(object.packet_data) : undefined,
-      relativeTimeout: Long.fromString(object.relative_timeout)
-    };
+    const message = createBaseMsgSendTx();
+    if (object.owner !== undefined && object.owner !== null) {
+      message.owner = object.owner;
+    }
+    if (object.connection_id !== undefined && object.connection_id !== null) {
+      message.connectionId = object.connection_id;
+    }
+    if (object.packet_data !== undefined && object.packet_data !== null) {
+      message.packetData = InterchainAccountPacketData.fromAmino(object.packet_data);
+    }
+    if (object.relative_timeout !== undefined && object.relative_timeout !== null) {
+      message.relativeTimeout = Long.fromString(object.relative_timeout);
+    }
+    return message;
   },
   toAmino(message: MsgSendTx): MsgSendTxAmino {
     const obj: any = {};
@@ -456,9 +474,11 @@ export const MsgSendTxResponse = {
     return message;
   },
   fromAmino(object: MsgSendTxResponseAmino): MsgSendTxResponse {
-    return {
-      sequence: Long.fromString(object.sequence)
-    };
+    const message = createBaseMsgSendTxResponse();
+    if (object.sequence !== undefined && object.sequence !== null) {
+      message.sequence = Long.fromString(object.sequence);
+    }
+    return message;
   },
   toAmino(message: MsgSendTxResponse): MsgSendTxResponseAmino {
     const obj: any = {};

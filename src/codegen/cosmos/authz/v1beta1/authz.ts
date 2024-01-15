@@ -20,7 +20,7 @@ export interface GenericAuthorizationProtoMsg {
  */
 export interface GenericAuthorizationAmino {
   /** Msg, identified by it's type URL, to grant unrestricted permissions to execute */
-  msg: string;
+  msg?: string;
 }
 export interface GenericAuthorizationAminoMsg {
   type: "cosmos-sdk/GenericAuthorization";
@@ -61,7 +61,7 @@ export interface GrantAmino {
    * doesn't have a time expiration (other conditions  in `authorization`
    * may apply to invalidate the grant)
    */
-  expiration?: Date;
+  expiration?: string;
 }
 export interface GrantAminoMsg {
   type: "cosmos-sdk/Grant";
@@ -94,10 +94,10 @@ export interface GrantAuthorizationProtoMsg {
  * It is used in genesis.proto and query.proto
  */
 export interface GrantAuthorizationAmino {
-  granter: string;
-  grantee: string;
+  granter?: string;
+  grantee?: string;
   authorization?: AnyAmino;
-  expiration?: Date;
+  expiration?: string;
 }
 export interface GrantAuthorizationAminoMsg {
   type: "cosmos-sdk/GrantAuthorization";
@@ -125,7 +125,7 @@ export interface GrantQueueItemProtoMsg {
 /** GrantQueueItem contains the list of TypeURL of a sdk.Msg. */
 export interface GrantQueueItemAmino {
   /** msg_type_urls contains the list of TypeURL of a sdk.Msg. */
-  msg_type_urls: string[];
+  msg_type_urls?: string[];
 }
 export interface GrantQueueItemAminoMsg {
   type: "cosmos-sdk/GrantQueueItem";
@@ -181,9 +181,11 @@ export const GenericAuthorization = {
     return message;
   },
   fromAmino(object: GenericAuthorizationAmino): GenericAuthorization {
-    return {
-      msg: object.msg
-    };
+    const message = createBaseGenericAuthorization();
+    if (object.msg !== undefined && object.msg !== null) {
+      message.msg = object.msg;
+    }
+    return message;
   },
   toAmino(message: GenericAuthorization): GenericAuthorizationAmino {
     const obj: any = {};
@@ -268,15 +270,19 @@ export const Grant = {
     return message;
   },
   fromAmino(object: GrantAmino): Grant {
-    return {
-      authorization: object?.authorization ? Any.fromAmino(object.authorization) : undefined,
-      expiration: object?.expiration
-    };
+    const message = createBaseGrant();
+    if (object.authorization !== undefined && object.authorization !== null) {
+      message.authorization = Any.fromAmino(object.authorization);
+    }
+    if (object.expiration !== undefined && object.expiration !== null) {
+      message.expiration = fromTimestamp(Timestamp.fromAmino(object.expiration));
+    }
+    return message;
   },
   toAmino(message: Grant): GrantAmino {
     const obj: any = {};
     obj.authorization = message.authorization ? Any.toAmino(message.authorization) : undefined;
-    obj.expiration = message.expiration;
+    obj.expiration = message.expiration ? Timestamp.toAmino(toTimestamp(message.expiration)) : undefined;
     return obj;
   },
   fromAminoMsg(object: GrantAminoMsg): Grant {
@@ -377,19 +383,27 @@ export const GrantAuthorization = {
     return message;
   },
   fromAmino(object: GrantAuthorizationAmino): GrantAuthorization {
-    return {
-      granter: object.granter,
-      grantee: object.grantee,
-      authorization: object?.authorization ? Any.fromAmino(object.authorization) : undefined,
-      expiration: object?.expiration
-    };
+    const message = createBaseGrantAuthorization();
+    if (object.granter !== undefined && object.granter !== null) {
+      message.granter = object.granter;
+    }
+    if (object.grantee !== undefined && object.grantee !== null) {
+      message.grantee = object.grantee;
+    }
+    if (object.authorization !== undefined && object.authorization !== null) {
+      message.authorization = Any.fromAmino(object.authorization);
+    }
+    if (object.expiration !== undefined && object.expiration !== null) {
+      message.expiration = fromTimestamp(Timestamp.fromAmino(object.expiration));
+    }
+    return message;
   },
   toAmino(message: GrantAuthorization): GrantAuthorizationAmino {
     const obj: any = {};
     obj.granter = message.granter;
     obj.grantee = message.grantee;
     obj.authorization = message.authorization ? Any.toAmino(message.authorization) : undefined;
-    obj.expiration = message.expiration;
+    obj.expiration = message.expiration ? Timestamp.toAmino(toTimestamp(message.expiration)) : undefined;
     return obj;
   },
   fromAminoMsg(object: GrantAuthorizationAminoMsg): GrantAuthorization {
@@ -464,9 +478,9 @@ export const GrantQueueItem = {
     return message;
   },
   fromAmino(object: GrantQueueItemAmino): GrantQueueItem {
-    return {
-      msgTypeUrls: Array.isArray(object?.msg_type_urls) ? object.msg_type_urls.map((e: any) => e) : []
-    };
+    const message = createBaseGrantQueueItem();
+    message.msgTypeUrls = object.msg_type_urls?.map(e => e) || [];
+    return message;
   },
   toAmino(message: GrantQueueItem): GrantQueueItemAmino {
     const obj: any = {};

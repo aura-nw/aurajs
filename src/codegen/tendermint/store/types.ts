@@ -9,8 +9,8 @@ export interface BlockStoreStateProtoMsg {
   value: Uint8Array;
 }
 export interface BlockStoreStateAmino {
-  base: string;
-  height: string;
+  base?: string;
+  height?: string;
 }
 export interface BlockStoreStateAminoMsg {
   type: "/tendermint.store.BlockStoreState";
@@ -76,10 +76,14 @@ export const BlockStoreState = {
     return message;
   },
   fromAmino(object: BlockStoreStateAmino): BlockStoreState {
-    return {
-      base: Long.fromString(object.base),
-      height: Long.fromString(object.height)
-    };
+    const message = createBaseBlockStoreState();
+    if (object.base !== undefined && object.base !== null) {
+      message.base = Long.fromString(object.base);
+    }
+    if (object.height !== undefined && object.height !== null) {
+      message.height = Long.fromString(object.height);
+    }
+    return message;
   },
   toAmino(message: BlockStoreState): BlockStoreStateAmino {
     const obj: any = {};

@@ -73,7 +73,7 @@ export interface QueryAppliedPlanRequestProtoMsg {
  */
 export interface QueryAppliedPlanRequestAmino {
   /** name is the name of the applied plan to query for. */
-  name: string;
+  name?: string;
 }
 export interface QueryAppliedPlanRequestAminoMsg {
   type: "cosmos-sdk/QueryAppliedPlanRequest";
@@ -104,7 +104,7 @@ export interface QueryAppliedPlanResponseProtoMsg {
  */
 export interface QueryAppliedPlanResponseAmino {
   /** height is the block height at which the plan was applied. */
-  height: string;
+  height?: string;
 }
 export interface QueryAppliedPlanResponseAminoMsg {
   type: "cosmos-sdk/QueryAppliedPlanResponse";
@@ -143,7 +143,7 @@ export interface QueryUpgradedConsensusStateRequestAmino {
    * last height of the current chain must be sent in request
    * as this is the height under which next consensus state is stored
    */
-  last_height: string;
+  last_height?: string;
 }
 export interface QueryUpgradedConsensusStateRequestAminoMsg {
   type: "cosmos-sdk/QueryUpgradedConsensusStateRequest";
@@ -177,7 +177,7 @@ export interface QueryUpgradedConsensusStateResponseProtoMsg {
 /** @deprecated */
 export interface QueryUpgradedConsensusStateResponseAmino {
   /** Since: cosmos-sdk 0.43 */
-  upgraded_consensus_state: Uint8Array;
+  upgraded_consensus_state?: string;
 }
 export interface QueryUpgradedConsensusStateResponseAminoMsg {
   type: "cosmos-sdk/QueryUpgradedConsensusStateResponse";
@@ -221,7 +221,7 @@ export interface QueryModuleVersionsRequestAmino {
    * consensus version from state. Leaving this empty will
    * fetch the full list of module versions from state
    */
-  module_name: string;
+  module_name?: string;
 }
 export interface QueryModuleVersionsRequestAminoMsg {
   type: "cosmos-sdk/QueryModuleVersionsRequest";
@@ -258,7 +258,7 @@ export interface QueryModuleVersionsResponseProtoMsg {
  */
 export interface QueryModuleVersionsResponseAmino {
   /** module_versions is a list of module names with their consensus versions. */
-  module_versions: ModuleVersionAmino[];
+  module_versions?: ModuleVersionAmino[];
 }
 export interface QueryModuleVersionsResponseAminoMsg {
   type: "cosmos-sdk/QueryModuleVersionsResponse";
@@ -317,7 +317,7 @@ export interface QueryAuthorityResponseProtoMsg {
  * Since: cosmos-sdk 0.46
  */
 export interface QueryAuthorityResponseAmino {
-  address: string;
+  address?: string;
 }
 export interface QueryAuthorityResponseAminoMsg {
   type: "cosmos-sdk/QueryAuthorityResponse";
@@ -365,7 +365,8 @@ export const QueryCurrentPlanRequest = {
     return message;
   },
   fromAmino(_: QueryCurrentPlanRequestAmino): QueryCurrentPlanRequest {
-    return {};
+    const message = createBaseQueryCurrentPlanRequest();
+    return message;
   },
   toAmino(_: QueryCurrentPlanRequest): QueryCurrentPlanRequestAmino {
     const obj: any = {};
@@ -439,9 +440,11 @@ export const QueryCurrentPlanResponse = {
     return message;
   },
   fromAmino(object: QueryCurrentPlanResponseAmino): QueryCurrentPlanResponse {
-    return {
-      plan: object?.plan ? Plan.fromAmino(object.plan) : undefined
-    };
+    const message = createBaseQueryCurrentPlanResponse();
+    if (object.plan !== undefined && object.plan !== null) {
+      message.plan = Plan.fromAmino(object.plan);
+    }
+    return message;
   },
   toAmino(message: QueryCurrentPlanResponse): QueryCurrentPlanResponseAmino {
     const obj: any = {};
@@ -516,9 +519,11 @@ export const QueryAppliedPlanRequest = {
     return message;
   },
   fromAmino(object: QueryAppliedPlanRequestAmino): QueryAppliedPlanRequest {
-    return {
-      name: object.name
-    };
+    const message = createBaseQueryAppliedPlanRequest();
+    if (object.name !== undefined && object.name !== null) {
+      message.name = object.name;
+    }
+    return message;
   },
   toAmino(message: QueryAppliedPlanRequest): QueryAppliedPlanRequestAmino {
     const obj: any = {};
@@ -593,9 +598,11 @@ export const QueryAppliedPlanResponse = {
     return message;
   },
   fromAmino(object: QueryAppliedPlanResponseAmino): QueryAppliedPlanResponse {
-    return {
-      height: Long.fromString(object.height)
-    };
+    const message = createBaseQueryAppliedPlanResponse();
+    if (object.height !== undefined && object.height !== null) {
+      message.height = Long.fromString(object.height);
+    }
+    return message;
   },
   toAmino(message: QueryAppliedPlanResponse): QueryAppliedPlanResponseAmino {
     const obj: any = {};
@@ -670,9 +677,11 @@ export const QueryUpgradedConsensusStateRequest = {
     return message;
   },
   fromAmino(object: QueryUpgradedConsensusStateRequestAmino): QueryUpgradedConsensusStateRequest {
-    return {
-      lastHeight: Long.fromString(object.last_height)
-    };
+    const message = createBaseQueryUpgradedConsensusStateRequest();
+    if (object.last_height !== undefined && object.last_height !== null) {
+      message.lastHeight = Long.fromString(object.last_height);
+    }
+    return message;
   },
   toAmino(message: QueryUpgradedConsensusStateRequest): QueryUpgradedConsensusStateRequestAmino {
     const obj: any = {};
@@ -747,13 +756,15 @@ export const QueryUpgradedConsensusStateResponse = {
     return message;
   },
   fromAmino(object: QueryUpgradedConsensusStateResponseAmino): QueryUpgradedConsensusStateResponse {
-    return {
-      upgradedConsensusState: object.upgraded_consensus_state
-    };
+    const message = createBaseQueryUpgradedConsensusStateResponse();
+    if (object.upgraded_consensus_state !== undefined && object.upgraded_consensus_state !== null) {
+      message.upgradedConsensusState = bytesFromBase64(object.upgraded_consensus_state);
+    }
+    return message;
   },
   toAmino(message: QueryUpgradedConsensusStateResponse): QueryUpgradedConsensusStateResponseAmino {
     const obj: any = {};
-    obj.upgraded_consensus_state = message.upgradedConsensusState;
+    obj.upgraded_consensus_state = message.upgradedConsensusState ? base64FromBytes(message.upgradedConsensusState) : undefined;
     return obj;
   },
   fromAminoMsg(object: QueryUpgradedConsensusStateResponseAminoMsg): QueryUpgradedConsensusStateResponse {
@@ -824,9 +835,11 @@ export const QueryModuleVersionsRequest = {
     return message;
   },
   fromAmino(object: QueryModuleVersionsRequestAmino): QueryModuleVersionsRequest {
-    return {
-      moduleName: object.module_name
-    };
+    const message = createBaseQueryModuleVersionsRequest();
+    if (object.module_name !== undefined && object.module_name !== null) {
+      message.moduleName = object.module_name;
+    }
+    return message;
   },
   toAmino(message: QueryModuleVersionsRequest): QueryModuleVersionsRequestAmino {
     const obj: any = {};
@@ -905,9 +918,9 @@ export const QueryModuleVersionsResponse = {
     return message;
   },
   fromAmino(object: QueryModuleVersionsResponseAmino): QueryModuleVersionsResponse {
-    return {
-      moduleVersions: Array.isArray(object?.module_versions) ? object.module_versions.map((e: any) => ModuleVersion.fromAmino(e)) : []
-    };
+    const message = createBaseQueryModuleVersionsResponse();
+    message.moduleVersions = object.module_versions?.map(e => ModuleVersion.fromAmino(e)) || [];
+    return message;
   },
   toAmino(message: QueryModuleVersionsResponse): QueryModuleVersionsResponseAmino {
     const obj: any = {};
@@ -974,7 +987,8 @@ export const QueryAuthorityRequest = {
     return message;
   },
   fromAmino(_: QueryAuthorityRequestAmino): QueryAuthorityRequest {
-    return {};
+    const message = createBaseQueryAuthorityRequest();
+    return message;
   },
   toAmino(_: QueryAuthorityRequest): QueryAuthorityRequestAmino {
     const obj: any = {};
@@ -1048,9 +1062,11 @@ export const QueryAuthorityResponse = {
     return message;
   },
   fromAmino(object: QueryAuthorityResponseAmino): QueryAuthorityResponse {
-    return {
-      address: object.address
-    };
+    const message = createBaseQueryAuthorityResponse();
+    if (object.address !== undefined && object.address !== null) {
+      message.address = object.address;
+    }
+    return message;
   },
   toAmino(message: QueryAuthorityResponse): QueryAuthorityResponseAmino {
     const obj: any = {};

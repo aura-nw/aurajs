@@ -23,8 +23,8 @@ export interface RemoteSignerErrorProtoMsg {
     value: Uint8Array;
 }
 export interface RemoteSignerErrorAmino {
-    code: number;
-    description: string;
+    code?: number;
+    description?: string;
 }
 export interface RemoteSignerErrorAminoMsg {
     type: "/tendermint.privval.RemoteSignerError";
@@ -44,7 +44,7 @@ export interface PubKeyRequestProtoMsg {
 }
 /** PubKeyRequest requests the consensus public key from the remote signer. */
 export interface PubKeyRequestAmino {
-    chain_id: string;
+    chain_id?: string;
 }
 export interface PubKeyRequestAminoMsg {
     type: "/tendermint.privval.PubKeyRequest";
@@ -89,7 +89,7 @@ export interface SignVoteRequestProtoMsg {
 /** SignVoteRequest is a request to sign a vote */
 export interface SignVoteRequestAmino {
     vote?: VoteAmino;
-    chain_id: string;
+    chain_id?: string;
 }
 export interface SignVoteRequestAminoMsg {
     type: "/tendermint.privval.SignVoteRequest";
@@ -135,7 +135,7 @@ export interface SignProposalRequestProtoMsg {
 /** SignProposalRequest is a request to sign a proposal */
 export interface SignProposalRequestAmino {
     proposal?: ProposalAmino;
-    chain_id: string;
+    chain_id?: string;
 }
 export interface SignProposalRequestAminoMsg {
     type: "/tendermint.privval.SignProposalRequest";

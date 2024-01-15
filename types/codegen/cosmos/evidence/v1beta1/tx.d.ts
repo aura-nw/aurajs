@@ -20,7 +20,7 @@ export interface MsgSubmitEvidenceProtoMsg {
  */
 export interface MsgSubmitEvidenceAmino {
     /** submitter is the signer account address of evidence. */
-    submitter: string;
+    submitter?: string;
     /** evidence defines the evidence of misbehavior. */
     evidence?: AnyAmino;
 }
@@ -48,7 +48,7 @@ export interface MsgSubmitEvidenceResponseProtoMsg {
 /** MsgSubmitEvidenceResponse defines the Msg/SubmitEvidence response type. */
 export interface MsgSubmitEvidenceResponseAmino {
     /** hash defines the hash of the evidence. */
-    hash: Uint8Array;
+    hash?: string;
 }
 export interface MsgSubmitEvidenceResponseAminoMsg {
     type: "cosmos-sdk/MsgSubmitEvidenceResponse";

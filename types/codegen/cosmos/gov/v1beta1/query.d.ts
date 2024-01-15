@@ -14,7 +14,7 @@ export interface QueryProposalRequestProtoMsg {
 /** QueryProposalRequest is the request type for the Query/Proposal RPC method. */
 export interface QueryProposalRequestAmino {
     /** proposal_id defines the unique id of the proposal. */
-    proposal_id: string;
+    proposal_id?: string;
 }
 export interface QueryProposalRequestAminoMsg {
     type: "cosmos-sdk/QueryProposalRequest";
@@ -34,7 +34,7 @@ export interface QueryProposalResponseProtoMsg {
 }
 /** QueryProposalResponse is the response type for the Query/Proposal RPC method. */
 export interface QueryProposalResponseAmino {
-    proposal?: ProposalAmino;
+    proposal: ProposalAmino;
 }
 export interface QueryProposalResponseAminoMsg {
     type: "cosmos-sdk/QueryProposalResponse";
@@ -62,11 +62,11 @@ export interface QueryProposalsRequestProtoMsg {
 /** QueryProposalsRequest is the request type for the Query/Proposals RPC method. */
 export interface QueryProposalsRequestAmino {
     /** proposal_status defines the status of the proposals. */
-    proposal_status: ProposalStatus;
+    proposal_status?: ProposalStatus;
     /** voter defines the voter address for the proposals. */
-    voter: string;
+    voter?: string;
     /** depositor defines the deposit addresses from the proposals. */
-    depositor: string;
+    depositor?: string;
     /** pagination defines an optional pagination for the request. */
     pagination?: PageRequestAmino;
 }
@@ -131,9 +131,9 @@ export interface QueryVoteRequestProtoMsg {
 /** QueryVoteRequest is the request type for the Query/Vote RPC method. */
 export interface QueryVoteRequestAmino {
     /** proposal_id defines the unique id of the proposal. */
-    proposal_id: string;
+    proposal_id?: string;
     /** voter defines the voter address for the proposals. */
-    voter: string;
+    voter?: string;
 }
 export interface QueryVoteRequestAminoMsg {
     type: "cosmos-sdk/QueryVoteRequest";
@@ -156,7 +156,7 @@ export interface QueryVoteResponseProtoMsg {
 /** QueryVoteResponse is the response type for the Query/Vote RPC method. */
 export interface QueryVoteResponseAmino {
     /** vote defines the queried vote. */
-    vote?: VoteAmino;
+    vote: VoteAmino;
 }
 export interface QueryVoteResponseAminoMsg {
     type: "cosmos-sdk/QueryVoteResponse";
@@ -180,7 +180,7 @@ export interface QueryVotesRequestProtoMsg {
 /** QueryVotesRequest is the request type for the Query/Votes RPC method. */
 export interface QueryVotesRequestAmino {
     /** proposal_id defines the unique id of the proposal. */
-    proposal_id: string;
+    proposal_id?: string;
     /** pagination defines an optional pagination for the request. */
     pagination?: PageRequestAmino;
 }
@@ -238,7 +238,7 @@ export interface QueryParamsRequestAmino {
      * params_type defines which parameters to query for, can be one of "voting",
      * "tallying" or "deposit".
      */
-    params_type: string;
+    params_type?: string;
 }
 export interface QueryParamsRequestAminoMsg {
     type: "cosmos-sdk/QueryParamsRequest";
@@ -264,11 +264,11 @@ export interface QueryParamsResponseProtoMsg {
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryParamsResponseAmino {
     /** voting_params defines the parameters related to voting. */
-    voting_params?: VotingParamsAmino;
+    voting_params: VotingParamsAmino;
     /** deposit_params defines the parameters related to deposit. */
-    deposit_params?: DepositParamsAmino;
+    deposit_params: DepositParamsAmino;
     /** tally_params defines the parameters related to tally. */
-    tally_params?: TallyParamsAmino;
+    tally_params: TallyParamsAmino;
 }
 export interface QueryParamsResponseAminoMsg {
     type: "cosmos-sdk/QueryParamsResponse";
@@ -294,9 +294,9 @@ export interface QueryDepositRequestProtoMsg {
 /** QueryDepositRequest is the request type for the Query/Deposit RPC method. */
 export interface QueryDepositRequestAmino {
     /** proposal_id defines the unique id of the proposal. */
-    proposal_id: string;
+    proposal_id?: string;
     /** depositor defines the deposit addresses from the proposals. */
-    depositor: string;
+    depositor?: string;
 }
 export interface QueryDepositRequestAminoMsg {
     type: "cosmos-sdk/QueryDepositRequest";
@@ -319,7 +319,7 @@ export interface QueryDepositResponseProtoMsg {
 /** QueryDepositResponse is the response type for the Query/Deposit RPC method. */
 export interface QueryDepositResponseAmino {
     /** deposit defines the requested deposit. */
-    deposit?: DepositAmino;
+    deposit: DepositAmino;
 }
 export interface QueryDepositResponseAminoMsg {
     type: "cosmos-sdk/QueryDepositResponse";
@@ -343,7 +343,7 @@ export interface QueryDepositsRequestProtoMsg {
 /** QueryDepositsRequest is the request type for the Query/Deposits RPC method. */
 export interface QueryDepositsRequestAmino {
     /** proposal_id defines the unique id of the proposal. */
-    proposal_id: string;
+    proposal_id?: string;
     /** pagination defines an optional pagination for the request. */
     pagination?: PageRequestAmino;
 }
@@ -395,7 +395,7 @@ export interface QueryTallyResultRequestProtoMsg {
 /** QueryTallyResultRequest is the request type for the Query/Tally RPC method. */
 export interface QueryTallyResultRequestAmino {
     /** proposal_id defines the unique id of the proposal. */
-    proposal_id: string;
+    proposal_id?: string;
 }
 export interface QueryTallyResultRequestAminoMsg {
     type: "cosmos-sdk/QueryTallyResultRequest";
@@ -417,7 +417,7 @@ export interface QueryTallyResultResponseProtoMsg {
 /** QueryTallyResultResponse is the response type for the Query/Tally RPC method. */
 export interface QueryTallyResultResponseAmino {
     /** tally defines the requested tally. */
-    tally?: TallyResultAmino;
+    tally: TallyResultAmino;
 }
 export interface QueryTallyResultResponseAminoMsg {
     type: "cosmos-sdk/QueryTallyResultResponse";

@@ -54,11 +54,11 @@ export interface QueryGenerateAccountRequestProtoMsg {
 }
 export interface QueryGenerateAccountRequestAmino {
   /** CodeID indicates which wasm binary code is to be used for creating account */
-  code_id: string;
+  code_id?: string;
   /** an arbitrary value provided by the sender. Size can be 1 to 64. */
-  salt: Uint8Array;
+  salt?: string;
   /** InitMsg is the JSON-encoded instantiate message for creating account */
-  init_msg: Uint8Array;
+  init_msg?: string;
   /** PubKey of account */
   public_key?: AnyAmino;
 }
@@ -80,7 +80,7 @@ export interface QueryGenerateAccountResponseProtoMsg {
   value: Uint8Array;
 }
 export interface QueryGenerateAccountResponseAmino {
-  address: string;
+  address?: string;
 }
 export interface QueryGenerateAccountResponseAminoMsg {
   type: "/aura.smartaccount.v1beta1.QueryGenerateAccountResponse";
@@ -123,7 +123,8 @@ export const QueryParamsRequest = {
     return message;
   },
   fromAmino(_: QueryParamsRequestAmino): QueryParamsRequest {
-    return {};
+    const message = createBaseQueryParamsRequest();
+    return message;
   },
   toAmino(_: QueryParamsRequest): QueryParamsRequestAmino {
     const obj: any = {};
@@ -191,9 +192,11 @@ export const QueryParamsResponse = {
     return message;
   },
   fromAmino(object: QueryParamsResponseAmino): QueryParamsResponse {
-    return {
-      params: object?.params ? Params.fromAmino(object.params) : undefined
-    };
+    const message = createBaseQueryParamsResponse();
+    if (object.params !== undefined && object.params !== null) {
+      message.params = Params.fromAmino(object.params);
+    }
+    return message;
   },
   toAmino(message: QueryParamsResponse): QueryParamsResponseAmino {
     const obj: any = {};
@@ -292,18 +295,26 @@ export const QueryGenerateAccountRequest = {
     return message;
   },
   fromAmino(object: QueryGenerateAccountRequestAmino): QueryGenerateAccountRequest {
-    return {
-      codeId: Long.fromString(object.code_id),
-      salt: object.salt,
-      initMsg: object.init_msg,
-      publicKey: object?.public_key ? Any.fromAmino(object.public_key) : undefined
-    };
+    const message = createBaseQueryGenerateAccountRequest();
+    if (object.code_id !== undefined && object.code_id !== null) {
+      message.codeId = Long.fromString(object.code_id);
+    }
+    if (object.salt !== undefined && object.salt !== null) {
+      message.salt = bytesFromBase64(object.salt);
+    }
+    if (object.init_msg !== undefined && object.init_msg !== null) {
+      message.initMsg = bytesFromBase64(object.init_msg);
+    }
+    if (object.public_key !== undefined && object.public_key !== null) {
+      message.publicKey = Any.fromAmino(object.public_key);
+    }
+    return message;
   },
   toAmino(message: QueryGenerateAccountRequest): QueryGenerateAccountRequestAmino {
     const obj: any = {};
     obj.code_id = message.codeId ? message.codeId.toString() : undefined;
-    obj.salt = message.salt;
-    obj.init_msg = message.initMsg;
+    obj.salt = message.salt ? base64FromBytes(message.salt) : undefined;
+    obj.init_msg = message.initMsg ? base64FromBytes(message.initMsg) : undefined;
     obj.public_key = message.publicKey ? Any.toAmino(message.publicKey) : undefined;
     return obj;
   },
@@ -369,9 +380,11 @@ export const QueryGenerateAccountResponse = {
     return message;
   },
   fromAmino(object: QueryGenerateAccountResponseAmino): QueryGenerateAccountResponse {
-    return {
-      address: object.address
-    };
+    const message = createBaseQueryGenerateAccountResponse();
+    if (object.address !== undefined && object.address !== null) {
+      message.address = object.address;
+    }
+    return message;
   },
   toAmino(message: QueryGenerateAccountResponse): QueryGenerateAccountResponseAmino {
     const obj: any = {};

@@ -34,9 +34,9 @@ export interface MsgChannelOpenInitProtoMsg {
  * is called by a relayer on Chain A.
  */
 export interface MsgChannelOpenInitAmino {
-    port_id: string;
+    port_id?: string;
     channel?: ChannelAmino;
-    signer: string;
+    signer?: string;
 }
 export interface MsgChannelOpenInitAminoMsg {
     type: "cosmos-sdk/MsgChannelOpenInit";
@@ -62,8 +62,8 @@ export interface MsgChannelOpenInitResponseProtoMsg {
 }
 /** MsgChannelOpenInitResponse defines the Msg/ChannelOpenInit response type. */
 export interface MsgChannelOpenInitResponseAmino {
-    channel_id: string;
-    version: string;
+    channel_id?: string;
+    version?: string;
 }
 export interface MsgChannelOpenInitResponseAminoMsg {
     type: "cosmos-sdk/MsgChannelOpenInitResponse";
@@ -101,16 +101,16 @@ export interface MsgChannelOpenTryProtoMsg {
  * value will be ignored by core IBC.
  */
 export interface MsgChannelOpenTryAmino {
-    port_id: string;
+    port_id?: string;
     /** Deprecated: this field is unused. Crossing hello's are no longer supported in core IBC. */
     /** @deprecated */
-    previous_channel_id: string;
+    previous_channel_id?: string;
     /** NOTE: the version field within the channel has been deprecated. Its value will be ignored by core IBC. */
     channel?: ChannelAmino;
-    counterparty_version: string;
-    proof_init: Uint8Array;
+    counterparty_version?: string;
+    proof_init?: string;
     proof_height?: HeightAmino;
-    signer: string;
+    signer?: string;
 }
 export interface MsgChannelOpenTryAminoMsg {
     type: "cosmos-sdk/MsgChannelOpenTry";
@@ -142,8 +142,8 @@ export interface MsgChannelOpenTryResponseProtoMsg {
 }
 /** MsgChannelOpenTryResponse defines the Msg/ChannelOpenTry response type. */
 export interface MsgChannelOpenTryResponseAmino {
-    version: string;
-    channel_id: string;
+    version?: string;
+    channel_id?: string;
 }
 export interface MsgChannelOpenTryResponseAminoMsg {
     type: "cosmos-sdk/MsgChannelOpenTryResponse";
@@ -176,13 +176,13 @@ export interface MsgChannelOpenAckProtoMsg {
  * the change of channel state to TRYOPEN on Chain B.
  */
 export interface MsgChannelOpenAckAmino {
-    port_id: string;
-    channel_id: string;
-    counterparty_channel_id: string;
-    counterparty_version: string;
-    proof_try: Uint8Array;
+    port_id?: string;
+    channel_id?: string;
+    counterparty_channel_id?: string;
+    counterparty_version?: string;
+    proof_try?: string;
     proof_height?: HeightAmino;
-    signer: string;
+    signer?: string;
 }
 export interface MsgChannelOpenAckAminoMsg {
     type: "cosmos-sdk/MsgChannelOpenAck";
@@ -238,11 +238,11 @@ export interface MsgChannelOpenConfirmProtoMsg {
  * acknowledge the change of channel state to OPEN on Chain A.
  */
 export interface MsgChannelOpenConfirmAmino {
-    port_id: string;
-    channel_id: string;
-    proof_ack: Uint8Array;
+    port_id?: string;
+    channel_id?: string;
+    proof_ack?: string;
     proof_height?: HeightAmino;
-    signer: string;
+    signer?: string;
 }
 export interface MsgChannelOpenConfirmAminoMsg {
     type: "cosmos-sdk/MsgChannelOpenConfirm";
@@ -303,9 +303,9 @@ export interface MsgChannelCloseInitProtoMsg {
  * to close a channel with Chain B.
  */
 export interface MsgChannelCloseInitAmino {
-    port_id: string;
-    channel_id: string;
-    signer: string;
+    port_id?: string;
+    channel_id?: string;
+    signer?: string;
 }
 export interface MsgChannelCloseInitAminoMsg {
     type: "cosmos-sdk/MsgChannelCloseInit";
@@ -357,11 +357,11 @@ export interface MsgChannelCloseConfirmProtoMsg {
  * to acknowledge the change of channel state to CLOSED on Chain A.
  */
 export interface MsgChannelCloseConfirmAmino {
-    port_id: string;
-    channel_id: string;
-    proof_init: Uint8Array;
+    port_id?: string;
+    channel_id?: string;
+    proof_init?: string;
     proof_height?: HeightAmino;
-    signer: string;
+    signer?: string;
 }
 export interface MsgChannelCloseConfirmAminoMsg {
     type: "cosmos-sdk/MsgChannelCloseConfirm";
@@ -418,9 +418,9 @@ export interface MsgRecvPacketProtoMsg {
 /** MsgRecvPacket receives incoming IBC packet */
 export interface MsgRecvPacketAmino {
     packet?: PacketAmino;
-    proof_commitment: Uint8Array;
+    proof_commitment?: string;
     proof_height?: HeightAmino;
-    signer: string;
+    signer?: string;
 }
 export interface MsgRecvPacketAminoMsg {
     type: "cosmos-sdk/MsgRecvPacket";
@@ -443,7 +443,7 @@ export interface MsgRecvPacketResponseProtoMsg {
 }
 /** MsgRecvPacketResponse defines the Msg/RecvPacket response type. */
 export interface MsgRecvPacketResponseAmino {
-    result: ResponseResultType;
+    result?: ResponseResultType;
 }
 export interface MsgRecvPacketResponseAminoMsg {
     type: "cosmos-sdk/MsgRecvPacketResponse";
@@ -468,10 +468,10 @@ export interface MsgTimeoutProtoMsg {
 /** MsgTimeout receives timed-out packet */
 export interface MsgTimeoutAmino {
     packet?: PacketAmino;
-    proof_unreceived: Uint8Array;
+    proof_unreceived?: string;
     proof_height?: HeightAmino;
-    next_sequence_recv: string;
-    signer: string;
+    next_sequence_recv?: string;
+    signer?: string;
 }
 export interface MsgTimeoutAminoMsg {
     type: "cosmos-sdk/MsgTimeout";
@@ -495,7 +495,7 @@ export interface MsgTimeoutResponseProtoMsg {
 }
 /** MsgTimeoutResponse defines the Msg/Timeout response type. */
 export interface MsgTimeoutResponseAmino {
-    result: ResponseResultType;
+    result?: ResponseResultType;
 }
 export interface MsgTimeoutResponseAminoMsg {
     type: "cosmos-sdk/MsgTimeoutResponse";
@@ -521,11 +521,11 @@ export interface MsgTimeoutOnCloseProtoMsg {
 /** MsgTimeoutOnClose timed-out packet upon counterparty channel closure. */
 export interface MsgTimeoutOnCloseAmino {
     packet?: PacketAmino;
-    proof_unreceived: Uint8Array;
-    proof_close: Uint8Array;
+    proof_unreceived?: string;
+    proof_close?: string;
     proof_height?: HeightAmino;
-    next_sequence_recv: string;
-    signer: string;
+    next_sequence_recv?: string;
+    signer?: string;
 }
 export interface MsgTimeoutOnCloseAminoMsg {
     type: "cosmos-sdk/MsgTimeoutOnClose";
@@ -550,7 +550,7 @@ export interface MsgTimeoutOnCloseResponseProtoMsg {
 }
 /** MsgTimeoutOnCloseResponse defines the Msg/TimeoutOnClose response type. */
 export interface MsgTimeoutOnCloseResponseAmino {
-    result: ResponseResultType;
+    result?: ResponseResultType;
 }
 export interface MsgTimeoutOnCloseResponseAminoMsg {
     type: "cosmos-sdk/MsgTimeoutOnCloseResponse";
@@ -575,10 +575,10 @@ export interface MsgAcknowledgementProtoMsg {
 /** MsgAcknowledgement receives incoming IBC acknowledgement */
 export interface MsgAcknowledgementAmino {
     packet?: PacketAmino;
-    acknowledgement: Uint8Array;
-    proof_acked: Uint8Array;
+    acknowledgement?: string;
+    proof_acked?: string;
     proof_height?: HeightAmino;
-    signer: string;
+    signer?: string;
 }
 export interface MsgAcknowledgementAminoMsg {
     type: "cosmos-sdk/MsgAcknowledgement";
@@ -602,7 +602,7 @@ export interface MsgAcknowledgementResponseProtoMsg {
 }
 /** MsgAcknowledgementResponse defines the Msg/Acknowledgement response type. */
 export interface MsgAcknowledgementResponseAmino {
-    result: ResponseResultType;
+    result?: ResponseResultType;
 }
 export interface MsgAcknowledgementResponseAminoMsg {
     type: "cosmos-sdk/MsgAcknowledgementResponse";

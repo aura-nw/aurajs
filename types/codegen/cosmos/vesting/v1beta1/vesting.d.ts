@@ -28,7 +28,7 @@ export interface BaseVestingAccountAmino {
     delegated_free: CoinAmino[];
     delegated_vesting: CoinAmino[];
     /** Vesting end time, as unix timestamp (in seconds). */
-    end_time: string;
+    end_time?: string;
 }
 export interface BaseVestingAccountAminoMsg {
     type: "cosmos-sdk/BaseVestingAccount";
@@ -65,7 +65,7 @@ export interface ContinuousVestingAccountProtoMsg {
 export interface ContinuousVestingAccountAmino {
     base_vesting_account?: BaseVestingAccountAmino;
     /** Vesting start time, as unix timestamp (in seconds). */
-    start_time: string;
+    start_time?: string;
 }
 export interface ContinuousVestingAccountAminoMsg {
     type: "cosmos-sdk/ContinuousVestingAccount";
@@ -124,7 +124,7 @@ export interface PeriodProtoMsg {
 /** Period defines a length of time and amount of coins that will vest. */
 export interface PeriodAmino {
     /** Period duration in seconds. */
-    length: string;
+    length?: string;
     amount: CoinAmino[];
 }
 export interface PeriodAminoMsg {
@@ -155,7 +155,7 @@ export interface PeriodicVestingAccountProtoMsg {
  */
 export interface PeriodicVestingAccountAmino {
     base_vesting_account?: BaseVestingAccountAmino;
-    start_time: string;
+    start_time?: string;
     vesting_periods: PeriodAmino[];
 }
 export interface PeriodicVestingAccountAminoMsg {

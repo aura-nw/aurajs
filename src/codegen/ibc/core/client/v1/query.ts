@@ -21,7 +21,7 @@ export interface QueryClientStateRequestProtoMsg {
  */
 export interface QueryClientStateRequestAmino {
   /** client state unique identifier */
-  client_id: string;
+  client_id?: string;
 }
 export interface QueryClientStateRequestAminoMsg {
   type: "cosmos-sdk/QueryClientStateRequest";
@@ -60,7 +60,7 @@ export interface QueryClientStateResponseAmino {
   /** client state associated with the request identifier */
   client_state?: AnyAmino;
   /** merkle proof of existence */
-  proof: Uint8Array;
+  proof?: string;
   /** height at which the proof was retrieved */
   proof_height?: HeightAmino;
 }
@@ -129,7 +129,7 @@ export interface QueryClientStatesResponseProtoMsg {
  */
 export interface QueryClientStatesResponseAmino {
   /** list of stored ClientStates of the chain. */
-  client_states: IdentifiedClientStateAmino[];
+  client_states?: IdentifiedClientStateAmino[];
   /** pagination response */
   pagination?: PageResponseAmino;
 }
@@ -174,16 +174,16 @@ export interface QueryConsensusStateRequestProtoMsg {
  */
 export interface QueryConsensusStateRequestAmino {
   /** client identifier */
-  client_id: string;
+  client_id?: string;
   /** consensus state revision number */
-  revision_number: string;
+  revision_number?: string;
   /** consensus state revision height */
-  revision_height: string;
+  revision_height?: string;
   /**
    * latest_height overrrides the height field and queries the latest stored
    * ConsensusState
    */
-  latest_height: boolean;
+  latest_height?: boolean;
 }
 export interface QueryConsensusStateRequestAminoMsg {
   type: "cosmos-sdk/QueryConsensusStateRequest";
@@ -224,7 +224,7 @@ export interface QueryConsensusStateResponseAmino {
   /** consensus state associated with the client identifier at the given height */
   consensus_state?: AnyAmino;
   /** merkle proof of existence */
-  proof: Uint8Array;
+  proof?: string;
   /** height at which the proof was retrieved */
   proof_height?: HeightAmino;
 }
@@ -261,7 +261,7 @@ export interface QueryConsensusStatesRequestProtoMsg {
  */
 export interface QueryConsensusStatesRequestAmino {
   /** client identifier */
-  client_id: string;
+  client_id?: string;
   /** pagination request */
   pagination?: PageRequestAmino;
 }
@@ -297,7 +297,7 @@ export interface QueryConsensusStatesResponseProtoMsg {
  */
 export interface QueryConsensusStatesResponseAmino {
   /** consensus states associated with the identifier */
-  consensus_states: ConsensusStateWithHeightAmino[];
+  consensus_states?: ConsensusStateWithHeightAmino[];
   /** pagination response */
   pagination?: PageResponseAmino;
 }
@@ -333,7 +333,7 @@ export interface QueryConsensusStateHeightsRequestProtoMsg {
  */
 export interface QueryConsensusStateHeightsRequestAmino {
   /** client identifier */
-  client_id: string;
+  client_id?: string;
   /** pagination request */
   pagination?: PageRequestAmino;
 }
@@ -369,7 +369,7 @@ export interface QueryConsensusStateHeightsResponseProtoMsg {
  */
 export interface QueryConsensusStateHeightsResponseAmino {
   /** consensus state heights */
-  consensus_state_heights: HeightAmino[];
+  consensus_state_heights?: HeightAmino[];
   /** pagination response */
   pagination?: PageResponseAmino;
 }
@@ -403,7 +403,7 @@ export interface QueryClientStatusRequestProtoMsg {
  */
 export interface QueryClientStatusRequestAmino {
   /** client unique identifier */
-  client_id: string;
+  client_id?: string;
 }
 export interface QueryClientStatusRequestAminoMsg {
   type: "cosmos-sdk/QueryClientStatusRequest";
@@ -432,7 +432,7 @@ export interface QueryClientStatusResponseProtoMsg {
  * method. It returns the current status of the IBC client.
  */
 export interface QueryClientStatusResponseAmino {
-  status: string;
+  status?: string;
 }
 export interface QueryClientStatusResponseAminoMsg {
   type: "cosmos-sdk/QueryClientStatusResponse";
@@ -653,9 +653,11 @@ export const QueryClientStateRequest = {
     return message;
   },
   fromAmino(object: QueryClientStateRequestAmino): QueryClientStateRequest {
-    return {
-      clientId: object.client_id
-    };
+    const message = createBaseQueryClientStateRequest();
+    if (object.client_id !== undefined && object.client_id !== null) {
+      message.clientId = object.client_id;
+    }
+    return message;
   },
   toAmino(message: QueryClientStateRequest): QueryClientStateRequestAmino {
     const obj: any = {};
@@ -750,16 +752,22 @@ export const QueryClientStateResponse = {
     return message;
   },
   fromAmino(object: QueryClientStateResponseAmino): QueryClientStateResponse {
-    return {
-      clientState: object?.client_state ? Any.fromAmino(object.client_state) : undefined,
-      proof: object.proof,
-      proofHeight: object?.proof_height ? Height.fromAmino(object.proof_height) : undefined
-    };
+    const message = createBaseQueryClientStateResponse();
+    if (object.client_state !== undefined && object.client_state !== null) {
+      message.clientState = Any.fromAmino(object.client_state);
+    }
+    if (object.proof !== undefined && object.proof !== null) {
+      message.proof = bytesFromBase64(object.proof);
+    }
+    if (object.proof_height !== undefined && object.proof_height !== null) {
+      message.proofHeight = Height.fromAmino(object.proof_height);
+    }
+    return message;
   },
   toAmino(message: QueryClientStateResponse): QueryClientStateResponseAmino {
     const obj: any = {};
     obj.client_state = message.clientState ? Any.toAmino(message.clientState) : undefined;
-    obj.proof = message.proof;
+    obj.proof = message.proof ? base64FromBytes(message.proof) : undefined;
     obj.proof_height = message.proofHeight ? Height.toAmino(message.proofHeight) : {};
     return obj;
   },
@@ -831,9 +839,11 @@ export const QueryClientStatesRequest = {
     return message;
   },
   fromAmino(object: QueryClientStatesRequestAmino): QueryClientStatesRequest {
-    return {
-      pagination: object?.pagination ? PageRequest.fromAmino(object.pagination) : undefined
-    };
+    const message = createBaseQueryClientStatesRequest();
+    if (object.pagination !== undefined && object.pagination !== null) {
+      message.pagination = PageRequest.fromAmino(object.pagination);
+    }
+    return message;
   },
   toAmino(message: QueryClientStatesRequest): QueryClientStatesRequestAmino {
     const obj: any = {};
@@ -922,10 +932,12 @@ export const QueryClientStatesResponse = {
     return message;
   },
   fromAmino(object: QueryClientStatesResponseAmino): QueryClientStatesResponse {
-    return {
-      clientStates: Array.isArray(object?.client_states) ? object.client_states.map((e: any) => IdentifiedClientState.fromAmino(e)) : [],
-      pagination: object?.pagination ? PageResponse.fromAmino(object.pagination) : undefined
-    };
+    const message = createBaseQueryClientStatesResponse();
+    message.clientStates = object.client_states?.map(e => IdentifiedClientState.fromAmino(e)) || [];
+    if (object.pagination !== undefined && object.pagination !== null) {
+      message.pagination = PageResponse.fromAmino(object.pagination);
+    }
+    return message;
   },
   toAmino(message: QueryClientStatesResponse): QueryClientStatesResponseAmino {
     const obj: any = {};
@@ -1035,12 +1047,20 @@ export const QueryConsensusStateRequest = {
     return message;
   },
   fromAmino(object: QueryConsensusStateRequestAmino): QueryConsensusStateRequest {
-    return {
-      clientId: object.client_id,
-      revisionNumber: Long.fromString(object.revision_number),
-      revisionHeight: Long.fromString(object.revision_height),
-      latestHeight: object.latest_height
-    };
+    const message = createBaseQueryConsensusStateRequest();
+    if (object.client_id !== undefined && object.client_id !== null) {
+      message.clientId = object.client_id;
+    }
+    if (object.revision_number !== undefined && object.revision_number !== null) {
+      message.revisionNumber = Long.fromString(object.revision_number);
+    }
+    if (object.revision_height !== undefined && object.revision_height !== null) {
+      message.revisionHeight = Long.fromString(object.revision_height);
+    }
+    if (object.latest_height !== undefined && object.latest_height !== null) {
+      message.latestHeight = object.latest_height;
+    }
+    return message;
   },
   toAmino(message: QueryConsensusStateRequest): QueryConsensusStateRequestAmino {
     const obj: any = {};
@@ -1138,16 +1158,22 @@ export const QueryConsensusStateResponse = {
     return message;
   },
   fromAmino(object: QueryConsensusStateResponseAmino): QueryConsensusStateResponse {
-    return {
-      consensusState: object?.consensus_state ? Any.fromAmino(object.consensus_state) : undefined,
-      proof: object.proof,
-      proofHeight: object?.proof_height ? Height.fromAmino(object.proof_height) : undefined
-    };
+    const message = createBaseQueryConsensusStateResponse();
+    if (object.consensus_state !== undefined && object.consensus_state !== null) {
+      message.consensusState = Any.fromAmino(object.consensus_state);
+    }
+    if (object.proof !== undefined && object.proof !== null) {
+      message.proof = bytesFromBase64(object.proof);
+    }
+    if (object.proof_height !== undefined && object.proof_height !== null) {
+      message.proofHeight = Height.fromAmino(object.proof_height);
+    }
+    return message;
   },
   toAmino(message: QueryConsensusStateResponse): QueryConsensusStateResponseAmino {
     const obj: any = {};
     obj.consensus_state = message.consensusState ? Any.toAmino(message.consensusState) : undefined;
-    obj.proof = message.proof;
+    obj.proof = message.proof ? base64FromBytes(message.proof) : undefined;
     obj.proof_height = message.proofHeight ? Height.toAmino(message.proofHeight) : {};
     return obj;
   },
@@ -1229,10 +1255,14 @@ export const QueryConsensusStatesRequest = {
     return message;
   },
   fromAmino(object: QueryConsensusStatesRequestAmino): QueryConsensusStatesRequest {
-    return {
-      clientId: object.client_id,
-      pagination: object?.pagination ? PageRequest.fromAmino(object.pagination) : undefined
-    };
+    const message = createBaseQueryConsensusStatesRequest();
+    if (object.client_id !== undefined && object.client_id !== null) {
+      message.clientId = object.client_id;
+    }
+    if (object.pagination !== undefined && object.pagination !== null) {
+      message.pagination = PageRequest.fromAmino(object.pagination);
+    }
+    return message;
   },
   toAmino(message: QueryConsensusStatesRequest): QueryConsensusStatesRequestAmino {
     const obj: any = {};
@@ -1322,10 +1352,12 @@ export const QueryConsensusStatesResponse = {
     return message;
   },
   fromAmino(object: QueryConsensusStatesResponseAmino): QueryConsensusStatesResponse {
-    return {
-      consensusStates: Array.isArray(object?.consensus_states) ? object.consensus_states.map((e: any) => ConsensusStateWithHeight.fromAmino(e)) : [],
-      pagination: object?.pagination ? PageResponse.fromAmino(object.pagination) : undefined
-    };
+    const message = createBaseQueryConsensusStatesResponse();
+    message.consensusStates = object.consensus_states?.map(e => ConsensusStateWithHeight.fromAmino(e)) || [];
+    if (object.pagination !== undefined && object.pagination !== null) {
+      message.pagination = PageResponse.fromAmino(object.pagination);
+    }
+    return message;
   },
   toAmino(message: QueryConsensusStatesResponse): QueryConsensusStatesResponseAmino {
     const obj: any = {};
@@ -1415,10 +1447,14 @@ export const QueryConsensusStateHeightsRequest = {
     return message;
   },
   fromAmino(object: QueryConsensusStateHeightsRequestAmino): QueryConsensusStateHeightsRequest {
-    return {
-      clientId: object.client_id,
-      pagination: object?.pagination ? PageRequest.fromAmino(object.pagination) : undefined
-    };
+    const message = createBaseQueryConsensusStateHeightsRequest();
+    if (object.client_id !== undefined && object.client_id !== null) {
+      message.clientId = object.client_id;
+    }
+    if (object.pagination !== undefined && object.pagination !== null) {
+      message.pagination = PageRequest.fromAmino(object.pagination);
+    }
+    return message;
   },
   toAmino(message: QueryConsensusStateHeightsRequest): QueryConsensusStateHeightsRequestAmino {
     const obj: any = {};
@@ -1508,10 +1544,12 @@ export const QueryConsensusStateHeightsResponse = {
     return message;
   },
   fromAmino(object: QueryConsensusStateHeightsResponseAmino): QueryConsensusStateHeightsResponse {
-    return {
-      consensusStateHeights: Array.isArray(object?.consensus_state_heights) ? object.consensus_state_heights.map((e: any) => Height.fromAmino(e)) : [],
-      pagination: object?.pagination ? PageResponse.fromAmino(object.pagination) : undefined
-    };
+    const message = createBaseQueryConsensusStateHeightsResponse();
+    message.consensusStateHeights = object.consensus_state_heights?.map(e => Height.fromAmino(e)) || [];
+    if (object.pagination !== undefined && object.pagination !== null) {
+      message.pagination = PageResponse.fromAmino(object.pagination);
+    }
+    return message;
   },
   toAmino(message: QueryConsensusStateHeightsResponse): QueryConsensusStateHeightsResponseAmino {
     const obj: any = {};
@@ -1591,9 +1629,11 @@ export const QueryClientStatusRequest = {
     return message;
   },
   fromAmino(object: QueryClientStatusRequestAmino): QueryClientStatusRequest {
-    return {
-      clientId: object.client_id
-    };
+    const message = createBaseQueryClientStatusRequest();
+    if (object.client_id !== undefined && object.client_id !== null) {
+      message.clientId = object.client_id;
+    }
+    return message;
   },
   toAmino(message: QueryClientStatusRequest): QueryClientStatusRequestAmino {
     const obj: any = {};
@@ -1668,9 +1708,11 @@ export const QueryClientStatusResponse = {
     return message;
   },
   fromAmino(object: QueryClientStatusResponseAmino): QueryClientStatusResponse {
-    return {
-      status: object.status
-    };
+    const message = createBaseQueryClientStatusResponse();
+    if (object.status !== undefined && object.status !== null) {
+      message.status = object.status;
+    }
+    return message;
   },
   toAmino(message: QueryClientStatusResponse): QueryClientStatusResponseAmino {
     const obj: any = {};
@@ -1733,7 +1775,8 @@ export const QueryClientParamsRequest = {
     return message;
   },
   fromAmino(_: QueryClientParamsRequestAmino): QueryClientParamsRequest {
-    return {};
+    const message = createBaseQueryClientParamsRequest();
+    return message;
   },
   toAmino(_: QueryClientParamsRequest): QueryClientParamsRequestAmino {
     const obj: any = {};
@@ -1807,9 +1850,11 @@ export const QueryClientParamsResponse = {
     return message;
   },
   fromAmino(object: QueryClientParamsResponseAmino): QueryClientParamsResponse {
-    return {
-      params: object?.params ? Params.fromAmino(object.params) : undefined
-    };
+    const message = createBaseQueryClientParamsResponse();
+    if (object.params !== undefined && object.params !== null) {
+      message.params = Params.fromAmino(object.params);
+    }
+    return message;
   },
   toAmino(message: QueryClientParamsResponse): QueryClientParamsResponseAmino {
     const obj: any = {};
@@ -1872,7 +1917,8 @@ export const QueryUpgradedClientStateRequest = {
     return message;
   },
   fromAmino(_: QueryUpgradedClientStateRequestAmino): QueryUpgradedClientStateRequest {
-    return {};
+    const message = createBaseQueryUpgradedClientStateRequest();
+    return message;
   },
   toAmino(_: QueryUpgradedClientStateRequest): QueryUpgradedClientStateRequestAmino {
     const obj: any = {};
@@ -1946,9 +1992,11 @@ export const QueryUpgradedClientStateResponse = {
     return message;
   },
   fromAmino(object: QueryUpgradedClientStateResponseAmino): QueryUpgradedClientStateResponse {
-    return {
-      upgradedClientState: object?.upgraded_client_state ? Any.fromAmino(object.upgraded_client_state) : undefined
-    };
+    const message = createBaseQueryUpgradedClientStateResponse();
+    if (object.upgraded_client_state !== undefined && object.upgraded_client_state !== null) {
+      message.upgradedClientState = Any.fromAmino(object.upgraded_client_state);
+    }
+    return message;
   },
   toAmino(message: QueryUpgradedClientStateResponse): QueryUpgradedClientStateResponseAmino {
     const obj: any = {};
@@ -2011,7 +2059,8 @@ export const QueryUpgradedConsensusStateRequest = {
     return message;
   },
   fromAmino(_: QueryUpgradedConsensusStateRequestAmino): QueryUpgradedConsensusStateRequest {
-    return {};
+    const message = createBaseQueryUpgradedConsensusStateRequest();
+    return message;
   },
   toAmino(_: QueryUpgradedConsensusStateRequest): QueryUpgradedConsensusStateRequestAmino {
     const obj: any = {};
@@ -2085,9 +2134,11 @@ export const QueryUpgradedConsensusStateResponse = {
     return message;
   },
   fromAmino(object: QueryUpgradedConsensusStateResponseAmino): QueryUpgradedConsensusStateResponse {
-    return {
-      upgradedConsensusState: object?.upgraded_consensus_state ? Any.fromAmino(object.upgraded_consensus_state) : undefined
-    };
+    const message = createBaseQueryUpgradedConsensusStateResponse();
+    if (object.upgraded_consensus_state !== undefined && object.upgraded_consensus_state !== null) {
+      message.upgradedConsensusState = Any.fromAmino(object.upgraded_consensus_state);
+    }
+    return message;
   },
   toAmino(message: QueryUpgradedConsensusStateResponse): QueryUpgradedConsensusStateResponseAmino {
     const obj: any = {};

@@ -12,9 +12,9 @@ export interface CodeIDProtoMsg {
 }
 export interface CodeIDAmino {
   /** whitelist code id */
-  code_id: string;
+  code_id?: string;
   /** status of code id */
-  status: boolean;
+  status?: boolean;
 }
 export interface CodeIDAminoMsg {
   type: "/aura.smartaccount.v1beta1.CodeID";
@@ -46,11 +46,11 @@ export interface ParamsAmino {
    * code_id whitelist indicates which contract can be initialized as smart account
    * using gov proposal for updates
    */
-  whitelist_code_id: CodeIDAmino[];
+  whitelist_code_id?: CodeIDAmino[];
   /** list of diable messages for smartaccount */
-  disable_msgs_list: string[];
+  disable_msgs_list?: string[];
   /** limit how much gas can be consumed by the `pre_execute` method */
-  max_gas_execute: string;
+  max_gas_execute?: string;
 }
 export interface ParamsAminoMsg {
   type: "/aura.smartaccount.v1beta1.Params";
@@ -118,10 +118,14 @@ export const CodeID = {
     return message;
   },
   fromAmino(object: CodeIDAmino): CodeID {
-    return {
-      codeId: Long.fromString(object.code_id),
-      status: object.status
-    };
+    const message = createBaseCodeID();
+    if (object.code_id !== undefined && object.code_id !== null) {
+      message.codeId = Long.fromString(object.code_id);
+    }
+    if (object.status !== undefined && object.status !== null) {
+      message.status = object.status;
+    }
+    return message;
   },
   toAmino(message: CodeID): CodeIDAmino {
     const obj: any = {};
@@ -219,11 +223,13 @@ export const Params = {
     return message;
   },
   fromAmino(object: ParamsAmino): Params {
-    return {
-      whitelistCodeId: Array.isArray(object?.whitelist_code_id) ? object.whitelist_code_id.map((e: any) => CodeID.fromAmino(e)) : [],
-      disableMsgsList: Array.isArray(object?.disable_msgs_list) ? object.disable_msgs_list.map((e: any) => e) : [],
-      maxGasExecute: Long.fromString(object.max_gas_execute)
-    };
+    const message = createBaseParams();
+    message.whitelistCodeId = object.whitelist_code_id?.map(e => CodeID.fromAmino(e)) || [];
+    message.disableMsgsList = object.disable_msgs_list?.map(e => e) || [];
+    if (object.max_gas_execute !== undefined && object.max_gas_execute !== null) {
+      message.maxGasExecute = Long.fromString(object.max_gas_execute);
+    }
+    return message;
   },
   toAmino(message: Params): ParamsAmino {
     const obj: any = {};

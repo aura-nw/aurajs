@@ -31,7 +31,7 @@ export interface BasicAllowanceAmino {
      */
     spend_limit: CoinAmino[];
     /** expiration specifies an optional time when this allowance expires */
-    expiration?: Date;
+    expiration?: string;
 }
 export interface BasicAllowanceAminoMsg {
     type: "cosmos-sdk/BasicAllowance";
@@ -81,12 +81,12 @@ export interface PeriodicAllowanceProtoMsg {
  */
 export interface PeriodicAllowanceAmino {
     /** basic specifies a struct of `BasicAllowance` */
-    basic?: BasicAllowanceAmino;
+    basic: BasicAllowanceAmino;
     /**
      * period specifies the time duration in which period_spend_limit coins can
      * be spent before that allowance is reset
      */
-    period?: string;
+    period: string;
     /**
      * period_spend_limit specifies the maximum number of coins that can be spent
      * in the period
@@ -99,7 +99,7 @@ export interface PeriodicAllowanceAmino {
      * it is calculated from the start time of the first transaction after the
      * last period ended
      */
-    period_reset?: Date;
+    period_reset: string;
 }
 export interface PeriodicAllowanceAminoMsg {
     type: "cosmos-sdk/PeriodicAllowance";
@@ -132,7 +132,7 @@ export interface AllowedMsgAllowanceAmino {
     /** allowance can be any of basic and periodic fee allowance. */
     allowance?: AnyAmino;
     /** allowed_messages are the messages for which the grantee has the access. */
-    allowed_messages: string[];
+    allowed_messages?: string[];
 }
 export interface AllowedMsgAllowanceAminoMsg {
     type: "cosmos-sdk/AllowedMsgAllowance";
@@ -159,9 +159,9 @@ export interface GrantProtoMsg {
 /** Grant is stored in the KVStore to record a grant with full context */
 export interface GrantAmino {
     /** granter is the address of the user granting an allowance of their funds. */
-    granter: string;
+    granter?: string;
     /** grantee is the address of the user being granted an allowance of another user's funds. */
-    grantee: string;
+    grantee?: string;
     /** allowance can be any of basic, periodic, allowed fee allowance. */
     allowance?: AnyAmino;
 }
@@ -191,7 +191,7 @@ export interface AllowedContractAllowanceAmino {
     /** allowance can be any of basic and periodic fee allowance. */
     allowance?: AnyAmino;
     /** allowed_address are the addresses for which the grantee has the access. */
-    allowed_address: string[];
+    allowed_address?: string[];
 }
 export interface AllowedContractAllowanceAminoMsg {
     type: "cosmos-sdk/AllowedContractAllowance";

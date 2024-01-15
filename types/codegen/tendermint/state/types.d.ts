@@ -25,7 +25,7 @@ export interface ABCIResponsesProtoMsg {
  * It is persisted to disk for each height before calling Commit.
  */
 export interface ABCIResponsesAmino {
-    deliver_txs: ResponseDeliverTxAmino[];
+    deliver_txs?: ResponseDeliverTxAmino[];
     end_block?: ResponseEndBlockAmino;
     begin_block?: ResponseBeginBlockAmino;
 }
@@ -55,7 +55,7 @@ export interface ValidatorsInfoProtoMsg {
 /** ValidatorsInfo represents the latest validator set, or the last height it changed */
 export interface ValidatorsInfoAmino {
     validator_set?: ValidatorSetAmino;
-    last_height_changed: string;
+    last_height_changed?: string;
 }
 export interface ValidatorsInfoAminoMsg {
     type: "/tendermint.state.ValidatorsInfo";
@@ -78,7 +78,7 @@ export interface ConsensusParamsInfoProtoMsg {
 /** ConsensusParamsInfo represents the latest consensus params, or the last height it changed */
 export interface ConsensusParamsInfoAmino {
     consensus_params?: ConsensusParamsAmino;
-    last_height_changed: string;
+    last_height_changed?: string;
 }
 export interface ConsensusParamsInfoAminoMsg {
     type: "/tendermint.state.ConsensusParamsInfo";
@@ -99,7 +99,7 @@ export interface ABCIResponsesInfoProtoMsg {
 }
 export interface ABCIResponsesInfoAmino {
     abci_responses?: ABCIResponsesAmino;
-    height: string;
+    height?: string;
 }
 export interface ABCIResponsesInfoAminoMsg {
     type: "/tendermint.state.ABCIResponsesInfo";
@@ -119,7 +119,7 @@ export interface VersionProtoMsg {
 }
 export interface VersionAmino {
     consensus?: ConsensusAmino;
-    software: string;
+    software?: string;
 }
 export interface VersionAminoMsg {
     type: "/tendermint.state.Version";
@@ -168,12 +168,12 @@ export interface StateProtoMsg {
 export interface StateAmino {
     version?: VersionAmino;
     /** immutable */
-    chain_id: string;
-    initial_height: string;
+    chain_id?: string;
+    initial_height?: string;
     /** LastBlockHeight=0 at genesis (ie. block(H=0) does not exist) */
-    last_block_height: string;
+    last_block_height?: string;
     last_block_id?: BlockIDAmino;
-    last_block_time?: Date;
+    last_block_time?: string;
     /**
      * LastValidators is used to validate block.LastCommit.
      * Validators are persisted to the database separately every time they change,
@@ -185,17 +185,17 @@ export interface StateAmino {
     next_validators?: ValidatorSetAmino;
     validators?: ValidatorSetAmino;
     last_validators?: ValidatorSetAmino;
-    last_height_validators_changed: string;
+    last_height_validators_changed?: string;
     /**
      * Consensus parameters used for validating blocks.
      * Changes returned by EndBlock and updated after Commit.
      */
     consensus_params?: ConsensusParamsAmino;
-    last_height_consensus_params_changed: string;
+    last_height_consensus_params_changed?: string;
     /** Merkle root of the results from executing prev block */
-    last_results_hash: Uint8Array;
+    last_results_hash?: string;
     /** the latest AppHash we've received from calling abci.Commit() */
-    app_hash: Uint8Array;
+    app_hash?: string;
 }
 export interface StateAminoMsg {
     type: "/tendermint.state.State";

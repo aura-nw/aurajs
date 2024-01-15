@@ -13,8 +13,8 @@ export interface ParamsProtoMsg {
 /** Params defines the parameters for the aura module. */
 export interface ParamsAmino {
   /** max_supply defines the max supply of aura coin. */
-  max_supply: string;
-  exclude_circulating_addr: string[];
+  max_supply?: string;
+  exclude_circulating_addr?: string[];
 }
 export interface ParamsAminoMsg {
   type: "/aura.aura.Params";
@@ -85,10 +85,12 @@ export const Params = {
     return message;
   },
   fromAmino(object: ParamsAmino): Params {
-    return {
-      maxSupply: object.max_supply,
-      excludeCirculatingAddr: Array.isArray(object?.exclude_circulating_addr) ? object.exclude_circulating_addr.map((e: any) => e) : []
-    };
+    const message = createBaseParams();
+    if (object.max_supply !== undefined && object.max_supply !== null) {
+      message.maxSupply = object.max_supply;
+    }
+    message.excludeCirculatingAddr = object.exclude_circulating_addr?.map(e => e) || [];
+    return message;
   },
   toAmino(message: Params): ParamsAmino {
     const obj: any = {};

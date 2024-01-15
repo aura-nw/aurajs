@@ -22,10 +22,10 @@ export interface SmartAccountProtoMsg {
  * This account type is similar to BaseAccount
  */
 export interface SmartAccountAmino {
-  address: string;
+  address?: string;
   pub_key?: AnyAmino;
-  account_number: string;
-  sequence: string;
+  account_number?: string;
+  sequence?: string;
 }
 export interface SmartAccountAminoMsg {
   type: "/aura.smartaccount.v1beta1.SmartAccount";
@@ -118,12 +118,20 @@ export const SmartAccount = {
     return message;
   },
   fromAmino(object: SmartAccountAmino): SmartAccount {
-    return {
-      address: object.address,
-      pubKey: object?.pub_key ? Any.fromAmino(object.pub_key) : undefined,
-      accountNumber: Long.fromString(object.account_number),
-      sequence: Long.fromString(object.sequence)
-    };
+    const message = createBaseSmartAccount();
+    if (object.address !== undefined && object.address !== null) {
+      message.address = object.address;
+    }
+    if (object.pub_key !== undefined && object.pub_key !== null) {
+      message.pubKey = Any.fromAmino(object.pub_key);
+    }
+    if (object.account_number !== undefined && object.account_number !== null) {
+      message.accountNumber = Long.fromString(object.account_number);
+    }
+    if (object.sequence !== undefined && object.sequence !== null) {
+      message.sequence = Long.fromString(object.sequence);
+    }
+    return message;
   },
   toAmino(message: SmartAccount): SmartAccountAmino {
     const obj: any = {};

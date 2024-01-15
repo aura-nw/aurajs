@@ -16,9 +16,9 @@ export interface QueryBalanceRequestProtoMsg {
 /** QueryBalanceRequest is the request type for the Query/Balance RPC method */
 export interface QueryBalanceRequestAmino {
     /** class_id associated with the nft */
-    class_id: string;
+    class_id?: string;
     /** owner is the owner address of the nft */
-    owner: string;
+    owner?: string;
 }
 export interface QueryBalanceRequestAminoMsg {
     type: "cosmos-sdk/QueryBalanceRequest";
@@ -41,7 +41,7 @@ export interface QueryBalanceResponseProtoMsg {
 /** QueryBalanceResponse is the response type for the Query/Balance RPC method */
 export interface QueryBalanceResponseAmino {
     /** amount is the number of all NFTs of a given class owned by the owner */
-    amount: string;
+    amount?: string;
 }
 export interface QueryBalanceResponseAminoMsg {
     type: "cosmos-sdk/QueryBalanceResponse";
@@ -65,9 +65,9 @@ export interface QueryOwnerRequestProtoMsg {
 /** QueryOwnerRequest is the request type for the Query/Owner RPC method */
 export interface QueryOwnerRequestAmino {
     /** class_id associated with the nft */
-    class_id: string;
+    class_id?: string;
     /** id is a unique identifier of the NFT */
-    id: string;
+    id?: string;
 }
 export interface QueryOwnerRequestAminoMsg {
     type: "cosmos-sdk/QueryOwnerRequest";
@@ -90,7 +90,7 @@ export interface QueryOwnerResponseProtoMsg {
 /** QueryOwnerResponse is the response type for the Query/Owner RPC method */
 export interface QueryOwnerResponseAmino {
     /** owner is the owner address of the nft */
-    owner: string;
+    owner?: string;
 }
 export interface QueryOwnerResponseAminoMsg {
     type: "cosmos-sdk/QueryOwnerResponse";
@@ -112,7 +112,7 @@ export interface QuerySupplyRequestProtoMsg {
 /** QuerySupplyRequest is the request type for the Query/Supply RPC method */
 export interface QuerySupplyRequestAmino {
     /** class_id associated with the nft */
-    class_id: string;
+    class_id?: string;
 }
 export interface QuerySupplyRequestAminoMsg {
     type: "cosmos-sdk/QuerySupplyRequest";
@@ -134,7 +134,7 @@ export interface QuerySupplyResponseProtoMsg {
 /** QuerySupplyResponse is the response type for the Query/Supply RPC method */
 export interface QuerySupplyResponseAmino {
     /** amount is the number of all NFTs from the given class */
-    amount: string;
+    amount?: string;
 }
 export interface QuerySupplyResponseAminoMsg {
     type: "cosmos-sdk/QuerySupplyResponse";
@@ -160,9 +160,9 @@ export interface QueryNFTsRequestProtoMsg {
 /** QueryNFTstRequest is the request type for the Query/NFTs RPC method */
 export interface QueryNFTsRequestAmino {
     /** class_id associated with the nft */
-    class_id: string;
+    class_id?: string;
     /** owner is the owner address of the nft */
-    owner: string;
+    owner?: string;
     /** pagination defines an optional pagination for the request. */
     pagination?: PageRequestAmino;
 }
@@ -190,7 +190,7 @@ export interface QueryNFTsResponseProtoMsg {
 /** QueryNFTsResponse is the response type for the Query/NFTs RPC methods */
 export interface QueryNFTsResponseAmino {
     /** NFT defines the NFT */
-    nfts: NFTAmino[];
+    nfts?: NFTAmino[];
     /** pagination defines the pagination in the response. */
     pagination?: PageResponseAmino;
 }
@@ -217,9 +217,9 @@ export interface QueryNFTRequestProtoMsg {
 /** QueryNFTRequest is the request type for the Query/NFT RPC method */
 export interface QueryNFTRequestAmino {
     /** class_id associated with the nft */
-    class_id: string;
+    class_id?: string;
     /** id is a unique identifier of the NFT */
-    id: string;
+    id?: string;
 }
 export interface QueryNFTRequestAminoMsg {
     type: "cosmos-sdk/QueryNFTRequest";
@@ -264,7 +264,7 @@ export interface QueryClassRequestProtoMsg {
 /** QueryClassRequest is the request type for the Query/Class RPC method */
 export interface QueryClassRequestAmino {
     /** class_id associated with the nft */
-    class_id: string;
+    class_id?: string;
 }
 export interface QueryClassRequestAminoMsg {
     type: "cosmos-sdk/QueryClassRequest";
@@ -332,7 +332,7 @@ export interface QueryClassesResponseProtoMsg {
 /** QueryClassesResponse is the response type for the Query/Classes RPC method */
 export interface QueryClassesResponseAmino {
     /** class defines the class of the nft type. */
-    classes: ClassAmino[];
+    classes?: ClassAmino[];
     /** pagination defines the pagination in the response. */
     pagination?: PageResponseAmino;
 }

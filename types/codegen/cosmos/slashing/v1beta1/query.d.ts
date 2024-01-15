@@ -28,7 +28,7 @@ export interface QueryParamsResponseProtoMsg {
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method */
 export interface QueryParamsResponseAmino {
-    params?: ParamsAmino;
+    params: ParamsAmino;
 }
 export interface QueryParamsResponseAminoMsg {
     type: "cosmos-sdk/QueryParamsResponse";
@@ -56,7 +56,7 @@ export interface QuerySigningInfoRequestProtoMsg {
  */
 export interface QuerySigningInfoRequestAmino {
     /** cons_address is the address to query signing info of */
-    cons_address: string;
+    cons_address?: string;
 }
 export interface QuerySigningInfoRequestAminoMsg {
     type: "cosmos-sdk/QuerySigningInfoRequest";
@@ -87,7 +87,7 @@ export interface QuerySigningInfoResponseProtoMsg {
  */
 export interface QuerySigningInfoResponseAmino {
     /** val_signing_info is the signing info of requested val cons address */
-    val_signing_info?: ValidatorSigningInfoAmino;
+    val_signing_info: ValidatorSigningInfoAmino;
 }
 export interface QuerySigningInfoResponseAminoMsg {
     type: "cosmos-sdk/QuerySigningInfoResponse";

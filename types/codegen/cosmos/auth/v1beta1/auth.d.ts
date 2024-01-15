@@ -22,10 +22,10 @@ export interface BaseAccountProtoMsg {
  * type for additional functionality (e.g. vesting).
  */
 export interface BaseAccountAmino {
-    address: string;
+    address?: string;
     pub_key?: AnyAmino;
-    account_number: string;
-    sequence: string;
+    account_number?: string;
+    sequence?: string;
 }
 export interface BaseAccountAminoMsg {
     type: "cosmos-sdk/BaseAccount";
@@ -55,8 +55,8 @@ export interface ModuleAccountProtoMsg {
 /** ModuleAccount defines an account for modules that holds coins on a pool. */
 export interface ModuleAccountAmino {
     base_account?: BaseAccountAmino;
-    name: string;
-    permissions: string[];
+    name?: string;
+    permissions?: string[];
 }
 export interface ModuleAccountAminoMsg {
     type: "cosmos-sdk/ModuleAccount";
@@ -93,12 +93,12 @@ export interface ModuleCredentialProtoMsg {
  */
 export interface ModuleCredentialAmino {
     /** module_name is the name of the module used for address derivation (passed into address.Module). */
-    module_name: string;
+    module_name?: string;
     /**
      * derivation_keys is for deriving a module account address (passed into address.Module)
      * adding more keys creates sub-account addresses (passed into address.Derive)
      */
-    derivation_keys: Uint8Array[];
+    derivation_keys?: string[];
 }
 export interface ModuleCredentialAminoMsg {
     type: "cosmos-sdk/ModuleCredential";
@@ -127,11 +127,11 @@ export interface ParamsProtoMsg {
 }
 /** Params defines the parameters for the auth module. */
 export interface ParamsAmino {
-    max_memo_characters: string;
-    tx_sig_limit: string;
-    tx_size_cost_per_byte: string;
-    sig_verify_cost_ed25519: string;
-    sig_verify_cost_secp256k1: string;
+    max_memo_characters?: string;
+    tx_sig_limit?: string;
+    tx_size_cost_per_byte?: string;
+    sig_verify_cost_ed25519?: string;
+    sig_verify_cost_secp256k1?: string;
 }
 export interface ParamsAminoMsg {
     type: "cosmos-sdk/x/auth/Params";

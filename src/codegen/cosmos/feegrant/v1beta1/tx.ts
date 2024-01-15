@@ -23,9 +23,9 @@ export interface MsgGrantAllowanceProtoMsg {
  */
 export interface MsgGrantAllowanceAmino {
   /** granter is the address of the user granting an allowance of their funds. */
-  granter: string;
+  granter?: string;
   /** grantee is the address of the user being granted an allowance of another user's funds. */
-  grantee: string;
+  grantee?: string;
   /** allowance can be any of basic, periodic, allowed fee allowance. */
   allowance?: AnyAmino;
 }
@@ -70,9 +70,9 @@ export interface MsgRevokeAllowanceProtoMsg {
 /** MsgRevokeAllowance removes any existing Allowance from Granter to Grantee. */
 export interface MsgRevokeAllowanceAmino {
   /** granter is the address of the user granting an allowance of their funds. */
-  granter: string;
+  granter?: string;
   /** grantee is the address of the user being granted an allowance of another user's funds. */
-  grantee: string;
+  grantee?: string;
 }
 export interface MsgRevokeAllowanceAminoMsg {
   type: "cosmos-sdk/MsgRevokeAllowance";
@@ -163,11 +163,17 @@ export const MsgGrantAllowance = {
     return message;
   },
   fromAmino(object: MsgGrantAllowanceAmino): MsgGrantAllowance {
-    return {
-      granter: object.granter,
-      grantee: object.grantee,
-      allowance: object?.allowance ? Any.fromAmino(object.allowance) : undefined
-    };
+    const message = createBaseMsgGrantAllowance();
+    if (object.granter !== undefined && object.granter !== null) {
+      message.granter = object.granter;
+    }
+    if (object.grantee !== undefined && object.grantee !== null) {
+      message.grantee = object.grantee;
+    }
+    if (object.allowance !== undefined && object.allowance !== null) {
+      message.allowance = Any.fromAmino(object.allowance);
+    }
+    return message;
   },
   toAmino(message: MsgGrantAllowance): MsgGrantAllowanceAmino {
     const obj: any = {};
@@ -232,7 +238,8 @@ export const MsgGrantAllowanceResponse = {
     return message;
   },
   fromAmino(_: MsgGrantAllowanceResponseAmino): MsgGrantAllowanceResponse {
-    return {};
+    const message = createBaseMsgGrantAllowanceResponse();
+    return message;
   },
   toAmino(_: MsgGrantAllowanceResponse): MsgGrantAllowanceResponseAmino {
     const obj: any = {};
@@ -316,10 +323,14 @@ export const MsgRevokeAllowance = {
     return message;
   },
   fromAmino(object: MsgRevokeAllowanceAmino): MsgRevokeAllowance {
-    return {
-      granter: object.granter,
-      grantee: object.grantee
-    };
+    const message = createBaseMsgRevokeAllowance();
+    if (object.granter !== undefined && object.granter !== null) {
+      message.granter = object.granter;
+    }
+    if (object.grantee !== undefined && object.grantee !== null) {
+      message.grantee = object.grantee;
+    }
+    return message;
   },
   toAmino(message: MsgRevokeAllowance): MsgRevokeAllowanceAmino {
     const obj: any = {};
@@ -383,7 +394,8 @@ export const MsgRevokeAllowanceResponse = {
     return message;
   },
   fromAmino(_: MsgRevokeAllowanceResponseAmino): MsgRevokeAllowanceResponse {
-    return {};
+    const message = createBaseMsgRevokeAllowanceResponse();
+    return message;
   },
   toAmino(_: MsgRevokeAllowanceResponse): MsgRevokeAllowanceResponseAmino {
     const obj: any = {};

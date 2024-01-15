@@ -38,9 +38,9 @@ export interface DuplicateVoteEvidenceProtoMsg {
 export interface DuplicateVoteEvidenceAmino {
     vote_a?: VoteAmino;
     vote_b?: VoteAmino;
-    total_voting_power: string;
-    validator_power: string;
-    timestamp?: Date;
+    total_voting_power?: string;
+    validator_power?: string;
+    timestamp?: string;
 }
 export interface DuplicateVoteEvidenceAminoMsg {
     type: "/tendermint.types.DuplicateVoteEvidence";
@@ -69,10 +69,10 @@ export interface LightClientAttackEvidenceProtoMsg {
 /** LightClientAttackEvidence contains evidence of a set of validators attempting to mislead a light client. */
 export interface LightClientAttackEvidenceAmino {
     conflicting_block?: LightBlockAmino;
-    common_height: string;
-    byzantine_validators: ValidatorAmino[];
-    total_voting_power: string;
-    timestamp?: Date;
+    common_height?: string;
+    byzantine_validators?: ValidatorAmino[];
+    total_voting_power?: string;
+    timestamp?: string;
 }
 export interface LightClientAttackEvidenceAminoMsg {
     type: "/tendermint.types.LightClientAttackEvidence";
@@ -94,7 +94,7 @@ export interface EvidenceListProtoMsg {
     value: Uint8Array;
 }
 export interface EvidenceListAmino {
-    evidence: EvidenceAmino[];
+    evidence?: EvidenceAmino[];
 }
 export interface EvidenceListAminoMsg {
     type: "/tendermint.types.EvidenceList";

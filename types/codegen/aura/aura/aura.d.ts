@@ -12,8 +12,8 @@ export interface ParamsProtoMsg {
 /** Params defines the parameters for the aura module. */
 export interface ParamsAmino {
     /** max_supply defines the max supply of aura coin. */
-    max_supply: string;
-    exclude_circulating_addr: string[];
+    max_supply?: string;
+    exclude_circulating_addr?: string[];
 }
 export interface ParamsAminoMsg {
     type: "/aura.aura.Params";

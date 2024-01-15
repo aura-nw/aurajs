@@ -20,7 +20,7 @@ export interface QueryContractInfoRequestProtoMsg {
  */
 export interface QueryContractInfoRequestAmino {
     /** address is the address of the contract to query */
-    address: string;
+    address?: string;
 }
 export interface QueryContractInfoRequestAminoMsg {
     type: "wasm/QueryContractInfoRequest";
@@ -52,8 +52,8 @@ export interface QueryContractInfoResponseProtoMsg {
  */
 export interface QueryContractInfoResponseAmino {
     /** address is the address of the contract */
-    address: string;
-    contract_info?: ContractInfoAmino;
+    address?: string;
+    contract_info: ContractInfoAmino;
 }
 export interface QueryContractInfoResponseAminoMsg {
     type: "wasm/QueryContractInfoResponse";
@@ -87,7 +87,7 @@ export interface QueryContractHistoryRequestProtoMsg {
  */
 export interface QueryContractHistoryRequestAmino {
     /** address is the address of the contract to query */
-    address: string;
+    address?: string;
     /** pagination defines an optional pagination for the request. */
     pagination?: PageRequestAmino;
 }
@@ -162,7 +162,7 @@ export interface QueryContractsByCodeRequestAmino {
      * grpc-gateway_out does not support Go style CodID
      * pagination defines an optional pagination for the request.
      */
-    code_id: string;
+    code_id?: string;
     pagination?: PageRequestAmino;
 }
 export interface QueryContractsByCodeRequestAminoMsg {
@@ -197,7 +197,7 @@ export interface QueryContractsByCodeResponseProtoMsg {
  */
 export interface QueryContractsByCodeResponseAmino {
     /** contracts are a set of contract addresses */
-    contracts: string[];
+    contracts?: string[];
     /** pagination defines the pagination in the response. */
     pagination?: PageResponseAmino;
 }
@@ -233,7 +233,7 @@ export interface QueryAllContractStateRequestProtoMsg {
  */
 export interface QueryAllContractStateRequestAmino {
     /** address is the address of the contract */
-    address: string;
+    address?: string;
     /** pagination defines an optional pagination for the request. */
     pagination?: PageRequestAmino;
 }
@@ -302,8 +302,8 @@ export interface QueryRawContractStateRequestProtoMsg {
  */
 export interface QueryRawContractStateRequestAmino {
     /** address is the address of the contract */
-    address: string;
-    query_data: Uint8Array;
+    address?: string;
+    query_data?: string;
 }
 export interface QueryRawContractStateRequestAminoMsg {
     type: "wasm/QueryRawContractStateRequest";
@@ -335,7 +335,7 @@ export interface QueryRawContractStateResponseProtoMsg {
  */
 export interface QueryRawContractStateResponseAmino {
     /** Data contains the raw store data */
-    data: Uint8Array;
+    data?: string;
 }
 export interface QueryRawContractStateResponseAminoMsg {
     type: "wasm/QueryRawContractStateResponse";
@@ -368,9 +368,9 @@ export interface QuerySmartContractStateRequestProtoMsg {
  */
 export interface QuerySmartContractStateRequestAmino {
     /** address is the address of the contract */
-    address: string;
+    address?: string;
     /** QueryData contains the query data passed to the contract */
-    query_data: Uint8Array;
+    query_data?: any;
 }
 export interface QuerySmartContractStateRequestAminoMsg {
     type: "wasm/QuerySmartContractStateRequest";
@@ -402,7 +402,7 @@ export interface QuerySmartContractStateResponseProtoMsg {
  */
 export interface QuerySmartContractStateResponseAmino {
     /** Data contains the json data returned from the smart contract */
-    data: Uint8Array;
+    data?: any;
 }
 export interface QuerySmartContractStateResponseAminoMsg {
     type: "wasm/QuerySmartContractStateResponse";
@@ -427,7 +427,7 @@ export interface QueryCodeRequestProtoMsg {
 /** QueryCodeRequest is the request type for the Query/Code RPC method */
 export interface QueryCodeRequestAmino {
     /** grpc-gateway_out does not support Go style CodID */
-    code_id: string;
+    code_id?: string;
 }
 export interface QueryCodeRequestAminoMsg {
     type: "wasm/QueryCodeRequest";
@@ -450,10 +450,10 @@ export interface CodeInfoResponseProtoMsg {
 }
 /** CodeInfoResponse contains code meta data from CodeInfo */
 export interface CodeInfoResponseAmino {
-    code_id: string;
-    creator: string;
-    data_hash: Uint8Array;
-    instantiate_permission?: AccessConfigAmino;
+    code_id?: string;
+    creator?: string;
+    data_hash?: string;
+    instantiate_permission: AccessConfigAmino;
 }
 export interface CodeInfoResponseAminoMsg {
     type: "wasm/CodeInfoResponse";
@@ -478,7 +478,7 @@ export interface QueryCodeResponseProtoMsg {
 /** QueryCodeResponse is the response type for the Query/Code RPC method */
 export interface QueryCodeResponseAmino {
     code_info?: CodeInfoResponseAmino;
-    data: Uint8Array;
+    data?: string;
 }
 export interface QueryCodeResponseAminoMsg {
     type: "wasm/QueryCodeResponse";
@@ -585,7 +585,7 @@ export interface QueryPinnedCodesResponseProtoMsg {
  * Query/PinnedCodes RPC method
  */
 export interface QueryPinnedCodesResponseAmino {
-    code_ids: string[];
+    code_ids?: string[];
     /** pagination defines the pagination in the response. */
     pagination?: PageResponseAmino;
 }
@@ -630,7 +630,7 @@ export interface QueryParamsResponseProtoMsg {
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryParamsResponseAmino {
     /** params defines the parameters of the module. */
-    params?: ParamsAmino;
+    params: ParamsAmino;
 }
 export interface QueryParamsResponseAminoMsg {
     type: "wasm/QueryParamsResponse";
@@ -660,7 +660,7 @@ export interface QueryContractsByCreatorRequestProtoMsg {
  */
 export interface QueryContractsByCreatorRequestAmino {
     /** CreatorAddress is the address of contract creator */
-    creator_address: string;
+    creator_address?: string;
     /** Pagination defines an optional pagination for the request. */
     pagination?: PageRequestAmino;
 }
@@ -696,7 +696,7 @@ export interface QueryContractsByCreatorResponseProtoMsg {
  */
 export interface QueryContractsByCreatorResponseAmino {
     /** ContractAddresses result set */
-    contract_addresses: string[];
+    contract_addresses?: string[];
     /** Pagination defines the pagination in the response. */
     pagination?: PageResponseAmino;
 }

@@ -11,7 +11,7 @@ export interface BlockRequestProtoMsg {
 }
 /** BlockRequest requests a block for a specific height */
 export interface BlockRequestAmino {
-    height: string;
+    height?: string;
 }
 export interface BlockRequestAminoMsg {
     type: "/tendermint.blockchain.BlockRequest";
@@ -31,7 +31,7 @@ export interface NoBlockResponseProtoMsg {
 }
 /** NoBlockResponse informs the node that the peer does not have block at the requested height */
 export interface NoBlockResponseAmino {
-    height: string;
+    height?: string;
 }
 export interface NoBlockResponseAminoMsg {
     type: "/tendermint.blockchain.NoBlockResponse";
@@ -89,8 +89,8 @@ export interface StatusResponseProtoMsg {
 }
 /** StatusResponse is a peer response to inform their status. */
 export interface StatusResponseAmino {
-    height: string;
-    base: string;
+    height?: string;
+    base?: string;
 }
 export interface StatusResponseAminoMsg {
     type: "/tendermint.blockchain.StatusResponse";

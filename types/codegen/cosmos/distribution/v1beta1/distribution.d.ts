@@ -24,20 +24,20 @@ export interface ParamsProtoMsg {
 }
 /** Params defines the set of params for the distribution module. */
 export interface ParamsAmino {
-    community_tax: string;
+    community_tax?: string;
     /**
      * Deprecated: The base_proposer_reward field is deprecated and is no longer used
      * in the x/distribution module's reward mechanism.
      */
     /** @deprecated */
-    base_proposer_reward: string;
+    base_proposer_reward?: string;
     /**
      * Deprecated: The bonus_proposer_reward field is deprecated and is no longer used
      * in the x/distribution module's reward mechanism.
      */
     /** @deprecated */
-    bonus_proposer_reward: string;
-    withdraw_addr_enabled: boolean;
+    bonus_proposer_reward?: string;
+    withdraw_addr_enabled?: boolean;
 }
 export interface ParamsAminoMsg {
     type: "cosmos-sdk/x/distribution/Params";
@@ -90,7 +90,7 @@ export interface ValidatorHistoricalRewardsProtoMsg {
  */
 export interface ValidatorHistoricalRewardsAmino {
     cumulative_reward_ratio: DecCoinAmino[];
-    reference_count: number;
+    reference_count?: number;
 }
 export interface ValidatorHistoricalRewardsAminoMsg {
     type: "cosmos-sdk/ValidatorHistoricalRewards";
@@ -134,7 +134,7 @@ export interface ValidatorCurrentRewardsProtoMsg {
  */
 export interface ValidatorCurrentRewardsAmino {
     rewards: DecCoinAmino[];
-    period: string;
+    period?: string;
 }
 export interface ValidatorCurrentRewardsAminoMsg {
     type: "cosmos-sdk/ValidatorCurrentRewards";
@@ -228,8 +228,8 @@ export interface ValidatorSlashEventProtoMsg {
  * for delegations which are withdrawn after a slash has occurred.
  */
 export interface ValidatorSlashEventAmino {
-    validator_period: string;
-    fraction: string;
+    validator_period?: string;
+    fraction?: string;
 }
 export interface ValidatorSlashEventAminoMsg {
     type: "cosmos-sdk/ValidatorSlashEvent";
@@ -318,9 +318,9 @@ export interface CommunityPoolSpendProposalProtoMsg {
  */
 /** @deprecated */
 export interface CommunityPoolSpendProposalAmino {
-    title: string;
-    description: string;
-    recipient: string;
+    title?: string;
+    description?: string;
+    recipient?: string;
     amount: CoinAmino[];
 }
 export interface CommunityPoolSpendProposalAminoMsg {
@@ -370,8 +370,8 @@ export interface DelegatorStartingInfoProtoMsg {
  * thus sdk.Dec is used.
  */
 export interface DelegatorStartingInfoAmino {
-    previous_period: string;
-    stake: string;
+    previous_period?: string;
+    stake?: string;
     height: string;
 }
 export interface DelegatorStartingInfoAminoMsg {
@@ -408,7 +408,7 @@ export interface DelegationDelegatorRewardProtoMsg {
  * of a delegator's delegation reward.
  */
 export interface DelegationDelegatorRewardAmino {
-    validator_address: string;
+    validator_address?: string;
     reward: DecCoinAmino[];
 }
 export interface DelegationDelegatorRewardAminoMsg {
@@ -443,11 +443,11 @@ export interface CommunityPoolSpendProposalWithDepositProtoMsg {
  * with a deposit
  */
 export interface CommunityPoolSpendProposalWithDepositAmino {
-    title: string;
-    description: string;
-    recipient: string;
-    amount: string;
-    deposit: string;
+    title?: string;
+    description?: string;
+    recipient?: string;
+    amount?: string;
+    deposit?: string;
 }
 export interface CommunityPoolSpendProposalWithDepositAminoMsg {
     type: "cosmos-sdk/CommunityPoolSpendProposalWithDeposit";

@@ -11,7 +11,7 @@ export interface BlockRequestProtoMsg {
 }
 /** BlockRequest requests a block for a specific height */
 export interface BlockRequestAmino {
-  height: string;
+  height?: string;
 }
 export interface BlockRequestAminoMsg {
   type: "/tendermint.blockchain.BlockRequest";
@@ -31,7 +31,7 @@ export interface NoBlockResponseProtoMsg {
 }
 /** NoBlockResponse informs the node that the peer does not have block at the requested height */
 export interface NoBlockResponseAmino {
-  height: string;
+  height?: string;
 }
 export interface NoBlockResponseAminoMsg {
   type: "/tendermint.blockchain.NoBlockResponse";
@@ -86,8 +86,8 @@ export interface StatusResponseProtoMsg {
 }
 /** StatusResponse is a peer response to inform their status. */
 export interface StatusResponseAmino {
-  height: string;
-  base: string;
+  height?: string;
+  base?: string;
 }
 export interface StatusResponseAminoMsg {
   type: "/tendermint.blockchain.StatusResponse";
@@ -173,9 +173,11 @@ export const BlockRequest = {
     return message;
   },
   fromAmino(object: BlockRequestAmino): BlockRequest {
-    return {
-      height: Long.fromString(object.height)
-    };
+    const message = createBaseBlockRequest();
+    if (object.height !== undefined && object.height !== null) {
+      message.height = Long.fromString(object.height);
+    }
+    return message;
   },
   toAmino(message: BlockRequest): BlockRequestAmino {
     const obj: any = {};
@@ -244,9 +246,11 @@ export const NoBlockResponse = {
     return message;
   },
   fromAmino(object: NoBlockResponseAmino): NoBlockResponse {
-    return {
-      height: Long.fromString(object.height)
-    };
+    const message = createBaseNoBlockResponse();
+    if (object.height !== undefined && object.height !== null) {
+      message.height = Long.fromString(object.height);
+    }
+    return message;
   },
   toAmino(message: NoBlockResponse): NoBlockResponseAmino {
     const obj: any = {};
@@ -315,9 +319,11 @@ export const BlockResponse = {
     return message;
   },
   fromAmino(object: BlockResponseAmino): BlockResponse {
-    return {
-      block: object?.block ? Block.fromAmino(object.block) : undefined
-    };
+    const message = createBaseBlockResponse();
+    if (object.block !== undefined && object.block !== null) {
+      message.block = Block.fromAmino(object.block);
+    }
+    return message;
   },
   toAmino(message: BlockResponse): BlockResponseAmino {
     const obj: any = {};
@@ -374,7 +380,8 @@ export const StatusRequest = {
     return message;
   },
   fromAmino(_: StatusRequestAmino): StatusRequest {
-    return {};
+    const message = createBaseStatusRequest();
+    return message;
   },
   toAmino(_: StatusRequest): StatusRequestAmino {
     const obj: any = {};
@@ -452,10 +459,14 @@ export const StatusResponse = {
     return message;
   },
   fromAmino(object: StatusResponseAmino): StatusResponse {
-    return {
-      height: Long.fromString(object.height),
-      base: Long.fromString(object.base)
-    };
+    const message = createBaseStatusResponse();
+    if (object.height !== undefined && object.height !== null) {
+      message.height = Long.fromString(object.height);
+    }
+    if (object.base !== undefined && object.base !== null) {
+      message.base = Long.fromString(object.base);
+    }
+    return message;
   },
   toAmino(message: StatusResponse): StatusResponseAmino {
     const obj: any = {};
@@ -565,13 +576,23 @@ export const Message = {
     return message;
   },
   fromAmino(object: MessageAmino): Message {
-    return {
-      blockRequest: object?.block_request ? BlockRequest.fromAmino(object.block_request) : undefined,
-      noBlockResponse: object?.no_block_response ? NoBlockResponse.fromAmino(object.no_block_response) : undefined,
-      blockResponse: object?.block_response ? BlockResponse.fromAmino(object.block_response) : undefined,
-      statusRequest: object?.status_request ? StatusRequest.fromAmino(object.status_request) : undefined,
-      statusResponse: object?.status_response ? StatusResponse.fromAmino(object.status_response) : undefined
-    };
+    const message = createBaseMessage();
+    if (object.block_request !== undefined && object.block_request !== null) {
+      message.blockRequest = BlockRequest.fromAmino(object.block_request);
+    }
+    if (object.no_block_response !== undefined && object.no_block_response !== null) {
+      message.noBlockResponse = NoBlockResponse.fromAmino(object.no_block_response);
+    }
+    if (object.block_response !== undefined && object.block_response !== null) {
+      message.blockResponse = BlockResponse.fromAmino(object.block_response);
+    }
+    if (object.status_request !== undefined && object.status_request !== null) {
+      message.statusRequest = StatusRequest.fromAmino(object.status_request);
+    }
+    if (object.status_response !== undefined && object.status_response !== null) {
+      message.statusResponse = StatusResponse.fromAmino(object.status_response);
+    }
+    return message;
   },
   toAmino(message: Message): MessageAmino {
     const obj: any = {};

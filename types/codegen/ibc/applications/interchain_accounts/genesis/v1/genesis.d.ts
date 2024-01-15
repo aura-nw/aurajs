@@ -41,9 +41,9 @@ export interface ControllerGenesisStateProtoMsg {
 }
 /** ControllerGenesisState defines the interchain accounts controller genesis state */
 export interface ControllerGenesisStateAmino {
-    active_channels: ActiveChannelAmino[];
-    interchain_accounts: RegisteredInterchainAccountAmino[];
-    ports: string[];
+    active_channels?: ActiveChannelAmino[];
+    interchain_accounts?: RegisteredInterchainAccountAmino[];
+    ports?: string[];
     params?: Params1Amino;
 }
 export interface ControllerGenesisStateAminoMsg {
@@ -70,9 +70,9 @@ export interface HostGenesisStateProtoMsg {
 }
 /** HostGenesisState defines the interchain accounts host genesis state */
 export interface HostGenesisStateAmino {
-    active_channels: ActiveChannelAmino[];
-    interchain_accounts: RegisteredInterchainAccountAmino[];
-    port: string;
+    active_channels?: ActiveChannelAmino[];
+    interchain_accounts?: RegisteredInterchainAccountAmino[];
+    port?: string;
     params?: Params2Amino;
 }
 export interface HostGenesisStateAminoMsg {
@@ -105,10 +105,10 @@ export interface ActiveChannelProtoMsg {
  * indicate if the channel is middleware enabled
  */
 export interface ActiveChannelAmino {
-    connection_id: string;
-    port_id: string;
-    channel_id: string;
-    is_middleware_enabled: boolean;
+    connection_id?: string;
+    port_id?: string;
+    channel_id?: string;
+    is_middleware_enabled?: boolean;
 }
 export interface ActiveChannelAminoMsg {
     type: "cosmos-sdk/ActiveChannel";
@@ -136,9 +136,9 @@ export interface RegisteredInterchainAccountProtoMsg {
 }
 /** RegisteredInterchainAccount contains a connection ID, port ID and associated interchain account address */
 export interface RegisteredInterchainAccountAmino {
-    connection_id: string;
-    port_id: string;
-    account_address: string;
+    connection_id?: string;
+    port_id?: string;
+    account_address?: string;
 }
 export interface RegisteredInterchainAccountAminoMsg {
     type: "cosmos-sdk/RegisteredInterchainAccount";

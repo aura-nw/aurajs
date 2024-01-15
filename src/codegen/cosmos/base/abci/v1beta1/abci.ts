@@ -58,28 +58,28 @@ export interface TxResponseProtoMsg {
  */
 export interface TxResponseAmino {
   /** The block height */
-  height: string;
+  height?: string;
   /** The transaction hash. */
-  txhash: string;
+  txhash?: string;
   /** Namespace for the Code */
-  codespace: string;
+  codespace?: string;
   /** Response code. */
-  code: number;
+  code?: number;
   /** Result bytes, if any. */
-  data: string;
+  data?: string;
   /**
    * The output of the application's logger (raw string). May be
    * non-deterministic.
    */
-  raw_log: string;
+  raw_log?: string;
   /** The output of the application's logger (typed). May be non-deterministic. */
-  logs: ABCIMessageLogAmino[];
+  logs?: ABCIMessageLogAmino[];
   /** Additional information. May be non-deterministic. */
-  info: string;
+  info?: string;
   /** Amount of gas requested for transaction. */
-  gas_wanted: string;
+  gas_wanted?: string;
   /** Amount of gas consumed by transaction. */
-  gas_used: string;
+  gas_used?: string;
   /** The request transaction bytes. */
   tx?: AnyAmino;
   /**
@@ -87,7 +87,7 @@ export interface TxResponseAmino {
    * the timestamps of the valid votes in the block.LastCommit. For height == 1,
    * it's genesis time.
    */
-  timestamp: string;
+  timestamp?: string;
   /**
    * Events defines all the events emitted by processing a transaction. Note,
    * these events include those emitted by processing all the messages and those
@@ -96,7 +96,7 @@ export interface TxResponseAmino {
    * 
    * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
    */
-  events: EventAmino[];
+  events?: EventAmino[];
 }
 export interface TxResponseAminoMsg {
   type: "cosmos-sdk/TxResponse";
@@ -137,13 +137,13 @@ export interface ABCIMessageLogProtoMsg {
 }
 /** ABCIMessageLog defines a structure containing an indexed tx ABCI message log. */
 export interface ABCIMessageLogAmino {
-  msg_index: number;
-  log: string;
+  msg_index?: number;
+  log?: string;
   /**
    * Events contains a slice of Event objects that were emitted during some
    * execution.
    */
-  events: StringEventAmino[];
+  events?: StringEventAmino[];
 }
 export interface ABCIMessageLogAminoMsg {
   type: "cosmos-sdk/ABCIMessageLog";
@@ -172,8 +172,8 @@ export interface StringEventProtoMsg {
  * contain key/value pairs that are strings instead of raw bytes.
  */
 export interface StringEventAmino {
-  type: string;
-  attributes: AttributeAmino[];
+  type?: string;
+  attributes?: AttributeAmino[];
 }
 export interface StringEventAminoMsg {
   type: "cosmos-sdk/StringEvent";
@@ -204,8 +204,8 @@ export interface AttributeProtoMsg {
  * strings instead of raw bytes.
  */
 export interface AttributeAmino {
-  key: string;
-  value: string;
+  key?: string;
+  value?: string;
 }
 export interface AttributeAminoMsg {
   type: "cosmos-sdk/Attribute";
@@ -233,9 +233,9 @@ export interface GasInfoProtoMsg {
 /** GasInfo defines tx execution gas context. */
 export interface GasInfoAmino {
   /** GasWanted is the maximum units of work we allow this tx to perform. */
-  gas_wanted: string;
+  gas_wanted?: string;
   /** GasUsed is the amount of gas actually consumed. */
-  gas_used: string;
+  gas_used?: string;
 }
 export interface GasInfoAminoMsg {
   type: "cosmos-sdk/GasInfo";
@@ -283,20 +283,20 @@ export interface ResultAmino {
    * because it also contains the Msg response typeURL.
    */
   /** @deprecated */
-  data: Uint8Array;
+  data?: string;
   /** Log contains the log information from message or handler execution. */
-  log: string;
+  log?: string;
   /**
    * Events contains a slice of Event objects that were emitted during message
    * or handler execution.
    */
-  events: EventAmino[];
+  events?: EventAmino[];
   /**
    * msg_responses contains the Msg handler responses type packed in Anys.
    * 
    * Since: cosmos-sdk 0.46
    */
-  msg_responses: AnyAmino[];
+  msg_responses?: AnyAmino[];
 }
 export interface ResultAminoMsg {
   type: "cosmos-sdk/Result";
@@ -361,8 +361,8 @@ export interface MsgDataProtoMsg {
  */
 /** @deprecated */
 export interface MsgDataAmino {
-  msg_type: string;
-  data: Uint8Array;
+  msg_type?: string;
+  data?: string;
 }
 export interface MsgDataAminoMsg {
   type: "cosmos-sdk/MsgData";
@@ -403,13 +403,13 @@ export interface TxMsgDataProtoMsg {
 export interface TxMsgDataAmino {
   /** data field is deprecated and not populated. */
   /** @deprecated */
-  data: MsgDataAmino[];
+  data?: MsgDataAmino[];
   /**
    * msg_responses contains the Msg handler responses packed into Anys.
    * 
    * Since: cosmos-sdk 0.46
    */
-  msg_responses: AnyAmino[];
+  msg_responses?: AnyAmino[];
 }
 export interface TxMsgDataAminoMsg {
   type: "cosmos-sdk/TxMsgData";
@@ -446,17 +446,17 @@ export interface SearchTxsResultProtoMsg {
 /** SearchTxsResult defines a structure for querying txs pageable */
 export interface SearchTxsResultAmino {
   /** Count of all txs */
-  total_count: string;
+  total_count?: string;
   /** Count of txs in current page */
-  count: string;
+  count?: string;
   /** Index of current page, start from 1 */
-  page_number: string;
+  page_number?: string;
   /** Count of total pages */
-  page_total: string;
+  page_total?: string;
   /** Max count txs per page */
-  limit: string;
+  limit?: string;
   /** List of txs in current page */
-  txs: TxResponseAmino[];
+  txs?: TxResponseAmino[];
 }
 export interface SearchTxsResultAminoMsg {
   type: "cosmos-sdk/SearchTxsResult";
@@ -645,21 +645,43 @@ export const TxResponse = {
     return message;
   },
   fromAmino(object: TxResponseAmino): TxResponse {
-    return {
-      height: Long.fromString(object.height),
-      txhash: object.txhash,
-      codespace: object.codespace,
-      code: object.code,
-      data: object.data,
-      rawLog: object.raw_log,
-      logs: Array.isArray(object?.logs) ? object.logs.map((e: any) => ABCIMessageLog.fromAmino(e)) : [],
-      info: object.info,
-      gasWanted: Long.fromString(object.gas_wanted),
-      gasUsed: Long.fromString(object.gas_used),
-      tx: object?.tx ? Any.fromAmino(object.tx) : undefined,
-      timestamp: object.timestamp,
-      events: Array.isArray(object?.events) ? object.events.map((e: any) => Event.fromAmino(e)) : []
-    };
+    const message = createBaseTxResponse();
+    if (object.height !== undefined && object.height !== null) {
+      message.height = Long.fromString(object.height);
+    }
+    if (object.txhash !== undefined && object.txhash !== null) {
+      message.txhash = object.txhash;
+    }
+    if (object.codespace !== undefined && object.codespace !== null) {
+      message.codespace = object.codespace;
+    }
+    if (object.code !== undefined && object.code !== null) {
+      message.code = object.code;
+    }
+    if (object.data !== undefined && object.data !== null) {
+      message.data = object.data;
+    }
+    if (object.raw_log !== undefined && object.raw_log !== null) {
+      message.rawLog = object.raw_log;
+    }
+    message.logs = object.logs?.map(e => ABCIMessageLog.fromAmino(e)) || [];
+    if (object.info !== undefined && object.info !== null) {
+      message.info = object.info;
+    }
+    if (object.gas_wanted !== undefined && object.gas_wanted !== null) {
+      message.gasWanted = Long.fromString(object.gas_wanted);
+    }
+    if (object.gas_used !== undefined && object.gas_used !== null) {
+      message.gasUsed = Long.fromString(object.gas_used);
+    }
+    if (object.tx !== undefined && object.tx !== null) {
+      message.tx = Any.fromAmino(object.tx);
+    }
+    if (object.timestamp !== undefined && object.timestamp !== null) {
+      message.timestamp = object.timestamp;
+    }
+    message.events = object.events?.map(e => Event.fromAmino(e)) || [];
+    return message;
   },
   toAmino(message: TxResponse): TxResponseAmino {
     const obj: any = {};
@@ -778,11 +800,15 @@ export const ABCIMessageLog = {
     return message;
   },
   fromAmino(object: ABCIMessageLogAmino): ABCIMessageLog {
-    return {
-      msgIndex: object.msg_index,
-      log: object.log,
-      events: Array.isArray(object?.events) ? object.events.map((e: any) => StringEvent.fromAmino(e)) : []
-    };
+    const message = createBaseABCIMessageLog();
+    if (object.msg_index !== undefined && object.msg_index !== null) {
+      message.msgIndex = object.msg_index;
+    }
+    if (object.log !== undefined && object.log !== null) {
+      message.log = object.log;
+    }
+    message.events = object.events?.map(e => StringEvent.fromAmino(e)) || [];
+    return message;
   },
   toAmino(message: ABCIMessageLog): ABCIMessageLogAmino {
     const obj: any = {};
@@ -877,10 +903,12 @@ export const StringEvent = {
     return message;
   },
   fromAmino(object: StringEventAmino): StringEvent {
-    return {
-      type: object.type,
-      attributes: Array.isArray(object?.attributes) ? object.attributes.map((e: any) => Attribute.fromAmino(e)) : []
-    };
+    const message = createBaseStringEvent();
+    if (object.type !== undefined && object.type !== null) {
+      message.type = object.type;
+    }
+    message.attributes = object.attributes?.map(e => Attribute.fromAmino(e)) || [];
+    return message;
   },
   toAmino(message: StringEvent): StringEventAmino {
     const obj: any = {};
@@ -970,10 +998,14 @@ export const Attribute = {
     return message;
   },
   fromAmino(object: AttributeAmino): Attribute {
-    return {
-      key: object.key,
-      value: object.value
-    };
+    const message = createBaseAttribute();
+    if (object.key !== undefined && object.key !== null) {
+      message.key = object.key;
+    }
+    if (object.value !== undefined && object.value !== null) {
+      message.value = object.value;
+    }
+    return message;
   },
   toAmino(message: Attribute): AttributeAmino {
     const obj: any = {};
@@ -1059,10 +1091,14 @@ export const GasInfo = {
     return message;
   },
   fromAmino(object: GasInfoAmino): GasInfo {
-    return {
-      gasWanted: Long.fromString(object.gas_wanted),
-      gasUsed: Long.fromString(object.gas_used)
-    };
+    const message = createBaseGasInfo();
+    if (object.gas_wanted !== undefined && object.gas_wanted !== null) {
+      message.gasWanted = Long.fromString(object.gas_wanted);
+    }
+    if (object.gas_used !== undefined && object.gas_used !== null) {
+      message.gasUsed = Long.fromString(object.gas_used);
+    }
+    return message;
   },
   toAmino(message: GasInfo): GasInfoAmino {
     const obj: any = {};
@@ -1176,16 +1212,20 @@ export const Result = {
     return message;
   },
   fromAmino(object: ResultAmino): Result {
-    return {
-      data: object.data,
-      log: object.log,
-      events: Array.isArray(object?.events) ? object.events.map((e: any) => Event.fromAmino(e)) : [],
-      msgResponses: Array.isArray(object?.msg_responses) ? object.msg_responses.map((e: any) => Any.fromAmino(e)) : []
-    };
+    const message = createBaseResult();
+    if (object.data !== undefined && object.data !== null) {
+      message.data = bytesFromBase64(object.data);
+    }
+    if (object.log !== undefined && object.log !== null) {
+      message.log = object.log;
+    }
+    message.events = object.events?.map(e => Event.fromAmino(e)) || [];
+    message.msgResponses = object.msg_responses?.map(e => Any.fromAmino(e)) || [];
+    return message;
   },
   toAmino(message: Result): ResultAmino {
     const obj: any = {};
-    obj.data = message.data;
+    obj.data = message.data ? base64FromBytes(message.data) : undefined;
     obj.log = message.log;
     if (message.events) {
       obj.events = message.events.map(e => e ? Event.toAmino(e) : undefined);
@@ -1277,10 +1317,14 @@ export const SimulationResponse = {
     return message;
   },
   fromAmino(object: SimulationResponseAmino): SimulationResponse {
-    return {
-      gasInfo: object?.gas_info ? GasInfo.fromAmino(object.gas_info) : undefined,
-      result: object?.result ? Result.fromAmino(object.result) : undefined
-    };
+    const message = createBaseSimulationResponse();
+    if (object.gas_info !== undefined && object.gas_info !== null) {
+      message.gasInfo = GasInfo.fromAmino(object.gas_info);
+    }
+    if (object.result !== undefined && object.result !== null) {
+      message.result = Result.fromAmino(object.result);
+    }
+    return message;
   },
   toAmino(message: SimulationResponse): SimulationResponseAmino {
     const obj: any = {};
@@ -1366,15 +1410,19 @@ export const MsgData = {
     return message;
   },
   fromAmino(object: MsgDataAmino): MsgData {
-    return {
-      msgType: object.msg_type,
-      data: object.data
-    };
+    const message = createBaseMsgData();
+    if (object.msg_type !== undefined && object.msg_type !== null) {
+      message.msgType = object.msg_type;
+    }
+    if (object.data !== undefined && object.data !== null) {
+      message.data = bytesFromBase64(object.data);
+    }
+    return message;
   },
   toAmino(message: MsgData): MsgDataAmino {
     const obj: any = {};
     obj.msg_type = message.msgType;
-    obj.data = message.data;
+    obj.data = message.data ? base64FromBytes(message.data) : undefined;
     return obj;
   },
   fromAminoMsg(object: MsgDataAminoMsg): MsgData {
@@ -1463,10 +1511,10 @@ export const TxMsgData = {
     return message;
   },
   fromAmino(object: TxMsgDataAmino): TxMsgData {
-    return {
-      data: Array.isArray(object?.data) ? object.data.map((e: any) => MsgData.fromAmino(e)) : [],
-      msgResponses: Array.isArray(object?.msg_responses) ? object.msg_responses.map((e: any) => Any.fromAmino(e)) : []
-    };
+    const message = createBaseTxMsgData();
+    message.data = object.data?.map(e => MsgData.fromAmino(e)) || [];
+    message.msgResponses = object.msg_responses?.map(e => Any.fromAmino(e)) || [];
+    return message;
   },
   toAmino(message: TxMsgData): TxMsgDataAmino {
     const obj: any = {};
@@ -1604,14 +1652,24 @@ export const SearchTxsResult = {
     return message;
   },
   fromAmino(object: SearchTxsResultAmino): SearchTxsResult {
-    return {
-      totalCount: Long.fromString(object.total_count),
-      count: Long.fromString(object.count),
-      pageNumber: Long.fromString(object.page_number),
-      pageTotal: Long.fromString(object.page_total),
-      limit: Long.fromString(object.limit),
-      txs: Array.isArray(object?.txs) ? object.txs.map((e: any) => TxResponse.fromAmino(e)) : []
-    };
+    const message = createBaseSearchTxsResult();
+    if (object.total_count !== undefined && object.total_count !== null) {
+      message.totalCount = Long.fromString(object.total_count);
+    }
+    if (object.count !== undefined && object.count !== null) {
+      message.count = Long.fromString(object.count);
+    }
+    if (object.page_number !== undefined && object.page_number !== null) {
+      message.pageNumber = Long.fromString(object.page_number);
+    }
+    if (object.page_total !== undefined && object.page_total !== null) {
+      message.pageTotal = Long.fromString(object.page_total);
+    }
+    if (object.limit !== undefined && object.limit !== null) {
+      message.limit = Long.fromString(object.limit);
+    }
+    message.txs = object.txs?.map(e => TxResponse.fromAmino(e)) || [];
+    return message;
   },
   toAmino(message: SearchTxsResult): SearchTxsResultAmino {
     const obj: any = {};

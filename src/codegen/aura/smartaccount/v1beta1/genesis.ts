@@ -15,7 +15,7 @@ export interface GenesisStateProtoMsg {
 export interface GenesisStateAmino {
   params?: ParamsAmino;
   /** this line is used by starport scaffolding # genesis/proto/state */
-  smart_account_id: string;
+  smart_account_id?: string;
 }
 export interface GenesisStateAminoMsg {
   type: "/aura.smartaccount.v1beta1.GenesisState";
@@ -82,10 +82,14 @@ export const GenesisState = {
     return message;
   },
   fromAmino(object: GenesisStateAmino): GenesisState {
-    return {
-      params: object?.params ? Params.fromAmino(object.params) : undefined,
-      smartAccountId: Long.fromString(object.smart_account_id)
-    };
+    const message = createBaseGenesisState();
+    if (object.params !== undefined && object.params !== null) {
+      message.params = Params.fromAmino(object.params);
+    }
+    if (object.smart_account_id !== undefined && object.smart_account_id !== null) {
+      message.smartAccountId = Long.fromString(object.smart_account_id);
+    }
+    return message;
   },
   toAmino(message: GenesisState): GenesisStateAmino {
     const obj: any = {};

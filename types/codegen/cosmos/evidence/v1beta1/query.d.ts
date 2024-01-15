@@ -27,13 +27,13 @@ export interface QueryEvidenceRequestAmino {
      * Deprecated: Use hash, a HEX encoded string, instead.
      */
     /** @deprecated */
-    evidence_hash: Uint8Array;
+    evidence_hash?: string;
     /**
      * hash defines the evidence hash of the requested evidence.
      *
      * Since: cosmos-sdk 0.47
      */
-    hash: string;
+    hash?: string;
 }
 export interface QueryEvidenceRequestAminoMsg {
     type: "cosmos-sdk/QueryEvidenceRequest";
@@ -118,7 +118,7 @@ export interface QueryAllEvidenceResponseProtoMsg {
  */
 export interface QueryAllEvidenceResponseAmino {
     /** evidence returns all evidences. */
-    evidence: AnyAmino[];
+    evidence?: AnyAmino[];
     /** pagination defines the pagination in the response. */
     pagination?: PageResponseAmino;
 }

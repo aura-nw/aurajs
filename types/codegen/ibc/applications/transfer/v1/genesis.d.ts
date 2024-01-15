@@ -18,14 +18,14 @@ export interface GenesisStateProtoMsg {
 }
 /** GenesisState defines the ibc-transfer genesis state */
 export interface GenesisStateAmino {
-    port_id: string;
-    denom_traces: DenomTraceAmino[];
+    port_id?: string;
+    denom_traces?: DenomTraceAmino[];
     params?: ParamsAmino;
     /**
      * total_escrowed contains the total amount of tokens escrowed
      * by the transfer module
      */
-    total_escrowed: CoinAmino[];
+    total_escrowed?: CoinAmino[];
 }
 export interface GenesisStateAminoMsg {
     type: "cosmos-sdk/GenesisState";

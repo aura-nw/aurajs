@@ -18,13 +18,13 @@ export interface AllocationProtoMsg {
 /** Allocation defines the spend limit for a particular port and channel */
 export interface AllocationAmino {
     /** the port on which the packet will be sent */
-    source_port: string;
+    source_port?: string;
     /** the channel by which the packet will be sent */
-    source_channel: string;
+    source_channel?: string;
     /** spend limitation on the channel */
-    spend_limit: CoinAmino[];
+    spend_limit?: CoinAmino[];
     /** allow list of receivers, an empty allow list permits any receiver address */
-    allow_list: string[];
+    allow_list?: string[];
 }
 export interface AllocationAminoMsg {
     type: "cosmos-sdk/Allocation";
@@ -55,7 +55,7 @@ export interface TransferAuthorizationProtoMsg {
  */
 export interface TransferAuthorizationAmino {
     /** port and channel amounts */
-    allocations: AllocationAmino[];
+    allocations?: AllocationAmino[];
 }
 export interface TransferAuthorizationAminoMsg {
     type: "cosmos-sdk/TransferAuthorization";

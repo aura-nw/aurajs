@@ -93,7 +93,7 @@ export interface ContractGrantProtoMsg {
  */
 export interface ContractGrantAmino {
     /** Contract is the bech32 address of the smart contract */
-    contract: string;
+    contract?: string;
     /**
      * Limit defines execution limits that are enforced and updated when the grant
      * is applied. When the limit lapsed the grant is removed.
@@ -137,7 +137,7 @@ export interface MaxCallsLimitProtoMsg {
  */
 export interface MaxCallsLimitAmino {
     /** Remaining number that is decremented on each execution */
-    remaining: string;
+    remaining?: string;
 }
 export interface MaxCallsLimitAminoMsg {
     type: "wasm/MaxCallsLimit";
@@ -203,7 +203,7 @@ export interface CombinedLimitProtoMsg {
  */
 export interface CombinedLimitAmino {
     /** Remaining number that is decremented on each execution */
-    calls_remaining: string;
+    calls_remaining?: string;
     /** Amounts is the maximal amount of tokens transferable to the contract. */
     amounts: CoinAmino[];
 }
@@ -269,7 +269,7 @@ export interface AcceptedMessageKeysFilterProtoMsg {
  */
 export interface AcceptedMessageKeysFilterAmino {
     /** Messages is the list of unique keys */
-    keys: string[];
+    keys?: string[];
 }
 export interface AcceptedMessageKeysFilterAminoMsg {
     type: "wasm/AcceptedMessageKeysFilter";
@@ -303,7 +303,7 @@ export interface AcceptedMessagesFilterProtoMsg {
  */
 export interface AcceptedMessagesFilterAmino {
     /** Messages is the list of raw contract messages */
-    messages: Uint8Array[];
+    messages?: any[];
 }
 export interface AcceptedMessagesFilterAminoMsg {
     type: "wasm/AcceptedMessagesFilter";

@@ -22,9 +22,9 @@ export interface ClientStateProtoMsg {
  */
 export interface ClientStateAmino {
     /** latest sequence of the client state */
-    sequence: string;
+    sequence?: string;
     /** frozen sequence of the solo machine */
-    is_frozen: boolean;
+    is_frozen?: boolean;
     consensus_state?: ConsensusStateAmino;
 }
 export interface ClientStateAminoMsg {
@@ -73,8 +73,8 @@ export interface ConsensusStateAmino {
      * machine clients (potentially on different chains) without being considered
      * misbehaviour.
      */
-    diversifier: string;
-    timestamp: string;
+    diversifier?: string;
+    timestamp?: string;
 }
 export interface ConsensusStateAminoMsg {
     type: "cosmos-sdk/ConsensusState";
@@ -103,10 +103,10 @@ export interface HeaderProtoMsg {
 }
 /** Header defines a solo machine consensus header */
 export interface HeaderAmino {
-    timestamp: string;
-    signature: Uint8Array;
+    timestamp?: string;
+    signature?: string;
     new_public_key?: AnyAmino;
-    new_diversifier: string;
+    new_diversifier?: string;
 }
 export interface HeaderAminoMsg {
     type: "cosmos-sdk/Header";
@@ -137,7 +137,7 @@ export interface MisbehaviourProtoMsg {
  * of a sequence and two signatures over different messages at that sequence.
  */
 export interface MisbehaviourAmino {
-    sequence: string;
+    sequence?: string;
     signature_one?: SignatureAndDataAmino;
     signature_two?: SignatureAndDataAmino;
 }
@@ -173,10 +173,10 @@ export interface SignatureAndDataProtoMsg {
  * signature.
  */
 export interface SignatureAndDataAmino {
-    signature: Uint8Array;
-    path: Uint8Array;
-    data: Uint8Array;
-    timestamp: string;
+    signature?: string;
+    path?: string;
+    data?: string;
+    timestamp?: string;
 }
 export interface SignatureAndDataAminoMsg {
     type: "cosmos-sdk/SignatureAndData";
@@ -209,8 +209,8 @@ export interface TimestampedSignatureDataProtoMsg {
  * signature.
  */
 export interface TimestampedSignatureDataAmino {
-    signature_data: Uint8Array;
-    timestamp: string;
+    signature_data?: string;
+    timestamp?: string;
 }
 export interface TimestampedSignatureDataAminoMsg {
     type: "cosmos-sdk/TimestampedSignatureData";
@@ -244,15 +244,15 @@ export interface SignBytesProtoMsg {
 /** SignBytes defines the signed bytes used for signature verification. */
 export interface SignBytesAmino {
     /** the sequence number */
-    sequence: string;
+    sequence?: string;
     /** the proof timestamp */
-    timestamp: string;
+    timestamp?: string;
     /** the public key diversifier */
-    diversifier: string;
+    diversifier?: string;
     /** the standardised path bytes */
-    path: Uint8Array;
+    path?: string;
     /** the marshaled data bytes */
-    data: Uint8Array;
+    data?: string;
 }
 export interface SignBytesAminoMsg {
     type: "cosmos-sdk/SignBytes";
@@ -282,7 +282,7 @@ export interface HeaderDataAmino {
     /** header public key */
     new_pub_key?: AnyAmino;
     /** header diversifier */
-    new_diversifier: string;
+    new_diversifier?: string;
 }
 export interface HeaderDataAminoMsg {
     type: "cosmos-sdk/HeaderData";

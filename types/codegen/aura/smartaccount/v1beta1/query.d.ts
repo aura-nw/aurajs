@@ -57,11 +57,11 @@ export interface QueryGenerateAccountRequestProtoMsg {
 }
 export interface QueryGenerateAccountRequestAmino {
     /** CodeID indicates which wasm binary code is to be used for creating account */
-    code_id: string;
+    code_id?: string;
     /** an arbitrary value provided by the sender. Size can be 1 to 64. */
-    salt: Uint8Array;
+    salt?: string;
     /** InitMsg is the JSON-encoded instantiate message for creating account */
-    init_msg: Uint8Array;
+    init_msg?: string;
     /** PubKey of account */
     public_key?: AnyAmino;
 }
@@ -83,7 +83,7 @@ export interface QueryGenerateAccountResponseProtoMsg {
     value: Uint8Array;
 }
 export interface QueryGenerateAccountResponseAmino {
-    address: string;
+    address?: string;
 }
 export interface QueryGenerateAccountResponseAminoMsg {
     type: "/aura.smartaccount.v1beta1.QueryGenerateAccountResponse";
