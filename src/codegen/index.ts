@@ -4,6 +4,8 @@
   * and run the transpile command or yarn proto command to regenerate this bundle.
   */
  
+export * from "./ethermint/bundle";
+export * from "./ethermint/client";
 export * from "./gogoproto/bundle";
 export * from "./google/bundle";
 export * from "./tendermint/bundle";

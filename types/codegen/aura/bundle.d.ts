@@ -1,85 +1,85 @@
-import * as _206 from "./aura/aura";
-import * as _207 from "./aura/genesis";
-import * as _210 from "./smartaccount/v1beta1/account";
-import * as _211 from "./smartaccount/v1beta1/genesis";
-import * as _212 from "./smartaccount/v1beta1/params";
-import * as _213 from "./smartaccount/v1beta1/query";
-import * as _214 from "./smartaccount/v1beta1/tx";
-import * as _346 from "./smartaccount/v1beta1/query.lcd";
-import * as _347 from "./aura/query.rpc.Query";
-import * as _348 from "./smartaccount/v1beta1/query.rpc.Query";
-import * as _349 from "./smartaccount/v1beta1/tx.rpc.msg";
+import * as _221 from "./aura/aura";
+import * as _222 from "./aura/genesis";
+import * as _225 from "./smartaccount/v1beta1/account";
+import * as _226 from "./smartaccount/v1beta1/genesis";
+import * as _227 from "./smartaccount/v1beta1/params";
+import * as _228 from "./smartaccount/v1beta1/query";
+import * as _229 from "./smartaccount/v1beta1/tx";
+import * as _371 from "./smartaccount/v1beta1/query.lcd";
+import * as _372 from "./aura/query.rpc.Query";
+import * as _373 from "./smartaccount/v1beta1/query.rpc.Query";
+import * as _374 from "./smartaccount/v1beta1/tx.rpc.msg";
 export declare namespace aura {
     const aura: {
-        QueryClientImpl: typeof _347.QueryClientImpl;
+        QueryClientImpl: typeof _372.QueryClientImpl;
         createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {};
         GenesisState: {
             typeUrl: string;
-            encode(message: _207.GenesisState, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _207.GenesisState;
-            fromJSON(object: any): _207.GenesisState;
-            toJSON(message: _207.GenesisState): unknown;
-            fromPartial(object: Partial<_207.GenesisState>): _207.GenesisState;
-            fromAmino(object: _207.GenesisStateAmino): _207.GenesisState;
-            toAmino(message: _207.GenesisState): _207.GenesisStateAmino;
-            fromAminoMsg(object: _207.GenesisStateAminoMsg): _207.GenesisState;
-            fromProtoMsg(message: _207.GenesisStateProtoMsg): _207.GenesisState;
-            toProto(message: _207.GenesisState): Uint8Array;
-            toProtoMsg(message: _207.GenesisState): _207.GenesisStateProtoMsg;
+            encode(message: _222.GenesisState, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _222.GenesisState;
+            fromJSON(object: any): _222.GenesisState;
+            toJSON(message: _222.GenesisState): unknown;
+            fromPartial(object: Partial<_222.GenesisState>): _222.GenesisState;
+            fromAmino(object: _222.GenesisStateAmino): _222.GenesisState;
+            toAmino(message: _222.GenesisState): _222.GenesisStateAmino;
+            fromAminoMsg(object: _222.GenesisStateAminoMsg): _222.GenesisState;
+            fromProtoMsg(message: _222.GenesisStateProtoMsg): _222.GenesisState;
+            toProto(message: _222.GenesisState): Uint8Array;
+            toProtoMsg(message: _222.GenesisState): _222.GenesisStateProtoMsg;
         };
         Params: {
             typeUrl: string;
-            encode(message: _206.Params, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _206.Params;
-            fromJSON(object: any): _206.Params;
-            toJSON(message: _206.Params): unknown;
-            fromPartial(object: Partial<_206.Params>): _206.Params;
-            fromAmino(object: _206.ParamsAmino): _206.Params;
-            toAmino(message: _206.Params): _206.ParamsAmino;
-            fromAminoMsg(object: _206.ParamsAminoMsg): _206.Params;
-            fromProtoMsg(message: _206.ParamsProtoMsg): _206.Params;
-            toProto(message: _206.Params): Uint8Array;
-            toProtoMsg(message: _206.Params): _206.ParamsProtoMsg;
+            encode(message: _221.Params, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _221.Params;
+            fromJSON(object: any): _221.Params;
+            toJSON(message: _221.Params): unknown;
+            fromPartial(object: Partial<_221.Params>): _221.Params;
+            fromAmino(object: _221.ParamsAmino): _221.Params;
+            toAmino(message: _221.Params): _221.ParamsAmino;
+            fromAminoMsg(object: _221.ParamsAminoMsg): _221.Params;
+            fromProtoMsg(message: _221.ParamsProtoMsg): _221.Params;
+            toProto(message: _221.Params): Uint8Array;
+            toProtoMsg(message: _221.Params): _221.ParamsProtoMsg;
         };
     };
     namespace smartaccount {
         const v1beta1: {
-            MsgClientImpl: typeof _349.MsgClientImpl;
-            QueryClientImpl: typeof _348.QueryClientImpl;
+            MsgClientImpl: typeof _374.MsgClientImpl;
+            QueryClientImpl: typeof _373.QueryClientImpl;
             createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
-                params(request?: _213.QueryParamsRequest): Promise<_213.QueryParamsResponse>;
-                generateAccount(request: _213.QueryGenerateAccountRequest): Promise<_213.QueryGenerateAccountResponse>;
+                params(request?: _228.QueryParamsRequest): Promise<_228.QueryParamsResponse>;
+                generateAccount(request: _228.QueryGenerateAccountRequest): Promise<_228.QueryGenerateAccountResponse>;
             };
-            LCDQueryClient: typeof _346.LCDQueryClient;
+            LCDQueryClient: typeof _371.LCDQueryClient;
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
             MessageComposer: {
                 encoded: {
-                    recover(value: _214.MsgRecover): {
+                    recover(value: _229.MsgRecover): {
                         typeUrl: string;
                         value: Uint8Array;
                     };
-                    activateAccount(value: _214.MsgActivateAccount): {
+                    activateAccount(value: _229.MsgActivateAccount): {
                         typeUrl: string;
                         value: Uint8Array;
                     };
                 };
                 withTypeUrl: {
-                    recover(value: _214.MsgRecover): {
+                    recover(value: _229.MsgRecover): {
                         typeUrl: string;
-                        value: _214.MsgRecover;
+                        value: _229.MsgRecover;
                     };
-                    activateAccount(value: _214.MsgActivateAccount): {
+                    activateAccount(value: _229.MsgActivateAccount): {
                         typeUrl: string;
-                        value: _214.MsgActivateAccount;
+                        value: _229.MsgActivateAccount;
                     };
                 };
                 toJSON: {
-                    recover(value: _214.MsgRecover): {
+                    recover(value: _229.MsgRecover): {
                         typeUrl: string;
                         value: unknown;
                     };
-                    activateAccount(value: _214.MsgActivateAccount): {
+                    activateAccount(value: _229.MsgActivateAccount): {
                         typeUrl: string;
                         value: unknown;
                     };
@@ -87,203 +87,203 @@ export declare namespace aura {
                 fromJSON: {
                     recover(value: any): {
                         typeUrl: string;
-                        value: _214.MsgRecover;
+                        value: _229.MsgRecover;
                     };
                     activateAccount(value: any): {
                         typeUrl: string;
-                        value: _214.MsgActivateAccount;
+                        value: _229.MsgActivateAccount;
                     };
                 };
                 fromPartial: {
-                    recover(value: _214.MsgRecover): {
+                    recover(value: _229.MsgRecover): {
                         typeUrl: string;
-                        value: _214.MsgRecover;
+                        value: _229.MsgRecover;
                     };
-                    activateAccount(value: _214.MsgActivateAccount): {
+                    activateAccount(value: _229.MsgActivateAccount): {
                         typeUrl: string;
-                        value: _214.MsgActivateAccount;
+                        value: _229.MsgActivateAccount;
                     };
                 };
             };
             AminoConverter: {
                 "/aura.smartaccount.v1beta1.MsgRecover": {
                     aminoType: string;
-                    toAmino: (message: _214.MsgRecover) => _214.MsgRecoverAmino;
-                    fromAmino: (object: _214.MsgRecoverAmino) => _214.MsgRecover;
+                    toAmino: (message: _229.MsgRecover) => _229.MsgRecoverAmino;
+                    fromAmino: (object: _229.MsgRecoverAmino) => _229.MsgRecover;
                 };
                 "/aura.smartaccount.v1beta1.MsgActivateAccount": {
                     aminoType: string;
-                    toAmino: (message: _214.MsgActivateAccount) => _214.MsgActivateAccountAmino;
-                    fromAmino: (object: _214.MsgActivateAccountAmino) => _214.MsgActivateAccount;
+                    toAmino: (message: _229.MsgActivateAccount) => _229.MsgActivateAccountAmino;
+                    fromAmino: (object: _229.MsgActivateAccountAmino) => _229.MsgActivateAccount;
                 };
             };
             MsgRecover: {
                 typeUrl: string;
-                encode(message: _214.MsgRecover, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _214.MsgRecover;
-                fromJSON(object: any): _214.MsgRecover;
-                toJSON(message: _214.MsgRecover): unknown;
-                fromPartial(object: Partial<_214.MsgRecover>): _214.MsgRecover;
-                fromAmino(object: _214.MsgRecoverAmino): _214.MsgRecover;
-                toAmino(message: _214.MsgRecover): _214.MsgRecoverAmino;
-                fromAminoMsg(object: _214.MsgRecoverAminoMsg): _214.MsgRecover;
-                fromProtoMsg(message: _214.MsgRecoverProtoMsg): _214.MsgRecover;
-                toProto(message: _214.MsgRecover): Uint8Array;
-                toProtoMsg(message: _214.MsgRecover): _214.MsgRecoverProtoMsg;
+                encode(message: _229.MsgRecover, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _229.MsgRecover;
+                fromJSON(object: any): _229.MsgRecover;
+                toJSON(message: _229.MsgRecover): unknown;
+                fromPartial(object: Partial<_229.MsgRecover>): _229.MsgRecover;
+                fromAmino(object: _229.MsgRecoverAmino): _229.MsgRecover;
+                toAmino(message: _229.MsgRecover): _229.MsgRecoverAmino;
+                fromAminoMsg(object: _229.MsgRecoverAminoMsg): _229.MsgRecover;
+                fromProtoMsg(message: _229.MsgRecoverProtoMsg): _229.MsgRecover;
+                toProto(message: _229.MsgRecover): Uint8Array;
+                toProtoMsg(message: _229.MsgRecover): _229.MsgRecoverProtoMsg;
             };
             MsgRecoverResponse: {
                 typeUrl: string;
-                encode(_: _214.MsgRecoverResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _214.MsgRecoverResponse;
-                fromJSON(_: any): _214.MsgRecoverResponse;
-                toJSON(_: _214.MsgRecoverResponse): unknown;
-                fromPartial(_: Partial<_214.MsgRecoverResponse>): _214.MsgRecoverResponse;
-                fromAmino(_: _214.MsgRecoverResponseAmino): _214.MsgRecoverResponse;
-                toAmino(_: _214.MsgRecoverResponse): _214.MsgRecoverResponseAmino;
-                fromAminoMsg(object: _214.MsgRecoverResponseAminoMsg): _214.MsgRecoverResponse;
-                fromProtoMsg(message: _214.MsgRecoverResponseProtoMsg): _214.MsgRecoverResponse;
-                toProto(message: _214.MsgRecoverResponse): Uint8Array;
-                toProtoMsg(message: _214.MsgRecoverResponse): _214.MsgRecoverResponseProtoMsg;
+                encode(_: _229.MsgRecoverResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _229.MsgRecoverResponse;
+                fromJSON(_: any): _229.MsgRecoverResponse;
+                toJSON(_: _229.MsgRecoverResponse): unknown;
+                fromPartial(_: Partial<_229.MsgRecoverResponse>): _229.MsgRecoverResponse;
+                fromAmino(_: _229.MsgRecoverResponseAmino): _229.MsgRecoverResponse;
+                toAmino(_: _229.MsgRecoverResponse): _229.MsgRecoverResponseAmino;
+                fromAminoMsg(object: _229.MsgRecoverResponseAminoMsg): _229.MsgRecoverResponse;
+                fromProtoMsg(message: _229.MsgRecoverResponseProtoMsg): _229.MsgRecoverResponse;
+                toProto(message: _229.MsgRecoverResponse): Uint8Array;
+                toProtoMsg(message: _229.MsgRecoverResponse): _229.MsgRecoverResponseProtoMsg;
             };
             MsgActivateAccount: {
                 typeUrl: string;
-                encode(message: _214.MsgActivateAccount, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _214.MsgActivateAccount;
-                fromJSON(object: any): _214.MsgActivateAccount;
-                toJSON(message: _214.MsgActivateAccount): unknown;
-                fromPartial(object: Partial<_214.MsgActivateAccount>): _214.MsgActivateAccount;
-                fromAmino(object: _214.MsgActivateAccountAmino): _214.MsgActivateAccount;
-                toAmino(message: _214.MsgActivateAccount): _214.MsgActivateAccountAmino;
-                fromAminoMsg(object: _214.MsgActivateAccountAminoMsg): _214.MsgActivateAccount;
-                fromProtoMsg(message: _214.MsgActivateAccountProtoMsg): _214.MsgActivateAccount;
-                toProto(message: _214.MsgActivateAccount): Uint8Array;
-                toProtoMsg(message: _214.MsgActivateAccount): _214.MsgActivateAccountProtoMsg;
+                encode(message: _229.MsgActivateAccount, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _229.MsgActivateAccount;
+                fromJSON(object: any): _229.MsgActivateAccount;
+                toJSON(message: _229.MsgActivateAccount): unknown;
+                fromPartial(object: Partial<_229.MsgActivateAccount>): _229.MsgActivateAccount;
+                fromAmino(object: _229.MsgActivateAccountAmino): _229.MsgActivateAccount;
+                toAmino(message: _229.MsgActivateAccount): _229.MsgActivateAccountAmino;
+                fromAminoMsg(object: _229.MsgActivateAccountAminoMsg): _229.MsgActivateAccount;
+                fromProtoMsg(message: _229.MsgActivateAccountProtoMsg): _229.MsgActivateAccount;
+                toProto(message: _229.MsgActivateAccount): Uint8Array;
+                toProtoMsg(message: _229.MsgActivateAccount): _229.MsgActivateAccountProtoMsg;
             };
             MsgActivateAccountResponse: {
                 typeUrl: string;
-                encode(message: _214.MsgActivateAccountResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _214.MsgActivateAccountResponse;
-                fromJSON(object: any): _214.MsgActivateAccountResponse;
-                toJSON(message: _214.MsgActivateAccountResponse): unknown;
-                fromPartial(object: Partial<_214.MsgActivateAccountResponse>): _214.MsgActivateAccountResponse;
-                fromAmino(object: _214.MsgActivateAccountResponseAmino): _214.MsgActivateAccountResponse;
-                toAmino(message: _214.MsgActivateAccountResponse): _214.MsgActivateAccountResponseAmino;
-                fromAminoMsg(object: _214.MsgActivateAccountResponseAminoMsg): _214.MsgActivateAccountResponse;
-                fromProtoMsg(message: _214.MsgActivateAccountResponseProtoMsg): _214.MsgActivateAccountResponse;
-                toProto(message: _214.MsgActivateAccountResponse): Uint8Array;
-                toProtoMsg(message: _214.MsgActivateAccountResponse): _214.MsgActivateAccountResponseProtoMsg;
+                encode(message: _229.MsgActivateAccountResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _229.MsgActivateAccountResponse;
+                fromJSON(object: any): _229.MsgActivateAccountResponse;
+                toJSON(message: _229.MsgActivateAccountResponse): unknown;
+                fromPartial(object: Partial<_229.MsgActivateAccountResponse>): _229.MsgActivateAccountResponse;
+                fromAmino(object: _229.MsgActivateAccountResponseAmino): _229.MsgActivateAccountResponse;
+                toAmino(message: _229.MsgActivateAccountResponse): _229.MsgActivateAccountResponseAmino;
+                fromAminoMsg(object: _229.MsgActivateAccountResponseAminoMsg): _229.MsgActivateAccountResponse;
+                fromProtoMsg(message: _229.MsgActivateAccountResponseProtoMsg): _229.MsgActivateAccountResponse;
+                toProto(message: _229.MsgActivateAccountResponse): Uint8Array;
+                toProtoMsg(message: _229.MsgActivateAccountResponse): _229.MsgActivateAccountResponseProtoMsg;
             };
             QueryParamsRequest: {
                 typeUrl: string;
-                encode(_: _213.QueryParamsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _213.QueryParamsRequest;
-                fromJSON(_: any): _213.QueryParamsRequest;
-                toJSON(_: _213.QueryParamsRequest): unknown;
-                fromPartial(_: Partial<_213.QueryParamsRequest>): _213.QueryParamsRequest;
-                fromAmino(_: _213.QueryParamsRequestAmino): _213.QueryParamsRequest;
-                toAmino(_: _213.QueryParamsRequest): _213.QueryParamsRequestAmino;
-                fromAminoMsg(object: _213.QueryParamsRequestAminoMsg): _213.QueryParamsRequest;
-                fromProtoMsg(message: _213.QueryParamsRequestProtoMsg): _213.QueryParamsRequest;
-                toProto(message: _213.QueryParamsRequest): Uint8Array;
-                toProtoMsg(message: _213.QueryParamsRequest): _213.QueryParamsRequestProtoMsg;
+                encode(_: _228.QueryParamsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _228.QueryParamsRequest;
+                fromJSON(_: any): _228.QueryParamsRequest;
+                toJSON(_: _228.QueryParamsRequest): unknown;
+                fromPartial(_: Partial<_228.QueryParamsRequest>): _228.QueryParamsRequest;
+                fromAmino(_: _228.QueryParamsRequestAmino): _228.QueryParamsRequest;
+                toAmino(_: _228.QueryParamsRequest): _228.QueryParamsRequestAmino;
+                fromAminoMsg(object: _228.QueryParamsRequestAminoMsg): _228.QueryParamsRequest;
+                fromProtoMsg(message: _228.QueryParamsRequestProtoMsg): _228.QueryParamsRequest;
+                toProto(message: _228.QueryParamsRequest): Uint8Array;
+                toProtoMsg(message: _228.QueryParamsRequest): _228.QueryParamsRequestProtoMsg;
             };
             QueryParamsResponse: {
                 typeUrl: string;
-                encode(message: _213.QueryParamsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _213.QueryParamsResponse;
-                fromJSON(object: any): _213.QueryParamsResponse;
-                toJSON(message: _213.QueryParamsResponse): unknown;
-                fromPartial(object: Partial<_213.QueryParamsResponse>): _213.QueryParamsResponse;
-                fromAmino(object: _213.QueryParamsResponseAmino): _213.QueryParamsResponse;
-                toAmino(message: _213.QueryParamsResponse): _213.QueryParamsResponseAmino;
-                fromAminoMsg(object: _213.QueryParamsResponseAminoMsg): _213.QueryParamsResponse;
-                fromProtoMsg(message: _213.QueryParamsResponseProtoMsg): _213.QueryParamsResponse;
-                toProto(message: _213.QueryParamsResponse): Uint8Array;
-                toProtoMsg(message: _213.QueryParamsResponse): _213.QueryParamsResponseProtoMsg;
+                encode(message: _228.QueryParamsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _228.QueryParamsResponse;
+                fromJSON(object: any): _228.QueryParamsResponse;
+                toJSON(message: _228.QueryParamsResponse): unknown;
+                fromPartial(object: Partial<_228.QueryParamsResponse>): _228.QueryParamsResponse;
+                fromAmino(object: _228.QueryParamsResponseAmino): _228.QueryParamsResponse;
+                toAmino(message: _228.QueryParamsResponse): _228.QueryParamsResponseAmino;
+                fromAminoMsg(object: _228.QueryParamsResponseAminoMsg): _228.QueryParamsResponse;
+                fromProtoMsg(message: _228.QueryParamsResponseProtoMsg): _228.QueryParamsResponse;
+                toProto(message: _228.QueryParamsResponse): Uint8Array;
+                toProtoMsg(message: _228.QueryParamsResponse): _228.QueryParamsResponseProtoMsg;
             };
             QueryGenerateAccountRequest: {
                 typeUrl: string;
-                encode(message: _213.QueryGenerateAccountRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _213.QueryGenerateAccountRequest;
-                fromJSON(object: any): _213.QueryGenerateAccountRequest;
-                toJSON(message: _213.QueryGenerateAccountRequest): unknown;
-                fromPartial(object: Partial<_213.QueryGenerateAccountRequest>): _213.QueryGenerateAccountRequest;
-                fromAmino(object: _213.QueryGenerateAccountRequestAmino): _213.QueryGenerateAccountRequest;
-                toAmino(message: _213.QueryGenerateAccountRequest): _213.QueryGenerateAccountRequestAmino;
-                fromAminoMsg(object: _213.QueryGenerateAccountRequestAminoMsg): _213.QueryGenerateAccountRequest;
-                fromProtoMsg(message: _213.QueryGenerateAccountRequestProtoMsg): _213.QueryGenerateAccountRequest;
-                toProto(message: _213.QueryGenerateAccountRequest): Uint8Array;
-                toProtoMsg(message: _213.QueryGenerateAccountRequest): _213.QueryGenerateAccountRequestProtoMsg;
+                encode(message: _228.QueryGenerateAccountRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _228.QueryGenerateAccountRequest;
+                fromJSON(object: any): _228.QueryGenerateAccountRequest;
+                toJSON(message: _228.QueryGenerateAccountRequest): unknown;
+                fromPartial(object: Partial<_228.QueryGenerateAccountRequest>): _228.QueryGenerateAccountRequest;
+                fromAmino(object: _228.QueryGenerateAccountRequestAmino): _228.QueryGenerateAccountRequest;
+                toAmino(message: _228.QueryGenerateAccountRequest): _228.QueryGenerateAccountRequestAmino;
+                fromAminoMsg(object: _228.QueryGenerateAccountRequestAminoMsg): _228.QueryGenerateAccountRequest;
+                fromProtoMsg(message: _228.QueryGenerateAccountRequestProtoMsg): _228.QueryGenerateAccountRequest;
+                toProto(message: _228.QueryGenerateAccountRequest): Uint8Array;
+                toProtoMsg(message: _228.QueryGenerateAccountRequest): _228.QueryGenerateAccountRequestProtoMsg;
             };
             QueryGenerateAccountResponse: {
                 typeUrl: string;
-                encode(message: _213.QueryGenerateAccountResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _213.QueryGenerateAccountResponse;
-                fromJSON(object: any): _213.QueryGenerateAccountResponse;
-                toJSON(message: _213.QueryGenerateAccountResponse): unknown;
-                fromPartial(object: Partial<_213.QueryGenerateAccountResponse>): _213.QueryGenerateAccountResponse;
-                fromAmino(object: _213.QueryGenerateAccountResponseAmino): _213.QueryGenerateAccountResponse;
-                toAmino(message: _213.QueryGenerateAccountResponse): _213.QueryGenerateAccountResponseAmino;
-                fromAminoMsg(object: _213.QueryGenerateAccountResponseAminoMsg): _213.QueryGenerateAccountResponse;
-                fromProtoMsg(message: _213.QueryGenerateAccountResponseProtoMsg): _213.QueryGenerateAccountResponse;
-                toProto(message: _213.QueryGenerateAccountResponse): Uint8Array;
-                toProtoMsg(message: _213.QueryGenerateAccountResponse): _213.QueryGenerateAccountResponseProtoMsg;
+                encode(message: _228.QueryGenerateAccountResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _228.QueryGenerateAccountResponse;
+                fromJSON(object: any): _228.QueryGenerateAccountResponse;
+                toJSON(message: _228.QueryGenerateAccountResponse): unknown;
+                fromPartial(object: Partial<_228.QueryGenerateAccountResponse>): _228.QueryGenerateAccountResponse;
+                fromAmino(object: _228.QueryGenerateAccountResponseAmino): _228.QueryGenerateAccountResponse;
+                toAmino(message: _228.QueryGenerateAccountResponse): _228.QueryGenerateAccountResponseAmino;
+                fromAminoMsg(object: _228.QueryGenerateAccountResponseAminoMsg): _228.QueryGenerateAccountResponse;
+                fromProtoMsg(message: _228.QueryGenerateAccountResponseProtoMsg): _228.QueryGenerateAccountResponse;
+                toProto(message: _228.QueryGenerateAccountResponse): Uint8Array;
+                toProtoMsg(message: _228.QueryGenerateAccountResponse): _228.QueryGenerateAccountResponseProtoMsg;
             };
             CodeID: {
                 typeUrl: string;
-                encode(message: _212.CodeID, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _212.CodeID;
-                fromJSON(object: any): _212.CodeID;
-                toJSON(message: _212.CodeID): unknown;
-                fromPartial(object: Partial<_212.CodeID>): _212.CodeID;
-                fromAmino(object: _212.CodeIDAmino): _212.CodeID;
-                toAmino(message: _212.CodeID): _212.CodeIDAmino;
-                fromAminoMsg(object: _212.CodeIDAminoMsg): _212.CodeID;
-                fromProtoMsg(message: _212.CodeIDProtoMsg): _212.CodeID;
-                toProto(message: _212.CodeID): Uint8Array;
-                toProtoMsg(message: _212.CodeID): _212.CodeIDProtoMsg;
+                encode(message: _227.CodeID, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _227.CodeID;
+                fromJSON(object: any): _227.CodeID;
+                toJSON(message: _227.CodeID): unknown;
+                fromPartial(object: Partial<_227.CodeID>): _227.CodeID;
+                fromAmino(object: _227.CodeIDAmino): _227.CodeID;
+                toAmino(message: _227.CodeID): _227.CodeIDAmino;
+                fromAminoMsg(object: _227.CodeIDAminoMsg): _227.CodeID;
+                fromProtoMsg(message: _227.CodeIDProtoMsg): _227.CodeID;
+                toProto(message: _227.CodeID): Uint8Array;
+                toProtoMsg(message: _227.CodeID): _227.CodeIDProtoMsg;
             };
             Params: {
                 typeUrl: string;
-                encode(message: _212.Params, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _212.Params;
-                fromJSON(object: any): _212.Params;
-                toJSON(message: _212.Params): unknown;
-                fromPartial(object: Partial<_212.Params>): _212.Params;
-                fromAmino(object: _212.ParamsAmino): _212.Params;
-                toAmino(message: _212.Params): _212.ParamsAmino;
-                fromAminoMsg(object: _212.ParamsAminoMsg): _212.Params;
-                fromProtoMsg(message: _212.ParamsProtoMsg): _212.Params;
-                toProto(message: _212.Params): Uint8Array;
-                toProtoMsg(message: _212.Params): _212.ParamsProtoMsg;
+                encode(message: _227.Params, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _227.Params;
+                fromJSON(object: any): _227.Params;
+                toJSON(message: _227.Params): unknown;
+                fromPartial(object: Partial<_227.Params>): _227.Params;
+                fromAmino(object: _227.ParamsAmino): _227.Params;
+                toAmino(message: _227.Params): _227.ParamsAmino;
+                fromAminoMsg(object: _227.ParamsAminoMsg): _227.Params;
+                fromProtoMsg(message: _227.ParamsProtoMsg): _227.Params;
+                toProto(message: _227.Params): Uint8Array;
+                toProtoMsg(message: _227.Params): _227.ParamsProtoMsg;
             };
             GenesisState: {
                 typeUrl: string;
-                encode(message: _211.GenesisState, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _211.GenesisState;
-                fromJSON(object: any): _211.GenesisState;
-                toJSON(message: _211.GenesisState): unknown;
-                fromPartial(object: Partial<_211.GenesisState>): _211.GenesisState;
-                fromAmino(object: _211.GenesisStateAmino): _211.GenesisState;
-                toAmino(message: _211.GenesisState): _211.GenesisStateAmino;
-                fromAminoMsg(object: _211.GenesisStateAminoMsg): _211.GenesisState;
-                fromProtoMsg(message: _211.GenesisStateProtoMsg): _211.GenesisState;
-                toProto(message: _211.GenesisState): Uint8Array;
-                toProtoMsg(message: _211.GenesisState): _211.GenesisStateProtoMsg;
+                encode(message: _226.GenesisState, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _226.GenesisState;
+                fromJSON(object: any): _226.GenesisState;
+                toJSON(message: _226.GenesisState): unknown;
+                fromPartial(object: Partial<_226.GenesisState>): _226.GenesisState;
+                fromAmino(object: _226.GenesisStateAmino): _226.GenesisState;
+                toAmino(message: _226.GenesisState): _226.GenesisStateAmino;
+                fromAminoMsg(object: _226.GenesisStateAminoMsg): _226.GenesisState;
+                fromProtoMsg(message: _226.GenesisStateProtoMsg): _226.GenesisState;
+                toProto(message: _226.GenesisState): Uint8Array;
+                toProtoMsg(message: _226.GenesisState): _226.GenesisStateProtoMsg;
             };
             SmartAccount: {
                 typeUrl: string;
-                encode(message: _210.SmartAccount, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _210.SmartAccount;
-                fromJSON(object: any): _210.SmartAccount;
-                toJSON(message: _210.SmartAccount): unknown;
-                fromPartial(object: Partial<_210.SmartAccount>): _210.SmartAccount;
-                fromAmino(object: _210.SmartAccountAmino): _210.SmartAccount;
-                toAmino(message: _210.SmartAccount): _210.SmartAccountAmino;
-                fromAminoMsg(object: _210.SmartAccountAminoMsg): _210.SmartAccount;
-                fromProtoMsg(message: _210.SmartAccountProtoMsg): _210.SmartAccount;
-                toProto(message: _210.SmartAccount): Uint8Array;
-                toProtoMsg(message: _210.SmartAccount): _210.SmartAccountProtoMsg;
+                encode(message: _225.SmartAccount, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _225.SmartAccount;
+                fromJSON(object: any): _225.SmartAccount;
+                toJSON(message: _225.SmartAccount): unknown;
+                fromPartial(object: Partial<_225.SmartAccount>): _225.SmartAccount;
+                fromAmino(object: _225.SmartAccountAmino): _225.SmartAccount;
+                toAmino(message: _225.SmartAccount): _225.SmartAccountAmino;
+                fromAminoMsg(object: _225.SmartAccountAminoMsg): _225.SmartAccount;
+                fromProtoMsg(message: _225.SmartAccountProtoMsg): _225.SmartAccount;
+                toProto(message: _225.SmartAccount): Uint8Array;
+                toProtoMsg(message: _225.SmartAccount): _225.SmartAccountProtoMsg;
             };
         };
     }
@@ -344,7 +344,7 @@ export declare namespace aura {
             };
             aura: {
                 smartaccount: {
-                    v1beta1: _349.MsgClientImpl;
+                    v1beta1: _374.MsgClientImpl;
                 };
             };
         }>;
@@ -572,8 +572,8 @@ export declare namespace aura {
                 aura: {};
                 smartaccount: {
                     v1beta1: {
-                        params(request?: _213.QueryParamsRequest): Promise<_213.QueryParamsResponse>;
-                        generateAccount(request: _213.QueryGenerateAccountRequest): Promise<_213.QueryGenerateAccountResponse>;
+                        params(request?: _228.QueryParamsRequest): Promise<_228.QueryParamsResponse>;
+                        generateAccount(request: _228.QueryGenerateAccountRequest): Promise<_228.QueryGenerateAccountResponse>;
                     };
                 };
             };
@@ -642,7 +642,7 @@ export declare namespace aura {
             };
             aura: {
                 smartaccount: {
-                    v1beta1: _346.LCDQueryClient;
+                    v1beta1: _371.LCDQueryClient;
                 };
             };
         }>;
