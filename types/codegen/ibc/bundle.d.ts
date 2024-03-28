@@ -37,32 +37,32 @@ import * as _210 from "./lightclients/localhost/v2/localhost";
 import * as _211 from "./lightclients/solomachine/v2/solomachine";
 import * as _212 from "./lightclients/solomachine/v3/solomachine";
 import * as _213 from "./lightclients/tendermint/v1/tendermint";
-import * as _344 from "./applications/fee/v1/query.lcd";
-import * as _345 from "./applications/interchain_accounts/controller/v1/query.lcd";
-import * as _346 from "./applications/interchain_accounts/host/v1/query.lcd";
-import * as _347 from "./applications/transfer/v1/query.lcd";
-import * as _348 from "./core/channel/v1/query.lcd";
-import * as _349 from "./core/client/v1/query.lcd";
-import * as _350 from "./core/connection/v1/query.lcd";
-import * as _351 from "./applications/fee/v1/query.rpc.Query";
-import * as _352 from "./applications/interchain_accounts/controller/v1/query.rpc.Query";
-import * as _353 from "./applications/interchain_accounts/host/v1/query.rpc.Query";
-import * as _354 from "./applications/transfer/v1/query.rpc.Query";
-import * as _355 from "./core/channel/v1/query.rpc.Query";
-import * as _356 from "./core/client/v1/query.rpc.Query";
-import * as _357 from "./core/connection/v1/query.rpc.Query";
-import * as _358 from "./applications/fee/v1/tx.rpc.msg";
-import * as _359 from "./applications/interchain_accounts/controller/v1/tx.rpc.msg";
-import * as _360 from "./applications/transfer/v1/tx.rpc.msg";
-import * as _361 from "./core/channel/v1/tx.rpc.msg";
-import * as _362 from "./core/client/v1/tx.rpc.msg";
-import * as _363 from "./core/connection/v1/tx.rpc.msg";
+import * as _367 from "./applications/fee/v1/query.lcd";
+import * as _368 from "./applications/interchain_accounts/controller/v1/query.lcd";
+import * as _369 from "./applications/interchain_accounts/host/v1/query.lcd";
+import * as _370 from "./applications/transfer/v1/query.lcd";
+import * as _371 from "./core/channel/v1/query.lcd";
+import * as _372 from "./core/client/v1/query.lcd";
+import * as _373 from "./core/connection/v1/query.lcd";
+import * as _374 from "./applications/fee/v1/query.rpc.Query";
+import * as _375 from "./applications/interchain_accounts/controller/v1/query.rpc.Query";
+import * as _376 from "./applications/interchain_accounts/host/v1/query.rpc.Query";
+import * as _377 from "./applications/transfer/v1/query.rpc.Query";
+import * as _378 from "./core/channel/v1/query.rpc.Query";
+import * as _379 from "./core/client/v1/query.rpc.Query";
+import * as _380 from "./core/connection/v1/query.rpc.Query";
+import * as _381 from "./applications/fee/v1/tx.rpc.msg";
+import * as _382 from "./applications/interchain_accounts/controller/v1/tx.rpc.msg";
+import * as _383 from "./applications/transfer/v1/tx.rpc.msg";
+import * as _384 from "./core/channel/v1/tx.rpc.msg";
+import * as _385 from "./core/client/v1/tx.rpc.msg";
+import * as _386 from "./core/connection/v1/tx.rpc.msg";
 export declare namespace ibc {
     namespace applications {
         namespace fee {
             const v1: {
-                MsgClientImpl: typeof _358.MsgClientImpl;
-                QueryClientImpl: typeof _351.QueryClientImpl;
+                MsgClientImpl: typeof _381.MsgClientImpl;
+                QueryClientImpl: typeof _374.QueryClientImpl;
                 createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
                     incentivizedPackets(request: _179.QueryIncentivizedPacketsRequest): Promise<_179.QueryIncentivizedPacketsResponse>;
                     incentivizedPacket(request: _179.QueryIncentivizedPacketRequest): Promise<_179.QueryIncentivizedPacketResponse>;
@@ -75,7 +75,7 @@ export declare namespace ibc {
                     feeEnabledChannels(request: _179.QueryFeeEnabledChannelsRequest): Promise<_179.QueryFeeEnabledChannelsResponse>;
                     feeEnabledChannel(request: _179.QueryFeeEnabledChannelRequest): Promise<_179.QueryFeeEnabledChannelResponse>;
                 };
-                LCDQueryClient: typeof _344.LCDQueryClient;
+                LCDQueryClient: typeof _367.LCDQueryClient;
                 registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
                 load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
                 MessageComposer: {
@@ -782,13 +782,13 @@ export declare namespace ibc {
         namespace interchain_accounts {
             namespace controller {
                 const v1: {
-                    MsgClientImpl: typeof _359.MsgClientImpl;
-                    QueryClientImpl: typeof _352.QueryClientImpl;
+                    MsgClientImpl: typeof _382.MsgClientImpl;
+                    QueryClientImpl: typeof _375.QueryClientImpl;
                     createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
                         interchainAccount(request: _182.QueryInterchainAccountRequest): Promise<_182.QueryInterchainAccountResponse>;
                         params(request?: _182.QueryParamsRequest): Promise<_182.QueryParamsResponse>;
                     };
-                    LCDQueryClient: typeof _345.LCDQueryClient;
+                    LCDQueryClient: typeof _368.LCDQueryClient;
                     registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
                     load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
                     MessageComposer: {
@@ -1073,11 +1073,11 @@ export declare namespace ibc {
             }
             namespace host {
                 const v1: {
-                    QueryClientImpl: typeof _353.QueryClientImpl;
+                    QueryClientImpl: typeof _376.QueryClientImpl;
                     createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
                         params(request?: _186.QueryParamsRequest): Promise<_186.QueryParamsResponse>;
                     };
-                    LCDQueryClient: typeof _346.LCDQueryClient;
+                    LCDQueryClient: typeof _369.LCDQueryClient;
                     QueryParamsRequest: {
                         typeUrl: string;
                         encode(_: _186.QueryParamsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
@@ -1195,8 +1195,8 @@ export declare namespace ibc {
         }
         namespace transfer {
             const v1: {
-                MsgClientImpl: typeof _360.MsgClientImpl;
-                QueryClientImpl: typeof _354.QueryClientImpl;
+                MsgClientImpl: typeof _383.MsgClientImpl;
+                QueryClientImpl: typeof _377.QueryClientImpl;
                 createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
                     denomTrace(request: _192.QueryDenomTraceRequest): Promise<_192.QueryDenomTraceResponse>;
                     denomTraces(request?: _192.QueryDenomTracesRequest): Promise<_192.QueryDenomTracesResponse>;
@@ -1205,7 +1205,7 @@ export declare namespace ibc {
                     escrowAddress(request: _192.QueryEscrowAddressRequest): Promise<_192.QueryEscrowAddressResponse>;
                     totalEscrowForDenom(request: _192.QueryTotalEscrowForDenomRequest): Promise<_192.QueryTotalEscrowForDenomResponse>;
                 };
-                LCDQueryClient: typeof _347.LCDQueryClient;
+                LCDQueryClient: typeof _370.LCDQueryClient;
                 registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
                 load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
                 MessageComposer: {
@@ -1555,8 +1555,8 @@ export declare namespace ibc {
     namespace core {
         namespace channel {
             const v1: {
-                MsgClientImpl: typeof _361.MsgClientImpl;
-                QueryClientImpl: typeof _355.QueryClientImpl;
+                MsgClientImpl: typeof _384.MsgClientImpl;
+                QueryClientImpl: typeof _378.QueryClientImpl;
                 createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
                     channel(request: _198.QueryChannelRequest): Promise<_198.QueryChannelResponse>;
                     channels(request?: _198.QueryChannelsRequest): Promise<_198.QueryChannelsResponse>;
@@ -1572,7 +1572,7 @@ export declare namespace ibc {
                     unreceivedAcks(request: _198.QueryUnreceivedAcksRequest): Promise<_198.QueryUnreceivedAcksResponse>;
                     nextSequenceReceive(request: _198.QueryNextSequenceReceiveRequest): Promise<_198.QueryNextSequenceReceiveResponse>;
                 };
-                LCDQueryClient: typeof _348.LCDQueryClient;
+                LCDQueryClient: typeof _371.LCDQueryClient;
                 registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
                 load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
                 MessageComposer: {
@@ -2683,8 +2683,8 @@ export declare namespace ibc {
         }
         namespace client {
             const v1: {
-                MsgClientImpl: typeof _362.MsgClientImpl;
-                QueryClientImpl: typeof _356.QueryClientImpl;
+                MsgClientImpl: typeof _385.MsgClientImpl;
+                QueryClientImpl: typeof _379.QueryClientImpl;
                 createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
                     clientState(request: _202.QueryClientStateRequest): Promise<_202.QueryClientStateResponse>;
                     clientStates(request?: _202.QueryClientStatesRequest): Promise<_202.QueryClientStatesResponse>;
@@ -2696,7 +2696,7 @@ export declare namespace ibc {
                     upgradedClientState(request?: _202.QueryUpgradedClientStateRequest): Promise<_202.QueryUpgradedClientStateResponse>;
                     upgradedConsensusState(request?: _202.QueryUpgradedConsensusStateRequest): Promise<_202.QueryUpgradedConsensusStateResponse>;
                 };
-                LCDQueryClient: typeof _349.LCDQueryClient;
+                LCDQueryClient: typeof _372.LCDQueryClient;
                 registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
                 load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
                 MessageComposer: {
@@ -3421,8 +3421,8 @@ export declare namespace ibc {
         }
         namespace connection {
             const v1: {
-                MsgClientImpl: typeof _363.MsgClientImpl;
-                QueryClientImpl: typeof _357.QueryClientImpl;
+                MsgClientImpl: typeof _386.MsgClientImpl;
+                QueryClientImpl: typeof _380.QueryClientImpl;
                 createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
                     connection(request: _207.QueryConnectionRequest): Promise<_207.QueryConnectionResponse>;
                     connections(request?: _207.QueryConnectionsRequest): Promise<_207.QueryConnectionsResponse>;
@@ -3431,7 +3431,7 @@ export declare namespace ibc {
                     connectionConsensusState(request: _207.QueryConnectionConsensusStateRequest): Promise<_207.QueryConnectionConsensusStateResponse>;
                     connectionParams(request?: _207.QueryConnectionParamsRequest): Promise<_207.QueryConnectionParamsResponse>;
                 };
-                LCDQueryClient: typeof _350.LCDQueryClient;
+                LCDQueryClient: typeof _373.LCDQueryClient;
                 registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
                 load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
                 MessageComposer: {
@@ -4524,26 +4524,26 @@ export declare namespace ibc {
             ibc: {
                 applications: {
                     fee: {
-                        v1: _358.MsgClientImpl;
+                        v1: _381.MsgClientImpl;
                     };
                     interchain_accounts: {
                         controller: {
-                            v1: _359.MsgClientImpl;
+                            v1: _382.MsgClientImpl;
                         };
                     };
                     transfer: {
-                        v1: _360.MsgClientImpl;
+                        v1: _383.MsgClientImpl;
                     };
                 };
                 core: {
                     channel: {
-                        v1: _361.MsgClientImpl;
+                        v1: _384.MsgClientImpl;
                     };
                     client: {
-                        v1: _362.MsgClientImpl;
+                        v1: _385.MsgClientImpl;
                     };
                     connection: {
-                        v1: _363.MsgClientImpl;
+                        v1: _386.MsgClientImpl;
                     };
                 };
             };
@@ -4917,29 +4917,29 @@ export declare namespace ibc {
             ibc: {
                 applications: {
                     fee: {
-                        v1: _344.LCDQueryClient;
+                        v1: _367.LCDQueryClient;
                     };
                     interchain_accounts: {
                         controller: {
-                            v1: _345.LCDQueryClient;
+                            v1: _368.LCDQueryClient;
                         };
                         host: {
-                            v1: _346.LCDQueryClient;
+                            v1: _369.LCDQueryClient;
                         };
                     };
                     transfer: {
-                        v1: _347.LCDQueryClient;
+                        v1: _370.LCDQueryClient;
                     };
                 };
                 core: {
                     channel: {
-                        v1: _348.LCDQueryClient;
+                        v1: _371.LCDQueryClient;
                     };
                     client: {
-                        v1: _349.LCDQueryClient;
+                        v1: _372.LCDQueryClient;
                     };
                     connection: {
-                        v1: _350.LCDQueryClient;
+                        v1: _373.LCDQueryClient;
                     };
                 };
             };

@@ -7,22 +7,22 @@ import * as _226 from "./smartaccount/v1beta1/genesis";
 import * as _227 from "./smartaccount/v1beta1/params";
 import * as _228 from "./smartaccount/v1beta1/query";
 import * as _229 from "./smartaccount/v1beta1/tx";
-import * as _369 from "./smartaccount/v1beta1/tx.amino";
-import * as _370 from "./smartaccount/v1beta1/tx.registry";
-import * as _371 from "./smartaccount/v1beta1/query.lcd";
-import * as _372 from "./aura/query.rpc.Query";
-import * as _373 from "./smartaccount/v1beta1/query.rpc.Query";
-import * as _374 from "./smartaccount/v1beta1/tx.rpc.msg";
-import * as _387 from "./lcd";
-import * as _388 from "./rpc.query";
-import * as _389 from "./rpc.tx";
+import * as _392 from "./smartaccount/v1beta1/tx.amino";
+import * as _393 from "./smartaccount/v1beta1/tx.registry";
+import * as _394 from "./smartaccount/v1beta1/query.lcd";
+import * as _395 from "./aura/query.rpc.Query";
+import * as _396 from "./smartaccount/v1beta1/query.rpc.Query";
+import * as _397 from "./smartaccount/v1beta1/tx.rpc.msg";
+import * as _432 from "./lcd";
+import * as _433 from "./rpc.query";
+import * as _434 from "./rpc.tx";
 export namespace aura {
   export const aura = {
     ..._221,
     ..._222,
     ..._223,
     ..._224,
-    ..._372
+    ..._395
   };
   export namespace smartaccount {
     export const v1beta1 = {
@@ -31,16 +31,16 @@ export namespace aura {
       ..._227,
       ..._228,
       ..._229,
-      ..._369,
-      ..._370,
-      ..._371,
-      ..._373,
-      ..._374
+      ..._392,
+      ..._393,
+      ..._394,
+      ..._396,
+      ..._397
     };
   }
   export const ClientFactory = {
-    ..._387,
-    ..._388,
-    ..._389
+    ..._432,
+    ..._433,
+    ..._434
   };
 }

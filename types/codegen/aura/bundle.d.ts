@@ -5,13 +5,13 @@ import * as _226 from "./smartaccount/v1beta1/genesis";
 import * as _227 from "./smartaccount/v1beta1/params";
 import * as _228 from "./smartaccount/v1beta1/query";
 import * as _229 from "./smartaccount/v1beta1/tx";
-import * as _371 from "./smartaccount/v1beta1/query.lcd";
-import * as _372 from "./aura/query.rpc.Query";
-import * as _373 from "./smartaccount/v1beta1/query.rpc.Query";
-import * as _374 from "./smartaccount/v1beta1/tx.rpc.msg";
+import * as _394 from "./smartaccount/v1beta1/query.lcd";
+import * as _395 from "./aura/query.rpc.Query";
+import * as _396 from "./smartaccount/v1beta1/query.rpc.Query";
+import * as _397 from "./smartaccount/v1beta1/tx.rpc.msg";
 export declare namespace aura {
     const aura: {
-        QueryClientImpl: typeof _372.QueryClientImpl;
+        QueryClientImpl: typeof _395.QueryClientImpl;
         createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {};
         GenesisState: {
             typeUrl: string;
@@ -44,13 +44,13 @@ export declare namespace aura {
     };
     namespace smartaccount {
         const v1beta1: {
-            MsgClientImpl: typeof _374.MsgClientImpl;
-            QueryClientImpl: typeof _373.QueryClientImpl;
+            MsgClientImpl: typeof _397.MsgClientImpl;
+            QueryClientImpl: typeof _396.QueryClientImpl;
             createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
                 params(request?: _228.QueryParamsRequest): Promise<_228.QueryParamsResponse>;
                 generateAccount(request: _228.QueryGenerateAccountRequest): Promise<_228.QueryGenerateAccountResponse>;
             };
-            LCDQueryClient: typeof _371.LCDQueryClient;
+            LCDQueryClient: typeof _394.LCDQueryClient;
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
             MessageComposer: {
@@ -344,7 +344,7 @@ export declare namespace aura {
             };
             aura: {
                 smartaccount: {
-                    v1beta1: _374.MsgClientImpl;
+                    v1beta1: _397.MsgClientImpl;
                 };
             };
         }>;
@@ -642,7 +642,7 @@ export declare namespace aura {
             };
             aura: {
                 smartaccount: {
-                    v1beta1: _371.LCDQueryClient;
+                    v1beta1: _394.LCDQueryClient;
                 };
             };
         }>;

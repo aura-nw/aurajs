@@ -13,12 +13,12 @@ import * as _11 from "./types/v1/account";
 import * as _12 from "./types/v1/dynamic_fee";
 import * as _13 from "./types/v1/indexer";
 import * as _14 from "./types/v1/web3";
-import * as _234 from "./evm/v1/query.lcd";
-import * as _235 from "./feemarket/v1/query.lcd";
-import * as _236 from "./evm/v1/query.rpc.Query";
-import * as _237 from "./feemarket/v1/query.rpc.Query";
-import * as _238 from "./evm/v1/tx.rpc.msg";
-import * as _239 from "./feemarket/v1/tx.rpc.msg";
+import * as _257 from "./evm/v1/query.lcd";
+import * as _258 from "./feemarket/v1/query.lcd";
+import * as _259 from "./evm/v1/query.rpc.Query";
+import * as _260 from "./feemarket/v1/query.rpc.Query";
+import * as _261 from "./evm/v1/tx.rpc.msg";
+import * as _262 from "./feemarket/v1/tx.rpc.msg";
 export declare namespace ethermint {
     namespace crypto {
         namespace v1 {
@@ -56,8 +56,8 @@ export declare namespace ethermint {
     }
     namespace evm {
         const v1: {
-            MsgClientImpl: typeof _238.MsgClientImpl;
-            QueryClientImpl: typeof _236.QueryClientImpl;
+            MsgClientImpl: typeof _261.MsgClientImpl;
+            QueryClientImpl: typeof _259.QueryClientImpl;
             createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
                 account(request: _4.QueryAccountRequest): Promise<_4.QueryAccountResponse>;
                 cosmosAccount(request: _4.QueryCosmosAccountRequest): Promise<_4.QueryCosmosAccountResponse>;
@@ -72,7 +72,7 @@ export declare namespace ethermint {
                 traceBlock(request: _4.QueryTraceBlockRequest): Promise<_4.QueryTraceBlockResponse>;
                 baseFee(request?: _4.QueryBaseFeeRequest): Promise<_4.QueryBaseFeeResponse>;
             };
-            LCDQueryClient: typeof _234.LCDQueryClient;
+            LCDQueryClient: typeof _257.LCDQueryClient;
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
             MessageComposer: {
@@ -787,14 +787,14 @@ export declare namespace ethermint {
     }
     namespace feemarket {
         const v1: {
-            MsgClientImpl: typeof _239.MsgClientImpl;
-            QueryClientImpl: typeof _237.QueryClientImpl;
+            MsgClientImpl: typeof _262.MsgClientImpl;
+            QueryClientImpl: typeof _260.QueryClientImpl;
             createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
                 params(request?: _9.QueryParamsRequest): Promise<_9.QueryParamsResponse>;
                 baseFee(request?: _9.QueryBaseFeeRequest): Promise<_9.QueryBaseFeeResponse>;
                 blockGas(request?: _9.QueryBlockGasRequest): Promise<_9.QueryBlockGasResponse>;
             };
-            LCDQueryClient: typeof _235.LCDQueryClient;
+            LCDQueryClient: typeof _258.LCDQueryClient;
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
             MessageComposer: {
@@ -1072,10 +1072,10 @@ export declare namespace ethermint {
         }) => Promise<{
             ethermint: {
                 evm: {
-                    v1: _238.MsgClientImpl;
+                    v1: _261.MsgClientImpl;
                 };
                 feemarket: {
-                    v1: _239.MsgClientImpl;
+                    v1: _262.MsgClientImpl;
                 };
             };
             cosmos: {
@@ -1381,10 +1381,10 @@ export declare namespace ethermint {
         }) => Promise<{
             ethermint: {
                 evm: {
-                    v1: _234.LCDQueryClient;
+                    v1: _257.LCDQueryClient;
                 };
                 feemarket: {
-                    v1: _235.LCDQueryClient;
+                    v1: _258.LCDQueryClient;
                 };
             };
             cosmos: {

@@ -19,3 +19,9 @@
 [submodule "tendermint"]
 	path = tendermint
 	url = https://github.com/tendermint/tendermint.git
+[submodule "cosmos-evmos"]
+	path = cosmos-evmos
+	url = https://github.com/evmos/cosmos-sdk
+[submodule "evmos"]
+	path = evmos
+	url = https://github.com/aura-nw/evmos.git

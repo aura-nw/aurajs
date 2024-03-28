@@ -13,19 +13,19 @@ import * as _11 from "./types/v1/account";
 import * as _12 from "./types/v1/dynamic_fee";
 import * as _13 from "./types/v1/indexer";
 import * as _14 from "./types/v1/web3";
-import * as _230 from "./evm/v1/tx.amino";
-import * as _231 from "./feemarket/v1/tx.amino";
-import * as _232 from "./evm/v1/tx.registry";
-import * as _233 from "./feemarket/v1/tx.registry";
-import * as _234 from "./evm/v1/query.lcd";
-import * as _235 from "./feemarket/v1/query.lcd";
-import * as _236 from "./evm/v1/query.rpc.Query";
-import * as _237 from "./feemarket/v1/query.rpc.Query";
-import * as _238 from "./evm/v1/tx.rpc.msg";
-import * as _239 from "./feemarket/v1/tx.rpc.msg";
-import * as _375 from "./lcd";
-import * as _376 from "./rpc.query";
-import * as _377 from "./rpc.tx";
+import * as _253 from "./evm/v1/tx.amino";
+import * as _254 from "./feemarket/v1/tx.amino";
+import * as _255 from "./evm/v1/tx.registry";
+import * as _256 from "./feemarket/v1/tx.registry";
+import * as _257 from "./evm/v1/query.lcd";
+import * as _258 from "./feemarket/v1/query.lcd";
+import * as _259 from "./evm/v1/query.rpc.Query";
+import * as _260 from "./feemarket/v1/query.rpc.Query";
+import * as _261 from "./evm/v1/tx.rpc.msg";
+import * as _262 from "./feemarket/v1/tx.rpc.msg";
+import * as _420 from "./lcd";
+import * as _421 from "./rpc.query";
+import * as _422 from "./rpc.tx";
 export namespace ethermint {
   export namespace crypto {
     export namespace v1 {
@@ -41,11 +41,11 @@ export namespace ethermint {
       ..._3,
       ..._4,
       ..._5,
-      ..._230,
-      ..._232,
-      ..._234,
-      ..._236,
-      ..._238
+      ..._253,
+      ..._255,
+      ..._257,
+      ..._259,
+      ..._261
     };
   }
   export namespace feemarket {
@@ -55,11 +55,11 @@ export namespace ethermint {
       ..._8,
       ..._9,
       ..._10,
-      ..._231,
-      ..._233,
-      ..._235,
-      ..._237,
-      ..._239
+      ..._254,
+      ..._256,
+      ..._258,
+      ..._260,
+      ..._262
     };
   }
   export namespace types {
@@ -71,8 +71,8 @@ export namespace ethermint {
     };
   }
   export const ClientFactory = {
-    ..._375,
-    ..._376,
-    ..._377
+    ..._420,
+    ..._421,
+    ..._422
   };
 }
